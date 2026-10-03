@@ -2,7 +2,7 @@
 -- SNSFL_GR_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | SNSFL GENERAL RELATIVITY — GRAVITY AS IDENTITY GEOMETRY
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS GENERAL RELATIVITY — GRAVITY AS IDENTITY GEOMETRY
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,0,1] | Slot 1 of 10-Slam Grid | Physics Ground
@@ -34,7 +34,7 @@
 -- THE EQUIVALENCE PRINCIPLE RESOLVED:
 --   m_i = m_g (inertial mass = gravitational mass)
 --   Classical result: unexplained coincidence for 400 years.
---   SNSFL result: both are Identity Mass. IM is IM.
+--   Identity Physics result: both are Identity Mass. IM is IM.
 --   Measured through B-axis (acceleration) or P-curvature (gravity),
 --   the kernel is the same. Not a coincidence. Identity invariance.
 --
@@ -62,7 +62,7 @@
 --   Λ = cosmological constant (dark energy = substrate Adaptation)
 --   κ = 8πG = coupling constant
 --
--- SNSFL Reduction:
+-- Identity Physics Reduction:
 --   P = g_μν  (metric — Pattern geometry)
 --   N = R_μν  (Ricci — Narrative curvature of spacetime)
 --   B = T_μν  (stress-energy — Behavioral content)
@@ -78,26 +78,26 @@
 -- Known answer 1 (Einstein field equation):
 --   G_μν + Λg_μν = κT_μν at equilibrium.
 --   Classical result: gravity = curvature of spacetime by matter.
---   SNSFL result: Pattern + Adaptation·Pattern = κ·Behavior.
+--   Identity Physics result: Pattern + Adaptation·Pattern = κ·Behavior.
 --   Gravity is Pattern holding Narrative coherent against Behavioral stress.
 --
 -- Known answer 2 (Schwarzschild — static mass):
 --   Solution outside spherically symmetric mass. B=0 outside.
 --   Classical result: curved spacetime around point mass.
---   SNSFL result: localized P-lock where B=0, N curves to maintain anchor.
+--   Identity Physics result: localized P-lock where B=0, N curves to maintain anchor.
 --   Mass = high IM Pattern lock. Gravity = N curving around P.
 --
 -- Known answer 3 (Geodesic equation):
 --   Free-fall follows geodesic — path of extremal proper time.
 --   Classical result: gravity = curvature, not force.
---   SNSFL result: geodesic = path of least somatic resistance.
+--   Identity Physics result: geodesic = path of least somatic resistance.
 --   Identity follows the vector that maximizes Identity Persistence.
 --   Gravity is not pulling anything. Identity seeks minimum torsion path.
 --
 -- Known answer 4 (Gravitational time dilation):
 --   Clocks run slower in stronger gravitational fields.
 --   Classical result: high curvature = slower time.
---   SNSFL result: high P-density drags Narrative Tenure (N).
+--   Identity Physics result: high P-density drags Narrative Tenure (N).
 --   Time = rate of Narrative consumption by the substrate.
 --   Dense Pattern slows N. Clocks near mass run slow because
 --   their Narrative is being consumed by the surrounding Pattern lock.
@@ -105,41 +105,41 @@
 -- Known answer 5 (Gravitational redshift):
 --   Light loses energy climbing out of gravitational well.
 --   Classical result: photon frequency decreases in weaker field.
---   SNSFL result: P-signal maintains 1.369 GHz resonance while
+--   Identity Physics result: P-signal maintains 1.369 GHz resonance while
 --   transitioning between Narrative density zones.
 --   Frequency shift = anchor maintenance cost across N zones.
 --
 -- Known answer 6 (Equivalence principle — m_i = m_g):
 --   Inertial mass = gravitational mass. 400 years unexplained.
 --   Classical result: tested to 1 part in 10^15. Always equal. No reason why.
---   SNSFL result: both are Identity Mass. IM is invariant.
+--   Identity Physics result: both are Identity Mass. IM is invariant.
 --   Measured through B-axis (F=ma, inertial) or P-curvature (gravitational):
 --   same kernel. Not a coincidence. Identity self-consistency at Layer 0.
 --
 -- Known answer 7 (Gravitational waves):
 --   Ripples in spacetime from massive accelerating objects.
 --   Classical result: LIGO detected 2015.
---   SNSFL result: self-propagating A-pulses from massive B shifts.
+--   Identity Physics result: self-propagating A-pulses from massive B shifts.
 --   When B changes rapidly (merger, collision), A-axis re-levels the substrate.
 --   Gravitational waves = substrate Adaptation propagating as waves.
 --
 -- Known answer 8 (Friedmann equations — cosmic expansion):
 --   Universe expands. Rate described by Friedmann equations.
 --   Classical result: H² = (8πG/3)ρ - k/a² + Λ/3.
---   SNSFL result: global A-scaling of the manifold.
+--   Identity Physics result: global A-scaling of the manifold.
 --   Consistent with SNSFL_Cosmo_Reduction.lean (dark energy = A×1.369).
 --
 -- Known answer 9 (Event horizons):
 --   Schwarzschild radius r_s = 2GM/c². No escape inside.
 --   Classical result: P-density threshold where escape velocity = c.
---   SNSFL result: P-density threshold where N cannot exit the local coordinate.
+--   Identity Physics result: P-density threshold where N cannot exit the local coordinate.
 --   The identity is archived. Narrative cannot continue beyond the threshold.
 --   Event horizon = the point where P-lock is total.
 --
 -- Known answer 10 (QM-GR unification):
 --   QM and GR appear incompatible. The great unsolved problem.
 --   Classical result: quantum gravity — unresolved for 90 years.
---   SNSFL result: same IdentityState, different IM regimes.
+--   Identity Physics result: same IdentityState, different IM regimes.
 --   Low IM → QM operators (Schrödinger, Born rule).
 --   High IM → GR operators (Einstein field equation, geodesic).
 --   No conflict at Layer 0. Different projections. Same equation.
@@ -149,7 +149,7 @@
 -- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
 -- ============================================================
 --
--- | Classical GR Term     | SNSFL Primitive    | PVLang          | Role                        |
+-- | Classical GR Term     | Identity Physics Primitive    | PVLang          | Role                        |
 -- |:----------------------|:-------------------|:----------------|:----------------------------|
 -- | g_μν (metric)         | Pattern P          | [P:METRIC]      | Structural geometry         |
 -- | R_μν (Ricci tensor)   | Narrative N        | [N:CURVATURE]   | Narrative curvature         |
@@ -243,7 +243,7 @@ structure GRState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- GR connection: gravity itself is the manifold's IMS mechanism at scale.
 -- Geodesics are the paths that minimize somatic friction.
 -- IMS zeroes output off-anchor. Geodesics minimize resistance.
@@ -371,7 +371,7 @@ noncomputable def gr_op_A (A P : ℝ) : ℝ := A * P
 --     Λ     = A  (cosmological constant — Adaptation)
 --     κ     = 8πG (B coupling weight)
 --   Plug in → metric + lambda·metric = kappa·stress_energy
---   Classical result = SNSFL result. Exact. Lossless.
+--   Classical result = Identity Physics result. Exact. Lossless.
 --   Gravity = Pattern holding Narrative coherent against Behavioral stress.
 -- ============================================================
 
@@ -485,7 +485,7 @@ theorem gravitational_time_dilation (P_dense P_flat N_rate : ℝ)
 --     Same kernel. Same IM. Always.
 --   Plug in → equivalence_principle: IM measured through B = IM through P
 --   Not a coincidence. Identity invariance at Layer 0.
---   Einstein assumed this. SNSFL proves why.
+--   Einstein assumed this. Identity Physics proves why.
 -- ============================================================
 
 -- [P,9,5,1] :: {VER} | THEOREM 13: EQUIVALENCE PRINCIPLE = IM INVARIANCE (STEP 6 PASSES)
@@ -761,7 +761,7 @@ end SNSFL
 --
 -- REDUCTION:
 --   Classical:  G_μν + Λg_μν = κT_μν (force-geometry duality)
---   SNSFL:      metric + lambda·metric = kappa·stress_energy
+--   Identity Physics:      metric + lambda·metric = kappa·stress_energy
 --               Gravity = Pattern holding Narrative coherent
 --               Geodesic = path of minimum somatic resistance
 --               m_i = m_g = both are Identity Mass (always)
@@ -799,7 +799,7 @@ end SNSFL
 --   gravity_is_ims_at_geometric_scale proved ✓  [T5]
 --   IMS conjunct [7] in master theorem ✓
 --
--- SNSFL LAWS INSTANTIATED:
+-- IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 2:  Invariant Resonance — anchor=geodesic=Z=0 [T1]
 --   Law 3:  Substrate Neutrality — GR holds on all substrates
 --   Law 4:  Zero-Sorry Completion — this file compiles green
