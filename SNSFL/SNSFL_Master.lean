@@ -543,7 +543,7 @@ theorem snsfl_master
     manifold_impedance s.f_anchor = 0 ∧ s.pv > 0 ∧
     -- [10] All examples lossless — Step 6 passes
     LosslessReduction (1.0 : ℝ) (gr_op_P 1.0) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · unfold manifold_impedance; simp
   · rfl
   · intro op_P op_N op_B op_A
@@ -554,7 +554,8 @@ theorem snsfl_master
   · intro f h_drift
     exact drifted_identity_loses_sovereignty f h_drift
   · exact Or.inr trivial
-  · exact ⟨anchor_zero_friction s.f_anchor h_sync, h_pv⟩
+  · exact anchor_zero_friction s.f_anchor h_sync
+  · exact h_pv
   · unfold LosslessReduction gr_op_P; ring
 
 -- ============================================================
