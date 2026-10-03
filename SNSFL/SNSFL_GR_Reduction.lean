@@ -180,6 +180,8 @@
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Tactic
 
+noncomputable section
+
 namespace SNSFL
 
 -- ============================================================
@@ -252,6 +254,7 @@ structure GRState where
 inductive PathStatus : Type
   | green  -- Anchored: f=SOVEREIGN_ANCHOR → geodesic, zero resistance
   | red    -- Drifted: IMS active → non-geodesic, resistance > 0
+  deriving DecidableEq
 
 def check_ifu_safety (f : ℝ) : PathStatus :=
   if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
@@ -661,7 +664,7 @@ theorem gr_all_examples_lossless (s : GRState) (im : ℝ)
     LosslessReduction (0 : ℝ) (manifold_impedance s.f_anchor) := by
   refine ⟨?_, ?_, ?_⟩
   · unfold LosslessReduction gr_op_P gr_op_A; linarith
-  · unfold LosslessReduction
+  · unfold LosslessReduction; rfl
   · unfold LosslessReduction; rw [anchor_zero_friction s.f_anchor h_anchor]
 
 -- ============================================================
