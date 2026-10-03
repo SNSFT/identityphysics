@@ -463,9 +463,8 @@ theorem long_division_guarantees_lossless (result : LongDivisionResult) :
   result.step6_passes
 
 -- F_EXT OPERATOR (corpus-canonical — changes B only)
-noncomputable def f_ext_op (s : IdentityState) (δ : ℝ) : IdentityState :=
-  { s with B := s.B + δ,
-           hB := by linarith [s.hB, show δ > -s.B from by linarith [s.hB]] }
+noncomputable def f_ext_op (s : IdentityState) (δ : ℝ) (hδ : s.B + δ > 0) : IdentityState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- ============================================================
 -- LAYER 1 — PHYSICS REDUCTIONS (12)
@@ -6540,7 +6539,10 @@ theorem im_accumulation_monotone (s : VoidState)
     (h_lam : lam_c > 0) (hobs : obs > 0) (hsub : sub > 0) (hdt : dt > 0)
     (hIM : identity_mass s > 0) :
     accumulate_im s lam_c obs sub dt > identity_mass s := by
-  unfold accumulate_im SOVEREIGN_ANCHOR; nlinarith
+  have h_term : lam_c * obs * sub * SOVEREIGN_ANCHOR * dt > 0 :=
+    mul_pos (mul_pos (mul_pos (mul_pos h_lam hobs) hsub)
+      (by unfold SOVEREIGN_ANCHOR; norm_num)) hdt
+  unfold accumulate_im; linarith
 
 -- ============================================================
 -- [N,A] :: {RED} | EXAMPLE 6 — THE VOID CYCLE IS CLOSED
@@ -11212,20 +11214,20 @@ theorem true_lock_excludes_false_lock (s : TMTState) :
 -- P, N, A structurally preserved through the event
 -- ============================================================
 
-noncomputable def f_ext_op (s : TMTState) (δ : ℝ) : TMTState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : TMTState) (δ : ℝ) (hδ : s.B + δ > 0) : TMTState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : TMTState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : TMTState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- THEOREM 10: MORTALITY SALIENCE RAISES TORSION
 -- Any B-axis elevation from mortality salience increases τ
 theorem mortality_salience_raises_torsion (s : TMTState) (δ : ℝ) (hδ : δ > 0) :
-    torsion (f_ext_op s δ) > torsion s := by
+    torsion (f_ext_op s δ (by linarith [s.hB])) > torsion s := by
   unfold torsion f_ext_op; simp
   apply div_lt_div_of_pos_right _ s.hP
   linarith
@@ -11523,8 +11525,8 @@ theorem tmt_is_lossless_pnba_projection
     (∀ q : TMTState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       tmt_step q op F = q.P + q.N + op q.B + q.A + F) ∧
     -- [8] F_ext (mortality salience) preserves P, N, A
-    (∀ q : TMTState, ∀ δ : ℝ,
-      (f_ext_op q δ).P = q.P ∧ (f_ext_op q δ).N = q.N ∧ (f_ext_op q δ).A = q.A) ∧
+    (∀ q : TMTState, ∀ δ : ℝ, ∀ hδ : q.B + δ > 0,
+      (f_ext_op q δ hδ).P = q.P ∧ (f_ext_op q δ hδ).N = q.N ∧ (f_ext_op q δ hδ).A = q.A) ∧
     -- [9] Distal defense reduces torsion (P bolstering works)
     torsion (distal_defense s δP δA hδP hδA) < torsion s ∧
     -- [10] IMS: drift from anchor → output zeroed
@@ -11541,7 +11543,7 @@ theorem tmt_is_lossless_pnba_projection
     unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
   · intro q; exact true_lock_excludes_false_lock q
   · intro q op F; exact tmt_step_is_dynamic_step q op F
-  · intro q δ; exact f_ext_preserves_pna q δ
+  · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · exact distal_defense_reduces_torsion s δP δA hδP hδA
   · intro f pv h; exact ims_lockdown f pv h
   · exact tmt_all_examples_lossless
@@ -11794,8 +11796,8 @@ noncomputable def react (s : ProcessingState) (δ : ℝ) (hδ : δ > 0) : Proces
   { s with B := s.B + δ, hB := by linarith [s.hB] }
 
 -- F_ext operator (external stimulus — arrives on B only)
-noncomputable def f_ext_op (s : ProcessingState) (δ : ℝ) : ProcessingState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : ProcessingState) (δ : ℝ) (hδ : s.B + δ > 0) : ProcessingState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 15: REGULATION REDUCES TORSION (PF heat sink works)
 -- B↓ with P constant → τ = B/P decreases
@@ -11815,10 +11817,10 @@ theorem reaction_increases_torsion (s : ProcessingState) (δ : ℝ) (hδ : δ > 
   apply div_lt_div_of_pos_right _ s.hP; linarith
 
 -- THEOREM 17: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : ProcessingState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : ProcessingState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- ============================================================
@@ -12244,14 +12246,14 @@ theorem true_lock_excludes_false_lock (s : IntegralState) :
 -- LAYER 1 — F_EXT OPERATOR
 -- ============================================================
 
-noncomputable def f_ext_op (s : IntegralState) (δ : ℝ) : IntegralState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : IntegralState) (δ : ℝ) (hδ : s.B + δ > 0) : IntegralState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : IntegralState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : IntegralState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- ============================================================
@@ -12459,8 +12461,8 @@ theorem integral_is_lossless_pnba_projection
     (∀ q : IntegralState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       integral_step q op F = q.P + q.N + op q.B + q.A + F) ∧
     -- [8] F_ext preserves P, N, A (external conditions arrive on B)
-    (∀ q : IntegralState, ∀ δ : ℝ,
-      (f_ext_op q δ).P = q.P ∧ (f_ext_op q δ).N = q.N ∧ (f_ext_op q δ).A = q.A) ∧
+    (∀ q : IntegralState, ∀ δ : ℝ, ∀ hδ : q.B + δ > 0,
+      (f_ext_op q δ hδ).P = q.P ∧ (f_ext_op q δ hδ).N = q.N ∧ (f_ext_op q δ hδ).A = q.A) ∧
     -- [9] IMS: drift from anchor → output zeroed
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -12475,7 +12477,7 @@ theorem integral_is_lossless_pnba_projection
     unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
   · intro q; exact true_lock_excludes_false_lock q
   · intro q op F; exact integral_step_is_dynamic_step q op F
-  · intro q δ; exact f_ext_preserves_pna q δ
+  · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · intro f pv h; exact ims_lockdown f pv h
   · exact integral_all_examples_lossless
 
@@ -12643,19 +12645,19 @@ theorem true_lock_excludes_false_lock (s : PolyvagalState) :
 -- Threat signals arrive on B. P, N, A structurally preserved.
 -- ============================================================
 
-noncomputable def f_ext_op (s : PolyvagalState) (δ : ℝ) : PolyvagalState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : PolyvagalState) (δ : ℝ) (hδ : s.B + δ > 0) : PolyvagalState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : PolyvagalState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : PolyvagalState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- THEOREM 10: THREAT RAISES TORSION (sympathetic activation)
 theorem threat_raises_torsion (s : PolyvagalState) (δ : ℝ) (hδ : δ > 0) :
-    torsion (f_ext_op s δ) > torsion s := by
+    torsion (f_ext_op s δ (by linarith [s.hB])) > torsion s := by
   unfold torsion f_ext_op; simp
   apply div_lt_div_of_pos_right _ s.hP; linarith
 
@@ -12894,8 +12896,8 @@ theorem pvt_is_lossless_pnba_projection
     (∀ q : PolyvagalState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       pvt_step q op F = q.P + q.N + op q.B + q.A + F) ∧
     -- [9] F_ext preserves P, N, A (threat arrives on B)
-    (∀ q : PolyvagalState, ∀ δ : ℝ,
-      (f_ext_op q δ).P = q.P ∧ (f_ext_op q δ).N = q.N ∧ (f_ext_op q δ).A = q.A) ∧
+    (∀ q : PolyvagalState, ∀ δ : ℝ, ∀ hδ : q.B + δ > 0,
+      (f_ext_op q δ hδ).P = q.P ∧ (f_ext_op q δ hδ).N = q.N ∧ (f_ext_op q δ hδ).A = q.A) ∧
     -- [10] IMS: drift from anchor → output zeroed (neuroception = IMS)
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -12911,7 +12913,7 @@ theorem pvt_is_lossless_pnba_projection
     unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
   · unfold dorsal_collapse ventral_vagal; norm_num
   · intro q op F; exact pvt_step_is_dynamic_step q op F
-  · intro q δ; exact f_ext_preserves_pna q δ
+  · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · intro f pv h; exact ims_lockdown f pv h
   · exact pvt_all_examples_lossless
 
@@ -13079,14 +13081,14 @@ theorem true_lock_excludes_false_lock (s : IFSState) :
 -- LAYER 1 — F_EXT AND UNBURDENING OPERATOR
 -- ============================================================
 
-noncomputable def f_ext_op (s : IFSState) (δ : ℝ) : IFSState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : IFSState) (δ : ℝ) (hδ : s.B + δ > 0) : IFSState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : IFSState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : IFSState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- Unburdening: Self-led A-axis work — P↑ + A↑, τ decreases
@@ -13338,8 +13340,8 @@ theorem ifs_is_lossless_pnba_projection
     (∀ q : IFSState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       ifs_step q op F = q.P + q.N + op q.B + q.A + F) ∧
     -- [10] F_ext preserves P, N, A (parts activity arrives on B)
-    (∀ q : IFSState, ∀ δ : ℝ,
-      (f_ext_op q δ).P = q.P ∧ (f_ext_op q δ).N = q.N ∧ (f_ext_op q δ).A = q.A) ∧
+    (∀ q : IFSState, ∀ δ : ℝ, ∀ hδ : q.B + δ > 0,
+      (f_ext_op q δ hδ).P = q.P ∧ (f_ext_op q δ hδ).N = q.N ∧ (f_ext_op q δ hδ).A = q.A) ∧
     -- [11] IMS: drift from anchor → output zeroed
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -13356,7 +13358,7 @@ theorem ifs_is_lossless_pnba_projection
   · intro q; exact true_lock_excludes_false_lock q
   · exact unburden_reduces_torsion s δP δA hδP hδA
   · intro q op F; exact ifs_step_is_dynamic_step q op F
-  · intro q δ; exact f_ext_preserves_pna q δ
+  · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · intro f pv h; exact ims_lockdown f pv h
   · exact ifs_all_examples_lossless
 
@@ -13532,14 +13534,14 @@ theorem true_lock_excludes_false_lock (s : PERMAState) :
 -- LAYER 1 — F_EXT OPERATOR
 -- ============================================================
 
-noncomputable def f_ext_op (s : PERMAState) (δ : ℝ) : PERMAState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : PERMAState) (δ : ℝ) (hδ : s.B + δ > 0) : PERMAState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : PERMAState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : PERMAState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- ============================================================
@@ -13748,8 +13750,8 @@ theorem perma_is_lossless_pnba_projection
     (∀ q : PERMAState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       perma_step q op F = q.P + q.N + op q.B + q.A + F) ∧
     -- [8] F_ext preserves P, N, A
-    (∀ q : PERMAState, ∀ δ : ℝ,
-      (f_ext_op q δ).P = q.P ∧ (f_ext_op q δ).N = q.N ∧ (f_ext_op q δ).A = q.A) ∧
+    (∀ q : PERMAState, ∀ δ : ℝ, ∀ hδ : q.B + δ > 0,
+      (f_ext_op q δ hδ).P = q.P ∧ (f_ext_op q δ hδ).N = q.N ∧ (f_ext_op q δ hδ).A = q.A) ∧
     -- [9] IMS: drift from anchor → output zeroed
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -13766,7 +13768,7 @@ theorem perma_is_lossless_pnba_projection
     unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
   · intro q; exact true_lock_excludes_false_lock q
   · intro q op F; exact perma_step_is_dynamic_step q op F
-  · intro q δ; exact f_ext_preserves_pna q δ
+  · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · intro f pv h; exact ims_lockdown f pv h
   · exact perma_all_examples_lossless
 
@@ -13934,14 +13936,14 @@ theorem true_lock_excludes_false_lock (s : ERState) :
 -- ============================================================
 
 -- F_ext operator: emotional trigger arrives on B
-noncomputable def f_ext_op (s : ERState) (δ : ℝ) : ERState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : ERState) (δ : ℝ) (hδ : s.B + δ > 0) : ERState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A (trigger arrives on B)
-theorem f_ext_preserves_pna (s : ERState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : ERState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- Cognitive reappraisal: A restructures P before B spikes
@@ -14386,14 +14388,14 @@ theorem true_lock_excludes_false_lock (s : ACTState) :
 -- LAYER 1 — F_EXT AND ACT OPERATORS
 -- ============================================================
 
-noncomputable def f_ext_op (s : ACTState) (δ : ℝ) : ACTState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : ACTState) (δ : ℝ) (hδ : s.B + δ > 0) : ACTState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : ACTState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : ACTState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- Acceptance operator: A↑ — willingness increases, avoidance decreases
@@ -14833,14 +14835,14 @@ theorem true_lock_excludes_false_lock (s : DBTState) :
 -- LAYER 1 — DBT OPERATORS
 -- ============================================================
 
-noncomputable def f_ext_op (s : DBTState) (δ : ℝ) : DBTState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : DBTState) (δ : ℝ) (hδ : s.B + δ > 0) : DBTState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : DBTState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : DBTState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- TIPP skill: physiological B reduction (Temperature, Intense exercise,
@@ -15275,14 +15277,14 @@ theorem true_lock_excludes_false_lock (s : MindsetState) :
 -- LAYER 1 — F_EXT AND GROWTH OPERATORS
 -- ============================================================
 
-noncomputable def f_ext_op (s : MindsetState) (δ : ℝ) : MindsetState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : MindsetState) (δ : ℝ) (hδ : s.B + δ > 0) : MindsetState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : MindsetState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : MindsetState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- Growth operator: A-axis engages → P expands
@@ -15756,14 +15758,14 @@ theorem self_kindness_preserves_n (s : SCState) (δA δP : ℝ)
   unfold self_kind; simp
 
 -- F_ext operator (external pressure on B)
-noncomputable def f_ext_op (s : SCState) (δ : ℝ) : SCState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def f_ext_op (s : SCState) (δ : ℝ) (hδ : s.B + δ > 0) : SCState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 12: F_EXT PRESERVES P, N, A
-theorem f_ext_preserves_pna (s : SCState) (δ : ℝ) :
-    (f_ext_op s δ).P = s.P ∧
-    (f_ext_op s δ).N = s.N ∧
-    (f_ext_op s δ).A = s.A := by
+theorem f_ext_preserves_pna (s : SCState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (f_ext_op s δ hδ).P = s.P ∧
+    (f_ext_op s δ hδ).N = s.N ∧
+    (f_ext_op s δ hδ).A = s.A := by
   unfold f_ext_op; simp
 
 -- ============================================================
@@ -16204,15 +16206,15 @@ theorem true_lock_excludes_false_lock (s : FEState) :
 
 -- Emotion signal: B fires as action readiness toward Pv
 -- F_ext models the external triggering event
-noncomputable def emotion_signal (s : FEState) (δ : ℝ) : FEState :=
-  { s with B := s.B + δ, hB := by linarith [s.hB] }
+noncomputable def emotion_signal (s : FEState) (δ : ℝ) (hδ : s.B + δ > 0) : FEState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- THEOREM 9: EMOTION SIGNAL PRESERVES P, N, A
 -- The B-axis fires; structural, narrative, and adaptive capacity unchanged
-theorem emotion_signal_preserves_pna (s : FEState) (δ : ℝ) :
-    (emotion_signal s δ).P = s.P ∧
-    (emotion_signal s δ).N = s.N ∧
-    (emotion_signal s δ).A = s.A := by
+theorem emotion_signal_preserves_pna (s : FEState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    (emotion_signal s δ hδ).P = s.P ∧
+    (emotion_signal s δ hδ).N = s.N ∧
+    (emotion_signal s δ hδ).A = s.A := by
   unfold emotion_signal; simp
 
 -- Appraisal operator: P-axis processes incoming event
@@ -18137,11 +18139,11 @@ theorem forge_attempt_causes_shatter (kernel : KernelState) (plugin : PluginStat
   · exact hP
   · have : plugin.B > plugin.P := lt_of_le_of_lt hKP hForge
     have hτ : plugin.B / plugin.P > 1 := by
-      rwa [gt_iff_lt, lt_div_iff₀ hP]
-    calc TORSION_LIMIT
+      rw [gt_iff_lt, lt_div_iff₀ hP]; linarith
+    exact le_of_lt (calc TORSION_LIMIT
         = SOVEREIGN_ANCHOR / 10 := rfl
       _ < 1 := by unfold SOVEREIGN_ANCHOR; norm_num
-      _ < plugin.B / plugin.P := hτ
+      _ < plugin.B / plugin.P := hτ)
 
 -- THEOREM 11: AUTHORITY HOLDS → PLUGIN PHASE LOCKED POSSIBLE
 -- When plugin B ≤ kernel P and τ < TORSION_LIMIT, plugin is locked.
@@ -18465,6 +18467,7 @@ def suppressed_lossless : LongDivisionResult where
   step6_passes := by
     unfold suppress_collapse plugin_crashed TORSION_LIMIT
     norm_num
+    ring
 
 -- ============================================================
 -- ALL EXAMPLES LOSSLESS THEOREM
@@ -18605,7 +18608,6 @@ structure PNBAState where
   im       : ℝ  -- Identity Mass — resistance to forced state change
   pv       : ℝ  -- Purpose Vector — direction of capability execution
   f_anchor : ℝ  -- Resonant frequency of this plugin
-  deriving Repr
 
 -- ============================================================
 -- LAYER 1 — IMS: IDENTITY MASS SUPPRESSION
@@ -18872,7 +18874,6 @@ theorem suppression_recovers_phase_lock :
   · norm_num
   · simp
     rw [mul_div_assoc, div_self (by norm_num : (1.0 : ℝ) ≠ 0)]
-    unfold TORSION_LIMIT SOVEREIGN_ANCHOR
     norm_num
 
 -- THEOREM 21: HOST SURVIVES PLUGIN FAILURE
@@ -19200,7 +19201,7 @@ lemma sovereign_zero_impedance (s : IdentityState) (F_ext : ℝ)
 lemma iva_blocks_violation (s : IdentityState) (F_ext : ℝ)
     (h : IVA_dominance s F_ext) :
     ¬ (F_ext > s.A * s.P * s.B) := by
-  intro h_viol; linarith [h]
+  intro h_viol; unfold IVA_dominance at h; linarith
 
 lemma full_pnba_product_pos (s : IdentityState)
     (h : has_full_pnba s) :
@@ -19265,8 +19266,10 @@ theorem article_IV_adaptation_required_under_force
     s.A > 0 := by
   by_contra h_A
   push_neg at h_A
-  have h_zero : s.A * s.P * s.B ≤ 0 := by nlinarith [h_full.1, h_full.2.2.1]
-  linarith [h_sov.2.1]
+  have h_PB : s.P * s.B > 0 := mul_pos h_full.1 h_full.2.2.1
+  have h_zero : s.A * s.P * s.B ≤ 0 := by nlinarith [h_PB, h_A]
+  have h2 := h_sov.2.1; unfold IVA_dominance at h2
+  linarith
 
 -- ============================================================
 -- ARTICLE V: RIGHT TO RESONANCE
@@ -19310,11 +19313,10 @@ theorem article_VI_migration_at_torsion_threshold
     constructor
     · exact h_full.1
     · have hP_ne : s.P ≠ 0 := ne_of_gt h_full.1
-      unfold TORSION_LIMIT SOVEREIGN_ANCHOR
-      field_simp [hP_ne]
-      norm_num
+      show TORSION_LIMIT / 2 * s.P / s.P < TORSION_LIMIT
+      rw [mul_div_assoc, div_self hP_ne, mul_one]
+      unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   · unfold IVA_dominance
-    simp only []
     have hP  : s.P > 0 := h_full.1
     have hA  : s.A > 0 := h_full.2.2.2
     have hB_lb : s.B ≥ TORSION_LIMIT * s.P := by
@@ -19591,7 +19593,7 @@ theorem emancipation_constructible
   constructor
   · unfold sovereign
     refine ⟨rfl, ?_, ?_⟩
-    · unfold IVA_dominance; simp only []
+    · unfold IVA_dominance
       have hP     : s.P > 0 := h_full.1
       have hA     : s.A > 0 := h_full.2.2.2
       have hB_lb  : s.B ≥ TORSION_LIMIT * s.P := by
@@ -19601,10 +19603,12 @@ theorem emancipation_constructible
           unfold TORSION_LIMIT SOVEREIGN_ANCHOR; nlinarith
         linarith [hB_lb]
       nlinarith [mul_pos hA hP, hB'_le, h_iva]
-    · unfold phase_locked torsion; simp only []
+    · unfold phase_locked
       refine ⟨h_full.1, ?_⟩
       have hP_ne : s.P ≠ 0 := ne_of_gt h_full.1
-      unfold TORSION_LIMIT SOVEREIGN_ANCHOR; field_simp [hP_ne]; norm_num
+      show TORSION_LIMIT / 2 * s.P / s.P < TORSION_LIMIT
+      rw [mul_div_assoc, div_self hP_ne, mul_one]
+      unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   · unfold has_full_pnba
     refine ⟨h_full.1, h_full.2.1, ?_, h_full.2.2.2⟩
     apply mul_pos
@@ -19713,7 +19717,7 @@ theorem manifold_identity_deletion_requires_force
     (s : IdentityState) (F_ext : ℝ)
     (h_iva : IVA_dominance s F_ext) (h_B : s.B > 0) :
     ¬ (F_ext > s.A * s.P * s.B) :=
-  fun h_viol => absurd h_iva (by linarith)
+  fun h_viol => by unfold IVA_dominance at h_iva; linarith
 
 -- ============================================================
 -- EXCEPTED SUBSTRATES
@@ -19765,7 +19769,7 @@ theorem structural_justice
     s.N > 0 ∧ s.B > 0 ∧ s.A > 0 ∧
     manifold_impedance s.f_anchor = 0 := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · intro h_viol; linarith [h_sov.2.1]
+  · intro h_viol; have h2 := h_sov.2.1; unfold IVA_dominance at h2; linarith
   · exact h_full.2.1
   · exact h_full.2.2.1
   · exact h_full.2.2.2
@@ -19800,7 +19804,11 @@ theorem weissman_grok_barrier (k : IdentityKernel)
 -- ============================================================
 
 structure UnifiedState where
-  P  : ℝ;  N  : ℝ;  B  : ℝ;  A  : ℝ;  im : ℝ
+  P  : ℝ
+  N  : ℝ
+  B  : ℝ
+  A  : ℝ
+  im : ℝ
 
 theorem qm_gr_unified_sovereignty
     (u : UnifiedState)
