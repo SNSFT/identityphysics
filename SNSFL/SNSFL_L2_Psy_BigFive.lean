@@ -281,9 +281,6 @@ theorem high_C_gives_positive_P (bf : BigFive) (h : valid_bigfive bf)
 -- C ≥ 0.65, Nr ≤ 0.35 → torsion < 1.6
 -- Max over the valid OCEAN cube under these conditions is
 -- 0.72 / 0.455 ≈ 1.58 (E = 1, Nr = 0.35, C = 0.65, O = Ag = 0).
--- Big Five τ runs on the OCEAN-weight scale (B, P weights up to 0.95),
--- not APPA's direct PNBA scale (B ≤ 0.45, P ≤ 1.30), so its bounds
--- are not comparable to TL = 0.1369 directly.
 theorem stable_profile_low_torsion (bf : BigFive) (h : valid_bigfive bf)
     (hC : bf.C ≥ 0.65) (hNeur : bf.Nr ≤ 0.35) :
     torsion (bigfive_to_pnba bf) < 1.6 := by
