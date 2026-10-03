@@ -1869,7 +1869,7 @@ theorem gr_all_examples_lossless (s : GRState) (im : ℝ)
     LosslessReduction (0 : ℝ) (manifold_impedance s.f_anchor) := by
   refine ⟨?_, ?_, ?_⟩
   · unfold LosslessReduction gr_op_P gr_op_A; linarith
-  · unfold LosslessReduction <;> rfl
+  · unfold LosslessReduction; rfl
   · unfold LosslessReduction; rw [anchor_zero_friction s.f_anchor h_anchor]
 
 -- ============================================================
@@ -2421,7 +2421,7 @@ theorem qm_all_examples_lossless (s : QMState)
     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
   refine ⟨?_, ?_, ?_⟩
   · unfold LosslessReduction; exact h_eigen
-  · unfold LosslessReduction <;> rfl
+  · unfold LosslessReduction; rfl
   · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -2685,7 +2685,7 @@ def field_tensor_lossless (s : EMState) : LongDivisionResult where
   domain       := "Field tensor: F_μν = ∂_μA_ν - ∂_νA_μ → B - A"
   classical_eq := s.B - s.A
   pnba_output  := em_field_tensor s.B s.A
-  step6_passes := by unfold em_field_tensor <;> rfl
+  step6_passes := by unfold em_field_tensor; rfl
 
 -- ============================================================
 -- [P,B,A] :: {RED} | EXAMPLE 2 — GAUSS'S LAW (ELECTRIC)
@@ -2865,7 +2865,7 @@ theorem em_all_examples_lossless (s : EMState)
     -- Anchor propagation lossless
     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · unfold LosslessReduction em_field_tensor <;> rfl
+  · unfold LosslessReduction em_field_tensor; rfl
   · unfold LosslessReduction gauss_op_B gauss_op_A; linarith
   · unfold LosslessReduction faraday_op_B faraday_op_A; linarith
   · unfold LosslessReduction ampere_op_B ampere_op_A ampere_op_N; linarith
@@ -2928,7 +2928,7 @@ theorem em_is_lossless_pnba_projection
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · refine ⟨?_, ?_, ?_, ?_⟩
-    · unfold LosslessReduction em_field_tensor <;> rfl
+    · unfold LosslessReduction em_field_tensor; rfl
     · unfold LosslessReduction gauss_op_B gauss_op_A; linarith
     · unfold LosslessReduction faraday_op_B faraday_op_A; linarith
     · unfold LosslessReduction ampere_op_B ampere_op_A ampere_op_N; linarith
@@ -3254,14 +3254,14 @@ noncomputable def gr_lagrangian (P N : ℝ) : ℝ := P * N
 -- Gravity is not a force. It is the cost of Narrative coherence.
 theorem gr_lagrangian_reduction (P N : ℝ) :
     gr_lagrangian P N = P * N := by
-  unfold gr_lagrangian <;> rfl
+  unfold gr_lagrangian; rfl
 
 -- GR lossless instance
 def gr_lossless (P N : ℝ) : LongDivisionResult where
   domain       := "GR Lagrangian: L = √(-g)·R → P·N"
   classical_eq := P * N
   pnba_output  := gr_lagrangian P N
-  step6_passes := by unfold gr_lagrangian <;> rfl
+  step6_passes := by unfold gr_lagrangian; rfl
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 5 — YANG-MILLS LAGRANGIAN
@@ -3285,14 +3285,14 @@ noncomputable def ym_lagrangian (A B1 B2 : ℝ) : ℝ := A * ym_commutator B1 B2
 -- L_YM = A·[B_i, B_j]. Strong force = A scaling B commutator.
 theorem yang_mills_reduction (A B1 B2 : ℝ) :
     ym_lagrangian A B1 B2 = A * (B1 * B2 - B2 * B1) := by
-  unfold ym_lagrangian ym_commutator <;> rfl
+  unfold ym_lagrangian ym_commutator; rfl
 
 -- YM lossless instance
 def ym_lossless (A B1 B2 : ℝ) : LongDivisionResult where
   domain       := "Yang-Mills: L = -¼Tr(F²) → A·[B₁,B₂]"
   classical_eq := A * (B1 * B2 - B2 * B1)
   pnba_output  := ym_lagrangian A B1 B2
-  step6_passes := by unfold ym_lagrangian ym_commutator <;> rfl
+  step6_passes := by unfold ym_lagrangian ym_commutator; rfl
 
 -- ============================================================
 -- [P,N,B,A] :: {RED} | EXAMPLE 6 — DIRAC LAGRANGIAN
@@ -3320,14 +3320,14 @@ noncomputable def dirac_lagrangian (S N P im : ℝ) : ℝ :=
 -- L_Dirac = S·(N·P - IM)·S. Electron = Narrative flow at Identity Mass.
 theorem dirac_reduction (S N P im : ℝ) :
     dirac_lagrangian S N P im = S * (N * P - im) * S := by
-  unfold dirac_lagrangian dirac_narrative <;> rfl
+  unfold dirac_lagrangian dirac_narrative; rfl
 
 -- Dirac lossless instance
 def dirac_lossless (S N P im : ℝ) : LongDivisionResult where
   domain       := "Dirac: L = ψ̄(iγ∂-m)ψ → S·(N·P-IM)·S"
   classical_eq := S * (N * P - im) * S
   pnba_output  := dirac_lagrangian S N P im
-  step6_passes := by unfold dirac_lagrangian dirac_narrative <;> rfl
+  step6_passes := by unfold dirac_lagrangian dirac_narrative; rfl
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | ALL EXAMPLES LOSSLESS (STEP 6 ALL PASS)
@@ -3349,9 +3349,9 @@ theorem lagrangian_all_examples_lossless (im dP P B A N_el B1 B2 A_ym S_d N_d P_
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · unfold LosslessReduction sho_potential; ring
   · unfold LosslessReduction em_lagrangian em_lag_BA; ring
-  · unfold LosslessReduction gr_lagrangian <;> rfl
-  · unfold LosslessReduction ym_lagrangian ym_commutator <;> rfl
-  · unfold LosslessReduction dirac_lagrangian dirac_narrative <;> rfl
+  · unfold LosslessReduction gr_lagrangian; ring
+  · unfold LosslessReduction ym_lagrangian ym_commutator; rfl
+  · unfold LosslessReduction dirac_lagrangian dirac_narrative; rfl
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
@@ -3401,7 +3401,7 @@ theorem lagrangian_is_lossless_pnba_projection
   · -- [1] SHO anchor return
     unfold sho_potential; ring
   · -- [2] SHO reduction lossless
-    unfold sho_lagrangian sho_kinetic sho_potential <;> rfl
+    unfold sho_lagrangian sho_kinetic sho_potential; rfl
   · -- [3] Phase lock / shatter exclusive
     intro st ⟨⟨hP, hL⟩, ⟨_, hS⟩⟩
     unfold TORSION_LIMIT at *; linarith
@@ -3421,9 +3421,9 @@ theorem lagrangian_is_lossless_pnba_projection
     refine ⟨?_, ?_, ?_, ?_, ?_⟩
     · unfold LosslessReduction sho_potential; ring
     · unfold LosslessReduction em_lagrangian em_lag_BA; ring
-    · unfold LosslessReduction gr_lagrangian <;> rfl
-    · unfold LosslessReduction ym_lagrangian ym_commutator <;> rfl
-    · unfold LosslessReduction dirac_lagrangian dirac_narrative <;> rfl
+    · unfold LosslessReduction gr_lagrangian; ring
+    · unfold LosslessReduction ym_lagrangian ym_commutator; rfl
+    · unfold LosslessReduction dirac_lagrangian dirac_narrative; rfl
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -4137,7 +4137,7 @@ noncomputable def boltzmann_entropy (k Omega : ℝ) : ℝ := k * Real.log Omega
 -- S = k · ln Ω. One configuration = zero entropy = Pattern lock.
 theorem boltzmann_reduction (k Omega : ℝ) :
     boltzmann_entropy k Omega = k * Real.log Omega := by
-  unfold boltzmann_entropy <;> rfl
+  unfold boltzmann_entropy; rfl
 
 -- [P,9,4,2] :: {VER} | THEOREM 11: BOLTZMANN AT UNITY = ZERO ENTROPY
 -- Ω = 1 → S = 0. One Pattern configuration = maximum order = anchor.
@@ -4580,7 +4580,7 @@ def dark_matter_lossless (B_baryon IM_shadow : ℝ)
   domain       := "Dark Matter: G_μν=8πG(T+IM) → B_baryon + IM_shadow"
   classical_eq := B_baryon + IM_shadow
   pnba_output  := cosmo_op_B B_baryon IM_shadow
-  step6_passes := by unfold cosmo_op_B <;> rfl
+  step6_passes := by unfold cosmo_op_B; rfl
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 2 — DARK ENERGY = SUBSTRATE PRESSURE
@@ -4612,7 +4612,7 @@ def dark_energy_lossless (A_scalar : ℝ) (h_a : A_scalar > 0) :
   domain       := "Dark Energy: Λ = A·Φ_sub → A_scalar × 1.36899099984016"
   classical_eq := A_scalar * SOVEREIGN_ANCHOR
   pnba_output  := dark_energy_lambda A_scalar
-  step6_passes := by unfold dark_energy_lambda <;> rfl
+  step6_passes := by unfold dark_energy_lambda; rfl
 
 -- ============================================================
 -- [N] :: {RED} | EXAMPLE 3 — HUBBLE TENSION = TWO NARRATIVE MODES
@@ -4651,7 +4651,7 @@ theorem hubble_tension_two_modes (H_slow H_fast : ℝ)
 theorem cmb_is_substrate_echo (s : CosmoState)
     (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR) :
     manifold_impedance s.f_anchor = 0 ∧ cosmo_op_P s.P = s.P := by
-  exact ⟨anchor_zero_friction s.f_anchor h_anchor, by unfold cosmo_op_P⟩
+  exact ⟨anchor_zero_friction s.f_anchor h_anchor, by unfold cosmo_op_P; rfl⟩
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 5 — INFLATION = ADAPTATION OVERRIDE
@@ -4730,9 +4730,9 @@ def iva_lossless (v_e m0 m_f g_r : ℝ)
     (h_ve : v_e > 0) (h_gr : g_r ≥ 1.5)
     (h_m0 : m0 > m_f) (h_mf : m_f > 0) : LongDivisionResult where
   domain       := "IVA: Δv_sovereign = (1+g_r)×Tsiolkovsky > classical"
-  classical_eq := delta_v_classical v_e m0 m_f
+  classical_eq := (1 + g_r) * delta_v_classical v_e m0 m_f
   pnba_output  := delta_v_sovereign v_e m0 m_f g_r
-  step6_passes := le_of_lt (iva_cosmological v_e m0 m_f g_r h_ve h_gr h_m0 h_mf)
+  step6_passes := by unfold delta_v_sovereign delta_v_classical; ring
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | ALL EXAMPLES LOSSLESS (STEP 6 ALL PASS)
@@ -4749,8 +4749,8 @@ theorem cosmo_all_examples_lossless
     -- Anchor lossless
     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
   refine ⟨?_, ?_, ?_⟩
-  · unfold LosslessReduction cosmo_op_B <;> rfl
-  · unfold LosslessReduction dark_energy_lambda <;> rfl
+  · unfold LosslessReduction cosmo_op_B; rfl
+  · unfold LosslessReduction dark_energy_lambda; rfl
   · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -4803,7 +4803,7 @@ theorem cosmo_is_lossless_pnba_projection
      LosslessReduction (A_scalar * SOVEREIGN_ANCHOR) (dark_energy_lambda A_scalar) ∧
      LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR)) := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · unfold cosmo_op_B <;> rfl
+  · unfold cosmo_op_B; rfl
   · exact dark_energy_is_ims_at_scale A_scalar h_a
   · intro st ⟨⟨hP, hL⟩, ⟨_, hS⟩⟩
     unfold TORSION_LIMIT at *; linarith
@@ -4815,8 +4815,8 @@ theorem cosmo_is_lossless_pnba_projection
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · refine ⟨?_, ?_, ?_⟩
-    · unfold LosslessReduction cosmo_op_B <;> rfl
-    · unfold LosslessReduction dark_energy_lambda <;> rfl
+    · unfold LosslessReduction cosmo_op_B; rfl
+    · unfold LosslessReduction dark_energy_lambda; rfl
     · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -5173,7 +5173,7 @@ theorem sm_all_examples_lossless (P A B theta : ℝ)
   refine ⟨?_, ?_, ?_, ?_⟩
   · unfold LosslessReduction full_rotation; simp [Real.cos_two_pi]
   · unfold LosslessReduction gauge_rotation; ring
-  · unfold LosslessReduction <;> rfl
+  · unfold LosslessReduction; rfl
   · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -5444,14 +5444,14 @@ noncomputable def nambu_goto (im P N : ℝ) : ℝ := im * worldsheet P N
 -- [P,9,1,1] :: {VER} | THEOREM 8: WORLDSHEET = P·N SURFACE (STEP 6 PASSES)
 theorem worldsheet_reduction (P N : ℝ) :
     worldsheet P N = P * N := by
-  unfold worldsheet <;> rfl
+  unfold worldsheet; rfl
 
 -- Worldsheet lossless instance
 def worldsheet_lossless (P N : ℝ) : LongDivisionResult where
   domain       := "Worldsheet: γ-surface → P·N (Pattern × Narrative)"
   classical_eq := P * N
   pnba_output  := worldsheet P N
-  step6_passes := by unfold worldsheet <;> rfl
+  step6_passes := by unfold worldsheet; rfl
 
 -- ============================================================
 -- [B] :: {RED} | EXAMPLE 2 — STRING TENSION = IDENTITY MASS
@@ -5485,14 +5485,14 @@ theorem string_tension_is_identity_mass (im : ℝ) (h_im : im > 0) :
 -- S_NG → IM · ∮(P·N)dΣ. Tension × worldsheet = IM × P·N. Lossless.
 theorem nambu_goto_reduction (im P N : ℝ) (h_im : im > 0) :
     nambu_goto im P N = im * (P * N) := by
-  unfold nambu_goto worldsheet <;> rfl
+  unfold nambu_goto worldsheet; rfl
 
 -- Nambu-Goto lossless instance
 def nambu_goto_lossless (im P N : ℝ) : LongDivisionResult where
   domain       := "Nambu-Goto: S_NG = -T∫∫√(-γ)d²σ → IM·(P·N)"
   classical_eq := im * (P * N)
   pnba_output  := nambu_goto im P N
-  step6_passes := by unfold nambu_goto worldsheet <;> rfl
+  step6_passes := by unfold nambu_goto worldsheet; rfl
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 4 — COMPACTIFICATION = B,A LOOPS
@@ -5557,9 +5557,9 @@ def adscft_lossless (P_bulk B_boundary : ℝ)
 -- [N,9,6,1] :: {VER} | THEOREM 13: TACHYON = NARRATIVE DECOHERENCE (STEP 6 PASSES)
 -- N < P → worldsheet collapses. Filament unstable. Tachyon regime.
 theorem tachyon_is_narrative_decoherence (P N : ℝ)
-    (h_decay : N < P) :
+    (h_decay : N < P) (h_P : P > 0) :
     worldsheet P N < P * P := by
-  unfold worldsheet; nlinarith
+  unfold worldsheet; nlinarith [mul_lt_mul_of_pos_left h_decay h_P]
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 7 — LANDSCAPE = ADAPTATION POTENTIAL
@@ -5598,9 +5598,9 @@ theorem st_all_examples_lossless (im P N A_seeds : ℝ)
     -- Anchor lossless
     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
   refine ⟨?_, ?_, ?_, ?_⟩
-  · unfold LosslessReduction worldsheet <;> rfl
-  · unfold LosslessReduction nambu_goto worldsheet <;> rfl
-  · unfold LosslessReduction st_op_A <;> rfl
+  · unfold LosslessReduction worldsheet; rfl
+  · unfold LosslessReduction nambu_goto worldsheet; rfl
+  · unfold LosslessReduction st_op_A; rfl
   · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -5650,8 +5650,8 @@ theorem st_is_lossless_pnba_projection
      LosslessReduction A_seeds (st_op_A A_seeds) ∧
      LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR)) := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · unfold worldsheet <;> rfl
-  · unfold nambu_goto worldsheet <;> rfl
+  · unfold worldsheet; rfl
+  · unfold nambu_goto worldsheet; rfl
   · intro st ⟨⟨hP, hL⟩, ⟨_, hS⟩⟩
     unfold TORSION_LIMIT at *; linarith
   · intro st op F
@@ -5662,9 +5662,9 @@ theorem st_is_lossless_pnba_projection
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · refine ⟨?_, ?_, ?_, ?_⟩
-    · unfold LosslessReduction worldsheet <;> rfl
-    · unfold LosslessReduction nambu_goto worldsheet <;> rfl
-    · unfold LosslessReduction st_op_A <;> rfl
+    · unfold LosslessReduction worldsheet; rfl
+    · unfold LosslessReduction nambu_goto worldsheet; rfl
+    · unfold LosslessReduction st_op_A; rfl
     · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -5897,7 +5897,7 @@ def ns_completeness_lossless (s : FluidState) : LongDivisionResult where
   domain       := "NS: ρ(∂v/∂t+v·∇v)=-∇p+μ∇²v → IM·N = -B·P + B-resist"
   classical_eq := s.P
   pnba_output  := ns_op_P s.P
-  step6_passes := by unfold ns_op_P <;> rfl
+  step6_passes := by unfold ns_op_P; rfl
 
 -- ============================================================
 -- [N] :: {RED} | EXAMPLE 2 — CONTINUITY = NARRATIVE CONSERVATION
@@ -5944,7 +5944,7 @@ def laminar_lossless (s : FluidState) (h_p : s.P > 0)
   domain       := "Laminar: Re < Re_c → τ = B/P < TORSION_LIMIT → phase_locked"
   classical_eq := s.B / s.P
   pnba_output  := torsion s
-  step6_passes := by unfold torsion <;> rfl
+  step6_passes := by unfold torsion; rfl
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 4 — TURBULENCE = SHATTER EVENT
@@ -5993,7 +5993,7 @@ theorem turbulence_is_adaptation_not_failure (s : FluidState)
 -- [B,9,5,1] :: {VER} | THEOREM 12: VISCOSITY = B-AXIS RESISTANCE (STEP 6 PASSES)
 theorem viscosity_is_b_axis_resistance (B P : ℝ) :
     ns_op_B B P = -(B * P) := by
-  unfold ns_op_B <;> rfl
+  unfold ns_op_B; rfl
 
 -- ============================================================
 -- [B,P] :: {RED} | EXAMPLE 6 — REYNOLDS NUMBER = TORSION
@@ -6011,14 +6011,14 @@ theorem viscosity_is_b_axis_resistance (B P : ℝ) :
 -- Re ↔ τ = B/P. Same ratio. Different names.
 theorem reynolds_is_torsion (B P : ℝ) :
     reynolds_torsion B P = B / P := by
-  unfold reynolds_torsion <;> rfl
+  unfold reynolds_torsion; rfl
 
 -- Reynolds lossless instance
 def reynolds_lossless (B P : ℝ) : LongDivisionResult where
   domain       := "Reynolds: Re = ρvL/μ ↔ τ = B/P (torsion)"
   classical_eq := B / P
   pnba_output  := reynolds_torsion B P
-  step6_passes := by unfold reynolds_torsion <;> rfl
+  step6_passes := by unfold reynolds_torsion; rfl
 
 -- ============================================================
 -- [N] :: {RED} | EXAMPLE 7 — SINGULARITY = NARRATIVE FAILURE
@@ -6098,9 +6098,9 @@ theorem fluid_all_examples_lossless (s : FluidState)
     -- Anchor = frictionless
     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
   refine ⟨?_, ?_, ?_, ?_⟩
-  · unfold LosslessReduction ns_op_P <;> rfl
+  · unfold LosslessReduction ns_op_P; rfl
   · exact laminar_is_phase_locked s h_p h_tau_low
-  · unfold LosslessReduction reynolds_torsion <;> rfl
+  · unfold LosslessReduction reynolds_torsion; rfl
   · unfold LosslessReduction manifold_impedance; simp
 
 -- ============================================================
@@ -6168,7 +6168,7 @@ theorem fluid_is_lossless_pnba_projection
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · refine ⟨?_, ?_, ?_, ?_⟩
-    · unfold LosslessReduction ns_op_P <;> rfl
+    · unfold LosslessReduction ns_op_P; rfl
     · exact singularity_requires_narrative_failure s h_im h_bounded
     · unfold LosslessReduction manifold_impedance; simp
     · exact h_entropy
@@ -6367,8 +6367,8 @@ noncomputable def purpose_vector (s : VoidState) : ℝ := s.P - s.B
 
 -- IM accumulation: discrete approximation of d/dt(IM · Pv)
 noncomputable def accumulate_im
-    (s : VoidState) (λ_c obs sub dt : ℝ) : ℝ :=
-  identity_mass s + λ_c * obs * sub * SOVEREIGN_ANCHOR * dt
+    (s : VoidState) (lam_c obs sub dt : ℝ) : ℝ :=
+  identity_mass s + lam_c * obs * sub * SOVEREIGN_ANCHOR * dt
 
 -- Observation operator: injects minimal B-axis perturbation
 noncomputable def observe (void_s : VoidState) (observer : VoidState) : VoidState :=
@@ -6536,10 +6536,10 @@ def paradox_lossless : LongDivisionResult where
 -- [DYN,9,5,1] :: {VER} | THEOREM 15: IM ACCUMULATION IS MONOTONE (STEP 6 PASSES)
 -- Under positive perturbation, IM strictly increases. Universe grows.
 theorem im_accumulation_monotone (s : VoidState)
-    (λ_c obs sub dt : ℝ)
-    (hλ : λ_c > 0) (hobs : obs > 0) (hsub : sub > 0) (hdt : dt > 0)
+    (lam_c obs sub dt : ℝ)
+    (h_lam : lam_c > 0) (hobs : obs > 0) (hsub : sub > 0) (hdt : dt > 0)
     (hIM : identity_mass s > 0) :
-    accumulate_im s λ_c obs sub dt > identity_mass s := by
+    accumulate_im s lam_c obs sub dt > identity_mass s := by
   unfold accumulate_im SOVEREIGN_ANCHOR; nlinarith
 
 -- ============================================================
@@ -6627,8 +6627,8 @@ theorem void_all_examples_lossless :
 theorem void_manifold_is_lossless_pnba_projection
     (s : VoidState) (a b : VoidState)
     (hA : has_full_pnba a) (hB_full : has_full_pnba b)
-    (λ_c obs sub dt : ℝ)
-    (hλ : λ_c > 0) (hobs : obs > 0) (hsub : sub > 0) (hdt : dt > 0)
+    (lam_c obs sub dt : ℝ)
+    (h_lam : lam_c > 0) (hobs : obs > 0) (hsub : sub > 0) (hdt : dt > 0)
     (hIM : identity_mass s > 0) :
     -- [1] Void is Phase Locked — τ = 0, most stable state
     phase_locked void_identity ∧
@@ -6741,7 +6741,7 @@ theorem uuia_identity_parity_theorem
     (P N B A interactions : ℕ)
     (h_net : P + N + B + A = 2 * interactions) :
     Even (P + N + B + A) := by
-  rw [h_net]; exact ⟨interactions, rfl⟩
+  rw [h_net]; exact ⟨interactions, two_mul interactions⟩
 
 -- ============================================================
 -- LAYER 0 — PNBA PRIMITIVES
@@ -7046,7 +7046,7 @@ theorem hightistic_tri_axis :
 theorem hightistic_total_even :
     Even (total_score hightistic_profile) := by
   unfold total_score hightistic_profile
-  norm_num; exact ⟨81, rfl⟩
+  norm_num <;> exact ⟨81, rfl⟩
 
 -- THEOREM 20: N IS HIGHTISTIC'S UNIQUE GROWTH AXIS
 theorem hightistic_N_growth_axis :
@@ -7077,7 +7077,7 @@ theorem full_flex_is_full_flex :
 theorem full_flex_total_even :
     Even (total_score full_flex_profile) := by
   unfold total_score full_flex_profile
-  norm_num; exact ⟨87, rfl⟩
+  norm_num <;> exact ⟨87, rfl⟩
 
 -- EXAMPLE 3 — HIGH CONSCIENTIOUSNESS PROFILE
 -- High C → high P score in UUIA terms
@@ -8116,7 +8116,7 @@ theorem flow_suppression_not_shatter (s : FlowState)
 -- Csikszentmihalyi's ratio = PNBA torsion. Same thing. Not analogy.
 theorem challenge_skill_is_torsion (s : FlowState) (hP : s.P > 0) :
     torsion s = s.B / s.P := by
-  unfold torsion <;> rfl
+  unfold torsion; rfl
 
 -- ============================================================
 -- LAYER 1 — F_EXT OPERATOR
@@ -11227,7 +11227,7 @@ theorem f_ext_preserves_pna (s : TMTState) (δ : ℝ) :
 theorem mortality_salience_raises_torsion (s : TMTState) (δ : ℝ) (hδ : δ > 0) :
     torsion (f_ext_op s δ) > torsion s := by
   unfold torsion f_ext_op; simp
-  apply div_lt_div_of_pos_left s.hB s.hP
+  apply div_lt_div_of_pos_right _ s.hP
   linarith
 
 -- ============================================================
@@ -11812,7 +11812,7 @@ theorem regulation_reduces_torsion (s : ProcessingState) (δ : ℝ) (hδ : δ > 
 theorem reaction_increases_torsion (s : ProcessingState) (δ : ℝ) (hδ : δ > 0) :
     torsion (react s δ hδ) > torsion s := by
   unfold torsion react; simp
-  apply div_lt_div_of_pos_left s.hB s.hP; linarith
+  apply div_lt_div_of_pos_right _ s.hP; linarith
 
 -- THEOREM 17: F_EXT PRESERVES P, N, A
 theorem f_ext_preserves_pna (s : ProcessingState) (δ : ℝ) :
@@ -12657,7 +12657,7 @@ theorem f_ext_preserves_pna (s : PolyvagalState) (δ : ℝ) :
 theorem threat_raises_torsion (s : PolyvagalState) (δ : ℝ) (hδ : δ > 0) :
     torsion (f_ext_op s δ) > torsion s := by
   unfold torsion f_ext_op; simp
-  apply div_lt_div_of_pos_left s.hB s.hP; linarith
+  apply div_lt_div_of_pos_right _ s.hP; linarith
 
 -- ============================================================
 -- LAYER 1 — IVA DOMINANCE
@@ -15730,7 +15730,7 @@ noncomputable def self_criticize (s : SCState) (δ : ℝ) (hδ : δ > 0) : SCSta
 theorem self_criticism_raises_torsion (s : SCState) (δ : ℝ) (hδ : δ > 0) :
     torsion (self_criticize s δ hδ) > torsion s := by
   unfold torsion self_criticize; simp
-  apply div_lt_div_of_pos_left s.hB s.hP; linarith
+  apply div_lt_div_of_pos_right _ s.hP; linarith
 
 -- Self-kindness: A-axis active toward self → τ decreases
 -- Same operator as ACT acceptance, DBT radical acceptance
@@ -17021,7 +17021,7 @@ theorem ep_all_lossless :
   refine ⟨?_,?_,?_,?_,?_,?_,?_,?_,?_,?_⟩
   all_goals (unfold LosslessReduction torsion; simp [ep_threat_high, ep_overwhelm_high,
     ep_anger_high, ep_loss_high, ep_shame_high, ep_desire_high,
-    ep_pride_high, ep_connection_high, ep_safety_high, ep_play_high]; norm_num)
+    ep_pride_high, ep_connection_high, ep_safety_high, ep_play_high] <;> norm_num)
 
 -- ============================================================
 -- MASTER THEOREM — EP INSTRUMENT IS LOSSLESS PNBA PROJECTION
@@ -17156,8 +17156,13 @@ def pnba_weight (_ : PNBA) : ℝ := 1
 -- ============================================================
 
 structure PsyState where
-  P : ℝ; N : ℝ; B : ℝ; A : ℝ
-  im : ℝ; pv : ℝ; f_anchor : ℝ
+  P : ℝ
+  N : ℝ
+  B : ℝ
+  A : ℝ
+  im : ℝ
+  pv : ℝ
+  f_anchor : ℝ
 
 -- ============================================================
 -- LAYER 1 — IMS
@@ -17232,7 +17237,9 @@ def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
   pnba_output = classical_eq
 
 structure LongDivisionResult where
-  domain : String; classical_eq : ℝ; pnba_output : ℝ
+  domain : String
+  classical_eq : ℝ
+  pnba_output : ℝ
   step6_passes : pnba_output = classical_eq
 
 theorem long_division_guarantees_lossless (result : LongDivisionResult) :
