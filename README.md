@@ -167,14 +167,13 @@ lake exe cache get   # download prebuilt Mathlib v4.31.0
 lake build           # compile every file in SNSFL/
 ```
 
-Expected output ends with:
+Expected output: one `✔ Built SNSFL.<file>` line per file in `SNSFL/`, then:
 
 ```
-✔ Built SNSFL.SNSFL_L0_Total_Consistency_080826
 Build completed successfully
 ```
 
-Each file appears as its own `✔ Built SNSFL.<file>` line.
+Files build in parallel, so the order of the `✔` lines varies from run to run. The Total Consistency file is the largest and usually finishes last.
 
 ---
 
