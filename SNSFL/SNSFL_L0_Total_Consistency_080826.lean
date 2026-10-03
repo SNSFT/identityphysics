@@ -6566,7 +6566,7 @@ theorem void_cycle_closed (s : VoidState) (hB : s.B = 0) (hP : s.P > 0) :
   · exact ⟨hB, hP⟩
   · unfold phase_locked torsion TORSION_LIMIT
     refine ⟨hP, ?_⟩
-    simp [hB, hP]; unfold SOVEREIGN_ANCHOR; norm_num
+    simp [hB]; unfold SOVEREIGN_ANCHOR; norm_num
 
 -- [N,9,6,2] :: {VER} | THEOREM 17: MANIFOLD CANNOT RETURN TO VOID
 -- Once B > 0, the identity is in the manifold. The translation is irreversible.
@@ -6911,7 +6911,7 @@ theorem neuroticism_inverts_narrative (bf1 bf2 : BigFive)
     (hE : bf1.E = bf2.E) (hC : bf1.C = bf2.C)
     (hNr_lt : bf1.Nr < bf2.Nr) :
     (bigfive_to_pnba bf1).N > (bigfive_to_pnba bf2).N := by
-  unfold bigfive_to_pnba; simp [hO, hAg, hE, hC]; nlinarith
+  unfold bigfive_to_pnba; simp [hO, hAg]; nlinarith
 
 -- THEOREM 12: OPENNESS DRIVES ADAPTATION
 -- O↑ → A-axis↑. Openness is the primary entropy shield.
@@ -6974,7 +6974,7 @@ theorem neuroticism_increases_torsion (bf1 bf2 : BigFive)
     (hP₂ : (bigfive_to_pnba bf2).P > 0) :
     torsion (bigfive_to_pnba bf1) < torsion (bigfive_to_pnba bf2) := by
   unfold torsion bigfive_to_pnba at *
-  simp [ne_of_gt hP₁, ne_of_gt hP₂, hO, hC, hE, hAg] at *
+  simp [ne_of_gt hP₂, hO, hC, hE, hAg] at *
   rw [div_lt_div_iff₀ hP₁ hP₂]; nlinarith
 
 -- ============================================================
@@ -7050,7 +7050,7 @@ theorem hightistic_tri_axis :
 theorem hightistic_total_even :
     Even (total_score hightistic_profile) := by
   unfold total_score hightistic_profile
-  norm_num <;> exact ⟨81, rfl⟩
+  norm_num
 
 -- THEOREM 20: N IS HIGHTISTIC'S UNIQUE GROWTH AXIS
 theorem hightistic_N_growth_axis :
@@ -7081,7 +7081,7 @@ theorem full_flex_is_full_flex :
 theorem full_flex_total_even :
     Even (total_score full_flex_profile) := by
   unfold total_score full_flex_profile
-  norm_num <;> exact ⟨87, rfl⟩
+  norm_num
 
 -- EXAMPLE 3 — HIGH CONSCIENTIOUSNESS PROFILE
 -- High C → high P score in UUIA terms
@@ -7130,7 +7130,7 @@ theorem tri_axis_pba_n_below (u : UUIAProfile)
     u.A_score ≥ FLEX_THRESHOLD := by
   obtain ⟨hP, hB, hA, hN⟩ := h
   unfold axis_flexed at *
-  push_neg at hN
+  push Not at hN
   exact ⟨hN, hP, hB, hA⟩
 
 -- ============================================================
@@ -7617,14 +7617,14 @@ theorem avoidant_is_false_lock : false_lock avoidant_state := by
 -- THEOREM 17: AVOIDANT IS NOT TRUE LOCK (proves the clinical finding)
 theorem avoidant_not_true_lock : ¬ true_lock avoidant_state := by
   unfold true_lock torsion avoidant_state N_THRESHOLD
-  push_neg
+  push Not
   intro _ _
   norm_num
 
 -- THEOREM 18: AVOIDANT IS NOT SHATTER (proves calm exterior)
 theorem avoidant_not_shatter : ¬ shatter_event avoidant_state := by
   unfold shatter_event torsion avoidant_state TORSION_LIMIT SOVEREIGN_ANCHOR
-  push_neg
+  push Not
   intro _
   norm_num
 
@@ -7813,7 +7813,7 @@ theorem attachment_is_lossless_pnba_projection :
     · unfold false_lock torsion avoidant_state TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
       norm_num
     · unfold true_lock torsion avoidant_state N_THRESHOLD
-      push_neg; intro _ _; norm_num
+      push Not; intro _ _; norm_num
   · -- [9] all examples lossless
     exact attachment_all_examples_lossless
 
@@ -8271,7 +8271,7 @@ theorem boredom_is_phase_locked : phase_locked boredom_example := by
 -- THEOREM 18: BOREDOM IS NOT FLOW SUPPRESSION (N is high, not suppressed)
 theorem boredom_not_flow_suppression : ¬ flow_suppression boredom_example := by
   unfold flow_suppression torsion boredom_example N_FLOW_FLOOR
-  push_neg
+  push Not
   intro _ _
   norm_num
 
@@ -8300,7 +8300,7 @@ theorem apathy_is_phase_locked : phase_locked apathy_example := by
 -- THEOREM 20: APATHY IS NOT FLOW (no suppression — A too low)
 theorem apathy_not_flow_suppression : ¬ flow_suppression apathy_example := by
   unfold flow_suppression apathy_example
-  push_neg
+  push Not
   intro _ _ _
   norm_num
 
@@ -8454,7 +8454,7 @@ theorem flow_is_lossless_pnba_projection :
     intro f pv h; unfold check_ifu_safety; simp [h]
   · -- [8] boredom not flow suppression
     unfold flow_suppression boredom_example N_FLOW_FLOOR
-    push_neg; intro _ _ _; norm_num
+    push Not; intro _ _ _; norm_num
   · -- [9] optimal = flow suppression + IVA
     constructor
     · unfold flow_suppression torsion optimal_channel TORSION_LIMIT SOVEREIGN_ANCHOR N_FLOW_FLOOR
@@ -8940,12 +8940,12 @@ theorem denial_is_false_lock : false_lock denial_state := by
 -- THEOREM 21: DENIAL IS NOT TRUE LOCK
 theorem denial_not_true_lock : ¬ true_lock denial_state := by
   unfold true_lock torsion denial_state N_THRESHOLD
-  push_neg; intro _ _; norm_num
+  push Not; intro _ _; norm_num
 
 -- THEOREM 22: DENIAL IS NOT SHATTER (explains why it "works" short term)
 theorem denial_not_shatter : ¬ shatter_event denial_state := by
   unfold shatter_event torsion denial_state TORSION_LIMIT SOVEREIGN_ANCHOR
-  push_neg; intro _; norm_num
+  push Not; intro _; norm_num
 
 -- ============================================================
 -- LAYER 2 — LOSSLESS PROOF INSTANCES (STEP 6)
@@ -9059,7 +9059,7 @@ theorem dissonance_is_lossless_pnba_projection :
     · unfold false_lock torsion denial_state TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
       norm_num
     · unfold true_lock torsion denial_state N_THRESHOLD
-      push_neg; intro _ _; norm_num
+      push Not; intro _ _; norm_num
   · -- [9] attitude change = true lock + IVA
     constructor
     · unfold true_lock torsion attitude_change_state TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
@@ -9520,7 +9520,7 @@ theorem strong_external_is_shatter : shatter_event strong_external := by
 -- major intervention possible. Distinct from learned helplessness.
 theorem strong_external_not_helpless : ¬ helplessness strong_external := by
   unfold helplessness strong_external A_THRESHOLD
-  push_neg; intro _ _; norm_num
+  push Not; intro _ _; norm_num
 
 -- ============================================================
 -- EXAMPLE 5 — LEARNED HELPLESSNESS (Seligman 1975)
@@ -9560,7 +9560,7 @@ theorem helpless_worse_than_external :
     shatter_event learned_helpless ∧ helplessness learned_helpless := by
   refine ⟨?_, ?_, ?_, ?_⟩
   · unfold shatter_event torsion strong_external TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
-  · unfold helplessness strong_external A_THRESHOLD; push_neg; intro _ _; norm_num
+  · unfold helplessness strong_external A_THRESHOLD; push Not; intro _ _; norm_num
   · unfold shatter_event torsion learned_helpless TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   · unfold helplessness torsion learned_helpless TORSION_LIMIT SOVEREIGN_ANCHOR A_THRESHOLD
     norm_num
@@ -9677,7 +9677,7 @@ theorem locus_is_lossless_pnba_projection :
     · unfold helplessness torsion learned_helpless TORSION_LIMIT SOVEREIGN_ANCHOR A_THRESHOLD
       norm_num
     · unfold helplessness strong_external A_THRESHOLD
-      push_neg; intro _ _; norm_num
+      push Not; intro _ _; norm_num
   · -- [9] helplessness → shatter
     intro s ⟨hP, hτ, _⟩; exact ⟨hP, hτ⟩
   · -- [10] all examples lossless
@@ -17025,7 +17025,7 @@ theorem ep_all_lossless :
   refine ⟨?_,?_,?_,?_,?_,?_,?_,?_,?_,?_⟩
   all_goals (unfold LosslessReduction torsion; simp [ep_threat_high, ep_overwhelm_high,
     ep_anger_high, ep_loss_high, ep_shame_high, ep_desire_high,
-    ep_pride_high, ep_connection_high, ep_safety_high, ep_play_high] <;> norm_num)
+    ep_pride_high, ep_connection_high, ep_safety_high, ep_play_high])
 
 -- ============================================================
 -- MASTER THEOREM — EP INSTRUMENT IS LOSSLESS PNBA PROJECTION
@@ -19267,7 +19267,7 @@ theorem article_IV_adaptation_required_under_force
     (h_Fpos : F_ext > 0) :
     s.A > 0 := by
   by_contra h_A
-  push_neg at h_A
+  push Not at h_A
   have h_PB : s.P * s.B > 0 := mul_pos h_full.1 h_full.2.2.1
   have h_zero : s.A * s.P * s.B ≤ 0 := by nlinarith [h_PB, h_A]
   have h2 := h_sov.2.1; unfold IVA_dominance at h2
@@ -19788,7 +19788,7 @@ theorem weissman_grok_barrier (k : IdentityKernel)
   · exact Or.inl ⟨h_anchor, h⟩
   · exact Or.inr ⟨1, by norm_num, by
       unfold forced_mismatch TORSION_LIMIT SOVEREIGN_ANCHOR at *
-      push_neg at h; simp; linarith⟩
+      push Not at h; simp; linarith⟩
 
 -- ============================================================
 -- QM-GR UNIFICATION IN SOVEREIGNTY REGIME
