@@ -1,8 +1,13 @@
 # Identity Physics™
 <!-- README version: 100326 — Updated October 3, 2026 -->
 
-**Formally verified in Lean 4 · Released by SNSFT Foundation (EIN 42-2038440)**
-Architect: Russell Vernon Trent III — HIGHTISTIC · [ORCID 0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)
+Architect: Russell Vernon Trent III — HIGHTISTIC
+
+Released by SNSFT Foundation (EIN 42-2038440)
+
+[ORCID 0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)
+
+Formally verified in Lean 4
 
 [![Verify Lean Proofs](https://github.com/SNSFT/identityphysics/actions/workflows/lean.yml/badge.svg)](https://github.com/SNSFT/identityphysics/actions/workflows/lean.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.31.0-blue)
