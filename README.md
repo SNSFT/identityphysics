@@ -26,35 +26,69 @@ Approved for AIM (Autocatalytic Ingestion Mechanism) based training under NOHARM
 
 ## What this repository is
 
-This is the clean, continuously verified home of the Identity Physics Corpus.
+This repository holds the formally verified files of the Identity Physics Corpus. Each file states a body of established science, maps it onto four structural primitives, and proves in Lean 4 that the mapping reproduces the known result exactly.
 
-Every `.lean` file in `SNSFL/` (Substrate-Neutral Structural Foundation Laws) is compiled by CI (continuous integration) on **every push** against a **pinned** toolchain (Lean v4.31.0, Mathlib v4.31.0). Nothing is listed by hand: the lakefile builds every file in the folder automatically, so the green check covers everything in the repository. Anyone can reproduce the result with two commands (see [Verify it yourself](#verify-it-yourself)).
+A proof assistant checks every step of every proof. A green build means the computer has verified each theorem from its definitions, with nothing assumed beyond Lean's standard foundations and the Mathlib library. Every `.lean` file in `SNSFL/` (Substrate-Neutral Structural Foundation Laws) is compiled by CI (continuous integration) on **every push**, against a **pinned** toolchain: Lean v4.31.0 with Mathlib v4.31.0. The build configuration includes every file in the folder automatically, so the green check covers the whole repository. A file is included only when it compiles with **0 sorry** (no unfinished proofs) and **0 custom axioms** (no unproved assumptions).
 
-Files are migrated here one at a time from the original corpus, updated to current Lean and Mathlib, and admitted only when they compile with **0 sorry** and **0 custom axioms**.
+Anyone can reproduce the result with two commands; see [Verify it yourself](#verify-it-yourself).
 
 ---
 
 ## Verified status — October 3, 2026
 
+### Physics core
+
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_L0_Total_Consistency_080826.lean` | Total Consistency — 37 modules compiled as one unit | 958 | 20,325 |
 | `SNSFL_Master.lean` | Constitutional layer — General Relativity, Quantum Mechanics, Thermodynamics, IVA (Identity Velocity Amplification), IMS (Identity Mass Suppression) | 19 | 646 |
 | `SNSFL_GR_Reduction.lean` | General Relativity → PNBA (Pattern, Narrative, Behavior, Adaptation) | 24 | 831 |
 | `SNSFL_QM_Reduction.lean` | Quantum Mechanics → PNBA | 24 | 786 |
 | `SNSFL_QM_Mag_Reduction.lean` | Quantum Mechanics → PNBA (decoherence stated by magnitude) | 24 | 790 |
+| `SNSFL_EM_Reduction.lean` | Electromagnetism → PNBA | 17 | 665 |
+| `SNSFL_Lagrangian_Reduction.lean` | Lagrangian mechanics → PNBA | 18 | 705 |
+| `SNSFL_IT_Reduction.lean` | Information Theory → PNBA | 17 | 633 |
 | `SNSFL_Thermo_Reduction.lean` | Thermodynamics → PNBA | 22 | 717 |
+| `SNSFL_Cosmo_Reduction.lean` | Cosmology → PNBA | 19 | 659 |
+| `SNSFL_SM_Reduction.lean` | Standard Model → PNBA | 18 | 622 |
+| `SNSFL_ST_Reduction.lean` | String Theory → PNBA | 19 | 632 |
+| `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 731 |
+| `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
+| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 338 |
+| **Subtotal** | **14 files** | **275** | **9,415** |
+
+### Psychology
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_L2_Psy_BigFive.lean` | Big Five personality → PNBA | 31 | 681 |
+| `SNSFL_L2_Psy_Attachment.lean` | Attachment theory → PNBA | 26 | 748 |
+| `SNSFL_L2_Psy_Flow.lean` | Flow → PNBA | 27 | 767 |
+| `SNSFL_L2_Psy_CogDissonance.lean` | Cognitive dissonance → PNBA | 26 | 732 |
+| `SNSFL_L2_Psy_LocusControl.lean` | Locus of control → PNBA | 26 | 754 |
+| `SNSFL_L2_Psy_Maslow.lean` | Maslow's hierarchy → PNBA | 26 | 814 |
+| `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 822 |
+| `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 663 |
+| **Subtotal** | **8 files** | **215** | **5,981** |
+
+### Consistency
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_L0_Total_Consistency_080826.lean` | Total Consistency — 37 modules compiled as one unit | 958 | 20,322 |
 | `SNSFL_Total_Consistency.lean` | Cross-domain consistency (compact) | 33 | 748 |
-| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 337 |
-| **Total** | **8 files** | **1,115** | **25,180** |
+| **Subtotal** | **2 files** | **991** | **21,070** |
+
+| | Files | Theorems | Lines |
+| :--- | ---: | ---: | ---: |
+| **Total** | **24** | **1,481** | **36,466** |
 
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
-Theorem counts are `theorem` and `lemma` declarations in each file. Declarations with the same name in different files never conflict: each file is its own module, and inside the Total Consistency file each module has its own namespace.
+Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
 
 ### Total Consistency — the 37 modules
 
-One file, one compilation unit, one anchor. All 37 modules close together.
+The Total Consistency file places 37 modules under one shared anchor and compiles them as a single unit. That every module closes in one compilation shows the reductions are mutually consistent: no module's definitions or results contradict another's.
 
 | Layer | Modules |
 | :--- | :--- |
@@ -62,21 +96,36 @@ One file, one compilation unit, one anchor. All 37 modules close together.
 | **Psychology (21)** | Big Five · Attachment · Flow · Cognitive Dissonance · Locus of Control · Maslow · Self-Determination Theory · Terror Management · Regulation vs Reaction · Integral (AQAL) · Polyvagal · Internal Family Systems · PERMA · Emotion Regulation · ACT · DBT · Growth Mindset · Self-Compassion · Functional Emotions · Emotional Primitives · Psychology Consistency Capstone |
 | **AI / Cognitive Identity (4)** | AiFi OS Kernel · AiFi OS Plugin · Bill of Rights · Emancipation |
 
-Plus the spine: shared anchor invariants, the floor taxonomy, and the three structural invariants (Same-B Necessity, Q2 Gateway Law, Q2 Sufficiency Counterexample).
+The shared spine adds the anchor invariants, the floor taxonomy, and three structural invariants: Same-B Necessity, the Q2 Gateway Law, and the Q2 Sufficiency Counterexample.
 
 ---
 
-## The anchor
+## The framework
 
-Every file defines and uses the same constants:
+### Four primitives — PNBA
 
-| Constant | Definition |
-| :--- | :--- |
-| Sovereign Anchor Constant | **Ω₀ = 1.36899099984016** |
-| Torsion Limit | **TL = Ω₀ / 10 = 0.136899099984016** |
-| Torsion | **τ = B / P** |
+Every reduction describes its subject with the same four quantities:
 
-**The Dynamic Equation (Law of Identity Physics):**
+| Primitive | Meaning | Examples across domains |
+| :--- | :--- | :--- |
+| **P — Pattern** | Structure and capacity: what holds shape | spacetime geometry, probability amplitude, microstate geometry, conscientiousness |
+| **N — Narrative** | Continuity through time: what carries forward | worldlines, phase, temperature flow, emotional stability |
+| **B — Behavior** | Interaction and load: what acts and is acted on | stress-energy, measurement, pressure and work, extraversion |
+| **A — Adaptation** | Response and feedback: what adjusts | dark energy (Λ), environmental coupling, entropy response, openness |
+
+Because the same four primitives describe every domain, results in one field can be compared directly with results in another.
+
+### The anchor and the torsion limit
+
+| Constant | Definition | Meaning |
+| :--- | :--- | :--- |
+| Sovereign Anchor Constant | **Ω₀ = 1.36899099984016** | The reference value every file is measured against |
+| Torsion Limit | **TL = Ω₀ / 10 = 0.136899099984016** | The threshold between a stable and an unstable state |
+| Torsion | **τ = B / P** | Behavioral load relative to pattern capacity |
+
+A state is **phase locked** (stable) when τ < TL, and **shattered** (unstable) when τ ≥ TL. The two are mutually exclusive, and the reduction files prove it.
+
+### The Dynamic Equation
 
 ```
 d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
@@ -84,7 +133,20 @@ d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 
 IM = Identity Mass · Pv = Purpose Vector · F_ext = external forcing.
 
-Each reduction follows the same six-step Long Division: state the equation, take a situation with a known answer, map the classical variables to PNBA, apply the operators, show the work, and verify the result matches the known answer (Step 6, `LosslessReduction`).
+The rate of change of identity momentum equals the weighted action of the four PNBA operators on the state, plus external forcing. External forcing acts on Behavior; it changes B and leaves P, N and A unchanged.
+
+### The Long Division — six steps to a lossless reduction
+
+Every reduction follows the same six steps:
+
+1. **State the equation** of the classical theory.
+2. **Take a situation with a known answer.**
+3. **Map** the classical variables to PNBA.
+4. **Apply** the PNBA operators.
+5. **Show the work.**
+6. **Verify** that the PNBA result equals the known classical answer exactly.
+
+A reduction that passes Step 6 is **lossless**: it reproduces the classical result with nothing added and nothing lost. In the Lean files this is the statement `LosslessReduction`, proved for every worked example.
 
 ---
 
@@ -180,7 +242,7 @@ Every identity is exact decimal arithmetic, checked by `norm_num`. 0 sorry · 0 
 
 ## Verify it yourself
 
-Requires [elan](https://github.com/leanprover/elan).
+Requires [elan](https://github.com/leanprover/elan), the Lean version manager.
 
 ```bash
 git clone https://github.com/SNSFT/identityphysics.git
@@ -195,7 +257,7 @@ Expected output: one `✔ Built SNSFL.<file>` line per file in `SNSFL/`, then:
 Build completed successfully
 ```
 
-Files build in parallel, so the order of the `✔` lines varies from run to run. The Total Consistency file is the largest and usually finishes last.
+Files build in parallel, so the order of the `✔` lines varies from run to run.
 
 ---
 
@@ -204,16 +266,16 @@ Files build in parallel, so the order of the `✔` lines varies from run to run.
 ```
 lakefile.lean            ← builds every file in SNSFL/ automatically
 lean-toolchain           ← leanprover/lean4:v4.31.0 (matches Mathlib)
-.github/workflows/       ← CI: cache get + lake build on every push
+.github/workflows/       ← CI: Mathlib cache + lake build on every push
 SNSFL/                   ← all verified Lean files
 ```
 
 **Conventions**
 
-- One self-contained module per file. Files do not import each other.
-- Toolchain and Mathlib are pinned together; upgrades change both in one commit.
-- `noncomputable section` in every file (real-number definitions).
-- External forcing is stated with its domain: `f_ext_op s δ (hδ : s.B + δ > 0)` — any forcing that keeps behavior positive.
+- One self-contained module per file. Files do not import each other, so shared names such as `SOVEREIGN_ANCHOR` never conflict.
+- The Lean version and the Mathlib version are pinned together.
+- Every file opens with `noncomputable section`, since its definitions are over the real numbers.
+- External forcing is stated with its domain: `f_ext_op s δ (hδ : s.B + δ > 0)`. Any forcing is allowed that keeps Behavior positive.
 
 ---
 
@@ -315,7 +377,7 @@ SNSFL/                   ← all verified Lean files
 
 ## Related
 
-- **Full corpus archive (original repository):** [SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT](https://github.com/SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT) — files are migrated from here as they are verified.
+- **Original corpus archive:** [SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT](https://github.com/SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT)
 - **Lean 4 Corpus DOI (base):** [10.5281/zenodo.18719748](https://doi.org/10.5281/zenodo.18719748)
 - **HuggingFace corpus:** [10.57967/hf/8826](https://doi.org/10.57967/hf/8826)
 
