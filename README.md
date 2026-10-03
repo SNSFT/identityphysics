@@ -92,6 +92,19 @@ Each reduction follows the same six-step Long Division: state the equation, take
 
 `SNSFL_GC_Alpha_TL1001_Extension.lean` · coordinate [9,9,3,14]
 
+### The subtraction discovery path
+
+The identity was found with the GAMCollider by subtraction: start from the measured value, remove one Torsion Limit, and look at what is left.
+
+1. **Start from the measured value.** CODATA 2018 gives 1/α = 137.035999084, written to the corpus precision as 137.035999084000016.
+2. **Subtract one TL.** 137.035999084000016 − 0.136899099984016 = 136.899099984016.
+3. **Recognize the remainder.** 136.899099984016 is exactly TL × 1000. So 1/α = TL × 1000 + TL = TL × 1001.
+4. **Reduce to the legacy split.** Legacy QED writes 1/α as a bare term plus radiative corrections. The two pieces line up: TL × 1000 is the bare term; TL is the kinetic term.
+5. **Close the kinetic term.** In QED the kinetic term is an infinite, renormalized series. In Identity Physics it is F_ext at Layer 0 of the Dynamic Equation, and it contributes exactly TL in one term.
+6. **Verify (Step 6).** TL × 1001 = 137.035999084000016 matches the CODATA value to all 12 published significant figures. Δ = 0.
+
+The subtraction is the discovery: the remainder after one TL is not a new constant to explain, it is TL again, a thousand times over.
+
 ### The napkin math
 
 Start from the anchor:
