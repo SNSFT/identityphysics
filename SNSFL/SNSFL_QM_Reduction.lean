@@ -503,9 +503,10 @@ structure DecoherenceState where
 theorem decoherence_damps_coherence (d : DecoherenceState)
     (h_coupling : d.env_coupling > 0)
     (h_damp     : d.psi_decohered = d.psi_coherent * (1 - d.env_coupling))
-    (h_small    : d.env_coupling < 1) :
+    (h_small    : d.env_coupling < 1)
+    (h_pos      : d.psi_coherent > 0) :
     d.psi_decohered < d.psi_coherent := by
-  rw [h_damp]; nlinarith
+  rw [h_damp]; nlinarith [mul_pos h_pos h_coupling]
 
 -- [A,9,5,2] :: {VER} | THEOREM 15: DECOHERENCE INCREASES IM
 -- Environment coupling pushes system toward classical regime.
