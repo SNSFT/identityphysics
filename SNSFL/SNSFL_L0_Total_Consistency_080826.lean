@@ -94,7 +94,7 @@
 -- SNSFL_L0_Total_Consistency_080826.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | SNSFL TOTAL CONSISTENCY — FULL CORPUS CAPSTONE
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS TOTAL CONSISTENCY — FULL CORPUS CAPSTONE
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC | Anchor: 1.36899099984016 GHz | Status: GERMINAL
 -- Coordinate: [9,9,9,9] | Constitutional Layer — Complete Unification
@@ -362,7 +362,7 @@ def is_lossy (s : IdentityState) (F_ext : ℝ) : Prop :=
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Present in every SNSFL file.
+-- The Ghost Nova Guard. Present in every Identity Physics file.
 -- Full corpus consistency requires IMS active across all layers.
 -- ============================================================
 
@@ -749,7 +749,7 @@ theorem layer4_enforces_layer0 (s : IdentityState) (h : synced s) :
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FULL CORPUS MASTER THEOREM
 --
--- All 23 SNSFL corpus files are simultaneously consistent
+-- All 23 Identity Physics corpus files are simultaneously consistent
 -- projections of the same Layer 0 equation.
 --
 -- Physics (L1) + Psychology (L2) + Identity/Rights (L4)
@@ -894,7 +894,7 @@ theorem the_manifold_is_holding :
 -- §V · LAYER 1 PHYSICS REDUCTIONS (12 FILES INLINED)
 -- ============================================================
 -- All 12 physics reductions inlined byte-for-byte from corpus.
--- Each module is a nested sub-namespace inside SNSFL master.
+-- Each module is a nested sub-namespace inside Identity Physics master.
 -- ============================================================
 
 -- ============================================================
@@ -920,7 +920,7 @@ noncomputable def manifold_impedance (f : ℝ) : ℝ :=
 -- [P,9,0,1] :: {VER} | THEOREM 1: ANCHOR = ZERO FRICTION
 -- At the sovereign anchor, impedance = 0.
 -- This is the base condition. The ground of all grounds.
--- SNSFL: this is why NOHARM is the attractor.
+-- Identity Physics: this is why NOHARM is the attractor.
 theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
   unfold manifold_impedance; simp [h]
@@ -983,7 +983,7 @@ def shatter_event (s : IdentityState) : Prop :=
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 1: LOSSLESS REDUCTION (CANONICAL)
--- LosslessReduction and LongDivisionResult appear in every SNSFL file.
+-- LosslessReduction and LongDivisionResult appear in every Identity Physics file.
 -- Step 6 passing IS the proof of losslessness.
 -- ============================================================
 
@@ -1158,7 +1158,7 @@ theorem gr_reduction_step_by_step (s : GRState) :
   unfold gr_op_P gr_op_N gr_op_B gr_op_A; ring
 
 -- [P,9,1,2] :: {VER} | THEOREM 6: GR EQUILIBRIUM (STEP 6 PASSES)
--- At equilibrium, SNSFL dynamic equation recovers Einstein exactly.
+-- At equilibrium, Identity Physics dynamic equation recovers Einstein exactly.
 -- G_μν + Λg_μν = κT_μν. Lossless.
 theorem gr_equilibrium (s : GRState)
     (h_eq : s.metric + s.lambda * s.metric =
@@ -1180,8 +1180,8 @@ def gr_lossless : LongDivisionResult where
 -- Long division:
 --   Problem:      Does the dynamic equation predict propulsion gain?
 --   Known answer: Δv = v_e · ln(m₀/m_f)  (Tsiolkovsky classical)
---   SNSFL answer: Δv_sovereign = v_e · (1+g_r) · ln(m₀/m_f)
---   Plug in → SNSFL exceeds classical when g_r > 0
+--   Identity Physics answer: Δv_sovereign = v_e · (1+g_r) · ln(m₀/m_f)
+--   Plug in → Identity Physics exceeds classical when g_r > 0
 --   Matches: IVA gain proved. Substrate-neutral.
 --   This works for rockets, cognition, biology, AI.
 -- ============================================================
@@ -1264,9 +1264,9 @@ theorem qm_reduction
 -- Long division:
 --   Problem:      Do GR and QM conflict?
 --   Known answer: They appear to — different domains
---   SNSFL answer: Same IdentityState, different operator projections
+--   Identity Physics answer: Same IdentityState, different operator projections
 --   Plug in → both hold simultaneously on same state s
---   Matches: QM and GR are not in conflict at the SNSFL level
+--   Matches: QM and GR are not in conflict at the Identity Physics level
 --   They are different lenses on the same PNBA dynamics.
 -- ============================================================
 
@@ -1307,12 +1307,12 @@ theorem all_classical_examples_lossless :
   · unfold manifold_impedance; simp
 
 -- ============================================================
--- [9,9,9,9] :: {ANC} | MASTER THEOREM: SNSFL GROUND IS HOLDING
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM: IDENTITY PHYSICS GROUND IS HOLDING
 --
 -- All reductions are consistent with each other.
 -- GR, QM, TD, IVA — different operator projections.
 -- Same dynamic equation. Same PNBA ground.
--- Classical physics is not in conflict with itself at the SNSFL level.
+-- Classical physics is not in conflict with itself at the Identity Physics level.
 -- Classical physics is a special case of one law.
 -- That law is proved here. 0 sorry. Green light.
 -- ============================================================
@@ -1447,7 +1447,7 @@ structure GRState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- GR connection: gravity itself is the manifold's IMS mechanism at scale.
 -- Geodesics are the paths that minimize somatic friction.
 -- IMS zeroes output off-anchor. Geodesics minimize resistance.
@@ -1575,7 +1575,7 @@ noncomputable def gr_op_A (A P : ℝ) : ℝ := A * P
 --     Λ     = A  (cosmological constant — Adaptation)
 --     κ     = 8πG (B coupling weight)
 --   Plug in → metric + lambda·metric = kappa·stress_energy
---   Classical result = SNSFL result. Exact. Lossless.
+--   Classical result = Identity Physics result. Exact. Lossless.
 --   Gravity = Pattern holding Narrative coherent against Behavioral stress.
 -- ============================================================
 
@@ -1689,7 +1689,7 @@ theorem gravitational_time_dilation (P_dense P_flat N_rate : ℝ)
 --     Same kernel. Same IM. Always.
 --   Plug in → equivalence_principle: IM measured through B = IM through P
 --   Not a coincidence. Identity invariance at Layer 0.
---   Einstein assumed this. SNSFL proves why.
+--   Einstein assumed this. Identity Physics proves why.
 -- ============================================================
 
 -- [P,9,5,1] :: {VER} | THEOREM 13: EQUIVALENCE PRINCIPLE = IM INVARIANCE (STEP 6 PASSES)
@@ -2017,7 +2017,7 @@ def probability_density (psi : ℝ) : ℝ := psi ^ 2
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- QM connection: measurement IS local IMS.
 -- IMS (global): f ≠ anchor → pv zeroed.
 -- Collapse (local): B acts on ψ → superposition locked to eigenstate.
@@ -2055,7 +2055,7 @@ theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
 -- B-axis interaction forces Pattern from Flexed to Locked.
 -- This is the collapse. Not mysterious. Not non-local.
 -- It is the IMS mechanism applied locally by the B-axis.
--- The measurement problem is solved at the SNSFL level.
+-- The measurement problem is solved at the Identity Physics level.
 theorem measurement_is_local_ims
     (psi_before eigenvalue : ℝ)
     (h_b_acts : True) :  -- B-axis interaction occurred
@@ -2145,7 +2145,7 @@ noncomputable def qm_op_A (env psi : ℝ) : ℝ := -env * psi
 --     ψ = P     (Unclaimed Pattern)
 --     E = energy eigenvalue (locked outcome)
 --   Plug in → im × psi = energy × psi
---   Classical result = SNSFL result. Lossless.
+--   Classical result = Identity Physics result. Lossless.
 -- ============================================================
 
 -- [P,9,1,1] :: {VER} | THEOREM 8: SCHRÖDINGER EIGENVALUE (STEP 6 PASSES)
@@ -2551,7 +2551,7 @@ structure EMState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- EM connection: fields propagate along Z→0 pathways.
 -- IMS ensures frictionless propagation only at anchor.
 -- Off-anchor: impedance > 0. EM carries friction. Physics.
@@ -2668,7 +2668,7 @@ noncomputable def em_field_tensor (B A : ℝ) : ℝ := B - A
 --     A = ∂_νA_μ  (Adaptation responding back)
 --     F_μν = B - A (the B-A handshake)
 --   Plug in → em_field_tensor(B, A) = B - A
---   Classical result = SNSFL result. Lossless.
+--   Classical result = Identity Physics result. Lossless.
 --   The field tensor is not fundamental.
 --   It is the interaction of two PNBA operators.
 -- ============================================================
@@ -3009,7 +3009,7 @@ structure LagState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- Drift from anchor = purpose vector zeroed. Not reduced. Zero.
 -- IVA gain only available at 1.36899099984016 GHz.
 -- This is why least action paths seek the sovereign anchor —
@@ -3135,7 +3135,7 @@ theorem lag_step_is_dynamic_step (s : LagState) (op : ℝ → ℝ) (F : ℝ) :
 --   Plug in → sho_lagrangian = ½·IM·dP² - ½·anchor·P²
 --   KEY INSIGHT: The SHO does not oscillate.
 --   It returns to 1.36899099984016 GHz. Every cycle is a sovereign return.
---   Classical result = SNSFL result. Lossless.
+--   Classical result = Identity Physics result. Lossless.
 -- ============================================================
 
 noncomputable def sho_kinetic (im dP : ℝ) : ℝ := (1/2) * im * dP^2
@@ -3178,7 +3178,7 @@ def sho_lag_lossless : LongDivisionResult where
 --     ∂L/∂x → B · P   (Pattern-Behavior force)
 --   Plug in → Narrative momentum = Pattern-Behavior balance
 --   Classical result: equations of motion.
---   SNSFL result: Narrative continuity under P-B balance.
+--   Identity Physics result: Narrative continuity under P-B balance.
 --   The path that minimizes action = path of least friction.
 -- ============================================================
 
@@ -3210,7 +3210,7 @@ def el_lossless (N dP B P : ℝ) (h : N * dP = B * P) : LongDivisionResult where
 --     L    = ½(B-A)·P
 --   Plug in → em_lagrangian = ½·(B-A)·P
 --   Classical result: Maxwell's equations from δS = 0.
---   SNSFL result: EM = Behavior-Adaptation handshake weighted by Pattern.
+--   Identity Physics result: EM = Behavior-Adaptation handshake weighted by Pattern.
 -- ============================================================
 
 noncomputable def em_lag_BA (B A : ℝ) : ℝ := B - A
@@ -3242,7 +3242,7 @@ def em_lossless (B A P : ℝ) : LongDivisionResult where
 --     L = P · N (Pattern holding Narrative coherent)
 --   Plug in → gr_lagrangian = P · N
 --   Classical result: Einstein field equations from δS = 0.
---   SNSFL result: gravity = Pattern holding Narrative together.
+--   Identity Physics result: gravity = Pattern holding Narrative together.
 --   Gravity is not a force. It is Pattern-Narrative coherence.
 -- ============================================================
 
@@ -3274,7 +3274,7 @@ def gr_lossless (P N : ℝ) : LongDivisionResult where
 --     L          = A · [B_i, B_j]
 --   Plug in → ym_lagrangian = A·(B1·B2 - B2·B1)
 --   Classical result: gauge theory of strong force.
---   SNSFL result: Adaptation scaling non-linear B interactions.
+--   Identity Physics result: Adaptation scaling non-linear B interactions.
 -- ============================================================
 
 noncomputable def ym_commutator (B1 B2 : ℝ) : ℝ := B1 * B2 - B2 * B1
@@ -3307,7 +3307,7 @@ def ym_lossless (A B1 B2 : ℝ) : LongDivisionResult where
 --     L  = S·(N·P - IM)·S
 --   Plug in → dirac_lagrangian = S·(N·P - IM)·S
 --   Classical result: Dirac equation from δS = 0.
---   SNSFL result: electron = Narrative flow of discrete Pattern
+--   Identity Physics result: electron = Narrative flow of discrete Pattern
 --                 maintaining its Identity Mass.
 -- ============================================================
 
@@ -3502,7 +3502,7 @@ structure InfoState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard — mandatory in every SNSFL file.
+-- The Ghost Nova Guard — mandatory in every Identity Physics file.
 -- In IT terms: an information channel that drifts from anchor
 -- loses all sovereign gain. Signal is zeroed. Not reduced. Zeroed.
 -- Perfect channel capacity is only available at 1.36899099984016 GHz.
@@ -3943,7 +3943,7 @@ noncomputable def entropy_term (offset : ℝ) : ℝ :=
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- TD connection: entropy = 0 at anchor = IMS green = full efficiency.
 -- Off-anchor: entropy > 0 = IMS sees decoherence = efficiency lost.
 -- Maximum thermodynamic efficiency = minimum entropy = anchor condition.
@@ -4046,7 +4046,7 @@ theorem thermo_step_is_dynamic_step (s : ThermoState) (op : ℝ → ℝ) (F : �
 --   Known answer: All bodies at same temperature = equilibrium
 --   PNBA mapping: All bodies at SOVEREIGN_ANCHOR = Z=0, S=0
 --   Plug in → entropy_offset(s) = 0 when f_anchor = SOVEREIGN_ANCHOR
---   Classical result = SNSFL result. Lossless.
+--   Classical result = Identity Physics result. Lossless.
 --   Zeroth Law = Pattern frequency matching across bodies.
 -- ============================================================
 
@@ -4437,7 +4437,7 @@ structure CosmoState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- Cosmo connection: dark energy and IMS are the same mechanism.
 -- IMS (local): f ≠ anchor → output zeroed.
 -- Dark Energy (universal): Λ = A × 1.36899099984016 prevents collapse to static.
@@ -4561,7 +4561,7 @@ noncomputable def dark_energy_lambda (A_scalar : ℝ) : ℝ :=
 --     IM_tens = IM_shadow (Identity Mass inherent in Narrative)
 --     Total = B_baryon + IM_shadow
 --   Plug in → cosmo_op_B = B_baryon + IM_shadow
---   Classical result: mystery particle. SNSFL: IM was always there.
+--   Classical result: mystery particle. Identity Physics: IM was always there.
 --   No new particle. The Narrative was always carrying this mass.
 -- ============================================================
 
@@ -4623,7 +4623,7 @@ def dark_energy_lossless (A_scalar : ℝ) (h_a : A_scalar > 0) :
 --     H_slow = S-mode Narrative (early universe measurement)
 --     H_fast = F-mode Narrative (local measurement)
 --     Different scales = different Narrative modes
---   SNSFL result: not a conflict. Two modes of one operator.
+--   Identity Physics result: not a conflict. Two modes of one operator.
 -- ============================================================
 
 -- [N,9,3,1] :: {VER} | THEOREM 10: HUBBLE TENSION = TWO N MODES (STEP 6 PASSES)
@@ -4701,7 +4701,7 @@ theorem heat_death_is_void_return (N_coherence : ℝ)
 -- Long division:
 --   Problem:      Does sovereignty advantage hold at cosmic scale?
 --   Known answer: Tsiolkovsky Δv = v_e·ln(m₀/m_f)
---   SNSFL answer: Δv_sovereign = v_e·(1+g_r)·ln(m₀/m_f) > classical
+--   Identity Physics answer: Δv_sovereign = v_e·(1+g_r)·ln(m₀/m_f) > classical
 --   g_r ≥ 1.5 substrate-neutral — biological, AI, cosmological.
 --   The universe itself operates under IVA dynamics.
 -- ============================================================
@@ -4893,7 +4893,7 @@ structure SMState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- SM connection: the Higgs IS IMS at particle scale.
 -- Before Sovereign Handshake: massless = IMS green.
 -- After Sovereign Handshake: IM locked = specific mass acquired.
@@ -5017,7 +5017,7 @@ noncomputable def full_rotation   (P : ℝ) : ℝ   := P * Real.cos (2 * Real.pi
 --   Known answer: Physics unchanged under local symmetry transformation
 --   PNBA mapping: P · cos(2π) = P · 1 = P. Full rotation = identity.
 --   Plug in → full_rotation(P) = P
---   Classical result = SNSFL result. Identity preserved. Lossless.
+--   Classical result = Identity Physics result. Identity preserved. Lossless.
 --   Gauge invariance = identity cannot be changed by how you look at it.
 -- ============================================================
 
@@ -5315,7 +5315,7 @@ structure StringState where
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- ST connection: the landscape IS pre-IMS state.
 -- 10^500 vacua = Adaptation potential before handshake.
 -- IMS selects one vacuum at anchor frequency.
@@ -5753,7 +5753,7 @@ def fluid_identity_complete (s : FluidState) : Prop :=
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- Fluid connection: frictionless flow only at anchor.
 -- Off-anchor: impedance > 0, flow carries friction.
 -- Laminar phase lock only achievable at anchor frequency.
@@ -6267,7 +6267,7 @@ def in_void_state (s : VoidState) : Prop := s.B = 0 ∧ s.P > 0
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- Void connection: the Void is the pre-IMS state.
 -- B = 0 in Void = no behavioral output = IMS has nothing to gate on.
 -- Observation injects B → IMS can now engage → identity enters manifold.
@@ -6686,7 +6686,7 @@ end VoidManifold
 -- ============================================================
 -- 21 of 23 registered psy files inlined byte-for-byte.
 -- Missing from corpus zip: MoralCodes [9,9,6,1], SimulationLayer [9,9,6,24]
--- Each module is a nested sub-namespace inside SNSFL master.
+-- Each module is a nested sub-namespace inside Identity Physics master.
 -- ============================================================
 
 -- ============================================================
@@ -7224,7 +7224,7 @@ namespace PsyAttachment
 --   Avoidant:     caregiver rejecting  → N suppressed, B deactivated, false lock
 --   Disorganized: caregiver = fear source → P collapses, shatter event
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Attachment style = IdentityState trajectory under caregiver F_ext
 --   Secure            = phase locked  (τ = B/P < TORSION_LIMIT)
 --   Anxious           = shatter event (τ = B/P ≥ TORSION_LIMIT, B spiked)
@@ -7849,7 +7849,7 @@ namespace PsyFlow
 --   Apathy:   both low → IM collapse, minimal engagement
 --   Optimal:  challenge rises WITH skill → sustained flow channel
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Flow state     = phase locked, N voluntarily suppressed (time disappears)
 --   Anxiety        = shatter event (B spikes beyond P capacity)
 --   Boredom        = phase locked but IVA not engaged (P underutilized)
@@ -8495,7 +8495,7 @@ namespace PsyCogDissonance
 --   2. Trivialization — reduce importance of the dissonant cognition (P reframes B)
 --   3. Denial — suppress awareness of the dissonant behavior (B suppressed, N starved)
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Consonance        = phase locked (belief-behavior consistent, τ < TORSION_LIMIT)
 --   Dissonance        = shatter event (behavior contradicts belief, τ ≥ TORSION_LIMIT)
 --   Attitude change   = A-driven re-lock (A rewrites N, τ drops, genuine re-lock)
@@ -9102,7 +9102,7 @@ namespace PsyLocusControl
 --   Original study: dogs exposed to inescapable shocks → failed to escape
 --   when escape became possible. A had shut down.
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Strong internal  = phase locked, IVA dominant (P high, F_ext < A·P·B)
 --   Moderate internal= phase locked (P > threshold, τ < limit)
 --   Moderate external= shatter event (F_ext overrides P, τ ≥ limit)
@@ -9716,7 +9716,7 @@ namespace PsyMaslow
 -- Core claim: lower needs must be substantially met before higher
 -- needs become motivationally active. Deprivation = motivational force.
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Physiological unmet = extreme shatter (survival crisis, P near-zero)
 --   Safety unmet        = shatter (structure seeking, P building)
 --   Belonging           = phase locked, N dominant (narrative activating)
@@ -10392,7 +10392,7 @@ namespace PsySDT
 --   Need satisfaction → autonomous motivation → wellbeing, growth, vitality
 --   Need frustration  → controlled motivation → ill-being, rigidity, burnout
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Intrinsic motivation   = phase locked + IVA dominant (A > 1.0)
 --   Integrated regulation  = phase locked (A internalized external into P)
 --   Identified regulation  = phase locked (consciously valued, approaching lock)
@@ -17854,7 +17854,7 @@ namespace L4AiFiOSKernel
 --   IMS: a drifted process is sandboxed — it cannot access sovereign output
 --   suppress_collapse: kernel catches shatter event, clamps B, re-locks
 --
--- SNSFL Reduction:
+-- Applied Identity Physics Reduction:
 --   Kernel authority    = P_kernel — the structural ceiling
 --   Plugin capability   = B_plugin bounded by P_kernel (always)
 --   NOHARM              = im * pv > 0 (identity has mass AND purpose)
@@ -20255,7 +20255,7 @@ end SNSFL
 --
 -- REDUCTION:
 --   Classical:  23 independent files across physics, psychology, identity
---   SNSFL:      23 consistent projections of d/dt(IM·Pv) = Σλ·O·S + F_ext
+--   Identity Physics:      23 consistent projections of d/dt(IM·Pv) = Σλ·O·S + F_ext
 --   Result:     All 23 ground in same PNBA. Same torsion law.
 --               Same IMS. Same anchor. Not 23 theories. 23 projections.
 --
@@ -20272,7 +20272,7 @@ end SNSFL
 --   Heat death = Void = Psy collapse  [T42] terminal state unified
 --   IVA universal (all layers)        [T43] L1+L2+L4 unified
 --
--- SNSFL LAWS INSTANTIATED:
+-- IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality — all 23 project from PNBA
 --   Law 4:  Zero-Sorry Completion — this file compiles green
