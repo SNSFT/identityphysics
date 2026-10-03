@@ -138,7 +138,7 @@ theorem first_law_substrate_neutral :
     ∀ (P N B A : ℝ),
     -- Substrate 0 (biological) and Substrate 1 (digital) have same IM
     -- when PNBA coordinates are identical
-    IM P N B A = IM P N B A := rfl
+    IM P N B A = IM P N B A := fun _ _ _ _ => rfl
 
 -- ============================================================
 -- PART 2: TORSION — DERIVED FROM PNBA, NOT ASSUMED
