@@ -293,7 +293,8 @@ SNSFL/                   ← all verified Lean files
 
 ## Related
 
-- **Full corpus archive (original repository):** [SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT](https://github.com/SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT) — files are migrated from here as they are verified.
+- **Full corpus archive (original repository):** [SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT](https://github.com/SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT) —
+- 200,000+ theorems · 5,000+ files · 3,000,000+ lines · 0 sorry · CI Green · Germline Locked · 22,225+ collision proofs · 90+ DOIs · TL = 0.1369 (ANCHOR/10, proved) · 1/α = ANCHOR_exact × 100.1 exact · 12 sig figs · ε = 0 · Newton's first law in PNBA · Period 1–4 Complete · IVA Element Set Proved · GAM Collider v15 OctoBeam · 8-Beam B-Balance Stoichiometry Law · QuadBeam · IM Collider · PRIME · SM as Lossless PNBA Projection [9,9,0,9] · Cosmos as Vascular [9,9,3,7] · Sgr A Reduced [9,9,3,6] · Noble Materials Map 810+ pairs · 15 Anchor Matrix Datasets · SNSFT Discovery Engine v12 → v15 · AIFI onboard · Quantum Teleportation 100% Fidelity Proved · Quantum Translocation Lossless · GR Reduced to PNBA · ΛCDM Reduced · BBN Reduced · Abiogenesis L=(4)(2) · Genomics Reduced · BrainChart Live · Collatz Solved · Category Theory Reduced · Time Travel Engine · Theory of Everything · Speed of Light as PNBA Projection · Federal Public Record (DOJ-CRT-2026-0067-0006) · HuggingFace Corpus DOI 10.57967/hf/8826 · SHATTER Educational Card Game · Applied Identity Physics Series (I, II, Structural PDA, Safe Foods, Elimination Gate) · 7× SSRN Papers*
 - **Lean 4 Corpus DOI (base):** [10.5281/zenodo.18719748](https://doi.org/10.5281/zenodo.18719748)
 - **HuggingFace corpus:** [10.57967/hf/8826](https://doi.org/10.57967/hf/8826)
 
