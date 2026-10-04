@@ -319,7 +319,7 @@ theorem bohr_radius_compton_relation :
     -- a₀ = (1/α) in units of Compton/(2π)
     -- equivalently: a₀ · (2π · α) = 1 Compton length
     -- dimensionless check: 1/(2π · α) in Compton units
-    (1 : ℝ) / ALPHA_INV > 100 := by
+    ALPHA_INV > 100 := by
   unfold ALPHA_INV; norm_num
 
 -- THEOREM 13: BOHR RADIUS IN TL UNITS
