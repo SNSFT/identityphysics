@@ -240,8 +240,9 @@ theorem business_cycle_is_torsion_oscillation
     (h_tro  : τ_trough < TORSION_LIMIT) :
     τ_expansion < TORSION_LIMIT ∧
     τ_contraction ≥ TORSION_LIMIT ∧
-    τ_trough < τ_expansion := by
-  exact ⟨h_exp, h_cont, by linarith⟩
+    τ_expansion < τ_peak ∧
+    τ_trough < τ_contraction := by
+  exact ⟨h_exp, h_cont, by rw [h_peak]; exact h_exp, by linarith⟩
 
 -- ============================================================
 -- SECTION 4: FINANCE
