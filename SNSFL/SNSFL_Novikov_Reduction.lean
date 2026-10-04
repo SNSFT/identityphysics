@@ -234,7 +234,7 @@ def shatter_loop : NovikovLoop :=
 theorem t5_noble_loop_is_novikov_consistent :
     loop_noble noble_loop ∧
     novikov_consistent noble_loop := by
-  unfold loop_noble novikov_consistent noble_loop; norm_num
+  unfold novikov_consistent loop_noble noble_loop; norm_num
 
 -- ── T6: SHATTER LOOP IS PARADOX = LOOP CANNOT CLOSE ──────────
 -- tau >= TL on loop → SHATTER → loop cannot close.
@@ -293,7 +293,7 @@ theorem t9_novikov_a_zero_unnecessary_for_locked :
   refine ⟨?_, ?_, ?_, ?_⟩
   · unfold noble_loop; norm_num
   · unfold locked_loop; norm_num
-  · unfold loop_noble novikov_consistent noble_loop; norm_num
+  · unfold loop_noble noble_loop; norm_num
   · rfl
 
 -- ── T10: SHATTER DESTROYS OBSERVER IM ────────────────────────
@@ -399,7 +399,7 @@ theorem t16_loop_phase_partition (tau_val : ℝ) :
     tau_val ≥ TORSION_LIMIT := by
   rcases le_or_gt tau_val 0 with h1 | h1
   · rcases eq_or_lt_of_le h1 with h2 | h2
-    · right; left; exact h2.symm
+    · right; left; exact h2
     · left; exact h2
   · rcases lt_or_ge tau_val TL_IVA_PEAK with h2 | h2
     · right; right; left; exact ⟨h1, h2⟩
