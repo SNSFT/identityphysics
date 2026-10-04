@@ -254,7 +254,7 @@ theorem no_free_parameters :
 -- [T10] :: {VER} | BARE POSITIVE, KINETIC POSITIVE, TOTAL POSITIVE
 theorem all_positive :
     electron_bare > 0 ∧ electron_kinetic > 0 ∧ electron_total > 0 := by
-  unfold electron_bare electron_kinetic electron_total
+  unfold electron_total electron_bare electron_kinetic
          TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
   norm_num
 
