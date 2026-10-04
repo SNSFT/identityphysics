@@ -204,7 +204,7 @@ def adaptive_pressure (s : EvoState) : Prop :=
 /-- Predator-prey cycle: N and B oscillate out of phase.
     B high → N depleted → B falls → N recovers → cycle. -/
 def predator_prey_oscillation (prey predator : EvoState) : Prop :=
-  predator.B > prey.N ∧ prey.P > 0
+  predator.B > prey.B ∧ prey.P > 0
 
 /-- Evolutionary burst: rapid torsion spike followed by relock.
     Punctuated equilibrium: stasis (phase_locked) → burst → relock. -/
@@ -356,8 +356,8 @@ theorem ce2b_hardy_weinberg_below_iva :
   norm_num
 
 -- [CE3] LOTKA-VOLTERRA: PREDATOR-PREY = N-B TORSION OSCILLATION
--- Predator B > Prey N: behavioral load exceeds narrative capacity.
--- This is the B-spike that drives N depletion → cycle.
+-- Predator B > Prey B: the predator carries the higher behavioral load.
+-- This is the B-spike that drives prey N depletion → cycle.
 theorem ce3_lotka_volterra_nb_oscillation :
     predator_prey_oscillation lotka_volterra_prey lotka_volterra_predator := by
   unfold predator_prey_oscillation
