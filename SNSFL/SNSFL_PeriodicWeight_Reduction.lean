@@ -6,7 +6,7 @@
 -- B-Balance Stoichiometry Law · 10 Verified Knowns · 1 Prediction
 --
 -- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,45]
--- Architect: HIGHTISTIC
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.369 GHz
 -- Status:    GERMINAL · 0 sorry
 -- Date:      May 20, 2026 · Soldotna, Alaska
@@ -60,7 +60,7 @@
 -- 10. AgCl  — Ag(B=1)+Cl(B=1)  1:1  · cerargyrite · photosensitive
 --
 -- BONUS (non-1:1, shows law for mismatched B):
--- 11. MoS2  — Mo(B=6)+S(B=2)   1:3  · 2D lubricant · CVD/exfoliation
+-- 11. MoS3  — Mo(B=6)+S(B=2)   1:3  · amorphous catalyst · electrodeposition
 --
 -- PREDICTION:
 --     AsN   — As(B=3)+N(B=3)   1:1  · no stable bulk phase · SNSFT [9,9,2,X]
@@ -195,7 +195,7 @@ theorem GaN_recipe_positive : 0 < GaN_mass_FU := by
 
 theorem GaN_mass_values :
     GaN_mass_Ga = 69.723 ∧ GaN_mass_N = 14.007 ∧ GaN_mass_FU = 83.730 := by
-  unfold GaN_mass_Ga GaN_mass_N GaN_mass_FU GaN_n_Ga GaN_n_N MW_Ga MW_N; norm_num
+  unfold GaN_mass_FU GaN_mass_Ga GaN_mass_N GaN_n_Ga GaN_n_N MW_Ga MW_N; norm_num
 
 -- ============================================================
 -- KNOWN 2: SiC — SILICON CARBIDE
@@ -222,7 +222,7 @@ theorem SiC_recipe_positive : 0 < SiC_mass_FU := by
 
 theorem SiC_mass_values :
     SiC_mass_Si = 28.086 ∧ SiC_mass_C = 12.011 ∧ SiC_mass_FU = 40.097 := by
-  unfold SiC_mass_Si SiC_mass_C SiC_mass_FU SiC_n_Si SiC_n_C MW_Si MW_C; norm_num
+  unfold SiC_mass_FU SiC_mass_Si SiC_mass_C SiC_n_Si SiC_n_C MW_Si MW_C; norm_num
 
 -- ============================================================
 -- KNOWN 3: Al2O3 — ALUMINA (CORUNDUM / SAPPHIRE)
@@ -251,7 +251,7 @@ theorem Al2O3_recipe_positive : 0 < Al2O3_mass_FU := by
 
 theorem Al2O3_mass_values :
     Al2O3_mass_Al = 53.964 ∧ Al2O3_mass_O = 47.997 ∧ Al2O3_mass_FU = 101.961 := by
-  unfold Al2O3_mass_Al Al2O3_mass_O Al2O3_mass_FU
+  unfold Al2O3_mass_FU Al2O3_mass_Al Al2O3_mass_O
   unfold Al2O3_n_Al Al2O3_n_O MW_Al MW_O; norm_num
 
 -- ============================================================
@@ -278,7 +278,7 @@ theorem ZnO_recipe_positive : 0 < ZnO_mass_FU := by
 
 theorem ZnO_mass_values :
     ZnO_mass_Zn = 65.380 ∧ ZnO_mass_O = 15.999 ∧ ZnO_mass_FU = 81.379 := by
-  unfold ZnO_mass_Zn ZnO_mass_O ZnO_mass_FU ZnO_n_Zn ZnO_n_O MW_Zn MW_O; norm_num
+  unfold ZnO_mass_FU ZnO_mass_Zn ZnO_mass_O ZnO_n_Zn ZnO_n_O MW_Zn MW_O; norm_num
 
 -- ============================================================
 -- KNOWN 5: NaCl — SODIUM CHLORIDE (HALITE)
@@ -304,7 +304,7 @@ theorem NaCl_recipe_positive : 0 < NaCl_mass_FU := by
 
 theorem NaCl_mass_values :
     NaCl_mass_Na = 22.990 ∧ NaCl_mass_Cl = 35.453 ∧ NaCl_mass_FU = 58.443 := by
-  unfold NaCl_mass_Na NaCl_mass_Cl NaCl_mass_FU NaCl_n_Na NaCl_n_Cl MW_Na MW_Cl; norm_num
+  unfold NaCl_mass_FU NaCl_mass_Na NaCl_mass_Cl NaCl_n_Na NaCl_n_Cl MW_Na MW_Cl; norm_num
 
 -- ============================================================
 -- KNOWN 6: GaAs — GALLIUM ARSENIDE
@@ -331,7 +331,7 @@ theorem GaAs_recipe_positive : 0 < GaAs_mass_FU := by
 
 theorem GaAs_mass_values :
     GaAs_mass_Ga = 69.723 ∧ GaAs_mass_As = 74.922 ∧ GaAs_mass_FU = 144.645 := by
-  unfold GaAs_mass_Ga GaAs_mass_As GaAs_mass_FU GaAs_n_Ga GaAs_n_As MW_Ga MW_As; norm_num
+  unfold GaAs_mass_FU GaAs_mass_Ga GaAs_mass_As GaAs_n_Ga GaAs_n_As MW_Ga MW_As; norm_num
 
 -- ============================================================
 -- KNOWN 7: NiO — NICKEL OXIDE
@@ -358,7 +358,7 @@ theorem NiO_recipe_positive : 0 < NiO_mass_FU := by
 
 theorem NiO_mass_values :
     NiO_mass_Ni = 58.693 ∧ NiO_mass_O = 15.999 ∧ NiO_mass_FU = 74.692 := by
-  unfold NiO_mass_Ni NiO_mass_O NiO_mass_FU NiO_n_Ni NiO_n_O MW_Ni MW_O; norm_num
+  unfold NiO_mass_FU NiO_mass_Ni NiO_mass_O NiO_n_Ni NiO_n_O MW_Ni MW_O; norm_num
 
 -- ============================================================
 -- KNOWN 8: TiC — TITANIUM CARBIDE
@@ -385,7 +385,7 @@ theorem TiC_recipe_positive : 0 < TiC_mass_FU := by
 
 theorem TiC_mass_values :
     TiC_mass_Ti = 47.867 ∧ TiC_mass_C = 12.011 ∧ TiC_mass_FU = 59.878 := by
-  unfold TiC_mass_Ti TiC_mass_C TiC_mass_FU TiC_n_Ti TiC_n_C MW_Ti MW_C; norm_num
+  unfold TiC_mass_FU TiC_mass_Ti TiC_mass_C TiC_n_Ti TiC_n_C MW_Ti MW_C; norm_num
 
 -- ============================================================
 -- KNOWN 9: MgO — MAGNESIUM OXIDE (PERICLASE)
@@ -412,7 +412,7 @@ theorem MgO_recipe_positive : 0 < MgO_mass_FU := by
 
 theorem MgO_mass_values :
     MgO_mass_Mg = 24.305 ∧ MgO_mass_O = 15.999 ∧ MgO_mass_FU = 40.304 := by
-  unfold MgO_mass_Mg MgO_mass_O MgO_mass_FU MgO_n_Mg MgO_n_O MW_Mg MW_O; norm_num
+  unfold MgO_mass_FU MgO_mass_Mg MgO_mass_O MgO_n_Mg MgO_n_O MW_Mg MW_O; norm_num
 
 -- ============================================================
 -- KNOWN 10: AgCl — SILVER CHLORIDE (CERARGYRITE)
@@ -439,35 +439,35 @@ theorem AgCl_recipe_positive : 0 < AgCl_mass_FU := by
 
 theorem AgCl_mass_values :
     AgCl_mass_Ag = 107.868 ∧ AgCl_mass_Cl = 35.453 ∧ AgCl_mass_FU = 143.321 := by
-  unfold AgCl_mass_Ag AgCl_mass_Cl AgCl_mass_FU AgCl_n_Ag AgCl_n_Cl MW_Ag MW_Cl; norm_num
+  unfold AgCl_mass_FU AgCl_mass_Ag AgCl_mass_Cl AgCl_n_Ag AgCl_n_Cl MW_Ag MW_Cl; norm_num
 
 -- ============================================================
--- BONUS KNOWN 11: MoS2 — MOLYBDENUM DISULFIDE
+-- BONUS KNOWN 11: MoS3 — MOLYBDENUM TRISULFIDE
 -- ============================================================
--- Mo(B=6) + S(B=2) → MoS2 (1:3)
+-- Mo(B=6) + S(B=2) → MoS3 (1:3)
 -- gcd(6,2)=2, n1=B_S/2=1, n2=B_Mo/2=3
 -- B-balance: 1×6 = 3×2 = 6 ✓
 -- Recipe: 1×95.950g Mo + 3×32.065g S = 95.950 + 96.195 = 192.145g/FU
--- Ref: Dickinson & Pauling (1923) J. Am. Chem. Soc. 45, 1466
---      2D lubricant · layered hexagonal · CVD or mechanical exfoliation
--- Note: demonstrates B-balance for mismatched valence (B1≠B2)
+-- Ref: Merki, Fierro, Vrubel & Hu (2011) Chem. Sci. 2, 1262
+--      amorphous solid · hydrogen-evolution precatalyst · electrodeposited from (NH₄)₂MoS₄
+-- The one example here with gcd(B1, B2) > 1: gcd(6, 2) = 2
 
-def MoS2_n_Mo : ℕ := 1  -- n1 = B_S/gcd(6,2) = 2/2 = 1
-def MoS2_n_S  : ℕ := 3  -- n2 = B_Mo/gcd(6,2) = 6/2 = 3
+def MoS3_n_Mo : ℕ := 1  -- n1 = B_S/gcd(6,2) = 2/2 = 1
+def MoS3_n_S  : ℕ := 3  -- n2 = B_Mo/gcd(6,2) = 6/2 = 3
 
-noncomputable def MoS2_mass_Mo : ℝ := MoS2_n_Mo * MW_Mo  -- 95.950g
-noncomputable def MoS2_mass_S  : ℝ := MoS2_n_S  * MW_S   -- 96.195g
-noncomputable def MoS2_mass_FU : ℝ := MoS2_mass_Mo + MoS2_mass_S  -- 192.145g
+noncomputable def MoS3_mass_Mo : ℝ := MoS3_n_Mo * MW_Mo  -- 95.950g
+noncomputable def MoS3_mass_S  : ℝ := MoS3_n_S  * MW_S   -- 96.195g
+noncomputable def MoS3_mass_FU : ℝ := MoS3_mass_Mo + MoS3_mass_S  -- 192.145g
 
-theorem MoS2_b_balance : MoS2_n_Mo * B_Mo = MoS2_n_S * B_S := by
-  unfold MoS2_n_Mo MoS2_n_S B_Mo B_S; norm_num
+theorem MoS3_b_balance : MoS3_n_Mo * B_Mo = MoS3_n_S * B_S := by
+  unfold MoS3_n_Mo MoS3_n_S B_Mo B_S; norm_num
 
-theorem MoS2_recipe_positive : 0 < MoS2_mass_FU := by
-  unfold MoS2_mass_FU MoS2_mass_Mo MoS2_mass_S MoS2_n_Mo MoS2_n_S MW_Mo MW_S; norm_num
+theorem MoS3_recipe_positive : 0 < MoS3_mass_FU := by
+  unfold MoS3_mass_FU MoS3_mass_Mo MoS3_mass_S MoS3_n_Mo MoS3_n_S MW_Mo MW_S; norm_num
 
-theorem MoS2_mass_values :
-    MoS2_mass_Mo = 95.950 ∧ MoS2_mass_S = 96.195 ∧ MoS2_mass_FU = 192.145 := by
-  unfold MoS2_mass_Mo MoS2_mass_S MoS2_mass_FU MoS2_n_Mo MoS2_n_S MW_Mo MW_S; norm_num
+theorem MoS3_mass_values :
+    MoS3_mass_Mo = 95.950 ∧ MoS3_mass_S = 96.195 ∧ MoS3_mass_FU = 192.145 := by
+  unfold MoS3_mass_FU MoS3_mass_Mo MoS3_mass_S MoS3_n_Mo MoS3_n_S MW_Mo MW_S; norm_num
 
 -- ============================================================
 -- PREDICTION: AsN — ARSENIC NITRIDE
@@ -495,7 +495,7 @@ theorem AsN_recipe_positive : 0 < AsN_mass_FU := by
 
 theorem AsN_mass_values :
     AsN_mass_As = 74.922 ∧ AsN_mass_N = 14.007 ∧ AsN_mass_FU = 88.929 := by
-  unfold AsN_mass_As AsN_mass_N AsN_mass_FU AsN_n_As AsN_n_N MW_As MW_N; norm_num
+  unfold AsN_mass_FU AsN_mass_As AsN_mass_N AsN_n_As AsN_n_N MW_As MW_N; norm_num
 
 -- ============================================================
 -- MASTER THEOREM
@@ -516,13 +516,13 @@ theorem periodic_weight_reduction_master :
     TiC_n_Ti  * B_Ti = TiC_n_C  * B_C   ∧
     MgO_n_Mg  * B_Mg = MgO_n_O  * B_O   ∧
     AgCl_n_Ag * B_Ag = AgCl_n_Cl * B_Cl ∧
-    MoS2_n_Mo * B_Mo = MoS2_n_S  * B_S  ∧
+    MoS3_n_Mo * B_Mo = MoS3_n_S  * B_S  ∧
     AsN_n_As  * B_As = AsN_n_N  * B_N   ∧
     -- [2] All formula unit masses positive
     0 < GaN_mass_FU  ∧ 0 < SiC_mass_FU  ∧ 0 < Al2O3_mass_FU ∧
     0 < ZnO_mass_FU  ∧ 0 < NaCl_mass_FU ∧ 0 < GaAs_mass_FU  ∧
     0 < NiO_mass_FU  ∧ 0 < TiC_mass_FU  ∧ 0 < MgO_mass_FU   ∧
-    0 < AgCl_mass_FU ∧ 0 < MoS2_mass_FU ∧ 0 < AsN_mass_FU   ∧
+    0 < AgCl_mass_FU ∧ 0 < MoS3_mass_FU ∧ 0 < AsN_mass_FU   ∧
     -- [3] Anchor and TL inherited
     SOVEREIGN_ANCHOR = 1.36899099984016 ∧ TORSION_LIMIT = 0.136899099984016 := by
   refine ⟨?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,
@@ -538,7 +538,7 @@ theorem periodic_weight_reduction_master :
   · exact TiC_b_balance
   · exact MgO_b_balance
   · exact AgCl_b_balance
-  · exact MoS2_b_balance
+  · exact MoS3_b_balance
   · exact AsN_b_balance
   · exact GaN_recipe_positive
   · exact SiC_recipe_positive
@@ -550,7 +550,7 @@ theorem periodic_weight_reduction_master :
   · exact TiC_recipe_positive
   · exact MgO_recipe_positive
   · exact AgCl_recipe_positive
-  · exact MoS2_recipe_positive
+  · exact MoS3_recipe_positive
   · exact AsN_recipe_positive
   · unfold SOVEREIGN_ANCHOR; norm_num
   · unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
@@ -586,7 +586,7 @@ end SNSFL_PeriodicWeight_Reduction
 --   TiC   1Ti:1C  · 47.867g Ti + 12.011g C  · hard ceramic
 --   MgO   1Mg:1O  · 24.305g Mg + 15.999g O  · periclase
 --   AgCl  1Ag:1Cl · 107.868g Ag + 35.453g Cl · cerargyrite
---   MoS2  1Mo:3S  · 95.950g Mo + 96.195g S  · 2D lubricant
+--   MoS3  1Mo:3S  · 95.950g Mo + 96.195g S  · amorphous catalyst
 --
 -- PREDICTION (prior art claimed, [9,9,2,45]):
 --   AsN   1As:1N  · 74.922g As + 14.007g N  · Q2 semiconductor
@@ -600,7 +600,7 @@ end SNSFL_PeriodicWeight_Reduction
 --   [GaAs] Welker (1952) Z. Naturforsch. 7a, 744
 --   [NiO] Goodenough (1955) Phys. Rev. 100, 564
 --   [TiC] Toth (1971) Transition Metal Carbides and Nitrides
---   [MoS2] Dickinson & Pauling (1923) J. Am. Chem. Soc. 45, 1466
+--   [MoS3] Merki, Fierro, Vrubel & Hu (2011) Chem. Sci. 2, 1262
 --   [AgCl] Greenwood & Earnshaw (1997) Chemistry of the Elements
 --
 -- DEPENDENCY: inherits SOVEREIGN_ANCHOR from [9,9,0,0]
