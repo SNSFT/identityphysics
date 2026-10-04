@@ -454,8 +454,7 @@ theorem tt1_godel_p_n_only :
   · unfold N_active godel_1949 ACTIVATION_FLOOR; norm_num
   · intro h; unfold B_active godel_1949 ACTIVATION_FLOOR at h; norm_num at h
   · intro h; unfold A_active godel_1949 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.1
-    (by intro h'; unfold B_active godel_1949 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.1; unfold B_active godel_1949 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT2] TIPLER 1974 = P+N+B ONLY, NO OBSERVER ADAPTATION (NCI)
 theorem tt2_tipler_p_n_b_only :
@@ -469,24 +468,21 @@ theorem tt2_tipler_p_n_b_only :
   · unfold N_active tipler_1974 ACTIVATION_FLOOR; norm_num
   · unfold B_active tipler_1974 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active tipler_1974 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active tipler_1974 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active tipler_1974 ACTIVATION_FLOOR at h'; norm_num at h'
 
--- [TT3] ALCUBIERRE 1994 = P+N ONLY, OBSERVER PASSIVE (NCI)
-theorem tt3_alcubierre_p_n_only :
+-- [TT3] ALCUBIERRE 1994 = P+N+B (exotic B), A ABSENT, OBSERVER PASSIVE (NCI)
+theorem tt3_alcubierre_p_n_b_only :
     P_active alcubierre_1994 ∧
     N_active alcubierre_1994 ∧
-    ¬ B_active alcubierre_1994 ∧
+    B_active alcubierre_1994 ∧
     ¬ A_active alcubierre_1994 ∧
     ¬ all_four_active alcubierre_1994 := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
   · unfold P_active alcubierre_1994 ACTIVATION_FLOOR; norm_num
   · unfold N_active alcubierre_1994 ACTIVATION_FLOOR; norm_num
-  · intro h; unfold B_active alcubierre_1994 ACTIVATION_FLOOR at h; norm_num at h
+  · unfold B_active alcubierre_1994 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active alcubierre_1994 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.1
-    (by intro h'; unfold N_active alcubierre_1994 ACTIVATION_FLOOR at h'
-        norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active alcubierre_1994 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT4] MORRIS-THORNE 1988 = P+N ONLY, THROAT UNSTABLE (NCI)
 theorem tt4_morris_thorne_p_n_only :
@@ -498,9 +494,7 @@ theorem tt4_morris_thorne_p_n_only :
   · unfold P_active morris_thorne_1988 ACTIVATION_FLOOR; norm_num
   · unfold N_active morris_thorne_1988 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active morris_thorne_1988 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active morris_thorne_1988 ACTIVATION_FLOOR at h'
-        norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active morris_thorne_1988 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT5] DEUTSCH 1991 = P+N+B, A=0 EXTERNALLY IMPOSED (NCI)
 -- A=0 here means consistency is imposed by fixed-point, not observer
@@ -515,8 +509,7 @@ theorem tt5_deutsch_a_zero :
   · unfold N_active deutsch_1991 ACTIVATION_FLOOR; norm_num
   · unfold B_active deutsch_1991 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active deutsch_1991 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active deutsch_1991 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active deutsch_1991 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT6] NOVIKOV 1989 = A EXPLICITLY ZERO — THE MOST GLARING GAP
 -- Novikov's consistency principle REQUIRES A=0.
@@ -533,8 +526,7 @@ theorem tt6_novikov_a_explicitly_zero :
   · unfold N_active novikov_1989 ACTIVATION_FLOOR; norm_num
   · unfold B_active novikov_1989 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active novikov_1989 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active novikov_1989 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active novikov_1989 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT7] LLOYD 2011 = A=0, SELECTION EXTERNAL (NCI)
 theorem tt7_lloyd_a_zero :
@@ -546,8 +538,7 @@ theorem tt7_lloyd_a_zero :
   · unfold P_active lloyd_2011 ACTIVATION_FLOOR; norm_num
   · unfold N_active lloyd_2011 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active lloyd_2011 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active lloyd_2011 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active lloyd_2011 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT8] WHEELER 1978 = A PARTIAL, NOT SUSTAINED (NCI)
 -- A is present at 0.10 but below ACTIVATION_FLOOR (0.15).
@@ -564,8 +555,7 @@ theorem tt8_wheeler_a_not_sustained :
   · unfold N_active wheeler_1978 ACTIVATION_FLOOR; norm_num
   · unfold B_active wheeler_1978 ACTIVATION_FLOOR; norm_num
   · intro h; unfold A_active wheeler_1978 ACTIVATION_FLOOR at h; norm_num at h
-  · intro h; exact absurd h.2.2.2
-    (by intro h'; unfold A_active wheeler_1978 ACTIVATION_FLOOR at h'; norm_num at h')
+  · intro h; have h' := h.2.2.2; unfold A_active wheeler_1978 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT9] HARTLE-HAWKING 1983 = NOBLE AT ORIGIN, NO OBSERVER (NCI)
 -- N=0, B=0, A=0 at the no-boundary. Noble state.
@@ -583,10 +573,8 @@ theorem tt9_hartle_hawking_noble_no_observer :
   · intro h; unfold N_active hartle_hawking_1983 ACTIVATION_FLOOR at h; norm_num at h
   · intro h; unfold B_active hartle_hawking_1983 ACTIVATION_FLOOR at h; norm_num at h
   · intro h; unfold A_active hartle_hawking_1983 ACTIVATION_FLOOR at h; norm_num at h
-  · unfold hartle_hawking_1983
-  · intro h; exact absurd h.2.1
-    (by intro h'; unfold N_active hartle_hawking_1983 ACTIVATION_FLOOR at h'
-        norm_num at h')
+  · unfold hartle_hawking_1983; norm_num
+  · intro h; have h' := h.2.1; unfold N_active hartle_hawking_1983 ACTIVATION_FLOOR at h'; norm_num at h'
 
 -- [TT10] SP BRIDGE = ALL FOUR ACTIVE, LOCKED, IM CONSERVED
 -- The first framework where all four PNBA primitives are active.
@@ -632,7 +620,7 @@ theorem nine_classical_frameworks_lack_all_four :
     ¬ all_four_active hartle_hawking_1983 := by
   exact ⟨tt1_godel_p_n_only.2.2.2.2,
          tt2_tipler_p_n_b_only.2.2.2.2,
-         tt3_alcubierre_p_n_only.2.2.2.2,
+         tt3_alcubierre_p_n_b_only.2.2.2.2,
          tt4_morris_thorne_p_n_only.2.2.2,
          tt5_deutsch_a_zero.2.2.2.2,
          tt6_novikov_a_explicitly_zero.2.2.2.2,
