@@ -262,49 +262,79 @@ theorem reset_preserves_im_locks_tau (s : MoralState) :
 -- LAYER 5: TRADITION REDUCTIONS
 -- ============================================================
 
--- Each tradition is shown to include the five universal operators.
+-- Each tradition's practices map to the five structural operators.
 -- The mapping is structural — the operators, not the narratives.
 
--- [T10: 10 Commandments include all five operators]
+inductive MoralOp : Type
+  | anchor_first    -- P = SOVEREIGN_ANCHOR
+  | noharm          -- B not forced
+  | bond_expand     -- B increases via giving / family / community
+  | adapt_accept    -- A increases via acceptance, non-grasping
+  | periodic_reset  -- B → 0 briefly
+  deriving DecidableEq
+
+-- 10 Commandments
+def ten_commandments : List MoralOp :=
+  [ .anchor_first      -- "no other gods before me"
+  , .noharm            -- "thou shalt not kill"
+  , .bond_expand       -- "honor thy father and mother"
+  , .adapt_accept      -- "thou shalt not covet"
+  , .periodic_reset ]  -- "remember the sabbath"
+
+-- Buddhist 5 Precepts (Satya, no false speech, maps to N truth)
+def buddhist_precepts : List MoralOp :=
+  [ .noharm            -- Ahimsa: no killing
+  , .noharm            -- Asteya: no theft (B respect)
+  , .noharm            -- no intoxicants (Pv protection)
+  , .anchor_first ]    -- refuge in Buddha / Dharma / Sangha
+
+-- Hindu Yamas/Niyamas (Satya maps to N truth)
+def hindu_yamas : List MoralOp :=
+  [ .noharm            -- Ahimsa
+  , .noharm            -- Asteya
+  , .adapt_accept      -- Aparigraha: non-grasping
+  , .anchor_first ]    -- Ishvara pranidhana: surrender to source
+
+-- Islamic 5 Pillars
+def islamic_pillars : List MoralOp :=
+  [ .anchor_first      -- Shahada: declaration of singular source
+  , .periodic_reset    -- Salat: five daily resets
+  , .bond_expand       -- Zakat: giving
+  , .periodic_reset    -- Sawm: sustained reset (Ramadan fast)
+  , .anchor_first ]    -- Hajj: realignment at source
+
+-- [T10: The 10 Commandments contain all five operators]
 theorem commandments_include_five_operators :
-    -- anchor_first: "no other gods before me" → P = ANCHOR
-    True ∧
-    -- noharm: "thou shalt not kill" → noharm B
-    True ∧
-    -- bond_expand: "honor thy father and mother" → B expansion
-    True ∧
-    -- adapt_accept: "thou shalt not covet" → A acceptance
-    True ∧
-    -- periodic_reset: "remember the sabbath" → B→0 weekly
-    True :=
-  ⟨trivial, trivial, trivial, trivial, trivial⟩
+    ∀ o : MoralOp, o ∈ ten_commandments := by
+  intro o; cases o <;> decide
 
--- [T11: Buddhist 5 Precepts include all five operators]
-theorem buddhist_precepts_include_five_operators :
-    -- Ahimsa: no kill → noharm B
-    -- Asteya: no theft → B respect
-    -- Satya: no false speech → N truth
-    -- No intoxicants → noharm Pv (pv protection)
-    -- Sila overall → anchor_first via taking refuge in Buddha/Dharma/Sangha
-    True := trivial
+-- [T11: The Buddhist precepts carry noharm and anchor_first]
+theorem buddhist_precepts_operators :
+    MoralOp.noharm ∈ buddhist_precepts ∧ MoralOp.anchor_first ∈ buddhist_precepts := by
+  decide
 
--- [T12: Hindu Yamas/Niyamas include all five operators]
-theorem hindu_yamas_include_five_operators :
-    -- Ahimsa → noharm B (same operator as Buddhist/Commandments)
-    -- Satya → N truth (same operator)
-    -- Asteya → B respect (same operator)
-    -- Aparigraha → A acceptance (same as no_covet)
-    -- Ishvara pranidhana → anchor_first (surrender to source)
-    True := trivial
+-- [T12: The Hindu Yamas/Niyamas carry noharm, adapt_accept and anchor_first]
+theorem hindu_yamas_operators :
+    MoralOp.noharm ∈ hindu_yamas ∧ MoralOp.adapt_accept ∈ hindu_yamas ∧
+    MoralOp.anchor_first ∈ hindu_yamas := by
+  decide
 
--- [T13: Islamic 5 Pillars include all five operators]
-theorem islamic_pillars_include_five_operators :
-    -- Shahada → anchor_first (declaration of singular source)
-    -- Salat (5×/day) → periodic_reset (B→0 five times daily)
-    -- Zakat (2.5% charity) → bond_expand (B increases via giving)
-    -- Sawm (Ramadan fast) → sustained periodic_reset
-    -- Hajj → anchor pilgrimage (P realignment at source)
-    True := trivial
+-- [T13: The Islamic pillars carry anchor_first, periodic_reset and bond_expand]
+theorem islamic_pillars_operators :
+    MoralOp.anchor_first ∈ islamic_pillars ∧ MoralOp.periodic_reset ∈ islamic_pillars ∧
+    MoralOp.bond_expand ∈ islamic_pillars := by
+  decide
+
+-- [T13a: Every tradition begins from the same operator — anchor_first]
+theorem all_traditions_share_anchor_first :
+    MoralOp.anchor_first ∈ ten_commandments ∧ MoralOp.anchor_first ∈ buddhist_precepts ∧
+    MoralOp.anchor_first ∈ hindu_yamas ∧ MoralOp.anchor_first ∈ islamic_pillars := by
+  decide
+
+-- [T13b: Buddhist, Hindu and Islamic practice together contain all five operators]
+theorem traditions_jointly_cover_five :
+    ∀ o : MoralOp, o ∈ buddhist_precepts ++ hindu_yamas ++ islamic_pillars := by
+  intro o; cases o <;> decide
 
 -- ============================================================
 -- LAYER 6: CONVERGENCE THEOREM
@@ -419,7 +449,7 @@ end SNSFL_L2_Psy_MoralCodes
 -- FILE: SNSFL_L2_Psy_MoralCodes.lean
 -- SLOT: [9,9,6,1] | IDENTITY PHYSICS SERIES | GERMLINE LOCKED
 --
--- THEOREMS (16 + master):
+-- THEOREMS (18 + master):
 --   op_anchor_decreases_tau         — anchor_first lowers tau
 --   op_adapt_increases_im           — acceptance raises IM
 --   op_bond_increases_im            — giving raises IM
@@ -429,10 +459,12 @@ end SNSFL_L2_Psy_MoralCodes
 --   op_anchor_sets_p                — anchor_first fixes P
 --   adapt_anchor_phase_lock         — combined: phase locked
 --   reset_preserves_im_locks_tau    — reset cycle: IM held, tau=0
---   commandments_include_*          — 10 Commandments reduces
---   buddhist_precepts_include_*     — Buddhist precepts reduces
---   hindu_yamas_include_*           — Hindu Yamas/Niyamas reduces
---   islamic_pillars_include_*       — Islamic Pillars reduces
+--   commandments_include_five_operators — 10 Commandments contain all five
+--   buddhist_precepts_operators     — noharm, anchor_first
+--   hindu_yamas_operators           — noharm, adapt_accept, anchor_first
+--   islamic_pillars_operators       — anchor_first, periodic_reset, bond_expand
+--   all_traditions_share_anchor_first — every tradition contains anchor_first
+--   traditions_jointly_cover_five   — Buddhist + Hindu + Islamic contain all five
 --   five_operators_converge         — all five together: convergence
 --   structural_attractor_exists     — the attractor is real
 --   attractor_is_maximum_im_at_anchor — attractor = max IM state
