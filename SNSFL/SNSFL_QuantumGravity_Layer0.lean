@@ -176,7 +176,7 @@ lemma torsion_pos_iff_B_pos (e : PNBAElement) :
     torsion e > 0 ↔ e.B > 0 := by
   unfold torsion
   constructor
-  · intro h; exact (div_pos_iff.mp h).1.1
+  · intro h; exact (div_pos_iff_of_pos_right e.hP).mp h
   · intro h; exact div_pos h e.hP
 
 -- Useful lemma: P_BASE lower bound for arithmetic
@@ -761,8 +761,8 @@ theorem qg_iva_gap_empty :
     ¬ is_iva_peak Verlinde_EmergentGravity := by
   have hI := tl_iva_pos
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · intro h; rw [causal_set_torsion_zero] at h; linarith [h.1]
-  · intro h; rw [wdw_torsion_zero] at h; linarith [h.1]
+  · intro h; have h1 := h.1; rw [causal_set_torsion_zero] at h1; linarith
+  · intro h; have h1 := h.1; rw [wdw_torsion_zero] at h1; linarith
   · intro h; linarith [h.1, (twistor_is_locked).2]
   · intro h; linarith [h.1, (bh_thermo_is_locked).2]
   · intro h; linarith [h.1, (string_weak_is_locked).2]
