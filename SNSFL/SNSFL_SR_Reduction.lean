@@ -110,8 +110,8 @@ theorem lorentz_factor_ge_one (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) :
     have : v^2/c^2 ≥ 0 := div_nonneg (sq_nonneg v) (pow_pos hc 2).le
     linarith
   have h3 : Real.sqrt (1 - v^2/c^2) ≤ 1 := by
-    rw [← Real.sqrt_one]
-    exact Real.sqrt_le_sqrt h2
+    have := Real.sqrt_le_sqrt h2
+    rwa [Real.sqrt_one] at this
   have h4 : Real.sqrt (1 - v^2/c^2) > 0 := Real.sqrt_pos.mpr h1
   rw [ge_iff_le, le_div_iff₀ h4]
   linarith
