@@ -37,8 +37,8 @@
 --   LOCKED (0 < τ < TL, V_rest < V < V_thresh):
 --     Subthreshold: neuron integrates without firing
 --     EPSP/IPSP (graded potentials) — LOCKED responses
---     h gates (Na inactivation) slowly close — LOCKED dynamics
---     n gates (K activation) slowly open — LOCKED dynamics
+--     Slow gate kinetics (h inactivation, n activation) carry the
+--     LOCKED approach toward threshold
 --
 --   IVA_PEAK (TL_IVA ≤ τ < TL):
 --     The refractory period — near TL but not quite firing
@@ -306,6 +306,16 @@ theorem threshold_equals_tl :
     TAU_THRESH > TORSION_LIMIT ∧
     TAU_THRESH < 102 * TORSION_LIMIT / 100 :=
   ⟨threshold_above_tl, threshold_near_tl⟩
+
+-- Threshold = TL + F_ext. The firing threshold is the Torsion Limit plus a
+-- small external push δ: the residual left when TL is injected into the
+-- Dynamic Equation (0 < δ < TL/50). Locked → threshold → fire.
+theorem threshold_is_TL_plus_fext :
+    ∃ δ : ℝ, δ > 0 ∧ δ < TORSION_LIMIT / 50 ∧ TAU_THRESH = TORSION_LIMIT + δ :=
+  ⟨TAU_THRESH - TORSION_LIMIT,
+   by linarith [threshold_above_tl],
+   by linarith [threshold_near_tl],
+   by ring⟩
 
 -- ============================================================
 -- SECTION 5: THE RESTING STATE IS NOBLE
@@ -668,8 +678,7 @@ end SNSFL_HodgkinHuxley_Reduction
 --   LOCKED (0 < τ < TL_IVA = 0.12047):
 --     Subthreshold: V ∈ (V_rest, ~-58mV)
 --     Graded EPSPs and IPSPs
---     h gates (Na inactivation) in LOCKED range
---     n gates (K activation) in LOCKED range
+--     Slow gate kinetics (h, n) carry the approach to threshold
 --
 --   IVA_PEAK (TL_IVA ≤ τ < TL):
 --     Relative refractory period
