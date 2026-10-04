@@ -598,7 +598,7 @@ theorem tt10_sp_bridge_all_four_active :
            by unfold N_active ctc_sp_bridge ACTIVATION_FLOOR; norm_num,
            by unfold B_active ctc_sp_bridge ACTIVATION_FLOOR; norm_num,
            by unfold A_active ctc_sp_bridge ACTIVATION_FLOOR; norm_num⟩
-  · unfold n_axis_forked ctc_sp_bridge
+  · rfl
   · unfold im_conserved ctc_sp_bridge; norm_num
 
 -- ============================================================
@@ -716,7 +716,7 @@ theorem grandfather_paradox_dissolved
     -- (N-axis fork means transit occurred, not that it's impossible)
     n_axis_forked ctc_sp_bridge := by
   refine ⟨h_diff_N, h_obs_im, ?_⟩
-  unfold n_axis_forked ctc_sp_bridge
+  rfl
 
 -- [T15] NOVIKOV CONSTRAINT IS A-AXIS SUPPRESSION, NOT PHYSICS
 -- Novikov's consistency principle (A=0) is not a law of physics.
