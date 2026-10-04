@@ -564,6 +564,7 @@ theorem all_or_nothing :
 theorem resting_below_threshold :
     torsion Neuron_Resting < torsion Neuron_AtThreshold := by
   rw [resting_torsion_zero]
+  show (0 : ℝ) < (15 / 110 : ℝ) / P_BASE
   exact div_pos (by norm_num) p_base_positive
 
 theorem neural_phase_ordering :
@@ -574,6 +575,7 @@ theorem neural_phase_ordering :
   refine ⟨?_, lt_trans subthreshold_is_locked.2 tl_iva_lt_tl, ?_,
     peak_deeper_than_threshold⟩
   · rw [resting_torsion_zero]
+    show (0 : ℝ) < (5 / 110 : ℝ) / P_BASE
     exact div_pos (by norm_num) p_base_positive
   · rw [threshold_element_consistent]
     exact threshold_above_tl
