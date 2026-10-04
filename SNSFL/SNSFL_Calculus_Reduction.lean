@@ -526,7 +526,7 @@ theorem calculus_is_lossless_pnba_projection
     -- [10] Anchor: Z=0
     manifold_impedance SOVEREIGN_ANCHOR = 0 := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · unfold derivative integral; exact mul_div_cancel_right₀ _ h_dN
+  · unfold derivative; exact mul_div_cancel_right₀ _ h_dN
   · rfl
   · unfold derivative integral; exact mul_div_cancel_right₀ _ h_dN
   · rfl
