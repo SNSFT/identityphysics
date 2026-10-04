@@ -192,7 +192,7 @@ noncomputable def dynamic_rhs
 
 theorem dynamic_rhs_linear (s : HemeState) (F : ℝ) :
     dynamic_rhs id id id id s F = s.P + s.N + s.B + s.A + F := by
-  unfold dynamic_rhs pnba_weight; ring
+  unfold dynamic_rhs pnba_weight; simp only [id]; ring
 
 -- ============================================================
 -- LAYER 1 — LOSSLESS REDUCTION
