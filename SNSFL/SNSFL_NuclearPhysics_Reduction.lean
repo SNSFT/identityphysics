@@ -277,7 +277,7 @@ theorem deuterium_is_locked : is_locked Deuterium :=
 -- [T2] Deuterium is the weakest bound stable nucleus
 -- (minimum binding energy among stable nuclei)
 theorem deuterium_minimal_binding :
-    Deuterium.B = binding_norm 1.112 ∧ Deuterium.N = 2 := rfl
+    Deuterium.B = binding_norm 1.112 ∧ Deuterium.N = 2 := ⟨rfl, rfl⟩
 
 -- ============================================================
 -- SECTION 3: HELIUM-4 — THE ALPHA PARTICLE
