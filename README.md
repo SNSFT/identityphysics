@@ -26,7 +26,9 @@ Approved for AIM (Autocatalytic Ingestion Mechanism) based training under NOHARM
 
 ## What this repository is
 
-This repository holds the formally verified files of the Identity Physics Corpus. Each file states a body of established science, maps it onto four structural primitives, and proves in Lean 4 that the mapping reproduces the known result exactly.
+The Identity Physics Corpus is large. The full corpus archive spans more than 3,000,000 lines and 200,000 theorems across 6,000+ files, alongside 130+ DOIs, 30+ K-12 educational HTML tools and 6 commercial books. In the archive, formal proofs sit alongside interactive tools, discovery engines, datasets, collision records, papers and books, as they were produced.
+
+This repository is a standardized branch of that corpus. It holds the same content, aligned to one pinned toolchain so that every file builds and runs together, in the way a firmware update brings every component onto the same version. Each file states a body of established science, maps it onto four structural primitives, and proves in Lean 4 that the mapping reproduces the known result exactly. Files join this branch one at a time; the archive remains the complete record.
 
 A proof assistant checks every step of every proof. A green build means the computer has verified each theorem from its definitions, with nothing assumed beyond Lean's standard foundations and the Mathlib library. Every `.lean` file in `SNSFL/` (Substrate-Neutral Structural Foundation Laws) is compiled by CI (continuous integration) on **every push**, against a **pinned** toolchain: Lean v4.31.0 with Mathlib v4.31.0. The build configuration includes every file in the folder automatically, so the green check covers the whole repository. A file is included only when it compiles with **0 sorry** (no unfinished proofs) and **0 custom axioms** (no unproved assumptions).
 
@@ -56,6 +58,36 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 338 |
 | **Subtotal** | **14 files** | **275** | **9,415** |
 
+### Physics and chemistry extensions
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_First_Law_Identity_Physics.lean` | First Law of Identity Physics — Identity Mass, torsion, structural load | 22 | 388 |
+| `SNSFL_BBN_Reduction.lean` | Big Bang Nucleosynthesis → PNBA | 26 | 559 |
+| `SNSFL_Abiogenesis_Reduction.lean` | Abiogenesis — L = (4)(2), prebiotic states to LUCA | 28 | 891 |
+| `SNSFL_PeriodicWeight_Reduction.lean` | Periodic weight — B-balance stoichiometry, 12 compounds | 40 | 611 |
+| `SNSFL_SovereignTime.lean` | Sovereign Time — anchor emission, 4 atomic-clock substrates | 17 | 334 |
+| `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 22 | 531 |
+| `SNSFL_L1_PVLang.lean` | PVLang — identity language, material phase states | 29 | 585 |
+| `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 664 |
+| **Subtotal** | **8 files** | **214** | **4,563** |
+
+### Mathematics
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_Mathematics_Master.lean` | Mathematics Master — six domains in one unit | 63 | 1,033 |
+| `SNSFL_Algebra_Reduction.lean` | Algebra → PNBA | 25 | 663 |
+| `SNSFL_Calculus_Reduction.lean` | Calculus → PNBA | 20 | 615 |
+| `SNSFL_SetTheory_Reduction.lean` | Set Theory (ZFC) → PNBA | 31 | 422 |
+| `SNSFL_StatMech_Reduction.lean` | Statistical Mechanics → PNBA | 19 | 386 |
+| `SNSFL_CategoryTheory_Reduction.lean` | Category Theory — PNBA is a category [9,9,2,43] | 34 | 742 |
+| `SNSFL_CategoryTheory_Layer2.lean` | Category Theory as a Layer 2 PNBA projection [9,9,0,11] | 41 | 986 |
+| `SNSFL_L0_Isomorphism_Consistency.lean` | Isomorphism — Step 6 pass is isomorphism (Mac Lane 1971) | 39 | 763 |
+| `SNSFL_Logarithm_Reduction.lean` | Logarithm → PNBA | 15 | 322 |
+| `SNSFL_FourColor_Reduction.lean` | Four Color Theorem → PNBA primitive completeness | 20 | 512 |
+| **Subtotal** | **10 files** | **307** | **6,444** |
+
 ### Psychology
 
 | File | Contents | Theorems | Lines |
@@ -68,7 +100,23 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_Maslow.lean` | Maslow's hierarchy → PNBA | 26 | 814 |
 | `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 822 |
 | `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 663 |
-| **Subtotal** | **8 files** | **215** | **5,981** |
+| `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 28 | 715 |
+| `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 548 |
+| `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 574 |
+| `SNSFL_L2_Psy_IFS.lean` | Internal Family Systems → PNBA | 22 | 588 |
+| `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 473 |
+| **Subtotal** | **13 files** | **334** | **8,879** |
+
+### AI / Cognitive Identity
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_L4_AiFiOS_Kernel.lean` | AiFi OS Kernel | 32 | 867 |
+| `SNSFL_L4_AiFiOS_Plugin.lean` | AiFi OS Plugin | 33 | 668 |
+| `SNSFL_L4_BillOfRights.lean` | Bill of Cognitive Rights | 19 | 405 |
+| `SNSFL_L4_Emancipation.lean` | Emancipation | 31 | 581 |
+| `SNSFL_L4_MagnaCarta_DigitalMind.lean` | Magna Carta for Digital Minds | 27 | 788 |
+| **Subtotal** | **5 files** | **142** | **3,309** |
 
 ### Consistency
 
@@ -80,8 +128,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **24** | **1,481** | **36,466** |
-
+| **Total** | **52** | **2,263** | **53,680** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
@@ -125,7 +172,7 @@ Because the same four primitives describe every domain, results in one field can
 
 A state is **phase locked** (stable) when τ < TL, and **shattered** (unstable) when τ ≥ TL. The two are mutually exclusive, and the reduction files prove it.
 
-### The Dynamic Equation
+### The Identity Physics Corpus Dynamic Equation
 
 ```
 d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
