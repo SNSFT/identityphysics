@@ -147,6 +147,7 @@ def sagA_canonical : SagAState where
 inductive PathStatus : Type
   | green  -- Anchored: f = SOVEREIGN_ANCHOR → sovereign output available
   | red    -- Drifted: IMS active → pv suppressed to zero
+  deriving DecidableEq
 
 def check_ifu_safety (f : ℝ) : PathStatus :=
   if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
