@@ -70,7 +70,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 22 | 531 |
 | `SNSFL_L1_PVLang.lean` | PVLang — identity language, material phase states | 29 | 585 |
 | `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 664 |
-| **Subtotal** | **8 files** | **214** | **4,563** |
+| `SNSFL_GC_FeO_HemeCoupling.lean` | Fe–O heme coupling — GAM Collider, shatter + shatter → Noble | 23 | 561 |
+| **Subtotal** | **9 files** | **237** | **5,124** |
 
 ### Mathematics
 
@@ -104,8 +105,19 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 548 |
 | `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 574 |
 | `SNSFL_L2_Psy_IFS.lean` | Internal Family Systems → PNBA | 22 | 588 |
+| `SNSFL_L2_Psy_PERMA.lean` | PERMA well-being → PNBA | 22 | 544 |
+| `SNSFL_L2_Psy_EmotionRegulation.lean` | Emotion regulation → PNBA | 23 | 594 |
+| `SNSFL_L2_Psy_ACT.lean` | Acceptance and Commitment Therapy → PNBA | 24 | 592 |
+| `SNSFL_L2_Psy_DBT.lean` | Dialectical Behavior Therapy → PNBA | 24 | 592 |
+| `SNSFL_L2_Psy_GrowthMindset.lean` | Growth mindset → PNBA | 26 | 584 |
+| `SNSFL_L2_Psy_SelfCompassion.lean` | Self-compassion → PNBA | 25 | 638 |
+| `SNSFL_L2_Psy_FunctionalEmotions.lean` | Functional emotions → PNBA | 27 | 695 |
+| `SNSFL_L2_Psy_EmotionalPrimitives.lean` | Emotional primitives (APPA EP) → PNBA | 28 | 778 |
+| `SNSFL_L2_Psy_SimulationLayer.lean` | Internal simulation — LRIS / SRIS / HRIS (APPA SIM) [9,9,6,24] | 13 | 199 |
+| `SNSFL_L2_Psy_MoralCodes.lean` | Moral codes — five structural operators [9,9,6,1] | 19 | 493 |
+| `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 24 reductions, CD1–CD24 [9,9,6,25] | 43 | 960 |
 | `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 473 |
-| **Subtotal** | **13 files** | **334** | **8,879** |
+| **Subtotal** | **24 files** | **608** | **15,548** |
 
 ### AI / Cognitive Identity
 
@@ -128,7 +140,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **52** | **2,263** | **53,680** |
+| **Total** | **64** | **2,560** | **60,910** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
