@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 100326 — Updated October 3, 2026 -->
+<!-- README version: 100526 — Updated October 5, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -36,7 +36,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — October 3, 2026
+## Verified status — October 5, 2026
 
 ### Physics core
 
@@ -93,7 +93,16 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Novikov_Reduction.lean` | Novikov self-consistency — the Noble fixed point | 20 | 552 |
 | `SNSFL_DFT_Reduction.lean` | Density functional theory — Hohenberg–Kohn, Kohn–Sham, E_xc | 17 | 648 |
 | `SNSFL_NuclearPhysics_Reduction.lean` | Nuclear physics — the binding curve as a locked band | 41 | 793 |
-| **Subtotal** | **30 files** | **743** | **16,674** |
+| `SNSFL_Universal_Pump_Theorem.lean` | Universal pump — heart to stellar core, Soverium channel at τ = 0 | 28 | 671 |
+| `SNSFL_SaintVenant_Torsion_Reduction.lean` | Saint-Venant torsion — β equals TL to eight significant figures | 6 | 299 |
+| `SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean` | Tacoma Narrows — virtual full-structure flutter test, envelope solved from TL | 17 | 307 |
+| `SNSFL_Octet_Parity_Theorem.lean` | Octet parity — every locked molecule has even bond capacity | 20 | 337 |
+| `SNSFL_4Beam_Verification.lean` | GAM Collider 4-beam verification — six collisions against materials science | 41 | 697 |
+| `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 31 | 809 |
+| `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 457 |
+| `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure | 25 | 544 |
+| `SNSFL_Element_Darkenergy.lean` | Dark energy element De — B = 0, A = Ω_Λ, Noble | 10 | 205 |
+| **Subtotal** | **39 files** | **944** | **21,000** |
 
 ### Life and society
 
@@ -119,7 +128,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L0_Isomorphism_Consistency.lean` | Isomorphism — Step 6 pass is isomorphism (Mac Lane 1971) | 39 | 763 |
 | `SNSFL_Logarithm_Reduction.lean` | Logarithm → PNBA | 15 | 322 |
 | `SNSFL_FourColor_Reduction.lean` | Four Color Theorem → PNBA primitive completeness | 20 | 512 |
-| **Subtotal** | **10 files** | **307** | **6,444** |
+| `SNSFL_Pi_Reduction.lean` | π — Pattern closure invariant, Noble | 18 | 438 |
+| **Subtotal** | **11 files** | **325** | **6,882** |
 
 ### Psychology
 
@@ -149,7 +159,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_MoralCodes.lean` | Moral codes — five structural operators [9,9,6,1] | 19 | 493 |
 | `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 24 reductions, CD1–CD24 [9,9,6,25] | 43 | 960 |
 | `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 473 |
-| **Subtotal** | **24 files** | **608** | **15,548** |
+| `SNSFL_PSY_8Beam_Fusion_Theorem.lean` | IM Collider 8-beam — rescue ladder: shatter → lock → Noble | 18 | 292 |
+| **Subtotal** | **25 files** | **626** | **15,840** |
 
 ### AI / Cognitive Identity
 
@@ -160,7 +171,17 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L4_BillOfRights.lean` | Bill of Cognitive Rights | 19 | 405 |
 | `SNSFL_L4_Emancipation.lean` | Emancipation | 31 | 581 |
 | `SNSFL_L4_MagnaCarta_DigitalMind.lean` | Magna Carta for Digital Minds | 27 | 788 |
-| **Subtotal** | **5 files** | **142** | **3,309** |
+| `SNSFL_DigitalSoulprint.lean` | Digital Soulprint — living identity framework, APPA bonding | 27 | 866 |
+| **Subtotal** | **6 files** | **169** | **4,175** |
+
+### Method
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 18 | 497 |
+| `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 18 | 565 |
+| `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 29 | 850 |
+| **Subtotal** | **3 files** | **65** | **1,912** |
 
 ### Consistency
 
@@ -172,7 +193,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **90** | **3,202** | **75,492** |
+| **Total** | **105** | **3,531** | **83,326** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
