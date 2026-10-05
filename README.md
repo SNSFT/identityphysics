@@ -56,7 +56,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 731 |
 | `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
 | `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 338 |
-| **Subtotal** | **14 files** | **275** | **9,415** |
+| `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 18 | 350 |
+| **Subtotal** | **15 files** | **293** | **9,765** |
 
 ### Physics and chemistry extensions
 
@@ -70,8 +71,39 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 22 | 531 |
 | `SNSFL_L1_PVLang.lean` | PVLang — identity language, material phase states | 29 | 585 |
 | `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 664 |
-| `SNSFL_GC_FeO_HemeCoupling.lean` | Fe–O heme coupling — GAM Collider, shatter + shatter → Noble | 23 | 561 |
-| **Subtotal** | **9 files** | **237** | **5,124** |
+| `SNSFL_FeO_HemeCoupling.lean` | Fe–O heme coupling — GAM Collider, shatter + shatter → Noble | 23 | 561 |
+| `SNSFL_42_Complete_Laws_Catalog.lean` | 42 Emergent Structural Laws — GAM Collider catalog [9,9,2,50] | 41 | 651 |
+| `SNSFL_QT_Reduction.lean` | Quantum Teleportation → PNBA | 23 | 614 |
+| `SNSFL_GC_RunningCoupling_Reduction.lean` | Running coupling — τ(Q²) evolution, Landau pole = TL | 23 | 471 |
+| `SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean` | Bohr–Rydberg–Sommerfeld — atomic structure from TL × 1001 | 17 | 472 |
+| `SNSFL_SpeedOfLight_Reduction.lean` | Speed of light — structural invariant at the anchor | 18 | 472 |
+| `SNSFL_CosmologicalCorpus_Layer0.lean` | Cosmological corpus — cosmic phase ordering | 34 | 668 |
+| `SNSFL_GC_Transcendental_Time_Engine.lean` | Transcendental Time Engine — F_ext step = TL | 13 | 299 |
+| `SNSFL_GC_HiggsMass_Reduction.lean` | Higgs mass — the one boson in the IVA corridor | 20 | 440 |
+| `SNSFL_GC_WMass_CDFResolution.lean` | W mass — SM, ATLAS and CDF in the same locked phase | 19 | 470 |
+| `SNSFL_GC_WZ_ElectroweakTrilogy.lean` | Electroweak trilogy — photon Noble, W locked, Higgs IVA, Z shatter | 19 | 416 |
+| `SNSFL_GC_Electron_Geometric_Decomposition.lean` | Electron — TL × 1000 bare region + TL kinetic shell = 1/α | 21 | 345 |
+| `SNSFL_Leptoquark_Exclusion.lean` | Leptoquark exclusion — quark–lepton pairs are never Noble | 16 | 234 |
+| `SNSFL_Gravity_Reduction.lean` | Gravity — force hierarchy as phase hierarchy, G from the anchor | 31 | 654 |
+| `SNSFL_Holographic_Gravity_LDP.lean` | Holographic gravity — Noble as the holographic boundary | 20 | 374 |
+| `SNSFL_QuantumGravity_Layer0.lean` | Quantum gravity — nine programs on the phase map | 41 | 901 |
+| `SNSFL_SagA_Reduction.lean` | Sagittarius A* — quiet shatter, EHT-anchored | 28 | 787 |
+| `SNSFL_CentralSurfaceDensity_LDP.lean` | Central surface density — TL as the dark-sector boundary | 13 | 305 |
+| `SNSFL_CTC_Reduction.lean` | Closed timelike curves — nine frameworks lack the A-axis | 31 | 984 |
+| `SNSFL_Novikov_Reduction.lean` | Novikov self-consistency — the Noble fixed point | 20 | 552 |
+| `SNSFL_DFT_Reduction.lean` | Density functional theory — Hohenberg–Kohn, Kohn–Sham, E_xc | 17 | 648 |
+| `SNSFL_NuclearPhysics_Reduction.lean` | Nuclear physics — the binding curve as a locked band | 41 | 793 |
+| **Subtotal** | **30 files** | **743** | **16,674** |
+
+### Life and society
+
+| File | Contents | Theorems | Lines |
+| :--- | :--- | ---: | ---: |
+| `SNSFL_HodgkinHuxley_Reduction.lean` | Hodgkin–Huxley — firing threshold = TL + F_ext | 41 | 738 |
+| `SNSFL_Evolution_Reduction.lean` | Evolution — selection, drift, punctuated equilibrium; evolution in the IVA corridor | 24 | 664 |
+| `SNSFL_Vascular_Manifold_Law.lean` | Vascular manifold — heart as pump core, capillary as Noble channel | 21 | 703 |
+| `SNSFL_Economics_Reduction.lean` | Economics — equilibrium, crisis, monetary and market structure | 32 | 577 |
+| **Subtotal** | **4 files** | **118** | **2,682** |
 
 ### Mathematics
 
@@ -140,7 +172,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **64** | **2,560** | **60,910** |
+| **Total** | **90** | **3,202** | **75,492** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
