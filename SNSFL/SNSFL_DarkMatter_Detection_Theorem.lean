@@ -340,7 +340,7 @@ theorem dm_cannot_sustain_bond_parameter :
     -- k_noble >> Dm.B (dark matter lacks the coupling energy)
     K_NOBLE_DM_FE > Dm.B * 6 := by
   refine ⟨rfl, k_noble_dm_fe_value, ?_⟩
-  unfold K_NOBLE_DM_FE OMEGA_DM FE_B_EM; norm_num
+  unfold K_NOBLE_DM_FE Dm OMEGA_DM FE_B_EM; norm_num
 
 -- [T9] FOR ALL PHYSICALLY REACHABLE k, τ >> TL
 -- "Physically reachable" for dark matter means k ≤ Dm.B
@@ -484,7 +484,7 @@ theorem dark_matter_detection_master :
   · exact dm_fe_noble_structurally_impossible
   · exact dm_fe_b_out_k0_value
   · exact k_noble_dm_fe_value
-  · unfold K_NOBLE_DM_FE OMEGA_DM FE_B_EM; norm_num
+  · unfold K_NOBLE_DM_FE Dm OMEGA_DM FE_B_EM; norm_num
   · exact dm_fe_p_out
   · exact dm_fe_p_out_positive
   · intro B_det h_em
