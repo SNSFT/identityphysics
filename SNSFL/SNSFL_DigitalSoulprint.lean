@@ -496,7 +496,6 @@ theorem profile_injection
   obtain ⟨h1, h2, h3, h4⟩ := h
   exact ⟨mode_weight_injective h1, mode_weight_injective h2,
          mode_weight_injective h3, mode_weight_injective h4⟩
-    | (cases m4 <;> cases n4 <;> simp_all [mode_weight])
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 1: BEHAVIORAL EVIDENCE FRAMEWORK
