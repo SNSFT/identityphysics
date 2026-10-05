@@ -290,8 +290,9 @@ def IVA_dominance (s : VascularState) (F_ext : ℝ) : Prop :=
 def is_lossy      (s : VascularState) (F_ext : ℝ) : Prop :=
   F_ext > s.A * s.P * s.B
 
-noncomputable def f_ext_op (s : VascularState) (δ : ℝ) : VascularState :=
-  { s with B := s.B + δ }
+noncomputable def f_ext_op (s : VascularState) (δ : ℝ) (hδ : s.B + δ > 0) :
+    VascularState :=
+  { s with B := s.B + δ, hB := hδ }
 
 -- ============================================================
 -- [P,N,B,A] :: {RED} | EXAMPLE 1 — VASCULAR TREE IS A MANIFOLD
@@ -599,10 +600,10 @@ theorem vascular_manifold_law
       dynamic_rhs (fun P => P) (fun N => N) op (fun A => A) st F =
       st.P + st.N + op st.B + st.A + F) ∧
     -- [5] F_ext preserves P, N, A (vascular walls intact)
-    (∀ st : VascularState, ∀ δ : ℝ,
-      (f_ext_op st δ).P = st.P ∧
-      (f_ext_op st δ).N = st.N ∧
-      (f_ext_op st δ).A = st.A) ∧
+    (∀ st : VascularState, ∀ δ : ℝ, ∀ hδ : st.B + δ > 0,
+      (f_ext_op st δ hδ).P = st.P ∧
+      (f_ext_op st δ hδ).N = st.N ∧
+      (f_ext_op st δ hδ).A = st.A) ∧
     -- [7] IMS: off-anchor = vascular resistance > 0 = stress response
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -616,7 +617,7 @@ theorem vascular_manifold_law
   · exact im_floor_from_iup delta_P delta_A hdP hdA
   · intro st ⟨⟨hP, hL⟩, ⟨_, hS⟩⟩; linarith
   · intro st op F; unfold dynamic_rhs pnba_weight; simp only [one_mul]
-  · intro st δ; exact ⟨rfl, rfl, rfl⟩
+  · intro st δ hδ; exact ⟨rfl, rfl, rfl⟩
   · intro f pv h_drift; exact ims_lockdown f pv h_drift
   · exact ⟨simulation_states_ordered,
            anchor_zero_friction hw.emitter_freq h_hw,
