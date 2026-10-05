@@ -92,7 +92,7 @@ theorem noble_gas_zero_bond_cap (z : ℕ) (h : is_noble_gas z = true) :
     bond_capacity z = 0 := by
   unfold is_noble_gas at h
   simp only [Bool.or_eq_true, beq_iff_eq] at h
-  rcases h with rfl | rfl | rfl | rfl <;> rfl
+  rcases h with ((rfl | rfl) | rfl) | rfl <;> rfl
 
 -- ============================================================
 -- LAYER 1: MOLECULE GLUE ENGINE (V2)
@@ -116,9 +116,8 @@ noncomputable def net_b_int (atoms : List ℕ) : ℤ :=
 
 -- Torsion as a real number
 noncomputable def torsion (atoms : List ℕ) : ℝ :=
-  let P := (total_bond_capacity atoms : ℝ)
-  if P = 0 then 0
-  else (net_b_int atoms : ℝ) / P
+  if (total_bond_capacity atoms : ℝ) = 0 then 0
+  else (net_b_int atoms : ℝ) / (total_bond_capacity atoms : ℝ)
 
 def phase_locked (atoms : List ℕ) : Prop :=
   torsion atoms = 0
@@ -181,7 +180,7 @@ theorem octet_parity_theorem (atoms : List ℕ)
     have h_zero : total_bond_capacity atoms = 0 := by
       exact_mod_cast h_P
     rw [h_zero]
-    exact even_zero
+    exact ⟨0, rfl⟩
   · -- Case B: net_b_int = 0 → total_cap = 2 * formed_bonds
     have h_eq := net_b_zero_gives_even_int atoms h_net
     have h_nat : total_bond_capacity atoms = 2 * formed_bonds atoms := by
