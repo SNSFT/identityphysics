@@ -284,30 +284,27 @@ def bacon_test (c : Claim) : EpistemicState :=
 theorem bacon_test_iff_formally_verified (c : Claim) :
     bacon_test c = EpistemicState.formally_verified ↔ is_formally_verified c := by
   unfold bacon_test is_formally_verified is_internally_consistent is_empirically_grounded
-  constructor
-  · intro h
-    split_ifs at h with h1 h2
-    · refine ⟨h1, h2⟩
-    · simp at h
-    · simp at h
-  · intro ⟨⟨h1, h2⟩, h3⟩
-    simp [h1, h2, h3]
+  by_cases h1 : c.internally_consistent = true ∧ c.axioms_documented = true
+  · by_cases h2 : c.empirically_grounded = true
+    · rw [if_pos h1, if_pos h2]
+      exact ⟨fun _ => ⟨h1, h2⟩, fun _ => rfl⟩
+    · rw [if_pos h1, if_neg h2]
+      exact ⟨fun h => absurd h (by decide), fun ⟨_, h⟩ => absurd h h2⟩
+  · rw [if_neg h1]
+    exact ⟨fun h => absurd h (by decide), fun ⟨h, _⟩ => absurd h h1⟩
 
 -- THEOREM 9: BACON TEST RETURNS HYPOTHESIS IFF CLAIM IS HYPOTHESIS
 theorem bacon_test_iff_hypothesis (c : Claim) :
     bacon_test c = EpistemicState.hypothesis ↔ is_hypothesis c := by
   unfold bacon_test is_hypothesis is_internally_consistent is_empirically_grounded
-  constructor
-  · intro h
-    split_ifs at h with h1 h2
-    · simp at h
-    · refine ⟨h1, ?_⟩
-      intro h_eg
-      exact h2 h_eg
-    · simp at h
-  · intro ⟨⟨h1, h2⟩, h3⟩
-    have h3' : ¬ (c.empirically_grounded = true) := h3
-    simp [h1, h2, h3']
+  by_cases h1 : c.internally_consistent = true ∧ c.axioms_documented = true
+  · by_cases h2 : c.empirically_grounded = true
+    · rw [if_pos h1, if_pos h2]
+      exact ⟨fun h => absurd h (by decide), fun ⟨_, h⟩ => absurd h2 h⟩
+    · rw [if_pos h1, if_neg h2]
+      exact ⟨fun _ => ⟨h1, h2⟩, fun _ => rfl⟩
+  · rw [if_neg h1]
+    exact ⟨fun h => absurd h (by decide), fun ⟨h, _⟩ => absurd h h1⟩
 
 -- ============================================================
 -- ZERO FREE PARAMETERS REQUIREMENT
