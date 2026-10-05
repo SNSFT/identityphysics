@@ -319,11 +319,11 @@ theorem gauge_invariance_pi (P : ℝ) : LosslessReduction P (pi_closure_op P) :=
 
 -- K4 lossless: Euler half-rotation
 theorem euler_identity_pi : LosslessReduction (-1) (Real.cos Real.pi) :=
-  Real.cos_pi.symm
+  Real.cos_pi
 
 -- K6 lossless: Full rotation
 theorem full_rotation_pi : LosslessReduction 1 (Real.cos (2 * Real.pi)) :=
-  Real.cos_two_pi.symm
+  Real.cos_two_pi
 
 -- ============================================================
 -- THE MASTER THEOREM
