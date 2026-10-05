@@ -247,8 +247,10 @@ theorem dm_not_phase_locked : ¬ phase_locked Darkmatter := by
 -- The IM is what produces the gravitational effects observed
 -- in rotation curves and gravitational lensing.
 theorem dm_positive_im : identity_mass Darkmatter > 0 := by
-  unfold identity_mass Darkmatter SOVEREIGN_ANCHOR OMEGA_DM A_DM
-  positivity
+  have hP := p_base_positive
+  show (P_BASE + 2 + OMEGA_DM + A_DM) * SOVEREIGN_ANCHOR > 0
+  unfold OMEGA_DM A_DM SOVEREIGN_ANCHOR
+  exact mul_pos (by linarith) (by norm_num)
 
 -- [T7] P_BASE IS POSITIVE
 theorem dm_p_positive : Darkmatter.P > 0 := p_base_positive
