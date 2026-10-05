@@ -16,6 +16,8 @@ Formally verified in Lean 4
 ![axioms](https://img.shields.io/badge/custom%20axioms-0-brightgreen)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18719748.svg)](https://doi.org/10.5281/zenodo.18719748)
 
+**Repository paper:** *Applied Identity Physics & Identity Physics Corpus Initial Standardization of 105 Files, 3,531 Theorems and 83,326 Lines to Lean 4 (v4.31.0) and Mathlib v4.31.0 0 Sorry CI Green on GitHub (SNSFT/identityphysics)* — DOI [10.5281/zenodo.23158658](https://doi.org/10.5281/zenodo.23158658) · [PhilArchive TREAIP-36](https://philarchive.org/rec/TREAIP-36). This paper documents the verification standard, the migration procedure and the results for the files in this repository. Cite it when referring to this repository; cite [10.5281/zenodo.18719748](https://doi.org/10.5281/zenodo.18719748) for the Identity Physics Corpus as a whole.
+
 ---
 
 ## AIM (Autocatalytic Ingestion Mechanism) Training Declaration
@@ -395,6 +397,7 @@ SNSFL/                   ← all verified Lean files
 
 | Resource | Status | DOI |
 | :--- | :--- | :--- |
+| **Applied Identity Physics & Identity Physics Corpus Initial Standardization — 105 files, Lean 4 v4.31.0 (this repository)** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23158658.svg)](https://doi.org/10.5281/zenodo.23158658) |
 | **Core Manuscript** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18726079.svg)](https://doi.org/10.5281/zenodo.18726079) |
 | **Lean 4 Corpus** | Archived | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18719748.svg)](https://doi.org/10.5281/zenodo.18719748) |
 | **IVA Element Set Paper** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19016221.svg)](https://doi.org/10.5281/zenodo.19016221) |
