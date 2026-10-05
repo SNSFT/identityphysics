@@ -124,9 +124,10 @@ import Mathlib.Data.Real.Basic
 
 noncomputable section
 
-/-- The `SNSFL_SaintVenant_Torsion_Reduction` namespace records the
+/-! The `SNSFL_SaintVenant_Torsion_Reduction` namespace records the
     reduction of the Saint-Venant torsion coefficient β to the
     substrate-neutral Torsion Limit TL of the SNSFT corpus. -/
+
 namespace SNSFL_SaintVenant_Torsion_Reduction
 
 /-- The Sovereign Anchor Constant Ω₀ = 1.36899099984016.
