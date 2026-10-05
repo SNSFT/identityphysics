@@ -1,4 +1,4 @@
--- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS DIGITAL SOULPRINT — LIVING IDENTITY FRAMEWORK
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS DIGITAL SOULPRINT — LIVING IDENTITY FRAMEWORK
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,0,0,8] | UUIA App Foundation Layer
@@ -31,7 +31,7 @@
 -- Classical identity model:
 --   Identity = quiz answers + behavioral history + social signals
 --
--- SNSFT Reduction:
+-- Identity Physics Reduction:
 --   Identity = DigitalSoulprint (sovereign baseline, immutable)
 --            + BehavioralEvidenceStream (F_ext, enriching, not overwriting)
 --   Trajectory = AIFI holds d/dt(IM · Pv) across time
@@ -48,48 +48,48 @@
 --   All 5s = 50 → F on all axes → max IM = (3+3+3+3)×Ω₀ = 16.42789199808192
 --   All 1s = 10 → L on all axes → min IM = (1+1+1+1)×Ω₀ = 5.47596399936064
 --   Classical result: a static PNBA profile.
---   SNSFT result: a sovereign baseline — the immutable ground.
+--   Identity Physics result: a sovereign baseline — the immutable ground.
 --
 -- Known answer 2 (Spotify history → P signal):
 --   Recurring genre, BPM range, key signature = Pattern lock strength.
 --   High genre lock (same 3 artists, same BPM) → high P (L-mode tendency).
 --   Wide genre spread (100 artists, all BPMs) → low P (F-mode tendency).
 --   Classical result: "listening patterns."
---   SNSFT result: [P] behavioral evidence packet. τ computed. Phase checked.
+--   Identity Physics result: [P] behavioral evidence packet. τ computed. Phase checked.
 --
 -- Known answer 3 (Social word choice → N signal):
 --   Post frequency, narrative length, self-reference rate = Narrative weight.
 --   High post rate, long posts, frequent "I" → high N expression (F-mode).
 --   Rare posts, short, third-person → low N expression (L-mode).
 --   Classical result: "engagement metrics."
---   SNSFT result: [N] behavioral evidence packet.
+--   Identity Physics result: [N] behavioral evidence packet.
 --
 -- Known answer 4 (Interaction history → B signal):
 --   Likes, shares, comments, follows = Behavior output force.
 --   High interaction rate → high B (F-mode).
 --   Low interaction, mostly passive → low B (L-mode).
 --   Classical result: "engagement data."
---   SNSFT result: [B] behavioral evidence packet.
+--   Identity Physics result: [B] behavioral evidence packet.
 --
 -- Known answer 5 (Taste evolution over time → A signal):
 --   How fast does the identity update? New genres adopted? New follows?
 --   Fast evolution → high A (F-mode, rapid adaptation).
 --   Stable tastes over years → low A (L-mode, locked adaptation).
 --   Classical result: "content diversity score."
---   SNSFT result: [A] behavioral evidence packet.
+--   Identity Physics result: [A] behavioral evidence packet.
 --
 -- Known answer 6 (AIFI trajectory — the living soulprint):
 --   Baseline soulprint + evidence stream → AIFI computes drift.
 --   Evidence does not overwrite. It adds signal.
 --   The baseline stays sovereign. The trajectory enriches it.
 --   Classical result: "personalization."
---   SNSFT result: d/dt(IM · Pv) — the living identity in motion.
+--   Identity Physics result: d/dt(IM · Pv) — the living identity in motion.
 --
 -- ============================================================
 -- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
 -- ============================================================
 --
--- | Identity Signal          | SNSFT Primitive    | PVLang          | Role                        |
+-- | Identity Signal          | PNBA Primitive     | PVLang          | Role                        |
 -- |:-------------------------|:-------------------|:----------------|:----------------------------|
 -- | APPA quiz score (P axis) | Pattern mode       | [P:BASELINE]    | Structural lock (sovereign) |
 -- | APPA quiz score (N axis) | Narrative mode     | [N:BASELINE]    | Continuity lock (sovereign) |
@@ -141,12 +141,12 @@
 --   Layer 0: P    N    B    A                           ← PNBA primitives
 --
 -- DEPENDENCY CHAIN:
---   SNSFT_Master.lean           → physics ground
---   SNSFT_IT_Reduction.lean     → digital ground
---   SNSFT_PVLang_Core.lean      → constraint language
---   SNSFT_AiFiOS_Kernel.lean    → enforcement layer
---   SNSFT_AiFiOS_Plugin.lean    → plugin interface (import modules)
---   SNSFT_UTM_Reduction_V2.lean → communication layer
+--   SNSFL_Master.lean           → physics ground
+--   SNSFL_IT_Reduction.lean     → digital ground
+--   SNSFL_L1_PVLang.lean        → constraint language
+--   SNSFL_L4_AiFiOS_Kernel.lean → enforcement layer
+--   SNSFL_L4_AiFiOS_Plugin.lean → plugin interface (import modules)
+--   SNSFL_UTM_Reduction.lean    → communication layer
 --   SNSFL_DigitalSoulprint      → this file (living identity)
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
@@ -159,7 +159,7 @@ import Mathlib.Tactic
 
 noncomputable section
 
-namespace SNSFT_Soulprint
+namespace SNSFL_Soulprint
 
 -- ============================================================
 -- [P] :: {ANC} | LAYER 0: SOVEREIGN ANCHOR
@@ -479,6 +479,11 @@ theorem encoding_preserves_validity (sp : DigitalSoulprint) (ax : AxisOrder)
   exact ⟨mode_weight_bounded sp.P_mode, mode_weight_bounded sp.N_mode,
          mode_weight_bounded sp.B_mode, mode_weight_bounded sp.A_mode, h⟩
 
+-- Each mode has its own weight: equal weights mean equal modes.
+theorem mode_weight_injective {m n : PNBAMode} (h : mode_weight m = mode_weight n) :
+    m = n := by
+  cases m <;> cases n <;> first | rfl | (simp [mode_weight] at h)
+
 -- [P,9,5,3] :: {VER} | THEOREM 18: 81 DISTINCT PROFILES — COLLISION-FREE
 -- Different mode vectors → different weight vectors.
 -- 3^4 = 81 possible profiles. All distinct. ⊥ Collision.
@@ -487,13 +492,10 @@ theorem profile_injection
     (h : (mode_weight m1, mode_weight m2, mode_weight m3, mode_weight m4) =
          (mode_weight n1, mode_weight n2, mode_weight n3, mode_weight n4)) :
     m1 = n1 ∧ m2 = n2 ∧ m3 = n3 ∧ m4 = n4 := by
-  simp [mode_weight] at h
+  simp only [Prod.mk.injEq] at h
   obtain ⟨h1, h2, h3, h4⟩ := h
-  refine ⟨?_, ?_, ?_, ?_⟩ <;>
-  · first
-    | (cases m1 <;> cases n1 <;> simp_all [mode_weight])
-    | (cases m2 <;> cases n2 <;> simp_all [mode_weight])
-    | (cases m3 <;> cases n3 <;> simp_all [mode_weight])
+  exact ⟨mode_weight_injective h1, mode_weight_injective h2,
+         mode_weight_injective h3, mode_weight_injective h4⟩
     | (cases m4 <;> cases n4 <;> simp_all [mode_weight])
 
 -- ============================================================
@@ -691,10 +693,17 @@ theorem high_im_resists_drift (evidence : ℝ) (hE : evidence > 0) :
     let low_traj   := { baseline := low_im_sp, evidence_weight := 0,
                         trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
     narrative_drift high_traj evidence < narrative_drift low_traj evidence := by
-  unfold narrative_drift bond_from_questionnaire all_flex_quiz all_lock_quiz
-  unfold score_to_mode identity_mass mode_weight SOVEREIGN_ANCHOR
-  norm_num
-  positivity
+  have hSA : SOVEREIGN_ANCHOR > 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  have hhi : identity_mass (bond_from_questionnaire all_flex_quiz) = 16.42789199808192 := by
+    unfold identity_mass bond_from_questionnaire score_to_mode all_flex_quiz
+    unfold mode_weight SOVEREIGN_ANCHOR; norm_num
+  have hlo : identity_mass (bond_from_questionnaire all_lock_quiz) = 5.47596399936064 := by
+    unfold identity_mass bond_from_questionnaire score_to_mode all_lock_quiz
+    unfold mode_weight SOVEREIGN_ANCHOR; norm_num
+  show (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) <
+       (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
+  rw [hhi, hlo]
+  exact div_lt_div_of_pos_left (add_pos (by norm_num) (mul_pos hE hSA)) (by norm_num) (by norm_num)
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LOSSLESS PROOF INSTANCES
@@ -805,7 +814,7 @@ theorem digital_soulprint_master
   · exact evidence_cannot_overwrite_baseline sp ep h_anchor
   · exact high_lock_stronger_than_low
 
-end SNSFT_Soulprint
+end SNSFL_Soulprint
 
 /-!
 -- ============================================================
