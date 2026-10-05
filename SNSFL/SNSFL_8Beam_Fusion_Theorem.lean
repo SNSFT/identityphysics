@@ -355,16 +355,16 @@ theorem t6_k_max8_nonneg
   unfold k_max8
   have h1 := e1.hB; have h2 := e2.hB; have h3 := e3.hB; have h4 := e4.hB
   have h5 := e5.hB; have h6 := e6.hB; have h7 := e7.hB; have h8 := e8.hB
-  linarith [min_nonneg e1.B e2.B, min_nonneg e1.B e3.B, min_nonneg e1.B e4.B,
-            min_nonneg e1.B e5.B, min_nonneg e1.B e6.B, min_nonneg e1.B e7.B,
-            min_nonneg e1.B e8.B, min_nonneg e2.B e3.B, min_nonneg e2.B e4.B,
-            min_nonneg e2.B e5.B, min_nonneg e2.B e6.B, min_nonneg e2.B e7.B,
-            min_nonneg e2.B e8.B, min_nonneg e3.B e4.B, min_nonneg e3.B e5.B,
-            min_nonneg e3.B e6.B, min_nonneg e3.B e7.B, min_nonneg e3.B e8.B,
-            min_nonneg e4.B e5.B, min_nonneg e4.B e6.B, min_nonneg e4.B e7.B,
-            min_nonneg e4.B e8.B, min_nonneg e5.B e6.B, min_nonneg e5.B e7.B,
-            min_nonneg e5.B e8.B, min_nonneg e6.B e7.B, min_nonneg e6.B e8.B,
-            min_nonneg e7.B e8.B]
+  linarith [le_min e1.hB e2.hB, le_min e1.hB e3.hB, le_min e1.hB e4.hB,
+            le_min e1.hB e5.hB, le_min e1.hB e6.hB, le_min e1.hB e7.hB,
+            le_min e1.hB e8.hB, le_min e2.hB e3.hB, le_min e2.hB e4.hB,
+            le_min e2.hB e5.hB, le_min e2.hB e6.hB, le_min e2.hB e7.hB,
+            le_min e2.hB e8.hB, le_min e3.hB e4.hB, le_min e3.hB e5.hB,
+            le_min e3.hB e6.hB, le_min e3.hB e7.hB, le_min e3.hB e8.hB,
+            le_min e4.hB e5.hB, le_min e4.hB e6.hB, le_min e4.hB e7.hB,
+            le_min e4.hB e8.hB, le_min e5.hB e6.hB, le_min e5.hB e7.hB,
+            le_min e5.hB e8.hB, le_min e6.hB e7.hB, le_min e6.hB e8.hB,
+            le_min e7.hB e8.hB]
 
 -- ============================================================
 -- SECTION 4: THE 8-BEAM NOBLE EMERGENCE THEOREMS
@@ -690,9 +690,9 @@ theorem eight_beam_fusion_master
     ef.A ≥ e1.A ∧ ef.A ≥ e2.A ∧ ef.A ≥ e3.A ∧ ef.A ≥ e4.A ∧
     ef.A ≥ e5.A ∧ ef.A ≥ e6.A ∧ ef.A ≥ e7.A ∧ ef.A ≥ e8.A ∧
     -- [6] More bonds → lower tau
-    (∀ k2 : ℝ, k < k2 → k2 ≤ k_max8 e1 e2 e3 e4 e5 e6 e7 e8 →
+    (∀ k2 : ℝ, ∀ hk_lt : k < k2, ∀ hk2_hi : k2 ≤ k_max8 e1 e2 e3 e4 e5 e6 e7 e8,
       B_fused8 e1 e2 e3 e4 e5 e6 e7 e8 k2 > 0 →
-      torsion (fuse8 e1 e2 e3 e4 e5 e6 e7 e8 k2 (by linarith) (by linarith)) <
+      torsion (fuse8 e1 e2 e3 e4 e5 e6 e7 e8 k2 (by linarith) hk2_hi) <
       torsion ef) ∧
     -- [7] Equal-B 8-beam Noble (L-07 at n=8)
     (e1.B = e2.B → e1.B = e3.B → e1.B = e4.B → e1.B = e5.B →
