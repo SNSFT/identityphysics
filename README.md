@@ -183,7 +183,9 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 18 | 497 |
 | `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 18 | 565 |
 | `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 29 | 850 |
-| **Subtotal** | **3 files** | **65** | **1,912** |
+| `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
+| `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
+| **Subtotal** | **5 files** | **101** | **2,734** |
 
 ### Consistency
 
@@ -195,10 +197,67 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **105** | **3,531** | **83,326** |
+| **Total** | **107** | **3,567** | **84,148** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
+
+## Coordinate system
+
+Every file carries a coordinate. The base address `[a,b,c,d]` places the file in the corpus; an optional extension, formalized in [9,0,3,0] and [9,0,3,1], states what the file is and where else its structure appears.
+
+```
+[a,b,c,d(.X)(-V)](TAG)
+```
+
+| Part | Meaning |
+| :--- | :--- |
+| `a,b,c,d` | Base address: layer, series and index. Never changes. |
+| `.X` | Character digit, one duodecimal symbol 0–B: the dominant PNBA axis and its mode (Locked, Sustained, Flexed). Optional. |
+| `-V` | Version: a later revision of the same file. Optional. |
+| `(TAG)` | Four-letter domain tag: the field in which the structure is expressed. |
+
+**Character digits:** 0 PL · 1 PS · 2 PF · 3 NL · 4 NS · 5 NF · 6 BL · 7 BS · 8 BF · 9 AL · A AS · B AF (axis × 3 + mode).
+
+**Reading a coordinate, left to right.** The quantum mechanics specialist file:
+
+```
+[ 9 , 9 , 0 , 4 . 8 ] ( PHYS )
+  │   │   │   │   │      │
+  │   │   │   │   │      └─ domain: physics
+  │   │   │   │   └──────── character: 8 = Behavior, Flexed
+  │   │   │   │             (a mechanism, in its full specialist form)
+  │   │   │   └──────────── index: the 4th file in its series
+  │   │   └──────────────── series: the physics core
+  └───┴──────────────────── layer: the main corpus
+```
+
+The four numbers say **where** the file sits. The digit after the dot says **what kind of structure** it is and **how deeply** it is expressed. The tag says **which field** it is expressed in. Its general-reader partner, `[9,9,0,4.7](PHYS)`, differs only in the character digit: same place, same structure, Behavior Sustained instead of Flexed.
+
+**How to label a file (for people and for AI systems).**
+
+1. **Choose the axis.** Ask what the file is primarily about:
+   - structure or pattern → **P** (digits 0–2)
+   - identity, continuity or story → **N** (digits 3–5)
+   - how it works, the mechanism → **B** (digits 6–8)
+   - how it changes, adaptation → **A** (digits 9–B)
+2. **Choose the mode.** Locked = 0 (minimal or teaching form), Sustained = 1 (general-reader form), Flexed = 2 (specialist form, fully expressed).
+3. **Compute the digit:** axis index × 3 + mode, with P = 0, N = 1, B = 2, A = 3. For example, B (2) × 3 + Flexed (2) = 8.
+4. **Add the domain tag** of the field the structure is expressed in.
+5. **Add a version** (`-2`, `-3`, …) only for a later revision of the same file.
+
+Worked through for quantum mechanics: decoherence is coupling to the environment, a mechanism, so the axis is **B**. The positive-amplitude file follows the standard corpus unfolding, so it is Sustained: 2 × 3 + 1 = **7**. The magnitude-operator file is written in the physicist's own terms, so it is Flexed: 2 × 3 + 2 = **8**. Both are physics: **(PHYS)**. Both reduce the same structure, so they share the base `[9,9,0,4]`. Result: `[9,9,0,4.7](PHYS)` and `[9,9,0,4.8](PHYS)`.
+
+**Domain tags:** CORE · PHYS · PART · GRAV · COSM · CHEM · ENGR · BIOL · PSYC · MATH · COMP · ECON · METH.
+
+**Shared base addresses.** Two files share a base address only when the same structure is demonstrated in both (the same theorem shape, passing Step 6 in each):
+
+- Same base, same tag, different character digit: parallel forms of one structure. The Sustained form is the general-reader form; the Flexed form is the specialist form. Example: `[9,9,0,4.7](PHYS)` quantum mechanics (positive amplitude) and `[9,9,0,4.8](PHYS)` quantum mechanics (magnitude operator).
+- Same base, different tags: one structure expressed in two domains, for example `[9,0,0,10](PHYS)` and `[9,0,0,10](PSYC)`.
+
+**Assignment rules.** Anchors are fixed ([9,9,0,0] Master, [9,9,9,9] Total Consistency, [9,9,8,1] Isomorphism, [9,9,3,14] fine-structure extension). Where two different structures hold one address, the earlier publication keeps it. A numbered series keeps its order and moves as a block if it must move. A plain `[a,b,c,d]` coordinate remains valid.
+
+**Proposing a coordinate for new work:** state the base address (a free address in the right series, or an existing base where the same structure is demonstrated), the domain tag, the character digit if assigned, and, for a shared base, the Step 6 demonstration.
 
 ### Total Consistency — the 37 modules
 
