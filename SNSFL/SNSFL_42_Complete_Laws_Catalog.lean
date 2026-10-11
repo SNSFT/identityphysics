@@ -1,8 +1,8 @@
 -- ============================================================
--- SNSFL_Complete_Laws_Catalog.lean
+-- SNSFL_42_Complete_Laws_Catalog.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,50]
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,50](CORE)
 -- COMPLETE STRUCTURAL LAWS CATALOG — ALL ANCHOR SESSIONS
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
@@ -12,7 +12,7 @@
 --
 -- ============================================================
 -- SCOPE: Every structural law established across the full
--- SNSFT QuadBeam Collider anchor series [9,9,2,4] through
+-- GAM Collider 4-beam (QuadBeam) anchor series [9,9,2,4] through
 -- [9,9,2,25] plus ERE and cosmological files.
 -- 42 laws total. 28 compound verifications. 0 sorry.
 --
@@ -153,7 +153,7 @@ theorem l11_w_binary :
   norm_num [min_def, max_def]
 
 -- [L-12] UNIVERSAL MESON NOBLE LAW
--- quark+antiquark(same) at k=1 → B_out=0 → Noble.
+-- quark+antiquark(same): k = min(B_q, B_q) = B_q → B_out = 0 → Noble.
 -- J/ψ(cc-bar), Υ(bb-bar), π, D, B, K mesons: all Noble.
 -- [9,9,2,36]
 theorem l12_meson_noble :
@@ -183,9 +183,28 @@ theorem l13_metal_halide_iva :
 
 -- [L-14] COMMUTATIVITY LAW
 -- Si+F+qt+Ups = F+Si+qt+Ups = τ=0.13434 (both anchor directions).
--- 4-beam is commutative. Anchor choice doesn't change output.
--- [9,9,2,7,9]
-theorem l14_commutative : tau_SiF = 0.13434 := rfl
+-- 4-beam is commutative. Anchor choice doesn't change output: the
+-- coupling k, the Behavior sum and the harmonic P_out are all
+-- symmetric in their inputs. [9,9,2,7,9]
+def k4 (b1 b2 b3 b4 : ℝ) : ℝ :=
+  min b1 b2 + min b1 b3 + min b1 b4 + min b2 b3 + min b2 b4 + min b3 b4
+def pout4 (p1 p2 p3 p4 : ℝ) : ℝ := 4 / (1/p1 + 1/p2 + 1/p3 + 1/p4)
+
+theorem l14_commutative (b1 b2 b3 b4 p1 p2 p3 p4 : ℝ) :
+    k4 b1 b2 b3 b4 = k4 b2 b1 b3 b4 ∧
+    k4 b1 b2 b3 b4 = k4 b1 b3 b2 b4 ∧
+    k4 b1 b2 b3 b4 = k4 b1 b2 b4 b3 ∧
+    pout4 p1 p2 p3 p4 = pout4 p2 p1 p3 p4 ∧
+    pout4 p1 p2 p3 p4 = pout4 p1 p3 p2 p4 ∧
+    pout4 p1 p2 p3 p4 = pout4 p1 p2 p4 p3 := by
+  unfold k4 pout4
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · rw [min_comm b2 b1]; ring
+  · rw [min_comm b3 b2]; ring
+  · rw [min_comm b4 b3]; ring
+  · ring
+  · ring
+  · ring
 
 end CouplingLaws
 
@@ -234,7 +253,8 @@ namespace IVALaws
 -- Hi.B=λ_SM=0.130, Hi.P≈0.987, τ_Hi=0.1317 ∈ [TL_IVA, TL).
 -- The Higgs boson IS the IVA particle. Mass mechanism = formation corridor.
 -- Hi.B = m_H²/(2v²) = 0.1294 ≈ 0.130.  [9,9,2,21]
-def tau_Hi : ℝ := 0.1317
+-- τ_Hi = Hi.B / Hi.P = 0.130 / 0.987
+def tau_Hi : ℝ := 0.130 / 0.987
 
 theorem l17_higgs_iva :
     tau_Hi ≥ TL_IVA_PEAK ∧ tau_Hi < TORSION_LIMIT := by
@@ -258,8 +278,15 @@ theorem l18_bracket :
 -- DNA/phosphate Noble at k=2.5, IVA at k=2.35 (gap≈TL).
 -- Heme Fe+O Noble at k=3, IVA at k=2.87. Substrate neutral.
 -- [9,9,5,0] — 26 theorems proved
-theorem l19_life_iva : TL_IVA_PEAK < TORSION_LIMIT := by
-  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+-- Both reported gaps sit within 0.015 of TL:
+--   DNA/phosphate 2.50 − 2.35 = 0.15, heme 3.00 − 2.87 = 0.13
+theorem l19_life_iva :
+    |((2.50:ℝ) - 2.35) - TORSION_LIMIT| < 0.015 ∧
+    |((3.00:ℝ) - 2.87) - TORSION_LIMIT| < 0.015 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_⟩
+  · rw [abs_lt]; exact ⟨by norm_num, by norm_num⟩
+  · rw [abs_lt]; exact ⟨by norm_num, by norm_num⟩
 
 -- [L-20] IVA GAP COSMICALLY EMPTY
 -- No cosmic component has τ∈IVA. Baryons τ≈0.05(LOCKED),
@@ -276,10 +303,20 @@ theorem l20_iva_cosmically_empty :
    l17_higgs_iva.1⟩
 
 -- [L-21] Hi.B = λ_SM
--- B encodes the Higgs quartic self-coupling λ=m_H²/(2v²)=0.1294≈0.130.
+-- B encodes the Higgs quartic self-coupling λ = m_H²/(2v²).
+-- m_H = 125.25 GeV (PDG 2022), v = 246.22 GeV → λ = 0.1294,
+-- within 0.001 of Hi.B = 0.130.
 -- Consistent with ATLAS HH Run2+3 κλ∈[-1.6,6.6]. [9,9,2,21]
+def M_HIGGS : ℝ := 125.25
+def V_EW    : ℝ := 246.22
+
 theorem l21_higgs_self_coupling :
-    (0.128:ℝ) < 0.130 ∧ (0.130:ℝ) < 0.132 := by norm_num  -- λ_SM ≈ 0.130
+    0.129 < M_HIGGS ^ 2 / (2 * V_EW ^ 2) ∧
+    M_HIGGS ^ 2 / (2 * V_EW ^ 2) < 0.130 := by
+  unfold M_HIGGS V_EW
+  refine ⟨?_, ?_⟩
+  · norm_num
+  · norm_num
 
 -- [L-22] Zo+Ax IN BIOLOGICAL IVA
 -- Zo+Ax appear TOGETHER in IVA events for Zn (τ=0.122) and S (τ=0.123).
@@ -480,7 +517,7 @@ theorem l39_triso :
 
 -- [L-40] CHON 4-BODY REQUIREMENT (LIFE'S SCAFFOLD LAW)
 -- H+C+N+O: all 6 pairwise 2-beams SHATTER. 4-beam → Noble.
--- B_sum=10 = 2×k_max=10 (Noble parity exact).
+-- B_sum = 10, k_max4 = 10, so B_sum ≤ 2k = 20 → B_out = 0.
 -- Life's universal organic scaffold cannot form pairwise.
 -- The Noble ground state requires 4-body coupling. [9,9,2,4]
 theorem l40_chon :
@@ -567,8 +604,8 @@ end SNSFL_Complete_Laws_Catalog
 
 /-!
 -- ============================================================
--- FILE: SNSFL_Complete_Laws_Catalog.lean
--- COORDINATE: [9,9,2,50]
+-- FILE: SNSFL_42_Complete_Laws_Catalog.lean
+-- COORDINATE: [9,9,2,50](CORE)
 -- GENERATED: 2026-05-17 AKDT
 -- STATUS: GERMLINE LOCKED · 0 sorry
 -- DOI: 10.5281/zenodo.18719748
@@ -643,7 +680,7 @@ end SNSFL_Complete_Laws_Catalog
 --   Haber-Bosch (Fv), FeAs+Ni, Fe+N+U+F, GaN-on-Si, Si anode
 --
 -- ============================================================
--- THEOREMS: 30 + master | SORRY: 0
+-- THEOREMS: 41 | SORRY: 0
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna Alaska
 -- 2026-05-17 AKDT · DOI: 10.5281/zenodo.18719748
 -- ============================================================
