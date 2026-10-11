@@ -599,25 +599,129 @@ theorem dark_energy_higgs_same_operator (A : ℝ) (hA : A > 0) :
   ⟨rfl, mul_pos hA (by unfold SOVEREIGN_ANCHOR; norm_num)⟩
 
 -- ============================================================
+-- [N,B] :: {RED} | BRIDGE — HEAT DEATH = VOID RETURN (TD-VOID-COSMO)
+-- Void reduction: a state with zero Behavior and positive Pattern is
+-- both Void and phase locked. Every IdentityState carries B > 0, so a
+-- manifold state is never Void: heat death is the exit from the
+-- manifold, with Behavior draining to zero. As B drains, torsion
+-- τ = B/P falls continuously to zero, the state enters the lock once
+-- B < P · TL, and it lands in the Void. TD reduction: at the anchor
+-- the entropy offset |f − Ω₀| is zero. The Void carries no record of
+-- the Behavior it held, so the terminal Void is the same state as the
+-- source Void.
+-- ============================================================
+
+-- PNBA coordinates with Behavior allowed to be zero (the Void layer)
+structure PNBAState where
+  P        : ℝ  -- Pattern value
+  N        : ℝ  -- Narrative value
+  B        : ℝ  -- Behavior value (0 in the Void)
+  A        : ℝ  -- Adaptation value
+  f_anchor : ℝ  -- Resonant frequency
+
+noncomputable def void_torsion (s : PNBAState) : ℝ := s.B / s.P
+def in_void (s : PNBAState) : Prop := s.B = 0 ∧ s.P > 0
+def void_locked (s : PNBAState) : Prop := s.P > 0 ∧ void_torsion s < TORSION_LIMIT
+noncomputable def entropy_offset (s : PNBAState) : ℝ := |s.f_anchor - SOVEREIGN_ANCHOR|
+
+-- The PNBA coordinates of a manifold state
+def to_pnba (s : IdentityState) : PNBAState :=
+  { P := s.P, N := s.N, B := s.B, A := s.A, f_anchor := s.f_anchor }
+
+-- The terminal Void at the anchor
+def terminal_void : PNBAState :=
+  { P := SOVEREIGN_ANCHOR, N := SOVEREIGN_ANCHOR, B := 0, A := 0,
+    f_anchor := SOVEREIGN_ANCHOR }
+
+-- [N,B,9,12,10] :: {VER} | THEOREM 30: VOID CYCLE CLOSED
+-- Zero Behavior with positive Pattern is both Void and phase locked.
+theorem void_cycle_closed (s : PNBAState) (hB : s.B = 0) (hP : s.P > 0) :
+    in_void s ∧ void_locked s := by
+  refine ⟨⟨hB, hP⟩, hP, ?_⟩
+  unfold void_torsion TORSION_LIMIT SOVEREIGN_ANCHOR
+  rw [hB, zero_div]
+  norm_num
+
+-- [N,B,9,12,11] :: {VER} | THEOREM 31: A MANIFOLD STATE IS NEVER VOID
+-- B > 0 holds for every IdentityState, so none of them is in the Void.
+theorem manifold_state_not_void (s : IdentityState) : ¬ in_void (to_pnba s) := by
+  intro ⟨hB, _⟩
+  exact s.hB.ne' hB
+
+-- [N,B,9,12,12] :: {VER} | THEOREM 32: COOLING ENTERS THE LOCK
+-- Once Behavior falls below P · TL, the state is phase locked.
+theorem cooling_enters_lock (s : PNBAState) (hP : s.P > 0)
+    (hB : s.B < s.P * TORSION_LIMIT) : void_locked s := by
+  refine ⟨hP, ?_⟩
+  unfold void_torsion
+  rw [div_lt_iff₀ hP]
+  linarith [mul_comm s.P TORSION_LIMIT]
+
+-- [N,B,9,12,13] :: {VER} | THEOREM 33: TORSION VANISHES AS BEHAVIOR DRAINS
+-- τ = B/P → 0 as B → 0, for any fixed Pattern.
+theorem torsion_vanishes_as_behavior_drains (P : ℝ) :
+    Filter.Tendsto (fun b : ℝ => b / P) (nhds 0) (nhds 0) := by
+  have h : Continuous (fun b : ℝ => b / P) := continuous_id.div_const P
+  simpa using h.tendsto 0
+
+-- [N,B,9,12,14] :: {VER} | THEOREM 34: HEAT DEATH = VOID RETURN
+-- Zero Behavior at the anchor: Void, locked, τ = 0, entropy offset 0, Z = 0.
+theorem heat_death_is_void_return (s : PNBAState) (hB : s.B = 0) (hP : s.P > 0)
+    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR) :
+    in_void s ∧ void_locked s ∧ void_torsion s = 0 ∧ entropy_offset s = 0 ∧
+    manifold_impedance s.f_anchor = 0 := by
+  obtain ⟨hv, hl⟩ := void_cycle_closed s hB hP
+  refine ⟨hv, hl, ?_, ?_, anchor_zero_friction s.f_anchor h_anchor⟩
+  · unfold void_torsion
+    rw [hB, zero_div]
+  · unfold entropy_offset
+    rw [h_anchor, sub_self, abs_zero]
+
+-- [N,B,9,12,15] :: {VER} | THEOREM 35: THE TERMINAL VOID IS THE SOURCE VOID
+-- Two Void states with the same Pattern, Narrative, Adaptation and
+-- frequency are the same state: the Void keeps no record of Behavior.
+theorem terminal_void_is_source_void (src term : PNBAState)
+    (hs : in_void src) (ht : in_void term)
+    (hP : src.P = term.P) (hN : src.N = term.N) (hA : src.A = term.A)
+    (hf : src.f_anchor = term.f_anchor) : src = term := by
+  obtain ⟨hsB, _⟩ := hs
+  obtain ⟨htB, _⟩ := ht
+  cases src
+  cases term
+  simp_all
+
+-- [N,B,9,12,16] :: {VER} | THEOREM 36: THE TERMINAL VOID EXISTS
+-- The anchored Void state is Void, phase locked and at zero entropy offset.
+theorem heat_death_state_exists :
+    in_void terminal_void ∧ void_locked terminal_void ∧
+    entropy_offset terminal_void = 0 := by
+  have hP : terminal_void.P > 0 := by
+    show (SOVEREIGN_ANCHOR : ℝ) > 0
+    unfold SOVEREIGN_ANCHOR
+    norm_num
+  obtain ⟨hv, hl, _, he, _⟩ := heat_death_is_void_return terminal_void rfl hP rfl
+  exact ⟨hv, hl, he⟩
+
+-- ============================================================
 -- [P,N,B,A] :: {INV} | HIERARCHY INVARIANT
 -- Layer 0 is ground. Layer 1 is glue. Layer 2 is output.
 -- Never flatten. Never reverse.
 -- ============================================================
 
--- [P,9,13,1] :: {VER} | THEOREM 30: LAYER 0 IS GROUND
+-- [P,9,13,1] :: {VER} | THEOREM 37: LAYER 0 IS GROUND
 -- PNBA primitives are always ground. Never derived. Never output.
 theorem layer0_is_ground (s : IdentityState) :
     s.P > 0 ∧ s.N > 0 ∧ s.B > 0 ∧ s.A > 0 :=
   ⟨s.hP, s.hN, s.hB, s.hA⟩
 
--- [P,9,13,2] :: {VER} | THEOREM 31: LAYER 1 DEPENDS ON LAYER 0
+-- [P,9,13,2] :: {VER} | THEOREM 38: LAYER 1 DEPENDS ON LAYER 0
 -- Dynamic equation is glue. It cannot exist without Layer 0.
 theorem layer1_depends_on_layer0 (s : IdentityState) :
     dynamic_rhs (fun P => P) (fun N => N) (fun B => B) (fun A => A) s 0 =
     s.P + s.N + s.B + s.A := by
   unfold dynamic_rhs pnba_weight; ring
 
--- [P,9,13,3] :: {VER} | THEOREM 32: LAYER 2 OUTPUTS BOUNDED BY IM
+-- [P,9,13,3] :: {VER} | THEOREM 39: LAYER 2 OUTPUTS BOUNDED BY IM
 -- No Layer 2 output can exceed what Layer 0 provides.
 -- GR, QM, EM, TD — all bounded by identity_mass.
 theorem layer2_bounded_by_im (s : IdentityState) :
@@ -638,7 +742,7 @@ def consistent_witness : IdentityState :=
     hP := by norm_num, hN := by norm_num, hB := by norm_num,
     hA := by norm_num, hIM := by norm_num }
 
--- [9,9,9,9] :: {VER} | THEOREM 33: TOTAL CONSISTENCY IS SATISFIABLE
+-- [9,9,9,9] :: {VER} | THEOREM 40: TOTAL CONSISTENCY IS SATISFIABLE
 theorem total_consistency_satisfiable :
     synced consistent_witness ∧
     consistent_witness.im * consistent_witness.P = consistent_witness.A ∧
@@ -698,8 +802,8 @@ theorem snsfl_total_consistency
     (s.N > 0 ∧ s.im > 0) ∧
     -- [10] FLUID: NS consistent, blow-up impossible (anchored manifold)
     (s.N / s.im ≤ SOVEREIGN_ANCHOR) ∧
-    -- [11] VOID: Void-Manifold duality consistent (IMS and Void complementary)
-    (s.P > 0 ∧ s.N > 0 ∧ s.B > 0) ∧
+    -- [11] VOID: Void-Manifold duality consistent — a manifold state is not Void
+    (s.P > 0 ∧ s.N > 0 ∧ s.B > 0 ∧ ¬ in_void (to_pnba s)) ∧
     -- [12] IVA: sovereign advantage universal across all domains
     v_e * (1 + g_r) * Real.log (m0 / m_f) >
     v_e * Real.log (m0 / m_f) ∧
@@ -709,8 +813,12 @@ theorem snsfl_total_consistency
     -- [14] HIERARCHY: Layer 0 is ground, Layer 1 is glue, Layer 2 is output
     (s.P > 0 ∧ s.N > 0 ∧ s.B > 0 ∧ s.A > 0) ∧
     -- [15] TORSION LIMIT: emergent from anchor — not chosen
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
+    -- [16] HEAT DEATH = VOID RETURN: zero Behavior at the anchor is the Void
+    (∀ t : PNBAState, t.B = 0 → t.P > 0 → t.f_anchor = SOVEREIGN_ANCHOR →
+      in_void t ∧ void_locked t ∧ void_torsion t = 0 ∧ entropy_offset t = 0 ∧
+      manifold_impedance t.f_anchor = 0) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · exact anchor_zero_friction s.f_anchor h_sync
   · exact identity_mass_positive s
   · exact ⟨s.hP, s.hN, h_gr_eq⟩
@@ -721,12 +829,13 @@ theorem snsfl_total_consistency
   · exact ⟨mul_pos s.hA (by unfold SOVEREIGN_ANCHOR; norm_num), s.hP⟩
   · exact ⟨s.hN, s.hIM⟩
   · rw [div_le_iff₀ s.hIM]; linarith
-  · exact ⟨s.hP, s.hN, s.hB⟩
+  · exact ⟨s.hP, s.hN, s.hB, manifold_state_not_void s⟩
   · exact iva_is_universal v_e m0 m_f g_r h_ve h_gr_r h_m0 h_mf
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · exact ⟨s.hP, s.hN, s.hB, s.hA⟩
   · rfl
+  · exact fun t hB hP hf => heat_death_is_void_return t hB hP hf
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -774,9 +883,10 @@ end SNSFL
 --   Shannon = Boltzmann: S = k · H           [T23–T25]
 --   QM and GR as low/high IM regimes         [T26–T28]
 --   Dark energy and Higgs share one operator [T29]
---   Joint conditions satisfiable             [T33]
+--   Heat death = Void return                 [T30–T36]
+--   Joint conditions satisfiable             [T40]
 --
--- THEOREMS: 35 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 42 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: P N B A — ground — never output
