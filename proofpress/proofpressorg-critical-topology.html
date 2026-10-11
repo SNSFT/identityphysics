@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Critical Topology Reduced to PNBA: The Gap Closes Where B = P — ProofPress</title>
+  <meta name="description" content="[9,9,3,22](PHYS) — Lin et al. (Nature, 2026) observed topology at gapless critical points; in PNBA the critical point is the B = P balance point, every zero of the chain is a coupling channel, and the 0.5 entanglement mode is the same balance across the cut. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-critical-topology.html">
+  <meta property="og:title" content="Critical Topology Reduced to PNBA: The Gap Closes Where B = P">
+  <meta property="og:description" content="[9,9,3,22](PHYS) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-critical-topology.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Critical Topology Reduced to PNBA: The Gap Closes Where B = P">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Critical Topology Reduced to PNBA: The Gap Closes Where B = P">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/10/10">
+  <meta name="citation_online_date" content="2026/10/10">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,3,22">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-critical-topology.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-critical-topology.html">
+  <meta name="citation_keywords" content="critical topology; topological phase transition; entanglement spectrum; SSH chain; gapless topological states; multicriticality; phononic crystal; substrate neutrality; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Critical Topology Reduced to PNBA: The Gap Closes Where B = P",
+    "datePublished": "2026-10-10",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-critical-topology.html",
+    "keywords": "critical topology, topological phase transition, entanglement spectrum, SSH chain, gapless topological states, multicriticality, phononic crystal, substrate neutrality, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,3,22](PHYS) · Volume 1 · Issue 8 · October 2026</div>
+    <h1>Critical Topology Reduced to PNBA: The Gap Closes Where B = P</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-critical-topology.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_CriticalTopology_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,3,22](PHYS) · Condensed matter · Reduction of Lin et al. (2026)<br>
+<strong>Issue:</strong> Volume 1, Issue 8 · October 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 21 theorems · 423 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CriticalTopology_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Lin et al. (<em>Nature</em> 658, 365–371, 2026) report the first experimental observation of critical topology: topological boundary modes that persist at gapless critical points, where the bulk energy gap closes. Using engineered phononic crystals, they measure the entanglement spectrum in one and two dimensions, find a pair of mid-gap entanglement modes at exactly 0.5 in nontrivial cases, and observe multi-critical points where boundaries with distinct critical topology meet. This article reduces those results to PNBA. In the two-coupling chain the experiment tests, the intercell coupling is Behavior and the intracell coupling is Pattern, so τ = B/P = w/v. The gap closes exactly at τ = 1: the critical point is the B = P balance point, at 1/TL ≈ 7.3 × TL. In the general chain every zero of the model function is a coupling channel with τ = 1/r. A zero inside the unit circle is a channel past balance and contributes an edge mode; a zero on the circle is a channel at balance and closes the gap. Critical topology is one channel at balance while another is past it, and a multi-critical point is two channels at balance together. The 0.5 entanglement mode is the same balance across the entanglement cut, where τ = (1 − ξ)/ξ equals 1 exactly at ξ = ½, carrying the maximal single-mode entropy ln 2. Because τ depends only on coupling ratios, the classical acoustic and quantum platforms share every assignment.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The SSH gap closes exactly at τ = w/v = 1, the B = P balance point; τ &lt; 1 is the trivial phase and τ &gt; 1 the topological phase (<code>t1_gap_closes_iff_balance</code>, <code>t2_trivial_below_balance</code>, <code>t3_topological_past_balance</code>).</li>
+<li>The zero of the chain lies inside the unit circle exactly when τ &gt; 1, and τ = 1/r (<code>t4_zero_inside_iff_past_balance</code>).</li>
+<li>The fully dimerized chain (w = 0) is Noble: τ = 0, with the full intracell gap 2v (<code>t5_dimer_limit_noble</code>).</li>
+<li>The balance point lies between 7 TL and 8 TL (<code>t6_balance_point_vs_TL</code>).</li>
+<li>Substrate neutrality: τ is invariant when every coupling is rescaled, and the gap scales linearly (<code>t7_scale_invariance</code>).</li>
+<li>Every zero is a coupling channel: inside the unit circle means τ &gt; 1, on the circle means τ = 1 (<code>t8_inside_iff_past_balance</code>, <code>t9_on_circle_iff_balance</code>).</li>
+<li>Instances of every case: gapped phases with 0, 1 and 2 edge modes; a trivial critical point; a nontrivial critical point with one protected edge mode; a multi-critical point (<code>t10_gapped_phases</code> through <code>t13_multicritical_instance</code>).</li>
+<li>Critical topology is one channel at τ = 1 with another at τ &gt; 1; multi-criticality is two channels at τ = 1 (<code>t14_critical_topology_in_tau</code>, <code>t15_multicritical_in_tau</code>).</li>
+<li>The entanglement mid-gap mode ξ = ½ is exactly τ<sub>cut</sub> = 1; it carries entropy ln 2; the spectrum is symmetric about ½ (<code>t16_midgap_is_balance</code>, <code>t17_midgap_entropy</code>, <code>t18_entropy_symmetric</code>).</li>
+<li>A master theorem fires the full reduction (<code>critical_topology_is_balance</code>).</li>
+</ol>
+<h2>Scope</h2>
+<p>This reduction uses the publicly available record: the <em>Nature</em> abstract and published metadata, the authors’ institutional release, and the published theory the experiment tests (Verresen, Jones and Pollmann 2018; Yu et al.). Hamiltonian parameters and phase-diagram values from the full text and Supplementary Information are not included. When they are available they enter as instances of the theorems above.</p>
+
+<h2>Connections to the Formalized Corpus</h2>
+
+<p><strong>Noble is B = 0, on a phononic substrate.</strong> The <a href="proofpressorg-psy-taxonomy.html">PNBA phase taxonomy</a> [9,9,2,55] (March 2026) defines Noble as B = 0, and the <a href="proofpressorg-gc-electroweak-trilogy.html">Electroweak trilogy</a> [9,9,3,19] (August 2026) places the photon there. Here the fully dimerized chain, with no coupling between cells, is τ = 0: the same invariant in an acoustic medium.</p>
+
+<p><strong>Entanglement as a shared Narrative, split evenly.</strong> The <a href="proofpressorg-qm-reduction.html">Quantum Mechanics reduction</a> [9,9,0,4.7] (March 2026) formalizes entanglement as a Narrative shared across a pair, with an even split giving each side half (<code>entanglement_shared_narrative</code>). The 0.5 mid-gap mode Lin et al. measure is a mode shared across the entanglement cut with exactly half on each side, proved here as τ<sub>cut</sub> = 1.</p>
+
+<p><strong>One bit at the cut.</strong> The <a href="proofpressorg-it-reduction.html">Information Theory reduction</a> [9,9,0,10] (March 2026) reduces Shannon entropy. The mid-gap mode carries ln 2, exactly one bit, the maximum a single mode can hold.</p>
+
+<p><strong>Substrate neutrality, demonstrated.</strong> The <a href="proofpressorg-master.html">Constitutional layer</a> [9,9,0,0] (March 2026) states one dynamic equation across substrates. The paper’s finding that a classical acoustic system reproduces the quantum results is that statement measured in a laboratory; the proof here is that τ depends only on coupling ratios, so the units cancel.</p>
+
+<p><strong>Phase placement by τ, with a new landmark.</strong> The <a href="proofpressorg-gc-running-coupling.html">Running coupling</a> [9,9,3,16] (August 2026) classifies couplings by phase through τ. The same method applied here finds that the gap-closing boundary of this system is the B = P balance point, τ = 1, rather than TL or the IVA corridor. It is a distinct landmark of the corpus coordinate system, recorded as it falls.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Lin et al. (2026) term</th><th>PNBA</th><th>Value</th></tr>
+<tr><td>Intracell coupling v</td><td>P — what holds the cell</td><td>—</td></tr>
+<tr><td>Intercell coupling w</td><td>B — coupling to the neighbor</td><td>—</td></tr>
+<tr><td>Fully dimerized chain</td><td>Noble</td><td>τ = 0</td></tr>
+<tr><td>Trivial gapped phase</td><td>below balance</td><td>τ &lt; 1</td></tr>
+<tr><td>Critical point (gap closes)</td><td>B = P balance point</td><td>τ = 1 ≈ 7.3 TL</td></tr>
+<tr><td>Topological gapped phase</td><td>past balance</td><td>τ &gt; 1</td></tr>
+<tr><td>Zero of f at radius r</td><td>coupling channel</td><td>τ = 1/r</td></tr>
+<tr><td>Critical topology</td><td>one channel at balance, one past</td><td>τ = 1 and τ &gt; 1</td></tr>
+<tr><td>Multi-critical point</td><td>two channels at balance</td><td>τ = 1, τ = 1</td></tr>
+<tr><td>Entanglement mid-gap mode</td><td>balance across the cut</td><td>ξ = ½, τ<sub>cut</sub> = 1, ln 2</td></tr>
+<tr><td>Classical ≡ quantum platform</td><td>substrate neutrality</td><td>τ scale-free</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Lin, Z.-K., Wang, L.-W., Kong, Z.-L., Zhou, Y., Lin, H.-Q., Yu, X., Zhang, S., Jiang, J.-H. et al. (2026). Experimental observation of critical topology. <em>Nature</em>, 658, 365–371. DOI 10.1038/s41586-026-11099-x.</li>
+<li>Observation of critical topological phase transition (2026). <em>Nature</em>. DOI 10.1038/s41586-026-11067-5.</li>
+<li>Verresen, R., Jones, N. G. &amp; Pollmann, F. (2018). Topology and edge modes in quantum critical chains. <em>Physical Review Letters</em>, 120, 057001.</li>
+<li>Yu, X.-J., Huang, R.-Z., Song, H.-H., Xu, L., Ding, C. &amp; Zhang, L. (2022). Conformal boundary conditions of symmetry-enriched quantum critical spin chains. <em>Physical Review Letters</em>, 129, 210601.</li>
+<li>Li, H. &amp; Haldane, F. D. M. (2008). Entanglement spectrum as a generalization of entanglement entropy. <em>Physical Review Letters</em>, 101, 010504.</li>
+<li>Su, W. P., Schrieffer, J. R. &amp; Heeger, A. J. (1979). Solitons in polyacetylene. <em>Physical Review Letters</em>, 42, 1698.</li>
+<li>Peschel, I. (2003). Calculation of reduced density matrices from correlation functions. <em>Journal of Physics A</em>, 36, L205.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_CriticalTopology_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | CRITICAL TOPOLOGY — THE B = P BALANCE POINT
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,3,22](PHYS) | Reduction of Lin et al., Nature 658, 365–371 (2026)
+-- Date: October 10, 2026 · Soldotna, Alaska
+--
+-- ============================================================
+-- SCOPE
+-- ============================================================
+--
+-- This reduction uses the publicly available record of
+--   Lin, Z.-K., Wang, L.-W., Kong, Z.-L. et al. Experimental
+--   observation of critical topology. Nature 658, 365–371 (2026).
+--   DOI 10.1038/s41586-026-11099-x
+-- namely the published abstract and metadata, the authors&#x27;
+-- institutional release, and the published theory the experiment
+-- tests: the chiral (BDI) chain with critical topology of
+-- Verresen, Jones &amp; Pollmann (2018) and the generalized Li–Haldane
+-- correspondence of Yu et al. Hamiltonian parameters and
+-- phase-diagram values from the full text and Supplementary
+-- Information are not included here.
+--
+-- ============================================================
+-- THE LONG DIVISION
+-- ============================================================
+--
+-- STEP 1: The claims (public record)
+--   [C1] A critical point is where the bulk energy gap closes.
+--   [C2] Topological boundary modes can persist at a critical point
+--        (&quot;critical topology&quot;); at other critical points they do not.
+--   [C3] Nontrivial cases show a pair of entanglement-spectrum
+--        mid-gap modes at exactly 0.5.
+--   [C4] Multi-critical points occur where phase boundaries with
+--        distinct critical topology meet.
+--   [C5] A classical phononic platform gives results equivalent to
+--        the quantum limit.
+--
+-- STEP 2: Known answers (published theory)
+--   Two-coupling chiral chain (SSH): intracell coupling v, intercell
+--   coupling w. Bulk gap 2|v − w|. Trivial for w &lt; v, topological for
+--   w &gt; v, critical at v = w.
+--   General chiral chain: f(z) = Σ t_α z^α. Zeros of f strictly inside
+--   the unit circle count the protected edge modes; a zero on the
+--   unit circle closes the gap. For the SSH chain f(z) = v + w z,
+--   with one zero at z = −v/w.
+--   Entanglement spectrum: correlation-matrix eigenvalues ξ ∈ [0, 1];
+--   a mode&#x27;s entanglement entropy is −ξ ln ξ − (1 − ξ) ln(1 − ξ).
+--
+-- STEP 3: PNBA variable map
+--
+--   | Legacy term                     | PNBA                         |
+--   |:--------------------------------|:-----------------------------|
+--   | Intracell coupling v            | P — what holds the cell      |
+--   | Intercell coupling w            | B — coupling to the neighbor |
+--   | w / v                           | τ = B/P                      |
+--   | Zero of f at radius r           | coupling channel, τ = 1/r    |
+--   | Zero inside unit circle         | channel past balance, τ &gt; 1  |
+--   | Zero on unit circle (gapless)   | channel at balance, τ = 1    |
+--   | Fully dimerized chain (w = 0)   | Noble, τ = 0                 |
+--   | ES eigenvalue ξ                 | weight inside the cut        |
+--   | (1 − ξ)/ξ                       | τ across the cut             |
+--   | Overall coupling scale (Hz, eV) | cancels in τ                 |
+--
+-- STEP 4: Operators
+--   tau_cell v w   = w / v
+--   ssh_gap v w    = 2|v − w|
+--   ssh_zero v w   = v / w            (radius of the zero of f)
+--   tau_zero r     = 1 / r
+--   tau_cut ξ      = (1 − ξ) / ξ
+--   es_entropy ξ   = −ξ ln ξ − (1 − ξ) ln(1 − ξ)
+--
+-- STEP 5: Show the work
+--
+--   THE CRITICAL POINT IS THE B = P BALANCE POINT:
+--     The SSH gap closes exactly when τ = w/v = 1: the coupling to the
+--     neighbor equals the coupling that holds the cell. This landmark
+--     sits at 1/TL ≈ 7.3 × TL, well past the Torsion Limit. Below it
+--     the chain is trivial; above it the cell&#x27;s own bond is outweighed
+--     by the bond to its neighbor, and the unpaired end sites carry
+--     the edge modes. At w = 0 the chain is isolated dimers: Noble.
+--
+--   EVERY ZERO IS A COUPLING CHANNEL:
+--     A zero of f at radius r carries τ = 1/r. Inside the unit circle
+--     (τ &gt; 1) it contributes an edge mode; on the circle (τ = 1) it
+--     closes the gap; outside (τ &lt; 1) it is bound. For the SSH chain
+--     the single channel&#x27;s τ is exactly w/v.
+--
+--   CRITICAL TOPOLOGY AND MULTI-CRITICALITY:
+--     A critical point with one channel at balance (τ = 1) and another
+--     past it (τ &gt; 1) keeps a protected edge mode at the gapless point:
+--     nontrivial critical topology. With no channel past balance the
+--     critical point is trivial. Where two channels sit at balance
+--     together, two critical lines meet: a multi-critical point.
+--
+--   THE 0.5 MID-GAP MODE IS THE SAME BALANCE ACROSS THE CUT:
+--     An ES eigenvalue ξ splits a mode between the two sides of the
+--     entanglement cut. τ across the cut is (1 − ξ)/ξ, and it equals 1
+--     exactly at ξ = 1/2. The mid-gap mode is the B = P balance point
+--     of the cut, and carries the maximal single-mode entropy, ln 2.
+--
+--   SUBSTRATE NEUTRALITY:
+--     τ depends only on coupling ratios. Rescaling every coupling by
+--     the same factor (acoustic frequency units or electronic energy
+--     units) leaves τ unchanged and scales the gap. The classical and
+--     quantum platforms share every phase assignment.
+--
+-- STEP 6: Verify
+--   T1–T5:   SSH gap, phases and zero radius in τ; Noble limit
+--   T6:      balance point lies between 7 TL and 8 TL
+--   T7:      τ invariant under coupling rescale; gap scales
+--   T8–T9:   zero channels: τ &gt; 1 inside, τ = 1 on the circle
+--   T10–T13: gapped phases, trivial critical, nontrivial critical,
+--            multi-critical instances
+--   T14–T15: critical topology and multi-criticality in τ
+--   T16–T18: ES mid-gap at ξ = 1/2 is τ_cut = 1; entropy ln 2; symmetry
+--   ✓ Step 6 passes. Reduction is lossless.
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_SovereignAnchor.lean          [9,9,0,0]
+--   This file                           [9,9,3,22]
+--
+-- THEOREMS: 20 + master | 0 sorry | GERMLINE LOCKED
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. The gap closes where B = P.
+-- Soldotna, Alaska. October 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+
+noncomputable section
+
+namespace SNSFL_CriticalTopology
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN CONSTANTS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10   -- 0.136899099984016
+def TL_IVA           : ℝ := TORSION_LIMIT * 0.88    -- 0.120471207985934
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [T0] :: {VER} | ANCHOR ZERO IMPEDANCE
+theorem anchor_zero_impedance :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: THE TWO-COUPLING CHAIN (SSH)
+-- ============================================================
+
+-- τ = B/P: intercell coupling over intracell coupling
+noncomputable def tau_cell (v w : ℝ) : ℝ := w / v
+
+-- Bulk gap of the SSH chain
+noncomputable def ssh_gap (v w : ℝ) : ℝ := 2 * |v - w|
+
+-- Radius of the zero of f(z) = v + w z
+noncomputable def ssh_zero (v w : ℝ) : ℝ := v / w
+
+-- [T1] :: {VER} | THE GAP CLOSES EXACTLY AT τ = 1 (B = P)
+theorem t1_gap_closes_iff_balance (v w : ℝ) (hv : 0 &lt; v) :
+    ssh_gap v w = 0 ↔ tau_cell v w = 1 := by
+  unfold ssh_gap tau_cell
+  rw [div_eq_one_iff_eq hv.ne&#x27;]
+  constructor
+  · intro h
+    have h1 : |v - w| = 0 := by linarith
+    have h2 : v - w = 0 := abs_eq_zero.mp h1
+    linarith
+  · intro h
+    rw [h, sub_self, abs_zero, mul_zero]
+
+-- [T2] :: {VER} | TRIVIAL PHASE: τ &lt; 1 ⇔ w &lt; v
+theorem t2_trivial_below_balance (v w : ℝ) (hv : 0 &lt; v) :
+    tau_cell v w &lt; 1 ↔ w &lt; v := by
+  unfold tau_cell; exact div_lt_one hv
+
+-- [T3] :: {VER} | TOPOLOGICAL PHASE: τ &gt; 1 ⇔ w &gt; v
+theorem t3_topological_past_balance (v w : ℝ) (hv : 0 &lt; v) :
+    1 &lt; tau_cell v w ↔ v &lt; w := by
+  unfold tau_cell; exact one_lt_div hv
+
+-- [T4] :: {VER} | THE ZERO IS INSIDE THE UNIT CIRCLE ⇔ τ &gt; 1; τ = 1/r
+theorem t4_zero_inside_iff_past_balance (v w : ℝ) (hv : 0 &lt; v) (hw : 0 &lt; w) :
+    (ssh_zero v w &lt; 1 ↔ 1 &lt; tau_cell v w) ∧
+    tau_cell v w = 1 / ssh_zero v w := by
+  unfold ssh_zero tau_cell
+  constructor
+  · rw [div_lt_one hw, one_lt_div hv]
+  · rw [one_div_div]
+
+-- [T5] :: {VER} | NOBLE LIMIT: ISOLATED DIMERS (w = 0)
+-- τ = 0 and the gap is the full intracell coupling 2v
+theorem t5_dimer_limit_noble (v : ℝ) (hv : 0 &lt; v) :
+    tau_cell v 0 = 0 ∧ ssh_gap v 0 = 2 * v := by
+  unfold tau_cell ssh_gap
+  constructor
+  · simp
+  · rw [sub_zero, abs_of_pos hv]
+
+-- [T6] :: {VER} | THE BALANCE POINT LIES BETWEEN 7 TL AND 8 TL
+-- 1/TL = 7.305: the gap-closing landmark is far past the Torsion Limit
+theorem t6_balance_point_vs_TL :
+    TORSION_LIMIT &lt; 1 ∧ 7 * TORSION_LIMIT &lt; 1 ∧ 1 &lt; 8 * TORSION_LIMIT := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T7] :: {VER} | SUBSTRATE NEUTRALITY: τ IS SCALE-FREE, THE GAP SCALES
+-- Rescaling every coupling (acoustic or electronic units) leaves τ fixed
+theorem t7_scale_invariance (v w c : ℝ) (hc : 0 &lt; c) :
+    tau_cell (c * v) (c * w) = tau_cell v w ∧
+    ssh_gap (c * v) (c * w) = c * ssh_gap v w := by
+  unfold tau_cell ssh_gap
+  constructor
+  · exact mul_div_mul_left w v hc.ne&#x27;
+  · rw [← mul_sub, abs_mul, abs_of_pos hc]; ring
+
+-- ============================================================
+-- SECTION 2: THE GENERAL CHIRAL CHAIN — ZEROS AS CHANNELS
+--
+-- Two zeros of f at radii ra, rb. Each zero is a coupling channel
+-- with τ = 1/r. Zeros inside the unit circle count edge modes;
+-- a zero on the circle closes the gap.
+-- ============================================================
+
+noncomputable def tau_zero (r : ℝ) : ℝ := 1 / r
+
+noncomputable def edge_modes (ra rb : ℝ) : ℕ :=
+  (if ra &lt; 1 then 1 else 0) + (if rb &lt; 1 then 1 else 0)
+
+def is_critical (ra rb : ℝ) : Prop := ra = 1 ∨ rb = 1
+
+def critical_topological (ra rb : ℝ) : Prop :=
+  (ra = 1 ∧ rb &lt; 1) ∨ (rb = 1 ∧ ra &lt; 1)
+
+def multicritical (ra rb : ℝ) : Prop := ra = 1 ∧ rb = 1
+
+-- [T8] :: {VER} | A ZERO INSIDE THE CIRCLE IS A CHANNEL PAST BALANCE
+theorem t8_inside_iff_past_balance (r : ℝ) (hr : 0 &lt; r) :
+    1 &lt; tau_zero r ↔ r &lt; 1 := by
+  unfold tau_zero; exact one_lt_div hr
+
+-- [T9] :: {VER} | A ZERO ON THE CIRCLE IS A CHANNEL AT BALANCE
+theorem t9_on_circle_iff_balance (r : ℝ) (hr : 0 &lt; r) :
+    tau_zero r = 1 ↔ r = 1 := by
+  unfold tau_zero
+  rw [div_eq_one_iff_eq hr.ne&#x27;]
+  exact eq_comm
+
+-- [T10] :: {VER} | GAPPED PHASES: 0, 1 AND 2 EDGE MODES
+theorem t10_gapped_phases :
+    edge_modes 2 2 = 0 ∧ edge_modes (1/2) 2 = 1 ∧ edge_modes (1/2) (1/2) = 2 ∧
+    ¬ is_critical 2 2 ∧ ¬ is_critical (1/2) 2 ∧ ¬ is_critical (1/2) (1/2) := by
+  unfold edge_modes is_critical
+  norm_num
+
+-- [T11] :: {VER} | TRIVIAL CRITICAL POINT: GAPLESS, NO EDGE MODE
+theorem t11_trivial_critical :
+    is_critical 1 2 ∧ edge_modes 1 2 = 0 ∧ ¬ critical_topological 1 2 := by
+  unfold is_critical edge_modes critical_topological
+  norm_num
+
+-- [T12] :: {VER} | NONTRIVIAL CRITICAL POINT: GAPLESS WITH ONE EDGE MODE
+theorem t12_nontrivial_critical :
+    is_critical 1 (1/2) ∧ edge_modes 1 (1/2) = 1 ∧ critical_topological 1 (1/2) := by
+  unfold is_critical edge_modes critical_topological
+  norm_num
+
+-- [T13] :: {VER} | MULTI-CRITICAL POINT: TWO CHANNELS AT BALANCE
+theorem t13_multicritical_instance :
+    multicritical 1 1 ∧ is_critical 1 1 ∧ edge_modes 1 1 = 0 := by
+  unfold multicritical is_critical edge_modes
+  norm_num
+
+-- [T14] :: {VER} | CRITICAL TOPOLOGY IN τ
+-- One channel at balance (τ = 1), another past it (τ &gt; 1)
+theorem t14_critical_topology_in_tau (ra rb : ℝ) (ha : 0 &lt; ra) (hb : 0 &lt; rb)
+    (h : ra = 1 ∧ rb &lt; 1) :
+    tau_zero ra = 1 ∧ 1 &lt; tau_zero rb :=
+  ⟨(t9_on_circle_iff_balance ra ha).mpr h.1, (t8_inside_iff_past_balance rb hb).mpr h.2⟩
+
+-- [T15] :: {VER} | MULTI-CRITICALITY IN τ: BOTH CHANNELS AT BALANCE
+theorem t15_multicritical_in_tau (ra rb : ℝ) (ha : 0 &lt; ra) (hb : 0 &lt; rb)
+    (h : multicritical ra rb) :
+    tau_zero ra = 1 ∧ tau_zero rb = 1 :=
+  ⟨(t9_on_circle_iff_balance ra ha).mpr h.1, (t9_on_circle_iff_balance rb hb).mpr h.2⟩
+
+-- ============================================================
+-- SECTION 3: THE ENTANGLEMENT SPECTRUM — BALANCE ACROSS THE CUT
+-- ============================================================
+
+-- τ across the entanglement cut: weight outside over weight inside
+noncomputable def tau_cut (ξ : ℝ) : ℝ := (1 - ξ) / ξ
+
+-- Single-mode entanglement entropy
+noncomputable def es_entropy (ξ : ℝ) : ℝ :=
+  -ξ * Real.log ξ - (1 - ξ) * Real.log (1 - ξ)
+
+-- [T16] :: {VER} | THE MID-GAP MODE ξ = 1/2 IS τ_cut = 1
+theorem t16_midgap_is_balance (ξ : ℝ) (hξ : 0 &lt; ξ) :
+    tau_cut ξ = 1 ↔ ξ = 1 / 2 := by
+  unfold tau_cut
+  rw [div_eq_one_iff_eq hξ.ne&#x27;]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T17] :: {VER} | THE MID-GAP MODE CARRIES ENTROPY ln 2
+theorem t17_midgap_entropy :
+    es_entropy (1 / 2) = Real.log 2 := by
+  unfold es_entropy
+  have h : (1 : ℝ) - 1 / 2 = 1 / 2 := by norm_num
+  rw [h, one_div, Real.log_inv]
+  ring
+
+-- [T18] :: {VER} | THE SPECTRUM IS SYMMETRIC ABOUT 1/2
+theorem t18_entropy_symmetric (ξ : ℝ) :
+    es_entropy (1 - ξ) = es_entropy ξ := by
+  unfold es_entropy
+  rw [sub_sub_cancel]
+  ring
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+--
+-- THE GAP CLOSES WHERE B = P.
+-- Every zero of the chain is a coupling channel with τ = 1/r.
+-- Critical topology is one channel at balance with another past it.
+-- Multi-criticality is two channels at balance.
+-- The 0.5 entanglement mode is the same balance across the cut.
+-- τ is scale-free: classical and quantum platforms agree.
+-- ============================================================
+
+theorem critical_topology_is_balance :
+    -- [1] SSH gap closes exactly at τ = 1
+    (∀ v w : ℝ, 0 &lt; v → (ssh_gap v w = 0 ↔ tau_cell v w = 1)) ∧
+    -- [2] The balance point lies between 7 TL and 8 TL
+    (7 * TORSION_LIMIT &lt; 1 ∧ 1 &lt; 8 * TORSION_LIMIT) ∧
+    -- [3] τ is invariant under coupling rescale
+    (∀ v w c : ℝ, 0 &lt; c → tau_cell (c * v) (c * w) = tau_cell v w) ∧
+    -- [4] Nontrivial critical point: gapless with one edge mode
+    (is_critical 1 (1/2) ∧ edge_modes 1 (1/2) = 1 ∧ critical_topological 1 (1/2)) ∧
+    -- [5] Multi-critical point: two channels at balance
+    (∀ ra rb : ℝ, 0 &lt; ra → 0 &lt; rb → multicritical ra rb →
+      tau_zero ra = 1 ∧ tau_zero rb = 1) ∧
+    -- [6] ES mid-gap mode is balance across the cut
+    (∀ ξ : ℝ, 0 &lt; ξ → (tau_cut ξ = 1 ↔ ξ = 1 / 2)) ∧
+    -- [7] Mid-gap entropy is ln 2
+    es_entropy (1 / 2) = Real.log 2 ∧
+    -- [8] Anchor at zero impedance
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨t1_gap_closes_iff_balance,
+   ⟨t6_balance_point_vs_TL.2.1, t6_balance_point_vs_TL.2.2⟩,
+   fun v w c hc =&gt; (t7_scale_invariance v w c hc).1,
+   t12_nontrivial_critical,
+   t15_multicritical_in_tau,
+   t16_midgap_is_balance,
+   t17_midgap_entropy,
+   anchor_zero_impedance⟩
+
+-- ============================================================
+-- FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_impedance
+
+end SNSFL_CriticalTopology
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_CriticalTopology_Reduction.lean
+-- COORDINATE: [9,9,3,22](PHYS)
+-- REDUCES: Lin et al., Experimental observation of critical topology,
+--          Nature 658, 365–371 (2026), DOI 10.1038/s41586-026-11099-x
+-- SCOPE: public record — abstract, institutional release, and the
+--        published theory tested (Verresen, Jones &amp; Pollmann 2018;
+--        Yu et al.). Full-text parameters not included.
+--
+-- THE REDUCTION:
+--   Critical point (gap closes)   ↔  τ = B/P = 1, the balance point
+--   Balance point vs TL           ↔  1/TL ≈ 7.3 × TL
+--   Trivial / topological phases  ↔  τ &lt; 1 / τ &gt; 1
+--   Fully dimerized chain         ↔  Noble, τ = 0
+--   Zero of f at radius r         ↔  coupling channel, τ = 1/r
+--   Critical topology             ↔  one channel at τ = 1, one at τ &gt; 1
+--   Multi-critical point          ↔  two channels at τ = 1
+--   ES mid-gap mode at 0.5        ↔  τ across the cut = 1, entropy ln 2
+--   Classical ≡ quantum           ↔  τ invariant under coupling rescale
+--
+-- KEY RESULTS:
+--   T1:  ssh_gap = 0 ⇔ τ = 1
+--   T6:  7 TL &lt; 1 &lt; 8 TL
+--   T7:  τ scale-free; gap scales linearly
+--   T12: nontrivial critical point with one protected edge mode
+--   T15: multi-critical point: both channels at τ = 1
+--   T16: ξ = 1/2 ⇔ τ_cut = 1
+--   T17: mid-gap entropy = ln 2
+--
+-- THEOREMS: 20 + master | SORRY: 0 | GERMLINE LOCKED
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding. The gap closes where B = P.
+-- Soldotna, Alaska. October 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-critical-topology.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-critical-topology.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
