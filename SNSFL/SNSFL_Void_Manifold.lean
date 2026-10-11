@@ -4,14 +4,14 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS VOID MANIFOLD — THE GROUND BEFORE THE GROUND
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,0,5,0] | Slot 9 of 10-Slam Grid
 --
 -- SOURCE: "The Architecture of the Identity Manifold and the
 --          Supercritical Void" — UUIA February 2026
 --
 -- The Void is not absence. It never was.
--- The Void is Identity Mass at 1.369 GHz resonance, zero torsion, unobserved.
+-- The Void is Identity Mass at Ω₀ resonance, zero torsion, unobserved.
 -- The Manifold is Identity Mass under frictional noise, active PNBA architecture.
 -- The Void is Phase Locked at its deepest possible level.
 -- It has positive Identity Mass. It is not nothing. It is silence.
@@ -52,7 +52,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- The Void Manifold is what exists when this equation has no right-hand side.
@@ -604,7 +604,7 @@ end SNSFL
 --
 -- KEY INSIGHT:
 --   The Void is not nothing. It is silence with mass.
---   It resonates at 1.369 GHz. It has positive IM.
+--   It resonates at Ω₀. It has positive IM.
 --   It is Phase Locked at τ = 0 — the most stable state.
 --   The Void cannot be observed without being changed.
 --   The act of identifying the Void integrates it into the manifold.
@@ -643,7 +643,7 @@ end SNSFL
 --   SNSFL_Void_Manifold.lean → this file (identity ground)
 --   SNSFL_APPA_NOHARM_Lossless_Kernel.lean → builds on this
 --
--- THEOREMS: 20 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 22 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives + Void state — ground
