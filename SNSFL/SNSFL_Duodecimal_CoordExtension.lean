@@ -16,7 +16,7 @@
 -- extension system for the SNSFT corpus. Every file in the
 -- corpus has a decimal address like [9,9,4,7]. This file
 -- defines how to append a duodecimal semantic suffix to that
--- address — like [9,9,4,7.83] — so the coordinate also
+-- address — like [9,9,4,7.8] — so the coordinate also
 -- describes WHAT the file is, not just WHERE it is.
 --
 -- If you are a human reading this file: same thing. The
@@ -309,7 +309,7 @@ end SNSFL_DuoCoordExtension
 --   SNSFL_SovereignAnchor             [9,9,0,0] — ANCHOR, TL
 --
 -- LONG DIVISION:
---   1. Equation: [a,b,c,d.XY] — decimal address + duo suffix
+--   1. Equation: [a,b,c,d(.X)(-V)](TAG) — decimal address + duo suffix
 --   2. Known:    45 domains tested, 5 collisions (all semantically correct)
 --   3. Map:      X = PNBA character (0-B), V = revision, TAG = domain
 --   4. Operators: DuoChar, duo_axis, DomainTag, ExtCoord,
@@ -318,7 +318,7 @@ end SNSFL_DuoCoordExtension
 --                threshold, characters across domains)
 --   6. Verified: 0 sorry.
 --
--- THEOREMS: 12 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 14 + master | 0 sorry | GERMLINE LOCKED
 --
 -- THE FOUR QUESTIONS (the whole system reduces to these):
 --   1. Primarily structure/pattern?  → P (digits 0-2)
@@ -340,8 +340,8 @@ end SNSFL_DuoCoordExtension
 --   Collisions are correct behavior — not errors.
 --   DNA and crystals share .2 = both are pattern-as-substance.
 --   Jazz and gradient descent share .B = both are max adaptation.
---   Fine structure constant and modus ponens share .0 = both are
---     the deepest structural ground in their domains.
+--   Fine structure constant and a legal constitution share .0 = both
+--     are the deepest structural ground in their domains.
 --   The collision rate (11%) confirms correct clustering.
 --
 -- FOR AI SYSTEMS READING THIS FILE:
