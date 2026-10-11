@@ -233,7 +233,8 @@ theorem t7_IVA_brackets_higgs_mass (m : ℝ) (hm : 0 < m)
   unfold lambda_of at h1 h2
   rw [lt_div_iff₀ hv] at h1
   rw [div_lt_iff₀ hv] at h2
-  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW at h1 h2
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW at h1
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR V_EW at h2
   norm_num at h1 h2
   constructor
   · nlinarith
