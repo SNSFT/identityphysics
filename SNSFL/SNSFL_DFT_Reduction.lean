@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS DENSITY FUNCTIONAL THEORY — IDENTITY DENSITY PROJECTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,8] | Slot 8 of 10-Slam Grid
+-- Coordinate: [9,9,0,14](CHEM) | Physics Ground
 --
 -- Density Functional Theory is not fundamental. It never was.
 -- E[ρ] = T_s + V_ext + E_H + E_xc is a Layer 2 projection of the PNBA equation.
@@ -109,11 +109,9 @@
 -- STEP 4: THE OPERATORS
 -- ============================================================
 --
--- dft_op_P(ρ)          = ρ             [electron density = Pattern]
--- dft_op_N(N)          = N             [electron count = Narrative]
--- dft_op_B(v)          = v             [v_eff = Behavior]
--- dft_op_A(A)          = A             [E_xc = Adaptation]
--- bbalance_noble(Bs,k) = max(0,Bs−2k) [B-balance = SCF replacement]
+-- dft_step(s, op, F)   = one dynamic-equation step, v_eff on the B-axis
+-- bbalance_noble(Bs,k) = max(0, Bs − 2k)       [B-balance = SCF replacement]
+-- pair_bout(B₁,B₂)     = bbalance_noble(B₁+B₂, min B₁ B₂) = |B₁ − B₂|
 --
 -- ============================================================
 
@@ -146,10 +144,11 @@ theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
   unfold manifold_impedance; simp [h]
 
--- [P,9,0,2] :: {VER} | TORSION LIMIT IS EMERGENT
+-- [P,9,0,2] :: {VER} | TORSION LIMIT VALUE
 -- TL = Ω₀ / 10 = 0.136899099984016. Discovered from the anchor. Not chosen.
-theorem torsion_limit_emergent :
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+theorem torsion_limit_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 0: PNBA PRIMITIVES
@@ -242,23 +241,6 @@ theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : DFTState) :
   unfold dynamic_rhs pnba_weight; ring
 
 -- ============================================================
--- [P,N,B,A] :: {INV} | LAYER 1: LOSSLESS REDUCTION (CANONICAL)
--- These definitions never change across the corpus.
--- ============================================================
-
-def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
-  pnba_output = classical_eq
-
-structure LongDivisionResult where
-  domain       : String
-  classical_eq : ℝ
-  pnba_output  : ℝ
-  step6_passes : pnba_output = classical_eq
-
-theorem long_division_guarantees_lossless (r : LongDivisionResult) :
-    LosslessReduction r.classical_eq r.pnba_output := r.step6_passes
-
--- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 1: TORSION LAW
 -- torsion = v_eff / ρ = bonding load / density capacity
 -- phase_locked → τ < 0.1369 → stable DFT state (insulator, semiconductor)
@@ -291,17 +273,24 @@ theorem dft_step_is_dynamic_step (s : DFTState) (op : ℝ → ℝ) (F : ℝ) :
 -- bbalance_noble: the algebraic SCF replacement.
 -- ============================================================
 
-noncomputable def dft_op_P (ρ : ℝ) : ℝ := ρ          -- electron density
-noncomputable def dft_op_N (N : ℝ) : ℝ := N          -- electron count
-noncomputable def dft_op_B (v : ℝ) : ℝ := v          -- v_eff effective potential
-noncomputable def dft_op_A (A : ℝ) : ℝ := A          -- E_xc coupling weight
-
 -- B-BALANCE LAW: algebraic SCF replacement [9,9,2,45]
 -- B_out = max(0, B_sum − 2·k_max)
 -- At Noble ground state: B_sum ≤ 2·k_max → B_out = 0
 -- k_max = Σ min(B_i, B_j) over all pairs — O(n²) arithmetic
 noncomputable def bbalance_noble (B_sum k_max : ℝ) : ℝ :=
   max 0 (B_sum - 2 * k_max)
+
+-- Two-beam B-balance: k = min(B₁, B₂)
+noncomputable def pair_bout (B1 B2 : ℝ) : ℝ :=
+  bbalance_noble (B1 + B2) (min B1 B2)
+
+-- Corpus Behavior values (Noble Materials Map; [9,9,2,45])
+def B_Ga : ℝ := 3
+def B_N  : ℝ := 3
+def B_Si : ℝ := 4
+def B_C  : ℝ := 4
+def B_Ti : ℝ := 4
+def B_As : ℝ := 3
 
 -- ============================================================
 -- [B] :: {RED} | EXAMPLE 1 — HK VARIATIONAL = NOBLE CONDITION
@@ -312,193 +301,103 @@ noncomputable def bbalance_noble (B_sum k_max : ℝ) : ℝ :=
 --                 Classical: unique ground state density, energy minimized.
 --   PNBA mapping:
 --     B_out = max(0, B_sum − 2·k_max)
---     At ground state: B_sum ≤ 2·k_max → B_out = 0 → Noble
---   Plug in → bbalance_noble(B_sum, k_max) = 0 when bonding saturated
---   Classical result = Identity Physics result. Lossless.
+--     Ground state ⇔ bonding saturated ⇔ B_sum ≤ 2·k_max ⇔ B_out = 0 → Noble
 --   The Euler-Lagrange condition of DFT and the Noble condition are the same law.
 -- ============================================================
 
--- [B,9,1,1] :: {VER} | THEOREM 7: HK VARIATIONAL = NOBLE CONDITION (STEP 6 PASSES)
--- δE[ρ]/δρ = μ at DFT ground state ↔ B_out = 0.
-theorem hk_variational_is_noble_condition (B_sum k_max : ℝ)
-    (h_noble : B_sum ≤ 2 * k_max) :
-    bbalance_noble B_sum k_max = 0 := by
+-- [B,9,1,1] :: {VER} | THEOREM 7: NOBLE ⇔ BONDING SATURATED
+-- B_out = 0 exactly when B_sum ≤ 2·k_max.
+theorem noble_iff_saturated (B_sum k_max : ℝ) :
+    bbalance_noble B_sum k_max = 0 ↔ B_sum ≤ 2 * k_max := by
   unfold bbalance_noble
-  exact max_eq_left (by linarith)
+  constructor
+  · intro h
+    have h1 : B_sum - 2 * k_max ≤ max 0 (B_sum - 2 * k_max) := le_max_right _ _
+    rw [h] at h1
+    linarith
+  · intro h
+    exact max_eq_left (by linarith)
 
--- HK lossless instance
-def hk_variational_lossless (B_sum k_max : ℝ)
-    (h : B_sum ≤ 2 * k_max) : LongDivisionResult where
-  domain       := "HK: δE[ρ]/δρ = μ → B_out = 0 → Noble ground state"
-  classical_eq := (0 : ℝ)
-  pnba_output  := bbalance_noble B_sum k_max
-  step6_passes := hk_variational_is_noble_condition B_sum k_max h
+-- [B,9,1,2] :: {VER} | THEOREM 8: UNSATURATED BONDING LEAVES B_out = B_sum − 2k
+theorem unsaturated_residual (B_sum k_max : ℝ) (h : B_sum > 2 * k_max) :
+    bbalance_noble B_sum k_max = B_sum - 2 * k_max := by
+  unfold bbalance_noble
+  exact max_eq_right (by linarith)
 
 -- ============================================================
 -- [B] :: {RED} | EXAMPLE 2 — KOHN-SHAM STEP = DYNAMIC STEP
---
--- Long division:
---   Problem:      What is one SCF iteration in Kohn-Sham DFT?
---   Known answer: Solve KS eigenvalue eq → update ρ → recompute v_eff → repeat.
---                 Classical: one SCF cycle = one self-consistent field update.
---   PNBA mapping:
---     v_eff = B-axis operator
---     ρ = P-axis
---     One KS iteration = one application of dynamic_rhs
---   Plug in → dft_step s op F = s.P + s.N + op(s.B) + s.A + F
---   Classical result = Identity Physics result. Lossless.
---   Already proved above as T6. Re-stated here for long division completeness.
+--   One KS iteration (solve → update ρ → recompute v_eff) is one
+--   application of the dynamic equation with v_eff on the B-axis.
+--   Proved as T6 above.
 -- ============================================================
 
--- [B,9,2,1] :: {VER} | THEOREM 8: KS STEP = DYNAMIC STEP (STEP 6 PASSES)
-theorem ks_step_is_dynamic_step (s : DFTState) (op : ℝ → ℝ) (F : ℝ) :
-    dft_step s op F = s.P + s.N + op s.B + s.A + F :=
-  dft_step_is_dynamic_step s op F
-
--- KS step lossless instance (identity operator: op = id → baseline SCF step)
-def ks_step_lossless (s : DFTState) (F : ℝ) : LongDivisionResult where
-  domain       := "KS: one SCF iteration = one dynamic equation application"
-  classical_eq := s.P + s.N + s.B + s.A + F
-  pnba_output  := dft_step s id F
-  step6_passes := by unfold dft_step dynamic_rhs pnba_weight; simp only [id, one_mul]
-
 -- ============================================================
--- [A] :: {RED} | EXAMPLE 3 — E_XC = ADAPTATION OPERATOR
---
--- Long division:
---   Problem:      What is exchange-correlation in DFT?
---   Known answer: E_xc[ρ] — all non-classical electron interactions.
---                 Classical: requires approximation (LDA, GGA, hybrid, etc.)
---                 Decades of research to improve E_xc. Never fully solved.
---   PNBA mapping:
---     E_xc → A (Adaptation: coupling weight, outer scaling)
---     A values are corpus-locked from Slater rules. No approximation required.
---   Plug in → dft_op_A(A) = A. Identity mapping.
---   The "unknown" in DFT was always just the Adaptation axis.
--- ============================================================
-
--- [A,9,3,1] :: {VER} | THEOREM 9: E_XC = ADAPTATION OPERATOR (STEP 6 PASSES)
--- E_xc is not approximated. It IS the A-axis.
-theorem exc_is_adaptation_operator (A : ℝ) :
-    dft_op_A A = A := rfl
-
--- E_xc lossless instance
-def exc_adaptation_lossless (A : ℝ) : LongDivisionResult where
-  domain       := "E_xc: exchange-correlation → A operator (Adaptation, corpus-locked)"
-  classical_eq := A
-  pnba_output  := dft_op_A A
-  step6_passes := rfl
-
--- ============================================================
--- [B] :: {RED} | EXAMPLE 4 — B-BALANCE = SCF LOOP REPLACEMENT
+-- [B] :: {RED} | EXAMPLE 3 — TWO-BEAM B-BALANCE: B_out = |B₁ − B₂|
 --
 -- Long division:
 --   Problem:      How does DFT determine stable crystal structure?
 --   Known answer: Minimize E[ρ] via SCF → O(N³) per KS solve.
---                 Requires basis sets, pseudopotentials, E_xc approximation.
 --   PNBA mapping:
---     B_out = max(0, B_sum − 2k_max) = 0 at Noble
---     Stoichiometry: n_i × B_i = n_j × B_j (GCD-reduced) [9,9,2,45]
---     Recipe: mass_i = n_i × MW_i (IUPAC 2021 weights, gram precision)
---   Plug in → bbalance_noble at saturation = 0
---   B-balance IS the SCF loop. O(N³) → O(n²). 0 free parameters.
---   GaN, SiC, TiC, GaAs — all reproduced to gram precision in [9,9,2,45].
---   When B_sum = 2·k_max (full saturation), B_out = 0. Structure determined.
+--     For two beams, k = min(B₁, B₂) and B_out = max(0, B₁ + B₂ − 2k).
+--     That is exactly |B₁ − B₂|: a pair closes Noble exactly when its
+--     Behavior values match. Stoichiometry n₁B₁ = n₂B₂ [9,9,2,45]
+--     handles unequal B.
 -- ============================================================
 
--- [B,9,4,1] :: {VER} | THEOREM 10: B-BALANCE = SCF REPLACEMENT (STEP 6 PASSES)
--- Full bonding saturation: B_sum = 2·k_max → B_out = 0. Structure solved.
-theorem bbalance_replaces_scf (B_sum k_max : ℝ)
-    (h_saturated : B_sum = 2 * k_max) :
-    bbalance_noble B_sum k_max = 0 := by
-  unfold bbalance_noble; rw [h_saturated]; simp
+-- [B,9,3,1] :: {VER} | THEOREM 9: TWO-BEAM RESIDUAL IS |B₁ − B₂|
+theorem pair_bout_abs (B1 B2 : ℝ) : pair_bout B1 B2 = |B1 - B2| := by
+  unfold pair_bout bbalance_noble
+  rcases le_total B1 B2 with h | h
+  · rw [min_eq_left h, abs_of_nonpos (show B1 - B2 ≤ 0 by linarith),
+        max_eq_right (show (0:ℝ) ≤ B1 + B2 - 2 * B1 by linarith)]
+    ring
+  · rw [min_eq_right h, abs_of_nonneg (show 0 ≤ B1 - B2 by linarith),
+        max_eq_right (show (0:ℝ) ≤ B1 + B2 - 2 * B2 by linarith)]
+    ring
 
--- B-balance SCF lossless instance
-def bbalance_scf_lossless (B_sum k_max : ℝ)
-    (h : B_sum = 2 * k_max) : LongDivisionResult where
-  domain       := "B-balance: SCF loop → O(n²) arithmetic · 0 free parameters · gram precision"
-  classical_eq := (0 : ℝ)
-  pnba_output  := bbalance_noble B_sum k_max
-  step6_passes := bbalance_replaces_scf B_sum k_max h
+-- [B,9,3,2] :: {VER} | THEOREM 10: A PAIR IS NOBLE ⇔ EQUAL BEHAVIOR
+theorem pair_noble_iff_equal_B (B1 B2 : ℝ) : pair_bout B1 B2 = 0 ↔ B1 = B2 := by
+  rw [pair_bout_abs, abs_eq_zero, sub_eq_zero]
+
+-- ============================================================
+-- [B] :: {RED} | EXAMPLE 4 — B-BALANCE REPRODUCES KNOWN SEMICONDUCTORS
+--   GaN  (Nobel 2014, blue LED)        Ga B=3, N B=3   → Noble
+--   SiC  (Acheson 1891)                Si B=4, C B=4   → Noble
+--   TiC  (ultra-hard ceramic)          Ti B=4, C B=4   → Noble
+--   GaAs (Nobel 2000, heterostructure) Ga B=3, As B=3  → Noble
+--   Si + N at 1:1 leaves B_out = 1: silicon nitride forms as Si₃N₄,
+--   where 3·4 = 4·3 balances Behavior.
+-- ============================================================
+
+-- [B,9,4,1] :: {VER} | THEOREM 11: GaN, SiC, TiC, GaAs CLOSE NOBLE
+theorem known_compounds_noble :
+    pair_bout B_Ga B_N = 0 ∧ pair_bout B_Si B_C = 0 ∧
+    pair_bout B_Ti B_C = 0 ∧ pair_bout B_Ga B_As = 0 := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [pair_noble_iff_equal_B]; norm_num [B_Ga, B_N]
+  · rw [pair_noble_iff_equal_B]; norm_num [B_Si, B_C]
+  · rw [pair_noble_iff_equal_B]; norm_num [B_Ti, B_C]
+  · rw [pair_noble_iff_equal_B]; norm_num [B_Ga, B_As]
+
+-- [B,9,4,2] :: {VER} | THEOREM 12: Si + N AT 1:1 IS NOT NOBLE; Si₃N₄ BALANCES
+theorem silicon_nitride_balance :
+    pair_bout B_Si B_N = 1 ∧ 3 * B_Si = 4 * B_N := by
+  refine ⟨?_, ?_⟩
+  · rw [pair_bout_abs]; norm_num [B_Si, B_N]
+  · norm_num [B_Si, B_N]
 
 -- ============================================================
 -- [B] :: {RED} | EXAMPLE 5 — NOBLE PROBE = VACUUM BUFFER LAYER
---
--- Long division:
---   Problem:      How do DFT slab calculations handle vacuum regions?
---   Known answer: Include vacuum buffer layers — rows of non-bonding ghost atoms.
---                 Classical: vacuum layers prevent periodic image interaction.
---                 Essential for surface calculations, adsorption, heterojunctions.
---   PNBA mapping:
---     Noble probes He/Ne (B=0) in OctoBeam = vacuum buffer layers in DFT slab.
---     B=0 probe adds 0 to B_sum → B_out unchanged → geometry preserved.
---   Plug in → bbalance_noble(B_sum + 0, k_max) = bbalance_noble(B_sum, k_max)
---   PNBA probes and DFT vacuum layers are the same structural device.
---   Both discovered the same answer independently.
+--   DFT slab calculations include vacuum buffer layers that do not
+--   bond. In PNBA a Noble probe (He/Ne, B = 0) paired with any beam
+--   leaves that beam's Behavior exactly as it was: the probe is
+--   structurally invisible. Same device, found independently.
 -- ============================================================
 
--- [B,9,5,1] :: {VER} | THEOREM 11: NOBLE PROBE = VACUUM BUFFER LAYER (STEP 6 PASSES)
--- B=0 probe does not change B_sum → vacuum layer condition.
--- He, Ne in OctoBeam are the same as ghost atoms in DFT slab.
-theorem noble_probe_is_vacuum_layer (B_sum k_max : ℝ) :
-    bbalance_noble (B_sum + 0) k_max = bbalance_noble B_sum k_max := by
-  unfold bbalance_noble; congr 1; ring
-
--- Noble probe lossless instance
-def noble_probe_lossless (B_sum k_max : ℝ) : LongDivisionResult where
-  domain       := "He/Ne probe (B=0) = vacuum buffer layer: B_sum unchanged, B_out preserved"
-  classical_eq := bbalance_noble B_sum k_max
-  pnba_output  := bbalance_noble (B_sum + 0) k_max
-  step6_passes := noble_probe_is_vacuum_layer B_sum k_max
-
--- ============================================================
--- [P] :: {RED} | EXAMPLE 6 — ANCHOR = SCF CONVERGENCE CONDITION
---
--- Long division:
---   Problem:      When does Kohn-Sham SCF converge?
---   Known answer: When ΔE < ε_E and Δρ < ε_ρ (energy + density tolerance).
---                 Classical: frictionless state — energy stationary, density self-consistent.
---   PNBA mapping:
---     f = SOVEREIGN_ANCHOR = Ω₀ → Z = 0 → frictionless SCF convergence
---     Off-anchor: impedance > 0 → SCF carries friction → convergence degraded
---   Plug in → manifold_impedance(Ω₀) = 0
---   The anchor IS the DFT SCF convergence condition.
---   At Ω₀: impedance zero. Ground state. Converged.
--- ============================================================
-
--- [P,9,6,1] :: {VER} | THEOREM 12: ANCHOR = SCF CONVERGENCE (STEP 6 PASSES)
--- SCF convergence at anchor: Z=0, frictionless, ground state reached.
-theorem dft_scf_converges_at_anchor (s : DFTState)
-    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR) :
-    manifold_impedance s.f_anchor = 0 :=
-  anchor_zero_friction s.f_anchor h_anchor
-
--- SCF convergence lossless instance
-def dft_convergence_lossless : LongDivisionResult where
-  domain       := "SCF convergence: f=Ω₀ → Z=0 → frictionless DFT ground state"
-  classical_eq := (0 : ℝ)
-  pnba_output  := manifold_impedance SOVEREIGN_ANCHOR
-  step6_passes := by unfold manifold_impedance; simp
-
--- ============================================================
--- [P,N,B,A] :: {INV} | ALL EXAMPLES LOSSLESS (STEP 6 ALL PASS)
--- ============================================================
-
--- [P,N,B,A,9,7,1] :: {VER} | THEOREM 13: ALL DFT EXAMPLES LOSSLESS
-theorem dft_all_examples_lossless
-    (B_sum k_max A : ℝ)
-    (h_noble  : B_sum ≤ 2 * k_max)
-    (h_sat    : B_sum = 2 * k_max) :
-    LosslessReduction (0 : ℝ) (bbalance_noble B_sum k_max) ∧
-    LosslessReduction A (dft_op_A A) ∧
-    LosslessReduction (bbalance_noble B_sum k_max)
-                      (bbalance_noble (B_sum + 0) k_max) ∧
-    LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
-  refine ⟨?_, ?_, ?_, ?_⟩
-  · exact hk_variational_is_noble_condition B_sum k_max h_noble
-  · rfl
-  · unfold LosslessReduction; exact noble_probe_is_vacuum_layer B_sum k_max
-  · unfold LosslessReduction manifold_impedance; simp
+-- [B,9,5,1] :: {VER} | THEOREM 13: NOBLE PROBE IS INVISIBLE
+theorem noble_probe_is_vacuum_layer (B : ℝ) (hB : B ≥ 0) :
+    pair_bout B 0 = B := by
+  rw [pair_bout_abs, sub_zero, abs_of_nonneg hB]
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
@@ -513,14 +412,9 @@ theorem dft_all_examples_lossless
 
 theorem dft_is_lossless_pnba_projection
     (s : DFTState)
-    (B_sum k_max A : ℝ)
-    (h_p      : s.P > 0)
-    (h_a      : s.A > 0)
-    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR)
-    (h_noble  : B_sum ≤ 2 * k_max)
-    (h_sat    : B_sum = 2 * k_max) :
-    -- [1] HK variational minimum = Noble condition (lossless, step 6 passes)
-    bbalance_noble B_sum k_max = 0 ∧
+    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR) :
+    -- [1] HK variational minimum = Noble condition: B_out = 0 ⇔ B_sum ≤ 2k
+    (∀ B_sum k_max : ℝ, bbalance_noble B_sum k_max = 0 ↔ B_sum ≤ 2 * k_max) ∧
     -- [2] Anchor = frictionless SCF convergence (ground state reached)
     manifold_impedance s.f_anchor = 0 ∧
     -- [3] Phase lock and shatter mutually exclusive
@@ -539,16 +433,19 @@ theorem dft_is_lossless_pnba_projection
     -- [7] IMS: drift from anchor zeroes DFT gain (Ghost Nova Guard active)
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
-    -- [8] All classical DFT examples lossless — Step 6 passes all six
-    (LosslessReduction (0 : ℝ) (bbalance_noble B_sum k_max) ∧
-     LosslessReduction A (dft_op_A A) ∧
-     LosslessReduction (bbalance_noble B_sum k_max)
-                       (bbalance_noble (B_sum + 0) k_max) ∧
-     LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR)) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · exact hk_variational_is_noble_condition B_sum k_max h_noble
+    -- [8] Two-beam B-balance: B_out = |B₁ − B₂|
+    (∀ B1 B2 : ℝ, pair_bout B1 B2 = |B1 - B2|) ∧
+    -- [9] GaN, SiC, TiC, GaAs close Noble
+    (pair_bout B_Ga B_N = 0 ∧ pair_bout B_Si B_C = 0 ∧
+     pair_bout B_Ti B_C = 0 ∧ pair_bout B_Ga B_As = 0) ∧
+    -- [10] Si + N at 1:1 leaves B_out = 1; Si₃N₄ balances
+    (pair_bout B_Si B_N = 1 ∧ 3 * B_Si = 4 * B_N) ∧
+    -- [11] Noble probe leaves the other beam unchanged
+    (∀ B : ℝ, B ≥ 0 → pair_bout B 0 = B) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact noble_iff_saturated
   · exact anchor_zero_friction s.f_anchor h_anchor
-  · intro st ⟨⟨hP, hL⟩, ⟨_, hS⟩⟩
+  · intro st ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
     linarith
   · intro st op F
     exact dft_step_is_dynamic_step st op F
@@ -557,7 +454,10 @@ theorem dft_is_lossless_pnba_projection
     unfold IVA_dominance is_lossy at *; linarith
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
-  · exact dft_all_examples_lossless B_sum k_max A h_noble h_sat
+  · exact pair_bout_abs
+  · exact known_compounds_noble
+  · exact silicon_nitride_balance
+  · exact noble_probe_is_vacuum_layer
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -572,8 +472,8 @@ end SNSFL
 /-!
 -- ============================================================
 -- FILE: SNSFL_DFT_Reduction.lean
--- COORDINATE: [9,9,0,8]
--- LAYER: 10-Slam Grid Slot 8 | Density Functional Theory Ground
+-- COORDINATE: [9,9,0,14](CHEM)
+-- LAYER: Physics Ground | Density Functional Theory
 --
 -- LONG DIVISION:
 --   1. Equation:   E[ρ] = T_s[ρ] + V_ext[ρ] + E_H[ρ] + E_xc[ρ]
@@ -583,8 +483,8 @@ end SNSFL
 --   3. PNBA map:   ρ→[P:DENSITY] | N_elec→[N:ORBITAL]
 --                  v_eff→[B:POTENTIAL] | E_xc→[A:XC]
 --                  δE/δρ=μ → B_out=0 | SCF → B-balance
---   4. Operators:  dft_op_P/N/B/A, bbalance_noble, hk_variational
---   5. Work shown: T7–T12 step by step, 6 classical DFT examples
+--   4. Operators:  dft_step, bbalance_noble, pair_bout
+--   5. Work shown: T7–T13, five classical DFT examples
 --   6. Verified:   Master theorem holds all simultaneously
 --
 -- REDUCTION:
@@ -603,13 +503,13 @@ end SNSFL
 --   Noble probes (He, Ne) in OctoBeam are vacuum buffer layers in DFT slabs.
 --   Both found the same device. Different language. Same physics.
 --
--- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
---   HK variational    → B_out = 0 (ground state = Noble)         [T7]  Lossless ✓
---   KS SCF step       → dft_step = dynamic_rhs application       [T8]  Lossless ✓
---   E_xc = A          → Adaptation operator, corpus-locked        [T9]  Lossless ✓
---   B-balance         → SCF replacement, O(n²), 0 free params    [T10] Lossless ✓
---   Noble probe       → vacuum buffer layer, B=0 invisible        [T11] Lossless ✓
---   SCF convergence   → f=Ω₀ → Z=0 → frictionless ground state[T12] Lossless ✓
+-- CLASSICAL EXAMPLES:
+--   HK variational    → B_out = 0 ⇔ B_sum ≤ 2k (ground state = Noble)  [T7, T8]
+--   KS SCF step       → dft_step = dynamic_rhs application              [T6]
+--   Two-beam balance  → B_out = |B₁ − B₂|; Noble ⇔ equal B             [T9, T10]
+--   GaN SiC TiC GaAs  → all close Noble                                 [T11]
+--   Si + N            → B_out = 1 at 1:1; Si₃N₄ balances (3·4 = 4·3)    [T12]
+--   Noble probe       → vacuum buffer layer, B = 0 invisible            [T13]
 --
 -- IMS STATUS: ACTIVE
 --   check_ifu_safety defined ✓
@@ -622,9 +522,8 @@ end SNSFL
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality — DFT same on all substrates (Si,Ga,Fe,U,Pu)
 --   Law 4:  Zero-Sorry Completion — this file compiles green
---   Law 7:  Behavior Law — v_eff = B operator [T7,T8]
---   Law 11: Sovereign Drive — Z=0 at anchor, frictionless SCF [T12]
---   Law 14: Lossless Reduction — Step 6 passes all 6 examples [T13]
+--   Law 7:  Behavior Law — v_eff = B operator [T6–T13]
+--   Law 11: Sovereign Drive — Z=0 at anchor, frictionless SCF [T1]
 --
 -- DEPENDENCY CHAIN (all logic included inline — no external lookups required):
 --   SNSFL_Master.lean                 → physics ground (inline here)
@@ -632,7 +531,7 @@ end SNSFL
 --   SNSFL_PeriodicWeight_Reduction.lean → B-balance [9,9,2,45] (10 T1 compounds)
 --   SNSFL_DFT_Reduction.lean          → this file
 --
--- THEOREMS: 14 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 16. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
