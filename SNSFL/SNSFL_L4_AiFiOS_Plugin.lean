@@ -297,8 +297,11 @@ theorem com_violation_shatter : shatter_event com_interface_violation := by
 -- EXAMPLE 3 — SHARED LIBRARY ISOLATION (KNOWN ANSWER)
 --
 -- Long division:
---   Problem:      Can a .so/.dll modify caller memory?
---   Known answer: No. Capability granted, authority withheld.
+--   Problem:      Does a shared library (.so/.dll) stay within its contract?
+--   Known answer: Yes, when the kernel mediates it. The library runs in the
+--                 caller's process and has no isolation of its own; the
+--                 kernel's authority boundary is what keeps it to its exported
+--                 functions. Capability granted, authority withheld by the kernel.
 --   PNBA:         P=2.0, N=0.0 (stateless), B=0.25, A=1.0
 --   τ = 0.25/2.0 = 0.125 < 0.136899099984016 → phase locked ✓
 --   Matches: capability granted, authority withheld ✓
@@ -649,7 +652,7 @@ end SNSFL_L4_AiFiOS_Plugin
 --   SNSFL_L4_AiFiOS_Kernel.lean   → kernel authority layer [9,9,1,2]
 --   SNSFL_L4_AiFiOS_Plugin.lean   → plugin interface [9,9,1,3] ← THIS FILE
 --
--- THEOREMS: 33. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 30. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
