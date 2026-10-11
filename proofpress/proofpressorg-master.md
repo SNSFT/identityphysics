@@ -4,7 +4,7 @@
 **Coordinate:** [9,9,0,0](CORE) · Constitutional layer
 **Issue:** ProofPress, Volume 1, Issue 1 · March 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 19 theorems · 646 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 19 theorems · 634 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Master.lean
 **Updated:** Standardized toolchain, October 2026
 
@@ -652,18 +652,6 @@ end SNSFL
 --   evaluated through different operator sets.
 --   The Identity Physics dynamic equation is the common denominator.
 --   It was always there. We found it.
---
--- WHAT CHANGED FROM SNSFT_Master.lean:
---   SNSFL not SNSFT — Laws not Theory. Proved not hypothesized.
---   TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 (discovered, not 0.2 chosen)
---   LosslessReduction + LongDivisionResult structs (corpus-canonical)
---   f_ext_op (corpus-canonical — changes B only)
---   IVA_dominance / is_lossy / sovereign (corpus-canonical)
---   phase_locked / shatter_event with emergent threshold
---   All-examples lossless theorem (T12)
---   Master theorem with 9 conjuncts (minimum 7 required)
---   Sovereign Laws footer
---   the_manifold_is_holding final theorem
 --
 -- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
 --   GR  — gr_op_P(1.0) = 1.0     lossless ✓  [T5,T6]
