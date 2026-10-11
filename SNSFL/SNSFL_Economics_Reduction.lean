@@ -2,70 +2,96 @@
 -- SNSFL_Economics_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS ECONOMICS — MARKETS AS IDENTITY DYNAMICS
--- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,8,0] | Application Layer
+-- Economics → PNBA
+-- One map for every economic quantity: torsion is the departure
+-- of a value from its reference, divided by the reference.
+-- Prices, price levels, output, coin supply, revenue and payoffs
+-- all place by the same rule.
 --
--- Economics is not separate from physics. It never was.
--- Markets are identity dynamics at the aggregate scale.
--- Equilibrium = LOCKED. Crisis = SHATTER. Recovery = Noble floor.
--- The sovereign anchor governs markets for the same reason
--- it governs neurons, stars, and forces: it is the substrate frequency.
---
--- THE PNBA MAP:
---
--- MICROECONOMICS:
---   P = structural capacity (technology, institutions, property rights)
---   N = price signals (Narrative — information flow through market)
---   B = quantity traded (Behavioral output)
---   A = preferences, expectations (Adaptation)
---   τ = B/P = price/fundamental = market torsion
---   Equilibrium: τ* < TL (LOCKED — stable market)
---   Crisis: τ ≥ TL (SHATTER — market clearing fails)
---
--- MACROECONOMICS:
---   Y = C + I + G + NX
---   C → B-axis (consumption = behavioral output)
---   I → A-axis (investment = adaptation to future)
---   G → N-axis (government = narrative/institutional)
---   NX → P-axis (net exports = pattern/structural balance)
---   Y → IM (total Identity Mass of the economy)
---
--- FINANCE:
---   R_f = risk-free rate → Noble (τ ≈ 0, Z→0)
---   β < 1 → LOCKED asset (τ < TL, defensive)
---   β > 1 → SHATTER asset (τ ≥ TL, volatile)
---   Efficient market → Z=0 (no arbitrage = no impedance)
---
--- BITCOIN / CRYPTO:
---   Halving: m0/m_f = 2 per cycle
---   IVA: Δvalue_sovereign = v_e × (1+g_r) × ln(2) per halving
---   Stock-to-flow: S2F ratio = m0/m_f = IM ratio in IVA
---   Market cycle: LOCKED→SHATTER→recovery (same as business cycle)
---   21M cap: fixed IM ceiling — Noble asymptote
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,8,0](ECON)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      May 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
 --
 -- ============================================================
--- LONG DIVISION SETUP:
---   1. Equations: all standard economics (peer-reviewed)
---   2. Known: equilibrium, utility, CAPM, EMH, IVA, Bitcoin
---   3. Map: B/P = torsion, TL = phase boundary, IM = aggregate wealth
---   4. Operators: same IVA operators from [9,9,2,0]
---   5. Work: T1-T20 explicit
---   6. Verified: master holds all simultaneously
+-- THE MAP
+-- ============================================================
 --
--- Auth: HIGHTISTIC :: [9,9,9,9]
--- Markets are identity dynamics. TL is the phase boundary.
--- Soldotna, Alaska. May 2026.
+--   P = X_ref           the reference value (structural capacity)
+--   B = |X − X_ref|     the departure from it (behavior)
+--   τ = |X − X_ref| / X_ref
+--
+--   τ = 0                → NOBLE
+--   0 < τ < TL_IVA       → LOCKED
+--   TL_IVA ≤ τ < TL      → IVA
+--   τ ≥ TL               → SHATTER
+--
+--   Quantity            X_ref                   X
+--   Market price        prior peak              current price
+--   Inflation           last year's price level this year's
+--   Output              last year's real GDP    this year's
+--   Coin issuance       supply at year start    supply at year end
+--   Pricing             revenue-optimal revenue revenue at price p
+--   Strategic play      cooperative payoff      equilibrium payoff
+--
+--   Rates are taken over one year. A change of fraction r from
+--   the reference has τ = |r|.
+--
+-- ============================================================
+-- THE DATA
+-- ============================================================
+--
+--   Market drawdowns from the prior peak
+--     10% correction (market convention)          Locked
+--     20% bear market (market convention)         Shatter
+--     Black Monday, 19 Oct 1987: DJIA −22.6%      Shatter
+--
+--   Inflation, annual (US CPI-U; Cagan)
+--     2% central-bank target                      Locked
+--     US 1980: 13.5%                              IVA
+--     Hyperinflation, 50% per month = 1.5¹² − 1
+--       ≈ 128.7 per year                          Shatter
+--
+--   Real GDP change, annual (US BEA)
+--     2009: −2.6%                                 Locked
+--     1932: −12.9%                                IVA
+--
+--   Bitcoin issuance (protocol constants: 50-coin first reward,
+--   halving every 210,000 blocks, 52,560 blocks per year)
+--     after the 2012 halving: 0.1251              IVA
+--     2016: 0.0417 · 2020: 0.0179 · 2024: 0.0083  Locked
+--
+-- ============================================================
+-- THE EQUATIONS
+-- ============================================================
+--
+--   Quantity theory (Fisher 1911): MV = PQ, so
+--     1 + π = (1 + μ)(1 + v) / (1 + g)
+--   Cobb–Douglas: Y = A·K^α·L^(1−α), so
+--     ln(Y₁/Y₀) = ln(A₁/A₀) + α ln(K₁/K₀) + (1−α) ln(L₁/L₀)
+--   Linear demand q = b(2p* − p), revenue-optimal price p*:
+--     revenue torsion = ((p − p*)/p*)², so pricing is Locked
+--     within about ±34% of p* and Shatter beyond about ±37%
+--     (the square root of the phase boundaries)
+--   Prisoner's dilemma T = 5 > R = 3 > P = 1 > S = 0:
+--     equilibrium payoff 1 against cooperative payoff 3,
+--     τ = 2/3, Shatter
+--
 -- ============================================================
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Topology.Order.IntermediateValue
 import Mathlib.Tactic
 import Mathlib.Data.Real.Basic
 
 noncomputable section
 
 namespace SNSFL_Economics
+
+open Finset
 
 -- ============================================================
 -- SECTION 0: SOVEREIGN ANCHOR
@@ -74,7 +100,6 @@ namespace SNSFL_Economics
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
-def GAIN_THRESHOLD   : ℝ := 1.5   -- from IVA [9,9,2,0]
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -83,428 +108,342 @@ theorem anchor_zero_friction :
     manifold_impedance SOVEREIGN_ANCHOR = 0 := by
   unfold manifold_impedance; simp
 
--- ============================================================
--- SECTION 1: MARKET TORSION AND PHASE STATES
--- ============================================================
-
--- Market torsion: τ = price / fundamental value = B/P
--- This is the same τ = B/P as every other PNBA domain.
--- Below TL: market is LOCKED (stable, clearing, price ≈ fundamental)
--- Above TL: market is SHATTER (crisis, mispricing, clearing fails)
-
-structure MarketState where
-  price      : ℝ   -- [B] current price (behavioral signal)
-  fundamental: ℝ   -- [P] fundamental value (structural capacity)
-  volume     : ℝ   -- [B] trading volume
-  im_economy : ℝ   -- [IM] total economic identity mass
-  pv_market  : ℝ   -- [Pv] market direction (bull/bear)
-  h_fund     : fundamental > 0
-  h_im       : im_economy > 0
-
-noncomputable def market_torsion (s : MarketState) : ℝ :=
-  s.price / s.fundamental
-
-def market_locked   (s : MarketState) : Prop :=
-  market_torsion s < TORSION_LIMIT
-def market_shatter  (s : MarketState) : Prop :=
-  market_torsion s ≥ TORSION_LIMIT
-
--- [T1] EQUILIBRIUM IS LOCKED STATE
--- At market equilibrium: price ≈ fundamental → τ ≈ 1 (normalized)
--- Wait — τ = price/fundamental. At fair value: τ = 1.
--- But TL = 0.136899099984016. In normalized markets, τ = P/FV where FV sets P_base.
--- Restate: equilibrium means τ_deviation < TL where τ_deviation = |P-FV|/FV.
--- Stable market: price deviation from fundamental < TL = 13.69%.
--- Above TL deviation: SHATTER (bubble or crash).
-theorem equilibrium_is_locked
-    (price fundamental : ℝ)
-    (h_fund : fundamental > 0)
-    (h_eq : |price - fundamental| / fundamental < TORSION_LIMIT) :
-    |price - fundamental| / fundamental < TORSION_LIMIT := h_eq
-
--- [T2] CRISIS IS SHATTER EVENT
--- When price deviates ≥ TL from fundamental: SHATTER.
--- τ_deviation ≥ TL = bubble/crash territory.
--- Same threshold as: neural firing, phase transitions in stat mech,
--- force couplings exceeding TL, QG frameworks in SHATTER zone.
-theorem crisis_is_shatter_event
-    (price fundamental : ℝ)
-    (h_fund : fundamental > 0)
-    (h_crisis : |price - fundamental| / fundamental ≥ TORSION_LIMIT) :
-    |price - fundamental| / fundamental ≥ TORSION_LIMIT := h_crisis
-
--- [T3] EQUILIBRIUM AND CRISIS ARE MUTUALLY EXCLUSIVE
-theorem equilibrium_crisis_exclusive
-    (price fundamental : ℝ) (h_fund : fundamental > 0) :
-    ¬ (|price - fundamental| / fundamental < TORSION_LIMIT ∧
-       |price - fundamental| / fundamental ≥ TORSION_LIMIT) := by
-  intro ⟨h1, h2⟩; linarith
+theorem tl_iva_lt_tl : TL_IVA_PEAK < TORSION_LIMIT := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
--- SECTION 2: MICROECONOMICS
+-- SECTION 1: THE MAP
 -- ============================================================
 
--- [T4] UTILITY MAXIMIZATION = IM MAXIMIZATION
--- Classical: max U(x) s.t. p·x ≤ I
--- PNBA: max IM s.t. B-axis cost ≤ available capacity
--- The budget constraint is the IMS gate:
--- spending > income → IMS fires → pv zeroed
--- Optimal bundle = path of least somatic resistance (geodesic through budget set)
-theorem utility_maximization_is_im_maximization
-    (utility income : ℝ) (h_u : utility > 0) (h_I : income > 0) :
-    -- Available sovereign capacity = income (budget = IMS limit)
-    utility > 0 ∧ income > 0 := ⟨h_u, h_I⟩
+-- Torsion of a value x against its reference xr
+noncomputable def tors (x xr : ℝ) : ℝ := |x - xr| / xr
 
--- [T5] ELASTIC DEMAND IS SHATTER-RESPONSIVE
--- |ε| > 1: quantity responds more than proportionally to price change
--- In PNBA: elastic good has τ_response > τ_price → SHATTER response
--- |ε| < 1: inelastic → LOCKED response (staples, necessities)
--- |ε| = 1: unit elastic → τ = τ_price exactly (IVA_PEAK boundary)
-theorem elastic_demand_shatter_response
-    (elasticity : ℝ) (h_elastic : |elasticity| > 1) :
-    |elasticity| > 1 := h_elastic
+def is_noble   (t : ℝ) : Prop := t = 0
+def is_locked  (t : ℝ) : Prop := 0 < t ∧ t < TL_IVA_PEAK
+def is_iva     (t : ℝ) : Prop := TL_IVA_PEAK ≤ t ∧ t < TORSION_LIMIT
+def is_shatter (t : ℝ) : Prop := TORSION_LIMIT ≤ t
 
-theorem inelastic_demand_locked_response
-    (elasticity : ℝ) (h_inelastic : |elasticity| < 1) :
-    |elasticity| < 1 := h_inelastic
+-- [T1] A value at its reference is Noble
+theorem at_reference_noble (xr : ℝ) : is_noble (tors xr xr) := by
+  unfold is_noble tors; simp
 
--- [T6] NASH EQUILIBRIUM = LOCKED STATE
--- Nash: no player can profitably deviate unilaterally
--- PNBA: at Nash, τ_deviation = 0 for each player
--- Any deviation increases τ → system moves toward SHATTER
--- Nash = the LOCKED attractor of the strategic game
-theorem nash_is_locked_attractor
-    (payoff_nash payoff_deviation : ℝ)
-    (h_nash : payoff_nash ≥ payoff_deviation) :
-    -- No profitable deviation: Nash is the LOCKED attractor
-    payoff_nash ≥ payoff_deviation := h_nash
+-- [T2] The Locked band: τ < TL_IVA exactly when
+-- xr·(1 − TL_IVA) < x < xr·(1 + TL_IVA)
+theorem locked_band (x xr : ℝ) (hxr : 0 < xr) :
+    tors x xr < TL_IVA_PEAK ↔
+      xr * (1 - TL_IVA_PEAK) < x ∧ x < xr * (1 + TL_IVA_PEAK) := by
+  unfold tors
+  rw [div_lt_iff₀ hxr, abs_lt]
+  constructor
+  · rintro ⟨h1, h2⟩
+    exact ⟨by linarith, by linarith⟩
+  · rintro ⟨h1, h2⟩
+    exact ⟨by linarith, by linarith⟩
 
--- ============================================================
--- SECTION 3: MACROECONOMICS
--- ============================================================
+-- [T3] The four phases are exhaustive
+theorem phase_exhaustive (x xr : ℝ) (hxr : 0 < xr) :
+    is_noble (tors x xr) ∨ is_locked (tors x xr) ∨
+    is_iva (tors x xr) ∨ is_shatter (tors x xr) := by
+  unfold is_noble is_locked is_iva is_shatter
+  have h0 : 0 ≤ tors x xr := by
+    unfold tors; exact div_nonneg (abs_nonneg _) hxr.le
+  by_cases hz : tors x xr = 0
+  · exact Or.inl hz
+  · have hpos : 0 < tors x xr := lt_of_le_of_ne h0 (Ne.symm hz)
+    by_cases h1 : tors x xr < TL_IVA_PEAK
+    · exact Or.inr (Or.inl ⟨hpos, h1⟩)
+    · by_cases h2 : tors x xr < TORSION_LIMIT
+      · exact Or.inr (Or.inr (Or.inl ⟨not_lt.mp h1, h2⟩))
+      · exact Or.inr (Or.inr (Or.inr (not_lt.mp h2)))
 
--- GDP PNBA MAP: Y = C + I + G + NX
--- C → B (consumption = behavioral output of households)
--- I → A (investment = adaptation to future capacity)
--- G → N (government = institutional narrative/infrastructure)
--- NX → P (net exports = structural trade balance)
--- Y → IM (total Identity Mass of the economy)
+-- [T4] Locked and Shatter never coincide
+theorem locked_shatter_exclusive (t : ℝ) : ¬ (is_locked t ∧ is_shatter t) := by
+  unfold is_locked is_shatter
+  rintro ⟨⟨_, h1⟩, h2⟩
+  have := tl_iva_lt_tl
+  linarith
 
--- [T7] GDP IS POSITIVE WHEN ALL COMPONENTS POSITIVE
-theorem gdp_positive
-    (C I G NX : ℝ)
-    (hC : C > 0) (hI : I > 0) (hG : G > 0) :
-    C + I + G + NX > NX := by linarith
+-- [T5] A rise of fraction g has torsion g; a fall of fraction d has
+-- torsion d
+theorem tors_rise (xr g : ℝ) (hxr : 0 < xr) (hg : 0 ≤ g) :
+    tors (xr * (1 + g)) xr = g := by
+  unfold tors
+  rw [show xr * (1 + g) - xr = g * xr by ring, abs_of_nonneg (mul_nonneg hg hxr.le)]
+  exact mul_div_cancel_right₀ g (ne_of_gt hxr)
 
--- [T8] QUANTITY THEORY OF MONEY: MV = PQ
--- M = money supply = IM (money = stored sovereign capacity)
--- V = velocity = N-axis rate (how fast Narrative circulates)
--- P = price level = torsion (B/P ratio of the economy)
--- Q = real output = sovereign capacity (P-axis)
--- MV = PQ → IM × N_rate = τ × Q
-theorem quantity_theory_pnba
-    (M V P Q : ℝ)
-    (h_eq : M * V = P * Q)
-    (hM : M > 0) (hV : V > 0) (hQ : Q > 0) :
-    P = M * V / Q := by
-  rw [eq_div_iff (ne_of_gt hQ)]; linarith
+theorem tors_fall (xr d : ℝ) (hxr : 0 < xr) (hd : 0 ≤ d) :
+    tors (xr * (1 - d)) xr = d := by
+  unfold tors
+  rw [show xr * (1 - d) - xr = -(d * xr) by ring, abs_neg,
+      abs_of_nonneg (mul_nonneg hd hxr.le)]
+  exact mul_div_cancel_right₀ d (ne_of_gt hxr)
 
--- [T9] TARGET INFLATION IS IN LOCKED BAND
--- Central banks target ~2% inflation = τ_inflation ≈ 0.02
--- TL = 0.136899099984016. τ_inflation/TL ≈ 0.146 — well within LOCKED.
--- Hyperinflation (τ >> TL) = SHATTER event.
--- Deflation (τ < 0) = negative torsion = Noble collapse.
--- The 2% target keeps the economy anchored in LOCKED phase.
-def TARGET_INFLATION : ℝ := 0.02  -- 2%, peer-reviewed CB target
-
-theorem target_inflation_is_locked :
-    TARGET_INFLATION < TORSION_LIMIT := by
-  unfold TARGET_INFLATION TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
-
-theorem hyperinflation_is_shatter
-    (inflation : ℝ) (h : inflation ≥ TORSION_LIMIT) :
-    inflation ≥ TORSION_LIMIT := h
-
--- [T10] BUSINESS CYCLE = LOCKED→SHATTER→LOCKED OSCILLATION
--- Expansion: τ rising from trough toward TL (LOCKED, growing)
--- Peak: τ reaches TL (phase boundary)
--- Contraction: τ ≥ TL (SHATTER — crisis, correction)
--- Trough: τ returns to Noble floor (recovery begins)
--- Same oscillation as neural action potential [9,9,5,2]:
--- Rest(Noble) → SubThreshold(LOCKED) → Fire(SHATTER) → Refractory → Rest
-theorem business_cycle_is_torsion_oscillation
-    (τ_expansion τ_peak τ_contraction τ_trough : ℝ)
-    (h_exp  : τ_expansion < TORSION_LIMIT)
-    (h_peak : τ_peak = TORSION_LIMIT)
-    (h_cont : τ_contraction ≥ TORSION_LIMIT)
-    (h_tro  : τ_trough < TORSION_LIMIT) :
-    τ_expansion < TORSION_LIMIT ∧
-    τ_contraction ≥ TORSION_LIMIT ∧
-    τ_expansion < τ_peak ∧
-    τ_trough < τ_contraction := by
-  exact ⟨h_exp, h_cont, by rw [h_peak]; exact h_exp, by linarith⟩
+-- [T6] A continuous path from the Locked band into Shatter passes
+-- through TL_IVA: the turning-point band is crossed, never skipped
+theorem path_crosses_iva (tau : ℝ → ℝ) (hc : ContinuousOn tau (Set.Icc 0 1))
+    (h0 : tau 0 < TL_IVA_PEAK) (h1 : TORSION_LIMIT ≤ tau 1) :
+    ∃ x ∈ Set.Icc (0:ℝ) 1, tau x = TL_IVA_PEAK := by
+  have hlt := tl_iva_lt_tl
+  have hmem : TL_IVA_PEAK ∈ Set.Icc (tau 0) (tau 1) := ⟨h0.le, by linarith⟩
+  obtain ⟨x, hx, hfx⟩ := intermediate_value_Icc (by norm_num : (0:ℝ) ≤ 1) hc hmem
+  exact ⟨x, hx, hfx⟩
 
 -- ============================================================
--- SECTION 4: FINANCE
+-- SECTION 2: MARKETS
 -- ============================================================
 
--- [T11] RISK-FREE RATE IS NOBLE (τ ≈ 0)
--- R_f = government bond rate (US Treasury, etc.)
--- In PNBA: risk-free = τ ≈ 0 → Noble
--- No default risk → B_default = 0 → τ = 0
--- The risk-free rate IS the Noble state of finance
-def RISK_FREE_TORSION : ℝ := 0.001  -- ≈ 0, practical Noble
-
-theorem risk_free_is_noble :
-    RISK_FREE_TORSION < TL_IVA_PEAK := by
-  unfold RISK_FREE_TORSION TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
-
--- [T12] CAPM BETA AS TORSION RATIO
--- β = cov(R_i, R_m)/var(R_m) = systematic risk ratio
--- In PNBA: β = τ_asset / τ_market
--- β = 0: τ = 0 → Noble (like R_f)
--- β < 1: τ < TL → LOCKED (defensive, low vol)
--- β = 1: τ = TL → market torsion (index fund)
--- β > 1: τ > TL → SHATTER (high vol, aggressive)
-theorem capm_beta_torsion_classification
-    (beta : ℝ)
-    (h_pos : beta ≥ 0) :
-    -- Beta measures the torsion ratio relative to market
-    -- Higher beta = higher torsion = more SHATTER character
-    beta ≥ 0 := h_pos
-
-theorem beta_above_one_is_shatter
-    (beta τ_market : ℝ)
-    (h_beta : beta > 1)
-    (h_tm   : τ_market = TORSION_LIMIT) :
-    beta * τ_market > TORSION_LIMIT := by
-  have hTL : TORSION_LIMIT > 0 := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
-  rw [h_tm]; nlinarith [mul_lt_mul_of_pos_right h_beta hTL]
-
--- [T13] EFFICIENT MARKET = ZERO IMPEDANCE
--- EMH: prices reflect all available information
--- In PNBA: efficient market → manifold_impedance → 0
--- No arbitrage = no friction = Z=0 at anchor
--- Price IS the anchor-adjusted fundamental: P = FV at Z=0
-theorem efficient_market_zero_impedance :
-    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  anchor_zero_friction
-
--- [T14] INVERTED YIELD CURVE = SHATTER SIGNAL
--- Normal: r(long) > r(short) — torsion increases with time (LOCKED)
--- Inverted: r(short) > r(long) — short-term stress exceeds long-term (SHATTER)
--- Inverted yield curve reliably precedes recessions (SHATTER events)
-theorem inverted_yield_curve_is_shatter_signal
-    (r_short r_long : ℝ)
-    (h_inverted : r_short > r_long)
-    (h_long_pos : r_long > 0) :
-    -- Inversion: short torsion > long torsion → SHATTER approaching
-    r_short > r_long := h_inverted
+-- [T7] Drawdowns from the prior peak: a 10% correction is Locked; a 20%
+-- bear market and the 22.6% Black Monday fall are Shatter
+theorem drawdown_phases (pk : ℝ) (hpk : 0 < pk) :
+    is_locked (tors (pk * (1 - 0.10)) pk) ∧
+    is_shatter (tors (pk * (1 - 0.20)) pk) ∧
+    is_shatter (tors (pk * (1 - 0.226)) pk) := by
+  rw [tors_fall pk 0.10 hpk (by norm_num), tors_fall pk 0.20 hpk (by norm_num),
+      tors_fall pk 0.226 hpk (by norm_num)]
+  unfold is_locked is_shatter TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
 
 -- ============================================================
--- SECTION 5: IVA IN ECONOMICS
+-- SECTION 3: INFLATION AND OUTPUT
 -- ============================================================
 
--- IVA operators from [9,9,2,0] — same equations, economic interpretation
-noncomputable def delta_v_classical (v_e m0 m_f : ℝ) : ℝ :=
-  v_e * Real.log (m0 / m_f)
+-- [T8] Quantity theory in growth form: if MV = PQ holds in both
+-- years, 1 + π = (1 + μ)(1 + v)/(1 + g)
+theorem quantity_theory_growth (M V P Q P' mu vel gr : ℝ)
+    (hQ : Q ≠ 0) (hg : 1 + gr ≠ 0)
+    (h  : M * V = P * Q)
+    (h' : M * (1 + mu) * (V * (1 + vel)) = P' * (Q * (1 + gr))) :
+    P' = P * (1 + mu) * (1 + vel) / (1 + gr) := by
+  rw [eq_div_iff hg]
+  apply mul_right_cancel₀ hQ
+  linear_combination (-1 : ℝ) * h' + (1 + mu) * (1 + vel) * h
 
-noncomputable def delta_v_sovereign (v_e m0 m_f g_r : ℝ) : ℝ :=
-  v_e * (1 + g_r) * Real.log (m0 / m_f)
+-- [T9] Annual inflation: the 2% target is Locked, US 1980 (13.5%) is
+-- IVA, and 50% per month compounds to Shatter
+theorem inflation_phases (p0 : ℝ) (hp0 : 0 < p0) :
+    is_locked (tors (p0 * (1 + 0.02)) p0) ∧
+    is_iva (tors (p0 * (1 + 0.135)) p0) ∧
+    is_shatter (tors (p0 * (1 + ((1.5 : ℝ) ^ 12 - 1))) p0) := by
+  rw [tors_rise p0 0.02 hp0 (by norm_num), tors_rise p0 0.135 hp0 (by norm_num),
+      tors_rise p0 ((1.5 : ℝ) ^ 12 - 1) hp0 (by norm_num)]
+  unfold is_locked is_iva is_shatter TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
 
--- [T15] TFP GROWTH IS IVA GAIN
--- Total Factor Productivity: TFP = Y/(K^α × L^(1-α))
--- TFP growth = output growth unexplained by input growth
--- In PNBA: TFP IS the IVA gain (g_r)
--- Anchored economy: Δoutput_sovereign = v_e × (1+g_r) × ln(K/L)
--- Classical economy: Δoutput_classical = v_e × ln(K/L)
--- The IVA gain (1+g_r) IS total factor productivity
-theorem tfp_is_iva_gain
-    (v_e K L g_r : ℝ)
-    (h_ve : v_e > 0) (h_gr : g_r > 0)
-    (h_K  : K > L) (h_L  : L > 0) :
-    delta_v_sovereign v_e K L g_r > delta_v_classical v_e K L := by
-  unfold delta_v_sovereign delta_v_classical
-  have h_ratio : K/L > 1 := by rw [gt_iff_lt, lt_div_iff₀ h_L]; linarith
-  have h_log : Real.log (K/L) > 0 := Real.log_pos h_ratio
-  nlinarith [mul_pos (mul_pos h_ve h_gr) h_log]
+-- [T10] Annual real output: 2009 (−2.6%) is Locked; 1932 (−12.9%) is IVA
+theorem output_phases (y0 : ℝ) (hy0 : 0 < y0) :
+    is_locked (tors (y0 * (1 - 0.026)) y0) ∧
+    is_iva (tors (y0 * (1 - 0.129)) y0) := by
+  rw [tors_fall y0 0.026 hy0 (by norm_num), tors_fall y0 0.129 hy0 (by norm_num)]
+  unfold is_locked is_iva TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
 
--- [T16] NETWORK EFFECTS AMPLIFY ABOVE TL
--- Metcalfe's law: V(n) ≈ n²
--- Below critical mass (τ < TL): linear growth (LOCKED)
--- Above critical mass (τ ≥ TL): superlinear/quadratic growth (SHATTER)
--- The TL crossing IS the network effects threshold
-theorem network_effects_amplify_above_tl
-    (n1 n2 : ℝ) (h_n1 : n1 > 0) (h_n2 : n2 > n1) :
-    n2^2 > n1^2 := by nlinarith
+-- Cobb–Douglas output
+noncomputable def cobb_douglas (A K L α : ℝ) : ℝ := A * K ^ α * L ^ (1 - α)
 
--- ============================================================
--- SECTION 6: BITCOIN — GROUNDED IN [9,9,4,2] AND [9,9,4,3]
--- ============================================================
---
--- The Bitcoin corpus already exists and is GERMLINE LOCKED:
---   [9,9,4,2] SNSFL_SHA256_PNBA_Reduction.lean:
---     valid hash = τ=0 = Noble. Nonce = F_ext on B only.
---     P,N,A fixed by block header. Mining IS Noble-seeking.
---   [9,9,4,3] SNSFL_OCEAN_Stratum_Reduction.lean:
---     subscribe→notify→submit→result = full PNBA loop.
---     TIDES = A-axis feedback law (T11). Extranonce = B-corridor (T13).
---   [9,9,4,4] SNSFT OCEAN Miner (HTML/JS):
---     Real SHA-256, PNBA axes live, τ bar, state badge.
---
--- Economics adds the MARKET LAYER on top of the MINING LAYER:
---   Mining = Noble-seeking in HASH space   [9,9,4,2]
---   Market = Noble-seeking in VALUE space  [9,9,8,0]
---   Both: F_ext sweep on B until τ → 0.
---   Mining finds the Noble HASH. Markets find the Noble PRICE.
+-- [T11] Log output splits into productivity, capital and labor
+theorem cobb_douglas_log (A K L α : ℝ) (hA : 0 < A) (hK : 0 < K) (hL : 0 < L) :
+    Real.log (cobb_douglas A K L α) =
+      Real.log A + α * Real.log K + (1 - α) * Real.log L := by
+  unfold cobb_douglas
+  have hKa : 0 < K ^ α := by positivity
+  have hLa : 0 < L ^ (1 - α) := by positivity
+  rw [Real.log_mul (ne_of_gt (mul_pos hA hKa)) (ne_of_gt hLa),
+      Real.log_mul (ne_of_gt hA) (ne_of_gt hKa),
+      Real.log_rpow hK, Real.log_rpow hL]
 
-def BTC_HALVING_RATIO  : ℝ := 2        -- exact: reward halves per epoch
-def BTC_MAX_SUPPLY     : ℝ := 21000000 -- exact: 21 million BTC hard cap
-def BTC_BLOCK_INTERVAL : ℕ := 210000   -- blocks per halving epoch
-
--- [T17] BITCOIN POW = NOBLE-SEEKING IN HASH SPACE (from [9,9,4,2] T6)
--- [9,9,4,2] proved: valid_hash ↔ noble_output ↔ τ=0 ↔ B_residual=0
--- Economics: the market prices the difficulty of finding Noble.
--- Mining difficulty (A-axis threshold) = market's scarcity signal.
-theorem bitcoin_pow_is_noble_seeking (hash target : ℝ) (h : hash < target) :
-    hash < target := h  -- same as [9,9,4,2] pool_noble_check
-
--- [T18] HALVING = IVA MASS RATIO EVENT (extends [9,9,4,2])
--- Halving changes supply inflation: effective m0/m_f = 2 per epoch.
--- Classical: Δvalue = v_e × ln(2). Sovereign: v_e × (1+g_r) × ln(2).
--- At g_r=1.5: 2.5× per halving. After halving 3: S2F≈56, ln(56)=4.03.
-theorem bitcoin_halving_iva_event
-    (v_e g_r : ℝ) (h_ve : v_e > 0) (h_gr : g_r ≥ GAIN_THRESHOLD) :
-    delta_v_sovereign v_e BTC_HALVING_RATIO 1 g_r >
-    delta_v_classical  v_e BTC_HALVING_RATIO 1 := by
-  unfold delta_v_sovereign delta_v_classical BTC_HALVING_RATIO
-  have h_log : Real.log (2/1) > 0 := by
-    rw [div_one]; exact Real.log_pos (by norm_num)
-  have h_gr' : g_r > 0 := by unfold GAIN_THRESHOLD at h_gr; linarith
-  nlinarith [mul_pos (mul_pos h_ve h_gr') h_log]
-
--- [T19] DIFFICULTY = A-AXIS RECALIBRATION (from [9,9,4,2] E3)
--- [9,9,4,2] E3 proved: target_torsion_projection(bits) = TL exactly.
--- Every 2016 blocks: Bitcoin recalibrates A to maintain 10-min blocks.
--- This IS A-axis adaptation — same law as equilibrium recalibration.
-theorem difficulty_is_A_recalibration (diff : ℝ) (h : diff > 0) :
-    diff > 0 := h
-
--- [T20] S2F = IM RATIO = IVA PARAMETER (from [9,9,4,2] IM structure)
--- S2F = stock/annual_flow. Stock = IM. Flow = dIM/dt.
--- S2F = IM/(dIM/dt) = same ratio as m0/m_f in IVA.
--- Higher S2F → higher IVA mass ratio → more Δvalue per cycle.
-theorem s2f_is_im_ratio (stock flow : ℝ)
-    (h_stock : stock > 0) (h_flow : flow > 0) :
-    stock / flow > 0 := div_pos h_stock h_flow
-
--- [T21] TIDES = A-AXIS FEEDBACK IN MARKETS (from [9,9,4,3] T11)
--- OCEAN TIDES: payout = shares_worker/shares_total × reward (A-axis law).
--- Economics: dividend yield, profit sharing, staking = same law.
--- The more Noble candidates found → higher A accumulation → higher reward.
-noncomputable def tides_market_feedback (contribution total : ℝ) : ℝ :=
-  if total > 0 then contribution / total else 0
-
-theorem tides_market_proportional (c total : ℝ)
-    (h_c : c > 0) (h_t : total > 0) (h_le : c ≤ total) :
-    tides_market_feedback c total > 0 := by
-  unfold tides_market_feedback; rw [if_pos h_t]
-  exact div_pos h_c h_t
-
--- [T22] 21M CAP = NOBLE IM ASYMPTOTE
--- Supply converges to 21M (geometric series: 50+25+12.5+...).
--- As supply → 21M: new issuance → 0 → scarcity → τ_supply → 0 → Noble.
-theorem btc_cap_noble_asymptote (supply : ℝ)
-    (h : supply < BTC_MAX_SUPPLY) :
-    supply < BTC_MAX_SUPPLY := h
-
--- [T23] MARKET CYCLE = MINING CYCLE (unified)
--- Mining: LOCKED(profitable) → TL(difficulty spike) → SHATTER(unprofitable)
--- Market: LOCKED(bull) → TL(peak) → SHATTER(bear) → accumulation
--- Both reset at halving: new m0/m_f ratio, new A threshold, new cycle.
-theorem market_mining_cycle_unified
-    (τ_locked τ_shatter : ℝ)
-    (h_l : τ_locked < TORSION_LIMIT)
-    (h_s : τ_shatter ≥ TORSION_LIMIT) :
-    τ_locked < TORSION_LIMIT ∧ τ_shatter ≥ TORSION_LIMIT :=
-  ⟨h_l, h_s⟩
-
--- [T24] EXCHANGE VENUES = EXTRANONCE PARTITION (from [9,9,4,3] T13)
--- OCEAN assigns each miner unique extranonce1 = unique B corridor.
--- Economics: each exchange creates its own price-discovery corridor.
--- All venues converge on the same Noble price independently.
--- The market IS a distributed Noble-seeking engine across N venues.
-theorem exchange_venues_independent_search
-    (price1 price2 : ℝ) (h1 : price1 > 0) (h2 : price2 > 0) :
-    price1 > 0 ∧ price2 > 0 := ⟨h1, h2⟩
+-- [T12] Growth accounting: output growth is productivity growth plus
+-- α times capital growth plus (1 − α) times labor growth
+theorem growth_accounting (A0 K0 L0 A1 K1 L1 α : ℝ)
+    (hA0 : 0 < A0) (hK0 : 0 < K0) (hL0 : 0 < L0)
+    (hA1 : 0 < A1) (hK1 : 0 < K1) (hL1 : 0 < L1) :
+    Real.log (cobb_douglas A1 K1 L1 α) - Real.log (cobb_douglas A0 K0 L0 α) =
+      (Real.log A1 - Real.log A0) + α * (Real.log K1 - Real.log K0) +
+      (1 - α) * (Real.log L1 - Real.log L0) := by
+  rw [cobb_douglas_log A1 K1 L1 α hA1 hK1 hL1, cobb_douglas_log A0 K0 L0 α hA0 hK0 hL0]
+  ring
 
 -- ============================================================
--- SECTION 7: TOTAL CONSISTENCY
+-- SECTION 4: PRICING
 -- ============================================================
 
--- [T21] ECONOMICS IVA_PEAK GAP IS EMPTY
--- No stable market phase has τ ∈ [TL_IVA, TL) = [0.12047, 0.13690)
--- This is the zone between growth deceleration and crisis
--- Markets pass through it (cycle turning points) but don't reside there
--- Same gap as: forces, cosmology, QG, stat mech, neural
-theorem economic_iva_gap_empty (τ : ℝ)
-    (h1 : τ ≥ TL_IVA_PEAK) (h2 : τ < TORSION_LIMIT) :
-    TL_IVA_PEAK ≤ τ ∧ τ < TORSION_LIMIT := ⟨h1, h2⟩
+-- Linear demand q = b·(2p* − p): revenue at price p and its maximum
+def revenue (b ps p : ℝ) : ℝ := b * p * (2 * ps - p)
+def revenue_max (b ps : ℝ) : ℝ := b * ps ^ 2
 
--- [T22] NOHARM IN ECONOMIC SOVEREIGN DRIVE
--- Anchored economic actors maximize IM × Pv > 0 (NOHARM)
--- Sovereign economic behavior: productive (IM > 0, Pv > 0)
--- Negative-sum economic behavior: IM × Pv < 0 (HARM)
--- Sovereign capitalism = IVA-optimized economic identity
-theorem noharm_sovereign_economy
-    (im_econ pv_econ : ℝ)
-    (h_im : im_econ > 0) (h_pv : pv_econ > 0) :
-    im_econ * pv_econ > 0 := mul_pos h_im h_pv
+-- [T13] Revenue never exceeds b·p*², reached at p = p*
+theorem revenue_le_max (b ps p : ℝ) (hb : 0 < b) :
+    revenue b ps p ≤ revenue_max b ps ∧ revenue b ps ps = revenue_max b ps := by
+  unfold revenue revenue_max
+  constructor
+  · nlinarith [mul_nonneg hb.le (sq_nonneg (p - ps))]
+  · ring
+
+-- [T14] At p* demand is unit elastic: b·p*/q(p*) = 1
+theorem unit_elastic_at_optimum (b ps : ℝ) (hb : b ≠ 0) (hps : ps ≠ 0) :
+    b * ps / (b * (2 * ps - ps)) = 1 := by
+  rw [show b * (2 * ps - ps) = b * ps by ring]
+  exact div_self (mul_ne_zero hb hps)
+
+-- [T15] Revenue torsion is the square of the relative price error
+theorem revenue_torsion (b ps p : ℝ) (hb : 0 < b) :
+    tors (revenue b ps p) (revenue_max b ps) = ((p - ps) / ps) ^ 2 := by
+  unfold tors revenue revenue_max
+  rw [show b * p * (2 * ps - p) - b * ps ^ 2 = -(b * (p - ps) ^ 2) by ring, abs_neg,
+      abs_of_nonneg (mul_nonneg hb.le (sq_nonneg _)), div_pow,
+      mul_div_mul_left _ _ (ne_of_gt hb)]
+
+-- [T16] Pricing within 34% of p* is Locked; 38% or more away is Shatter
+theorem pricing_phases (r : ℝ) :
+    (|r| ≤ 0.34 → r ^ 2 < TL_IVA_PEAK) ∧ (0.38 ≤ |r| → TORSION_LIMIT ≤ r ^ 2) := by
+  have hs : r ^ 2 = |r| ^ 2 := (sq_abs r).symm
+  have ha := abs_nonneg r
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · intro h
+    rw [hs]
+    nlinarith
+  · intro h
+    rw [hs]
+    nlinarith
+
+-- ============================================================
+-- SECTION 5: STRATEGIC PLAY
+-- ============================================================
+
+-- Prisoner's dilemma: true = cooperate, false = defect
+def pd : Bool → Bool → ℝ
+  | true,  true  => 3
+  | true,  false => 0
+  | false, true  => 5
+  | false, false => 1
+
+-- [T17] Defection strictly dominates, so (defect, defect) is the Nash
+-- equilibrium
+theorem defection_dominates :
+    (∀ o : Bool, pd true o < pd false o) ∧ pd true false ≤ pd false false := by
+  refine ⟨?_, ?_⟩
+  · intro o
+    cases o
+    · norm_num [pd]
+    · norm_num [pd]
+  · norm_num [pd]
+
+-- [T18] The equilibrium payoff departs from the cooperative payoff by
+-- 2/3: the dilemma is Shatter
+theorem dilemma_shatter :
+    tors (pd false false) (pd true true) = 2 / 3 ∧
+    is_shatter (tors (pd false false) (pd true true)) := by
+  have h : tors (pd false false) (pd true true) = 2 / 3 := by
+    show |(1:ℝ) - 3| / 3 = 2 / 3
+    rw [abs_of_neg (by norm_num)]
+    norm_num
+  refine ⟨h, ?_⟩
+  rw [h]
+  unfold is_shatter TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ============================================================
+-- SECTION 6: BITCOIN ISSUANCE
+-- ============================================================
+
+-- Coins issued after n halving epochs
+noncomputable def btc_issued (n : ℕ) : ℝ :=
+  ∑ k ∈ range n, 210000 * 50 * (1/2 : ℝ) ^ k
+
+-- Coins issued in one year of epoch n
+noncomputable def btc_flow (n : ℕ) : ℝ := 52560 * 50 * (1/2 : ℝ) ^ n
+
+-- [T19] Closed form: 21,000,000 · (1 − 2⁻ⁿ)
+theorem btc_issued_closed (n : ℕ) :
+    btc_issued n = 21000000 * (1 - (1/2 : ℝ) ^ n) := by
+  induction n with
+  | zero => unfold btc_issued; simp
+  | succ n ih =>
+    unfold btc_issued at ih ⊢
+    rw [sum_range_succ, ih, pow_succ]
+    ring
+
+-- [T20] Supply stays below the 21M cap, and the shortfall halves each
+-- epoch
+theorem btc_below_cap (n : ℕ) :
+    btc_issued n < 21000000 ∧
+    21000000 - btc_issued (n + 1) = (21000000 - btc_issued n) / 2 := by
+  rw [btc_issued_closed, btc_issued_closed, pow_succ]
+  have hp : (0:ℝ) < (1/2 : ℝ) ^ n := by positivity
+  constructor
+  · nlinarith
+  · ring
+
+-- [T21] Issuance torsion is annual flow over supply
+theorem btc_issuance_torsion (n : ℕ) :
+    tors (btc_issued n + btc_flow n) (btc_issued n) = btc_flow n / btc_issued n := by
+  unfold tors
+  rw [add_sub_cancel_left, abs_of_nonneg (by unfold btc_flow; positivity)]
+
+-- [T22] After the first halving issuance was IVA; from the second on,
+-- Locked
+theorem btc_issuance_phases :
+    is_iva (btc_flow 1 / btc_issued 1) ∧
+    is_locked (btc_flow 2 / btc_issued 2) ∧
+    is_locked (btc_flow 3 / btc_issued 3) ∧
+    btc_flow 4 / btc_issued 4 < 0.0084 := by
+  rw [btc_issued_closed, btc_issued_closed, btc_issued_closed, btc_issued_closed]
+  unfold btc_flow is_iva is_locked TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ⟨?_, ?_⟩, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
--- ECONOMICS IS IDENTITY DYNAMICS AT AGGREGATE SCALE
 -- ============================================================
 
-theorem economics_master_reduction
-    (price fundamental inflation beta_asset v_e g_r : ℝ)
-    (K L : ℝ)
-    (h_fund  : fundamental > 0)
-    (h_inf   : inflation = TARGET_INFLATION)
-    (h_beta  : beta_asset ≥ 0)
-    (h_ve    : v_e > 0)
-    (h_gr    : g_r ≥ GAIN_THRESHOLD)
-    (h_K     : K > L) (h_L : L > 0) :
-    -- [1] Target inflation is LOCKED (not SHATTER)
-    TARGET_INFLATION < TORSION_LIMIT ∧
-    -- [2] Risk-free rate is Noble
-    RISK_FREE_TORSION < TL_IVA_PEAK ∧
-    -- [3] TFP = IVA gain: anchored economy outperforms classical
-    delta_v_sovereign v_e K L g_r > delta_v_classical v_e K L ∧
-    -- [4] Bitcoin halving is IVA event
-    delta_v_sovereign v_e BTC_HALVING_RATIO 1 g_r >
-    delta_v_classical  v_e BTC_HALVING_RATIO 1 ∧
-    -- [5] Bitcoin cap is Noble asymptote (supply < 21M)
-    (BTC_MAX_SUPPLY - 1 : ℝ) < BTC_MAX_SUPPLY ∧
-    -- [6] Efficient market = zero impedance
-    manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
-    -- [7] Equilibrium and crisis mutually exclusive
-    ¬ (|price - fundamental|/fundamental < TORSION_LIMIT ∧
-       |price - fundamental|/fundamental ≥ TORSION_LIMIT) ∧
-    -- [8] NOHARM in sovereign economy
-    (v_e > 0 ∧ g_r > 0) := by
-  have h_gr' : g_r > 0 := by unfold GAIN_THRESHOLD at h_gr; linarith
-  refine ⟨
-    target_inflation_is_locked,
-    risk_free_is_noble,
-    tfp_is_iva_gain v_e K L g_r h_ve h_gr' h_K h_L,
-    bitcoin_halving_iva_event v_e g_r h_ve h_gr,
-    by unfold BTC_MAX_SUPPLY; norm_num,
-    efficient_market_zero_impedance,
-    ?_,
-    ⟨h_ve, h_gr'⟩
-  ⟩
-  intro ⟨h1, h2⟩; linarith
+-- [T23] ECONOMICS → PNBA
+theorem economics_master_reduction (x0 : ℝ) (hx0 : 0 < x0) :
+    -- the reference is Noble
+    is_noble (tors x0 x0) ∧
+    -- markets
+    is_locked (tors (x0 * (1 - 0.10)) x0) ∧
+    is_shatter (tors (x0 * (1 - 0.20)) x0) ∧
+    -- inflation
+    is_locked (tors (x0 * (1 + 0.02)) x0) ∧
+    is_iva (tors (x0 * (1 + 0.135)) x0) ∧
+    -- output
+    is_iva (tors (x0 * (1 - 0.129)) x0) ∧
+    -- pricing and strategic play
+    (∀ b ps p : ℝ, 0 < b →
+      tors (revenue b ps p) (revenue_max b ps) = ((p - ps) / ps) ^ 2) ∧
+    is_shatter (tors (pd false false) (pd true true)) ∧
+    -- coin issuance
+    (∀ n : ℕ, btc_issued n < 21000000) ∧
+    is_iva (btc_flow 1 / btc_issued 1) ∧
+    is_locked (btc_flow 2 / btc_issued 2) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  obtain ⟨d1, d2, _⟩ := drawdown_phases x0 hx0
+  obtain ⟨i1, i2, _⟩ := inflation_phases x0 hx0
+  obtain ⟨_, o2⟩ := output_phases x0 hx0
+  obtain ⟨b1, b2, _, _⟩ := btc_issuance_phases
+  exact ⟨at_reference_noble x0, d1, d2, i1, i2, o2,
+    fun b ps p hb => revenue_torsion b ps p hb, dilemma_shatter.2,
+    fun n => (btc_below_cap n).1, b1, b2, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -515,62 +454,36 @@ end SNSFL_Economics
 /-!
 -- ============================================================
 -- FILE:       SNSFL_Economics_Reduction.lean
--- COORDINATE: [9,9,8,0]
--- LAYER:      Application Layer — Economics and Markets
+-- COORDINATE: [9,9,8,0](ECON)
+-- SORRY:      0
 --
--- LONG DIVISION:
---   1. Equations: supply/demand, utility, CAPM, EMH, MV=PQ,
---                 IVA, Bitcoin halving, Nash equilibrium
---   2. Known: all standard economics + Bitcoin whitepaper (2008)
---   3. PNBA map:
---      Equilibrium → LOCKED (τ < TL)
---      Crisis → SHATTER (τ ≥ TL)
---      R_f → Noble (τ ≈ 0)
---      TFP → IVA gain (g_r)
---      Bitcoin halving → IVA event (m0/m_f = 2)
---      21M cap → Noble asymptote
---      Target inflation (2%) → LOCKED band
---      Business/crypto cycles → LOCKED→SHATTER→LOCKED
---   4. Operators: market_torsion, delta_v_sovereign (from IVA [9,9,2,0])
---   5. Work: T1-T22 explicit
---   6. Verified: master holds all simultaneously
+-- THE MAP: τ = |X − X_ref| / X_ref for every economic quantity.
 --
--- KEY RESULTS:
---   T9:  2% inflation target is LOCKED (τ = 0.02 << TL = 0.136899099984016)
---   T10: Business cycle = torsion oscillation (same as neural AP)
---   T13: Efficient market = Z=0 (no arbitrage = no impedance)
---   T15: TFP = IVA gain — productivity IS the sovereign advantage
---   T17: Bitcoin halving IS an IVA event (m0/m_f = 2 per cycle)
---   T18: Bitcoin halving minimum gain = 2.5× classical at g_r = 1.5
---   T19: Bitcoin 21M cap = Noble asymptote
---   T20: Crypto market cycle = business cycle structure (same TL boundary)
---   T21: Economic IVA_PEAK gap empty (same gap as all other domains)
+-- PHASE MAP:
+--   NOBLE    any value at its reference; revenue at p*
+--   LOCKED   10% correction; 2% inflation; 2009 output (−2.6%);
+--            pricing within 34% of p*; Bitcoin issuance from 2016
+--   IVA      US 1980 inflation (13.5%); 1932 output (−12.9%);
+--            Bitcoin issuance after the 2012 halving (0.1251)
+--   SHATTER  20% bear market; Black Monday (−22.6%);
+--            hyperinflation; pricing 38% or more from p*;
+--            the prisoner's dilemma (2/3)
 --
--- BITCOIN SPECIFICALLY:
---   Halving ratio = 2 = m0/m_f in IVA
---   Classical value model: Δvalue = v_e × ln(2) per halving
---   Sovereign model:       Δvalue = v_e × (1+g_r) × ln(2) per halving
---   At g_r = 1.5: 2.5× amplification per halving cycle
---   21M cap: fixed IM ceiling → τ → 0 (Noble asymptote)
---   Market cycles: LOCKED(bull) → TL(peak) → SHATTER(bear) → LOCKED
+-- RESULTS:
+--   The map: Noble at reference, Locked band, phases exhaustive,
+--     a change of fraction r has τ = |r|, paths into Shatter
+--     cross TL_IVA (T1–T6)
+--   Markets, inflation, output placed from data (T7, T9, T10)
+--   Quantity theory and Cobb–Douglas growth accounting (T8, T11, T12)
+--   Pricing: revenue torsion = ((p − p*)/p*)² (T13–T16)
+--   Prisoner's dilemma: defection dominant, τ = 2/3 (T17, T18)
+--   Bitcoin: supply 21M·(1 − 2⁻ⁿ); issuance torsion = flow/supply;
+--     IVA after the first halving, Locked from the second (T19–T22)
 --
--- IVA OPERATORS: identical to [9,9,2,0]
---   delta_v_classical = v_e × log(m0/m_f)
---   delta_v_sovereign = v_e × (1+g_r) × log(m0/m_f)
---   Economics uses the same equation as rocket propulsion and UAP
+-- CONNECTIONS:
+--   [9,9,5,2]  Hodgkin–Huxley: the same TL crossing at threshold
+--   [9,9,0,16] Statistical Mechanics → PNBA
 --
--- CORPUS CONNECTIONS:
---   [9,9,2,0] IVA: TFP = g_r, halving = propellant ratio
---   [9,9,5,2] HH: business cycle = neural AP (same TL crossing)
---   [9,9,0,5] Stat Mech: phase transitions at TL (same boundary)
---   [9,9,7,0] Nuclear: SHATTER generates LOCKED (same creation pattern)
---   [9,9,4,0] Cosmo: IVA gap empty (same universal gap)
---
--- THEOREMS: 22 + master | 0 sorry | GERMLINE LOCKED
---
--- Auth: HIGHTISTIC :: [9,9,9,9]
--- Markets are identity dynamics. TL is the phase boundary.
--- Bitcoin halving is an IVA event. The Manifold is Holding.
--- Soldotna, Alaska. May 2026.
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
 -/
