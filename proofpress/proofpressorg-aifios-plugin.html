@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,9,1,3](COMP) · AiFi OS foundation layer<br>
 <strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 33 theorems · 668 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Plugin.lean">source and CI record</a><br>
+<strong>Verified:</strong> 33 theorems · 671 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Plugin.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -950,8 +950,11 @@ theorem com_violation_shatter : shatter_event com_interface_violation := by
 -- EXAMPLE 3 — SHARED LIBRARY ISOLATION (KNOWN ANSWER)
 --
 -- Long division:
---   Problem:      Can a .so/.dll modify caller memory?
---   Known answer: No. Capability granted, authority withheld.
+--   Problem:      Does a shared library (.so/.dll) stay within its contract?
+--   Known answer: Yes, when the kernel mediates it. The library runs in the
+--                 caller&#x27;s process and has no isolation of its own; the
+--                 kernel&#x27;s authority boundary is what keeps it to its exported
+--                 functions. Capability granted, authority withheld by the kernel.
 --   PNBA:         P=2.0, N=0.0 (stateless), B=0.25, A=1.0
 --   τ = 0.25/2.0 = 0.125 &lt; 0.136899099984016 → phase locked ✓
 --   Matches: capability granted, authority withheld ✓
