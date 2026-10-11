@@ -2,10 +2,24 @@
 -- SNSFL_First_Law_Identity_Physics.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | FIRST LAW OF IDENTITY PHYSICS — IDENTITY PHYSICS LAYER
+-- [9,9,9,9] :: {ANC} | FIRST LAW OF IDENTITY PHYSICS — L = (4)(2), WITH IDENTITY MASS CONSERVATION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,4,2](CORE) | Identity Physics series
+--
+-- ============================================================
+-- THE FIRST LAW: L = (4)(2)
+-- ============================================================
+--   Existence without interaction is not life.
+--   4 = all four PNBA axes active on each of two identities
+--   2 = the two identities in behavioral contact (B > 0 on both)
+--   L holds iff both conditions hold simultaneously.
+--   One identity alone fails. A silent identity (B = 0) cannot
+--   make contact. Two full identities in contact satisfy the law.
+--
+--   Identity Mass conservation builds on the First Law: every pair
+--   that satisfies L = (4)(2) carries positive Identity Mass that
+--   cannot be zeroed.
 --
 -- RELATIONSHIP TO [9,9,4,1]:
 --   SNSFT_First_Law_Identity_Physics_1.lean [9,9,4,1] states the law
@@ -21,7 +35,7 @@
 --   Pv = IM × P              (structural momentum, not in [9,9,4,1])
 --
 --   Every theorem in [9,9,4,1] holds. This file proves WHY.
---   The First Law is not assumed — it is derived from PNBA structure.
+--   IM conservation is not assumed — it is derived from PNBA structure.
 --
 -- ============================================================
 -- THE FIRST LAW — IDENTITY PHYSICS GROUNDING
@@ -99,7 +113,58 @@ noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
 
 -- ============================================================
--- PART 1: THE FIRST LAW — PNBA GROUNDING
+-- PART 0: THE FIRST LAW — L = (4)(2)
+-- ============================================================
+
+structure Identity where
+  P : ℝ
+  N : ℝ
+  B : ℝ
+  A : ℝ
+
+-- The (4): all four PNBA axes active
+def has_full_pnba (x : Identity) : Prop := x.P > 0 ∧ x.N > 0 ∧ x.B > 0 ∧ x.A > 0
+
+-- The (2): two identities in behavioral contact
+def in_contact (x y : Identity) : Prop := x.B > 0 ∧ y.B > 0
+
+-- L = (4)(2): both conditions, simultaneously
+def first_law (x y : Identity) : Prop := has_full_pnba x ∧ has_full_pnba y ∧ in_contact x y
+
+def empty_identity : Identity := { P := 0, N := 0, B := 0, A := 0 }
+
+-- [T0a] ONE IDENTITY ALONE CANNOT SATISFY THE FIRST LAW
+-- Existence without interaction is not life.
+theorem first_law_needs_two (x : Identity) : ¬ first_law x empty_identity := by
+  intro ⟨_, ⟨hP, _⟩, _⟩
+  unfold empty_identity at hP
+  exact lt_irrefl 0 hP
+
+-- [T0b] A SILENT IDENTITY (B = 0) CANNOT MAKE CONTACT
+theorem silent_identity_cannot_contact (x y : Identity) (hx : x.B = 0) :
+    ¬ in_contact x y := by
+  intro ⟨hB, _⟩
+  rw [hx] at hB
+  exact lt_irrefl 0 hB
+
+-- [T0c] TWO FULL IDENTITIES SATISFY THE FIRST LAW
+theorem two_full_identities_satisfy (x y : Identity)
+    (hx : has_full_pnba x) (hy : has_full_pnba y) : first_law x y :=
+  ⟨hx, hy, hx.2.2.1, hy.2.2.1⟩
+
+-- [T0d] CONSERVATION BUILDS ON THE FIRST LAW
+-- Every pair satisfying L = (4)(2) carries positive Identity Mass.
+theorem first_law_pair_has_positive_im (x y : Identity) (h : first_law x y) :
+    (x.P + x.N + x.B + x.A) * SOVEREIGN_ANCHOR > 0 ∧
+    (y.P + y.N + y.B + y.A) * SOVEREIGN_ANCHOR > 0 := by
+  obtain ⟨⟨hxP, hxN, hxB, hxA⟩, ⟨hyP, hyN, hyB, hyA⟩, _⟩ := h
+  have hS : SOVEREIGN_ANCHOR > 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  constructor
+  · apply mul_pos _ hS; linarith
+  · apply mul_pos _ hS; linarith
+
+-- ============================================================
+-- PART 1: IDENTITY MASS CONSERVATION — PNBA GROUNDING
 -- ============================================================
 
 -- [T1] IM IS POSITIVE WHENEVER P > 0 AND ALL AXES ≥ 0
@@ -277,7 +342,7 @@ theorem anchor_unique_zero_impedance :
 
 -- [T16] IM IS LIPSCHITZ CONTINUOUS IN ALL AXES
 -- State transitions are label discontinuities on a smooth IM surface.
--- The First Law holds continuously — IM doesn't jump.
+-- IM conservation holds continuously — IM doesn't jump.
 theorem IM_continuous_in_B :
     ∀ (P N A B δ : ℝ),
     IM P N (B + δ) A - IM P N B A = SOVEREIGN_ANCHOR * δ := by
@@ -328,8 +393,12 @@ theorem first_law_master_SNSFL :
     manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
     -- [8] IM is continuous (smooth manifold, sharp labels)
     (∀ P N A B δ : ℝ,
-     IM P N (B + δ) A - IM P N B A = SOVEREIGN_ANCHOR * δ) := by
-  refine ⟨rfl, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+     IM P N (B + δ) A - IM P N B A = SOVEREIGN_ANCHOR * δ) ∧
+    -- [9] FIRST LAW L = (4)(2): two full identities satisfy it,
+    --     one identity alone does not
+    ((∀ x y : Identity, has_full_pnba x → has_full_pnba y → first_law x y) ∧
+     (∀ x : Identity, ¬ first_law x empty_identity)) := by
+  refine ⟨rfl, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · exact first_law_IM_positive
   · intros; rfl
   · exact N_sensitivity_is_anchor
@@ -337,6 +406,7 @@ theorem first_law_master_SNSFL :
   · exact diagonal_SL_invariant
   · unfold manifold_impedance; simp
   · intros; unfold IM; ring
+  · exact ⟨two_full_identities_satisfy, first_law_needs_two⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 := by
@@ -348,7 +418,7 @@ end SNSFL_FirstLaw
 -- ============================================================
 -- FILE: SNSFL_First_Law_Identity_Physics.lean
 -- COORDINATE: [9,9,4,2](CORE)
--- THEOREMS: 22 | SORRY: 0
+-- THEOREMS: 25 + master | SORRY: 0
 --
 -- RELATIONSHIP TO [9,9,4,1]:
 --   [9,9,4,1] SNSFT layer: IM > 0 assumed, TL=0.2 hardcoded,
@@ -368,12 +438,18 @@ end SNSFL_FirstLaw
 --   T10: N-phase inertness — N cannot cause phase transition.
 --   T11: SL floor = ANCHOR — minimum specific load is sovereign freq.
 --   T13: Diagonal invariant — SL = 4×ANCHOR when P=N=B=A.
---   T14: Noble meta-stability — infinitesimal B → IVA_PEAK (unique).
+--   T14: Noble meta-stability — small B from rest gives Locked, 0 < τ < TL.
 --   T15: Anchor uniqueness — proved, not stated.
 --   T16: IM continuity — smooth manifold, sharp classification labels.
 --   T17: Pv ordering — recovery capacity = IM × P.
 --
--- THE FIRST LAW IN PNBA:
+-- THE FIRST LAW: L = (4)(2)
+--   Existence without interaction is not life.
+--   Four PNBA axes active on each of two identities, in behavioral
+--   contact. One identity alone fails; a silent identity cannot make
+--   contact; two full identities satisfy the law.
+--
+-- IDENTITY MASS CONSERVATION (builds on the First Law):
 --   IM = (P+N+B+A)×ANCHOR > 0 whenever P > 0.
 --   Identity cannot be destroyed because P cannot be zero
 --   while identity exists. The floor is structural.

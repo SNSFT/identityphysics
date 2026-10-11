@@ -180,13 +180,13 @@ def pnba_weight (_ : PNBA) : ℝ := 1
 -- ============================================================
 
 /-- Identity mass: IM = (P+N+B+A) × ANCHOR.
-    From First Law [9,9,4,2]. Positive whenever P > 0. -/
+    From IM conservation, First Law file [9,9,4,2]. Positive whenever P > 0. -/
 noncomputable def IM (P N B A : ℝ) : ℝ := (P + N + B + A) * SOVEREIGN_ANCHOR
 
 /-- Torsion: τ = B/P. Behavioral load relative to structural capacity. -/
 noncomputable def tau (P B : ℝ) : ℝ := B / P
 
--- [T6] IM positive when P > 0 — First Law inherited
+-- [T6] IM positive when P > 0 — IM conservation inherited from [9,9,4,2]
 theorem im_positive (P N B A : ℝ) (hP : P > 0) (hN : N ≥ 0) (hB : B ≥ 0) (hA : A ≥ 0) :
     IM P N B A > 0 := by
   unfold IM
@@ -235,7 +235,7 @@ theorem ims_lockdown (f pv : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
   unfold check_ifu_safety; simp [h]
 
 -- ============================================================
--- LAYER 1 — THE LAW OF IDENTITY PHYSICS: L = (4)(2)
+-- LAYER 1 — THE FIRST LAW OF IDENTITY PHYSICS: L = (4)(2)
 -- Life is structurally defined: four primitives active AND
 -- two-way interaction. Both conditions simultaneously.
 -- ============================================================
@@ -263,7 +263,7 @@ def all_four_active (s : PrebioticState) : Prop :=
 /-- Two-way interaction sustained — the (2) in L=(4)(2). -/
 def two_way (s : PrebioticState) : Prop := s.two_way_interaction = true
 
-/-- THE LAW OF IDENTITY PHYSICS: L = (4)(2).
+/-- THE FIRST LAW OF IDENTITY PHYSICS: L = (4)(2).
     Life requires all four primitives active AND two-way interaction.
     Both conditions. Simultaneously. This is the structural definition. -/
 def L_4_2 (s : PrebioticState) : Prop :=
@@ -748,7 +748,7 @@ theorem abiogenesis_total_consistency :
     manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
     -- [2] Torsion limit emergent from anchor (not assumed)
     TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
-    -- [3] IM positive whenever P > 0 (First Law inherited)
+    -- [3] IM positive whenever P > 0 (IM conservation, [9,9,4,2])
     (∀ P N B A : ℝ, P > 0 → N ≥ 0 → B ≥ 0 → A ≥ 0 →
       IM P N B A > 0) ∧
     -- [4] Eight prebiotic hypotheses are NCI — partial activation
