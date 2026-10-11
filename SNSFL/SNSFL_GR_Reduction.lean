@@ -591,25 +591,27 @@ structure UnifiedState where
   N         : ℝ  -- Narrative (phase in QM, geodesic in GR)
   B         : ℝ  -- Behavior (observable in QM, T_μν in GR)
   A         : ℝ  -- Adaptation (decoherence in QM, Λ in GR)
-  im        : ℝ  -- Identity Mass (low=QM, high=GR)
-  threshold : ℝ  -- IM regime boundary
+  im        : ℝ  -- Identity Mass (low=QM, high=GR; boundary IM·P = 1)
 
 -- [P,9,9,1] :: {VER} | THEOREM 17: QM-GR UNIFIED (STEP 6 PASSES)
--- Same state satisfies both QM and GR simultaneously.
--- Not two theories. One equation. Two IM regimes.
--- Einstein's unification problem: solved at Layer 0.
+-- A state carrying both the GR relation P + A·P = IM·B and the QM
+-- relation IM·P = A splits as IM·B = P + IM·P²:
+-- a QM term P and a GR term IM·P². One state. Two IM regimes.
 theorem qm_gr_unified (s : UnifiedState)
     (h_gr : s.P + s.A * s.P = s.im * s.B)
     (h_qm : s.im * s.P = s.A) :
-    s.P + s.A * s.P = s.im * s.B ∧ s.im * s.P = s.A :=
-  ⟨h_gr, h_qm⟩
+    s.im * s.B = s.P + s.im * s.P ^ 2 := by
+  rw [← h_qm] at h_gr
+  nlinarith [h_gr]
 
 -- [P,9,9,2] :: {VER} | THEOREM 18: GR REGIME = HIGH IM
--- When IM ≥ threshold: GR operators dominate. Pattern locked. Geodesics stable.
-theorem gr_regime_is_high_im (s : UnifiedState)
-    (h_high : s.im ≥ s.threshold)
-    (h_thresh : s.threshold > 0) :
-    s.im ≥ s.threshold := h_high
+-- The GR term IM·P² dominates the QM term P exactly when IM·P > 1.
+-- The regime boundary is IM = 1/P, proved, not chosen.
+theorem gr_regime_is_high_im (s : UnifiedState) (hP : s.P > 0) :
+    s.im * s.P ^ 2 > s.P ↔ s.im * s.P > 1 := by
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
 
 -- QM-GR unification lossless instance
 def qm_gr_lossless (s : UnifiedState)

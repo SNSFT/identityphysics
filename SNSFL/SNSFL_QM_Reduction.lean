@@ -589,17 +589,27 @@ structure UnifiedState where
   N         : ℝ  -- Narrative (phase in QM, geodesic in GR)
   B         : ℝ  -- Behavior (observable in QM, T_μν in GR)
   A         : ℝ  -- Adaptation (decoherence in QM, Λ in GR)
-  im        : ℝ  -- Identity Mass (low=QM, high=GR)
-  threshold : ℝ  -- IM regime boundary
+  im        : ℝ  -- Identity Mass (low=QM, high=GR; boundary IM·P = 1)
 
 -- [P,9,8,1] :: {VER} | THEOREM 18: QM-GR UNIFIED (STEP 6 PASSES)
--- Same state satisfies both QM and GR simultaneously.
--- Not two theories. One equation. Two IM regimes.
+-- A state carrying both the GR relation P + A·P = IM·B and the QM
+-- relation IM·P = A splits as IM·B = P + IM·P²:
+-- a QM term P and a GR term IM·P². One state. Two IM regimes.
 theorem qm_gr_unified (s : UnifiedState)
     (h_gr : s.P + s.A * s.P = s.im * s.B)
     (h_qm : s.im * s.P = s.A) :
-    s.P + s.A * s.P = s.im * s.B ∧ s.im * s.P = s.A :=
-  ⟨h_gr, h_qm⟩
+    s.im * s.B = s.P + s.im * s.P ^ 2 := by
+  rw [← h_qm] at h_gr
+  nlinarith [h_gr]
+
+-- [P,9,8,1b] :: {VER} | QM REGIME = LOW IM
+-- The QM term P dominates the GR term IM·P² exactly when IM·P < 1.
+-- The regime boundary is IM = 1/P, proved, not chosen.
+theorem qm_regime_is_low_im (s : UnifiedState) (hP : s.P > 0) :
+    s.P > s.im * s.P ^ 2 ↔ s.im * s.P < 1 := by
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
 
 -- [P,9,8,2] :: {VER} | THEOREM 19: QM-GR-TD THREE-WAY CONSISTENCY
 -- QM, GR, and thermodynamics all hold simultaneously.
@@ -770,7 +780,7 @@ end SNSFL
 --   SNSFL_Master.lean       → physics ground
 --   SNSFL_QM_Reduction.lean → this file
 --
--- THEOREMS: 21 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 24 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
