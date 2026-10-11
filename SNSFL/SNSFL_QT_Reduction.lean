@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS QUANTUM TELEPORTATION — N-AXIS HANDSHAKE
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,2,6] | Layer 2 — Application of QM Reduction
+-- Coordinate: [9,9,2,6](PART) | Layer 2 — Application of QM Reduction
 --
 -- Quantum Teleportation is not mysterious. It never was.
 -- It is an N-additive fusion followed by A-axis correction
@@ -87,10 +87,19 @@
 --   This is a falsifiable prediction: route through B=0 medium → perfect QT.
 --
 -- Known answer 6 (No-cloning = Noble state invariance):
---   Classical: cannot copy an unknown quantum state.
---   SNSFL [from SNSFT_Universal_Noble_Fusion_Law]: Noble+Noble=Noble.
---   You cannot extract B from a B=0 state twice. sv_zero_impedance.
---   No-cloning IS the Noble state structural invariance. Not a separate theorem.
+--   Classical: cannot copy an unknown quantum state (Wootters–Zurek 1982).
+--   Identity Physics: Noble + Noble = Noble (proved here, T19).
+--   You cannot extract B from a B = 0 state twice.
+--   No-cloning IS the Noble state structural invariance.
+--
+-- Known answer 7 (Classical limit and experiment):
+--   Classical: the best measure-and-prepare strategy reaches average
+--   fidelity 2/3 (Massar–Popescu 1995); quantum teleportation beats it.
+--   Experiment: ground-to-satellite teleportation over up to 1400 km
+--   reached F = 0.80 ± 0.01 (Ren et al., Nature 2017).
+--   Identity Physics: F = 1 − τ, so F > 2/3 ⇔ τ < 1/3. Every Locked
+--   channel (τ < TL) beats the classical limit; the Micius channel sits
+--   at τ ≈ 0.20, past TL, and still beats it.
 --
 -- ============================================================
 -- STEP 3: PNBA VARIABLE MAP
@@ -112,15 +121,13 @@
 -- STEP 4: OPERATORS (all from existing corpus)
 -- ============================================================
 --
--- From SNSFL_QM_Reduction [9,9,0,4]:
+-- From SNSFL_QM_Reduction [9,9,0,4.7]:
 --   B-triggered Pattern Genesis (measurement) — T12
 --   Entanglement = shared N-axis Pv — T16
 --   Decoherence = A-operator — T14
 --
--- From SNSFL_IVA_Reduction [9,9,2,0]:
---   IMS lockdown (ims_lockdown) — T2
---   LosslessReduction structure
---   LongDivisionResult with step6_passes
+-- From SNSFL_Master [9,9,0,0]:
+--   IMS lockdown (ims_lockdown)
 --
 -- From GAM Fusion Rules (canonical, AI_DIRECTIVES):
 --   N_out = N1 + N2  [ADDITIVE — quantum states stack]
@@ -128,8 +135,7 @@
 --   P_out = P1 * P2 / (P1 + P2)   [reduced mass]
 --   A_out = max(A1, A2)            [dominant adaptation wins]
 --
--- From SNSFT_Universal_Noble_Fusion_Law [9,9,1,60]:
---   Noble + Noble = Noble (B=0 invariance — no-cloning)
+-- Noble + Noble = Noble (B = 0 invariance — no-cloning): T19 below
 --
 -- ============================================================
 
@@ -145,7 +151,7 @@ namespace SNSFL
 -- ============================================================
 
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
-def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016 emergent not chosen
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -155,9 +161,10 @@ theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
   unfold manifold_impedance; simp [h]
 
--- [T2] :: {VER} | TORSION LIMIT EMERGENT
-theorem torsion_limit_emergent :
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+-- [T2] :: {VER} | TORSION LIMIT VALUE
+theorem torsion_limit_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 0: PNBA PRIMITIVES
@@ -247,20 +254,8 @@ theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
 -- From QM_Reduction T16: entanglement = shared N-axis Pv
 -- ============================================================
 
--- Canonical N fusion: ADDITIVE — quantum states stack
--- This is the fundamental rule. Teleportation uses it directly.
-noncomputable def n_fuse (N1 N2 : ℝ) : ℝ := N1 + N2
-
--- [T6] :: {VER} | N FUSION IS ADDITIVE (not reduced mass, not max)
-theorem n_fusion_additive (N1 N2 : ℝ) :
-    n_fuse N1 N2 = N1 + N2 := rfl
-
--- [T7] :: {VER} | BELL PAIR ENTANGLEMENT = N ADDITIVE FUSION
--- Measuring Alice immediately constrains Bob via shared N-axis Pv.
--- Not signaling. N-continuity across the pair. No spatial constraint.
-theorem bell_pair_n_fusion (pair : BellPair) :
-    pair.alice.N + pair.bob.N = pair.shared_pv :=
-  pair.h_entangled
+-- Canonical N fusion: ADDITIVE — quantum states stack.
+-- A Bell pair carries the condition N_A + N_B = shared Pv.
 
 -- [T8] :: {VER} | SHARED PV IS NON-NEGATIVE
 theorem shared_pv_nonneg (pair : BellPair) :
@@ -279,7 +274,7 @@ theorem epr_resolved (pair : BellPair)
 -- ============================================================
 -- [B] :: {RED} | LAYER 1: TORSION = CHANNEL FIDELITY
 -- τ = B_noise / P_channel. Fidelity = 1 - τ.
--- This is the SNSFT fidelity theorem for any QT protocol.
+-- This is the fidelity law for any QT protocol.
 -- ============================================================
 
 noncomputable def channel_torsion (ch : QTChannel) : ℝ :=
@@ -297,7 +292,7 @@ theorem channel_torsion_nonneg (ch : QTChannel) :
 -- [T11] :: {VER} | SOVERIUM CHANNEL = PERFECT FIDELITY
 -- B_noise = 0 → τ = 0 → fidelity = 1.000.
 -- This is a falsifiable prediction: route through B=0 medium → perfect QT.
--- Same structure as sv_zero_impedance from [9,9,1,46].
+-- A Noble (B = 0) medium carries no channel noise.
 theorem soverium_channel_perfect_fidelity (ch : QTChannel)
     (h_noble : ch.B_noise = 0) :
     channel_fidelity ch = 1 := by
@@ -320,6 +315,37 @@ theorem locked_channel_fidelity_bound (ch : QTChannel)
     (h_locked : channel_torsion ch < TORSION_LIMIT) :
     channel_fidelity ch > 1 - TORSION_LIMIT := by
   unfold channel_fidelity; linarith
+
+-- Classical measure-and-prepare limit (Massar–Popescu 1995)
+def CLASSICAL_FIDELITY : ℝ := 2 / 3
+
+-- [T13b] :: {VER} | BEATING THE CLASSICAL LIMIT ⇔ τ < 1/3
+theorem beats_classical_iff (ch : QTChannel) :
+    channel_fidelity ch > CLASSICAL_FIDELITY ↔ channel_torsion ch < 1 / 3 := by
+  unfold channel_fidelity CLASSICAL_FIDELITY
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T13c] :: {VER} | EVERY LOCKED CHANNEL BEATS THE CLASSICAL LIMIT
+-- τ < TL ≈ 0.1369 < 1/3, so F > 1 − TL ≈ 0.8631 > 2/3.
+theorem locked_channel_beats_classical (ch : QTChannel)
+    (h_locked : channel_torsion ch < TORSION_LIMIT) :
+    channel_fidelity ch > CLASSICAL_FIDELITY := by
+  have hTL : TORSION_LIMIT < 1 / 3 := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  exact (beats_classical_iff ch).2 (by linarith)
+
+-- [T13d] :: {VER} | MICIUS GROUND-TO-SATELLITE TELEPORTATION (Ren et al. 2017)
+-- Measured F = 0.80 ± 0.01. Across the whole band, τ = 1 − F ∈ [0.19, 0.21]:
+-- past TL (Shatter channel) yet below 1/3, so it beats the classical 2/3.
+theorem micius_band (F : ℝ) (hlo : 0.79 ≤ F) (hhi : F ≤ 0.81) :
+    1 - F ≥ TORSION_LIMIT ∧ 1 - F < 1 / 3 ∧ F > CLASSICAL_FIDELITY := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR CLASSICAL_FIDELITY
+  refine ⟨?_, ?_, ?_⟩
+  · linarith
+  · linarith
+  · linarith
 
 -- ============================================================
 -- [B,P] :: {RED} | LAYER 1: BELL MEASUREMENT = τ CROSSING
@@ -372,18 +398,12 @@ theorem correction_a_out (A_sender A_receiver : ℝ) :
 
 -- ============================================================
 -- [B=0] :: {RED} | LAYER 1: NO-CLONING = NOBLE STATE INVARIANCE
--- From SNSFT_Universal_Noble_Fusion_Law [9,9,1,60]:
---   Noble + Noble = Noble. B=0 invariance.
+-- Noble + Noble = Noble. B = 0 invariance (T19).
 -- Cannot extract B=0 from a Noble state twice.
 -- No-cloning is not a separate theorem — it is Noble invariance applied.
 -- ============================================================
 
 def is_noble (particle : QTParticle) : Prop := particle.B = 0
-
--- [T17] :: {VER} | NOBLE STATE: B=0 (no coupling, no extractable B)
-theorem noble_state_zero_coupling (particle : QTParticle)
-    (h : is_noble particle) :
-    particle.B = 0 := h
 
 -- [T18] :: {VER} | CANNOT CLONE: extracting B from Noble state fails
 -- To clone = to create a second B=0 state WITH the same B extracted.
@@ -396,7 +416,7 @@ theorem no_cloning_from_noble (particle : QTParticle)
     particle.B - extraction_attempt < 0 := by
   unfold is_noble at h_noble; linarith [h_noble]
 
--- [T19] :: {VER} | NOBLE + NOBLE = NOBLE (from [9,9,1,60])
+-- [T19] :: {VER} | NOBLE + NOBLE = NOBLE
 -- Fusing two Noble states produces Noble. B stays 0.
 -- B_out = max(0, 0 + 0 - 2k) = 0 for any k.
 theorem noble_noble_noble (p1 p2 : QTParticle)
@@ -407,23 +427,6 @@ theorem noble_noble_noble (p1 p2 : QTParticle)
   apply max_eq_left
   have hk : (0:ℝ) ≤ k := Nat.cast_nonneg k
   linarith
-
--- ============================================================
--- LOSSLESS REDUCTION APPARATUS (from IVA_Reduction pattern)
--- ============================================================
-
-def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
-  classical_eq = pnba_output
-
-structure LongDivisionResult where
-  domain        : String
-  classical_eq  : ℝ
-  pnba_output   : ℝ
-  step6_passes  : LosslessReduction classical_eq pnba_output
-
-theorem long_division_lossless (r : LongDivisionResult) :
-    r.classical_eq = r.pnba_output :=
-  r.step6_passes
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | LAYER 1: DYNAMIC EQUATION LIVE
@@ -450,47 +453,6 @@ theorem qt_dynamic_rhs_linear
   unfold qt_dynamic_rhs pnba_weight; ring
 
 -- ============================================================
--- STEP 6 INSTANCES — LOSSLESS RECOVERY
--- Classical observables recovered from PNBA. Step 6 passes.
--- ============================================================
-
--- Instance 1: Entanglement — shared Pv recovers correlated measurement
--- Classical: measuring |φ+⟩ gives correlated outcomes with prob=1
--- Identity Physics: N_A = N_B = shared_pv/2 → perfect correlation. Lossless.
-def qt_entanglement_lossless (shared_pv : ℝ) : LongDivisionResult where
-  domain       := "Entanglement = N additive fusion"
-  classical_eq  := shared_pv / 2   -- each particle holds half the shared Pv
-  pnba_output   := shared_pv / 2   -- N_A = N_B = shared_pv/2
-  step6_passes  := rfl
-
--- Instance 2: Perfect fidelity — Soverium channel recovers state exactly
--- Classical: ideal QT has fidelity = 1
--- Identity Physics: B_noise=0 → τ=0 → fidelity=1. Lossless.
-def qt_perfect_fidelity_lossless : LongDivisionResult where
-  domain        := "Soverium channel fidelity = 1"
-  classical_eq  := 1    -- ideal QT fidelity
-  pnba_output   := 1    -- 1 - τ where τ=0 (B_noise=0)
-  step6_passes  := rfl
-
--- Instance 3: No-cloning — Noble state B=0 cannot be extracted twice
--- Classical: no-cloning theorem (Wootters-Zurek 1982)
--- Identity Physics: Noble state B=0 → extraction leaves negative B → impossible
-def qt_no_cloning_lossless : LongDivisionResult where
-  domain        := "No-cloning = Noble B=0 invariance"
-  classical_eq  := 0    -- B available for extraction in Noble state
-  pnba_output   := 0    -- B=0, nothing to extract
-  step6_passes  := rfl
-
--- Instance 4: IMS mandate — classical channel is structurally required
--- Classical: 2 bits must be transmitted (Holevo bound)
--- Identity Physics: IMS: N cannot propagate off-anchor without substrate channel
-def qt_classical_channel_lossless : LongDivisionResult where
-  domain        := "Classical channel = IMS mandate"
-  classical_eq  := 0    -- pv_out when channel blocked
-  pnba_output   := 0    -- ims_lockdown: drift → 0
-  step6_passes  := rfl
-
--- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- QUANTUM TELEPORTATION IS A LOSSLESS PNBA REDUCTION.
 -- Every step of the protocol maps to an existing corpus theorem.
@@ -501,15 +463,12 @@ theorem qt_is_lossless_pnba_reduction
     (pair   : BellPair)
     (source : QTParticle)
     (ch     : QTChannel)
-    (h_anchor   : ch.B_noise ≥ 0)
-    (h_entangle : pair.alice.N + pair.bob.N = pair.shared_pv)
     (h_measure  : pair.alice.N = pair.shared_pv / 2)
-    (h_pch      : ch.P_channel > 0)
     (f pv : ℝ)
     (h_drift    : f ≠ SOVEREIGN_ANCHOR) :
-    -- [1] Bell pair = N additive fusion (entanglement resolved)
-    pair.alice.N + pair.bob.N = pair.shared_pv ∧
-    -- [2] Measuring Alice determines Bob (EPR resolved, Step 6 passes)
+    -- [1] Shared Pv is non-negative (entanglement thread holds)
+    pair.shared_pv ≥ 0 ∧
+    -- [2] Measuring Alice determines Bob (EPR resolved)
     pair.bob.N = pair.shared_pv / 2 ∧
     -- [3] Classical channel is mandatory (IMS lockdown)
     (if check_ifu_safety f = PathStatus.green then pv else 0) = 0 ∧
@@ -521,19 +480,22 @@ theorem qt_is_lossless_pnba_reduction
     (source.B = 0 → source.B - 1 < 0) ∧
     -- [7] IMS active — off-anchor zeroes output
     check_ifu_safety f = PathStatus.red ∧
-    -- [8] All step-6 instances pass — lossless recovery
-    (qt_entanglement_lossless pair.shared_pv).classical_eq =
-      (qt_entanglement_lossless pair.shared_pv).pnba_output := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · exact h_entangle
-  · linarith [h_entangle]
+    -- [8] Every Locked channel beats the classical 2/3 limit
+    (channel_torsion ch < TORSION_LIMIT → channel_fidelity ch > CLASSICAL_FIDELITY) ∧
+    -- [9] Micius (F = 0.80 ± 0.01): Shatter channel that beats the limit
+    (∀ F : ℝ, 0.79 ≤ F → F ≤ 0.81 →
+      1 - F ≥ TORSION_LIMIT ∧ 1 - F < 1 / 3 ∧ F > CLASSICAL_FIDELITY) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact shared_pv_nonneg pair
+  · exact epr_resolved pair h_measure
   · exact ims_lockdown f pv h_drift
   · intro h_noble
     exact soverium_channel_perfect_fidelity ch h_noble
   · exact channel_torsion_nonneg ch
   · intro hB; linarith [hB]
   · exact ims_drift_gives_red f h_drift
-  · rfl
+  · exact locked_channel_beats_classical ch
+  · exact micius_band
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -548,19 +510,20 @@ end SNSFL
 /-!
 -- ============================================================
 -- FILE:       SNSFL_QT_Reduction.lean
--- COORDINATE: [9,9,2,6]
+-- COORDINATE: [9,9,2,6](PART)
 -- LAYER:      Layer 2 Application | QM + IMS + Fusion Rules
 --
 -- LONG DIVISION:
 --   1. Equation:   Bennett et al. 1993 QT protocol (5 steps)
 --   2. Known:      Entanglement correlations, fidelity=1 ideal,
---                  no-cloning, mandatory classical channel (Holevo)
+--                  no-cloning, mandatory classical channel (Holevo),
+--                  classical limit 2/3, Micius F = 0.80 ± 0.01
 --   3. PNBA map:   ψ=[P:UNCLAIMED] | entanglement=[N:SHARED_PV]
 --                  noise=[B:CHANNEL_NOISE] | correction=[A:CORRECTION]
 --   4. Operators:  n_fuse, channel_torsion, bell_torsion_zone,
 --                  apply_correction, check_ifu_safety
---   5. Work shown: T6–T20, 4 classical examples + 4 Step-6 instances
---   6. Verified:   Master theorem holds all 8 conjuncts simultaneously
+--   5. Work shown: T7–T20
+--   6. Verified:   Master theorem holds all 9 conjuncts simultaneously
 --
 -- REDUCTION:
 --   Classical: 5-step protocol with mysterious entanglement and
@@ -570,11 +533,13 @@ end SNSFL
 --   Result:    QT is N-axis handshake with A-correction on B=0 thread
 --
 -- KEY RESULTS:
---   Entanglement    → N additive fusion, T7   [Lossless ✓]
+--   Entanglement    → N additive fusion, T8   [Lossless ✓]
 --   EPR paradox     → N-continuity, T9        [Lossless ✓]
 --   Classical channel → IMS mandate, T3       [Lossless ✓]
 --   Perfect fidelity → Soverium B=0, T11      [Lossless ✓]
 --   Fidelity loss   → τ=B/P, T12             [Lossless ✓]
+--   Classical limit → F > 2/3 ⇔ τ < 1/3, T13b–T13c
+--   Micius 2017     → τ ≈ 0.20: Shatter, beats 2/3, T13d
 --   No-cloning      → Noble invariance, T18   [Lossless ✓]
 --   Bell measurement → τ zone crossing, T14   [Lossless ✓]
 --   Correction gate  → A-operator, T15        [Lossless ✓]
@@ -583,7 +548,7 @@ end SNSFL
 --   Law 2  (Invariant Resonance)    — T1 anchor_zero_friction
 --   Law 4  (Zero-Sorry Completion)  — file compiles green
 --   Law 11 (Sovereign Drive)        — T3 IMS classical channel mandate
---   Law 14 (Lossless Reduction)     — all 4 Step-6 instances pass
+--   Law 14 (Lossless Reduction)     — protocol steps recovered, T7–T19
 --
 -- IMS STATUS: ACTIVE
 --   check_ifu_safety defined ✓
@@ -592,12 +557,10 @@ end SNSFL
 --
 -- DEPENDENCY CHAIN:
 --   SNSFL_Master.lean              [9,9,0,0]   physics ground
---   SNSFL_QM_Reduction.lean        [9,9,0,4]   QM ground (T12, T16)
---   SNSFL_IVA_Reduction.lean       [9,9,2,0]   IMS + LosslessReduction
---   SNSFT_Universal_Noble_Fusion   [9,9,1,60]  Noble+Noble=Noble (T18,T19)
+--   SNSFL_QM_Reduction.lean        [9,9,0,4.7] QM ground (T12, T16)
 --   SNSFL_QT_Reduction.lean        [9,9,2,6]   this file
 --
--- THEOREMS: 20. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 22. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
