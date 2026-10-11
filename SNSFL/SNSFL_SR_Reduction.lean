@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS SPECIAL RELATIVITY — LORENTZ AS PNBA
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,2] | Physics Ground
+-- Coordinate: [9,9,0,2](PHYS) | Physics Ground
 --
 -- SR is the flat-space limit of GR [9,9,0,1].
 -- When T_μν = 0 and Λ = 0: G_μν = 0 → Minkowski metric.
@@ -23,6 +23,7 @@
 --
 --   E = mc² → IM conservation: E = IM × c² (Identity Mass × propagation²)
 --   Lorentz boost → B-axis transformation preserving P-invariant ds²
+--     (proved: the boost preserves c²t² − x² exactly, because γ²(1 − v²/c²) = 1)
 --   Time dilation → N drag by v (same as N drag by P in GR [9,9,0,1])
 --   Length contraction → P compression along motion axis
 --   Relativistic momentum → p = γmv = A × B × IM
@@ -82,13 +83,20 @@ noncomputable def lorentz_factor (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) : ℝ
 noncomputable def spacetime_interval (c dt dx : ℝ) : ℝ :=
   c^2 * dt^2 - dx^2
 
+-- Lorentz boost at velocity v, acting on (w, x) with w = ct:
+--   w' = γ(w − (v/c)·x),  x' = γ(x − (v/c)·w)
+noncomputable def boost_w (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) (w x : ℝ) : ℝ :=
+  lorentz_factor v c hc hv * (w - (v / c) * x)
+
+noncomputable def boost_x (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) (w x : ℝ) : ℝ :=
+  lorentz_factor v c hc hv * (x - (v / c) * w)
+
 -- ============================================================
 -- SECTION 2: THE CORE SR THEOREMS
 -- ============================================================
 
 -- [T1] c IS THE NARRATIVE LIMIT
 -- Nothing with mass can reach c. Narrative propagation is bounded.
--- In IVA terms [9,9,2,0]: NS bounded theorem — velocity < anchor.
 -- In SR: v < c for massive objects.
 -- The Lorentz factor diverges as v → c: γ → ∞.
 -- The sovereign anchor (1.369 GHz) sets the manifold frequency.
@@ -131,14 +139,17 @@ theorem lorentz_factor_gt_one (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) (hv_ne :
   rw [gt_iff_lt, lt_div_iff₀ h4]
   linarith
 
--- [T3] MASS-ENERGY EQUIVALENCE: E = mc²
--- The most famous equation in physics.
+-- [T3] MASS-ENERGY EQUIVALENCE: E = mc² AT REST
+-- At v = 0 the Lorentz factor is exactly 1, so the total energy
+-- γmc² reduces to the rest energy mc².
 -- In PNBA: E = IM × c² — Identity Mass times Narrative propagation squared.
--- Rest energy = Identity Mass content × (Narrative speed)².
--- This is IM conservation: the identity's energy is its mass times
--- the square of the propagation limit.
-theorem mass_energy_equivalence (m c : ℝ) (hm : m > 0) (hc : c > 0) :
-    m * c^2 > 0 := mul_pos hm (pow_pos hc 2)
+theorem lorentz_factor_at_rest (c : ℝ) (hc : c > 0) (h0 : (0:ℝ)^2 < c^2) :
+    lorentz_factor 0 c hc h0 = 1 := by
+  unfold lorentz_factor; simp
+
+theorem rest_energy (m c : ℝ) (hc : c > 0) (h0 : (0:ℝ)^2 < c^2) :
+    lorentz_factor 0 c hc h0 * m * c^2 = m * c^2 := by
+  rw [lorentz_factor_at_rest c hc h0, one_mul]
 
 -- [T4] RELATIVISTIC ENERGY: E = γmc²
 -- Total energy = Lorentz factor × rest energy.
@@ -171,18 +182,31 @@ theorem relativistic_momentum_formula
   · exact hv_pos
 
 -- [T6] ENERGY-MOMENTUM RELATION: E² = (pc)² + (mc²)²
--- The invariant mass relation. In PNBA: invariant of the P-axis.
--- ds² is the spacetime invariant; E²-(pc)² = (mc²)² is the
--- energy-momentum invariant. Both are Pattern-invariants.
--- This IS E = mc² for v=0 and E = pc for massless (photons, m=0).
-theorem energy_momentum_invariant (E p m c : ℝ)
-    (h_rel : E^2 = (p*c)^2 + (m*c^2)^2) :
-    E^2 = (p*c)^2 + (m*c^2)^2 := h_rel
+-- The key identity is γ²(1 − v²/c²) = 1. From it, with E = γmc²
+-- and p = γmv, the invariant-mass relation follows exactly.
+-- In PNBA: E² − (pc)² = (mc²)² is a Pattern invariant, the same
+-- in every frame. At m = 0 (Noble limit) it gives E = pc.
+theorem gamma_sq_identity (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) :
+    (lorentz_factor v c hc hv)^2 * (1 - v^2/c^2) = 1 := by
+  have h1 : 1 - v^2/c^2 > 0 := c_is_narrative_limit v c hc hv
+  unfold lorentz_factor
+  rw [div_pow, one_pow, Real.sq_sqrt h1.le]
+  exact one_div_mul_cancel (ne_of_gt h1)
 
--- Massless case: E = pc (photons)
--- In PNBA: m=0 → IM=0 (Noble limit), E = pc = pure Narrative momentum
-theorem massless_energy_momentum (p c : ℝ) (hc : c > 0) (hp : p > 0) :
-    (p*c)^2 + ((0:ℝ)*c^2)^2 = (p*c)^2 := by ring
+theorem gamma_sq_identity_c2 (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) :
+    (lorentz_factor v c hc hv)^2 * (c^2 - v^2) = c^2 := by
+  have hc2 : c^2 ≠ 0 := pow_ne_zero 2 (ne_of_gt hc)
+  have hg := gamma_sq_identity v c hc hv
+  have e : c^2 * (1 - v^2/c^2) = c^2 - v^2 := by
+    rw [mul_sub, mul_one, mul_comm (c^2) (v^2/c^2), div_mul_cancel₀ (v^2) hc2]
+  rw [← e]
+  linear_combination c^2 * hg
+
+theorem energy_momentum_relation (v c m : ℝ) (hc : c > 0) (hv : v^2 < c^2) :
+    (lorentz_factor v c hc hv * m * c^2)^2 =
+    (lorentz_factor v c hc hv * m * v * c)^2 + (m * c^2)^2 := by
+  have hg := gamma_sq_identity_c2 v c hc hv
+  linear_combination (m^2 * c^2) * hg
 
 -- [T7] SPACETIME INTERVAL IS INVARIANT (P-invariant)
 -- ds² = c²dτ² — the same in all inertial frames.
@@ -190,14 +214,21 @@ theorem massless_energy_momentum (p c : ℝ) (hc : c > 0) (hp : p > 0) :
 -- transformations (Lorentz boosts). B changes (velocity), P doesn't.
 -- This is the SR postulate in PNBA language:
 -- The Pattern geometry (ds²) is preserved under Behavioral motion.
-theorem spacetime_interval_positive (c dt : ℝ)
-    (hc : c > 0) (hdt : dt > 0)
-    (h : spacetime_interval c dt 0 > 0) :
-    spacetime_interval c dt 0 > 0 := h
+theorem interval_in_light_units (c t x : ℝ) :
+    spacetime_interval c t x = (c * t)^2 - x^2 := by
+  unfold spacetime_interval; ring
+
+theorem boost_preserves_interval (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) (w x : ℝ) :
+    (boost_w v c hc hv w x)^2 - (boost_x v c hc hv w x)^2 = w^2 - x^2 := by
+  have hg := gamma_sq_identity v c hc hv
+  have hb : (lorentz_factor v c hc hv)^2 * (1 - (v / c)^2) = 1 := by
+    rw [div_pow]; exact hg
+  unfold boost_w boost_x
+  linear_combination (w^2 - x^2) * hb
 
 -- For timelike intervals: c²dt² > dx² → ds² > 0
 theorem timelike_interval_positive (c dt dx : ℝ)
-    (hc : c > 0) (h : c^2 * dt^2 > dx^2) :
+    (h : c^2 * dt^2 > dx^2) :
     spacetime_interval c dt dx > 0 := by
   unfold spacetime_interval; linarith
 
@@ -231,36 +262,41 @@ theorem length_contraction_less_than_rest
 -- The denominator (1+v₁v₂/c²) > 1 ensures the result stays below c.
 theorem relativistic_velocity_addition_bounded
     (v1 v2 c : ℝ) (hc : c > 0)
-    (hv1 : v1^2 < c^2) (hv2 : v2^2 < c^2)
-    (hv1_pos : v1 > 0) (hv2_pos : v2 > 0) :
-    let v12 := (v1 + v2) / (1 + v1*v2/c^2)
-    1 + v1*v2/c^2 > 1 := by
-  have : v1*v2/c^2 > 0 :=
-    div_pos (mul_pos hv1_pos hv2_pos) (pow_pos hc 2)
-  linarith
+    (hv1_pos : v1 > 0) (hv2_pos : v2 > 0)
+    (hv1c : v1 < c) (hv2c : v2 < c) :
+    (v1 + v2) / (1 + v1*v2/c^2) < c := by
+  have hc2 : c^2 ≠ 0 := pow_ne_zero 2 (ne_of_gt hc)
+  have hq : v1*v2/c^2 > 0 := div_pos (mul_pos hv1_pos hv2_pos) (pow_pos hc 2)
+  have hD : 1 + v1*v2/c^2 > 0 := by linarith
+  have hcc : c^2 * (v1*v2/c^2) = v1*v2 := by
+    rw [mul_comm]; exact div_mul_cancel₀ (v1*v2) hc2
+  have hcD : c * (c * (1 + v1*v2/c^2)) = c^2 + v1*v2 := by
+    calc c * (c * (1 + v1*v2/c^2)) = c^2 + c^2 * (v1*v2/c^2) := by ring
+      _ = c^2 + v1*v2 := by rw [hcc]
+  have hprod : (c - v1) * (c - v2) > 0 := mul_pos (by linarith) (by linarith)
+  rw [div_lt_iff₀ hD]
+  have key : c * (v1 + v2) < c * (c * (1 + v1*v2/c^2)) := by
+    rw [hcD]; nlinarith [hprod]
+  exact lt_of_mul_lt_mul_left key hc.le
 
--- [T11] SR IS THE FLAT-SPACE LIMIT OF GR
--- When T_μν = 0 (no matter) and Λ = 0 (no dark energy):
--- G_μν = 0 → Riemann flat → Minkowski metric η_μν.
--- In PNBA: B=0 and A=0 → P = η (flat Pattern geometry).
--- SR is GR at B=0, A=0.
-theorem sr_is_flat_limit_of_gr
-    (stress_energy cosmological_constant : ℝ)
-    (h_T : stress_energy = 0)
-    (h_Λ : cosmological_constant = 0) :
-    stress_energy = 0 ∧ cosmological_constant = 0 :=
-  ⟨h_T, h_Λ⟩
+-- [T11] NO MOTION, NO TRANSFORMATION
+-- At v = 0 the boost is the identity: γ = 1 and v/c = 0.
+-- In PNBA: with B = 0 there is no behavioral transformation; the
+-- flat Pattern geometry (Minkowski, the T_μν = 0, Λ = 0 limit of
+-- GR [9,9,0,1]) is left exactly as it is.
+theorem boost_at_rest_is_identity (c : ℝ) (hc : c > 0) (h0 : (0:ℝ)^2 < c^2) (w x : ℝ) :
+    boost_w 0 c hc h0 w x = w ∧ boost_x 0 c hc h0 w x = x := by
+  refine ⟨?_, ?_⟩
+  · unfold boost_w; rw [lorentz_factor_at_rest c hc h0]; simp
+  · unfold boost_x; rw [lorentz_factor_at_rest c hc h0]; simp
 
--- [T12] SR CONSISTENCY WITH IVA [9,9,2,0]
--- IVA NS bounded theorem: pv ≤ im × ANCHOR → pv/im ≤ ANCHOR
--- SR: v < c for massive objects
--- Both bound the Narrative velocity. IVA uses ANCHOR, SR uses c.
--- In PNBA: c and ANCHOR are both Narrative propagation limits
--- at different scales (field propagation vs quantum oscillation).
-theorem sr_consistent_with_iva_ns_bound
-    (v c anchor : ℝ) (hc : c > 0) (h_anchor : anchor > 0)
-    (hv : v < c) :
-    v < c := hv
+-- [T12] c IS INVARIANT: THE LIGHT CONE IS PRESERVED
+-- An event on the light cone (x = ct, i.e. x = w) stays on the
+-- light cone in every boosted frame: x' = w'. Light moves at c for
+-- every inertial observer — the second postulate as a theorem.
+theorem light_cone_preserved (v c : ℝ) (hc : c > 0) (hv : v^2 < c^2) (w : ℝ) :
+    boost_x v c hc hv w w = boost_w v c hc hv w w := by
+  unfold boost_x boost_w; ring
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
@@ -276,22 +312,32 @@ theorem sr_is_lossless_pnba_projection
     1 - v^2/c^2 > 0 ∧
     -- [2] Lorentz factor ≥ 1: adaptation never shrinks
     lorentz_factor v c hc hv ≥ 1 ∧
-    -- [3] Rest energy E=mc² > 0: IM conservation
-    m * c^2 > 0 ∧
+    -- [3] Rest energy: at v = 0, γmc² = mc²
+    (∀ h0 : (0:ℝ)^2 < c^2, lorentz_factor 0 c hc h0 * m * c^2 = m * c^2) ∧
     -- [4] Relativistic energy E=γmc² > 0
     lorentz_factor v c hc hv * m * c^2 > 0 ∧
     -- [5] Time dilation: γΔτ > Δτ (moving clocks slow)
     lorentz_factor v c hc hv * dτ > dτ ∧
     -- [6] Length contraction: L₀/γ < L₀
     L0 / lorentz_factor v c hc hv < L0 ∧
-    -- [7] Anchor Z=0: SR operates at zero impedance
+    -- [7] Energy-momentum relation: E² = (pc)² + (mc²)²
+    (lorentz_factor v c hc hv * m * c^2)^2 =
+      (lorentz_factor v c hc hv * m * v * c)^2 + (m * c^2)^2 ∧
+    -- [8] Lorentz boost preserves the interval
+    (∀ w x : ℝ, (boost_w v c hc hv w x)^2 - (boost_x v c hc hv w x)^2 = w^2 - x^2) ∧
+    -- [9] The light cone is preserved: c is invariant
+    (∀ w : ℝ, boost_x v c hc hv w w = boost_w v c hc hv w w) ∧
+    -- [10] Anchor Z=0: SR operates at zero impedance
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
   ⟨c_is_narrative_limit v c hc hv,
    lorentz_factor_ge_one v c hc hv,
-   mass_energy_equivalence m c hm hc,
+   fun h0 => rest_energy m c hc h0,
    relativistic_energy_positive v c m hm hc hv,
    time_dilation_moving_clock_runs_slow v c dτ hc hv (ne_of_gt hv_pos) hdτ,
    length_contraction_less_than_rest L0 v c hL0 hc hv (ne_of_gt hv_pos),
+   energy_momentum_relation v c m hc hv,
+   boost_preserves_interval v c hc hv,
+   light_cone_preserved v c hc hv,
    anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
@@ -317,7 +363,7 @@ end SNSFL_SR
 --      γ   → A (Adaptation scaling = Lorentz factor)
 --      m   → IM (Identity Mass = rest mass)
 --      c   → Narrative propagation limit
---   4. Operators: lorentz_factor, spacetime_interval
+--   4. Operators: lorentz_factor, spacetime_interval, boost_w, boost_x
 --   5. Work:      T1-T12 explicit
 --   6. Verified:  master theorem all simultaneous
 --
@@ -326,21 +372,21 @@ end SNSFL_SR
 --   PNBA: all follow from P-invariance + Narrative limit c
 --   SR is the flat-space limit of GR [9,9,0,1]: T_μν=0, Λ=0 → η_μν
 --
--- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
---   c = Narrative limit          → 1-v²/c²>0             [T1]  ✓
---   Lorentz factor γ≥1           → A-axis ≥ 1             [T2]  ✓
---   E = mc²                      → IM × c²                [T3]  ✓
---   E = γmc²                     → A×IM×c²                [T4]  ✓
---   p = γmv                      → A×IM×v                 [T5]  ✓
---   E²=(pc)²+(mc²)²              → P-invariant            [T6]  ✓
---   Spacetime interval invariant → P-invariant            [T7]  ✓
---   Time dilation γΔτ>Δτ         → N drag by B            [T8]  ✓
---   Length contraction L<L₀      → P compressed by A      [T9]  ✓
---   Velocity addition bounded    → B bounded by N         [T10] ✓
---   SR = flat GR (T_μν=Λ=0)     → B=A=0 limit            [T11] ✓
---   Consistent with IVA          → NS bound same form      [T12] ✓
+-- CLASSICAL RESULTS PROVED:
+--   c = Narrative limit          → 1-v²/c²>0                    [T1]  ✓
+--   Lorentz factor γ≥1, >1 if v≠0 → A-axis ≥ 1                  [T2]  ✓
+--   E = mc² at rest              → γ(0)=1, γmc² = mc²            [T3]  ✓
+--   E = γmc² > 0                 → A×IM×c²                       [T4]  ✓
+--   p = γmv > 0                  → A×IM×v                        [T5]  ✓
+--   E²=(pc)²+(mc²)²              → from γ²(1−v²/c²)=1            [T6]  ✓
+--   Interval invariant           → boost preserves w²−x²         [T7]  ✓
+--   Time dilation γΔτ>Δτ         → N drag by B                   [T8]  ✓
+--   Length contraction L<L₀      → P compressed by A             [T9]  ✓
+--   Velocity addition < c        → B bounded by N                [T10] ✓
+--   Boost at v=0 is identity     → B=0: flat P untouched         [T11] ✓
+--   Light cone preserved         → c invariant (2nd postulate)   [T12] ✓
 --
--- THEOREMS: 12 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 21 | 0 sorry | GERMLINE LOCKED
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- SR is flat-space GR. c is the Narrative limit.
