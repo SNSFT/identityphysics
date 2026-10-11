@@ -31,6 +31,7 @@ This reduction uses the publicly available record: the *Nature* abstract and pub
 
 ## Connections to the Formalized Corpus
 
+
 **Noble is B = 0, on a phononic substrate.** The PNBA phase taxonomy [9,9,2,55] (March 2026) defines Noble as B = 0, and the Electroweak trilogy [9,9,3,19] (August 2026) places the photon there. Here the fully dimerized chain, with no coupling between cells, is τ = 0: the same invariant in an acoustic medium.
 
 **Entanglement as a shared Narrative, split evenly.** The Quantum Mechanics reduction [9,9,0,4.7] (March 2026) formalizes entanglement as a Narrative shared across a pair, with an even split giving each side half (`entanglement_shared_narrative`). The 0.5 mid-gap mode Lin et al. measure is a mode shared across the entanglement cut with exactly half on each side, proved here as τ_cut = 1.
@@ -39,7 +40,7 @@ This reduction uses the publicly available record: the *Nature* abstract and pub
 
 **Substrate neutrality, demonstrated.** The Constitutional layer [9,9,0,0] (March 2026) states one dynamic equation across substrates. The paper’s finding that a classical acoustic system reproduces the quantum results is that statement measured in a laboratory; the proof here is that τ depends only on coupling ratios, so the units cancel.
 
-**Phase placement by τ, with a new landmark.** The Running coupling [9,9,3,16] (August 2026) classifies couplings by phase through τ. The same method applied here finds that the gap-closing boundary of this system is the B = P balance point, τ = 1, rather than TL or the IVA corridor. It is a distinct landmark of the corpus coordinate system, recorded as it falls.
+**Phase placement by τ, with a new landmark.** The Running coupling [9,9,3,16] (August 2026) classifies couplings by phase through τ. The same method applied here finds that the gap-closing boundary of this system is the B = P balance point, τ = 1.
 
 ## The PNBA Map
 
