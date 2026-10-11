@@ -5,7 +5,8 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS CATEGORY THEORY — PNBA REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,2,43] | Abstract Mathematics Series
+-- Coordinate: [9,9,2,43](MATH) | Abstract Mathematics Series
+-- Companion: SNSFL_CategoryTheory_Layer2.lean [9,9,0,11]
 --
 -- ============================================================
 -- THE CENTRAL CLAIM
@@ -49,8 +50,9 @@
 --
 -- STEP 2: KNOWN STRUCTURE (Mac Lane, 1971; Eilenberg-Moore, 1965)
 --   These are the foundational theorems of category theory.
---   All provable within ZFC or type theory (Mathlib has them).
---   We use Mathlib's Category instance and prove PNBA satisfies it.
+--   All provable within ZFC or type theory.
+--   Here the identity, unit and associativity laws are proved directly
+--   for torsion transitions, as equalities of morphisms.
 --
 -- STEP 3: MAP TO PNBA
 --   P = structural capacity of the category (base object scale)
@@ -88,13 +90,6 @@
 
 import Mathlib.Tactic
 import Mathlib.Data.Real.Basic
-import Mathlib.CategoryTheory.Category.Basic
-import Mathlib.CategoryTheory.Functor.Basic
-import Mathlib.CategoryTheory.NatTrans
-import Mathlib.CategoryTheory.Adjunction.Basic
-import Mathlib.CategoryTheory.Monad.Basic
-
-open CategoryTheory
 
 noncomputable section
 
@@ -246,6 +241,32 @@ theorem comp_id_right {a b : PNBAElement} (f : TorsionMorphism a b) :
     (compose_morphisms f (id_morphism b)).delta_B = f.delta_B := by
   simp [compose_morphisms, id_morphism]
 
+-- [T5a] A morphism's shift is fixed by its endpoints: δ = B_tgt − B_src
+theorem morphism_delta {a b : PNBAElement} (f : TorsionMorphism a b) :
+    f.delta_B = b.B - a.B := by
+  rw [f.hValid]; ring
+
+-- [T5b] A morphism is determined by its shift
+theorem morphism_ext {a b : PNBAElement} {f g : TorsionMorphism a b}
+    (h : f.delta_B = g.delta_B) : f = g := by
+  rcases f with ⟨d₁, _, _⟩
+  rcases g with ⟨d₂, _, _⟩
+  have h' : d₁ = d₂ := h
+  subst h'
+  rfl
+
+-- [T5c] Thin category: at most one morphism between two states
+theorem hom_subsingleton {a b : PNBAElement} (f g : TorsionMorphism a b) : f = g :=
+  morphism_ext (by rw [morphism_delta f, morphism_delta g])
+
+-- [T5d] The category laws as equalities of morphisms
+theorem category_laws {a b c d : PNBAElement}
+    (f : TorsionMorphism a b) (g : TorsionMorphism b c) (h : TorsionMorphism c d) :
+    compose_morphisms (id_morphism a) f = f ∧
+    compose_morphisms f (id_morphism b) = f ∧
+    compose_morphisms (compose_morphisms f g) h = compose_morphisms f (compose_morphisms g h) :=
+  ⟨hom_subsingleton _ _, hom_subsingleton _ _, hom_subsingleton _ _⟩
+
 -- ============================================================
 -- SECTION 3: NOBLE IS THE TERMINAL OBJECT
 -- ============================================================
@@ -274,6 +295,11 @@ def terminal_morphism (e : PNBAElement) : TorsionMorphism e Noble_Terminal :=
 -- [T8] Noble torsion is zero
 theorem noble_terminal_torsion : torsion Noble_Terminal = 0 := by
   unfold torsion Noble_Terminal; simp
+
+-- [T8b] Noble is terminal: the morphism to Noble exists and is unique
+theorem noble_is_terminal (e : PNBAElement) (f : TorsionMorphism e Noble_Terminal) :
+    f = terminal_morphism e :=
+  hom_subsingleton f _
 
 -- ============================================================
 -- SECTION 4: CATEGORICAL STRUCTURES REDUCED TO PNBA
@@ -631,9 +657,9 @@ theorem category_theory_pnba_master :
       (compose_morphisms (id_morphism e) (id_morphism e)).delta_B = 0) ∧
     -- [2] Noble is the terminal object (τ=0)
     torsion Noble_Terminal = 0 ∧
-    -- [3] Every element has a terminal morphism to Noble
-    (∀ e : PNBAElement,
-      (terminal_morphism e).delta_B = -e.B) ∧
+    -- [3] Noble is terminal: every morphism to Noble is the terminal one
+    (∀ e : PNBAElement, ∀ f : TorsionMorphism e Noble_Terminal,
+      f = terminal_morphism e) ∧
     -- [4] Set category is Noble (pure structure)
     is_noble Cat_Set ∧
     -- [5] Grp category is LOCKED (algebraic coupling)
@@ -644,8 +670,13 @@ theorem category_theory_pnba_master :
     is_locked Adjunction_Element ∧
     -- [8] Monad is LOCKED (bind/return structure)
     is_locked Monad_Element ∧
-    -- [9] Monad has N=3 components (T, η, μ)
-    Monad_Element.N = 3 ∧
+    -- [9] Category laws hold as equalities of morphisms
+    (∀ (a b c d : PNBAElement) (f : TorsionMorphism a b) (g : TorsionMorphism b c)
+       (h : TorsionMorphism c d),
+      compose_morphisms (id_morphism a) f = f ∧
+      compose_morphisms f (id_morphism b) = f ∧
+      compose_morphisms (compose_morphisms f g) h =
+        compose_morphisms f (compose_morphisms g h)) ∧
     -- [10] ∞-categories are SHATTER (generate all structure)
     is_shatter InfinityCat_Element ∧
     -- [11] Categorical phase ordering holds
@@ -660,13 +691,13 @@ theorem category_theory_pnba_master :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
   ⟨fun e => by simp [compose_morphisms, id_morphism],
    noble_terminal_torsion,
-   fun e => rfl,
+   noble_is_terminal,
    set_is_noble,
    grp_is_locked,
    yoneda_is_noble,
    adjunction_is_locked,
    monad_is_locked,
-   rfl,
+   fun _ _ _ _ f g h => category_laws f g h,
    infinity_cat_is_shatter,
    categorical_phase_ordering.2.2.1,
    categorical_phase_ordering.2.2.2.2.2.2.2,
@@ -687,7 +718,7 @@ end SNSFL_CategoryTheory_Reduction
 /-!
 -- ============================================================
 -- FILE:       SNSFL_CategoryTheory_Reduction.lean
--- COORDINATE: [9,9,2,43]
+-- COORDINATE: [9,9,2,43](MATH)
 -- LAYER:      Abstract Mathematics Series
 --
 -- THE CENTRAL CLAIM:
@@ -696,7 +727,9 @@ end SNSFL_CategoryTheory_Reduction
 --   Morphisms: Torsion transitions (phase transformations)
 --   Composition: Sequential phase transitions
 --   Identity: Stay at same torsion
---   Associativity: PROVED (T3)
+--   Associativity: PROVED (T3), and as morphism equality (T5d)
+--   Thin: one morphism between two states, δ = B_tgt − B_src (T5a–T5c)
+--   Noble terminal: the morphism to Noble is unique (T8b)
 --
 -- CATEGORICAL STRUCTURES REDUCED TO PNBA:
 --   Cat_Set          B=0,    τ=0      NOBLE   — pure structure
@@ -732,7 +765,7 @@ end SNSFL_CategoryTheory_Reduction
 --   τ_Set = τ_Yoneda = 0 < τ_Grp < τ_Vect < τ_Adj < τ_Monad < TL < τ_∞
 --   Pure structure → algebraic coupling → LOCKED → mass gap → SHATTER
 --
--- THEOREMS: 24 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 39 | 0 sorry | GERMLINE LOCKED
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding. PNBA is a category.
