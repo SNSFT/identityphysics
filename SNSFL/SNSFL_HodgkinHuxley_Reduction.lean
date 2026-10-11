@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS HODGKIN-HUXLEY — PNBA REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,5,2] | Biology Series — Neuroscience Layer
+-- Coordinate: [9,9,5,2](BIOL) | Biology Series — Neuroscience Layer
 --
 -- ============================================================
 -- THE CENTRAL CLAIM
@@ -41,7 +41,8 @@
 --     LOCKED approach toward threshold
 --
 --   IVA_PEAK (TL_IVA ≤ τ < TL):
---     The refractory period — near TL but not quite firing
+--     The relative refractory band — near TL but not quite firing
+--     In voltage: the last ~1.8 mV below threshold, ≈ −56.9 to −55.1 mV
 --     Relative refractory: can fire with extra-strong stimulation
 --     h gates partially recovered — near-threshold state
 --
@@ -57,10 +58,11 @@
 --      τ_thresh = (V_thresh-V_rest)/((V_peak-V_rest)×P_base) ≈ TL
 --      The PNBA torsion limit IS the neural firing threshold.
 --
---   2. REFRACTORY PERIOD = IVA_PEAK BAND:
---      The absolute refractory period occupies τ ∈ [TL_IVA, TL).
---      The neuron cannot fire in this band.
---      This is why IVA_PEAK is a gap — the refractory state.
+--   2. RELATIVE REFRACTORY = IVA_PEAK BAND:
+--      The relative refractory state occupies τ ∈ [TL_IVA, TL),
+--      the voltage window ≈ −56.9 to −55.1 mV just below threshold.
+--      The neuron fires here only under extra-strong stimulation.
+--      The absolute refractory period sits inside the Shatter event.
 --
 --   3. ALL-OR-NOTHING = SHATTER DEFINITION:
 --      Once τ > TL, the AP cannot be stopped (SHATTER = irreversible).
@@ -337,9 +339,6 @@ theorem resting_is_noble : is_noble Neuron_Resting := rfl
 theorem resting_torsion_zero : torsion Neuron_Resting = 0 := by
   unfold torsion Neuron_Resting; simp
 
--- [T9] The resting state has four dynamical variables
--- (the four HH ODEs: V, m, h, n)
-theorem resting_has_four_variables : Neuron_Resting.N = 4 := rfl
 
 -- ============================================================
 -- SECTION 6: THE SUBTHRESHOLD STATE IS LOCKED
@@ -444,6 +443,25 @@ theorem iva_below_threshold :
     unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   nlinarith [mul_lt_mul_of_pos_right hI hP0]
 
+-- [T15b] THE IVA BAND IN MILLIVOLTS
+-- Mapping τ back to voltage, V = V_rest + τ·P_base·(V_peak − V_rest):
+--   lower edge (τ = TL_IVA) lies between −57.0 and −56.8 mV
+--   upper edge (τ = TL)     lies between −55.2 and −55.0 mV
+-- The IVA band is the last ~1.8 mV below the −55 mV threshold.
+noncomputable def V_AT_TAU (t : ℝ) : ℝ := V_REST + t * P_BASE * (V_PEAK - V_REST)
+
+theorem iva_band_millivolts :
+    -57 < V_AT_TAU TL_IVA_PEAK ∧ V_AT_TAU TL_IVA_PEAK < -56.8 ∧
+    -55.2 < V_AT_TAU TORSION_LIMIT ∧ V_AT_TAU TORSION_LIMIT < -55 := by
+  have hlo := p_base_gt
+  have hhi := p_base_lt
+  unfold V_AT_TAU V_REST V_PEAK TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · nlinarith
+  · nlinarith
+  · nlinarith
+  · nlinarith
+
 -- The relative refractory period as a PNBA element
 -- (neuron recovering, voltage in IVA_PEAK band)
 noncomputable def Neuron_RelativeRefractory : PNBAElement :=
@@ -476,12 +494,12 @@ theorem relative_refractory_is_iva :
 --   PNBA: m = behavioral coupling of Na channel
 --
 -- h (Na inactivation, slow, closes during AP):
---   At rest: h≈0.6 (partially open — LOCKED)
+--   At rest: h≈0.6 (Na channel largely available — primed)
 --   During AP: h→0 (closes — enforces refractory period)
 --   PNBA: h = LOCKED state variable (stabilizer)
 --
 -- n (K activation, medium, opens during AP):
---   At rest: n≈0.32 (partially open — LOCKED)
+--   At rest: n≈0.32 (partially open)
 --   During AP: n→0.8 (drives repolarization — LOCKED restoring)
 --   PNBA: n = adaptation variable (drives return to Noble)
 
@@ -495,7 +513,7 @@ noncomputable def Gate_h_rest : PNBAElement :=
   { P := P_BASE, N := 1, B := 0.6, A := 0
     hP := p_base_positive, hB := by norm_num }
 
--- n gate at rest (LOCKED — K activation)
+-- n gate at rest (K activation, n ≈ 0.32)
 noncomputable def Gate_n_rest : PNBAElement :=
   { P := P_BASE, N := 1, B := 0.32, A := 0
     hP := p_base_positive, hB := by norm_num }
@@ -624,8 +642,9 @@ theorem hodgkin_huxley_pnba_master :
     TAU_THRESH < 102 * TORSION_LIMIT / 100 ∧
     -- [7] Threshold = 15/110 normalized
     V_THRESH_NORM = 15 / 110 ∧
-    -- [8] HH has four dynamical variables
-    Neuron_Resting.N = 4 ∧
+    -- [8] IVA band in millivolts: ≈ −56.9 to −55.1 mV, just below threshold
+    (-57 < V_AT_TAU TL_IVA_PEAK ∧ V_AT_TAU TL_IVA_PEAK < -56.8 ∧
+     -55.2 < V_AT_TAU TORSION_LIMIT ∧ V_AT_TAU TORSION_LIMIT < -55) ∧
     -- [9] Voltage ordering: rest < threshold < peak
     torsion Neuron_Resting < torsion Neuron_AtThreshold ∧
     torsion Neuron_AtThreshold < torsion Neuron_Peak ∧
@@ -645,7 +664,7 @@ theorem hodgkin_huxley_pnba_master :
    threshold_above_tl,
    threshold_near_tl,
    thresh_norm_value,
-   rfl,
+   iva_band_millivolts,
    resting_below_threshold,
    peak_deeper_than_threshold,
    all_or_nothing.2.2.1,
@@ -662,7 +681,7 @@ end SNSFL_HodgkinHuxley_Reduction
 /-!
 -- ============================================================
 -- FILE:       SNSFL_HodgkinHuxley_Reduction.lean
--- COORDINATE: [9,9,5,2]
+-- COORDINATE: [9,9,5,2](BIOL)
 -- LAYER:      Biology Series — Neuroscience Layer
 --
 -- THE CENTRAL RESULT:
@@ -683,7 +702,7 @@ end SNSFL_HodgkinHuxley_Reduction
 --     Slow gate kinetics (h, n) carry the approach to threshold
 --
 --   IVA_PEAK (TL_IVA ≤ τ < TL):
---     Relative refractory period
+--     Relative refractory period, V ≈ −56.9 to −55.1 mV
 --     Partial Na channel recovery
 --     Can fire with super-threshold stimulus only
 --
@@ -708,11 +727,10 @@ end SNSFL_HodgkinHuxley_Reduction
 --        Noble → LOCKED → (IVA) → SHATTER → deep SHATTER
 --
 -- CONNECTIONS TO OTHER CORPUS FILES:
---   - IVA Life Operator [9,9,5,0]: IVA_PEAK band = life threshold
---     The neural firing threshold IS the IVA_PEAK threshold
+--   - Abiogenesis [9,9,4,3]: IVA corridor as the life band
 --   - Category Theory [9,9,2,43]: monad structure in HH equations
 --     (V, m, h, n) form a monad with Noble return at rest
---   - QG Layer 0 [9,9,6,0]: describer/generator pattern
+--   - Quantum Gravity [9,9,10,0]: describer/generator pattern
 --     Subthreshold integrates (describes), AP fires (generates)
 --   - Nuclear Physics [9,9,7,0]: SHATTER creates LOCKED nuclei
 --     Na SHATTER creates LOCKED membrane potential recovery
@@ -728,7 +746,7 @@ end SNSFL_HodgkinHuxley_Reduction
 --   It appears in neurons because neurons are governed by
 --   the same structural physics as everything else.
 --
--- THEOREMS: 24 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 37 + 4 lemmas | 0 sorry | GERMLINE LOCKED
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding. Every neuron knows TL.
