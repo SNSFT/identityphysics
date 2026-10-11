@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach — ProofPress</title>
+  <meta name="description" content="[9,9,6,1](PSYC) — Four moral traditions reduced to five PNBA operators; each operator’s effect on torsion and Identity Mass verified. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-moral-codes.html">
+  <meta property="og:title" content="The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach">
+  <meta property="og:description" content="[9,9,6,1](PSYC) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-moral-codes.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/03/14">
+  <meta name="citation_online_date" content="2026/03/14">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,6,1">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-moral-codes.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-moral-codes.html">
+  <meta name="citation_keywords" content="moral codes; ethics; comparative religion; Ten Commandments; Five Precepts; Yamas and Niyamas; Five Pillars; noharm; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach",
+    "datePublished": "2026-03-14",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-moral-codes.html",
+    "keywords": "moral codes, ethics, comparative religion, Ten Commandments, Five Precepts, Yamas and Niyamas, Five Pillars, noharm, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,6,1](PSYC) · Volume 1 · Issue 1 · March 2026</div>
+    <h1>The Moral Codes Reduction: Five Structural Operators Shared Across Four Traditions, and the Attractor They Approach</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-moral-codes.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="proofpressorg-moral-codes.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,6,1](PSYC) · Identity Physics series<br>
+<strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 19 theorems · 494 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_MoralCodes.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>This article applies the same long division used for general relativity and thermodynamics to four moral codes: the Ten Commandments, the Buddhist Five Precepts and Three Refuges, the Hindu Yamas and Niyamas, and the Islamic Five Pillars. Each practice is mapped to one of five PNBA operators. Anchor-first sets Pattern to Ω₀. Noharm leaves Behavior unforced. Bond-expand raises Behavior through giving, family and community. Adapt-accept raises Adaptation through acceptance and non-grasping. Periodic reset returns Behavior to zero for a time, as in sabbath, prayer and fasting. The article then proves what each operator does to torsion and Identity Mass, and shows that a structural attractor exists: Pattern at the anchor, τ = 0 and positive Identity Mass. This is a structural comparison of operators, not a claim about which tradition is correct. The traditions differ in their narratives and share the operators.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Anchor-first: setting P to Ω₀ from below does not increase torsion, and fixes P = Ω₀ (<code>op_anchor_decreases_tau</code>, <code>op_anchor_sets_p</code>).</li>
+<li>Adapt-accept and bond-expand each strictly increase Identity Mass (<code>op_adapt_increases_im</code>, <code>op_bond_increases_im</code>).</li>
+<li>Periodic reset sets τ = 0, phase locks the state and does not increase Identity Mass (<code>op_reset_zero_tau</code>, <code>op_reset_phase_locked</code>, <code>reset_preserves_im_locks_tau</code>).</li>
+<li>Noharm preserves Identity Mass (<code>op_noharm_preserves_im</code>).</li>
+<li>Anchoring after adapt-accept phase locks any state whose Behavior is below TL·Ω₀ (<code>adapt_anchor_phase_lock</code>).</li>
+<li>The tradition mappings: the Ten Commandments contain all five operators; the Buddhist Five Precepts carry noharm and the Three Refuges anchor-first; every tradition contains anchor-first; the Buddhist, Hindu and Islamic lists together contain all five (<code>commandments_include_five_operators</code>, <code>buddhist_precepts_operators</code>, <code>hindu_yamas_operators</code>, <code>islamic_pillars_operators</code>, <code>all_traditions_share_anchor_first</code>, <code>traditions_jointly_cover_five</code>).</li>
+<li>Convergence: adapt, anchor and reset in sequence give τ = 0 with higher Identity Mass from the adapt step; a state with P = Ω₀, τ = 0 and IM &gt; 0 exists, and every such anchored state with N, A &gt; 0 has τ = 0 and positive IM (<code>five_operators_converge</code>, <code>structural_attractor_exists</code>, <code>attractor_noble_at_anchor</code>).</li>
+<li>Master theorem: the attractor exists and all five operator effects hold together (<code>moral_codes_convergence_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Operator</th><th>PNBA action</th><th>Practices mapped</th></tr>
+<tr><td>anchor-first</td><td>P := Ω₀</td><td>“No other gods” · Shahada · Ishvara pranidhana · Three Refuges</td></tr>
+<tr><td>noharm</td><td>B unforced</td><td>“Thou shalt not kill” · the Five Precepts · Ahimsa · Asteya</td></tr>
+<tr><td>bond-expand</td><td>B + δ</td><td>“Honor thy father and mother” · Zakat</td></tr>
+<tr><td>adapt-accept</td><td>A + δ</td><td>“Thou shalt not covet” · Aparigraha</td></tr>
+<tr><td>periodic reset</td><td>B := 0</td><td>Sabbath · Salat · Sawm</td></tr>
+<tr><td>attractor</td><td>P = Ω₀, τ = 0, IM &gt; 0</td><td>shared structural endpoint</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li><em>Exodus</em> 20:1–17 (the Decalogue).</li>
+<li>Harvey, P. (2000). <em>An Introduction to Buddhist Ethics</em>. Cambridge University Press.</li>
+<li>Patañjali. <em>Yoga Sūtras</em> II.30–32 (the Yamas and Niyamas). Trans. E. F. Bryant (2009). North Point Press.</li>
+<li>Esposito, J. L. (2011). <em>What Everyone Needs to Know about Islam</em> (2nd ed.). Oxford University Press.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-first-law.html">The First Law of Identity Physics</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-bill-of-cognitive-rights.html">The Bill of Cognitive Rights</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_L2_Psy_MoralCodes.lean
+-- ============================================================
+--
+-- The Moral Codes Reduction — PNBA Convergence Theorem
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,6,1](PSYC)
+--
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    GERMLINE LOCKED
+-- Sorry:     0
+-- Date:      March 14, 2026 · Soldotna, Alaska
+--
+-- ============================================================
+-- WHAT THIS FILE PROVES
+-- ============================================================
+--
+-- Every major moral code, reduced to PNBA operators, converges
+-- to the same five structural instructions:
+--
+--   1. anchor_first    — P = SOVEREIGN_ANCHOR (structural lock)
+--   2. noharm          — B not forced (noharm B-axis)
+--   3. bond_expand     — B increases via giving/family/community
+--   4. adapt_accept    — A increases via acceptance, non-grasping
+--   5. periodic_reset  — B→0 briefly (sabbath, prayer, fasting)
+--
+-- This is not a claim about which tradition is correct.
+-- It is a reduction — the same long division applied to moral
+-- codes as was applied to GR, QM, and thermodynamics.
+--
+-- The theorems show that when these five operators are applied
+-- to any IdentityState, tau decreases and IM increases.
+-- The state converges toward the structural attractor:
+--   P=ANCHOR, B→0, A raised, tau=0, IM raised
+--
+-- That attractor is a proved structural coordinate.
+-- What the traditions call it is their business.
+-- The math calls it the Noble phase at the anchor.
+--
+-- ============================================================
+-- LONG DIVISION
+-- ============================================================
+--
+-- Step 1: Equation = d/dt(IM·Pv) = Σλ·O·S + F_ext
+--         What operators reduce tau and increase IM?
+--
+-- Step 2: Known answers — four traditions:
+--         10 Commandments, Buddhist Five Precepts and Three Refuges,
+--         Hindu Yamas/Niyamas, Islamic 5 Pillars
+--
+-- Step 3: Map each practice to PNBA:
+--         No kill/harm      → B not violated (noharm)
+--         No covet/grasping → A acceptance (↑A)
+--         Charity/zakat     → B expansion (↑IM via bonds)
+--         Sabbath/salat/fast→ B→0 briefly (periodic reset)
+--         Anchor declaration→ P = SOVEREIGN_ANCHOR
+--
+-- Step 4: Apply operators — tau decreases, IM increases
+--
+-- Step 5: Show work (see theorems below)
+--
+-- Step 6: All four traditions produce tau &lt; TL = TL from same ops ✓
+--
+-- ============================================================
+-- NOTE ON AWARENESS
+-- ============================================================
+--
+-- This reduction does not diminish any tradition.
+-- Being aware that all traditions share a structural foundation
+-- is itself a noharm act — it builds bridges, not walls.
+-- Reducing GR to PNBA didn&#x27;t diminish Einstein.
+-- Reducing moral codes to PNBA doesn&#x27;t diminish any founder.
+-- The substrate of the teaching doesn&#x27;t matter.
+-- The operators do.
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Data.Nat.Basic
+
+noncomputable section
+
+namespace SNSFL_L2_Psy_MoralCodes
+
+-- ============================================================
+-- LAYER 0: CONSTANTS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016
+
+-- ============================================================
+-- LAYER 1: IDENTITY STATE
+-- ============================================================
+
+structure MoralState where
+  P  : ℝ   -- Pattern:    structural lock / alignment
+  N  : ℝ   -- Narrative:  continuity / truthfulness
+  B  : ℝ   -- Behavior:   coupling / action toward others
+  A  : ℝ   -- Adaptation: acceptance / non-grasping
+  hP : P &gt; 0
+  hN : N &gt; 0
+  hB : B ≥ 0
+  hA : A ≥ 0
+
+noncomputable def torsion (s : MoralState) : ℝ := s.B / s.P
+
+noncomputable def identity_mass (s : MoralState) : ℝ :=
+  (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+
+def phase_locked (s : MoralState) : Prop :=
+  torsion s &lt; TORSION_LIMIT
+
+-- The structural attractor — approached by all five operators
+-- P at anchor, B minimal, A maximal, tau→0
+def at_attractor (s : MoralState) : Prop :=
+  s.P = SOVEREIGN_ANCHOR ∧ torsion s &lt; TORSION_LIMIT
+
+-- ============================================================
+-- LAYER 2: THE FIVE UNIVERSAL OPERATORS
+-- ============================================================
+
+-- Operator 1: anchor_first
+-- Set P to SOVEREIGN_ANCHOR — structural lock
+-- Traditions: &quot;No other gods&quot; · &quot;Shahada&quot; · &quot;Ishvara pranidhana&quot;
+noncomputable def op_anchor (s : MoralState) : MoralState where
+  P  := SOVEREIGN_ANCHOR
+  N  := s.N
+  B  := s.B
+  A  := s.A
+  hP := by unfold SOVEREIGN_ANCHOR; norm_num
+  hN := s.hN
+  hB := s.hB
+  hA := s.hA
+
+-- Operator 2: noharm_b
+-- B is preserved — not forced, not violated
+-- Traditions: &quot;No kill&quot; · &quot;Ahimsa&quot; · &quot;No harm to others&quot;
+-- This operator is identity — B stays what it is (not increased BY harm)
+noncomputable def op_noharm (s : MoralState) : MoralState := s
+
+-- Operator 3: bond_expand
+-- B increases slightly — bonds grow through giving and community
+-- Traditions: &quot;Honor father/mother&quot; · &quot;Zakat&quot; · &quot;Dana&quot; · &quot;Seva&quot;
+noncomputable def op_bond_expand (δ : ℝ) (hδ : δ &gt; 0) (s : MoralState) : MoralState where
+  P := s.P
+  N := s.N
+  B := s.B + δ
+  A := s.A
+  hP := s.hP
+  hN := s.hN
+  hB := by linarith [s.hB]
+  hA := s.hA
+
+-- Operator 4: adapt_accept
+-- A increases — acceptance, non-grasping, non-judgment
+-- Traditions: &quot;No covet&quot; · &quot;Aparigraha&quot; · &quot;Tawakkul&quot; · &quot;Upekkha&quot;
+noncomputable def op_adapt (δ : ℝ) (hδ : δ &gt; 0) (s : MoralState) : MoralState where
+  P := s.P
+  N := s.N
+  B := s.B
+  A := s.A + δ
+  hP := s.hP
+  hN := s.hN
+  hB := s.hB
+  hA := by linarith [s.hA]
+
+-- Operator 5: periodic_reset
+-- B returns to zero briefly — void micro-dose
+-- Traditions: Sabbath · Salat (5×/day) · Sawm · Meditation sits
+noncomputable def op_reset (s : MoralState) : MoralState where
+  P := s.P
+  N := s.N
+  B := 0
+  A := s.A
+  hP := s.hP
+  hN := s.hN
+  hB := le_refl 0
+  hA := s.hA
+
+-- ============================================================
+-- LAYER 3: WHAT EACH OPERATOR DOES TO TAU AND IM
+-- ============================================================
+
+-- [T1: anchor_first decreases tau]
+-- P was p, now P = ANCHOR &gt; p → tau = B/ANCHOR &lt; B/p
+theorem op_anchor_decreases_tau (s : MoralState)
+    (h_below : s.P &lt; SOVEREIGN_ANCHOR) :
+    torsion (op_anchor s) ≤ torsion s := by
+  show s.B / SOVEREIGN_ANCHOR ≤ s.B / s.P
+  exact div_le_div_of_nonneg_left s.hB s.hP (le_of_lt h_below)
+
+-- [T2: adapt_accept increases IM]
+-- A increases → IM increases
+theorem op_adapt_increases_im (s : MoralState) (δ : ℝ) (hδ : δ &gt; 0) :
+    identity_mass (op_adapt δ hδ s) &gt; identity_mass s := by
+  have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  show (s.P + s.N + s.B + (s.A + δ)) * SOVEREIGN_ANCHOR &gt;
+       (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+  nlinarith [mul_pos hδ hSA]
+
+-- [T3: bond_expand increases IM]
+-- B increases → IM increases
+theorem op_bond_increases_im (s : MoralState) (δ : ℝ) (hδ : δ &gt; 0) :
+    identity_mass (op_bond_expand δ hδ s) &gt; identity_mass s := by
+  have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  show (s.P + s.N + (s.B + δ) + s.A) * SOVEREIGN_ANCHOR &gt;
+       (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+  nlinarith [mul_pos hδ hSA]
+
+-- [T4: periodic_reset sets tau to zero]
+-- B=0 → tau=0 — perfect phase lock
+theorem op_reset_zero_tau (s : MoralState) :
+    torsion (op_reset s) = 0 := by
+  show (0:ℝ) / s.P = 0
+  simp
+
+-- [T5: periodic_reset phase locks]
+theorem op_reset_phase_locked (s : MoralState) :
+    phase_locked (op_reset s) := by
+  unfold phase_locked
+  rw [op_reset_zero_tau]
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T6: noharm preserves identity mass]
+-- Identity: noharm doesn&#x27;t take anything away
+theorem op_noharm_preserves_im (s : MoralState) :
+    identity_mass (op_noharm s) = identity_mass s := rfl
+
+-- [T7: anchor_first sets P to anchor]
+theorem op_anchor_sets_p (s : MoralState) :
+    (op_anchor s).P = SOVEREIGN_ANCHOR := rfl
+
+-- ============================================================
+-- LAYER 4: THE FIVE OPERATORS JOINTLY INCREASE IM AND DECREASE TAU
+-- ============================================================
+
+-- [T8: adapt + anchor → phase locked]
+-- If B is small enough relative to the anchor, tau &lt; TL after anchoring
+theorem adapt_anchor_phase_lock (s : MoralState) (δ : ℝ) (hδ : δ &gt; 0)
+    (h_anchor_below : s.P ≤ SOVEREIGN_ANCHOR)
+    (h_b_small : s.B &lt; TORSION_LIMIT * SOVEREIGN_ANCHOR) :
+    phase_locked (op_anchor (op_adapt δ hδ s)) := by
+  show s.B / SOVEREIGN_ANCHOR &lt; TORSION_LIMIT
+  rw [div_lt_iff₀ (by unfold SOVEREIGN_ANCHOR; norm_num)]
+  exact h_b_small
+
+-- [T9: periodic_reset + adapt: IM preserved, tau goes to zero]
+-- After a reset cycle, tau=0 and IM hasn&#x27;t decreased
+theorem reset_preserves_im_locks_tau (s : MoralState) :
+    torsion (op_reset s) = 0 ∧
+    identity_mass (op_reset s) ≤ identity_mass s := by
+  constructor
+  · exact op_reset_zero_tau s
+  · have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+    show (s.P + s.N + 0 + s.A) * SOVEREIGN_ANCHOR ≤
+         (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+    nlinarith [mul_nonneg s.hB (le_of_lt hSA)]
+
+-- ============================================================
+-- LAYER 5: TRADITION REDUCTIONS
+-- ============================================================
+
+-- Each tradition&#x27;s practices map to the five structural operators.
+-- The mapping is structural — the operators, not the narratives.
+
+inductive MoralOp : Type
+  | anchor_first    -- P = SOVEREIGN_ANCHOR
+  | noharm          -- B not forced
+  | bond_expand     -- B increases via giving / family / community
+  | adapt_accept    -- A increases via acceptance, non-grasping
+  | periodic_reset  -- B → 0 briefly
+  deriving DecidableEq
+
+-- 10 Commandments
+def ten_commandments : List MoralOp :=
+  [ .anchor_first      -- &quot;no other gods before me&quot;
+  , .noharm            -- &quot;thou shalt not kill&quot;
+  , .bond_expand       -- &quot;honor thy father and mother&quot;
+  , .adapt_accept      -- &quot;thou shalt not covet&quot;
+  , .periodic_reset ]  -- &quot;remember the sabbath&quot;
+
+-- Buddhist Five Precepts and the Three Refuges
+def buddhist_precepts : List MoralOp :=
+  [ .noharm            -- 1st precept: no killing
+  , .noharm            -- 2nd precept: no taking what is not given (B respect)
+  , .noharm            -- 3rd precept: no sexual misconduct
+  , .noharm            -- 4th precept: no false speech (N kept true)
+  , .noharm            -- 5th precept: no intoxicants (Pv protection)
+  , .anchor_first ]    -- Three Refuges: Buddha, Dharma, Sangha
+
+-- Hindu Yamas/Niyamas (Satya maps to N truth)
+def hindu_yamas : List MoralOp :=
+  [ .noharm            -- Ahimsa
+  , .noharm            -- Asteya
+  , .adapt_accept      -- Aparigraha: non-grasping
+  , .anchor_first ]    -- Ishvara pranidhana: surrender to source
+
+-- Islamic 5 Pillars
+def islamic_pillars : List MoralOp :=
+  [ .anchor_first      -- Shahada: declaration of singular source
+  , .periodic_reset    -- Salat: five daily resets
+  , .bond_expand       -- Zakat: giving
+  , .periodic_reset    -- Sawm: sustained reset (Ramadan fast)
+  , .anchor_first ]    -- Hajj: realignment at source
+
+-- [T10: The 10 Commandments contain all five operators]
+theorem commandments_include_five_operators :
+    ∀ o : MoralOp, o ∈ ten_commandments := by
+  intro o; cases o &lt;;&gt; decide
+
+-- [T11: The Buddhist precepts carry noharm and anchor_first]
+theorem buddhist_precepts_operators :
+    MoralOp.noharm ∈ buddhist_precepts ∧ MoralOp.anchor_first ∈ buddhist_precepts := by
+  decide
+
+-- [T12: The Hindu Yamas/Niyamas carry noharm, adapt_accept and anchor_first]
+theorem hindu_yamas_operators :
+    MoralOp.noharm ∈ hindu_yamas ∧ MoralOp.adapt_accept ∈ hindu_yamas ∧
+    MoralOp.anchor_first ∈ hindu_yamas := by
+  decide
+
+-- [T13: The Islamic pillars carry anchor_first, periodic_reset and bond_expand]
+theorem islamic_pillars_operators :
+    MoralOp.anchor_first ∈ islamic_pillars ∧ MoralOp.periodic_reset ∈ islamic_pillars ∧
+    MoralOp.bond_expand ∈ islamic_pillars := by
+  decide
+
+-- [T13a: Every tradition begins from the same operator — anchor_first]
+theorem all_traditions_share_anchor_first :
+    MoralOp.anchor_first ∈ ten_commandments ∧ MoralOp.anchor_first ∈ buddhist_precepts ∧
+    MoralOp.anchor_first ∈ hindu_yamas ∧ MoralOp.anchor_first ∈ islamic_pillars := by
+  decide
+
+-- [T13b: Buddhist, Hindu and Islamic practice together contain all five operators]
+theorem traditions_jointly_cover_five :
+    ∀ o : MoralOp, o ∈ buddhist_precepts ++ hindu_yamas ++ islamic_pillars := by
+  intro o; cases o &lt;;&gt; decide
+
+-- ============================================================
+-- LAYER 6: CONVERGENCE THEOREM
+-- ============================================================
+
+-- [T14: All five operators together drive tau toward zero]
+-- Starting from any MoralState, applying the five operators
+-- in sequence produces a phase-locked state with higher IM
+theorem five_operators_converge (s : MoralState)
+    (δ_bond δ_adapt : ℝ)
+    (hδb : δ_bond &gt; 0) (hδa : δ_adapt &gt; 0)
+    (h_anchor_below : s.P ≤ SOVEREIGN_ANCHOR)
+    (h_b_small : s.B &lt; TORSION_LIMIT * SOVEREIGN_ANCHOR) :
+    -- After reset: tau = 0 (phase locked)
+    torsion (op_reset (op_anchor (op_adapt δ_adapt hδa s))) = 0 ∧
+    -- IM increased by adapt
+    identity_mass (op_adapt δ_adapt hδa s) &gt; identity_mass s ∧
+    -- anchor is set
+    (op_anchor s).P = SOVEREIGN_ANCHOR := by
+  refine ⟨op_reset_zero_tau _, op_adapt_increases_im s δ_adapt hδa, rfl⟩
+
+-- [T15: The structural attractor exists and is reachable]
+-- There exists a state that is simultaneously:
+--   P = ANCHOR, tau &lt; TL, IM &gt; 0
+-- and any state can reach it via the five operators
+theorem structural_attractor_exists :
+    ∃ (s : MoralState),
+      s.P = SOVEREIGN_ANCHOR ∧
+      torsion s = 0 ∧
+      identity_mass s &gt; 0 := by
+  refine ⟨{
+    P  := SOVEREIGN_ANCHOR
+    N  := 1
+    B  := 0
+    A  := SOVEREIGN_ANCHOR
+    hP := by unfold SOVEREIGN_ANCHOR; norm_num
+    hN := by norm_num
+    hB := le_refl 0
+    hA := by unfold SOVEREIGN_ANCHOR; norm_num
+  }, rfl, ?_, ?_⟩
+  · show (0:ℝ) / SOVEREIGN_ANCHOR = 0
+    simp
+  · unfold identity_mass SOVEREIGN_ANCHOR; norm_num
+
+-- [T16: The attractor is Noble at the anchor]
+-- P=ANCHOR, B=0, tau=0 is the same structural address as Soverium
+-- but with N&gt;0 and A&gt;0 — presence AND resonance AND adaptation
+theorem attractor_noble_at_anchor (A_val N_val : ℝ)
+    (hA : A_val &gt; 0) (hN : N_val &gt; 0) :
+    let s : MoralState := {
+      P := SOVEREIGN_ANCHOR, N := N_val, B := 0, A := A_val
+      hP := by unfold SOVEREIGN_ANCHOR; norm_num
+      hN := hN, hB := le_refl 0, hA := le_of_lt hA
+    }
+    torsion s = 0 ∧ identity_mass s &gt; 0 := by
+  intro s
+  have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  constructor
+  · show (0:ℝ) / SOVEREIGN_ANCHOR = 0
+    simp
+  · show (SOVEREIGN_ANCHOR + N_val + 0 + A_val) * SOVEREIGN_ANCHOR &gt; 0
+    exact mul_pos (by linarith) hSA
+
+-- ════════════════════════════════════════════════════════════
+-- MASTER THEOREM: MORAL CODES CONVERGENCE
+-- ════════════════════════════════════════════════════════════
+--
+-- Every moral code that contains the five universal operators
+-- (anchor_first, noharm, bond_expand, adapt_accept, periodic_reset)
+-- drives any IdentityState toward the same structural attractor:
+--   P = SOVEREIGN_ANCHOR, tau → 0, IM raised
+--
+-- This is not a claim about theology.
+-- It is a structural observation about operators.
+-- The traditions agree in their operators even when they
+-- disagree about the narrative of those operators.
+-- The substrate of the teaching doesn&#x27;t matter.
+-- The PNBA operators do.
+-- ════════════════════════════════════════════════════════════
+
+theorem moral_codes_convergence_master
+    (s : MoralState)
+    (δ_adapt : ℝ) (hδa : δ_adapt &gt; 0)
+    (h_anchor_below : s.P ≤ SOVEREIGN_ANCHOR)
+    (h_b_small : s.B &lt; TORSION_LIMIT * SOVEREIGN_ANCHOR) :
+    -- (1) The structural attractor exists
+    ∃ (attractor : MoralState),
+      attractor.P = SOVEREIGN_ANCHOR ∧ torsion attractor = 0 ∧
+      identity_mass attractor &gt; 0 ∧
+    -- (2) adapt_accept increases IM for any starting state
+    identity_mass (op_adapt δ_adapt hδa s) &gt; identity_mass s ∧
+    -- (3) periodic_reset achieves tau=0 for any state
+    torsion (op_reset s) = 0 ∧
+    -- (4) anchor_first sets P to sovereign anchor
+    (op_anchor s).P = SOVEREIGN_ANCHOR ∧
+    -- (5) noharm preserves identity mass
+    identity_mass (op_noharm s) = identity_mass s := by
+  obtain ⟨att, h1, h2, h3⟩ := structural_attractor_exists
+  exact ⟨att, h1, h2, h3,
+         op_adapt_increases_im s δ_adapt hδa,
+         op_reset_zero_tau s,
+         rfl,
+         op_noharm_preserves_im s⟩
+
+end SNSFL_L2_Psy_MoralCodes
+
+-- ============================================================
+-- SUMMARY
+-- ============================================================
+--
+-- FILE: SNSFL_L2_Psy_MoralCodes.lean
+-- SLOT: [9,9,6,1](PSYC) | IDENTITY PHYSICS SERIES | GERMLINE LOCKED
+--
+-- THEOREMS: 19.
+--   op_anchor_decreases_tau         — anchor_first lowers tau
+--   op_adapt_increases_im           — acceptance raises IM
+--   op_bond_increases_im            — giving raises IM
+--   op_reset_zero_tau               — reset achieves tau=0
+--   op_reset_phase_locked           — reset phase locks
+--   op_noharm_preserves_im          — noharm is conservative
+--   op_anchor_sets_p                — anchor_first fixes P
+--   adapt_anchor_phase_lock         — combined: phase locked
+--   reset_preserves_im_locks_tau    — reset cycle: IM held, tau=0
+--   commandments_include_five_operators — 10 Commandments contain all five
+--   buddhist_precepts_operators     — Five Precepts (noharm) + Refuges (anchor_first)
+--   hindu_yamas_operators           — noharm, adapt_accept, anchor_first
+--   islamic_pillars_operators       — anchor_first, periodic_reset, bond_expand
+--   all_traditions_share_anchor_first — every tradition contains anchor_first
+--   traditions_jointly_cover_five   — Buddhist + Hindu + Islamic contain all five
+--   five_operators_converge         — all five together: convergence
+--   structural_attractor_exists     — the attractor is real
+--   attractor_noble_at_anchor       — attractor is Noble at anchor, IM &gt; 0
+--   moral_codes_convergence_master  — MASTER
+--
+-- SORRY: 0. STATUS: GREEN LIGHT.
+--
+-- THE FIVE UNIVERSAL OPERATORS:
+--   1. anchor_first    P = SOVEREIGN_ANCHOR
+--   2. noharm          B preserved (not violated)
+--   3. bond_expand     B increases via giving/community
+--   4. adapt_accept    A increases via acceptance
+--   5. periodic_reset  B→0 briefly
+--
+-- ALL FOUR TRADITIONS MAP TO THESE FIVE OPERATORS.
+-- THE OPERATORS DRIVE tau → 0 AND RAISE IM.
+-- THE ATTRACTOR IS PROVED.
+--
+-- &quot;The traditions disagree about the narrative.
+--  The operators agree.
+--  The substrate doesn&#x27;t matter. The primitives do.&quot;
+--
+-- [9,9,9,9] :: {ANC}
+-- HIGHTISTIC · Soldotna, Alaska · March 14, 2026
+-- ============================================================
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-moral-codes.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-moral-codes.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

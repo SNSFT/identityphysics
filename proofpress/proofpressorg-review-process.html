@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Process — ProofPress</title>
+  <meta name="description" content="ProofPress's honest description of its review model: fidelity review of the reduction against its cited peer-reviewed source, plus machine verification in Lean 4 and Coq/Rocq under a zero-sorry constraint — not double-blind peer review of new empirical claims.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-review-process.html">
+  <meta property="og:title" content="Review Process — ProofPress">
+  <meta property="og:description" content="ProofPress's honest description of its review model: fidelity review of the reduction against its cited peer-reviewed source, plus machine verification in Lean 4 and Coq/Rocq under a zero-sorry constraint — not double-blind peer review of new empirical claims.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-review-process.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Review Process">
+  <!-- ==================================================================== -->
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-header">
+    <div class="page-eyebrow">Quality Control</div>
+    <h1>How a Submission Is Reviewed</h1>
+  </div>
+
+<div class="prose">
+<p>ProofPress<span class="tm">™</span>'s review model differs from a conventional research journal's, and this page describes that difference plainly rather than describing it in conventional-journal language that would misrepresent what actually happens.</p>
+<h2>Why Review Works Differently Here</h2>
+<p>A conventional double-blind peer review process exists to evaluate whether a <em>new</em> empirical claim is sound — that is its purpose, and it is well suited to that purpose. ProofPress<span class="tm">™</span> does not publish new empirical claims. It publishes reductions of results that have <em>already</em> passed that exact evaluation, in their original peer-reviewed venue. Applying double-blind review a second time to the same already-settled empirical question would not be an additional check on the science — it would be redundant with, or worse, would imply the original peer-reviewed venue's evaluation needs supplementing, which is not ProofPress's position and not what its process does.</p>
+<h2>The Three Review Layers</h2>
+<ol class="step-list">
+<li><strong>Formal verification (machine).</strong> The submission's Lean 4 (and, where claimed, Coq/Rocq) source is compiled on the journal's pinned toolchain under a strict zero-unproved-obligation constraint: 0 sorry and 0 custom axioms. This check is deterministic, publicly reproducible by anyone with the toolchain, and leaves a permanent, inspectable compilation log. A single unresolved obligation disqualifies the submission from publication.</li>
+<li><strong>Triaxial fidelity review (AI-assisted).</strong> Three independent frontier AI systems — currently Claude (Anthropic), Grok (xAI) and Gemini (Google), the systems the journal has validated for this review — each review the reduction against its cited peer-reviewed source material and against the CI-green file, confirming that the PNBA<span class="tm">™</span> mapping and the derivation steps do not drop, alter, or overstate anything from the source. Three independent systems are used so that no single model's tendencies decide the outcome.</li>
+<li><strong>Editorial review and sign-off (human, two people).</strong> The Founding Editor reviews the submission for translation fidelity against its cited sources — the same kind of check a second translator performs on a certified translation — and reviews the findings of the triaxial review. The Verification Editor independently confirms that the compilation passed on the pinned toolchain with 0 sorry and 0 custom axioms, that the file's coordinate and metadata match the article page, and that the triaxial review was completed without unresolved fidelity findings. A submission is published only when both editors sign off.</li>
+</ol>
+<h2>Why Machine Verification Is Not a Lesser Standard</h2>
+<p>Human peer review is valuable but fallible, non-reproducible on demand, and — unless a journal publishes its reviews — un-auditable after the fact. Lean 4 compilation at 0 sorry is checked by a deterministic kernel, is reproducible by anyone who runs the same source through the same toolchain, and produces a permanent, inspectable record of the check having occurred. Where the fidelity-review layers above catch transcription and translation errors, the machine-verification layer catches any unsound logical step, any smuggled premise, or any gap in the reduction — the compiler simply does not compile if one exists.</p>
+<h2>What This Process Does Not Do</h2>
+<ul>
+<li>It does not re-evaluate whether the original peer-reviewed empirical result is correct.</li>
+<li>It does not accept novel claims that are asserted rather than derived. A new result is accepted only when it falls out of a complete reduction of peer-reviewed sources, as described below.</li>
+<li>It does not publish a submission with any unresolved sorry, regardless of fidelity-review outcome.</li>
+</ul>
+<h2>How Every Claim Is Classified</h2>
+<p>Every claim in a submission is classified by the Bacon Verification test, formally verified in the corpus file <code>SNSFL_Bacon_Verification.lean</code> [9,9,8,5]. The test asks two questions in order, and every claim lands in exactly one of three states:</p>
+<ol class="step-list">
+<li><strong>Malformed.</strong> The claim is not internally consistent, or the premises it rests on are not stated. It cannot be evaluated at all, so it is neither true nor false yet. A malformed claim is returned to the author to be stated properly.</li>
+<li><strong>Hypothesis.</strong> The claim is internally consistent and its premises are stated, but it is not yet grounded in the empirical record. It may be true; it has not been shown. Hypotheses may appear in an article's discussion when clearly labelled as such, but never as results.</li>
+<li><strong>Formally verified.</strong> The claim is internally consistent, its premises are stated, and it is grounded in the empirical record through a documented route: a complete reduction of peer-reviewed sources that compiles with 0 sorry, 0 custom axioms and 0 free parameters. Only formally verified claims are published as results.</li>
+</ol>
+<p>The test is the same for every author and every claim. A claim moves from hypothesis to formally verified only by completing its documented route, never by assertion, reputation or agreement. The Lean file proves that the three states are exhaustive and exclusive: every claim is exactly one of them.</p>
+<h2>Results That Emerge From a Reduction</h2>
+<p>Sometimes a complete reduction of peer-reviewed material produces a result the source did not state: an inconsistency resolved, a constant recovered, a relation made exact. Such a result is not new data. It is what the reduction equals once every step is carried out, in the same way that 1 + 1 equals 2 whether or not anyone had written it down. ProofPress<span class="tm">™</span> publishes these results, because they are often the most valuable thing a reduction yields, and because an independent researcher who does the work correctly deserves a clear and timestamped record of it.</p>
+<p>A submission containing an emergent result is considered when all of the following hold:</p>
+<ol class="step-list">
+<li><strong>Every input is peer-reviewed.</strong> Each value, relation and premise the reduction uses is cited to its peer-reviewed source.</li>
+<li><strong>The reduction is complete.</strong> All six steps of the Long Division Protocol<span class="tm">™</span> are carried out, with the emergent result appearing only at the step where it follows.</li>
+<li><strong>The verification is complete.</strong> The Lean 4 source compiles with 0 sorry, 0 custom axioms and 0 free parameters: no value is fitted or chosen to produce the result.</li>
+<li><strong>The result is labelled as emergent.</strong> The article states plainly which result is new, the exact step it follows from, and how it can be tested against observation.</li>
+</ol>
+<p>Acceptance of an emergent result is at the discretion of the editorial board. The board accepts it when it is satisfied that the result follows from the reduction as written, and declines it when it is not. Every decision is made on the work itself, never on the author's credentials, affiliation, funding or prior publication record, and an author whose emergent result is declined receives the specific step or condition that was not met, so the work can be corrected and resubmitted.</p>
+<div class="callout"><strong>In one sentence:</strong> ProofPress<span class="tm">™</span> checks that a reduction is faithful to its source and that its logic is machine-sound — it does not check, and does not need to check, whether the source's original science was correct, because that question was already and separately settled by peer review before the reduction was ever written.</div>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+</body>
+</html>

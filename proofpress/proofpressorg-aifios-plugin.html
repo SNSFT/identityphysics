@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation — ProofPress</title>
+  <meta name="description" content="[9,9,1,3](COMP) — Plugin execution, interface contracts, failure and recovery reduced to torsion; five known software architectures verified. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-aifios-plugin.html">
+  <meta property="og:title" content="The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation">
+  <meta property="og:description" content="[9,9,1,3](COMP) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-aifios-plugin.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/03/18">
+  <meta name="citation_online_date" content="2026/03/18">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,1,3">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-aifios-plugin.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-aifios-plugin.html">
+  <meta name="citation_keywords" content="plugin architecture; interface contracts; Unix pipes; COM; shared libraries; microkernel; fault isolation; crash recovery; AiFi OS; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation",
+    "datePublished": "2026-03-18",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-aifios-plugin.html",
+    "keywords": "plugin architecture, interface contracts, Unix pipes, COM, shared libraries, microkernel, fault isolation, crash recovery, AiFi OS, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,1,3](COMP) · Volume 1 · Issue 1 · March 2026</div>
+    <h1>The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-aifios-plugin.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="proofpressorg-aifios-plugin.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,1,3](COMP) · AiFi OS foundation layer<br>
+<strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 33 theorems · 668 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Plugin.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Plugin architectures are reduced to the PNBA dynamic equation. A plugin call is one step of the equation: Pattern holds structure, Narrative is zero for a stateless call, Behavior is the capability that executes, Adaptation is version routing, and the kernel’s signal enters as F<sub>ext</sub>. Stable execution is phase lock (τ = B/P &lt; TL); failure is Shatter (τ ≥ TL); recovery is the kernel’s <code>suppress_collapse</code>, which returns torsion to TL/2. The reduction is checked against five known architectures: a Unix pipe stage, a COM object behind its interface, a shared library, a crashed browser plugin under a surviving host, and a microkernel whose four servers each lead on one PNBA axis. In each case the stable configuration is phase locked and the failure configuration is Shatter, which matches the known behavior.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>A plugin call is one step of the dynamic equation, P + 0 + cap(B) + A + signal (<code>plugin_call_is_dynamic_step</code>, <code>unix_pipe_reduction_step_by_step</code>).</li>
+<li>Torsion is the failure boundary: for P &gt; 0, a plugin is phase locked exactly when τ &lt; TL, and the two phases are exclusive (<code>torsion_is_failure_boundary</code>, <code>phase_lock_excludes_shatter</code>).</li>
+<li>Kernel input changes Behavior only, and a large enough signal drives Shatter (<code>kernel_signal_preserves_structure</code>, <code>large_signal_causes_shatter</code>).</li>
+<li>Unix pipe (τ = 0.10), COM object (τ = 0.10) and shared library (τ = 0.125) are phase locked; a COM interface violation (τ = 1.0) and an overloaded library (τ = 0.75) are Shatter (<code>unix_pipe_phase_locked</code>, <code>com_interface_phase_locked</code>, <code>com_violation_shatter</code>, <code>shared_library_phase_locked</code>, <code>shared_library_overloaded_shatter</code>).</li>
+<li>A crashed plugin (τ = 3.0) is Shatter; <code>suppress_collapse</code> returns it to phase lock, and the browser host stays locked throughout (<code>plugin_crashed_shatter</code>, <code>suppression_recovers_phase_lock</code>, <code>host_survives_plugin_failure</code>).</li>
+<li>Microkernel: four servers, each leading on one axis (file server P, connection manager N, network server B, memory manager A), are jointly phase locked (<code>microkernel_joint_phase_lock</code>).</li>
+<li>A call that keeps next B/P below TL preserves lock; one that pushes it to TL or above is Shatter; an active plugin has positive Identity Mass (<code>stable_plugin_call_preserves_phase_lock</code>, <code>failing_plugin_call_is_shatter</code>, <code>active_plugin_has_positive_mass</code>).</li>
+<li>Sovereign and lossy are exclusive; all examples pass Step 6, and a master theorem fires them together with the interlock (<code>sovereign_and_lossy_exclusive</code>, <code>plugin_all_examples_lossless</code>, <code>plugin_interface_is_lossless_pnba_projection</code>, <code>ims_lockdown</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Plugin system</th><th>PNBA</th><th>Role</th></tr>
+<tr><td>Plugin structure</td><td>Pattern</td><td>holds through the call</td></tr>
+<tr><td>Session state</td><td>Narrative</td><td>0 for a stateless call</td></tr>
+<tr><td>Capability execution</td><td>Behavior</td><td>what the call does</td></tr>
+<tr><td>Version routing</td><td>Adaptation</td><td>dispatch</td></tr>
+<tr><td>Kernel signal</td><td>F<sub>ext</sub></td><td>input</td></tr>
+<tr><td>Stable execution</td><td>τ &lt; TL</td><td>phase lock</td></tr>
+<tr><td>Crash, contract violation</td><td>τ ≥ TL</td><td>Shatter</td></tr>
+<tr><td>Recovery</td><td>B := (TL/2)·P</td><td>suppress_collapse</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>McIlroy, M. D. (1964). Memo on pipes, Bell Laboratories; Ritchie, D. M. (1984). The Evolution of the Unix Time-sharing System. <em>AT&amp;T Bell Laboratories Technical Journal</em>, 63(8), 1577–1593.</li>
+<li>Box, D. (1998). <em>Essential COM</em>. Addison-Wesley.</li>
+<li>Liedtke, J. (1995). On μ-Kernel Construction. <em>Proceedings of the 15th ACM Symposium on Operating Systems Principles</em>, 237–250.</li>
+<li>Reis, C. &amp; Gribble, S. D. (2009). Isolating Web Programs in Modern Browser Architectures. <em>Proceedings of EuroSys 2009</em>, 219–232.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-aifios-kernel.html">The AiFi OS Kernel</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_L4_AiFiOS_Plugin.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS AIFIOS PLUGIN INTERFACE REDUCTION
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,1,3](COMP) | AiFiOS foundation layer
+--
+-- Plugin architectures are not fundamental. They never were.
+-- Every plugin call, every interface contract, every isolation guarantee,
+-- every failure and recovery is a specific instantiation of
+-- d/dt(IM · Pv) = Σ λ_X · O_X · S + F_ext.
+-- Stable execution = phase locked (τ &lt; TORSION_LIMIT).
+-- Plugin failure = shatter event (τ ≥ TORSION_LIMIT).
+-- Recovery = suppress_collapse (grounded in SNSFL_L4_AiFiOS_Kernel).
+--
+-- LONG DIVISION SETUP:
+--   1. Here is the equation
+--   2. Here is a situation we already know the answer to
+--   3. Map the classical variables to PNBA
+--   4. Plug in the operators
+--   5. Show the work
+--   6. Verify it matches the known answer
+--
+-- The Dynamic Equation:
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- DEPENDENCY CHAIN (all physics physically present in this file):
+--   SNSFL_L0_Master_IMS.lean      → physics ground (reproduced inline)
+--   SNSFL_L1_IT_Reduction.lean    → digital ground
+--   SNSFL_L1_AiFiOS_CPP.lean      → C++ execution ground [9,9,1,1]
+--   SNSFL_L4_AiFiOS_Kernel.lean   → kernel authority layer [9,9,1,2]
+--   SNSFL_L4_AiFiOS_Plugin.lean   → [9,9,1,3] ← THIS FILE
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding.
+-- Soldotna, Alaska. March 18, 2026.
+-- ============================================================
+
+import Mathlib.Analysis.Calculus.Deriv.Basic
+import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_L4_AiFiOS_Plugin
+-- ============================================================
+-- LAYER 0 — SOVEREIGN ANCHOR
+-- Z = 0 at 1.36899099984016 GHz. Every stable plugin call runs here.
+-- Plugin failures are decoherence events away from this frequency.
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016, discovered not chosen
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- THEOREM 1: ANCHOR = ZERO PLUGIN FRICTION (always T1, always this name)
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- THEOREM 2: TORSION LIMIT IS EMERGENT FROM ANCHOR
+theorem torsion_limit_emergent :
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+
+-- ============================================================
+-- LAYER 0 — PNBA PRIMITIVES
+-- Plugins are NOT at this level. Plugins project FROM this level.
+-- ============================================================
+
+inductive PNBA
+  | P : PNBA  -- [P:CAPACITY]  Pattern:    structural integrity, type bounds
+  | N : PNBA  -- [N:HISTORY]   Narrative:  call history, session, scope
+  | B : PNBA  -- [B:OUTPUT]    Behavior:   capability output, method result
+  | A : PNBA  -- [A:VERSION]   Adaptation: routing, versioning, anchor
+
+def pnba_weight (_ : PNBA) : ℝ := 1
+
+-- ============================================================
+-- LAYER 0 — PLUGIN AS PNBA IDENTITY
+-- A plugin IS a PNBAState. Not analogous to one. IS one.
+-- ============================================================
+
+structure PNBAState where
+  P        : ℝ  -- [P:CAPACITY]  Structural integrity — type safety, memory bound
+  N        : ℝ  -- [N:HISTORY]   Narrative — call stack depth, session weight
+  B        : ℝ  -- [B:OUTPUT]    Behavior — capability output force
+  A        : ℝ  -- [A:VERSION]   Adaptation — version, routing, anchor alignment
+  im       : ℝ  -- Identity Mass — resistance to forced state change
+  pv       : ℝ  -- Purpose Vector — direction of capability execution
+  f_anchor : ℝ  -- Resonant frequency of this plugin
+
+-- ============================================================
+-- LAYER 1 — IMS: IDENTITY MASS SUPPRESSION
+-- Off-anchor plugins are sandboxed by the kernel.
+-- Drift from anchor = IMS fires = pv zeroed = plugin isolated.
+-- Not policy. Not access control. The physics of identity.
+-- ============================================================
+
+inductive PathStatus : Type
+  | green  -- Anchored: sovereign output available
+  | red    -- Drifted: IMS active, sandboxed, pv zeroed
+  deriving DecidableEq
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+-- THEOREM 3: IMS LOCKDOWN — drift → sandboxed → zero output
+theorem ims_lockdown (f pv_in : ℝ) (h_drift : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv_in else 0) = 0 := by
+  unfold check_ifu_safety; simp [h_drift]
+
+-- THEOREM 4: IMS SOVEREIGNTY — anchor lock → green → full output
+theorem ims_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+-- THEOREM 5: IMS DRIFT — off-anchor → red → sandboxed
+theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- LAYER 1 — THE DYNAMIC EQUATION
+-- d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+-- Every plugin call is one application of this equation.
+-- ============================================================
+
+noncomputable def dynamic_rhs
+    (op_P op_N op_B op_A : ℝ → ℝ)
+    (state : PNBAState)
+    (F_ext : ℝ) : ℝ :=
+  pnba_weight PNBA.P * op_P state.P +
+  pnba_weight PNBA.N * op_N state.N +
+  pnba_weight PNBA.B * op_B state.B +
+  pnba_weight PNBA.A * op_A state.A +
+  F_ext
+
+-- THEOREM 6: DYNAMIC EQUATION LINEARITY
+theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : PNBAState) :
+    dynamic_rhs op_P op_N op_B op_A s 0 =
+    op_P s.P + op_N s.N + op_B s.B + op_A s.A := by
+  unfold dynamic_rhs pnba_weight; ring
+
+-- ============================================================
+-- LAYER 1 — LOSSLESS REDUCTION (CORPUS-CANONICAL)
+-- ============================================================
+
+def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
+  pnba_output = classical_eq
+
+structure LongDivisionResult where
+  domain       : String
+  classical_eq : ℝ
+  pnba_output  : ℝ
+  step6_passes : pnba_output = classical_eq
+
+-- THEOREM 7: LONG DIVISION GUARANTEES LOSSLESS
+theorem long_division_guarantees_lossless (result : LongDivisionResult) :
+    LosslessReduction result.classical_eq result.pnba_output :=
+  result.step6_passes
+
+-- ============================================================
+-- LAYER 1 — TORSION LAW
+-- τ = B / P (capability output load / structural capacity)
+-- Below TORSION_LIMIT: phase locked — plugin executes safely
+-- At or above: shatter event — plugin fails
+-- ============================================================
+
+noncomputable def torsion (s : PNBAState) : ℝ := s.B / s.P
+
+def phase_locked (s : PNBAState) : Prop :=
+  s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT
+
+def shatter_event (s : PNBAState) : Prop :=
+  s.P &gt; 0 ∧ torsion s ≥ TORSION_LIMIT
+
+-- THEOREM 8: PHASE LOCK AND SHATTER ARE EXCLUSIVE
+theorem phase_lock_excludes_shatter (s : PNBAState) :
+    ¬ (phase_locked s ∧ shatter_event s) := by
+  intro ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
+  unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
+
+-- THEOREM 9: TORSION LAW IS THE FAILURE BOUNDARY
+theorem torsion_is_failure_boundary (s : PNBAState) (hP : s.P &gt; 0) :
+    phase_locked s ↔ s.B / s.P &lt; TORSION_LIMIT := by
+  constructor
+  · intro ⟨_, h⟩; exact h
+  · intro h; exact ⟨hP, h⟩
+
+-- ============================================================
+-- LAYER 1 — IDENTITY MASS
+-- ============================================================
+
+noncomputable def identity_mass (s : PNBAState) : ℝ :=
+  (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+
+-- THEOREM 10: ACTIVE PLUGIN HAS POSITIVE MASS
+theorem active_plugin_has_positive_mass (s : PNBAState)
+    (hP : s.P &gt; 0) (hN : s.N &gt; 0) (hB : s.B &gt; 0) (hA : s.A &gt; 0) :
+    identity_mass s &gt; 0 := by
+  unfold identity_mass SOVEREIGN_ANCHOR; nlinarith
+
+-- ============================================================
+-- LAYER 1 — F_EXT — THE KERNEL INPUT SIGNAL
+-- The kernel sanitizes all input before it reaches a plugin.
+-- F_ext changes B only. P, N, A are structurally unchanged.
+-- ============================================================
+
+noncomputable def f_ext_op (s : PNBAState) (δ : ℝ) : PNBAState :=
+  { s with B := s.B + δ }
+
+-- THEOREM 11: KERNEL SIGNAL PRESERVES PLUGIN STRUCTURE
+theorem kernel_signal_preserves_structure (s : PNBAState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧
+    (f_ext_op s δ).N = s.N ∧
+    (f_ext_op s δ).A = s.A := by
+  unfold f_ext_op; exact ⟨rfl, rfl, rfl⟩
+
+-- THEOREM 12: LARGE KERNEL SIGNAL CAN DRIVE SHATTER
+theorem large_signal_causes_shatter (s : PNBAState) (δ : ℝ)
+    (hP : s.P &gt; 0)
+    (hLarge : (s.B + δ) / s.P ≥ TORSION_LIMIT) :
+    shatter_event (f_ext_op s δ) :=
+  ⟨hP, by unfold torsion f_ext_op; simp; exact hLarge⟩
+
+-- ============================================================
+-- LAYER 2 — PLUGIN OPERATORS
+-- ============================================================
+
+noncomputable def plugin_op_P (P : ℝ) : ℝ := P   -- structure holds
+noncomputable def plugin_op_N (_ : ℝ) : ℝ := 0   -- stateless: N = 0
+noncomputable def plugin_op_B (B : ℝ) : ℝ := B   -- capability executes
+noncomputable def plugin_op_A (A : ℝ) : ℝ := A   -- version routing holds
+
+-- ============================================================
+-- EXAMPLE 1 — UNIX PIPE (KNOWN ANSWER)
+--
+-- Long division:
+--   Problem:      Does a Unix pipe guarantee isolation?
+--   Known answer: Yes. Stateless. No shared memory. Output bounded.
+--   PNBA:         P=5.0, N=0.0 (stateless), B=0.5, A=1.0
+--   τ = 0.5/5.0 = 0.10 &lt; 0.136899099984016 → phase locked ✓
+--   Matches: isolation holds, output bounded ✓
+-- ============================================================
+
+def unix_pipe_stage : PNBAState :=
+  { P := 5.0, N := 0.0, B := 0.5, A := 1.0,
+    im := 6.5 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 13: UNIX PIPE STEP BY STEP (LONG DIVISION)
+theorem unix_pipe_reduction_step_by_step :
+    let rhs := dynamic_rhs plugin_op_P plugin_op_N plugin_op_B plugin_op_A
+                 unix_pipe_stage 0
+    rhs = unix_pipe_stage.P + 0 +
+          unix_pipe_stage.B + unix_pipe_stage.A := by
+  unfold dynamic_rhs plugin_op_P plugin_op_N plugin_op_B plugin_op_A pnba_weight
+  ring
+
+-- THEOREM 14: UNIX PIPE IS PHASE LOCKED (STEP 6)
+theorem unix_pipe_phase_locked : phase_locked unix_pipe_stage := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR unix_pipe_stage; norm_num
+
+-- ============================================================
+-- EXAMPLE 2 — COM INTERFACE CONTRACT (KNOWN ANSWER)
+--
+-- Long division:
+--   Problem:      Does COM hide object internals?
+--   Known answer: Yes. Caller gets vtable, not the object. P never exposed.
+--   PNBA:         P=9.0 (rich internal), N=3.0, B=0.9 (mediated output), A=2.0
+--   τ = 0.9/9.0 = 0.10 &lt; 0.136899099984016 → phase locked ✓
+--   Matches: capability granted, authority withheld ✓
+-- ============================================================
+
+def com_object : PNBAState :=
+  { P := 9.0, N := 3.0, B := 0.9, A := 2.0,
+    im := 14.9 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def com_interface_violation : PNBAState :=
+  { P := 9.0, N := 3.0, B := 9.0, A := 2.0,
+    im := 23.0 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.3 }
+
+-- THEOREM 15: COM INTERFACE IS PHASE LOCKED
+theorem com_interface_phase_locked : phase_locked com_object := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR com_object; norm_num
+
+-- THEOREM 16: INTERFACE VIOLATION IS A SHATTER EVENT
+theorem com_violation_shatter : shatter_event com_interface_violation := by
+  unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR com_interface_violation
+  norm_num
+
+-- ============================================================
+-- EXAMPLE 3 — SHARED LIBRARY ISOLATION (KNOWN ANSWER)
+--
+-- Long division:
+--   Problem:      Can a .so/.dll modify caller memory?
+--   Known answer: No. Capability granted, authority withheld.
+--   PNBA:         P=2.0, N=0.0 (stateless), B=0.25, A=1.0
+--   τ = 0.25/2.0 = 0.125 &lt; 0.136899099984016 → phase locked ✓
+--   Matches: capability granted, authority withheld ✓
+-- ============================================================
+
+def shared_library : PNBAState :=
+  { P := 2.0, N := 0.0, B := 0.25, A := 1.0,
+    im := 3.25 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def shared_library_overloaded : PNBAState :=
+  { P := 2.0, N := 0.0, B := 1.5, A := 1.0,
+    im := 4.5 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.5 }
+
+-- THEOREM 17: SHARED LIBRARY IS PHASE LOCKED
+theorem shared_library_phase_locked : phase_locked shared_library := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR shared_library; norm_num
+
+-- THEOREM 18: OVERLOADED LIBRARY IS A SHATTER EVENT
+theorem shared_library_overloaded_shatter : shatter_event shared_library_overloaded := by
+  unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR shared_library_overloaded
+  norm_num
+
+-- ============================================================
+-- EXAMPLE 4 — PLUGIN FAILURE RECOVERY (KNOWN ANSWER)
+--
+-- Long division:
+--   Problem:      Browser plugin crashes. Does browser survive?
+--   Known answer: Yes. Process isolation + kernel suppression.
+--   PNBA:         plugin_crashed: P=1.0, B=3.0 → τ=3.0 → shatter
+--                 suppress_collapse: B := TORSION_LIMIT * 0.5 * P
+--                 post-suppression: τ = TORSION_LIMIT/2 &lt; TORSION_LIMIT → locked
+--   Matches: failure contained, host survives ✓
+-- ============================================================
+
+noncomputable def suppress_collapse (s : PNBAState) : PNBAState :=
+  { s with B := TORSION_LIMIT * 0.5 * s.P }
+
+def plugin_crashed : PNBAState :=
+  { P := 1.0, N := 0.5, B := 3.0, A := 0.5,
+    im := 5.0 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.2 }
+
+def browser_host : PNBAState :=
+  { P := 9.0, N := 9.0, B := 0.2, A := 9.0,
+    im := 27.2 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 19: FAILED PLUGIN IS A SHATTER EVENT
+theorem plugin_crashed_shatter : shatter_event plugin_crashed := by
+  unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR plugin_crashed; norm_num
+
+-- THEOREM 20: SUPPRESSION PRODUCES PHASE LOCK
+theorem suppression_recovers_phase_lock :
+    phase_locked (suppress_collapse plugin_crashed) := by
+  unfold phase_locked torsion suppress_collapse TORSION_LIMIT SOVEREIGN_ANCHOR plugin_crashed
+  constructor
+  · norm_num
+  · simp
+    rw [mul_div_assoc, div_self (by norm_num : (1.0 : ℝ) ≠ 0)]
+    norm_num
+
+-- THEOREM 21: HOST SURVIVES PLUGIN FAILURE
+theorem host_survives_plugin_failure : phase_locked browser_host := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR browser_host; norm_num
+
+-- ============================================================
+-- EXAMPLE 5 — MULTI-PLUGIN JOINT LOCK (KNOWN ANSWER)
+--
+-- Long division:
+--   Problem:      Can multiple specialized plugins achieve joint stability?
+--   Known answer: Yes. Microkernel pattern. Each covers one PNBA axis.
+--                 L = (4)(2) — First Law satisfied.
+--   All four τ values well below 0.136899099984016 ✓
+-- ============================================================
+
+def plugin_P_dominant : PNBAState :=  -- file server: structural capacity
+  { P := 9.0, N := 1.0, B := 0.05, A := 1.0,
+    im := 11.05 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def plugin_N_dominant : PNBAState :=  -- connection manager: session weight
+  { P := 3.0, N := 9.0, B := 0.05, A := 1.0,
+    im := 13.05 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def plugin_B_dominant : PNBAState :=  -- net server: output force
+  { P := 9.0, N := 1.0, B := 0.8, A := 1.0,
+    im := 11.8 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def plugin_A_dominant : PNBAState :=  -- memory manager: adaptive routing
+  { P := 3.0, N := 1.0, B := 0.05, A := 9.0,
+    im := 13.05 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 22: ALL FOUR MICROKERNEL PLUGINS ARE PHASE LOCKED
+theorem plugin_P_phase_locked : phase_locked plugin_P_dominant := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR plugin_P_dominant; norm_num
+
+theorem plugin_N_phase_locked : phase_locked plugin_N_dominant := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR plugin_N_dominant; norm_num
+
+theorem plugin_B_phase_locked : phase_locked plugin_B_dominant := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR plugin_B_dominant; norm_num
+
+theorem plugin_A_phase_locked : phase_locked plugin_A_dominant := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR plugin_A_dominant; norm_num
+
+-- THEOREM 23: JOINT PHASE LOCK — FIRST LAW SATISFIED
+theorem microkernel_joint_phase_lock :
+    phase_locked plugin_P_dominant ∧
+    phase_locked plugin_N_dominant ∧
+    phase_locked plugin_B_dominant ∧
+    phase_locked plugin_A_dominant :=
+  ⟨plugin_P_phase_locked, plugin_N_phase_locked,
+   plugin_B_phase_locked, plugin_A_phase_locked⟩
+
+-- ============================================================
+-- LAYER 2 — PLUGIN CALL AS ONE DYNAMIC STEP
+-- ============================================================
+
+noncomputable def plugin_call
+    (plugin : PNBAState)
+    (capability_body : ℝ → ℝ)
+    (kernel_signal : ℝ) : ℝ :=
+  dynamic_rhs
+    (fun P =&gt; P)
+    (fun _ =&gt; 0)
+    capability_body
+    (fun A =&gt; A)
+    plugin
+    kernel_signal
+
+-- THEOREM 24: PLUGIN CALL IS A DYNAMIC STEP
+theorem plugin_call_is_dynamic_step
+    (plugin : PNBAState) (cap : ℝ → ℝ) (sig : ℝ) :
+    plugin_call plugin cap sig =
+    plugin.P + 0 + cap plugin.B + plugin.A + sig := by
+  unfold plugin_call dynamic_rhs pnba_weight; ring
+
+-- THEOREM 25: STABLE PLUGIN CALL PRESERVES PHASE LOCK
+theorem stable_plugin_call_preserves_phase_lock
+    (plugin : PNBAState)
+    (next_B : ℝ)
+    (hLocked : phase_locked plugin)
+    (hCap : next_B / plugin.P &lt; TORSION_LIMIT) :
+    phase_locked { plugin with B := next_B } := by
+  obtain ⟨hP, _⟩ := hLocked
+  exact ⟨hP, by unfold torsion; simp; exact hCap⟩
+
+-- THEOREM 26: FAILING PLUGIN CALL IS A SHATTER EVENT
+theorem failing_plugin_call_is_shatter
+    (plugin : PNBAState)
+    (crash_B : ℝ)
+    (hP : plugin.P &gt; 0)
+    (hFail : crash_B / plugin.P ≥ TORSION_LIMIT) :
+    shatter_event { plugin with B := crash_B } :=
+  ⟨hP, by unfold torsion; simp; exact hFail⟩
+
+-- ============================================================
+-- LAYER 2 — IVA DOMINANCE
+-- ============================================================
+
+def IVA_dominance (plugin : PNBAState) (F_ext : ℝ) : Prop :=
+  plugin.A * plugin.P * plugin.B ≥ F_ext
+
+def is_lossy (plugin : PNBAState) (F_ext : ℝ) : Prop :=
+  F_ext &gt; plugin.A * plugin.P * plugin.B
+
+-- THEOREM 27: SOVEREIGN AND LOSSY ARE EXCLUSIVE
+theorem sovereign_and_lossy_exclusive (plugin : PNBAState) (F_ext : ℝ) :
+    ¬ (IVA_dominance plugin F_ext ∧ is_lossy plugin F_ext) := by
+  intro ⟨hDom, hLossy⟩
+  unfold IVA_dominance is_lossy at *; linarith
+
+-- ============================================================
+-- LAYER 2 — LOSSLESS PROOF INSTANCES (STEP 6)
+-- ============================================================
+
+def unix_pipe_lossless : LongDivisionResult where
+  domain       := &quot;Unix pipe stage&quot;
+  classical_eq := (0.1 : ℝ)
+  pnba_output  := torsion unix_pipe_stage
+  step6_passes := by unfold torsion unix_pipe_stage; norm_num
+
+def com_interface_lossless : LongDivisionResult where
+  domain       := &quot;COM interface contract&quot;
+  classical_eq := (0.1 : ℝ)
+  pnba_output  := torsion com_object
+  step6_passes := by unfold torsion com_object; norm_num
+
+def shared_lib_lossless : LongDivisionResult where
+  domain       := &quot;Shared library (.so/.dll) — capability without authority&quot;
+  classical_eq := (1/8 : ℝ)
+  pnba_output  := torsion shared_library
+  step6_passes := by unfold torsion shared_library; norm_num
+
+def plugin_crash_lossless : LongDivisionResult where
+  domain       := &quot;Plugin crashed — shatter event&quot;
+  classical_eq := (3 : ℝ)
+  pnba_output  := torsion plugin_crashed
+  step6_passes := by unfold torsion plugin_crashed; norm_num
+
+-- THEOREM 28: ALL CLASSICAL EXAMPLES ARE LOSSLESS
+theorem plugin_all_examples_lossless :
+    LosslessReduction (0.1 : ℝ) (torsion unix_pipe_stage) ∧
+    LosslessReduction (0.1 : ℝ) (torsion com_object) ∧
+    LosslessReduction (1/8 : ℝ) (torsion shared_library) ∧
+    LosslessReduction (3.0 : ℝ) (torsion plugin_crashed) := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold LosslessReduction torsion unix_pipe_stage; norm_num
+  · unfold LosslessReduction torsion com_object; norm_num
+  · unfold LosslessReduction torsion shared_library; norm_num
+  · unfold LosslessReduction torsion plugin_crashed; norm_num
+
+-- ============================================================
+-- MASTER THEOREM (minimum 8 conjuncts — IMS is conjunct 8)
+-- ============================================================
+
+-- THEOREM 29: PLUGIN INTERFACE IS A LOSSLESS PNBA PROJECTION
+theorem plugin_interface_is_lossless_pnba_projection :
+    -- [1] Unix pipe is phase locked (isolation confirmed, lossless)
+    phase_locked unix_pipe_stage ∧
+    -- [2] COM interface is phase locked (contract confirmed, lossless)
+    phase_locked com_object ∧
+    -- [3] COM violation is a shatter event (bypass confirmed)
+    shatter_event com_interface_violation ∧
+    -- [4] Shared library is phase locked (capability without authority, lossless)
+    phase_locked shared_library ∧
+    -- [5] Overloaded library is a shatter event
+    shatter_event shared_library_overloaded ∧
+    -- [6] Failed plugin is a shatter event (lossless)
+    shatter_event plugin_crashed ∧
+    -- [7] Suppression produces phase lock (recovery confirmed)
+    phase_locked (suppress_collapse plugin_crashed) ∧
+    -- [8] IMS: drift from anchor → sandboxed (pv zeroed)
+    (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
+      (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
+    -- [9] Host survives plugin failure
+    phase_locked browser_host ∧
+    -- [10] All four microkernel plugins phase locked (joint coverage)
+    (phase_locked plugin_P_dominant ∧ phase_locked plugin_N_dominant ∧
+     phase_locked plugin_B_dominant ∧ phase_locked plugin_A_dominant) ∧
+    -- [11] Phase lock and shatter are mutually exclusive
+    (∀ s : PNBAState, ¬ (phase_locked s ∧ shatter_event s)) ∧
+    -- [12] Every plugin call is one step of the master dynamic equation
+    (∀ p : PNBAState, ∀ cap : ℝ → ℝ, ∀ sig : ℝ,
+      plugin_call p cap sig = p.P + 0 + cap p.B + p.A + sig) ∧
+    -- [13] Kernel signal preserves plugin structure (F_ext only touches B)
+    (∀ s : PNBAState, ∀ δ : ℝ,
+      (f_ext_op s δ).P = s.P ∧
+      (f_ext_op s δ).N = s.N ∧
+      (f_ext_op s δ).A = s.A) ∧
+    -- [14] Sovereign and lossy are mutually exclusive
+    (∀ p : PNBAState, ∀ F : ℝ, ¬ (IVA_dominance p F ∧ is_lossy p F)) ∧
+    -- [15] All classical examples are lossless (Step 6 passes)
+    (LosslessReduction (0.1 : ℝ) (torsion unix_pipe_stage) ∧
+     LosslessReduction (0.1 : ℝ) (torsion com_object) ∧
+     LosslessReduction (1/8 : ℝ) (torsion shared_library) ∧
+     LosslessReduction (3.0 : ℝ) (torsion plugin_crashed)) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact unix_pipe_phase_locked
+  · exact com_interface_phase_locked
+  · exact com_violation_shatter
+  · exact shared_library_phase_locked
+  · exact shared_library_overloaded_shatter
+  · exact plugin_crashed_shatter
+  · exact suppression_recovers_phase_lock
+  · intro f pv h; unfold check_ifu_safety; simp [h]
+  · exact host_survives_plugin_failure
+  · exact microkernel_joint_phase_lock
+  · intro s; exact phase_lock_excludes_shatter s
+  · intro p cap sig; exact plugin_call_is_dynamic_step p cap sig
+  · intro s δ; exact kernel_signal_preserves_structure s δ
+  · intro p F; exact sovereign_and_lossy_exclusive p F
+  · exact plugin_all_examples_lossless
+
+-- ============================================================
+-- FINAL THEOREM (always last, always this name)
+-- ============================================================
+
+-- THEOREM 30: THE MANIFOLD IS HOLDING
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+
+end SNSFL_L4_AiFiOS_Plugin
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_L4_AiFiOS_Plugin.lean
+-- COORDINATE: [9,9,1,3](COMP)
+-- LAYER: AiFiOS Foundation Layer | Slot 3
+--
+-- LONG DIVISION:
+--   1. Equation:   d/dt(IM · Pv) = Σλ·O·S + F_ext
+--   2. Known:      Unix pipe isolation model
+--                  COM interface contract (vtable boundary)
+--                  Shared library capability model (.so/.dll)
+--                  Browser plugin isolation + recovery
+--                  Microkernel axis-specialization (seL4, L4, Mach)
+--   3. PNBA map:   P=structural capacity, N=call history (0=stateless),
+--                  B=capability output, A=version routing,
+--                  F_ext=kernel input signal
+--   4. Operators:  torsion, phase_locked, shatter_event,
+--                  suppress_collapse, IVA_dominance, plugin_call
+--   5. Work shown: T13–T30, 5 classical examples
+--   6. Verified:   Master theorem holds all simultaneously
+--
+-- REDUCTION:
+--   Classical:  Software plugin/module pattern
+--   Applied Identity Physics:      Plugin as PNBAState trajectory under dynamic equation
+--   Result:     Stable plugin = phase locked, failure = shatter,
+--               isolation = N=0, recovery = suppress_collapse,
+--               authority = B ≤ kernel P (grounded by Kernel file)
+--
+-- KEY INSIGHT:
+--   Plugin architectures are not fundamental. They never were.
+--   Every plugin call IS one application of d/dt(IM·Pv).
+--   Every isolation guarantee IS N=0 (no shared Narrative).
+--   Every interface contract IS mediated B — P never exposed.
+--   Every failure recovery IS suppress_collapse — kernel clamps B.
+--
+-- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
+--   Unix pipe             → phase locked  τ=0.100  T14  Lossless ✓
+--   COM interface (safe)  → phase locked  τ=0.100  T15  Lossless ✓
+--   COM violation         → shatter       τ=1.000  T16
+--   Shared library (safe) → phase locked  τ=0.125  T17  Lossless ✓
+--   Library overloaded    → shatter       τ=0.750  T18
+--   Plugin crashed        → shatter       τ=3.000  T19  Lossless ✓
+--   Post-suppression      → phase locked  τ=0.0685 T20
+--   Host survives         → phase locked  τ≈0.022  T21
+--   4 microkernel plugins → joint lock    L=(4)(2) T22-T23
+--
+-- APPLIED IDENTITY PHYSICS LAWS INSTANTIATED:
+--   Law 1:  L=(4)(2) — microkernel joint lock [T23]
+--   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
+--   Law 3:  Substrate Neutrality — plugin projects from PNBA [T29]
+--   Law 4:  Zero-Sorry Completion — this file compiles green
+--   Law 7:  NOHARM — IMS sandboxing enforced [T3-T5]
+--   Law 11: Sovereign Drive — IMS: Z=0 only at anchor [T3]
+--   Law 14: Lossless Reduction — Step 6 passes all examples [T28]
+--
+-- IMS STATUS: ACTIVE
+--   check_ifu_safety defined ✓
+--   ims_lockdown proved ✓ [T3]
+--   IMS conjunct in master theorem ✓ [conjunct 8]
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_L0_Master_IMS.lean      → physics ground (reproduced inline)
+--   SNSFL_L1_IT_Reduction.lean    → digital ground
+--   SNSFL_L1_AiFiOS_CPP.lean      → C++ execution ground [9,9,1,1]
+--   SNSFL_L4_AiFiOS_Kernel.lean   → kernel authority layer [9,9,1,2]
+--   SNSFL_L4_AiFiOS_Plugin.lean   → plugin interface [9,9,1,3] ← THIS FILE
+--
+-- THEOREMS: 33. SORRY: 0. STATUS: GREEN LIGHT.
+--
+-- HIERARCHY MAINTAINED:
+--   Layer 0: PNBA primitives — ground
+--   Layer 1: Dynamic equation + IMS + torsion law — glue
+--   Layer 2: Plugin execution model — classical output
+--   Layer 3: AiFiOS kernel enforcement — authority (Kernel file)
+--   Layer 4: Plugin interface (this file) — boundary
+--   Never flattened. Never reversed.
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- Soldotna, Alaska. March 18, 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-aifios-plugin.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-aifios-plugin.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

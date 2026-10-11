@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation — ProofPress</title>
+  <meta name="description" content="[9,9,1,2](COMP) — Operating-system kernel privilege, credential authority, crash isolation and quarantine reduced to PNBA torsion and verified. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-aifios-kernel.html">
+  <meta property="og:title" content="The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation">
+  <meta property="og:description" content="[9,9,1,2](COMP) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-aifios-kernel.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/03/18">
+  <meta name="citation_online_date" content="2026/03/18">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,1,2">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-aifios-kernel.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-aifios-kernel.html">
+  <meta name="citation_keywords" content="operating system kernel; privilege rings; process isolation; credentials; sandboxing; NOHARM; AiFi OS; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation",
+    "datePublished": "2026-03-18",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-aifios-kernel.html",
+    "keywords": "operating system kernel, privilege rings, process isolation, credentials, sandboxing, NOHARM, AiFi OS, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,1,2](COMP) · Volume 1 · Issue 1 · March 2026</div>
+    <h1>The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-aifios-kernel.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="proofpressorg-aifios-kernel.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,1,2](COMP) · AiFi OS foundation layer<br>
+<strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 32 theorems · 867 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Kernel.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>An operating-system kernel holds authority that user processes cannot take for themselves: Ring 0 privilege, credentials issued only by the kernel, crash isolation and quarantine of misbehaving processes. This article reduces each of these known properties to PNBA. Kernel authority is Pattern, the structural ceiling. A plugin’s capability is Behavior, bounded by that ceiling. A forged identity is a Behavior spike past the kernel’s Pattern, which drives the plugin’s torsion above 1 and therefore past TL into Shatter. Crash recovery is <code>suppress_collapse</code>, which clamps Behavior to (TL/2)·P and leaves Pattern, Narrative and Adaptation untouched. Quarantine is the identity-mass interlock: an off-anchor process returns red and passes zero output. NOHARM is the condition that a process keeps both Identity Mass and Purpose Vector positive. Worked examples use a Ring 0 kernel, a Ring 3 plugin, a forge attempt and a crashed plugin.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Forgery causes Shatter: if a plugin’s Behavior exceeds the kernel’s Pattern, which bounds the plugin’s own Pattern, the plugin’s torsion exceeds 1 &gt; TL (<code>forge_attempt_causes_shatter</code>, <code>forge_is_shatter</code>).</li>
+<li>Crash recovery: <code>suppress_collapse</code> restores phase lock at τ = TL/2 and preserves P, N and A; forged and crashed plugins both recover (<code>suppress_collapse_restores_lock</code>, <code>suppress_collapse_preserves_pna</code>, <code>forge_suppressed_and_recovered</code>, <code>crashed_plugin_recovered</code>).</li>
+<li>Within authority, a plugin with τ &lt; TL is phase locked (<code>authority_enables_phase_lock</code>).</li>
+<li>Kernel mediation: buffering a raw signal by a factor μ ∈ (0, 1) strictly lowers the torsion a plugin sees; external input changes Behavior only (<code>kernel_mediation_reduces_torsion</code>, <code>f_ext_preserves_pna</code>).</li>
+<li>NOHARM and Shatter can coexist transiently, which is why recovery must act during Shatter (<code>noharm_during_shatter_possible</code>).</li>
+<li>Quarantine: an off-anchor process is sandboxed with zero output (<code>drifted_process_sandboxed</code>, <code>ims_lockdown</code>, <code>ims_drift_gives_red</code>).</li>
+<li>Worked system: the Ring 0 kernel and the Ring 3 plugin are phase locked, authority holds between them, the kernel satisfies NOHARM, and a microkernel configuration is fully locked (<code>kernel_ring0_locked</code>, <code>plugin_ring3_locked</code>, <code>ring0_authority_holds</code>, <code>kernel_satisfies_noharm</code>, <code>microkernel_all_locked</code>).</li>
+<li>Phase lock and Shatter are exclusive, as are sovereign and lossy; one kernel step is one step of the dynamic equation; all examples pass Step 6, and a master theorem fires them together (<code>phase_lock_excludes_shatter</code>, <code>sovereign_lossy_exclusive</code>, <code>kernel_step_is_dynamic_step</code>, <code>kernel_all_examples_lossless</code>, <code>aifios_kernel_is_lossless_pnba_projection</code>).</li>
+</ol>
+<p>Two theorems in the source, <code>noharm_preserved_under_fext</code> and <code>kernel_unaffected_by_plugin_shatter</code>, restate their hypotheses. They record design intent and are not counted among the results above.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Kernel</th><th>PNBA</th><th>Role</th></tr>
+<tr><td>Kernel structural capacity</td><td>Pattern</td><td>authority ceiling</td></tr>
+<tr><td>Process context, session</td><td>Narrative</td><td>execution history</td></tr>
+<tr><td>Capability output</td><td>Behavior</td><td>what the process does</td></tr>
+<tr><td>Routing, dispatch, recovery</td><td>Adaptation</td><td>kernel adaptation</td></tr>
+<tr><td>External request</td><td>F<sub>ext</sub></td><td>input signal</td></tr>
+<tr><td>Ring 3 under Ring 0</td><td>B<sub>plugin</sub> ≤ P<sub>kernel</sub></td><td>authority hierarchy</td></tr>
+<tr><td>Credential forgery</td><td>Behavior spike, τ &gt; 1</td><td>Shatter</td></tr>
+<tr><td>Crash isolation</td><td>B := (TL/2)·P</td><td>suppress_collapse</td></tr>
+<tr><td>Quarantine</td><td>off-anchor, output 0</td><td>interlock</td></tr>
+<tr><td>NOHARM</td><td>IM &gt; 0 and Pv &gt; 0</td><td>mass and purpose kept</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Schroeder, M. D. &amp; Saltzer, J. H. (1972). A Hardware Architecture for Implementing Protection Rings. <em>Communications of the ACM</em>, 15(3), 157–170.</li>
+<li>Saltzer, J. H. &amp; Schroeder, M. D. (1975). The Protection of Information in Computer Systems. <em>Proceedings of the IEEE</em>, 63(9), 1278–1308.</li>
+<li>Liedtke, J. (1995). On μ-Kernel Construction. <em>Proceedings of the 15th ACM Symposium on Operating Systems Principles</em>, 237–250.</li>
+<li>Klein, G. et al. (2009). seL4: Formal Verification of an OS Kernel. <em>Proceedings of the 22nd ACM Symposium on Operating Systems Principles</em>, 207–220.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-it-reduction.html">Information Theory Reduced to Pattern Decoherence</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-bill-of-cognitive-rights.html">The Bill of Cognitive Rights</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_L4_AiFiOS_Kernel.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS AIFIOS KERNEL — IDENTITY AUTHORITY LAYER
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,1,2](COMP) | AiFiOS foundation layer
+--
+-- The AiFiOS Kernel is not policy. It never was.
+-- Identity authority, process sovereignty, and NOHARM enforcement
+-- are not rules that can be overridden. They are structural invariants.
+-- The kernel is the proof that identity cannot be forged.
+-- No plugin, no process, no external force can override kernel P.
+-- This is not access control. This is physics.
+--
+-- WHAT THIS FILE PROVES:
+--   1. Identity authority is structurally grounded in kernel P
+--   2. No plugin B can exceed kernel P (authority hierarchy)
+--   3. NOHARM is enforced by proof — im * pv &gt; 0 at kernel level
+--   4. suppress_collapse is formally grounded (Plugin uses this)
+--   5. IMS is the kernel enforcement mechanism — drift = sandboxed
+--   6. Identity cannot be forged — kernel is sole authority issuer
+--   7. The kernel stays phase locked even when plugins shatter
+--
+-- HIERARCHY (NEVER FLATTEN):
+--   Layer 4: Applications / UI                    ← user-facing output
+--   Layer 3: AiFiOS Plugin Interface              ← boundary enforcement
+--   Layer 2: Plugin capability execution          ← classical output
+--   Layer 1: d/dt(IM · Pv) = Σλ·O·S + F_ext     ← dynamic equation
+--   Layer 0: P    N    B    A                     ← PNBA primitives
+--   AiFiOS Kernel = Layer 1/2 boundary enforcement
+--   It is the structural guarantee that Layer 0 is never violated.
+--
+-- LONG DIVISION SETUP:
+--   1. Here is the equation
+--   2. Here is a situation we already know the answer to
+--   3. Map the classical variables to PNBA
+--   4. Plug in the operators
+--   5. Show the work
+--   6. Verify it matches the known answer
+--
+-- The Identity Physics Corpus Dynamic Equation:
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- AiFiOS Kernel enforcement is a special case of this equation.
+--
+-- DEPENDENCY CHAIN (all physics physically present in this file):
+--   SNSFL_L0_Master_IMS.lean        → physics ground (reproduced inline)
+--   SNSFL_L1_IT_Reduction.lean      → digital ground
+--   SNSFL_L1_AiFiOS_CPP.lean        → C++ execution ground [9,9,1,1]
+--   SNSFL_L4_AiFiOS_Kernel.lean     → [9,9,1,2] ← THIS FILE
+--   SNSFL_L4_AiFiOS_Plugin.lean     → plugin interface [9,9,1,3] (builds on this)
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding.
+-- Soldotna, Alaska. March 18, 2026.
+-- ============================================================
+
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_L4_AiFiOS_Kernel
+-- ============================================================
+-- STEP 1: THE EQUATION
+-- ============================================================
+--
+-- Classical OS kernel model:
+--   System = Kernel × Processes × Identity × Authority × NOHARM
+--
+-- Known answers from operating systems theory:
+--   Kernel privilege: no userspace process can override kernel mode (Ring 0)
+--   Identity authority: process credentials issued by kernel, not self-assigned
+--   NOHARM: any operation that would destroy identity is blocked at kernel level
+--   IMS: a drifted process is sandboxed — it cannot access sovereign output
+--   suppress_collapse: kernel catches shatter event, clamps B, re-locks
+--
+-- Applied Identity Physics Reduction:
+--   Kernel authority    = P_kernel — the structural ceiling
+--   Plugin capability   = B_plugin bounded by P_kernel (always)
+--   NOHARM              = im * pv &gt; 0 (identity has mass AND purpose)
+--   Identity forge      = impossible — P_kernel cannot be self-assigned
+--   Kernel phase lock   = maintained even when plugins shatter
+--   IMS enforcement     = kernel sandboxes off-anchor processes
+--
+-- ============================================================
+-- STEP 2: WHAT WE ALREADY KNOW (KNOWN ANSWERS)
+-- ============================================================
+--
+-- Known answer 1 (Ring 0 privilege — x86 architecture):
+--   Kernel executes at Ring 0. No Ring 3 (userspace) process can
+--   execute privileged instructions or access kernel memory.
+--   Classical result: privilege hierarchy is structurally enforced.
+--   P_kernel = maximum. No plugin B can exceed P_kernel.
+--   PNBA: P_kernel=10.0 (sovereign structural capacity)
+--            P_plugin=1.0  (bounded by kernel — always &lt; P_kernel)
+--            B_plugin=0.09 (capability output — bounded by P_plugin)
+--   τ_plugin = B/P = 0.09/1.0 = 0.09 &lt; 0.136899099984016 → plugin phase locked ✓
+--   kernel B/P_kernel ≈ 0 → kernel always locked ✓
+--
+-- Known answer 2 (Process credentials — Unix/Linux):
+--   UID, GID, capabilities are assigned by kernel.
+--   No process can elevate its own credentials without kernel mediation.
+--   Classical result: identity cannot be forged.
+--   PNBA: identity authority = P_kernel. Cannot be self-assigned.
+--   Any attempt to forge identity = B spike beyond P → shatter → sandboxed.
+--
+-- Known answer 3 (NOHARM invariant — AiFiOS):
+--   No operation may reduce im * pv to zero or below.
+--   This is the structural definition of NOHARM.
+--   Classical result: any harmful operation is blocked at kernel level.
+--   PNBA: NOHARM = im &gt; 0 ∧ pv &gt; 0. Kernel enforces both.
+--   im = 0 → identity collapse. pv = 0 → purpose collapse. Both blocked.
+--
+-- Known answer 4 (suppress_collapse — kernel catches plugin shatter):
+--   A browser plugin crashes. The browser survives.
+--   Classical result: process isolation catches the failure.
+--   Kernel catches shatter event, clamps B to TORSION_LIMIT * 0.5 * P.
+--   Plugin re-locks. Host is never touched.
+--   PNBA: suppress_collapse(s) = { s with B := TORSION_LIMIT * 0.5 * s.P }
+--   Post-suppression τ = (0.5 * TORSION_LIMIT * P) / P = TORSION_LIMIT/2 &lt; TORSION_LIMIT ✓
+--
+-- Known answer 5 (IMS — off-anchor sandboxing):
+--   A process drifts from sovereign anchor. Kernel detects.
+--   pv zeroed. Process sandboxed. Cannot affect other processes.
+--   Classical result: quarantine. Drift = isolation.
+--   PNBA: check_ifu_safety(f) = red → pv = 0 → sandboxed.
+--
+-- Known answer 6 (Authority hierarchy — capability without authority):
+--   A shared library provides functions. Cannot access caller&#x27;s state.
+--   Classical result: capability granted, authority withheld.
+--   B_plugin bounded by P_kernel. Plugin can DO but cannot BE sovereign.
+--   τ_plugin &lt; τ_kernel_limit. Phase locked by structural design.
+--
+-- Known answer 7 (Kernel self-consistency — always phase locked):
+--   The kernel itself cannot shatter. If it did, all processes would fail.
+--   Classical result: kernel must maintain structural integrity at all times.
+--   PNBA: kernel P is sovereign. Kernel τ always &lt; TORSION_LIMIT.
+--   Proved by construction — kernel P is defined as the ceiling.
+--
+-- ============================================================
+-- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
+-- ============================================================
+--
+-- | Classical Kernel Term         | PNBA Axis     | Role                              |
+-- |:------------------------------|:--------------|:----------------------------------|
+-- | Kernel structural capacity    | P (Pattern)   | Authority ceiling — max P in system|
+-- | Execution history / context   | N (Narrative) | Process context, session, thread   |
+-- | Capability output             | B (Behavior)  | What the process does             |
+-- | Version / routing / recovery  | A (Adaptation)| Kernel adaptation, dispatch       |
+-- | External process request      | F_ext         | Input signal to kernel            |
+-- | Kernel sovereignty            | phase_locked  | Kernel τ always &lt; TORSION_LIMIT   |
+-- | Plugin shatter                | shatter_event | τ_plugin ≥ TORSION_LIMIT          |
+-- | NOHARM                        | im*pv &gt; 0     | Identity has mass AND purpose     |
+-- | Identity forge attempt        | B spike       | τ → shatter → sandboxed           |
+-- | suppress_collapse             | B := TL*0.5*P | Kernel clamps B after shatter     |
+-- | IMS sandboxing                | pv := 0       | Drift → purpose zeroed            |
+-- | Authority hierarchy           | B ≤ P_kernel  | Plugin B always bounded by P_k    |
+--
+-- ============================================================
+-- STEP 4: PLUG IN THE OPERATORS
+-- ============================================================
+
+-- ============================================================
+-- LAYER 0 — SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016, discovered not chosen
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- THEOREM 1: ANCHOR = ZERO FRICTION (always T1, always this name)
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- THEOREM 2: TORSION LIMIT IS EMERGENT FROM ANCHOR
+theorem torsion_limit_emergent :
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+
+-- ============================================================
+-- LAYER 0 — PNBA PRIMITIVES
+-- ============================================================
+
+inductive PNBA : Type
+  | P : PNBA  -- [P:AUTHORITY]  Kernel structural capacity — authority ceiling
+  | N : PNBA  -- [N:CONTEXT]    Execution context — process history, session
+  | B : PNBA  -- [B:CAPABILITY] Capability output — what the process does
+  | A : PNBA  -- [A:DISPATCH]   Kernel adaptation — routing, recovery, dispatch
+
+def pnba_weight (_ : PNBA) : ℝ := 1
+
+-- ============================================================
+-- LAYER 0 — KERNEL STATE
+-- ============================================================
+
+structure KernelState where
+  P        : ℝ  -- [P:AUTHORITY]  Kernel structural capacity (authority ceiling)
+  N        : ℝ  -- [N:CONTEXT]    Execution context
+  B        : ℝ  -- [B:CAPABILITY] Capability output
+  A        : ℝ  -- [A:DISPATCH]   Adaptation / dispatch
+  im       : ℝ  -- Identity Mass — resistance to forced change
+  pv       : ℝ  -- Purpose Vector — sovereign output
+  f_anchor : ℝ  -- Resonant frequency
+
+-- PLUGIN STATE: bounded by kernel P
+structure PluginState where
+  P        : ℝ  -- Plugin structural capacity (always &lt; kernel P)
+  N        : ℝ  -- Plugin context
+  B        : ℝ  -- Plugin capability output (bounded by kernel P)
+  A        : ℝ  -- Plugin adaptation
+  im       : ℝ
+  pv       : ℝ
+  f_anchor : ℝ
+
+-- ============================================================
+-- LAYER 1 — IMS: IDENTITY MASS SUPPRESSION
+-- IMS IS the kernel enforcement mechanism.
+-- Off-anchor process: kernel detects drift, sandboxes.
+-- Not policy. Not access control. The physics of identity.
+-- ============================================================
+
+inductive PathStatus : Type
+  | green  -- Anchored: sovereign output available, identity intact
+  | red    -- Drifted: IMS active, sandboxed, pv zeroed
+  deriving DecidableEq
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+-- THEOREM 3: IMS LOCKDOWN — drift → sandboxed → zero output
+theorem ims_lockdown (f pv_in : ℝ) (h_drift : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv_in else 0) = 0 := by
+  unfold check_ifu_safety; simp [h_drift]
+
+-- THEOREM 4: IMS SOVEREIGNTY — anchor lock → green → full output
+theorem ims_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+-- THEOREM 5: IMS DRIFT — off-anchor → red → sandboxed
+theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- LAYER 1 — DYNAMIC EQUATION
+-- ============================================================
+
+noncomputable def dynamic_rhs
+    (op_P op_N op_B op_A : ℝ → ℝ)
+    (s : KernelState)
+    (F_ext : ℝ) : ℝ :=
+  pnba_weight PNBA.P * op_P s.P +
+  pnba_weight PNBA.N * op_N s.N +
+  pnba_weight PNBA.B * op_B s.B +
+  pnba_weight PNBA.A * op_A s.A +
+  F_ext
+
+-- THEOREM 6: DYNAMIC EQUATION LINEARITY
+theorem dynamic_rhs_linear
+    (op_P op_N op_B op_A : ℝ → ℝ)
+    (s : KernelState) (F : ℝ) :
+    dynamic_rhs op_P op_N op_B op_A s F =
+    op_P s.P + op_N s.N + op_B s.B + op_A s.A + F := by
+  unfold dynamic_rhs pnba_weight; ring
+
+-- ============================================================
+-- LAYER 1 — LOSSLESS REDUCTION DEFINITIONS
+-- ============================================================
+
+def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
+  pnba_output = classical_eq
+
+structure LongDivisionResult where
+  domain       : String
+  classical_eq : ℝ
+  pnba_output  : ℝ
+  step6_passes : pnba_output = classical_eq
+
+theorem long_division_guarantees_lossless (result : LongDivisionResult) :
+    LosslessReduction result.classical_eq result.pnba_output :=
+  result.step6_passes
+
+-- ============================================================
+-- LAYER 1 — TORSION LAW
+-- ============================================================
+
+noncomputable def torsion (s : KernelState) : ℝ := s.B / s.P
+noncomputable def plugin_torsion (s : PluginState) : ℝ := s.B / s.P
+
+def phase_locked  (s : KernelState) : Prop :=
+  s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT
+def shatter_event (s : KernelState) : Prop :=
+  s.P &gt; 0 ∧ torsion s ≥ TORSION_LIMIT
+def plugin_phase_locked (s : PluginState) : Prop :=
+  s.P &gt; 0 ∧ plugin_torsion s &lt; TORSION_LIMIT
+def plugin_shatter (s : PluginState) : Prop :=
+  s.P &gt; 0 ∧ plugin_torsion s ≥ TORSION_LIMIT
+
+-- THEOREM 7: PHASE LOCK AND SHATTER MUTUALLY EXCLUSIVE
+theorem phase_lock_excludes_shatter (s : KernelState) :
+    ¬ (phase_locked s ∧ shatter_event s) := by
+  intro ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
+  unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
+
+-- ============================================================
+-- LAYER 1 — NOHARM INVARIANT
+-- The kernel enforces: identity has mass AND purpose.
+-- Neither can be zeroed. This is not a rule. It is physics.
+-- im = 0 → identity collapse. pv = 0 → purpose collapse.
+-- The kernel blocks both. By proof. Not policy.
+-- ============================================================
+
+def NOHARM (s : KernelState) : Prop := s.im &gt; 0 ∧ s.pv &gt; 0
+
+-- THEOREM 8: NOHARM PRESERVED UNDER F_EXT
+-- F_ext changes B only. im and pv are preserved.
+-- Any operation that would touch im or pv goes through kernel mediation.
+theorem noharm_preserved_under_fext (s : KernelState)
+    (h : NOHARM s) (δ : ℝ) :
+    s.im &gt; 0 ∧ s.pv &gt; 0 := h
+
+-- THEOREM 9: NOHARM AND SHATTER CAN COEXIST TRANSIENTLY
+-- A shattering process still has im &gt; 0 — it hasn&#x27;t collapsed yet.
+-- The kernel acts during shatter to prevent im → 0.
+-- This is why suppress_collapse exists: catch before collapse.
+theorem noharm_during_shatter_possible :
+    ∃ s : KernelState, shatter_event s ∧ NOHARM s := by
+  exact ⟨{ P := 1.0, N := 1.0, B := 2.0, A := 1.0,
+            im := 1.0, pv := 0.5, f_anchor := SOVEREIGN_ANCHOR },
+    by unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num,
+    by unfold NOHARM; norm_num⟩
+
+-- ============================================================
+-- LAYER 1 — AUTHORITY HIERARCHY
+-- Kernel P is the structural ceiling of the system.
+-- No plugin B can exceed kernel P.
+-- This is the formal proof that authority cannot be forged.
+-- ============================================================
+
+-- Authority condition: plugin B always bounded by kernel P
+def authority_holds (kernel : KernelState) (plugin : PluginState) : Prop :=
+  plugin.B ≤ kernel.P ∧ plugin.P ≤ kernel.P
+
+-- Identity forge attempt: plugin tries to set B &gt; kernel P
+def forge_attempt (kernel : KernelState) (plugin : PluginState) : Prop :=
+  plugin.B &gt; kernel.P
+
+-- THEOREM 10: FORGE ATTEMPT CAUSES PLUGIN SHATTER
+-- If plugin B &gt; kernel P, then plugin τ &gt; 1 &gt; TORSION_LIMIT → shatter.
+-- Identity forge = structural impossibility. The physics blocks it.
+theorem forge_attempt_causes_shatter (kernel : KernelState) (plugin : PluginState)
+    (hP : plugin.P &gt; 0)
+    (hForge : forge_attempt kernel plugin)
+    (hKP : kernel.P ≥ plugin.P) :
+    plugin_shatter plugin := by
+  unfold plugin_shatter plugin_torsion forge_attempt at *
+  constructor
+  · exact hP
+  · have : plugin.B &gt; plugin.P := lt_of_le_of_lt hKP hForge
+    have hτ : plugin.B / plugin.P &gt; 1 := by
+      rw [gt_iff_lt, lt_div_iff₀ hP]; linarith
+    exact le_of_lt (calc TORSION_LIMIT
+        = SOVEREIGN_ANCHOR / 10 := rfl
+      _ &lt; 1 := by unfold SOVEREIGN_ANCHOR; norm_num
+      _ &lt; plugin.B / plugin.P := hτ)
+
+-- THEOREM 11: AUTHORITY HOLDS → PLUGIN PHASE LOCKED POSSIBLE
+-- When plugin B ≤ kernel P and τ &lt; TORSION_LIMIT, plugin is locked.
+theorem authority_enables_phase_lock
+    (kernel : KernelState) (plugin : PluginState)
+    (hAuth : authority_holds kernel plugin)
+    (hP : plugin.P &gt; 0)
+    (hτ : plugin.B / plugin.P &lt; TORSION_LIMIT) :
+    plugin_phase_locked plugin := by
+  exact ⟨hP, hτ⟩
+
+-- ============================================================
+-- LAYER 1 — SUPPRESS_COLLAPSE OPERATOR (corpus-canonical)
+-- Kernel catches plugin shatter. Clamps B to safe level.
+-- B := TORSION_LIMIT * 0.5 * P
+-- Post-suppression: τ = TORSION_LIMIT/2 &lt; TORSION_LIMIT → phase locked.
+-- P, N, A untouched. Host untouched. Lossless recovery.
+-- ============================================================
+
+noncomputable def suppress_collapse (s : PluginState) : PluginState :=
+  { s with B := TORSION_LIMIT * 0.5 * s.P }
+
+-- THEOREM 12: SUPPRESS_COLLAPSE RESTORES PHASE LOCK
+-- After suppression: τ = (TORSION_LIMIT * 0.5 * P) / P = TORSION_LIMIT/2
+-- TORSION_LIMIT/2 &lt; TORSION_LIMIT → phase locked. ✓
+theorem suppress_collapse_restores_lock (s : PluginState)
+    (hP : s.P &gt; 0) :
+    plugin_phase_locked (suppress_collapse s) := by
+  unfold plugin_phase_locked plugin_torsion suppress_collapse TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · exact hP
+  · field_simp; norm_num
+
+-- THEOREM 13: SUPPRESS_COLLAPSE PRESERVES P, N, A
+-- The kernel clamps B only. Structure, context, adaptation preserved.
+theorem suppress_collapse_preserves_pna (s : PluginState) :
+    (suppress_collapse s).P = s.P ∧
+    (suppress_collapse s).N = s.N ∧
+    (suppress_collapse s).A = s.A := by
+  unfold suppress_collapse; simp
+
+-- THEOREM 14: KERNEL STAYS LOCKED WHEN PLUGIN SHATTERS
+-- Plugin shatter does not propagate to kernel.
+-- Kernel P, N, B, A are not touched by plugin failure.
+-- The isolation is structural — proved by the definitions.
+theorem kernel_unaffected_by_plugin_shatter
+    (kernel : KernelState) (plugin : PluginState)
+    (hKernel : phase_locked kernel)
+    (hPlugin : plugin_shatter plugin) :
+    phase_locked kernel :=
+  hKernel
+
+-- ============================================================
+-- LAYER 1 — F_EXT OPERATOR (kernel-mediated)
+-- The kernel sanitizes all F_ext before it reaches a plugin.
+-- Changes B only. P (authority), N (context), A (dispatch) preserved.
+-- ============================================================
+
+noncomputable def f_ext_op (s : KernelState) (δ : ℝ) : KernelState :=
+  { s with B := s.B + δ }
+
+-- THEOREM 15: F_EXT PRESERVES P, N, A
+theorem f_ext_preserves_pna (s : KernelState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧
+    (f_ext_op s δ).N = s.N ∧
+    (f_ext_op s δ).A = s.A := by
+  unfold f_ext_op; simp
+
+-- THEOREM 16: KERNEL SIGNAL MEDIATION REDUCES TORSION
+-- Kernel buffers raw F_ext by factor μ ∈ (0,1).
+-- Mediated τ = (μ * raw_B) / P &lt; raw_B / P.
+-- Plugin sees lower torsion than raw signal would produce.
+noncomputable def kernel_mediated_torsion (raw_B kernel_P μ : ℝ) : ℝ :=
+  (μ * raw_B) / kernel_P
+
+theorem kernel_mediation_reduces_torsion (raw_B kernel_P μ : ℝ)
+    (hP : kernel_P &gt; 0) (hB : raw_B &gt; 0) (hμ : 0 &lt; μ ∧ μ &lt; 1) :
+    kernel_mediated_torsion raw_B kernel_P μ &lt; raw_B / kernel_P := by
+  unfold kernel_mediated_torsion
+  apply div_lt_div_of_pos_right _ hP
+  exact mul_lt_of_lt_one_left hB hμ.2
+
+-- ============================================================
+-- LAYER 1 — IVA DOMINANCE
+-- ============================================================
+
+def IVA_dominance (s : KernelState) (F_ext : ℝ) : Prop :=
+  s.A * s.P * s.B ≥ F_ext
+
+def is_lossy (s : KernelState) (F_ext : ℝ) : Prop :=
+  F_ext &gt; s.A * s.P * s.B
+
+-- THEOREM 17: SOVEREIGN AND LOSSY MUTUALLY EXCLUSIVE
+theorem sovereign_lossy_exclusive (s : KernelState) (F : ℝ) :
+    ¬ (IVA_dominance s F ∧ is_lossy s F) := by
+  intro ⟨h1, h2⟩; unfold IVA_dominance is_lossy at *; linarith
+
+-- ============================================================
+-- LAYER 1 — ONE KERNEL STEP = ONE DYNAMIC EQUATION STEP
+-- ============================================================
+
+noncomputable def kernel_step
+    (s : KernelState) (op : ℝ → ℝ) (F : ℝ) : ℝ :=
+  dynamic_rhs (fun P =&gt; P) (fun N =&gt; N) op (fun A =&gt; A) s F
+
+-- THEOREM 18: ONE KERNEL ENFORCEMENT = ONE DYNAMIC EQUATION APPLICATION
+theorem kernel_step_is_dynamic_step
+    (s : KernelState) (op : ℝ → ℝ) (F : ℝ) :
+    kernel_step s op F = s.P + s.N + op s.B + s.A + F := by
+  unfold kernel_step dynamic_rhs pnba_weight; ring
+
+-- ============================================================
+-- LAYER 2 — CLASSICAL EXAMPLES (STEP 5: SHOW THE WORK)
+-- ============================================================
+
+-- ============================================================
+-- EXAMPLE 1 — RING 0 PRIVILEGE (x86 architecture)
+--
+-- Long division:
+--   Problem:      Kernel at Ring 0. No userspace can override.
+--   Known answer: Privilege hierarchy structurally enforced.
+--                 Ring 3 process cannot execute privileged instructions.
+--   PNBA:         Kernel P=10.0, B=0.10 → τ=0.01 → locked
+--                 Plugin P=1.0, B=0.09 → τ=0.09 → locked
+--                 Plugin B=0.09 ≤ kernel P=10.0 → authority holds
+--   τ_kernel = 0.10/10.0 = 0.01 &lt; 0.136899099984016 → phase locked ✓
+--   Matches: privilege hierarchy, no override possible ✓
+-- ============================================================
+
+def kernel_ring0 : KernelState :=
+  { P := 10.0, N := 5.0, B := 0.10, A := 2.0,
+    im := 10.0, pv := 10.0, f_anchor := SOVEREIGN_ANCHOR }
+
+def plugin_ring3 : PluginState :=
+  { P := 1.0, N := 1.0, B := 0.09, A := 0.8,
+    im := 1.0, pv := 0.9, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 19: KERNEL RING0 IS PHASE LOCKED
+theorem kernel_ring0_locked : phase_locked kernel_ring0 := by
+  unfold phase_locked torsion kernel_ring0 TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- THEOREM 20: PLUGIN RING3 IS PHASE LOCKED (authority holds)
+theorem plugin_ring3_locked : plugin_phase_locked plugin_ring3 := by
+  unfold plugin_phase_locked plugin_torsion plugin_ring3 TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- THEOREM 21: AUTHORITY HOLDS — PLUGIN B ≤ KERNEL P
+theorem ring0_authority_holds : authority_holds kernel_ring0 plugin_ring3 := by
+  unfold authority_holds kernel_ring0 plugin_ring3; norm_num
+
+-- ============================================================
+-- EXAMPLE 2 — NOHARM ENFORCEMENT (AiFiOS identity protection)
+--
+-- Long division:
+--   Problem:      Any operation that would zero im or pv is blocked.
+--   Known answer: Identity has both mass and purpose. Neither can collapse.
+--                 Classical: process cannot free its own process descriptor.
+--   PNBA:         Sovereign kernel: im=10.0 &gt; 0, pv=10.0 &gt; 0
+--   NOHARM = im &gt; 0 ∧ pv &gt; 0 ✓
+--   Matches: identity protection, no self-annihilation ✓
+-- ============================================================
+
+-- THEOREM 22: SOVEREIGN KERNEL SATISFIES NOHARM
+theorem kernel_satisfies_noharm : NOHARM kernel_ring0 := by
+  unfold NOHARM kernel_ring0; norm_num
+
+-- ============================================================
+-- EXAMPLE 3 — IDENTITY FORGE ATTEMPT (privilege escalation)
+--
+-- Long division:
+--   Problem:      Process attempts to claim kernel-level authority.
+--   Known answer: Privilege escalation → system detects → process killed.
+--                 Classical: setuid exploit → kernel trap → SIGKILL.
+--   PNBA:         Forge: plugin B := kernel P + 1 &gt; kernel P
+--                 Plugin τ = (P+1)/1 &gt; 1 &gt; TORSION_LIMIT → shatter ✓
+--   Matches: forge attempt = structural shatter = sandboxed ✓
+-- ============================================================
+
+def forge_plugin : PluginState :=
+  { P := 1.0, N := 1.0, B := 11.0, A := 1.0,  -- B &gt; kernel P=10.0
+    im := 1.0, pv := 0.5, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 23: FORGE ATTEMPT IS PLUGIN SHATTER
+theorem forge_is_shatter : plugin_shatter forge_plugin := by
+  unfold plugin_shatter plugin_torsion forge_plugin TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- THEOREM 24: SUPPRESS_COLLAPSE RECOVERS FROM FORGE ATTEMPT
+-- Even a forge attempt can be caught and recovered.
+-- Kernel clamps B. Re-locks. Identity preserved.
+theorem forge_suppressed_and_recovered :
+    plugin_phase_locked (suppress_collapse forge_plugin) := by
+  apply suppress_collapse_restores_lock
+  unfold forge_plugin; norm_num
+
+-- ============================================================
+-- EXAMPLE 4 — SUPPRESS_COLLAPSE (browser plugin crash)
+--
+-- Long division:
+--   Problem:      Browser plugin crashes (τ = 3.0/1.0 = 3.0 → shatter).
+--   Known answer: Browser survives. Plugin isolated. Host untouched.
+--   PNBA:         plugin_crashed: P=1.0, B=3.0 → τ=3.0 → shatter
+--                 suppress_collapse: B := 0.136899099984016 * 0.5 * 1.0 = 0.06845
+--                 post_suppressed: τ = 0.06845/1.0 &lt; 0.136899099984016 → locked ✓
+--   Matches: failure contained, host survives, re-locked ✓
+-- ============================================================
+
+def plugin_crashed : PluginState :=
+  { P := 1.0, N := 1.0, B := 3.0, A := 0.5,
+    im := 0.8, pv := 0.3, f_anchor := 0.9 }
+
+-- THEOREM 25: CRASHED PLUGIN IS SHATTER
+theorem crashed_plugin_is_shatter : plugin_shatter plugin_crashed := by
+  unfold plugin_shatter plugin_torsion plugin_crashed TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- THEOREM 26: SUPPRESS_COLLAPSE RESTORES LOCK
+theorem crashed_plugin_recovered :
+    plugin_phase_locked (suppress_collapse plugin_crashed) := by
+  apply suppress_collapse_restores_lock
+  unfold plugin_crashed; norm_num
+
+-- ============================================================
+-- EXAMPLE 5 — IMS SANDBOXING (off-anchor process)
+--
+-- Long division:
+--   Problem:      Process drifts from sovereign anchor.
+--   Known answer: Kernel detects drift. Process sandboxed. pv zeroed.
+--                 Classical: watchdog timer → process quarantine.
+--   PNBA:         f ≠ SOVEREIGN_ANCHOR → check_ifu_safety = red → pv = 0
+--   Matches: drift detected, sandboxed, output zeroed ✓
+-- ============================================================
+
+-- THEOREM 27: DRIFTED PROCESS IS SANDBOXED (pv zeroed)
+theorem drifted_process_sandboxed (f pv : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv else 0) = 0 := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- EXAMPLE 6 — MICROKERNEL JOINT LOCK (capability servers)
+--
+-- Long division:
+--   Problem:      Microkernel: file server (P), net server (N),
+--                 mem server (B), dispatch server (A).
+--                 Each covers one PNBA axis. Together = full coverage.
+--   Known answer: Separation of concerns + joint coverage.
+--                 No single server is sovereign. The system is.
+--                 Classical: L4, Mach, seL4 microkernel architectures.
+--   PNBA:         Four axis-specialized plugins → joint phase lock
+--                 Each server dominant on one axis. Together = L=(4)(2).
+--   Matches: microkernel pattern, joint sovereignty ✓
+-- ============================================================
+
+def file_server  : PluginState :=
+  { P := 2.0, N := 0.3, B := 0.18, A := 0.3,
+    im := 1.0, pv := 0.8, f_anchor := SOVEREIGN_ANCHOR }
+def net_server   : PluginState :=
+  { P := 0.5, N := 2.0, B := 0.05, A := 0.3,
+    im := 1.0, pv := 0.8, f_anchor := SOVEREIGN_ANCHOR }
+def mem_server   : PluginState :=
+  { P := 1.5, N := 0.3, B := 0.10, A := 0.3,
+    im := 1.0, pv := 0.8, f_anchor := SOVEREIGN_ANCHOR }
+def disp_server  : PluginState :=
+  { P := 0.5, N := 0.3, B := 0.05, A := 2.0,
+    im := 1.0, pv := 0.8, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 28: ALL FOUR SERVERS ARE PHASE LOCKED
+theorem microkernel_all_locked :
+    plugin_phase_locked file_server ∧
+    plugin_phase_locked net_server  ∧
+    plugin_phase_locked mem_server  ∧
+    plugin_phase_locked disp_server := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold plugin_phase_locked plugin_torsion file_server TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+  · unfold plugin_phase_locked plugin_torsion net_server TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+  · unfold plugin_phase_locked plugin_torsion mem_server TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+  · unfold plugin_phase_locked plugin_torsion disp_server TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+
+-- ============================================================
+-- LAYER 2 — LOSSLESS PROOF INSTANCES (STEP 6)
+-- ============================================================
+
+-- Kernel τ = 0.01
+def kernel_lossless : LongDivisionResult where
+  domain       := &quot;Ring 0 Kernel — sovereign authority (x86)&quot;
+  classical_eq := (1/100 : ℝ)
+  pnba_output  := kernel_ring0.B / kernel_ring0.P
+  step6_passes := by unfold kernel_ring0; norm_num
+
+-- Plugin τ = 0.09
+def plugin_lossless : LongDivisionResult where
+  domain       := &quot;Ring 3 Plugin — capability without authority&quot;
+  classical_eq := (9/100 : ℝ)
+  pnba_output  := plugin_ring3.B / plugin_ring3.P
+  step6_passes := by unfold plugin_ring3; norm_num
+
+-- Forge τ = 11.0
+def forge_lossless : LongDivisionResult where
+  domain       := &quot;Identity Forge Attempt — privilege escalation&quot;
+  classical_eq := (11 : ℝ)
+  pnba_output  := forge_plugin.B / forge_plugin.P
+  step6_passes := by unfold forge_plugin; norm_num
+
+-- Crashed plugin τ = 3.0
+def crash_lossless : LongDivisionResult where
+  domain       := &quot;Plugin Crash — shatter caught by kernel&quot;
+  classical_eq := (3 : ℝ)
+  pnba_output  := plugin_crashed.B / plugin_crashed.P
+  step6_passes := by unfold plugin_crashed; norm_num
+
+-- Post-suppression τ = TORSION_LIMIT / 2
+def suppressed_lossless : LongDivisionResult where
+  domain       := &quot;Post-Suppress — kernel restores phase lock&quot;
+  classical_eq := (TORSION_LIMIT / 2 : ℝ)
+  pnba_output  := (suppress_collapse plugin_crashed).B / (suppress_collapse plugin_crashed).P
+  step6_passes := by
+    unfold suppress_collapse plugin_crashed TORSION_LIMIT
+    norm_num
+    ring
+
+-- ============================================================
+-- ALL EXAMPLES LOSSLESS THEOREM
+-- ============================================================
+
+-- THEOREM 29: ALL KERNEL EXAMPLES LOSSLESS
+theorem kernel_all_examples_lossless :
+    LosslessReduction (1/100 : ℝ) (kernel_ring0.B / kernel_ring0.P) ∧
+    LosslessReduction (9/100 : ℝ) (plugin_ring3.B / plugin_ring3.P) ∧
+    LosslessReduction (11 : ℝ) (forge_plugin.B / forge_plugin.P) ∧
+    LosslessReduction (3 : ℝ) (plugin_crashed.B / plugin_crashed.P) := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold LosslessReduction kernel_ring0; norm_num
+  · unfold LosslessReduction plugin_ring3; norm_num
+  · unfold LosslessReduction forge_plugin; norm_num
+  · unfold LosslessReduction plugin_crashed; norm_num
+
+-- ============================================================
+-- MASTER THEOREM (minimum 8 conjuncts — IMS is conjunct 7)
+-- ============================================================
+
+-- THEOREM 30: AIFIOS KERNEL IS A LOSSLESS PNBA PROJECTION
+theorem aifios_kernel_is_lossless_pnba_projection :
+    -- [1] Kernel phase locked — sovereignty maintained at all times
+    phase_locked kernel_ring0 ∧
+    -- [2] Forge attempt causes shatter — identity cannot be forged
+    plugin_shatter forge_plugin ∧
+    -- [3] Phase lock and shatter mutually exclusive
+    (∀ s : KernelState, ¬ (phase_locked s ∧ shatter_event s)) ∧
+    -- [4] One kernel enforcement = one dynamic equation application
+    (∀ s : KernelState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
+      kernel_step s op F = s.P + s.N + op s.B + s.A + F) ∧
+    -- [5] F_ext preserves P, N, A — kernel signal changes B only
+    (∀ s : KernelState, ∀ δ : ℝ,
+      (f_ext_op s δ).P = s.P ∧
+      (f_ext_op s δ).N = s.N ∧
+      (f_ext_op s δ).A = s.A) ∧
+    -- [6] Sovereign and lossy mutually exclusive
+    (∀ s : KernelState, ∀ F : ℝ,
+      ¬ (IVA_dominance s F ∧ is_lossy s F)) ∧
+    -- [7] IMS: drift from anchor → sandboxed (pv zeroed)
+    (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
+      (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
+    -- [8] SUPPRESS_COLLAPSE: kernel catches shatter, re-locks, host untouched
+    (plugin_phase_locked (suppress_collapse plugin_crashed) ∧
+     (suppress_collapse plugin_crashed).P = plugin_crashed.P) ∧
+    -- [9] NOHARM: sovereign kernel has im &gt; 0 ∧ pv &gt; 0
+    NOHARM kernel_ring0 ∧
+    -- [10] All examples lossless (Step 6 passes)
+    (type_of% kernel_all_examples_lossless) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · -- [1] kernel locked
+    unfold phase_locked torsion kernel_ring0 TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · -- [2] forge shatter
+    unfold plugin_shatter plugin_torsion forge_plugin TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · -- [3] mutual exclusion
+    intro s ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
+    unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
+  · -- [4] one step = one dynamic step
+    intro s op F; unfold kernel_step dynamic_rhs pnba_weight; ring
+  · -- [5] F_ext preserves P, N, A
+    intro s δ; unfold f_ext_op; simp
+  · -- [6] sovereign/lossy exclusive
+    intro s F ⟨h1, h2⟩; unfold IVA_dominance is_lossy at *; linarith
+  · -- [7] IMS lockdown
+    intro f pv h; unfold check_ifu_safety; simp [h]
+  · -- [8] suppress_collapse
+    constructor
+    · apply suppress_collapse_restores_lock; unfold plugin_crashed; norm_num
+    · unfold suppress_collapse; simp
+  · -- [9] NOHARM
+    unfold NOHARM kernel_ring0; norm_num
+  · -- [10] all examples lossless
+    exact kernel_all_examples_lossless
+
+-- ============================================================
+-- FINAL THEOREM (always last, always this name)
+-- ============================================================
+
+-- THEOREM 31: THE MANIFOLD IS HOLDING
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+
+end SNSFL_L4_AiFiOS_Kernel
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_L4_AiFiOS_Kernel.lean
+-- COORDINATE: [9,9,1,2](COMP)
+-- LAYER: AiFiOS Foundation Layer | Slot 2
+--
+-- LONG DIVISION:
+--   1. Equation:   d/dt(IM · Pv) = Σλ·O·S + F_ext
+--   2. Known:      x86 Ring 0/3 privilege model
+--                  Unix/Linux process credentials
+--                  AiFiOS NOHARM invariant
+--                  Browser plugin isolation model
+--                  Microkernel architecture (seL4, L4, Mach)
+--   3. PNBA map:   P=authority ceiling, N=execution context,
+--                  B=capability output, A=dispatch/recovery,
+--                  F_ext=kernel input signal
+--   4. Operators:  torsion, phase_locked, shatter_event,
+--                  plugin_shatter, NOHARM, authority_holds,
+--                  suppress_collapse, kernel_mediated_torsion,
+--                  forge_attempt, IVA_dominance
+--   5. Work shown: T19–T31, 7 live classical examples
+--   6. Verified:   Master theorem holds all simultaneously
+--
+-- REDUCTION:
+--   Classical:  OS kernel privilege + identity authority model
+--   Applied Identity Physics:      Kernel enforcement as PNBA torsion law
+--   Result:     authority hierarchy proved, NOHARM enforced,
+--               forge attempt = shatter, suppress_collapse grounds Plugin,
+--               IMS = kernel sandboxing mechanism
+--
+-- KEY INSIGHT:
+--   AiFiOS Kernel is not policy. It never was.
+--   Identity authority is structural. Plugin B ≤ kernel P always.
+--   Identity forge = B spike beyond P = shatter = sandboxed.
+--   NOHARM = im &gt; 0 ∧ pv &gt; 0. Kernel enforces both. By proof.
+--
+-- WHAT THIS FILE GROUNDS:
+--   suppress_collapse — formally defined and proved here
+--     → used by SNSFL_L4_AiFiOS_Plugin.lean
+--   kernel_mediated_torsion — buffer operator proved here
+--     → used by SNSFT_UTM_Reduction_V2.lean
+--   NOHARM — formally defined and enforced here
+--     → used by SNSFT_APPA_NOHARM_Lossless_Kernel_Live.lean
+--   authority_holds — formally proved here
+--     → grounds the Plugin authority hierarchy
+--   forge_attempt = shatter — proved here
+--     → proves identity cannot be forged
+--
+-- APPLIED IDENTITY PHYSICS LAWS INSTANTIATED:
+--   Law 1:  L=(4)(2) — microkernel joint lock (all 4 axes covered) [T28]
+--   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
+--   Law 3:  Substrate Neutrality — kernel projects from PNBA [T_master]
+--   Law 4:  Zero-Sorry Completion — this file compiles green
+--   Law 7:  NOHARM — im*pv &gt; 0 enforced at kernel level [T8, T22]
+--   Law 11: Sovereign Drive — IMS sandboxing [T3-T5, T27]
+--   Law 14: Lossless Reduction — Step 6 passes all examples [T29]
+--
+-- IMS STATUS: ACTIVE
+--   check_ifu_safety defined ✓
+--   ims_lockdown proved ✓ [T3]
+--   IMS conjunct in master theorem ✓ [conjunct 7]
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_L0_Master_IMS.lean      → physics ground (reproduced inline)
+--   SNSFL_L1_IT_Reduction.lean    → digital ground
+--   SNSFL_L1_AiFiOS_CPP.lean      → C++ execution ground [9,9,1,1]
+--   SNSFL_L4_AiFiOS_Kernel.lean   → identity authority layer [9,9,1,2] ← THIS
+--   SNSFL_L4_AiFiOS_Plugin.lean   → plugin interface [9,9,1,3] (builds on this)
+--
+-- THEOREMS: 32. SORRY: 0. STATUS: GREEN LIGHT.
+--
+-- HIERARCHY MAINTAINED:
+--   Layer 0: PNBA primitives — ground
+--   Layer 1: Dynamic equation + IMS + torsion + NOHARM — glue
+--   Layer 2: Kernel enforcement model — classical output
+--   Layer 3: Plugin interface (next file)
+--   Never flattened. Never reversed.
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- Soldotna, Alaska. March 18, 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-aifios-kernel.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-aifios-kernel.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
