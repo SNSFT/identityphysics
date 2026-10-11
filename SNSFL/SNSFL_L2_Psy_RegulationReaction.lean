@@ -182,12 +182,14 @@ theorem no_score_is_both_PF_and_PL (score : ℕ) :
 -- LEMMA: A PL SCORE IS BELOW 24
 lemma band_L_lt (a : ℕ) (h : score_to_band a = PNBAMode.L) : a < 24 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 <;> first | omega | cases h
+  split_ifs at h
+  omega
 
 -- LEMMA: A PF SCORE IS AT LEAST 38
 lemma band_F_ge (b : ℕ) (h : score_to_band b = PNBAMode.F) : b ≥ 38 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 <;> first | omega | cases h
+  split_ifs at h
+  omega
 
 -- THEOREM 8b: PF AND PL ARE SEPARATED BY THE WHOLE PS BAND
 -- Two separate gears. Any PL score sits at least 15 points below any PF score,
