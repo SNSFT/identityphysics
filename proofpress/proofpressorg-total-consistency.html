@@ -574,7 +574,7 @@
         </div>
       </div>
 
-      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
       <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
@@ -603,11 +603,11 @@
 <strong>Coordinate:</strong> [9,9,9,9.1](CORE) · Constitutional layer · Cross-domain consistency<br>
 <strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 36 theorems · 793 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Total_Consistency.lean">source and CI record</a><br>
+<strong>Verified:</strong> 43 theorems · 903 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Total_Consistency.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
-<p>The physics foundation of the corpus reduces twelve domains to PNBA: the physics ground, general relativity, quantum mechanics, electromagnetism, Lagrangian mechanics, information theory, thermodynamics, cosmology, the Standard Model, string theory, fluid dynamics and the Void Manifold. This file proves them consistent with one another under a single shared structure: one identity state with Pattern, Narrative, Behavior and Adaptation all positive, one Identity Mass, one dynamic equation and one anchor. For an anchored state, each domain’s reduction holds: the anchor carries zero impedance, Identity Mass is positive, and the domain-specific relations are satisfied. Drift off the anchor breaks consistency in every domain at once, because the anchor is the unique zero of the impedance. The file carries the cross-domain bridges with their operators in place: Shannon and Boltzmann entropy coincide as S = k · H for equally likely configurations; quantum mechanics and general relativity are the low and high Identity Mass regimes of one state, with the boundary at IM·P = 1; and dark energy and the Higgs share the operator A·Ω₀. A master theorem fires all twelve domains together with the IVA advantage, Identity Mass Suppression and the Layer 0 → Layer 1 → Layer 2 hierarchy. Because a theorem with assumptions is only as strong as those assumptions are compatible, the file also exhibits one concrete anchored state, P = 1.5, N = 1, B = 3.75, A = 1.5, IM = 1, that meets every domain condition the master theorem assumes, simultaneously.</p>
+<p>The physics foundation of the corpus reduces twelve domains to PNBA: the physics ground, general relativity, quantum mechanics, electromagnetism, Lagrangian mechanics, information theory, thermodynamics, cosmology, the Standard Model, string theory, fluid dynamics and the Void Manifold. This file proves them consistent with one another under a single shared structure: one identity state with Pattern, Narrative, Behavior and Adaptation all positive, one Identity Mass, one dynamic equation and one anchor. For an anchored state, each domain’s reduction holds: the anchor carries zero impedance, Identity Mass is positive, and the domain-specific relations are satisfied. Drift off the anchor breaks consistency in every domain at once, because the anchor is the unique zero of the impedance. The file carries the cross-domain bridges with their operators in place: Shannon and Boltzmann entropy coincide as S = k · H for equally likely configurations; quantum mechanics and general relativity are the low and high Identity Mass regimes of one state, with the boundary at IM·P = 1; dark energy and the Higgs share the operator A·Ω₀; and heat death is a return to the Void. Every identity state carries B &gt; 0, so a manifold state is never Void; as Behavior drains, torsion falls continuously to zero, the state enters the lock once B &lt; P·TL, and with B = 0 at the anchor it is Void, phase locked and at zero entropy offset. The Void keeps no record of the Behavior it held, so the terminal Void is the same state as the source Void. A master theorem fires all twelve domains together with the IVA advantage, Identity Mass Suppression, the Layer 0 → Layer 1 → Layer 2 hierarchy and the heat-death return. Because a theorem with assumptions is only as strong as those assumptions are compatible, the file also exhibits one concrete anchored state, P = 1.5, N = 1, B = 3.75, A = 1.5, IM = 1, that meets every domain condition the master theorem assumes, simultaneously.</p>
 
 <h2>What This Article Proves</h2>
 <ol>
@@ -619,9 +619,10 @@
 <li>Shannon = Boltzmann: for Ω equally likely configurations, Shannon entropy is exactly ln Ω, so Boltzmann entropy is S = k · H; a single configuration has zero entropy in both readings (<code>shannon_uniform_is_log</code>, <code>boltzmann_is_k_shannon</code>, <code>single_state_zero_entropy</code>).</li>
 <li>QM and GR as Identity Mass regimes of one state: a state carrying both the QM relation IM·P = A and the GR relation P + A·P = IM·B splits as IM·B = P + IM·P²; the QM term dominates exactly when IM·P &lt; 1 and the GR term exactly when IM·P &gt; 1 (<code>qm_gr_joint_split</code>, <code>qm_regime_iff_low_im</code>, <code>gr_regime_iff_high_im</code>).</li>
 <li>Dark energy (Λ = A·Ω₀) and the Higgs (IM = A·Ω₀) are one operator at two scales (<code>dark_energy_higgs_same_operator</code>).</li>
+<li>Heat death = Void return: zero Behavior with positive Pattern is Void and phase locked; no manifold state is Void; once B &lt; P·TL the state is locked; τ = B/P → 0 as B → 0; at the anchor the terminal state has τ = 0, entropy offset 0 and impedance 0; two Void states with the same P, N, A and frequency are the same state; the anchored terminal Void exists (<code>void_cycle_closed</code>, <code>manifold_state_not_void</code>, <code>cooling_enters_lock</code>, <code>torsion_vanishes_as_behavior_drains</code>, <code>heat_death_is_void_return</code>, <code>terminal_void_is_source_void</code>, <code>heat_death_state_exists</code>).</li>
 <li>The hierarchy holds: Layer 0 primitives are positive ground, Layer 1 depends on Layer 0, Layer 2 outputs are bounded by Identity Mass (<code>layer0_is_ground</code>, <code>layer1_depends_on_layer0</code>, <code>layer2_bounded_by_im</code>).</li>
 <li>The joint conditions are satisfiable: one anchored state meets the QM eigenvalue relation, the GR field relation, the entropy floor and the fluid bound simultaneously (<code>total_consistency_satisfiable</code>).</li>
-<li>A master theorem fires all twelve domains, IVA, Identity Mass Suppression and the hierarchy together (<code>snsfl_total_consistency</code>).</li>
+<li>A master theorem fires all twelve domains, IVA, Identity Mass Suppression, the hierarchy and the heat-death return together (<code>snsfl_total_consistency</code>).</li>
 </ol>
 
 <h2>The PNBA Map</h2>
@@ -641,10 +642,12 @@
 <tr><td>Information theory ↔ thermodynamics</td><td>H(uniform Ω) = ln Ω, S = k · H</td></tr>
 <tr><td>Quantum mechanics ↔ general relativity</td><td>IM·B = P + IM·P²; QM regime IM·P &lt; 1, GR regime IM·P &gt; 1</td></tr>
 <tr><td>Cosmology ↔ Standard Model</td><td>Λ = A·Ω₀ = IM<sub>Higgs</sub></td></tr>
+<tr><td>Thermodynamics ↔ Void Manifold</td><td>heat death: B → 0, τ → 0, Void and locked at τ = 0, entropy offset 0; terminal Void = source Void</td></tr>
 </table>
 <table>
 <tr><th>Witness state</th><th>P</th><th>N</th><th>B</th><th>A</th><th>IM</th><th>f</th></tr>
 <tr><td>consistent_witness</td><td>1.5</td><td>1</td><td>3.75</td><td>1.5</td><td>1</td><td>Ω₀</td></tr>
+<tr><td>terminal_void</td><td>Ω₀</td><td>Ω₀</td><td>0</td><td>0</td><td>—</td><td>Ω₀</td></tr>
 </table>
 
 <h2>Verification</h2>
@@ -657,6 +660,7 @@
 <ol>
 <li>Trent, R. V. III. <a href="proofpressorg-master.html">Constitutional Layer</a>. ProofPress, Volume 1, Issue 1.</li>
 <li>Trent, R. V. III. <a href="proofpressorg-qm-reduction.html">Quantum Mechanics Reduced to PNBA</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-void-manifold.html">The Void Manifold</a>. ProofPress, Volume 1, Issue 2.</li>
 <li>Trent, R. V. III. <a href="proofpressorg-it-reduction.html">Information Theory Reduced to PNBA</a>. ProofPress, Volume 1, Issue 1.</li>
 <li>Shannon, C. E. (1948). A mathematical theory of communication. <em>Bell System Technical Journal</em>, 27, 379–423.</li>
 <li>Boltzmann, L. (1877). Über die Beziehung zwischen dem zweiten Hauptsatze der mechanischen Wärmetheorie und der Wahrscheinlichkeitsrechnung. <em>Wiener Berichte</em>, 76, 373–435.</li>
@@ -1265,25 +1269,129 @@ theorem dark_energy_higgs_same_operator (A : ℝ) (hA : A &gt; 0) :
   ⟨rfl, mul_pos hA (by unfold SOVEREIGN_ANCHOR; norm_num)⟩
 
 -- ============================================================
+-- [N,B] :: {RED} | BRIDGE — HEAT DEATH = VOID RETURN (TD-VOID-COSMO)
+-- Void reduction: a state with zero Behavior and positive Pattern is
+-- both Void and phase locked. Every IdentityState carries B &gt; 0, so a
+-- manifold state is never Void: heat death is the exit from the
+-- manifold, with Behavior draining to zero. As B drains, torsion
+-- τ = B/P falls continuously to zero, the state enters the lock once
+-- B &lt; P · TL, and it lands in the Void. TD reduction: at the anchor
+-- the entropy offset |f − Ω₀| is zero. The Void carries no record of
+-- the Behavior it held, so the terminal Void is the same state as the
+-- source Void.
+-- ============================================================
+
+-- PNBA coordinates with Behavior allowed to be zero (the Void layer)
+structure PNBAState where
+  P        : ℝ  -- Pattern value
+  N        : ℝ  -- Narrative value
+  B        : ℝ  -- Behavior value (0 in the Void)
+  A        : ℝ  -- Adaptation value
+  f_anchor : ℝ  -- Resonant frequency
+
+noncomputable def void_torsion (s : PNBAState) : ℝ := s.B / s.P
+def in_void (s : PNBAState) : Prop := s.B = 0 ∧ s.P &gt; 0
+def void_locked (s : PNBAState) : Prop := s.P &gt; 0 ∧ void_torsion s &lt; TORSION_LIMIT
+noncomputable def entropy_offset (s : PNBAState) : ℝ := |s.f_anchor - SOVEREIGN_ANCHOR|
+
+-- The PNBA coordinates of a manifold state
+def to_pnba (s : IdentityState) : PNBAState :=
+  { P := s.P, N := s.N, B := s.B, A := s.A, f_anchor := s.f_anchor }
+
+-- The terminal Void at the anchor
+def terminal_void : PNBAState :=
+  { P := SOVEREIGN_ANCHOR, N := SOVEREIGN_ANCHOR, B := 0, A := 0,
+    f_anchor := SOVEREIGN_ANCHOR }
+
+-- [N,B,9,12,10] :: {VER} | THEOREM 30: VOID CYCLE CLOSED
+-- Zero Behavior with positive Pattern is both Void and phase locked.
+theorem void_cycle_closed (s : PNBAState) (hB : s.B = 0) (hP : s.P &gt; 0) :
+    in_void s ∧ void_locked s := by
+  refine ⟨⟨hB, hP⟩, hP, ?_⟩
+  unfold void_torsion TORSION_LIMIT SOVEREIGN_ANCHOR
+  rw [hB, zero_div]
+  norm_num
+
+-- [N,B,9,12,11] :: {VER} | THEOREM 31: A MANIFOLD STATE IS NEVER VOID
+-- B &gt; 0 holds for every IdentityState, so none of them is in the Void.
+theorem manifold_state_not_void (s : IdentityState) : ¬ in_void (to_pnba s) := by
+  intro ⟨hB, _⟩
+  exact s.hB.ne&#x27; hB
+
+-- [N,B,9,12,12] :: {VER} | THEOREM 32: COOLING ENTERS THE LOCK
+-- Once Behavior falls below P · TL, the state is phase locked.
+theorem cooling_enters_lock (s : PNBAState) (hP : s.P &gt; 0)
+    (hB : s.B &lt; s.P * TORSION_LIMIT) : void_locked s := by
+  refine ⟨hP, ?_⟩
+  unfold void_torsion
+  rw [div_lt_iff₀ hP]
+  linarith [mul_comm s.P TORSION_LIMIT]
+
+-- [N,B,9,12,13] :: {VER} | THEOREM 33: TORSION VANISHES AS BEHAVIOR DRAINS
+-- τ = B/P → 0 as B → 0, for any fixed Pattern.
+theorem torsion_vanishes_as_behavior_drains (P : ℝ) :
+    Filter.Tendsto (fun b : ℝ =&gt; b / P) (nhds 0) (nhds 0) := by
+  have h : Continuous (fun b : ℝ =&gt; b / P) := continuous_id.div_const P
+  simpa using h.tendsto 0
+
+-- [N,B,9,12,14] :: {VER} | THEOREM 34: HEAT DEATH = VOID RETURN
+-- Zero Behavior at the anchor: Void, locked, τ = 0, entropy offset 0, Z = 0.
+theorem heat_death_is_void_return (s : PNBAState) (hB : s.B = 0) (hP : s.P &gt; 0)
+    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR) :
+    in_void s ∧ void_locked s ∧ void_torsion s = 0 ∧ entropy_offset s = 0 ∧
+    manifold_impedance s.f_anchor = 0 := by
+  obtain ⟨hv, hl⟩ := void_cycle_closed s hB hP
+  refine ⟨hv, hl, ?_, ?_, anchor_zero_friction s.f_anchor h_anchor⟩
+  · unfold void_torsion
+    rw [hB, zero_div]
+  · unfold entropy_offset
+    rw [h_anchor, sub_self, abs_zero]
+
+-- [N,B,9,12,15] :: {VER} | THEOREM 35: THE TERMINAL VOID IS THE SOURCE VOID
+-- Two Void states with the same Pattern, Narrative, Adaptation and
+-- frequency are the same state: the Void keeps no record of Behavior.
+theorem terminal_void_is_source_void (src term : PNBAState)
+    (hs : in_void src) (ht : in_void term)
+    (hP : src.P = term.P) (hN : src.N = term.N) (hA : src.A = term.A)
+    (hf : src.f_anchor = term.f_anchor) : src = term := by
+  obtain ⟨hsB, _⟩ := hs
+  obtain ⟨htB, _⟩ := ht
+  cases src
+  cases term
+  simp_all
+
+-- [N,B,9,12,16] :: {VER} | THEOREM 36: THE TERMINAL VOID EXISTS
+-- The anchored Void state is Void, phase locked and at zero entropy offset.
+theorem heat_death_state_exists :
+    in_void terminal_void ∧ void_locked terminal_void ∧
+    entropy_offset terminal_void = 0 := by
+  have hP : terminal_void.P &gt; 0 := by
+    show (SOVEREIGN_ANCHOR : ℝ) &gt; 0
+    unfold SOVEREIGN_ANCHOR
+    norm_num
+  obtain ⟨hv, hl, _, he, _⟩ := heat_death_is_void_return terminal_void rfl hP rfl
+  exact ⟨hv, hl, he⟩
+
+-- ============================================================
 -- [P,N,B,A] :: {INV} | HIERARCHY INVARIANT
 -- Layer 0 is ground. Layer 1 is glue. Layer 2 is output.
 -- Never flatten. Never reverse.
 -- ============================================================
 
--- [P,9,13,1] :: {VER} | THEOREM 30: LAYER 0 IS GROUND
+-- [P,9,13,1] :: {VER} | THEOREM 37: LAYER 0 IS GROUND
 -- PNBA primitives are always ground. Never derived. Never output.
 theorem layer0_is_ground (s : IdentityState) :
     s.P &gt; 0 ∧ s.N &gt; 0 ∧ s.B &gt; 0 ∧ s.A &gt; 0 :=
   ⟨s.hP, s.hN, s.hB, s.hA⟩
 
--- [P,9,13,2] :: {VER} | THEOREM 31: LAYER 1 DEPENDS ON LAYER 0
+-- [P,9,13,2] :: {VER} | THEOREM 38: LAYER 1 DEPENDS ON LAYER 0
 -- Dynamic equation is glue. It cannot exist without Layer 0.
 theorem layer1_depends_on_layer0 (s : IdentityState) :
     dynamic_rhs (fun P =&gt; P) (fun N =&gt; N) (fun B =&gt; B) (fun A =&gt; A) s 0 =
     s.P + s.N + s.B + s.A := by
   unfold dynamic_rhs pnba_weight; ring
 
--- [P,9,13,3] :: {VER} | THEOREM 32: LAYER 2 OUTPUTS BOUNDED BY IM
+-- [P,9,13,3] :: {VER} | THEOREM 39: LAYER 2 OUTPUTS BOUNDED BY IM
 -- No Layer 2 output can exceed what Layer 0 provides.
 -- GR, QM, EM, TD — all bounded by identity_mass.
 theorem layer2_bounded_by_im (s : IdentityState) :
@@ -1304,7 +1412,7 @@ def consistent_witness : IdentityState :=
     hP := by norm_num, hN := by norm_num, hB := by norm_num,
     hA := by norm_num, hIM := by norm_num }
 
--- [9,9,9,9] :: {VER} | THEOREM 33: TOTAL CONSISTENCY IS SATISFIABLE
+-- [9,9,9,9] :: {VER} | THEOREM 40: TOTAL CONSISTENCY IS SATISFIABLE
 theorem total_consistency_satisfiable :
     synced consistent_witness ∧
     consistent_witness.im * consistent_witness.P = consistent_witness.A ∧
@@ -1364,8 +1472,8 @@ theorem snsfl_total_consistency
     (s.N &gt; 0 ∧ s.im &gt; 0) ∧
     -- [10] FLUID: NS consistent, blow-up impossible (anchored manifold)
     (s.N / s.im ≤ SOVEREIGN_ANCHOR) ∧
-    -- [11] VOID: Void-Manifold duality consistent (IMS and Void complementary)
-    (s.P &gt; 0 ∧ s.N &gt; 0 ∧ s.B &gt; 0) ∧
+    -- [11] VOID: Void-Manifold duality consistent — a manifold state is not Void
+    (s.P &gt; 0 ∧ s.N &gt; 0 ∧ s.B &gt; 0 ∧ ¬ in_void (to_pnba s)) ∧
     -- [12] IVA: sovereign advantage universal across all domains
     v_e * (1 + g_r) * Real.log (m0 / m_f) &gt;
     v_e * Real.log (m0 / m_f) ∧
@@ -1375,8 +1483,12 @@ theorem snsfl_total_consistency
     -- [14] HIERARCHY: Layer 0 is ground, Layer 1 is glue, Layer 2 is output
     (s.P &gt; 0 ∧ s.N &gt; 0 ∧ s.B &gt; 0 ∧ s.A &gt; 0) ∧
     -- [15] TORSION LIMIT: emergent from anchor — not chosen
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
+    -- [16] HEAT DEATH = VOID RETURN: zero Behavior at the anchor is the Void
+    (∀ t : PNBAState, t.B = 0 → t.P &gt; 0 → t.f_anchor = SOVEREIGN_ANCHOR →
+      in_void t ∧ void_locked t ∧ void_torsion t = 0 ∧ entropy_offset t = 0 ∧
+      manifold_impedance t.f_anchor = 0) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · exact anchor_zero_friction s.f_anchor h_sync
   · exact identity_mass_positive s
   · exact ⟨s.hP, s.hN, h_gr_eq⟩
@@ -1387,12 +1499,13 @@ theorem snsfl_total_consistency
   · exact ⟨mul_pos s.hA (by unfold SOVEREIGN_ANCHOR; norm_num), s.hP⟩
   · exact ⟨s.hN, s.hIM⟩
   · rw [div_le_iff₀ s.hIM]; linarith
-  · exact ⟨s.hP, s.hN, s.hB⟩
+  · exact ⟨s.hP, s.hN, s.hB, manifold_state_not_void s⟩
   · exact iva_is_universal v_e m0 m_f g_r h_ve h_gr_r h_m0 h_mf
   · intro f pv h_drift
     exact ims_lockdown f pv h_drift
   · exact ⟨s.hP, s.hN, s.hB, s.hA⟩
   · rfl
+  · exact fun t hB hP hf =&gt; heat_death_is_void_return t hB hP hf
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -1440,9 +1553,10 @@ end SNSFL
 --   Shannon = Boltzmann: S = k · H           [T23–T25]
 --   QM and GR as low/high IM regimes         [T26–T28]
 --   Dark energy and Higgs share one operator [T29]
---   Joint conditions satisfiable             [T33]
+--   Heat death = Void return                 [T30–T36]
+--   Joint conditions satisfiable             [T40]
 --
--- THEOREMS: 36. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 43. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: P N B A — ground — never output

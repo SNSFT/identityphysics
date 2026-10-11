@@ -574,7 +574,7 @@
         </div>
       </div>
 
-      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
       <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,9,6,10](PSYC) · Psychology series<br>
 <strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 31 theorems · 746 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_RegulationReaction.lean">source and CI record</a><br>
+<strong>Verified:</strong> 31 theorems · 748 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_RegulationReaction.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -837,12 +837,14 @@ theorem no_score_is_both_PF_and_PL (score : ℕ) :
 -- LEMMA: A PL SCORE IS BELOW 24
 lemma band_L_lt (a : ℕ) (h : score_to_band a = PNBAMode.L) : a &lt; 24 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 &lt;;&gt; first | omega | cases h
+  split_ifs at h
+  omega
 
 -- LEMMA: A PF SCORE IS AT LEAST 38
 lemma band_F_ge (b : ℕ) (h : score_to_band b = PNBAMode.F) : b ≥ 38 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 &lt;;&gt; first | omega | cases h
+  split_ifs at h
+  omega
 
 -- THEOREM 8b: PF AND PL ARE SEPARATED BY THE WHOLE PS BAND
 -- Two separate gears. Any PL score sits at least 15 points below any PF score,
