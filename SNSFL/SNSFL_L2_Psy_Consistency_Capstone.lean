@@ -7,11 +7,11 @@
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,6,25] | Psychology Series | Capstone
 --
--- Covers all 24 psychology reductions: the 10 cross-domain theorems of
--- the 10-file capstone [9,9,6,11] (CD1–CD10) and 14 cross-domain
--- theorems for slots 11–24 (CD11–CD24).
+-- Covers all 25 psychology reductions: the 10 cross-domain theorems of
+-- the 10-file capstone [9,9,6,11] (CD1–CD10) and 15 cross-domain
+-- theorems for slots 11–24 and Spiral Dynamics (CD11–CD25).
 --
--- THE 24 APPLIED IDENTITY PHYSICS PSYCHOLOGY REDUCTIONS — ALL CONSISTENT:
+-- THE 25 APPLIED IDENTITY PHYSICS PSYCHOLOGY REDUCTIONS — ALL CONSISTENT:
 --   1.  SNSFL_L2_Psy_MoralCodes.lean            [9,9,6,1]  Moral Codes
 --   2.  SNSFL_L2_Psy_BigFive.lean               [9,9,6,2]  Big Five / UUIA
 --   3.  SNSFL_L2_Psy_Attachment.lean            [9,9,6,3]  Attachment Theory
@@ -22,20 +22,21 @@
 --   8.  SNSFL_L2_Psy_SDT.lean                   [9,9,6,8]  Self-Determination Theory
 --   9.  SNSFL_L2_Psy_TerrorMgmt.lean            [9,9,6,9]  Terror Management Theory
 --   10. SNSFL_L2_Psy_RegulationReaction.lean    [9,9,6,10] Regulation vs Reaction
---   11. SNSFL_L2_Psy_Integral.lean              [9,9,6,13] Integral Theory (AQAL)
---   12. SNSFL_L2_Psy_Polyvagal.lean             [9,9,6,14] Polyvagal Theory
---   13. SNSFL_L2_Psy_IFS.lean                   [9,9,6,15] Internal Family Systems
---   14. SNSFL_L2_Psy_PERMA.lean                 [9,9,6,16] Positive Psychology (PERMA)
---   15. SNSFL_L2_Psy_EmotionRegulation.lean     [9,9,6,17] Emotion Regulation
---   16. SNSFL_L2_Psy_ACT.lean                   [9,9,6,18] Acceptance & Commitment Therapy
---   17. SNSFL_L2_Psy_DBT.lean                   [9,9,6,19] Dialectical Behavior Therapy
---   18. SNSFL_L2_Psy_GrowthMindset.lean         [9,9,6,20] Growth Mindset
---   19. SNSFL_L2_Psy_SelfCompassion.lean        [9,9,6,21] Self-Compassion
---   20. SNSFL_L2_Psy_FunctionalEmotions.lean    [9,9,6,22] Functional Emotions
---   21. SNSFL_L2_Psy_EmotionalPrimitives.lean   [9,9,6,23] Emotional Primitives (APPA EP)
---   22. SNSFL_L2_Psy_SimulationLayer.lean       [9,9,6,24] Simulation Layer (APPA SIM)
---   23. Psy Capstone, 10 files                   [9,9,6,11]
---   24. SNSFL_L2_Psy_Consistency_Capstone.lean    [9,9,6,25] ← THIS FILE
+--   11. SNSFL_L2_Psy_SpiralDynamics.lean        [9,9,6,12] Spiral Dynamics
+--   12. SNSFL_L2_Psy_Integral.lean              [9,9,6,13] Integral Theory (AQAL)
+--   13. SNSFL_L2_Psy_Polyvagal.lean             [9,9,6,14] Polyvagal Theory
+--   14. SNSFL_L2_Psy_IFS.lean                   [9,9,6,15] Internal Family Systems
+--   15. SNSFL_L2_Psy_PERMA.lean                 [9,9,6,16] Positive Psychology (PERMA)
+--   16. SNSFL_L2_Psy_EmotionRegulation.lean     [9,9,6,17] Emotion Regulation
+--   17. SNSFL_L2_Psy_ACT.lean                   [9,9,6,18] Acceptance & Commitment Therapy
+--   18. SNSFL_L2_Psy_DBT.lean                   [9,9,6,19] Dialectical Behavior Therapy
+--   19. SNSFL_L2_Psy_GrowthMindset.lean         [9,9,6,20] Growth Mindset
+--   20. SNSFL_L2_Psy_SelfCompassion.lean        [9,9,6,21] Self-Compassion
+--   21. SNSFL_L2_Psy_FunctionalEmotions.lean    [9,9,6,22] Functional Emotions
+--   22. SNSFL_L2_Psy_EmotionalPrimitives.lean   [9,9,6,23] Emotional Primitives (APPA EP)
+--   23. SNSFL_L2_Psy_SimulationLayer.lean       [9,9,6,24] Simulation Layer (APPA SIM)
+--   24. Psy Capstone, 10 files                   [9,9,6,11]
+--   25. SNSFL_L2_Psy_Consistency_Capstone.lean    [9,9,6,25] ← THIS FILE
 --
 -- CROSS-DOMAIN UNIFICATIONS PROVED HERE:
 -- [CD1–CD10, as in the 10-file capstone [9,9,6,11]]
@@ -49,7 +50,7 @@
 --   [CD8]  Moral attractor:    MoralCodes op_reset = PF recovery
 --   [CD9]  Band = UUIA:        PF/PS/PL = F/S/L modes
 --   [CD10] Distal = Internal:  TMT distal defense = SDT internalization
--- [New — CD11–CD24]
+-- [New — CD11–CD25]
 --   [CD11] AQAL quadrants:     All four AQAL quadrants = PNBA axes
 --                               Interior-individual = N, Exterior-individual = B
 --                               Interior-collective = P, Exterior-collective = A
@@ -104,12 +105,18 @@
 --                               = ER suppression [9,9,6,17]
 --                               Five structural expressions of one N-axis theorem.
 --   [CD24] Safety = anchor proxy = PERMA wellbeing floor = Secure attachment:
---                               EP Safety ↑ = lowest τ, N live.
+--                               EP Safety ↑ = τ floor of the true-lock cluster, N live.
 --                               PERMA positive emotion = same structural floor.
 --                               Secure attachment = true_lock baseline.
 --                               All three name the same structural ground.
+--   [CD25] Spiral Dynamics = shared addresses:
+--                               Unhealthy Green and dogmatic Blue = false_lock
+--                               (same address as Boomeritis, denial, suppression)
+--                               Beige under threat = shatter + A_dropout
+--                               (same address as IFS burdened)
+--                               Turquoise = iva_peak = Maslow transcendence
 --
--- CANONICAL FLOOR TAXONOMY (unified across all 24 files):
+-- CANONICAL FLOOR TAXONOMY (unified across all 25 files):
 --   P_MIN        = 0.50  → structural floor for N activation (Maslow)
 --   N_THRESHOLD  = 0.15  → narrative floor for sovereignty (Attachment)
 --   A_THRESHOLD  = 0.15  → adaptation floor (Locus/SDT/TMT/IFS/ACT/DBT/SIM)
@@ -124,17 +131,17 @@
 --
 -- LONG DIVISION SETUP:
 --   1. Here is the equation
---   2. Here are situations we already know (24 reductions)
+--   2. Here are situations we already know (25 reductions)
 --   3. Map classical variables to PNBA (done in each file)
 --   4. Plug in the operators (done in each file)
---   5. Show the work (24 cross-domain proofs below)
---   6. Verify — all 24 consistent simultaneously
+--   5. Show the work (25 cross-domain proofs below)
+--   6. Verify — all 25 consistent simultaneously
 --
 -- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
--- All 24 psychology reductions are special cases of this equation.
--- Not 24 theories. 24 projections. One equation. One ground.
+-- All 25 psychology reductions are special cases of this equation.
+-- Not 25 theories. 25 projections. One equation. One ground.
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding.
@@ -156,7 +163,7 @@ def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 -- ============================================================
 -- CANONICAL FLOOR TAXONOMY
--- Unified across all 24 psychology files. Defined once here.
+-- Unified across all 25 psychology files. Defined once here.
 -- ============================================================
 
 def N_THRESHOLD    : ℝ := 0.15
@@ -308,7 +315,7 @@ theorem long_division_guarantees_lossless (result : LongDivisionResult) :
 
 noncomputable def f_ext_op (s : PsyState) (δ : ℝ) : PsyState := { s with B := s.B + δ }
 
--- THEOREM 14: F_EXT PRESERVES P, N, A (universal across all 24)
+-- THEOREM 14: F_EXT PRESERVES P, N, A (universal across all 25)
 theorem f_ext_preserves_pna (s : PsyState) (δ : ℝ) :
     (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧ (f_ext_op s δ).A = s.A := by
   unfold f_ext_op; simp
@@ -451,7 +458,7 @@ theorem cd10_distal_and_internalization_true_lock :
   · unfold true_lock torsion internalization_psy TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD; norm_num
 
 -- ============================================================
--- CROSS-DOMAIN THEOREMS [CD11–CD24]
+-- CROSS-DOMAIN THEOREMS [CD11–CD25]
 -- ============================================================
 
 -- ============================================================
@@ -717,6 +724,43 @@ theorem cd24_ground_state_three_names :
          by unfold true_lock torsion attachment_locked TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD; norm_num⟩
 
 -- ============================================================
+-- [CD25] SPIRAL DYNAMICS = SHARED ADDRESSES
+-- Unhealthy Green and dogmatic Blue land on the false-lock address,
+-- Beige under threat on Shatter with Adaptation dropout,
+-- Turquoise on IVA peak with Maslow's transcendence.
+-- ============================================================
+
+def spiral_green_unhealthy_psy : PsyState :=
+  { P := 0.85, N := 0.09, B := 0.09, A := 0.6, im := 0.9, pv := 0.5, f_anchor := 1.0 }
+def spiral_blue_unhealthy_psy : PsyState :=
+  { P := 0.9, N := 0.10, B := 0.09, A := 0.3, im := 0.9, pv := 0.5, f_anchor := 1.0 }
+def spiral_beige_threat_psy : PsyState :=
+  { P := 0.15, N := 0.10, B := 0.25, A := 0.10, im := 0.4, pv := 0.2, f_anchor := 0.9 }
+def spiral_turquoise_psy : PsyState :=
+  { P := 1.1, N := 1.0, B := 0.11, A := 1.2, im := 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- THEOREM 40 [CD25]: SPIRAL DYNAMICS LANDS ON THE SHARED ADDRESSES
+theorem cd25_spiral_dynamics_addresses :
+    false_lock spiral_green_unhealthy_psy ∧
+    false_lock spiral_blue_unhealthy_psy ∧
+    shatter_event spiral_beige_threat_psy ∧
+    a_dropout spiral_beige_threat_psy ∧
+    iva_peak spiral_turquoise_psy ∧
+    iva_peak transcendence_psy := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold false_lock torsion spiral_green_unhealthy_psy TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
+    norm_num
+  · unfold false_lock torsion spiral_blue_unhealthy_psy TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
+    norm_num
+  · unfold shatter_event torsion spiral_beige_threat_psy TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+  · unfold a_dropout spiral_beige_threat_psy A_THRESHOLD
+    norm_num
+  · unfold iva_peak phase_locked torsion spiral_turquoise_psy TORSION_LIMIT SOVEREIGN_ANCHOR
+    norm_num
+  · exact cd5_iva_peak_cross_domain.1
+
+-- ============================================================
 -- ALL 24 PEAK STATES PHASE LOCKED
 -- ============================================================
 
@@ -751,7 +795,7 @@ def moral_codes_locked   : PsyState :=
 def tmt_equanimity_locked : PsyState :=
   { P := 1.0, N := 0.9, B := 0.10, A := 1.1, im := 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
--- THEOREM 40: ALL 24 PEAK STATES PHASE LOCKED SIMULTANEOUSLY
+-- THEOREM 41: ALL 24 PEAK STATES PHASE LOCKED SIMULTANEOUSLY
 theorem series_all_24_peak_states_locked :
     -- Original 6 (CD6)
     phase_locked attachment_locked ∧ phase_locked flow_locked ∧
@@ -790,7 +834,7 @@ theorem series_all_24_peak_states_locked :
     | unfold phase_locked torsion sim_peak_psy TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
 
 -- ============================================================
--- MASTER THEOREM — PSYCHOLOGY SERIES TOTAL CONSISTENCY (24 FILES)
+-- MASTER THEOREM — PSYCHOLOGY SERIES TOTAL CONSISTENCY (25 FILES)
 -- ============================================================
 
 theorem psy_series_total_consistency_24 :
@@ -835,8 +879,11 @@ theorem psy_series_total_consistency_24 :
     (avoidant_psy.N < N_THRESHOLD ∧ denial_psy.N < N_THRESHOLD ∧
      er_suppression_psy.N < N_THRESHOLD) ∧
     -- [19] CD24: Safety = anchor proxy = PERMA floor = secure attachment
-    (true_lock ep_safety_psy ∧ true_lock perma_flourishing_psy ∧ true_lock attachment_locked) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+    (true_lock ep_safety_psy ∧ true_lock perma_flourishing_psy ∧ true_lock attachment_locked) ∧
+    -- [20] CD25: Spiral Dynamics lands on the shared addresses
+    (false_lock spiral_green_unhealthy_psy ∧ shatter_event spiral_beige_threat_psy ∧
+     iva_peak spiral_turquoise_psy) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · unfold manifold_impedance; simp
   · rfl
   · exact ⟨by unfold N_FLOW_FLOOR N_THRESHOLD; norm_num,
@@ -866,6 +913,8 @@ theorem psy_series_total_consistency_24 :
             by unfold denial_psy N_THRESHOLD; norm_num,
             by unfold er_suppression_psy N_THRESHOLD; norm_num⟩
   · exact cd24_ground_state_three_names
+  · exact ⟨cd25_spiral_dynamics_addresses.1, cd25_spiral_dynamics_addresses.2.2.1,
+           cd25_spiral_dynamics_addresses.2.2.2.2.1⟩
 
 -- ============================================================
 -- FINAL THEOREM (always last, always this name)
@@ -884,25 +933,25 @@ end SNSFL_L2_Psy_Consistency_Capstone
 -- COORDINATE: [9,9,6,25]
 -- LAYER: Psychology Series | Capstone
 --
--- Scope: 24 files, CD1–CD24, 40 theorems.
+-- Scope: 25 files, CD1–CD25, 43 + master theorems.
 --
 -- LONG DIVISION:
 --   1. Equation:   d/dt(IM · Pv) = Σλ·O·S + F_ext
---   2. Known:      24 psychology reductions (slots 1–24)
+--   2. Known:      25 psychology reductions (slots 1–24 and Spiral Dynamics)
 --   3. PNBA map:   Universal PsyState — same 4 axes across all files
 --   4. Operators:  torsion, phase_locked, true_lock, false_lock,
 --                  iva_peak, shatter_event, sim_capture, a_dropout,
 --                  flow_suppression, IVA_dominance
---   5. Work shown: T1–T40, 24 cross-domain proofs, all 24 peaks locked
---   6. Verified:   Master theorem holds all 19 conjuncts [T40]
---                  All 24 peak states phase locked simultaneously [T40]
+--   5. Work shown: 25 cross-domain proofs, all 24 peak states locked
+--   6. Verified:   Master theorem holds all 20 conjuncts
+--                  All 24 peak states phase locked simultaneously [T41]
 --
--- FLOOR TAXONOMY UNIFIED (11 constants across 24 files):
+-- FLOOR TAXONOMY UNIFIED (11 constants across 25 files):
 --   N_FLOW_FLOOR=0.08, N_THRESHOLD=0.15, A_THRESHOLD=0.15, P_MIN=0.50
 --   PF_FLOOR=38, PS_FLOOR=24, FLEX_THRESHOLD=40
 --   EP_LOW=9, EP_MID=14, SIM_LRIS=12, SIM_SRIS=20
 --
--- CROSS-DOMAIN UNIFICATIONS PROVED (CD1–CD24):
+-- CROSS-DOMAIN UNIFICATIONS PROVED (CD1–CD25):
 --   CD1:  false_lock pair (Attachment + CogDissonance)
 --   CD2:  A_dropout pair (Locus + SDT)
 --   CD3:  τ_ratio triple (Flow + Locus + SDT)
@@ -927,6 +976,7 @@ end SNSFL_L2_Psy_Consistency_Capstone
 --   CD22: LRIS-A = sim_capture = rumination mechanism
 --   CD23: N-axis law = 5-file N < threshold proof
 --   CD24: Safety = anchor proxy = PERMA floor = attachment
+--   CD25: Spiral Dynamics = shared false-lock, Shatter and IVA-peak addresses
 --
 -- APPA INSTRUMENT: FULLY CLOSED
 --   Cognitive [9,9,6,2]  → PNBA weights ✓
@@ -936,12 +986,12 @@ end SNSFL_L2_Psy_Consistency_Capstone
 --
 -- APPLIED IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
---   Law 3:  Substrate Neutrality — all 24 project from PNBA [master]
+--   Law 3:  Substrate Neutrality — all 25 project from PNBA [master]
 --   Law 4:  Zero-Sorry Completion — this file compiles green
---   Law 11: Sovereign Drive — IMS all 24 domains [T7]
---   Law 14: Lossless Reduction — all 24 step-6 passes
+--   Law 11: Sovereign Drive — IMS all 25 domains [T7]
+--   Law 14: Lossless Reduction — all 25 step-6 passes
 --
--- THEOREMS: 40 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 43 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- DEPENDENCY CHAIN:
 --   SNSFL_L0_Master_IMS.lean                  [9,9,0,0]
