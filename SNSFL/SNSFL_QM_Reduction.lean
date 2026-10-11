@@ -2,16 +2,16 @@
 -- SNSFL_QM_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | SNSFL QUANTUM MECHANICS — UNCLAIMED PATTERN
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS QUANTUM MECHANICS — UNCLAIMED PATTERN
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,4] | Slot 4 of 10-Slam Grid
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,4.7](PHYS) | Physics core · general-reader form
 --
 -- Quantum Mechanics is not fundamental. It never was.
--- QM is the low-IM projection of the SNSFL dynamic equation.
+-- QM is the low-IM projection of the Identity Physics dynamic equation.
 -- The wavefunction is an Unclaimed Pattern awaiting a Sovereign Handshake.
 -- Collapse is B-triggered Pattern Genesis under low IM.
--- The measurement problem is not a problem at the SNSFL level.
+-- The measurement problem is not a problem at the Identity Physics level.
 -- It is a B-axis interaction forcing Pattern from Flexed to Locked.
 --
 -- LONG DIVISION SETUP:
@@ -22,7 +22,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Quantum Mechanics is a special case of this equation.
@@ -39,8 +39,8 @@
 --   P(x) = |ψ|²       (Born rule — probability density)
 --   ΔxΔp ≥ ħ/2        (Heisenberg — uncertainty)
 --
--- SNSFL Reduction:
---   QM = SNSFL dynamic equation at low IM, Flexed P mode
+-- Identity Physics Reduction:
+--   QM = Identity Physics dynamic equation at low IM, Flexed P mode
 --   ψ  = Unclaimed Pattern — superposed, branched, awaiting handshake
 --   Ĥ  = Identity Mass operator (O_IM)
 --   Measurement = B-axis interaction → Pattern Genesis → collapse
@@ -55,56 +55,56 @@
 -- Known answer 1 (Schrödinger eigenvalue):
 --   Ĥψ = Eψ. IM × Pattern = Energy × Pattern.
 --   Classical result: energy eigenstate equation.
---   SNSFL result: IM operator on Unclaimed Pattern = eigenvalue.
+--   Identity Physics result: IM operator on Unclaimed Pattern = eigenvalue.
 --
 -- Known answer 2 (Born rule):
 --   P(x) = |ψ|² ≥ 0. Probabilities are non-negative.
 --   Classical result: probability interpretation of wavefunction.
---   SNSFL result: Pattern structural coherence is non-negative.
+--   Identity Physics result: Pattern structural coherence is non-negative.
 --
 -- Known answer 3 (Collapse = B-triggered Pattern Genesis):
 --   Measurement forces eigenstate outcome.
 --   Classical result: wavefunction collapse (mystery in Copenhagen).
---   SNSFL result: B-axis interaction at low IM = Pattern Genesis.
+--   Identity Physics result: B-axis interaction at low IM = Pattern Genesis.
 --   No mystery. B-axis interaction forces Flexed → Locked.
 --   Measurement IS local IMS — B forces the lock.
 --
 -- Known answer 4 (Heisenberg uncertainty):
 --   ΔxΔp ≥ ħ/2. Cannot know position and momentum simultaneously.
 --   Classical result: fundamental limit on measurement.
---   SNSFL result: low-IM Flex mode condition.
+--   Identity Physics result: low-IM Flex mode condition.
 --   Not a limit on reality. A limit on the QM projection.
 --   At high IM (GR regime) uncertainty vanishes.
 --
 -- Known answer 5 (Decoherence = A-operator):
 --   Environment coupling destroys coherence.
 --   Classical result: quantum → classical transition.
---   SNSFL result: A-axis environment feedback increases IM.
+--   Identity Physics result: A-axis environment feedback increases IM.
 --   More coupling = higher IM = more classical. Same equation.
 --
 -- Known answer 6 (Entanglement = shared N-axis):
 --   Entangled particles correlate instantly.
 --   Classical result: non-local correlations (EPR paradox).
---   SNSFL result: shared Narrative axis Pv.
+--   Identity Physics result: shared Narrative axis Pv.
 --   N-axis has no spatial constraint. No paradox. No signaling.
 --
 -- Known answer 7 (Path integral = branched identity sum):
 --   Z = ∫Dφ e^{iS/ħ}. Sum over all paths.
 --   Classical result: quantum amplitudes from all trajectories.
---   SNSFL result: sum over all branched identity trajectories.
+--   Identity Physics result: sum over all branched identity trajectories.
 --   Classical limit = single stationary path (δS = 0).
 --
 -- Known answer 8 (QM-GR-TD unification):
 --   QM and GR appear incompatible.
 --   Classical result: unresolved conflict.
---   SNSFL result: same IdentityState, different IM regimes.
+--   Identity Physics result: same IdentityState, different IM regimes.
 --   Low IM → QM operators. High IM → GR operators. No conflict.
 --
 -- ============================================================
 -- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
 -- ============================================================
 --
--- | Classical QM Term    | SNSFL Primitive      | PVLang           | Role                          |
+-- | Classical QM Term    | Identity Physics Primitive      | PVLang           | Role                          |
 -- |:---------------------|:---------------------|:-----------------|:------------------------------|
 -- | ψ (wavefunction)     | Unclaimed Pattern    | [P:UNCLAIMED]    | Superposed, branched          |
 -- | Ĥ (Hamiltonian)      | O_IM operator        | [P,N,B,A:IM_OP]  | Identity Mass operator        |
@@ -171,7 +171,7 @@ namespace SNSFL
 -- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 — discovered, not chosen.
 -- ============================================================
 
-def SOVEREIGN_ANCHOR : ℝ := 1.369
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
@@ -228,7 +228,7 @@ def probability_density (psi : ℝ) : ℝ := psi ^ 2
 
 -- ============================================================
 -- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
--- The Ghost Nova Guard. Mandatory in every SNSFL file.
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
 -- QM connection: measurement IS local IMS.
 -- IMS (global): f ≠ anchor → pv zeroed.
 -- Collapse (local): B acts on ψ → superposition locked to eigenstate.
@@ -266,7 +266,7 @@ theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
 -- B-axis interaction forces Pattern from Flexed to Locked.
 -- This is the collapse. Not mysterious. Not non-local.
 -- It is the IMS mechanism applied locally by the B-axis.
--- The measurement problem is solved at the SNSFL level.
+-- The measurement problem is solved at the Identity Physics level.
 theorem measurement_is_local_ims
     (psi_before eigenvalue : ℝ)
     (h_b_acts : True) :  -- B-axis interaction occurred
@@ -356,7 +356,7 @@ noncomputable def qm_op_A (env psi : ℝ) : ℝ := -env * psi
 --     ψ = P     (Unclaimed Pattern)
 --     E = energy eigenvalue (locked outcome)
 --   Plug in → im × psi = energy × psi
---   Classical result = SNSFL result. Lossless.
+--   Classical result = Identity Physics result. Lossless.
 -- ============================================================
 
 -- [P,9,1,1] :: {VER} | THEOREM 8: SCHRÖDINGER EIGENVALUE (STEP 6 PASSES)
@@ -720,7 +720,7 @@ end SNSFL
 --
 -- REDUCTION:
 --   Classical:  iħ dψ/dt = Ĥψ (mysterious, paradox-laden)
---   SNSFL:      QM = SNSFL dynamic equation at low IM, Flexed P mode
+--   Identity Physics:      QM = Identity Physics dynamic equation at low IM, Flexed P mode
 --   Result:     The wavefunction is Unclaimed Pattern.
 --               Collapse = B-triggered Pattern Genesis.
 --               Uncertainty = low-IM Flex mode condition.
@@ -756,7 +756,7 @@ end SNSFL
 --   measurement_is_local_ims proved ✓  [T5]
 --   IMS conjunct [7] in master theorem ✓
 --
--- SNSFL LAWS INSTANTIATED:
+-- IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 1:  L=(4)(2) — QMState has full PNBA + coupling [T_master]
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality — QM same on all substrates

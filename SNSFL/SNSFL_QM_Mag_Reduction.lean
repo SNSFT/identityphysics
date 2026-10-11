@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS QUANTUM MECHANICS — UNCLAIMED PATTERN
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,4] | Slot 4 of 10-Slam Grid
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,4.8](PHYS) | Physics core · specialist form (magnitude operator)
 --
 -- Quantum Mechanics is not fundamental. It never was.
 -- QM is the low-IM projection of the Identity Physics dynamic equation.
@@ -22,7 +22,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Quantum Mechanics is a special case of this equation.
@@ -171,7 +171,7 @@ namespace SNSFL
 -- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 — discovered, not chosen.
 -- ============================================================
 
-def SOVEREIGN_ANCHOR : ℝ := 1.369
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=

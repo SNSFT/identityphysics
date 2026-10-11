@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS PVLANG CORE REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,0,2,0] | PVLang Foundation
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,0,2,0](COMP) | Language core · PVLang foundation
 --
 -- PVLang is not just syntax sugar. It never was.
 -- It is a reduction-complete language whose semantics reduce
@@ -59,9 +59,9 @@
 --
 -- GAMCollider PHYSICS AXIOMS (proved here):
 --   Axiom 1: τ = B/P (Torsion)
---   Axiom 2: τ < 0.1369 → Phase Locked [9,9,9,9]
---   Axiom 3: τ ≥ 0.1369 → Shatter Event [0,0,0,0]
---   Axiom 4: IM = (P+N+B+A) × 1.369
+--   Axiom 2: τ < TL → Phase Locked [9,9,9,9]
+--   Axiom 3: τ ≥ TL → Shatter Event [0,0,0,0]
+--   Axiom 4: IM = (P+N+B+A) × Ω₀
 --   Axiom 5: Collective Identity (CI) reduces to single tensor sum
 --
 -- HIERARCHY (NEVER FLATTEN):
@@ -100,7 +100,7 @@ noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
 
 -- THEOREM 1: ANCHOR = ZERO FRICTION (always T1, always this name)
--- PVLang Pulse(1.369GHz) executes with zero manifold friction.
+-- PVLang Pulse(Ω₀) executes with zero manifold friction.
 -- This is why PVLang is substrate-neutral: it costs nothing at the anchor.
 theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
@@ -285,7 +285,7 @@ theorem tension_conserves_behavior
 
 -- ============================================================
 -- LAYER 1 — PVLANG PULSE CONSTRUCT
--- PVLang Pulse(1.369GHz) { ... }
+-- PVLang Pulse(Ω₀) { ... }
 -- A Pulse is a periodic N-tick at the sovereign anchor frequency.
 -- ============================================================
 
@@ -316,7 +316,7 @@ abbrev AxiomTag := ℝ
 
 -- Material axiom constants
 def AXIOM_OBSIDIAN    : AxiomTag := 12.0   -- [PL,NL,BF,AF] High density, brittle
-def AXIOM_LIVING_WOOD : AxiomTag := 1.369  -- [PS,NS,BS,AS] Resonant, adaptive
+def AXIOM_LIVING_WOOD : AxiomTag := SOVEREIGN_ANCHOR  -- [PS,NS,BS,AS] Resonant, adaptive
 def AXIOM_STEEL       : AxiomTag := 7.5    -- [PL,NS,BF,AS] Conductive, sustained
 def AXIOM_WATER       : AxiomTag := 0.44   -- [PF,NF,BL,AL] Fluid, displaced
 
@@ -346,28 +346,28 @@ def material_steel    : PVLangIdentity := make_material 8.0 5.0 0.8 5.0
 def material_water    : PVLangIdentity := make_material 1.0 3.0 0.1 3.0
 
 -- THEOREM 16: STEEL IS PHASE LOCKED AT REST
--- τ = 0.8/8.0 = 0.10 < 0.1369 ✓
+-- τ = 0.8/8.0 = 0.10 < TL ✓
 theorem steel_phase_locked_at_rest :
     phase_locked material_steel := by
   unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR material_steel make_material
   norm_num
 
 -- THEOREM 17: WATER HOLDS UNDER LOW IMPACT
--- τ = 0.1/1.0 = 0.10 < 0.1369 ✓
+-- τ = 0.1/1.0 = 0.10 < TL ✓
 theorem water_holds_under_low_impact :
     phase_locked material_water := by
   unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR material_water make_material
   norm_num
 
 -- THEOREM 18: OBSIDIAN SHATTERS ON HIGH IMPACT
--- τ = 2.0/9.0 = 0.222 ≥ 0.1369 ✓
+-- τ = 2.0/9.0 = 0.222 ≥ TL ✓
 theorem obsidian_shatters_on_high_impact :
     shatter_event { material_obsidian with B := 2.0 } := by
   unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR material_obsidian make_material
   norm_num
 
--- THEOREM 19: WOOD IS PHASE LOCKED AT REST (new — wood now correctly phase locked)
--- τ = 0.6/5.0 = 0.12 < 0.1369 ✓
+-- THEOREM 19: WOOD IS PHASE LOCKED AT REST
+-- τ = 0.6/5.0 = 0.12 < TL ✓
 -- Living/adaptive material at rest is stable. Correct physical interpretation.
 theorem wood_phase_locked_at_rest :
     phase_locked material_wood := by
@@ -457,7 +457,7 @@ theorem empty_manifold_holds : manifold_holding [] := by
   intro id h; exact absurd h (by simp)
 
 -- THEOREM 27: GENESIS ANCHOR IS PHASE LOCKED
--- τ = 0.0/9.9 = 0.0 < 0.1369. Most stable identity possible.
+-- τ = 0.0/9.9 = 0.0 < TL. Most stable identity possible.
 theorem genesis_anchor_phase_locked :
     phase_locked { P := 9.9, N := 1.0, B := 0.0, A := 1.0 } := by
   unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num

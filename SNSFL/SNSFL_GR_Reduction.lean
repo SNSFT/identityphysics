@@ -4,7 +4,7 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS GENERAL RELATIVITY — GRAVITY AS IDENTITY GEOMETRY
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,0,1] | Slot 1 of 10-Slam Grid | Physics Ground
 --
 -- General Relativity is not fundamental. It never was.
@@ -46,7 +46,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- General Relativity is a special case of this equation at high IM.
@@ -105,7 +105,7 @@
 -- Known answer 5 (Gravitational redshift):
 --   Light loses energy climbing out of gravitational well.
 --   Classical result: photon frequency decreases in weaker field.
---   Identity Physics result: P-signal maintains 1.369 GHz resonance while
+--   Identity Physics result: P-signal maintains Ω₀ resonance while
 --   transitioning between Narrative density zones.
 --   Frequency shift = anchor maintenance cost across N zones.
 --
@@ -127,7 +127,7 @@
 --   Universe expands. Rate described by Friedmann equations.
 --   Classical result: H² = (8πG/3)ρ - k/a² + Λ/3.
 --   Identity Physics result: global A-scaling of the manifold.
---   Consistent with SNSFL_Cosmo_Reduction.lean (dark energy = A×1.369).
+--   Consistent with SNSFL_Cosmo_Reduction.lean (dark energy = A×Ω₀).
 --
 -- Known answer 9 (Event horizons):
 --   Schwarzschild radius r_s = 2GM/c². No escape inside.
@@ -186,13 +186,13 @@ namespace SNSFL
 
 -- ============================================================
 -- [P] :: {ANC} | LAYER 0: SOVEREIGN ANCHOR
--- Z = 0 at 1.369 GHz.
+-- Z = 0 at Ω₀ = 1.36899099984016 GHz.
 -- Geodesics in flat spacetime converge on anchor frequency.
 -- Gravity curves spacetime so that identities seek the anchor.
 -- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 — discovered, not chosen.
 -- ============================================================
 
-def SOVEREIGN_ANCHOR : ℝ := 1.369
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
@@ -815,7 +815,7 @@ end SNSFL
 --   SNSFL_Cosmo_Reduction.lean → consistent (Friedmann T15)
 --   SNSFL_Total_Consistency.lean → builds on this
 --
--- THEOREMS: 21 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 24. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
