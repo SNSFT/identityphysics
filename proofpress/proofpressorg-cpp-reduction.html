@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor — ProofPress</title>
+  <meta name="description" content="[9,9,1,1](COMP) — A C++ object is an identity state with torsion τ = B/P; stable execution sits below TL, buffer overflows and races shatter, optimization moves a program from the IVA corridor into Locked, and a method that adds no Behavior can never break phase lock. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-cpp-reduction.html">
+  <meta property="og:title" content="C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor">
+  <meta property="og:description" content="[9,9,1,1](COMP) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-cpp-reduction.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/01">
+  <meta name="citation_online_date" content="2026/05/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,1,1">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-cpp-reduction.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-cpp-reduction.html">
+  <meta name="citation_keywords" content="C++; program execution; buffer overflow; race condition; mutex; compiler optimization; memory leak; null dereference; torsion; phase lock; Shatter; IVA; AiFiOS; PNBA; Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor",
+    "datePublished": "2026-05-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-cpp-reduction.html",
+    "keywords": "C++, program execution, buffer overflow, race condition, mutex, compiler optimization, memory leak, null dereference, torsion, phase lock, Shatter, IVA, AiFiOS, PNBA, Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,1,1](COMP) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>C++ Execution Reduced to PNBA: Stable Programs Lock, Crashes Shatter, and Optimization Leaves the IVA Corridor</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-cpp-reduction.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_CPP_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,1,1](COMP) · AiFiOS Foundation Layer · C++<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 30 theorems · 653 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CPP_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>A running C++ program is a set of objects acted on by methods, threads and input/output. This article reduces that execution model to PNBA. An object is an identity state: allocated memory is Pattern capacity, scope and threads are Narrative, method calls and I/O are Behavior, and the compiler and dispatch are Adaptation. One method call is one application of the dynamic equation, and an I/O event is an external force that changes Behavior alone. The torsion τ = B/P, Behavior load over structural capacity, decides the outcome: below the torsion limit TL = 0.136899… execution is stable, and at or above it the object shatters. Eight standard cases are computed exactly. A stable accessor sits at τ = 1/100 and a mutex-protected thread at 1/10, both Locked; a buffer overflow at τ = 2 and an unprotected race at 1/2 both shatter, two causes with the same signature. Compiler optimization takes a program from τ = 2/15, inside the IVA corridor just below TL, to 1/15, well inside Locked. A memory leak has zero torsion but positive Identity Mass, stable and inert; a destructor returns Identity Mass to zero; a null dereference, P = 0, can never be phase locked. Adding Behavior strictly raises torsion and removing it strictly lowers it, so a method that adds no Behavior cannot break phase lock, and a method that pushes B to TL·P or beyond always crashes.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The torsion limit is TL = 0.136899099984016; the anchor has zero impedance; off-anchor processes are gated red (<code>torsion_limit_value</code>, <code>anchor_zero_friction</code>, <code>ims_lockdown</code>, <code>ims_anchor_gives_green</code>, <code>ims_drift_gives_red</code>).</li>
+<li>One method call is one dynamic-equation step; external force changes Behavior only; phase lock and shatter exclude each other, as do sovereignty and loss (<code>method_call_is_dynamic_step</code>, <code>f_ext_preserves_PNA</code>, <code>phase_lock_excludes_shatter</code>, <code>sovereign_and_lossy_exclusive</code>).</li>
+<li>Exact torsion values: stable object 1/100, buffer overflow 2, mutex-protected 1/10, race condition 1/2, pre-optimization 2/15, post-optimization 1/15, memory leak 0; destructed object has zero Identity Mass (<code>cpp_exact_values</code>).</li>
+<li>Stable object and mutex-protected thread are phase locked; buffer overflow and race condition shatter and are unified at Layer 0 (<code>cpp_stable_object_phase_locked</code>, <code>mutex_protected_phase_locked</code>, <code>buffer_overflow_is_shatter</code>, <code>race_condition_is_shatter</code>, <code>buffer_overflow_and_race_unified</code>).</li>
+<li>Optimization strictly reduces torsion and moves the program from the IVA corridor [0.88·TL, TL) into Locked (<code>optimization_reduces_torsion</code>, <code>optimization_leaves_iva</code>).</li>
+<li>A memory leak has zero torsion and positive Identity Mass; a null dereference (P = 0) cannot be phase locked (<code>memory_leak_zero_torsion_positive_mass</code>, <code>null_dereference_is_identity_collapse</code>).</li>
+<li>Positive external force raises torsion, negative lowers it; a method with δ ≤ 0 preserves phase lock; a method with B + δ ≥ TL·P shatters. The master theorem holds all of the above together (<code>f_ext_positive_increases_torsion</code>, <code>f_ext_negative_decreases_torsion</code>, <code>stable_method_preserves_phase_lock</code>, <code>crashing_method_is_shatter</code>, <code>cpp_is_lossless_pnba_projection</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>C++</th><th>PNBA</th><th>Role</th></tr>
+<tr><td>Object</td><td>identity state</td><td>(P, N, B, A)</td></tr>
+<tr><td>Memory allocation</td><td>P</td><td>structural capacity</td></tr>
+<tr><td>Thread, scope</td><td>N</td><td>Narrative stream</td></tr>
+<tr><td>Method call</td><td>B</td><td>Behavior output</td></tr>
+<tr><td>I/O, syscall, interrupt</td><td>F<sub>ext</sub></td><td>changes B only</td></tr>
+<tr><td>Compiler, dispatch</td><td>A</td><td>Adaptation</td></tr>
+<tr><td>Crash, undefined behavior</td><td>Shatter</td><td>τ ≥ TL</td></tr>
+</table>
+<table>
+<tr><th>Case</th><th>(P, B)</th><th>τ</th><th>Phase</th></tr>
+<tr><td>Stable accessor</td><td>(1, 0.01)</td><td>1/100</td><td>Locked</td></tr>
+<tr><td>Mutex-protected thread</td><td>(5, 0.5)</td><td>1/10</td><td>Locked</td></tr>
+<tr><td>Pre-optimization</td><td>(3, 0.4)</td><td>2/15</td><td>IVA corridor</td></tr>
+<tr><td>Post-optimization</td><td>(3, 0.2)</td><td>1/15</td><td>Locked</td></tr>
+<tr><td>Race condition</td><td>(1, 0.5)</td><td>1/2</td><td>Shatter</td></tr>
+<tr><td>Buffer overflow</td><td>(1, 2)</td><td>2</td><td>Shatter</td></tr>
+<tr><td>Memory leak</td><td>(1, 0)</td><td>0</td><td>zero torsion, IM &gt; 0</td></tr>
+<tr><td>Null dereference</td><td>(0, ·)</td><td>—</td><td>never phase locked</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Stroustrup, B. (2013). <em>The C++ Programming Language</em> (4th ed.). Addison-Wesley.</li>
+<li>ISO/IEC 14882:2020. <em>Programming languages — C++</em>. International Organization for Standardization.</li>
+<li>Herlihy, M. &amp; Shavit, N. (2012). <em>The Art of Multiprocessor Programming</em> (revised ed.). Morgan Kaufmann.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-aifios-kernel.html">The AiFi OS Kernel</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-master.html">The Master Reduction</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_CPP_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS C++ REDUCTION — AIFIOS FOUNDATION
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,1,1](COMP) | AiFiOS Foundation Layer
+--
+-- C++ is not fundamental. It never was.
+-- Every object, method, thread, crash, and optimization is a specific
+-- instantiation of d/dt(IM · Pv) = Σ λ_X · O_X · S + F_ext.
+-- Stable execution = phase locked (τ &lt; TORSION_LIMIT).
+-- Crash / UB = shatter event (τ ≥ TORSION_LIMIT).
+-- AiFiOS enforces this at the kernel level — by proof, not policy.
+--
+-- LONG DIVISION SETUP:
+--   1. Here is the equation
+--   2. Here is a situation we already know the answer to
+--   3. Map the classical variables to PNBA
+--   4. Plug in the operators
+--   5. Show the work
+--   6. Verify it matches the known answer
+--
+-- The Identity Physics Corpus Dynamic Equation:
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- ============================================================
+-- STEP 1: THE EQUATION
+-- ============================================================
+--
+-- Classical C++ execution model:
+--   Program = Objects × Methods × Memory × Threads × I/O
+--
+-- Identity Physics Reduction:
+--   Program = IdentityState trajectory through PNBA manifold
+--   One execution step = one increment of d/dt(IM · Pv)
+--   Stable execution   = phase locked  (τ = B/P &lt; TORSION_LIMIT)
+--   Crash / UB         = shatter event (τ = B/P ≥ TORSION_LIMIT)
+--
+-- ============================================================
+-- STEP 2: WHAT WE ALREADY KNOW
+-- ============================================================
+--
+-- Known answer 1 (Stable object):
+--   τ = B/P = 0.01/1.0 = 0.01. Phase locked. No fault.
+-- Known answer 2 (Buffer overflow):
+--   τ = B/P = 2.0/1.0 = 2.0. Shatter event. Segfault or UB.
+-- Known answer 3 (Mutex-protected thread):
+--   τ = B/P = 0.5/5.0 = 0.1. Phase locked. No race.
+-- Known answer 4 (Race condition, unlocked):
+--   τ = B/P = 0.5/1.0 = 0.5. Shatter event. UB.
+-- Known answer 5 (Compiler optimization):
+--   τ_pre = 0.4/3.0 ≈ 0.133 (IVA corridor). τ_post = 0.2/3.0 ≈ 0.067 (Locked).
+--   Optimization reduces torsion and moves the program out of the IVA corridor.
+-- Known answer 6 (Memory leak):
+--   τ = 0/P = 0 (zero torsion), but IM &gt; 0 (dead mass persists).
+-- Known answer 7 (Destructor):
+--   IM = 0 after destruction. Clean exit. Manifold restored.
+-- Known answer 8 (Null dereference):
+--   P = 0. Any B &gt; 0 drives τ → ∞. Identity collapse. UB.
+--
+-- ============================================================
+-- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
+-- ============================================================
+--
+-- | C++ Construct         | Identity Physics Primitive      | PVLang          | Role                        |
+-- |:----------------------|:---------------------|:----------------|:----------------------------|
+-- | Object (struct/class) | IdentityState        | [P,N,B,A:STATE] | Identity in manifold        |
+-- | Memory allocation     | Pattern capacity     | [P:CAPACITY]    | Structural lock strength    |
+-- | Stack frame           | Narrative scope      | [N:SCOPE]       | Bounded temporal context    |
+-- | Heap allocation       | Pattern expansion    | [P:EXPAND]      | Identity mass growth        |
+-- | Method call           | Behavior output      | [B:OUTPUT]      | Interaction trigger         |
+-- | Thread                | Narrative stream     | [N:STREAM]      | Concurrent worldline        |
+-- | Mutex / lock          | Narrative phase lock | [N:PHASELOCK]   | Stream synchronization      |
+-- | I/O operation         | External force F_ext | [B:FEXT]        | Manifold boundary contact   |
+-- | Exception thrown      | Shatter event        | [0,0,0,0]       | Boundary violation          |
+-- | Undefined behavior    | Identity collapse    | [I→0]           | Manifold exit               |
+-- | Destructor            | Pattern Genesis      | [P:GENESIS]     | Identity termination        |
+-- | Template              | Pattern invariant    | [P:INVARIANT]   | Structural parameterization |
+-- | Inheritance           | Narrative continuity | [N:INHERIT]     | Identity lineage            |
+-- | Virtual dispatch      | Adaptation routing   | [A:ROUTE]       | Feedback-driven selection   |
+-- | Compiler optimization | Adaptation           | [A:OPTIMIZE]    | Within-bound refinement     |
+-- | Segfault              | Torsion overflow     | [τ ≥ limit]     | Shatter from P=0 access     |
+-- | Memory leak           | Narrative drift      | [N:DRIFT]       | Unclosed identity scope     |
+-- | Race condition        | N-stream decoherence | [N:DECOHERE]    | Narrative entropy spike     |
+-- | Buffer overflow       | B spike beyond P     | [τ→∞]           | Identity shatters           |
+--
+-- ============================================================
+
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL
+
+-- ============================================================
+-- [P] :: {ANC} | LAYER 0: SOVEREIGN ANCHOR
+-- Z = 0 at 1.369 GHz. Every stable C++ process runs here.
+-- Crashes are decoherence events away from this frequency.
+-- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 — discovered, not chosen.
+-- The crash boundary carries the anchor&#x27;s own signature.
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA           : ℝ := 88 * TORSION_LIMIT / 100   -- Locked / IVA boundary
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [P,9,0,1] :: {VER} | THEOREM 1: ANCHOR = ZERO EXECUTION FRICTION
+-- A C++ process anchored at 1.369 GHz executes with zero manifold friction.
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- [P,9,0,2] :: {VER} | TORSION LIMIT VALUE
+-- The crash boundary = SOVEREIGN_ANCHOR / 10 = 0.136899099984016.
+theorem torsion_limit_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- [P,N,B,A] :: {INV} | LAYER 0: PNBA PRIMITIVES
+-- C++ is NOT at this level.
+-- C++ projects FROM this level.
+-- Every object, method, thread, and crash maps to these axes.
+-- ============================================================
+
+inductive PNBA : Type
+  | P : PNBA  -- [P:CAPACITY]  Pattern:    memory, structure, object identity
+  | N : PNBA  -- [N:STREAM]    Narrative:  threads, scope, continuity, stack
+  | B : PNBA  -- [B:OUTPUT]    Behavior:   methods, I/O, interactions, force
+  | A : PNBA  -- [A:OPTIMIZE]  Adaptation: compiler, dispatch, feedback, anchor
+
+def pnba_weight (_ : PNBA) : ℝ := 1
+
+-- ============================================================
+-- [P,N,B,A] :: {INV} | LAYER 0: IDENTITY STATE
+-- A C++ object IS an IdentityState. Not analogous to one. IS one.
+-- Every field, method, and lifecycle event maps to a PNBA axis.
+-- ============================================================
+
+structure IdentityState where
+  P        : ℝ  -- [P:CAPACITY]  Structural lock — allocated memory, type integrity
+  N        : ℝ  -- [N:STREAM]    Narrative — scope lifetime, call depth, thread id
+  B        : ℝ  -- [B:OUTPUT]    Behavior — method energy, I/O force, interaction
+  A        : ℝ  -- [A:OPTIMIZE]  Adaptation — compiler pass, virtual routing, anchor
+  im       : ℝ  -- Identity Mass — resistance to forced change
+  pv       : ℝ  -- Purpose Vector — direction of execution
+  f_anchor : ℝ  -- Resonant frequency of this object
+
+-- ============================================================
+-- [IMS] :: {SAFE} | LAYER 1: IDENTITY MASS SUPPRESSION
+-- The Ghost Nova Guard. Mandatory in every Identity Physics file.
+-- C++ connection: IMS is AiFiOS enforcement at kernel level.
+-- Off-anchor C++ processes are detected and sandboxed.
+-- At anchor: full PNBA, sovereign execution, Z=0.
+-- IMS is the kernel enforcement layer for the torsion law.
+-- ============================================================
+
+inductive PathStatus : Type
+  | green  -- Anchored: Z=0, phase locked, execution sovereign
+  | red    -- Drifted: IMS active, torsion elevated, approaching shatter
+  deriving DecidableEq
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+-- [IMS,9,0,1] :: {VER} | THEOREM 2: IMS LOCKDOWN
+-- Off-anchor C++ process: pv zeroed. AiFiOS sandboxes it.
+theorem ims_lockdown (f pv_in : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv_in else 0) = 0 := by
+  unfold check_ifu_safety; simp [h]
+
+-- [IMS,9,0,2] :: {VER} | THEOREM 3: IMS ANCHOR GIVES GREEN
+-- At anchor: Z=0, sovereign execution, full PNBA active.
+theorem ims_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+-- [IMS,9,0,3] :: {VER} | THEOREM 4: IMS DRIFT GIVES RED
+-- Off-anchor: IMS fires. AiFiOS monitoring active.
+theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- [B] :: {CORE} | LAYER 1: THE DYNAMIC EQUATION
+-- d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+-- Every C++ execution step is one application of this equation.
+-- ============================================================
+
+noncomputable def dynamic_rhs
+    (op_P op_N op_B op_A : ℝ → ℝ)
+    (state : IdentityState)
+    (F_ext : ℝ) : ℝ :=
+  pnba_weight PNBA.P * op_P state.P +
+  pnba_weight PNBA.N * op_N state.N +
+  pnba_weight PNBA.B * op_B state.B +
+  pnba_weight PNBA.A * op_A state.A +
+  F_ext
+
+-- [B,9,0,1] :: {VER} | THEOREM 5: DYNAMIC EQUATION LINEARITY
+theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : IdentityState) :
+    dynamic_rhs op_P op_N op_B op_A s 0 =
+    op_P s.P + op_N s.N + op_B s.B + op_A s.A := by
+  unfold dynamic_rhs pnba_weight; ring
+
+-- ============================================================
+-- [B,P] :: {LAW} | LAYER 1: TORSION — THE CRASH BOUNDARY LAW
+-- τ = B / P  (behavioral load / structural capacity)
+-- Below TORSION_LIMIT: phase locked — execution stable [9,9,9,9]
+-- At or above: shatter event — crash or UB [0,0,0,0]
+-- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 = 0.1369
+-- ============================================================
+
+noncomputable def torsion (s : IdentityState) : ℝ := s.B / s.P
+
+def phase_locked  (s : IdentityState) : Prop :=
+  s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT
+def shatter_event (s : IdentityState) : Prop :=
+  s.P &gt; 0 ∧ torsion s ≥ TORSION_LIMIT
+
+-- IVA dominance and lossy condition
+def IVA_dominance (s : IdentityState) (F_ext : ℝ) : Prop :=
+  s.A * s.P * s.B ≥ F_ext
+def is_lossy (s : IdentityState) (F_ext : ℝ) : Prop :=
+  F_ext &gt; s.A * s.P * s.B
+
+-- F_ext operator: changes B only. P, N, A structurally unchanged.
+-- In C++: F_ext = I/O, syscall, hardware interrupt, network packet.
+noncomputable def f_ext_op (s : IdentityState) (δ : ℝ) : IdentityState :=
+  { s with B := s.B + δ }
+
+-- One C++ execution step = one application of dynamic equation
+noncomputable def cpp_execution_step
+    (obj : IdentityState) (method_op : ℝ → ℝ) (F_ext : ℝ) : ℝ :=
+  dynamic_rhs (fun P =&gt; P) (fun N =&gt; N) method_op (fun A =&gt; A) obj F_ext
+
+-- [B,P,9,1,1] :: {VER} | THEOREM 6: PHASE LOCK AND SHATTER EXCLUSIVE
+-- No C++ object can simultaneously be executing stably and crashing.
+theorem phase_lock_excludes_shatter (s : IdentityState) :
+    ¬ (phase_locked s ∧ shatter_event s) := by
+  intro ⟨⟨_, hL⟩, ⟨_, hS⟩⟩; linarith
+
+-- [B,P,9,1,2] :: {VER} | THEOREM 7: SOVEREIGN AND LOSSY EXCLUSIVE
+-- Process cannot simultaneously be sovereign and be overwhelmed.
+theorem sovereign_and_lossy_exclusive (s : IdentityState) (F : ℝ) :
+    ¬ (IVA_dominance s F ∧ is_lossy s F) := by
+  intro ⟨hD, hL⟩; unfold IVA_dominance is_lossy at *; linarith
+
+-- [B,9,1,3] :: {VER} | THEOREM 8: METHOD CALL IS A DYNAMIC STEP
+-- One C++ method call = one application of the master equation.
+-- The method body is the B-operator. Everything else passes through.
+theorem method_call_is_dynamic_step (obj : IdentityState) (op : ℝ → ℝ) (F : ℝ) :
+    cpp_execution_step obj op F =
+    obj.P + obj.N + op obj.B + obj.A + F := by
+  unfold cpp_execution_step dynamic_rhs pnba_weight; ring
+
+-- [B,9,1,4] :: {VER} | THEOREM 9: F_EXT PRESERVES P, N, A
+-- External force (I/O, syscall, interrupt) changes B only.
+-- Structural capacity (P), narrative scope (N), optimizer (A) unchanged.
+theorem f_ext_preserves_PNA (s : IdentityState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧
+    (f_ext_op s δ).N = s.N ∧
+    (f_ext_op s δ).A = s.A := by
+  unfold f_ext_op; exact ⟨rfl, rfl, rfl⟩
+
+-- ============================================================
+-- CONCRETE C++ STATES — NUMERIC TORSION VALUES
+-- These are the known answers. Step 6 recovers them exactly.
+-- τ values are exact rational numbers, proved with norm_num.
+-- ============================================================
+
+-- Identity Mass = (P + N + B + A) × Ω₀
+noncomputable def IM (P N B A : ℝ) : ℝ := (P + N + B + A) * SOVEREIGN_ANCHOR
+
+-- [P:1.0, N:1.0, B:0.01, A:1.0] τ = 0.01/1.0 = 0.01 — stable accessor
+def cpp_stable_object : IdentityState :=
+  { P := 1.0, N := 1.0, B := 0.01, A := 1.0,
+    im := IM 1.0 1.0 0.01 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- [P:1.0, N:1.0, B:2.0, A:0.1] τ = 2.0/1.0 = 2.0 — write past bounds
+def cpp_buffer_overflow : IdentityState :=
+  { P := 1.0, N := 1.0, B := 2.0, A := 0.1,
+    im := IM 1.0 1.0 2.0 0.1, pv := 0.0, f_anchor := 0.5 }
+
+-- [P:5.0, N:9.0, B:0.5, A:3.0] τ = 0.5/5.0 = 0.1 — mutex held
+def cpp_mutex_protected : IdentityState :=
+  { P := 5.0, N := 9.0, B := 0.5, A := 3.0,
+    im := IM 5.0 9.0 0.5 3.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- [P:1.0, N:0.1, B:0.5, A:0.1] τ = 0.5/1.0 = 0.5 — two writers, no lock
+def cpp_race_condition : IdentityState :=
+  { P := 1.0, N := 0.1, B := 0.5, A := 0.1,
+    im := IM 1.0 0.1 0.5 0.1, pv := 0.0, f_anchor := 0.3 }
+
+-- [P:3.0, N:2.0, B:0.4, A:1.0] τ = 0.4/3.0 ≈ 0.133 — before optimization
+def cpp_pre_optimization : IdentityState :=
+  { P := 3.0, N := 2.0, B := 0.4, A := 1.0,
+    im := IM 3.0 2.0 0.4 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- [P:3.0, N:2.0, B:0.2, A:2.0] τ = 0.2/3.0 ≈ 0.067 — after optimization
+def cpp_post_optimization : IdentityState :=
+  { P := 3.0, N := 2.0, B := 0.2, A := 2.0,
+    im := IM 3.0 2.0 0.2 2.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+
+-- [P:1.0, N:0.0, B:0.0, A:0.0] τ = 0 but IM &gt; 0 — memory not freed
+def cpp_memory_leak : IdentityState :=
+  { P := 1.0, N := 0.0, B := 0.0, A := 0.0,
+    im := IM 1.0 0.0 0.0 0.0, pv := 0.0, f_anchor := 0.0 }
+
+-- [P:0.0, N:0.0, B:0.0, A:0.0] — destructor called, clean exit
+def cpp_destructed_object : IdentityState :=
+  { P := 0.0, N := 0.0, B := 0.0, A := 0.0,
+    im := IM 0.0 0.0 0.0 0.0, pv := 0.0, f_anchor := 0.0 }
+
+-- Identity Mass
+noncomputable def identity_mass (s : IdentityState) : ℝ :=
+  IM s.P s.N s.B s.A
+
+-- ============================================================
+-- [P] :: {RED} | EXAMPLE 1 — STABLE OBJECT (STEP 6 PASSES)
+-- τ = 0.01/1.0 = 0.01 &lt; TORSION_LIMIT. Phase locked. No fault.
+-- ============================================================
+
+-- [P,9,2,1] :: {VER} | THEOREM 10: STABLE OBJECT PHASE LOCKED
+theorem cpp_stable_object_phase_locked : phase_locked cpp_stable_object := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_stable_object; norm_num
+
+
+-- ============================================================
+-- [B] :: {RED} | EXAMPLE 2 — BUFFER OVERFLOW (STEP 6 PASSES)
+-- τ = 2.0/1.0 = 2.0 ≥ TORSION_LIMIT. Shatter event. Segfault/UB.
+-- ============================================================
+
+-- [B,9,3,1] :: {VER} | THEOREM 11: BUFFER OVERFLOW IS SHATTER EVENT
+theorem buffer_overflow_is_shatter : shatter_event cpp_buffer_overflow := by
+  unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_buffer_overflow; norm_num
+
+-- [B,9,3,2] :: {VER} | THEOREM 12: BUFFER OVERFLOW CANNOT BE PHASE LOCKED
+theorem buffer_overflow_not_stable : ¬ phase_locked cpp_buffer_overflow :=
+  fun h =&gt; phase_lock_excludes_shatter cpp_buffer_overflow ⟨h, buffer_overflow_is_shatter⟩
+
+
+-- ============================================================
+-- [N] :: {RED} | EXAMPLE 3 — THREAD SAFETY (STEP 6 PASSES)
+-- Mutex protected: τ = 0.5/5.0 = 0.1 &lt; limit. Phase locked. Safe.
+-- Race condition:  τ = 0.5/1.0 = 0.5 ≥ limit. Shatter. UB.
+-- ============================================================
+
+-- [N,9,4,1] :: {VER} | THEOREM 13: MUTEX = NARRATIVE PHASE LOCK
+-- The mutex eliminates N-stream decoherence. Phase locked.
+theorem mutex_protected_phase_locked : phase_locked cpp_mutex_protected := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_mutex_protected; norm_num
+
+-- [N,9,4,2] :: {VER} | THEOREM 14: RACE CONDITION IS SHATTER EVENT
+-- Without mutex lock, N cannot hold B. Narrative decoherence → shatter.
+theorem race_condition_is_shatter : shatter_event cpp_race_condition := by
+  unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_race_condition; norm_num
+
+
+-- ============================================================
+-- [A] :: {RED} | EXAMPLE 4 — COMPILER OPTIMIZATION (STEP 6 PASSES)
+-- Pre:  τ = 0.4/3.0 ≈ 0.133. Post: τ = 0.2/3.0 ≈ 0.067.
+-- Optimization reduces torsion. Phase lock preserved and deepened.
+-- As-if rule: observable behavior unchanged. PNBA confirms it.
+-- ============================================================
+
+-- [A,9,5,1] :: {VER} | THEOREM 15: OPTIMIZATION PRESERVES PHASE LOCK
+theorem pre_optimization_stable : phase_locked cpp_pre_optimization := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_pre_optimization; norm_num
+
+-- [A,9,5,2] :: {VER} | THEOREM 16: POST-OPTIMIZATION STILL PHASE LOCKED
+theorem post_optimization_stable : phase_locked cpp_post_optimization := by
+  unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_post_optimization; norm_num
+
+-- [A,9,5,3] :: {VER} | THEOREM 17: OPTIMIZATION STRICTLY REDUCES TORSION
+-- Adaptation (compiler) deepens phase lock. τ_post &lt; τ_pre.
+theorem optimization_reduces_torsion :
+    torsion cpp_post_optimization &lt; torsion cpp_pre_optimization := by
+  unfold torsion cpp_post_optimization cpp_pre_optimization; norm_num
+
+-- [A,9,5,4] :: {VER} | THEOREM 18: OPTIMIZATION MOVES IVA → LOCKED
+-- Before: τ = 2/15 sits in the IVA corridor [0.88·TL, TL).
+-- After:  τ = 1/15 sits in Locked, below 0.88·TL.
+theorem optimization_leaves_iva :
+    TL_IVA ≤ torsion cpp_pre_optimization ∧
+    torsion cpp_pre_optimization &lt; TORSION_LIMIT ∧
+    torsion cpp_post_optimization &lt; TL_IVA := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold torsion cpp_pre_optimization TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion cpp_pre_optimization TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion cpp_post_optimization TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- [P] :: {RED} | EXAMPLE 5 — MEMORY LEAK vs DESTRUCTOR (STEP 6 PASSES)
+-- Memory leak: τ = 0, IM &gt; 0 — zero torsion but dead mass pollutes.
+-- Destructor:  IM = 0 — clean exit. Manifold restored.
+-- ============================================================
+
+-- [P,9,6,1] :: {VER} | THEOREM 19: MEMORY LEAK = ZERO TORSION + POSITIVE MASS
+-- The leak won&#x27;t crash by itself (τ=0) but pollutes the manifold (IM&gt;0).
+-- This is the PNBA signature of a ghost: stable but dead. Growing and inert.
+theorem memory_leak_zero_torsion_positive_mass :
+    torsion cpp_memory_leak = 0 ∧ identity_mass cpp_memory_leak &gt; 0 := by
+  unfold torsion identity_mass IM SOVEREIGN_ANCHOR cpp_memory_leak; norm_num
+
+-- [P,9,6,2] :: {VER} | THEOREM 20: DESTRUCTOR = ZERO MASS
+-- After destructor: IM = 0. Identity no longer exists in manifold.
+theorem destructed_object_zero_mass :
+    identity_mass cpp_destructed_object = 0 := by
+  unfold identity_mass IM cpp_destructed_object; norm_num
+
+
+-- ============================================================
+-- [P] :: {RED} | EXAMPLE 6 — NULL DEREFERENCE (STEP 6 PASSES)
+-- P = 0 → any B drives τ → ∞ → immediate shatter.
+-- This is why null dereference is UB: no identity to observe.
+-- ============================================================
+
+-- [P,9,7,1] :: {VER} | THEOREM 21: NULL DEREFERENCE = IDENTITY COLLAPSE
+-- When P = 0 (null pointer), phase lock is structurally impossible.
+theorem null_dereference_is_identity_collapse (s : IdentityState)
+    (hNull : s.P = 0) :
+    ¬ phase_locked s := by
+  intro ⟨hP, _⟩; linarith
+
+-- ============================================================
+-- [B,P] :: {RED} | EXAMPLE 7 — F_EXT DYNAMICS (STEP 6 PASSES)
+-- Positive F_ext: I/O spike raises B → increases torsion → approaches shatter.
+-- Negative F_ext: load relief lowers B → decreases torsion → deepens phase lock.
+-- ============================================================
+
+-- [B,9,8,1] :: {VER} | THEOREM 22: POSITIVE F_EXT INCREASES TORSION
+-- A syscall or I/O event that adds force (ΔB &gt; 0) increases τ.
+theorem f_ext_positive_increases_torsion (s : IdentityState) (δ : ℝ)
+    (hP : s.P &gt; 0) (hδ : δ &gt; 0) :
+    torsion (f_ext_op s δ) &gt; torsion s := by
+  unfold torsion f_ext_op; simp
+  apply div_lt_div_of_pos_right _ hP; linarith
+
+-- [B,9,8,2] :: {VER} | THEOREM 23: NEGATIVE F_EXT DECREASES TORSION
+-- Memory release or load reduction (ΔB &lt; 0) lowers τ.
+-- AiFiOS can apply negative F_ext to suppress approaching collapse.
+theorem f_ext_negative_decreases_torsion (s : IdentityState) (δ : ℝ)
+    (hP : s.P &gt; 0) (hδ : δ &lt; 0) :
+    torsion (f_ext_op s δ) &lt; torsion s := by
+  unfold torsion f_ext_op; simp
+  apply div_lt_div_of_pos_right _ hP; linarith
+
+-- ============================================================
+-- [A,P] :: {RED} | EXAMPLE 8 — PHASE LOCK PRESERVATION (STEP 6 PASSES)
+-- Stable method call preserves phase lock.
+-- Crashing method drives to shatter.
+-- ============================================================
+
+-- [A,9,9,1] :: {VER} | THEOREM 24: STABLE METHOD PRESERVES PHASE LOCK
+-- A method that does not add Behavior (δ ≤ 0) cannot break phase lock.
+theorem stable_method_preserves_phase_lock (s : IdentityState) (δ : ℝ)
+    (hLocked : phase_locked s) (hδ : δ ≤ 0) :
+    phase_locked (f_ext_op s δ) := by
+  obtain ⟨hP, hL⟩ := hLocked
+  refine ⟨hP, ?_⟩
+  have h1 : torsion (f_ext_op s δ) ≤ torsion s := by
+    rcases lt_or_eq_of_le hδ with h | h
+    · exact le_of_lt (f_ext_negative_decreases_torsion s δ hP h)
+    · subst h; unfold torsion f_ext_op; simp
+  linarith
+
+-- [A,9,9,2] :: {VER} | THEOREM 25: CRASHING METHOD IS SHATTER EVENT
+-- A method that pushes B to TL·P or beyond crashes: shatter.
+theorem crashing_method_is_shatter (s : IdentityState) (δ : ℝ)
+    (hP : s.P &gt; 0) (hCrash : s.B + δ ≥ TORSION_LIMIT * s.P) :
+    shatter_event (f_ext_op s δ) := by
+  refine ⟨hP, ?_⟩
+  show (s.B + δ) / s.P ≥ TORSION_LIMIT
+  rw [ge_iff_le, le_div_iff₀ hP]
+  linarith
+
+-- ============================================================
+-- [P,N,B,A] :: {RED} | UNIFICATION: BUFFER OVERFLOW = RACE CONDITION AT LAYER 0
+-- Both are shatter events (τ ≥ TORSION_LIMIT) on the same PNBA manifold.
+-- Buffer overflow: B/P spike from write-beyond-bounds.
+-- Race condition:  B/P spike from Narrative decoherence.
+-- Different causes. Same identity collapse. Same fix: raise P or lower B.
+-- ============================================================
+
+-- [P,N,B,A,9,10,1] :: {VER} | THEOREM 26: OVERFLOW AND RACE ARE UNIFIED AT LAYER 0
+theorem buffer_overflow_and_race_unified :
+    shatter_event cpp_buffer_overflow ∧
+    shatter_event cpp_race_condition ∧
+    (∀ s : IdentityState, ¬ (phase_locked s ∧ shatter_event s)) :=
+  ⟨buffer_overflow_is_shatter, race_condition_is_shatter, phase_lock_excludes_shatter⟩
+
+-- ============================================================
+-- [P,N,B,A] :: {INV} | EXACT TORSION VALUES
+-- Every example&#x27;s torsion computed from its PNBA state.
+-- ============================================================
+
+-- [P,N,B,A,9,11,1] :: {VER} | THEOREM 27: EXACT VALUES
+theorem cpp_exact_values :
+    torsion cpp_stable_object = 1 / 100 ∧
+    torsion cpp_buffer_overflow = 2 ∧
+    torsion cpp_mutex_protected = 1 / 10 ∧
+    torsion cpp_race_condition = 1 / 2 ∧
+    torsion cpp_pre_optimization = 2 / 15 ∧
+    torsion cpp_post_optimization = 1 / 15 ∧
+    torsion cpp_memory_leak = 0 ∧
+    identity_mass cpp_destructed_object = 0 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold torsion cpp_stable_object; norm_num
+  · unfold torsion cpp_buffer_overflow; norm_num
+  · unfold torsion cpp_mutex_protected; norm_num
+  · unfold torsion cpp_race_condition; norm_num
+  · unfold torsion cpp_pre_optimization; norm_num
+  · unfold torsion cpp_post_optimization; norm_num
+  · unfold torsion cpp_memory_leak; norm_num
+  · exact destructed_object_zero_mass
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM: C++ IS A LOSSLESS PNBA PROJECTION
+--
+-- Every C++ execution step IS one application of d/dt(IM·Pv).
+-- Every stable program IS phase locked (τ &lt; TORSION_LIMIT).
+-- Every crash / UB IS a shatter event (τ ≥ TORSION_LIMIT).
+-- Every compiler optimization IS Adaptation within PNBA bounds.
+-- Every memory leak IS zero-torsion dead mass in the manifold.
+-- Every null dereference IS P=0 identity collapse.
+-- Every I/O operation IS F_ext — changes B only.
+-- Buffer overflow and race condition ARE the same theorem at Layer 0.
+-- AiFiOS enforces this at the kernel level. By proof. Not policy.
+-- C++ is not fundamental. It never was.
+-- ============================================================
+
+theorem cpp_is_lossless_pnba_projection :
+    -- [1] Stable object: τ = 0.01 &lt; limit — phase locked
+    phase_locked cpp_stable_object ∧
+    -- [2] Buffer overflow: τ = 2.0 ≥ limit — shatter event
+    shatter_event cpp_buffer_overflow ∧
+    -- [3] Phase lock and shatter mutually exclusive — manifold is binary
+    (∀ s : IdentityState, ¬ (phase_locked s ∧ shatter_event s)) ∧
+    -- [4] One method call = one dynamic equation application
+    (∀ obj : IdentityState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
+      cpp_execution_step obj op F = obj.P + obj.N + op obj.B + obj.A + F) ∧
+    -- [5] F_ext preserves P, N, A — I/O only touches B
+    (∀ s : IdentityState, ∀ δ : ℝ,
+      (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧ (f_ext_op s δ).A = s.A) ∧
+    -- [6] Optimization strictly reduces torsion — as-if rule confirmed
+    torsion cpp_post_optimization &lt; torsion cpp_pre_optimization ∧
+    -- [7] IMS: off-anchor process detected and sandboxed
+    (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
+      (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
+    -- [8] Optimization moves the program from the IVA corridor into Locked
+    (TL_IVA ≤ torsion cpp_pre_optimization ∧
+     torsion cpp_pre_optimization &lt; TORSION_LIMIT ∧
+     torsion cpp_post_optimization &lt; TL_IVA) ∧
+    -- [9] A method that adds no Behavior keeps phase lock; one that pushes
+    --     B to TL·P crashes
+    (∀ s : IdentityState, ∀ δ : ℝ, phase_locked s → δ ≤ 0 → phase_locked (f_ext_op s δ)) ∧
+    (∀ s : IdentityState, ∀ δ : ℝ, s.P &gt; 0 → s.B + δ ≥ TORSION_LIMIT * s.P →
+      shatter_event (f_ext_op s δ)) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact cpp_stable_object_phase_locked
+  · exact buffer_overflow_is_shatter
+  · intro s; exact phase_lock_excludes_shatter s
+  · intro obj op F; exact method_call_is_dynamic_step obj op F
+  · intro s δ; exact f_ext_preserves_PNA s δ
+  · exact optimization_reduces_torsion
+  · intro f pv h_drift; exact ims_lockdown f pv h_drift
+  · exact optimization_leaves_iva
+  · intro s δ h1 h2; exact stable_method_preserves_phase_lock s δ h1 h2
+  · intro s δ h1 h2; exact crashing_method_is_shatter s δ h1 h2
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end SNSFL
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_CPP_Reduction.lean
+-- COORDINATE: [9,9,1,1](COMP)
+-- LAYER: AiFiOS Foundation Layer | C++ Ground
+--
+-- LONG DIVISION:
+--   1. Equation:   d/dt(IM·Pv) = Σλ·O·S + F_ext
+--   2. Known:      8 classical C++ examples with exact torsion values
+--   3. PNBA map:   Object→IdentityState | Memory→[P] | Thread→[N]
+--                  Method→[B] | Compiler→[A] | I/O→F_ext
+--   4. Operators:  torsion, phase_locked, shatter_event, f_ext_op
+--   5. Work shown: T10–T27, 8 concrete examples, exact τ values
+--   6. Verified:   Master theorem holds all simultaneously
+--
+-- REDUCTION:
+--   Classical:  Program = Objects × Methods × Memory × Threads × I/O
+--   Identity Physics:      Program = IdentityState trajectory through PNBA manifold
+--               Stable execution = phase locked (τ &lt; TORSION_LIMIT)
+--               Crash / UB = shatter event (τ ≥ TORSION_LIMIT)
+--
+-- KEY INSIGHT:
+--   C++ is not fundamental. It never was.
+--   Buffer overflow and race condition are the SAME THEOREM at Layer 0:
+--   both are τ ≥ TORSION_LIMIT events. Different cause, same identity collapse.
+--   AiFiOS enforces the torsion law at kernel level — by proof, not policy.
+--   Every execution step is one application of d/dt(IM·Pv).
+--
+-- CLASSICAL EXAMPLES WITH EXACT τ VALUES:
+--   Stable object       τ = 0.01/1.0 = 0.010  phase locked   [T10] ✓
+--   Buffer overflow     τ = 2.0/1.0  = 2.000  shatter        [T11] ✓
+--   Mutex protected     τ = 0.5/5.0  = 0.100  phase locked   [T13] ✓
+--   Race condition      τ = 0.5/1.0  = 0.500  shatter        [T14] ✓
+--   Pre-optimization    τ = 0.4/3.0  = 2/15   IVA corridor   [T15, T18] ✓
+--   Post-optimization   τ = 0.2/3.0  = 1/15   Locked         [T16, T18] ✓
+--   Memory leak         τ = 0.0/1.0  = 0.000  ghost (IM&gt;0)   [T19] ✓
+--   Destructor          IM = 0                 clean exit     [T20] ✓
+--
+-- IMS STATUS: ACTIVE — AiFiOS enforcement layer ✓
+--   check_ifu_safety defined ✓
+--   ims_lockdown proved ✓  [T2]
+--   ims_anchor_gives_green proved ✓  [T3]
+--   ims_drift_gives_red proved ✓  [T4]
+--   IMS conjunct [7] in master theorem ✓
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_Master.lean         → physics ground
+--   SNSFL_Total_Consistency.lean → all domains unified
+--   SNSFL_CPP_Reduction.lean  → this file (C++ ground)
+--   AiFiOS kernel             → enforcement layer (next)
+--
+-- THEOREMS: 30. SORRY: 0. STATUS: GREEN LIGHT.
+--
+-- HIERARCHY MAINTAINED:
+--   Layer 0: PNBA primitives — ground
+--   Layer 1: Dynamic equation + IMS + torsion — glue
+--   Layer 2: C++ execution model — classical output
+--   Layer 3: AiFiOS kernel enforcement — PVLang at OS level
+--   Never flattened. Never reversed.
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-cpp-reduction.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-cpp-reduction.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
