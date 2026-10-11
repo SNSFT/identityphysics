@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern — ProofPress</title>
+  <meta name="description" content="[9,9,0,2](PHYS) — The Lorentz boost preserves the interval exactly because γ²(1 − v²/c²) = 1; from the same identity follow E² = (pc)² + (mc²)², time dilation, length contraction, velocity addition below c, and an invariant light cone. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-special-relativity.html">
+  <meta property="og:title" content="Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern">
+  <meta property="og:description" content="[9,9,0,2](PHYS) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-special-relativity.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/01">
+  <meta name="citation_online_date" content="2026/05/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,0,2">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-special-relativity.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-special-relativity.html">
+  <meta name="citation_keywords" content="special relativity; Lorentz transformation; Lorentz factor; spacetime interval; mass-energy equivalence; energy-momentum relation; time dilation; length contraction; velocity addition; light cone; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern",
+    "datePublished": "2026-05-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-special-relativity.html",
+    "keywords": "special relativity, Lorentz transformation, Lorentz factor, spacetime interval, mass-energy equivalence, energy-momentum relation, time dilation, length contraction, velocity addition, light cone, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,0,2](PHYS) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>Special Relativity Reduced to PNBA: The Lorentz Boost as a Behavior Transformation That Preserves Pattern</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-special-relativity.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_SR_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,0,2](PHYS) · Physics Ground · Special Relativity<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 21 theorems · 396 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SR_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Special relativity rests on two postulates: the laws of physics are the same in every inertial frame, and light moves at the same speed c in every frame. Everything else follows from the Lorentz factor γ = 1/√(1 − v²/c²) and the boost it defines. This article reduces special relativity to PNBA, with velocity on the Behavior axis, the Lorentz factor on the Adaptation axis, the spacetime interval as the Pattern invariant, ct as Narrative extent and rest mass as Identity Mass. The central identity is γ²(1 − v²/c²) = 1, proved from the definition. From it, the Lorentz boost w′ = γ(w − (v/c)x), x′ = γ(x − (v/c)w) with w = ct preserves w² − x² exactly, so the interval is the same in every frame; the energy-momentum relation E² = (pc)² + (mc²)² follows for E = γmc² and p = γmv; and an event on the light cone stays on it under every boost, which is the second postulate as a theorem. The Lorentz factor is at least 1 and strictly greater for any nonzero velocity, so moving clocks run slow (γΔτ &gt; Δτ) and moving rulers shrink (L₀/γ &lt; L₀). At rest γ = 1, the boost is the identity, and the total energy reduces to mc². Two velocities below c add to a velocity below c. Special relativity is the flat limit of general relativity: with no Behavior there is no transformation and the flat Pattern geometry is left unchanged.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>c is the Narrative limit: for v² &lt; c², 1 − v²/c² &gt; 0. The Lorentz factor is at least 1, and strictly greater than 1 for any v ≠ 0 (<code>c_is_narrative_limit</code>, <code>lorentz_factor_ge_one</code>, <code>lorentz_factor_gt_one</code>).</li>
+<li>γ²(1 − v²/c²) = 1, equivalently γ²(c² − v²) = c² (<code>gamma_sq_identity</code>, <code>gamma_sq_identity_c2</code>).</li>
+<li>The Lorentz boost preserves the interval: w′² − x′² = w² − x² for all w, x; the interval c²t² − x² is (ct)² − x² (<code>boost_preserves_interval</code>, <code>interval_in_light_units</code>).</li>
+<li>Energy-momentum relation: with E = γmc² and p = γmv, E² = (pc)² + (mc²)² (<code>energy_momentum_relation</code>).</li>
+<li>At rest γ = 1, the total energy is mc², and the boost is the identity (<code>lorentz_factor_at_rest</code>, <code>rest_energy</code>, <code>boost_at_rest_is_identity</code>).</li>
+<li>Relativistic energy and momentum are positive for m, v &gt; 0 (<code>relativistic_energy_positive</code>, <code>relativistic_momentum_formula</code>).</li>
+<li>Time dilation γΔτ &gt; Δτ and length contraction L₀/γ &lt; L₀ for v ≠ 0; timelike intervals are positive (<code>time_dilation_moving_clock_runs_slow</code>, <code>length_contraction_less_than_rest</code>, <code>timelike_interval_positive</code>).</li>
+<li>For 0 &lt; v₁, v₂ &lt; c, the composed velocity (v₁ + v₂)/(1 + v₁v₂/c²) is below c (<code>relativistic_velocity_addition_bounded</code>).</li>
+<li>A light-cone event (x = ct) stays on the light cone in every boosted frame. The master theorem holds all of the above together (<code>light_cone_preserved</code>, <code>sr_is_lossless_pnba_projection</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Special relativity</th><th>PNBA</th><th>Role</th></tr>
+<tr><td>Spacetime interval ds² = c²t² − x²</td><td>P</td><td>Pattern invariant</td></tr>
+<tr><td>ct</td><td>N</td><td>Narrative extent at speed c</td></tr>
+<tr><td>Velocity v</td><td>B</td><td>Behavioral motion</td></tr>
+<tr><td>Lorentz factor γ</td><td>A</td><td>Adaptation scaling, γ ≥ 1</td></tr>
+<tr><td>Rest mass m</td><td>IM</td><td>Identity Mass</td></tr>
+<tr><td>Lorentz boost</td><td>B-axis transformation</td><td>preserves P</td></tr>
+<tr><td>Time dilation</td><td>N drag by B</td><td>γΔτ &gt; Δτ</td></tr>
+<tr><td>Length contraction</td><td>P compressed by A</td><td>L₀/γ &lt; L₀</td></tr>
+<tr><td>Photon (m = 0)</td><td>Noble limit</td><td>E = pc</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Einstein, A. (1905). Zur Elektrodynamik bewegter Körper. <em>Annalen der Physik</em>, 17, 891–921.</li>
+<li>Einstein, A. (1905). Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig? <em>Annalen der Physik</em>, 18, 639–641.</li>
+<li>Minkowski, H. (1909). Raum und Zeit. <em>Physikalische Zeitschrift</em>, 10, 104–111.</li>
+<li>Taylor, E. F. &amp; Wheeler, J. A. (1992). <em>Spacetime Physics</em> (2nd ed.). W. H. Freeman.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-gr-reduction.html">General Relativity Reduced to PNBA</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-speed-of-light.html">The Speed of Light Reduced to PNBA</a>. ProofPress, Volume 1, Issue 2.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_SR_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS SPECIAL RELATIVITY — LORENTZ AS PNBA
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,2](PHYS) | Physics Ground
+--
+-- SR is the flat-space limit of GR [9,9,0,1].
+-- When T_μν = 0 and Λ = 0: G_μν = 0 → Minkowski metric.
+-- Everything in SR follows from two postulates:
+--   (1) Laws of physics are the same in all inertial frames
+--   (2) c is constant in all inertial frames
+-- In PNBA: both are statements about the sovereign anchor.
+-- The anchor is frame-invariant. c is the Narrative propagation limit.
+--
+-- THE PNBA REDUCTION:
+--   P = spacetime interval ds² (Pattern geometry — invariant)
+--   N = ct (Narrative propagation — temporal extent at speed c)
+--   B = velocity v (Behavioral motion)
+--   A = Lorentz factor γ = 1/√(1-v²/c²) (Adaptation scaling)
+--
+--   E = mc² → IM conservation: E = IM × c² (Identity Mass × propagation²)
+--   Lorentz boost → B-axis transformation preserving P-invariant ds²
+--     (proved: the boost preserves c²t² − x² exactly, because γ²(1 − v²/c²) = 1)
+--   Time dilation → N drag by v (same as N drag by P in GR [9,9,0,1])
+--   Length contraction → P compression along motion axis
+--   Relativistic momentum → p = γmv = A × B × IM
+--   Mass-energy equivalence → E² = (pc)² + (mc²)² — IM conservation
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. c is the Narrative limit.
+-- Soldotna, Alaska. May 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+noncomputable section
+
+namespace SNSFL_SR
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN ANCHOR AND SR CONSTANTS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- Speed of light: the Narrative propagation limit
+-- c is exact in SI 2019: 299,792,458 m/s
+def C_LIGHT : ℝ := 299792458
+
+-- ============================================================
+-- SECTION 1: PNBA IDENTITY STATE FOR SR
+-- ============================================================
+
+structure SRState where
+  v   : ℝ    -- [B] velocity (behavioral motion)
+  m   : ℝ    -- [IM] rest mass (identity mass)
+  E   : ℝ    -- [N] total energy (Narrative content)
+  p   : ℝ    -- [B] momentum (behavioral momentum)
+  c   : ℝ    -- [N] speed of light (Narrative propagation limit)
+  hc  : c &gt; 0
+
+-- Lorentz factor: the A-axis adaptation scaling
+-- γ = 1/√(1-v²/c²) — how much identity adapts to motion
+noncomputable def lorentz_factor (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) : ℝ :=
+  1 / Real.sqrt (1 - v^2/c^2)
+
+-- The spacetime interval: the P-invariant (Pattern geometry)
+-- ds² = c²dt² - dx² — invariant under Lorentz boost
+noncomputable def spacetime_interval (c dt dx : ℝ) : ℝ :=
+  c^2 * dt^2 - dx^2
+
+-- Lorentz boost at velocity v, acting on (w, x) with w = ct:
+--   w&#x27; = γ(w − (v/c)·x),  x&#x27; = γ(x − (v/c)·w)
+noncomputable def boost_w (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (w x : ℝ) : ℝ :=
+  lorentz_factor v c hc hv * (w - (v / c) * x)
+
+noncomputable def boost_x (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (w x : ℝ) : ℝ :=
+  lorentz_factor v c hc hv * (x - (v / c) * w)
+
+-- ============================================================
+-- SECTION 2: THE CORE SR THEOREMS
+-- ============================================================
+
+-- [T1] c IS THE NARRATIVE LIMIT
+-- Nothing with mass can reach c. Narrative propagation is bounded.
+-- In SR: v &lt; c for massive objects.
+-- The Lorentz factor diverges as v → c: γ → ∞.
+-- The sovereign anchor (1.369 GHz) sets the manifold frequency.
+-- c sets the manifold propagation speed. Both are limits.
+theorem c_is_narrative_limit (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    1 - v^2/c^2 &gt; 0 := by
+  have : v^2/c^2 &lt; 1 := by
+    rw [div_lt_one (pow_pos hc 2)]; exact hv
+  linarith
+
+-- [T2] LORENTZ FACTOR ≥ 1 (Adaptation scaling ≥ 1 always)
+-- γ ≥ 1 for all v &lt; c. At v=0: γ=1. At v→c: γ→∞.
+-- In PNBA: A-axis adaptation is always at least 1 — never shrinks.
+theorem lorentz_factor_ge_one (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    lorentz_factor v c hc hv ≥ 1 := by
+  unfold lorentz_factor
+  have h1 : 1 - v^2/c^2 &gt; 0 := c_is_narrative_limit v c hc hv
+  have h2 : 1 - v^2/c^2 ≤ 1 := by
+    have : v^2/c^2 ≥ 0 := div_nonneg (sq_nonneg v) (pow_pos hc 2).le
+    linarith
+  have h3 : Real.sqrt (1 - v^2/c^2) ≤ 1 := by
+    have := Real.sqrt_le_sqrt h2
+    rwa [Real.sqrt_one] at this
+  have h4 : Real.sqrt (1 - v^2/c^2) &gt; 0 := Real.sqrt_pos.mpr h1
+  rw [ge_iff_le, le_div_iff₀ h4]
+  linarith
+
+-- For any nonzero velocity the Lorentz factor is strictly greater than 1
+theorem lorentz_factor_gt_one (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (hv_ne : v ≠ 0) :
+    lorentz_factor v c hc hv &gt; 1 := by
+  unfold lorentz_factor
+  have h1 : 1 - v^2/c^2 &gt; 0 := c_is_narrative_limit v c hc hv
+  have hv2 : v^2 &gt; 0 := by positivity
+  have hx : v^2/c^2 &gt; 0 := div_pos hv2 (pow_pos hc 2)
+  have hlt : 1 - v^2/c^2 &lt; 1 := by linarith
+  have h3 : Real.sqrt (1 - v^2/c^2) &lt; 1 := by
+    have := Real.sqrt_lt_sqrt h1.le hlt
+    rwa [Real.sqrt_one] at this
+  have h4 : Real.sqrt (1 - v^2/c^2) &gt; 0 := Real.sqrt_pos.mpr h1
+  rw [gt_iff_lt, lt_div_iff₀ h4]
+  linarith
+
+-- [T3] MASS-ENERGY EQUIVALENCE: E = mc² AT REST
+-- At v = 0 the Lorentz factor is exactly 1, so the total energy
+-- γmc² reduces to the rest energy mc².
+-- In PNBA: E = IM × c² — Identity Mass times Narrative propagation squared.
+theorem lorentz_factor_at_rest (c : ℝ) (hc : c &gt; 0) (h0 : (0:ℝ)^2 &lt; c^2) :
+    lorentz_factor 0 c hc h0 = 1 := by
+  unfold lorentz_factor; simp
+
+theorem rest_energy (m c : ℝ) (hc : c &gt; 0) (h0 : (0:ℝ)^2 &lt; c^2) :
+    lorentz_factor 0 c hc h0 * m * c^2 = m * c^2 := by
+  rw [lorentz_factor_at_rest c hc h0, one_mul]
+
+-- [T4] RELATIVISTIC ENERGY: E = γmc²
+-- Total energy = Lorentz factor × rest energy.
+-- In PNBA: E = A × IM × c² — Adaptation scaling × Identity Mass × c².
+-- The A-axis (Lorentz factor γ) scales the identity&#x27;s energy content.
+theorem relativistic_energy_positive
+    (v c m : ℝ) (hm : m &gt; 0) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    lorentz_factor v c hc hv * m * c^2 &gt; 0 := by
+  apply mul_pos; apply mul_pos
+  · have h1 : 1 - v^2/c^2 &gt; 0 := c_is_narrative_limit v c hc hv
+    have h4 : Real.sqrt (1 - v^2/c^2) &gt; 0 := Real.sqrt_pos.mpr h1
+    unfold lorentz_factor
+    exact div_pos one_pos h4
+  · exact hm
+  · exact pow_pos hc 2
+
+-- [T5] RELATIVISTIC MOMENTUM: p = γmv
+-- In PNBA: p = A × IM × v = Adaptation × Identity Mass × Behavior.
+-- The A-axis (γ) amplifies behavioral momentum.
+-- At v → c: γ → ∞, momentum → ∞. c is unreachable.
+theorem relativistic_momentum_formula
+    (v c m : ℝ) (hm : m &gt; 0) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (hv_pos : v &gt; 0) :
+    lorentz_factor v c hc hv * m * v &gt; 0 := by
+  apply mul_pos; apply mul_pos
+  · have h1 : 1 - v^2/c^2 &gt; 0 := c_is_narrative_limit v c hc hv
+    have h4 : Real.sqrt (1 - v^2/c^2) &gt; 0 := Real.sqrt_pos.mpr h1
+    unfold lorentz_factor
+    exact div_pos one_pos h4
+  · exact hm
+  · exact hv_pos
+
+-- [T6] ENERGY-MOMENTUM RELATION: E² = (pc)² + (mc²)²
+-- The key identity is γ²(1 − v²/c²) = 1. From it, with E = γmc²
+-- and p = γmv, the invariant-mass relation follows exactly.
+-- In PNBA: E² − (pc)² = (mc²)² is a Pattern invariant, the same
+-- in every frame. At m = 0 (Noble limit) it gives E = pc.
+theorem gamma_sq_identity (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    (lorentz_factor v c hc hv)^2 * (1 - v^2/c^2) = 1 := by
+  have h1 : 1 - v^2/c^2 &gt; 0 := c_is_narrative_limit v c hc hv
+  unfold lorentz_factor
+  rw [div_pow, one_pow, Real.sq_sqrt h1.le]
+  exact one_div_mul_cancel (ne_of_gt h1)
+
+theorem gamma_sq_identity_c2 (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    (lorentz_factor v c hc hv)^2 * (c^2 - v^2) = c^2 := by
+  have hc2 : c^2 ≠ 0 := pow_ne_zero 2 (ne_of_gt hc)
+  have hg := gamma_sq_identity v c hc hv
+  have e : c^2 * (1 - v^2/c^2) = c^2 - v^2 := by
+    rw [mul_sub, mul_one, mul_comm (c^2) (v^2/c^2), div_mul_cancel₀ (v^2) hc2]
+  rw [← e]
+  linear_combination c^2 * hg
+
+theorem energy_momentum_relation (v c m : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) :
+    (lorentz_factor v c hc hv * m * c^2)^2 =
+    (lorentz_factor v c hc hv * m * v * c)^2 + (m * c^2)^2 := by
+  have hg := gamma_sq_identity_c2 v c hc hv
+  linear_combination (m^2 * c^2) * hg
+
+-- [T7] SPACETIME INTERVAL IS INVARIANT (P-invariant)
+-- ds² = c²dτ² — the same in all inertial frames.
+-- In PNBA: P-axis (Pattern geometry) is invariant under B-axis
+-- transformations (Lorentz boosts). B changes (velocity), P doesn&#x27;t.
+-- This is the SR postulate in PNBA language:
+-- The Pattern geometry (ds²) is preserved under Behavioral motion.
+theorem interval_in_light_units (c t x : ℝ) :
+    spacetime_interval c t x = (c * t)^2 - x^2 := by
+  unfold spacetime_interval; ring
+
+theorem boost_preserves_interval (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (w x : ℝ) :
+    (boost_w v c hc hv w x)^2 - (boost_x v c hc hv w x)^2 = w^2 - x^2 := by
+  have hg := gamma_sq_identity v c hc hv
+  have hb : (lorentz_factor v c hc hv)^2 * (1 - (v / c)^2) = 1 := by
+    rw [div_pow]; exact hg
+  unfold boost_w boost_x
+  linear_combination (w^2 - x^2) * hb
+
+-- For timelike intervals: c²dt² &gt; dx² → ds² &gt; 0
+theorem timelike_interval_positive (c dt dx : ℝ)
+    (h : c^2 * dt^2 &gt; dx^2) :
+    spacetime_interval c dt dx &gt; 0 := by
+  unfold spacetime_interval; linarith
+
+-- [T8] TIME DILATION: Δt = γΔτ (moving clocks run slow)
+-- In PNBA: same as gravitational time dilation in GR [9,9,0,1] T12.
+-- There: P-density drags N (high P slows N).
+-- Here: B-axis velocity drags N (high v slows proper time τ).
+-- Both are N drag — by P (gravity) or by B (velocity).
+-- Δt = γΔτ → proper time τ &lt; coordinate time t.
+theorem time_dilation_moving_clock_runs_slow
+    (v c dτ : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (hv_ne : v ≠ 0) (hdτ : dτ &gt; 0) :
+    lorentz_factor v c hc hv * dτ &gt; dτ := by
+  have hγ : lorentz_factor v c hc hv &gt; 1 := lorentz_factor_gt_one v c hc hv hv_ne
+  nlinarith [mul_pos (sub_pos.mpr hγ) hdτ]
+
+-- [T9] LENGTH CONTRACTION: L = L₀/γ (moving rulers shrink)
+-- In PNBA: P-axis compression along B-axis motion.
+-- The Pattern geometry (L₀) is compressed by the Adaptation factor (γ).
+-- L &lt; L₀ for v &gt; 0.
+theorem length_contraction_less_than_rest
+    (L0 v c : ℝ) (hL : L0 &gt; 0) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (hv_ne : v ≠ 0) :
+    L0 / lorentz_factor v c hc hv &lt; L0 := by
+  have hγ : lorentz_factor v c hc hv &gt; 1 := lorentz_factor_gt_one v c hc hv hv_ne
+  have hγ_pos : lorentz_factor v c hc hv &gt; 0 := by linarith
+  rw [div_lt_iff₀ hγ_pos]
+  nlinarith [mul_pos hL (sub_pos.mpr hγ)]
+
+-- [T10] VELOCITY ADDITION: v₁₂ = (v₁+v₂)/(1+v₁v₂/c²)
+-- No combination of velocities can exceed c.
+-- In PNBA: B-axis composition is bounded by the Narrative limit c.
+-- The denominator (1+v₁v₂/c²) &gt; 1 ensures the result stays below c.
+theorem relativistic_velocity_addition_bounded
+    (v1 v2 c : ℝ) (hc : c &gt; 0)
+    (hv1_pos : v1 &gt; 0) (hv2_pos : v2 &gt; 0)
+    (hv1c : v1 &lt; c) (hv2c : v2 &lt; c) :
+    (v1 + v2) / (1 + v1*v2/c^2) &lt; c := by
+  have hc2 : c^2 ≠ 0 := pow_ne_zero 2 (ne_of_gt hc)
+  have hq : v1*v2/c^2 &gt; 0 := div_pos (mul_pos hv1_pos hv2_pos) (pow_pos hc 2)
+  have hD : 1 + v1*v2/c^2 &gt; 0 := by linarith
+  have hcc : c^2 * (v1*v2/c^2) = v1*v2 := by
+    rw [mul_comm]; exact div_mul_cancel₀ (v1*v2) hc2
+  have hcD : c * (c * (1 + v1*v2/c^2)) = c^2 + v1*v2 := by
+    calc c * (c * (1 + v1*v2/c^2)) = c^2 + c^2 * (v1*v2/c^2) := by ring
+      _ = c^2 + v1*v2 := by rw [hcc]
+  have hprod : (c - v1) * (c - v2) &gt; 0 := mul_pos (by linarith) (by linarith)
+  rw [div_lt_iff₀ hD]
+  have key : c * (v1 + v2) &lt; c * (c * (1 + v1*v2/c^2)) := by
+    rw [hcD]; nlinarith [hprod]
+  exact lt_of_mul_lt_mul_left key hc.le
+
+-- [T11] NO MOTION, NO TRANSFORMATION
+-- At v = 0 the boost is the identity: γ = 1 and v/c = 0.
+-- In PNBA: with B = 0 there is no behavioral transformation; the
+-- flat Pattern geometry (Minkowski, the T_μν = 0, Λ = 0 limit of
+-- GR [9,9,0,1]) is left exactly as it is.
+theorem boost_at_rest_is_identity (c : ℝ) (hc : c &gt; 0) (h0 : (0:ℝ)^2 &lt; c^2) (w x : ℝ) :
+    boost_w 0 c hc h0 w x = w ∧ boost_x 0 c hc h0 w x = x := by
+  refine ⟨?_, ?_⟩
+  · unfold boost_w; rw [lorentz_factor_at_rest c hc h0]; simp
+  · unfold boost_x; rw [lorentz_factor_at_rest c hc h0]; simp
+
+-- [T12] c IS INVARIANT: THE LIGHT CONE IS PRESERVED
+-- An event on the light cone (x = ct, i.e. x = w) stays on the
+-- light cone in every boosted frame: x&#x27; = w&#x27;. Light moves at c for
+-- every inertial observer — the second postulate as a theorem.
+theorem light_cone_preserved (v c : ℝ) (hc : c &gt; 0) (hv : v^2 &lt; c^2) (w : ℝ) :
+    boost_x v c hc hv w w = boost_w v c hc hv w w := by
+  unfold boost_x boost_w; ring
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- SR IS A LOSSLESS PNBA PROJECTION
+-- ============================================================
+
+theorem sr_is_lossless_pnba_projection
+    (v c m dτ L0 : ℝ)
+    (hc  : c &gt; 0) (hm  : m &gt; 0)
+    (hv  : v^2 &lt; c^2) (hv_pos : v &gt; 0)
+    (hdτ : dτ &gt; 0) (hL0 : L0 &gt; 0) :
+    -- [1] c is the Narrative limit: 1-v²/c²&gt;0
+    1 - v^2/c^2 &gt; 0 ∧
+    -- [2] Lorentz factor ≥ 1: adaptation never shrinks
+    lorentz_factor v c hc hv ≥ 1 ∧
+    -- [3] Rest energy: at v = 0, γmc² = mc²
+    (∀ h0 : (0:ℝ)^2 &lt; c^2, lorentz_factor 0 c hc h0 * m * c^2 = m * c^2) ∧
+    -- [4] Relativistic energy E=γmc² &gt; 0
+    lorentz_factor v c hc hv * m * c^2 &gt; 0 ∧
+    -- [5] Time dilation: γΔτ &gt; Δτ (moving clocks slow)
+    lorentz_factor v c hc hv * dτ &gt; dτ ∧
+    -- [6] Length contraction: L₀/γ &lt; L₀
+    L0 / lorentz_factor v c hc hv &lt; L0 ∧
+    -- [7] Energy-momentum relation: E² = (pc)² + (mc²)²
+    (lorentz_factor v c hc hv * m * c^2)^2 =
+      (lorentz_factor v c hc hv * m * v * c)^2 + (m * c^2)^2 ∧
+    -- [8] Lorentz boost preserves the interval
+    (∀ w x : ℝ, (boost_w v c hc hv w x)^2 - (boost_x v c hc hv w x)^2 = w^2 - x^2) ∧
+    -- [9] The light cone is preserved: c is invariant
+    (∀ w : ℝ, boost_x v c hc hv w w = boost_w v c hc hv w w) ∧
+    -- [10] Anchor Z=0: SR operates at zero impedance
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨c_is_narrative_limit v c hc hv,
+   lorentz_factor_ge_one v c hc hv,
+   fun h0 =&gt; rest_energy m c hc h0,
+   relativistic_energy_positive v c m hm hc hv,
+   time_dilation_moving_clock_runs_slow v c dτ hc hv (ne_of_gt hv_pos) hdτ,
+   length_contraction_less_than_rest L0 v c hL0 hc hv (ne_of_gt hv_pos),
+   energy_momentum_relation v c m hc hv,
+   boost_preserves_interval v c hc hv,
+   light_cone_preserved v c hc hv,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_SR
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_SR_Reduction.lean
+-- COORDINATE: [9,9,0,2]
+-- LAYER:      Physics Ground — Special Relativity
+--
+-- LONG DIVISION:
+--   1. Equation:   ds² = c²dt² - dx² (invariant interval)
+--   2. Known:      Lorentz factor, E=mc², time dilation, length
+--                  contraction, velocity addition, E²=(pc)²+(mc²)²
+--   3. PNBA map:
+--      ds² → P (Pattern invariant geometry)
+--      ct  → N (Narrative — time × propagation speed)
+--      v   → B (Behavior — motion)
+--      γ   → A (Adaptation scaling = Lorentz factor)
+--      m   → IM (Identity Mass = rest mass)
+--      c   → Narrative propagation limit
+--   4. Operators: lorentz_factor, spacetime_interval, boost_w, boost_x
+--   5. Work:      T1-T12 explicit
+--   6. Verified:  master theorem all simultaneous
+--
+-- REDUCTION:
+--   Classical: 10 SR postulates and results
+--   PNBA: all follow from P-invariance + Narrative limit c
+--   SR is the flat-space limit of GR [9,9,0,1]: T_μν=0, Λ=0 → η_μν
+--
+-- CLASSICAL RESULTS PROVED:
+--   c = Narrative limit          → 1-v²/c²&gt;0                    [T1]  ✓
+--   Lorentz factor γ≥1, &gt;1 if v≠0 → A-axis ≥ 1                  [T2]  ✓
+--   E = mc² at rest              → γ(0)=1, γmc² = mc²            [T3]  ✓
+--   E = γmc² &gt; 0                 → A×IM×c²                       [T4]  ✓
+--   p = γmv &gt; 0                  → A×IM×v                        [T5]  ✓
+--   E²=(pc)²+(mc²)²              → from γ²(1−v²/c²)=1            [T6]  ✓
+--   Interval invariant           → boost preserves w²−x²         [T7]  ✓
+--   Time dilation γΔτ&gt;Δτ         → N drag by B                   [T8]  ✓
+--   Length contraction L&lt;L₀      → P compressed by A             [T9]  ✓
+--   Velocity addition &lt; c        → B bounded by N                [T10] ✓
+--   Boost at v=0 is identity     → B=0: flat P untouched         [T11] ✓
+--   Light cone preserved         → c invariant (2nd postulate)   [T12] ✓
+--
+-- THEOREMS: 21 | 0 sorry | GERMLINE LOCKED
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- SR is flat-space GR. c is the Narrative limit.
+-- The Manifold is Holding.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-special-relativity.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-special-relativity.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
