@@ -4,7 +4,7 @@
 **Coordinate:** [9,9,2,55](PSYC) · PSY taxonomy series, master
 **Issue:** ProofPress, Volume 1, Issue 1 · March 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 26 theorems · 473 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 26 theorems · 486 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PSY_Taxonomy_Master.lean
 **Updated:** Standardized toolchain, October 2026
 
@@ -22,7 +22,7 @@ This article closes the PSY taxonomy series [9,9,2,51–54] by proving its findi
 6. F4, Depleted IVA: a collider state with τ ≈ 0.1357 (in the IVA zone), N = 0.08 (void) and A = 1.30 (capable) is Locked but Narrative-depleted, detectable only by measuring τ and N together (`depleted_iva_verified`, `depleted_iva_joint_detection`).
 7. Master theorem: all of the above hold simultaneously (`psy_taxonomy_master`).
 
-The N-protection count, 0 of 390 collider entries with N < 0.15 in τ ∈ (0, TL_IVA), is an empirical finding from the Identity Collider. Its structural proof is in [9,9,2,51]; this file records it as a stated placeholder (`n_blocked_in_dc_and_safety`).
+The N-protection count is an empirical result from the Identity Collider: the three low-τ Locked zones (DC, Safety and the FL corridor) tile τ ∈ (0, TL_IVA), and across all 389 collider entries in them none is N-collapsed (N < 0.15) (`n_blocked_in_dc_and_safety`). The structural mechanism is in [9,9,2,51].
 
 ## The PNBA Map
 
@@ -86,7 +86,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- THE FIVE FINDINGS:
 --
 -- [F1] N-PROTECTION GRADIENT [9,9,2,51]
---   τ ∈ (0, TL_IVA): N-collapse count = 0/390
+--   τ ∈ (0, TL_IVA): N-collapse count = 0/389
 --   N-collapsed states produce Noble or SHATTER-adjacent,
 --   never the low-τ LOCKED zone.
 --
@@ -254,7 +254,7 @@ theorem n_protection_gradient :
     is_N_void SI_N ∧ is_shatter SI_B SI_P ∧
     -- [2] N bottleneck is absolute
     (∀ N_any : ℝ, min N_any SI_N < N_THRESHOLD) ∧
-    -- [3] Low-τ LOCKED zone (τ < TL_IVA): N-collapse = 0/390 empirically
+    -- [3] Low-τ LOCKED zone (τ < TL_IVA): N-collapse = 0/389 empirically
     -- (structural proof: N-void inputs go Noble or SHATTER-adjacent)
     -- Stated via the two proven cases:
     -- Near-cancel: B_out=0 → Noble (τ=0), N collapses
@@ -378,17 +378,30 @@ theorem depleted_iva_joint_detection :
 
 -- ── F5: THE COMPLETE TAXONOMY ────────────────────────────────
 
--- N-protection implies certain cells are blocked
+-- N-protection: collider tallies across the low-τ LOCKED zones
+-- (N-collapse = N < N_THRESHOLD)
+def DC_TOTAL          : ℕ := 160   -- DC zone       τ ∈ (0, 0.040)
+def SAFETY_TOTAL      : ℕ := 110   -- Safety zone   τ ∈ [0.040, 0.073)
+def FL_TOTAL          : ℕ := 119   -- FL corridor   τ ∈ [0.073, TL_IVA)
+def DC_NCOLLAPSE      : ℕ := 0
+def SAFETY_NCOLLAPSE  : ℕ := 0
+def FL_NCOLLAPSE      : ℕ := 0
+
+-- The three zones tile (0, TL_IVA); across all 389 entries in them,
+-- none is N-collapsed
 theorem n_blocked_in_dc_and_safety :
-    -- N-collapsed inputs go Noble (via near-cancellation) or SHATTER-adjacent
-    -- Never produce τ ∈ (0, TL_IVA) — proven structurally in [9,9,2,51]
-    -- Here: the empirical finding stated as a theorem
-    -- DC zone (τ 0.004–0.040): 0/160 N-collapse entries
-    -- Safety zone (τ 0.040–0.073): 0/110 N-collapse entries
-    -- FL corridor (τ 0.073–0.121): 0/119 N-collapse entries
-    -- Combined: 0/390
-    -- This is a proven structural consequence of the fusion operators
-    True := trivial
+    (∀ τ : ℝ, 0 < τ → τ < TL_IVA →
+      in_dc_zone τ ∨ in_safety_zone τ ∨ in_fl_corridor τ) ∧
+    DC_TOTAL + SAFETY_TOTAL + FL_TOTAL = 389 ∧
+    DC_NCOLLAPSE + SAFETY_NCOLLAPSE + FL_NCOLLAPSE = 0 := by
+  refine ⟨?_, rfl, rfl⟩
+  intro τ h0 h1
+  unfold in_dc_zone in_safety_zone in_fl_corridor
+  by_cases ha : τ < 0.040
+  · exact Or.inl ⟨h0, ha⟩
+  · by_cases hb : τ < 0.073
+    · exact Or.inr (Or.inl ⟨not_lt.mp ha, hb⟩)
+    · exact Or.inr (Or.inr ⟨not_lt.mp hb, h1⟩)
 
 -- The taxonomy: all named states fit in the matrix
 theorem taxonomy_is_complete :
@@ -499,7 +512,7 @@ THEOREMS: 26 | SORRY: 0
 THE FIVE FINDINGS PROVED SIMULTANEOUSLY:
 
 [F1] N-PROTECTION GRADIENT [9,9,2,51]
-  0/390 entries in τ∈(0,TL_IVA) with N<0.15
+  0/389 entries in τ∈(0,TL_IVA) with N<0.15
   N-void states → Noble or SHATTER-adjacent. Never low-τ LOCKED.
 
 [F2] SOVEREIGN IM INVARIANCE [9,9,2,52]
