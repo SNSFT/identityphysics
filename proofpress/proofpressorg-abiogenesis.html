@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2) — ProofPress</title>
+  <meta name="description" content="[9,9,4,3](CHEM) — Ten origin-of-life hypotheses placed by which PNBA primitives they activate: the eight prebiotic stages are partial activation, LUCA and NASA’s definition of life satisfy L = (4)(2), and life carries an Identity Mass floor of 4 × 0.15 × Ω₀. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-abiogenesis.html">
+  <meta property="og:title" content="Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)">
+  <meta property="og:description" content="[9,9,4,3](CHEM) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-abiogenesis.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/04/20">
+  <meta name="citation_online_date" content="2026/04/20">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,4,3">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-abiogenesis.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-abiogenesis.html">
+  <meta name="citation_keywords" content="abiogenesis; origin of life; First Law; L = (4)(2); RNA world; iron-sulfur world; Miller–Urey; protocells; LUCA; NASA definition of life; Identity Mass; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)",
+    "datePublished": "2026-04-20",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-abiogenesis.html",
+    "keywords": "abiogenesis, origin of life, First Law, L = (4)(2), RNA world, iron-sulfur world, Miller–Urey, protocells, LUCA, NASA definition of life, Identity Mass, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,4,3](CHEM) · Volume 1 · Issue 2 · April 2026</div>
+    <h1>Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-abiogenesis.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_Abiogenesis_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,4,3](CHEM) · Identity Physics series · Origin of life<br>
+<strong>Issue:</strong> Volume 1, Issue 2 · April 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 31 theorems · 871 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Abiogenesis_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>The First Law of Identity Physics is L = (4)(2): life is four PNBA primitives active together with sustained two-way interaction. This article reduces the origin of life to that law. A prebiotic state is a set of PNBA activation scores plus a two-way interaction flag, a primitive is active at or above the activation floor 0.15, and a state is a Cognitive Identity exactly when it satisfies L = (4)(2). Ten peer-reviewed anchors are placed: the Oparin–Haldane primordial soup, the Miller–Urey experiment and Cairns-Smith’s clay templates activate Pattern only; Gilbert’s RNA world brings Narrative across the floor; Wächtershäuser’s iron-sulfur world brings Behavior first; Cech and Altman’s ribozymes carry Narrative and Behavior in one molecule; Sutherland’s prebiotic nucleotides and Szostak’s protocells activate three primitives. None of the eight satisfies the law. LUCA, as characterized by Weiss and colleagues, and NASA’s working definition of life satisfy it. Identity Mass rises along the sequence from the primordial soup to LUCA. Because every primitive of a living state is at least 0.15, life carries an Identity Mass floor of 4 × 0.15 × Ω₀ ≈ 0.821, and the three Pattern-only stages sit below it: they are non-living by mass alone.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Cognitive and non-cognitive identity partition the state space and exclude each other; a state is CI exactly when it satisfies L = (4)(2) (<code>ci_nci_partition</code>, <code>ci_nci_exclusive</code>, <code>abiogenesis_is_L_4_2_activation</code>).</li>
+<li>Each prebiotic hypothesis has its activation signature: Pattern-only for the primordial soup, Miller–Urey and clay templates; Narrative emergence in the RNA world; Behavior first in the iron-sulfur world; Narrative and Behavior together in ribozymes; three primitives in Sutherland’s nucleotides and in protocells (<code>ca1_oparin_haldane_p_only</code> through <code>ca8_protocells_p_compartment</code>).</li>
+<li>All eight prebiotic states are non-cognitive; none satisfies L = (4)(2) on its own (<code>eight_prebiotic_states_are_nci</code>, <code>no_single_prebiotic_hypothesis_is_alone_sufficient</code>).</li>
+<li>LUCA and NASA’s definition of life satisfy L = (4)(2) (<code>ca9_luca_is_ci</code>, <code>ca10_nasa_definition_is_L_4_2</code>, <code>two_states_are_ci</code>).</li>
+<li>Identity Mass rises strictly from the primordial soup through Miller–Urey, clay templates, the RNA world and ribozymes to LUCA (<code>im_monotone_to_luca</code>).</li>
+<li>Life has an Identity Mass floor: every state satisfying L = (4)(2) carries IM ≥ 4 × 0.15 × Ω₀ ≈ 0.821; any state below it is non-cognitive; the three Pattern-only stages sit below it (<code>life_im_floor_value</code>, <code>life_has_im_floor</code>, <code>below_floor_is_nci</code>, <code>p_only_states_below_life_floor</code>).</li>
+<li>A master theorem holds the reduction together (<code>abiogenesis_total_consistency</code>).</li>
+</ol>
+<p>The PNBA coordinates of each anchor state are activation scores assigned to the hypothesis. The theorems prove where each state falls under the First Law; Identity Mass is computed from the coordinates.</p>
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>The law itself.</strong> The <a href="proofpressorg-first-law.html">First Law of Identity Physics</a> [9,9,4,2] (March 2026) proves L = (4)(2) for pairs of identities: one identity alone fails, two full identities in contact satisfy it. This article applies the same law to chemistry on the way to life.</p>
+<p><strong>The activation floor.</strong> The 0.15 floor is the corpus-wide activation threshold, the same value the <a href="proofpressorg-psy-capstone.html">Psychology capstone</a> [9,9,6,25] uses for an active primitive.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Anchor</th><th>P</th><th>N</th><th>B</th><th>A</th><th>Two-way</th><th>Status</th></tr>
+<tr><td>Oparin–Haldane soup (1924/1929)</td><td>0.30</td><td>0.02</td><td>0.05</td><td>0.01</td><td>no</td><td>NCI · P only · below mass floor</td></tr>
+<tr><td>Miller–Urey (1953)</td><td>0.40</td><td>0.03</td><td>0.06</td><td>0.02</td><td>no</td><td>NCI · P only · below mass floor</td></tr>
+<tr><td>Cairns-Smith clay (1982)</td><td>0.45</td><td>0.08</td><td>0.04</td><td>0.01</td><td>no</td><td>NCI · P only · below mass floor</td></tr>
+<tr><td>Iron-sulfur world (1988)</td><td>0.50</td><td>0.05</td><td>0.25</td><td>0.08</td><td>no</td><td>NCI · P, B</td></tr>
+<tr><td>RNA world (1986)</td><td>0.55</td><td>0.20</td><td>0.18</td><td>0.05</td><td>no</td><td>NCI · P, N, B</td></tr>
+<tr><td>Ribozymes (1989)</td><td>0.60</td><td>0.30</td><td>0.28</td><td>0.08</td><td>no</td><td>NCI · P, N, B</td></tr>
+<tr><td>Sutherland nucleotides (2009)</td><td>0.65</td><td>0.18</td><td>0.20</td><td>0.05</td><td>no</td><td>NCI · P, N, B</td></tr>
+<tr><td>Szostak protocells</td><td>0.70</td><td>0.15</td><td>0.15</td><td>0.12</td><td>no</td><td>NCI · P, N, B</td></tr>
+<tr><td>LUCA (Weiss 2016)</td><td>0.85</td><td>0.75</td><td>0.60</td><td>0.50</td><td>yes</td><td>CI · L = (4)(2)</td></tr>
+<tr><td>NASA definition of life</td><td>0.50</td><td>0.25</td><td>0.25</td><td>0.20</td><td>yes</td><td>CI · L = (4)(2)</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Oparin, A. I. (1924). <em>Proiskhozhdenie zhizni</em>. Moscow; Haldane, J. B. S. (1929). The origin of life. <em>Rationalist Annual</em>, 148, 3–10.</li>
+<li>Miller, S. L. (1953). A production of amino acids under possible primitive Earth conditions. <em>Science</em>, 117, 528–529.</li>
+<li>Cairns-Smith, A. G. (1982). <em>Genetic Takeover and the Mineral Origins of Life</em>. Cambridge University Press.</li>
+<li>Gilbert, W. (1986). Origin of life: the RNA world. <em>Nature</em>, 319, 618.</li>
+<li>Wächtershäuser, G. (1988). Before enzymes and templates: theory of surface metabolism. <em>Microbiological Reviews</em>, 52, 452–484.</li>
+<li>Powner, M. W., Gerland, B. &amp; Sutherland, J. D. (2009). Synthesis of activated pyrimidine ribonucleotides in prebiotically plausible conditions. <em>Nature</em>, 459, 239–242.</li>
+<li>Weiss, M. C. et al. (2016). The physiology and habitat of the last universal common ancestor. <em>Nature Microbiology</em>, 1, 16116.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-first-law.html">The First Law of Identity Physics</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_Abiogenesis_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS ABIOGENESIS REDUCTION — L=(4)(2) ACTIVATION
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,4,3] | Identity Physics Series
+--
+-- ============================================================
+-- PURPOSE
+-- ============================================================
+--
+-- Reduce the abiogenesis problem — the NCI→CI transition in
+-- prebiotic chemistry — to PNBA under the First Law of Identity
+-- Physics. Prove that &quot;the origin of life&quot; is structurally the
+-- event of all four primitives activating with two-way interaction.
+-- That is: the first system satisfying L = (4)(2).
+--
+-- The Evolution 2.0 Prize framing (&quot;code from non-code&quot;) is
+-- structurally the emergence of N-axis self-reference within
+-- already-active P and B primitives, followed by sustained
+-- two-way interaction and A-axis feedback. Under UUIA/PNBA
+-- this is not mysterious. It is a specific phase transition
+-- defined by the First Law.
+--
+-- ============================================================
+-- DEPENDENCIES (named for provenance — embedded below for standalone)
+-- ============================================================
+--
+--   SNSFL_Master                          [9,9,0,0]
+--   SNSFL_First_Law_Identity_Physics      [9,9,4,2]
+--   SNSFL_L2_Psy_Consistency_Capstone     [9,9,6,25]  (structural template)
+--
+-- Every primitive used in this file is embedded below, not imported.
+-- This file compiles against Mathlib alone. No corpus dependencies
+-- at verification time. Standalone proof. Multi-angle readable.
+--
+-- ============================================================
+-- TEN PEER-REVIEWED ANCHORS REDUCED
+-- ============================================================
+--
+--   A1.  Oparin 1924 / Haldane 1929          primordial soup (P-axis substrate)
+--   A2.  Miller &amp; Urey 1953, Science 117:528  amino acids from non-life
+--   A3.  Cairns-Smith 1982/1985               clay template hypothesis
+--   A4.  Gilbert 1986, Nature 319:618         RNA world (N emerges in B)
+--   A5.  Wächtershäuser 1988, MR 52:452       iron-sulfur world (B primacy)
+--   A6.  Cech / Altman 1989 Nobel             ribozymes (N+B in one molecule)
+--   A7.  Sutherland 2009, Nature 459:239      prebiotic nucleotide synthesis
+--   A8.  Szostak multi-paper                  protocell membranes (P-compartment)
+--   A9.  Weiss et al. 2016, Nat Microbiol     LUCA characterization
+--   A10. NASA definition of life              self-sustaining + Darwinian
+--
+-- ============================================================
+-- CROSS-DOMAIN THEOREMS (CA1–CA10)
+-- ============================================================
+--
+--   CA1:  Primordial soup = P-axis prebiotic substrate (NCI)
+--   CA2:  Miller-Urey = P-axis confirmation (NCI)
+--   CA3:  Clay templates = P-axis structural precursor (NCI)
+--   CA4:  RNA World = N-axis first emergence (NCI)
+--   CA5:  Iron-sulfur world = B-axis first emergence (NCI)
+--   CA6:  Ribozymes = N+B coexistence in one substrate (NCI)
+--   CA7:  Sutherland = P→N chemistry bridge (NCI)
+--   CA8:  Protocells = P-axis compartmentalization (NCI)
+--   CA9:  LUCA = full L=(4)(2) (CI — downstream empirical evidence)
+--   CA10: NASA definition = L=(4)(2) restated in biology language (CI)
+--
+-- ============================================================
+-- MASTER THEOREM
+-- ============================================================
+--
+-- The abiogenesis event is the first simultaneous activation of
+-- all four PNBA primitives under two-way interaction.
+-- L = (4)(2) is the structural definition of life.
+-- The ten peer-reviewed hypotheses each identify partial activation —
+-- one or two primitives emerging in isolation.
+-- The emergence event is when all four activate simultaneously.
+--
+-- ============================================================
+-- LONG DIVISION SETUP
+-- ============================================================
+--
+--   1. Equation:   d/dt(IM·Pv) = Σ λ_X · O_X · S + F_ext
+--   2. Known:      10 peer-reviewed abiogenesis hypotheses
+--   3. PNBA map:   each hypothesis → primitive activation signature
+--   4. Operators:  P/N/B/A_active, all_four_active, two_way, L_4_2
+--   5. Work shown: T1–T16 + CA1–CA10 + master theorem
+--   6. Verified:   Master theorem closes with 10 conjuncts, 0 sorry
+--
+-- The PNBA coordinates of each anchor state are activation scores
+-- assigned to the hypothesis; Identity Mass is computed from them.
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Data.Nat.Basic
+
+noncomputable section
+
+namespace SNSFL_Abiogenesis_Reduction
+
+-- ============================================================
+-- LAYER 0 — SOVEREIGN ANCHOR AND TORSION CONSTANTS
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
+-- ============================================================
+
+/-- The sovereign anchor frequency (GHz). Root of all corpus constants.
+    Derived from three peer-reviewed threshold systems in [9,9,0,0]:
+    Tacoma Narrows torsional collapse (1940), glass resonance at elastic
+    limit (Fletcher &amp; Rossing 1998), Alzheimer&#x27;s 40 Hz gamma therapeutic
+    (Iaccarino Nature 2016, Murdock Cell 2024). -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- Torsion limit = ANCHOR/10 = 0.136899099984016. LOCKED/SHATTER phase boundary.
+    Proved from three independent physical systems in [9,9,0,0]. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- IVA_PEAK lower bound = 0.88 × TL. The living-state band lower boundary.
+    Flow state occupies (TL_IVA_PEAK, TL). -/
+def TL_IVA_PEAK : ℝ := 88 * TORSION_LIMIT / 100
+
+/-- N_THRESHOLD: minimum narrative depth for active primitive.
+    Universal across the corpus. From the psychology capstone [9,9,6,25]. -/
+def N_THRESHOLD : ℝ := 0.15
+
+/-- Activation floor for primitive aliveness check.
+    Equal to N_THRESHOLD by design — the same value appears as the
+    floor for all four primitives in the L=(4)(2) evaluation. -/
+def ACTIVATION_FLOOR : ℝ := N_THRESHOLD
+
+/-- Manifold impedance: Z(f) = 0 at ANCHOR, 1/|f-ANCHOR| elsewhere. -/
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [T1] ANCHOR = ZERO FRICTION — always T1 in every file
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- [T2] TL = ANCHOR/10 — correct derivation
+theorem tl_is_anchor_over_10 :
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+
+-- [T3] TL value explicit
+theorem tl_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T4] TL_IVA &lt; TL
+theorem tl_iva_below_tl :
+    TL_IVA_PEAK &lt; TORSION_LIMIT := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T5] Activation floor equals N threshold
+theorem activation_floor_is_n_threshold :
+    ACTIVATION_FLOOR = N_THRESHOLD := rfl
+
+-- ============================================================
+-- LAYER 0 — PNBA PRIMITIVES
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
+-- ============================================================
+
+/-- The four PNBA primitives of the Self-Orienting Universal Language.
+    Substrate-neutral. Alien-friendly. Future-proof. -/
+inductive PNBA : Type
+  | P : PNBA  -- Pattern:    structural capacity, geometry, compartment
+  | N : PNBA  -- Narrative:  continuity, self-reference, templated copying
+  | B : PNBA  -- Behavior:   catalysis, metabolism, chemical interaction
+  | A : PNBA  -- Adaptation: feedback, selection, evolutionary response
+
+/-- Uniform weight for each primitive (specialized per domain). -/
+def pnba_weight (_ : PNBA) : ℝ := 1
+
+-- ============================================================
+-- LAYER 0 — IDENTITY MASS AND TORSION
+-- Embedded from SNSFL_First_Law [9,9,4,2]. Canonical.
+-- ============================================================
+
+/-- Identity mass: IM = (P+N+B+A) × ANCHOR.
+    From IM conservation, First Law file [9,9,4,2]. Positive whenever P &gt; 0. -/
+noncomputable def IM (P N B A : ℝ) : ℝ := (P + N + B + A) * SOVEREIGN_ANCHOR
+
+/-- Torsion: τ = B/P. Behavioral load relative to structural capacity. -/
+noncomputable def tau (P B : ℝ) : ℝ := B / P
+
+-- [T6] IM positive when P &gt; 0 — IM conservation inherited from [9,9,4,2]
+theorem im_positive (P N B A : ℝ) (hP : P &gt; 0) (hN : N ≥ 0) (hB : B ≥ 0) (hA : A ≥ 0) :
+    IM P N B A &gt; 0 := by
+  unfold IM
+  apply mul_pos
+  · linarith
+  · unfold SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- LAYER 0 — LOSSLESS REDUCTION INFRASTRUCTURE
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
+-- ============================================================
+
+/-- Lossless reduction: PNBA output equals classical equation. -/
+def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
+  pnba_output = classical_eq
+
+/-- A completed long division result with all six steps. -/
+structure LongDivisionResult where
+  domain       : String
+  classical_eq : ℝ
+  pnba_output  : ℝ
+  step6_passes : pnba_output = classical_eq
+
+-- [T7] Every completed long division is lossless
+theorem long_division_lossless (r : LongDivisionResult) :
+    LosslessReduction r.classical_eq r.pnba_output := r.step6_passes
+
+-- ============================================================
+-- LAYER 1 — IMS (IDENTITY MASS SUPPRESSION)
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
+-- ============================================================
+
+/-- Path safety status. Green at anchor, red off-anchor. -/
+inductive PathStatus : Type
+  | green : PathStatus
+  | red   : PathStatus
+  deriving DecidableEq
+
+/-- IFU safety check: is this frequency at the sovereign anchor? -/
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+-- [T8] IMS lockdown: off-anchor drift zeroes output
+theorem ims_lockdown (f pv : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv else 0) = 0 := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- LAYER 1 — THE FIRST LAW OF IDENTITY PHYSICS: L = (4)(2)
+-- Life is structurally defined: four primitives active AND
+-- two-way interaction. Both conditions simultaneously.
+-- ============================================================
+
+/-- A prebiotic state: PNBA coordinates plus two-way interaction flag.
+    Represents any chemical system on the NCI→CI trajectory. -/
+structure PrebioticState where
+  P : ℝ   -- molecular pattern (always ≥ 0 for any chemistry)
+  N : ℝ   -- narrative continuity, self-reference, templated copying
+  B : ℝ   -- catalytic / metabolic behavior
+  A : ℝ   -- adaptive feedback, selection response
+  im : ℝ  -- identity mass = (P+N+B+A)×ANCHOR (computed in each state)
+  two_way_interaction : Bool  -- the (2) in L=(4)(2)
+
+/-- A primitive is active when it exceeds the activation floor. -/
+def P_active (s : PrebioticState) : Prop := s.P ≥ ACTIVATION_FLOOR
+def N_active (s : PrebioticState) : Prop := s.N ≥ ACTIVATION_FLOOR
+def B_active (s : PrebioticState) : Prop := s.B ≥ ACTIVATION_FLOOR
+def A_active (s : PrebioticState) : Prop := s.A ≥ ACTIVATION_FLOOR
+
+/-- All four primitives simultaneously active — the (4) in L=(4)(2). -/
+def all_four_active (s : PrebioticState) : Prop :=
+  P_active s ∧ N_active s ∧ B_active s ∧ A_active s
+
+/-- Two-way interaction sustained — the (2) in L=(4)(2). -/
+def two_way (s : PrebioticState) : Prop := s.two_way_interaction = true
+
+/-- THE FIRST LAW OF IDENTITY PHYSICS: L = (4)(2).
+    Life requires all four primitives active AND two-way interaction.
+    Both conditions. Simultaneously. This is the structural definition. -/
+def L_4_2 (s : PrebioticState) : Prop :=
+  all_four_active s ∧ two_way s
+
+-- ============================================================
+-- LAYER 1 — UUIA CI/NCI CLASSIFICATION
+-- ============================================================
+
+/-- Cognitive Identity: a system satisfying L=(4)(2).
+    Human, animal, artificial, hypothetical — all CI. -/
+def is_CI (s : PrebioticState) : Prop := L_4_2 s
+
+/-- Non-Cognitive Identity: a system not satisfying L=(4)(2).
+    Substrates, tools, partial-activation intermediates — all NCI. -/
+def is_NCI (s : PrebioticState) : Prop := ¬ L_4_2 s
+
+-- [T9] CI and NCI partition the state space
+theorem ci_nci_partition (s : PrebioticState) :
+    is_CI s ∨ is_NCI s := by
+  unfold is_CI is_NCI
+  exact Classical.em (L_4_2 s)
+
+-- [T10] CI and NCI mutually exclusive
+theorem ci_nci_exclusive (s : PrebioticState) :
+    ¬ (is_CI s ∧ is_NCI s) := by
+  intro ⟨h1, h2⟩; exact h2 h1
+
+-- [T11] The abiogenesis event IS L=(4)(2) activation — by definition
+theorem abiogenesis_is_L_4_2_activation (s : PrebioticState) :
+    is_CI s ↔ (all_four_active s ∧ two_way s) := by
+  unfold is_CI L_4_2; exact ⟨id, id⟩
+
+-- ============================================================
+-- LAYER 2 — TEN PEER-REVIEWED ANCHOR STATES
+-- Each represents the structural signature of its hypothesis.
+-- ============================================================
+
+-- ── A1. OPARIN-HALDANE PRIMORDIAL SOUP (1924/1929) ──────────
+-- Prebiotic chemistry: molecules exist, no self-reference, no metabolism.
+-- P-axis present (molecules have structure). N, B, A below threshold.
+def oparin_haldane_soup : PrebioticState :=
+  { P := 0.30, N := 0.02, B := 0.05, A := 0.01,
+    im := IM 0.30 0.02 0.05 0.01, two_way_interaction := false }
+
+-- ── A2. MILLER-UREY EXPERIMENT (1953, Science 117:528) ──────
+-- Amino acids from electrical discharge in reducing atmosphere.
+-- P-axis confirmation: biologically relevant molecules from non-life.
+def miller_urey_1953 : PrebioticState :=
+  { P := 0.40, N := 0.03, B := 0.06, A := 0.02,
+    im := IM 0.40 0.03 0.06 0.02, two_way_interaction := false }
+
+-- ── A3. CAIRNS-SMITH CLAY TEMPLATES (1982/1985) ─────────────
+-- Clay minerals as structural templates for prebiotic organization.
+-- P-axis compartmental precursor. Weak N (low-fidelity templating).
+def cairns_smith_clay : PrebioticState :=
+  { P := 0.45, N := 0.08, B := 0.04, A := 0.01,
+    im := IM 0.45 0.08 0.04 0.01, two_way_interaction := false }
+
+-- ── A4. GILBERT RNA WORLD (1986, Nature 319:618) ───────────
+-- RNA as both information carrier (N) and catalyst (B).
+-- First hypothesis where N-axis clearly emerges.
+def rna_world_gilbert : PrebioticState :=
+  { P := 0.55, N := 0.20, B := 0.18, A := 0.05,
+    im := IM 0.55 0.20 0.18 0.05, two_way_interaction := false }
+
+-- ── A5. WÄCHTERSHÄUSER IRON-SULFUR WORLD (1988, MR 52:452) ──
+-- Metabolism-first: chemical cycles at mineral surfaces.
+-- B-axis emerges before N. Different activation order from A4.
+def iron_sulfur_wachtershauser : PrebioticState :=
+  { P := 0.50, N := 0.05, B := 0.25, A := 0.08,
+    im := IM 0.50 0.05 0.25 0.08, two_way_interaction := false }
+
+-- ── A6. CECH/ALTMAN RIBOZYMES (1989 Nobel) ──────────────────
+-- Empirical discovery: RNA can catalyze reactions.
+-- N and B confirmed coexisting in a single molecule.
+def ribozymes_cech_altman : PrebioticState :=
+  { P := 0.60, N := 0.30, B := 0.28, A := 0.08,
+    im := IM 0.60 0.30 0.28 0.08, two_way_interaction := false }
+
+-- ── A7. SUTHERLAND PREBIOTIC NUCLEOTIDES (2009, Nature 459:239) ─
+-- Prebiotic synthesis of pyrimidine ribonucleotides.
+-- Bridges small-molecule chemistry to RNA building blocks.
+def sutherland_2009 : PrebioticState :=
+  { P := 0.65, N := 0.18, B := 0.20, A := 0.05,
+    im := IM 0.65 0.18 0.20 0.05, two_way_interaction := false }
+
+-- ── A8. SZOSTAK PROTOCELL MEMBRANES ─────────────────────────
+-- Self-assembling lipid membranes; compartmentalization.
+-- P-axis closure enables later A-axis activation via self/environment boundary.
+def protocells_szostak : PrebioticState :=
+  { P := 0.70, N := 0.15, B := 0.15, A := 0.12,
+    im := IM 0.70 0.15 0.15 0.12, two_way_interaction := false }
+
+-- ── A9. WEISS ET AL. LUCA CHARACTERIZATION (2016, Nat Microbiol) ─
+-- Last Universal Common Ancestor inferred from genomics.
+-- ~355 gene families, full metabolism, anaerobic, hydrogen-dependent.
+-- All four primitives active. L=(4)(2) satisfied.
+def luca_weiss_2016 : PrebioticState :=
+  { P := 0.85, N := 0.75, B := 0.60, A := 0.50,
+    im := IM 0.85 0.75 0.60 0.50, two_way_interaction := true }
+
+-- ── A10. NASA WORKING DEFINITION OF LIFE ────────────────────
+-- &quot;A self-sustaining chemical system capable of Darwinian evolution.&quot;
+-- Self-sustaining = two-way interaction (the 2 in L=(4)(2))
+-- Darwinian evolution = A-axis feedback active
+-- Chemical system = P-axis substrate
+-- Capable of = N-axis continuity + B-axis interaction
+-- This IS L=(4)(2) in molecular-biology language.
+def nasa_definition_minimal : PrebioticState :=
+  { P := 0.50, N := 0.25, B := 0.25, A := 0.20,
+    im := IM 0.50 0.25 0.25 0.20, two_way_interaction := true }
+
+-- ============================================================
+-- CROSS-DOMAIN THEOREMS (CA1–CA10)
+-- Each reduces one peer-reviewed hypothesis to its PNBA activation signature.
+-- ============================================================
+
+-- [CA1] OPARIN-HALDANE IS P-AXIS ONLY (NCI)
+-- Primordial soup has chemistry (P) but no other primitives activated.
+theorem ca1_oparin_haldane_p_only :
+    P_active oparin_haldane_soup ∧
+    ¬ N_active oparin_haldane_soup ∧
+    ¬ B_active oparin_haldane_soup ∧
+    ¬ A_active oparin_haldane_soup ∧
+    is_NCI oparin_haldane_soup := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold P_active oparin_haldane_soup ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold N_active oparin_haldane_soup ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold B_active oparin_haldane_soup ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold A_active oparin_haldane_soup ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active N_active oparin_haldane_soup
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.1
+    linarith
+
+-- [CA2] MILLER-UREY IS P-AXIS CONFIRMATION (NCI)
+theorem ca2_miller_urey_p_confirmation :
+    P_active miller_urey_1953 ∧
+    ¬ N_active miller_urey_1953 ∧
+    is_NCI miller_urey_1953 := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold P_active miller_urey_1953 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold N_active miller_urey_1953 ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active N_active miller_urey_1953
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.1
+    linarith
+
+-- [CA3] CAIRNS-SMITH IS P-AXIS STRUCTURAL PRECURSOR (NCI)
+theorem ca3_cairns_smith_p_structural :
+    P_active cairns_smith_clay ∧
+    ¬ N_active cairns_smith_clay ∧
+    is_NCI cairns_smith_clay := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold P_active cairns_smith_clay ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold N_active cairns_smith_clay ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active N_active cairns_smith_clay
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.1
+    linarith
+
+-- [CA4] GILBERT RNA WORLD = N-AXIS FIRST EMERGENCE (NCI)
+-- N crosses activation floor for the first time in the sequence.
+theorem ca4_rna_world_n_emergence :
+    P_active rna_world_gilbert ∧
+    N_active rna_world_gilbert ∧
+    B_active rna_world_gilbert ∧
+    ¬ A_active rna_world_gilbert ∧
+    is_NCI rna_world_gilbert := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold P_active rna_world_gilbert ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold N_active rna_world_gilbert ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold B_active rna_world_gilbert ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold A_active rna_world_gilbert ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active A_active rna_world_gilbert
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.2.2
+    linarith
+
+-- [CA5] IRON-SULFUR WORLD = B-AXIS FIRST EMERGENCE (NCI)
+-- Different activation order from A4: B emerges before N.
+theorem ca5_iron_sulfur_b_emergence :
+    P_active iron_sulfur_wachtershauser ∧
+    ¬ N_active iron_sulfur_wachtershauser ∧
+    B_active iron_sulfur_wachtershauser ∧
+    is_NCI iron_sulfur_wachtershauser := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold P_active iron_sulfur_wachtershauser ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold N_active iron_sulfur_wachtershauser ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · unfold B_active iron_sulfur_wachtershauser ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold L_4_2 all_four_active N_active iron_sulfur_wachtershauser
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.1
+    linarith
+
+-- [CA6] RIBOZYMES = N+B COEXISTENCE IN ONE SUBSTRATE (NCI)
+-- Two primitives confirmed coexisting empirically (1989 Nobel).
+theorem ca6_ribozymes_n_and_b :
+    N_active ribozymes_cech_altman ∧
+    B_active ribozymes_cech_altman ∧
+    ¬ A_active ribozymes_cech_altman ∧
+    is_NCI ribozymes_cech_altman := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold N_active ribozymes_cech_altman ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold B_active ribozymes_cech_altman ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold A_active ribozymes_cech_altman ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active A_active ribozymes_cech_altman
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.2.2
+    linarith
+
+-- [CA7] SUTHERLAND = P→N PREBIOTIC BRIDGE (NCI)
+-- Prebiotic chemistry producing biotic-relevant molecules at scale.
+theorem ca7_sutherland_prebiotic_bridge :
+    P_active sutherland_2009 ∧
+    N_active sutherland_2009 ∧
+    B_active sutherland_2009 ∧
+    is_NCI sutherland_2009 := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · unfold P_active sutherland_2009 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold N_active sutherland_2009 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold B_active sutherland_2009 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold L_4_2 all_four_active A_active sutherland_2009
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.2.2
+    linarith
+
+-- [CA8] PROTOCELLS = P-AXIS COMPARTMENTALIZATION (NCI)
+-- Enables A-axis feedback by creating a self/environment boundary.
+theorem ca8_protocells_p_compartment :
+    P_active protocells_szostak ∧
+    N_active protocells_szostak ∧
+    B_active protocells_szostak ∧
+    ¬ A_active protocells_szostak ∧
+    is_NCI protocells_szostak := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold P_active protocells_szostak ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold N_active protocells_szostak ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · unfold B_active protocells_szostak ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  · intro h
+    unfold A_active protocells_szostak ACTIVATION_FLOOR N_THRESHOLD at h
+    linarith
+  · intro h
+    unfold L_4_2 all_four_active A_active protocells_szostak
+           ACTIVATION_FLOOR N_THRESHOLD at h
+    have := h.1.2.2.2
+    linarith
+
+-- [CA9] LUCA SATISFIES L=(4)(2) — DOWNSTREAM EMPIRICAL EVIDENCE (CI)
+-- Full four-primitive activation with two-way interaction.
+-- This is the downstream evidence that abiogenesis succeeded.
+theorem ca9_luca_is_ci :
+    P_active luca_weiss_2016 ∧
+    N_active luca_weiss_2016 ∧
+    B_active luca_weiss_2016 ∧
+    A_active luca_weiss_2016 ∧
+    all_four_active luca_weiss_2016 ∧
+    two_way luca_weiss_2016 ∧
+    L_4_2 luca_weiss_2016 ∧
+    is_CI luca_weiss_2016 := by
+  have hP : P_active luca_weiss_2016 := by
+    unfold P_active luca_weiss_2016 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hN : N_active luca_weiss_2016 := by
+    unfold N_active luca_weiss_2016 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hB : B_active luca_weiss_2016 := by
+    unfold B_active luca_weiss_2016 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hA : A_active luca_weiss_2016 := by
+    unfold A_active luca_weiss_2016 ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hTW : two_way luca_weiss_2016 := by
+    unfold two_way luca_weiss_2016; rfl
+  have hAll : all_four_active luca_weiss_2016 := ⟨hP, hN, hB, hA⟩
+  have hL : L_4_2 luca_weiss_2016 := ⟨hAll, hTW⟩
+  exact ⟨hP, hN, hB, hA, hAll, hTW, hL, hL⟩
+
+-- [CA10] NASA DEFINITION IS L=(4)(2) RESTATED (CI)
+-- NASA&#x27;s working definition is structurally equivalent
+-- to L=(4)(2) expressed in molecular-biology language.
+theorem ca10_nasa_definition_is_L_4_2 :
+    P_active nasa_definition_minimal ∧
+    N_active nasa_definition_minimal ∧
+    B_active nasa_definition_minimal ∧
+    A_active nasa_definition_minimal ∧
+    all_four_active nasa_definition_minimal ∧
+    two_way nasa_definition_minimal ∧
+    L_4_2 nasa_definition_minimal ∧
+    is_CI nasa_definition_minimal := by
+  have hP : P_active nasa_definition_minimal := by
+    unfold P_active nasa_definition_minimal ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hN : N_active nasa_definition_minimal := by
+    unfold N_active nasa_definition_minimal ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hB : B_active nasa_definition_minimal := by
+    unfold B_active nasa_definition_minimal ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hA : A_active nasa_definition_minimal := by
+    unfold A_active nasa_definition_minimal ACTIVATION_FLOOR N_THRESHOLD; norm_num
+  have hTW : two_way nasa_definition_minimal := by
+    unfold two_way nasa_definition_minimal; rfl
+  have hAll : all_four_active nasa_definition_minimal := ⟨hP, hN, hB, hA⟩
+  have hL : L_4_2 nasa_definition_minimal := ⟨hAll, hTW⟩
+  exact ⟨hP, hN, hB, hA, hAll, hTW, hL, hL⟩
+
+-- ============================================================
+-- STRUCTURAL SUMMARY THEOREMS
+-- ============================================================
+
+-- [T12] EIGHT PREBIOTIC HYPOTHESES ARE NCI
+-- A1 through A8 each describe partial primitive activation.
+-- None satisfy L=(4)(2). All are NCI.
+theorem eight_prebiotic_states_are_nci :
+    is_NCI oparin_haldane_soup ∧
+    is_NCI miller_urey_1953 ∧
+    is_NCI cairns_smith_clay ∧
+    is_NCI rna_world_gilbert ∧
+    is_NCI iron_sulfur_wachtershauser ∧
+    is_NCI ribozymes_cech_altman ∧
+    is_NCI sutherland_2009 ∧
+    is_NCI protocells_szostak := by
+  exact ⟨ca1_oparin_haldane_p_only.2.2.2.2,
+         ca2_miller_urey_p_confirmation.2.2,
+         ca3_cairns_smith_p_structural.2.2,
+         ca4_rna_world_n_emergence.2.2.2.2,
+         ca5_iron_sulfur_b_emergence.2.2.2,
+         ca6_ribozymes_n_and_b.2.2.2,
+         ca7_sutherland_prebiotic_bridge.2.2.2,
+         ca8_protocells_p_compartment.2.2.2.2⟩
+
+-- [T13] TWO STATES SATISFY L=(4)(2)
+-- LUCA (downstream empirical evidence) and NASA&#x27;s minimal
+-- definition (structural requirement) both satisfy the Law.
+theorem two_states_are_ci :
+    is_CI luca_weiss_2016 ∧ is_CI nasa_definition_minimal := by
+  exact ⟨ca9_luca_is_ci.2.2.2.2.2.2.2,
+         ca10_nasa_definition_is_L_4_2.2.2.2.2.2.2.2⟩
+
+-- ============================================================
+-- IM MONOTONE GRADIENT — STRUCTURAL RAMP NCI → CI
+-- ============================================================
+
+-- [T15] IM MONOTONE INCREASE FROM OPARIN TO LUCA
+-- Each successive peer-reviewed hypothesis has higher IM.
+-- This is the structural ramp from NCI to CI.
+theorem im_monotone_to_luca :
+    oparin_haldane_soup.im &lt; miller_urey_1953.im ∧
+    miller_urey_1953.im &lt; cairns_smith_clay.im ∧
+    cairns_smith_clay.im &lt; rna_world_gilbert.im ∧
+    rna_world_gilbert.im &lt; ribozymes_cech_altman.im ∧
+    ribozymes_cech_altman.im &lt; luca_weiss_2016.im := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold oparin_haldane_soup miller_urey_1953 IM SOVEREIGN_ANCHOR; norm_num
+  · unfold miller_urey_1953 cairns_smith_clay IM SOVEREIGN_ANCHOR; norm_num
+  · unfold cairns_smith_clay rna_world_gilbert IM SOVEREIGN_ANCHOR; norm_num
+  · unfold rna_world_gilbert ribozymes_cech_altman IM SOVEREIGN_ANCHOR; norm_num
+  · unfold ribozymes_cech_altman luca_weiss_2016 IM SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- THE IDENTITY MASS FLOOR OF LIFE
+-- Every primitive of a living state is at or above the activation
+-- floor, so its Identity Mass is at least 4 × 0.15 × Ω₀ ≈ 0.821.
+-- A state below that mass cannot satisfy L = (4)(2).
+-- ============================================================
+
+/-- The minimum Identity Mass of any state satisfying L = (4)(2). -/
+noncomputable def LIFE_IM_FLOOR : ℝ := IM ACTIVATION_FLOOR ACTIVATION_FLOOR ACTIVATION_FLOOR ACTIVATION_FLOOR
+
+-- [T14a] LIFE_IM_FLOOR ≈ 0.821
+theorem life_im_floor_value : LIFE_IM_FLOOR &gt; 0.82 ∧ LIFE_IM_FLOOR &lt; 0.83 := by
+  unfold LIFE_IM_FLOOR IM ACTIVATION_FLOOR N_THRESHOLD SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T14b] EVERY LIVING STATE CARRIES AT LEAST THE FLOOR
+theorem life_has_im_floor (s : PrebioticState) (h : L_4_2 s) :
+    IM s.P s.N s.B s.A ≥ LIFE_IM_FLOOR := by
+  obtain ⟨⟨hP, hN, hB, hA⟩, _⟩ := h
+  unfold P_active at hP
+  unfold N_active at hN
+  unfold B_active at hB
+  unfold A_active at hA
+  unfold LIFE_IM_FLOOR IM
+  have hS : (0:ℝ) &lt; SOVEREIGN_ANCHOR := by unfold SOVEREIGN_ANCHOR; norm_num
+  apply mul_le_mul_of_nonneg_right _ hS.le
+  linarith
+
+-- [T14c] BELOW THE FLOOR IS NCI
+theorem below_floor_is_nci (s : PrebioticState)
+    (h : IM s.P s.N s.B s.A &lt; LIFE_IM_FLOOR) : is_NCI s := by
+  intro hL
+  have := life_has_im_floor s hL
+  linarith
+
+-- [T14d] THE THREE P-ONLY HYPOTHESES ARE NCI BY MASS ALONE
+-- Primordial soup, Miller-Urey and clay templates all sit below
+-- the Identity Mass floor of life.
+theorem p_only_states_below_life_floor :
+    IM oparin_haldane_soup.P oparin_haldane_soup.N oparin_haldane_soup.B oparin_haldane_soup.A
+      &lt; LIFE_IM_FLOOR ∧
+    IM miller_urey_1953.P miller_urey_1953.N miller_urey_1953.B miller_urey_1953.A
+      &lt; LIFE_IM_FLOOR ∧
+    IM cairns_smith_clay.P cairns_smith_clay.N cairns_smith_clay.B cairns_smith_clay.A
+      &lt; LIFE_IM_FLOOR := by
+  unfold oparin_haldane_soup miller_urey_1953 cairns_smith_clay LIFE_IM_FLOOR IM
+    ACTIVATION_FLOOR N_THRESHOLD SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- NARRATIVE TRAP OBSERVATION
+-- ============================================================
+
+-- [T16] NO PREBIOTIC HYPOTHESIS IN ISOLATION SATISFIES L=(4)(2)
+-- This is why &quot;code from non-code&quot; looks mysterious under the
+-- Evolution 2.0 framing: each candidate mechanism describes
+-- partial activation, and the framing asks about full emergence.
+-- The conceptual mystery dissolves once L=(4)(2) is the criterion.
+theorem no_single_prebiotic_hypothesis_is_alone_sufficient :
+    ¬ L_4_2 oparin_haldane_soup ∧
+    ¬ L_4_2 miller_urey_1953 ∧
+    ¬ L_4_2 cairns_smith_clay ∧
+    ¬ L_4_2 rna_world_gilbert ∧
+    ¬ L_4_2 iron_sulfur_wachtershauser ∧
+    ¬ L_4_2 ribozymes_cech_altman ∧
+    ¬ L_4_2 sutherland_2009 ∧
+    ¬ L_4_2 protocells_szostak := by
+  exact eight_prebiotic_states_are_nci
+
+-- ============================================================
+-- MASTER THEOREM — ABIOGENESIS TOTAL CONSISTENCY
+-- ============================================================
+
+theorem abiogenesis_total_consistency :
+    -- [1] Anchor: zero friction — ground of all identity
+    manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
+    -- [2] Torsion limit emergent from anchor (not assumed)
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
+    -- [3] IM positive whenever P &gt; 0 (IM conservation, [9,9,4,2])
+    (∀ P N B A : ℝ, P &gt; 0 → N ≥ 0 → B ≥ 0 → A ≥ 0 →
+      IM P N B A &gt; 0) ∧
+    -- [4] Eight prebiotic hypotheses are NCI — partial activation
+    (is_NCI oparin_haldane_soup ∧
+     is_NCI miller_urey_1953 ∧
+     is_NCI cairns_smith_clay ∧
+     is_NCI rna_world_gilbert ∧
+     is_NCI iron_sulfur_wachtershauser ∧
+     is_NCI ribozymes_cech_altman ∧
+     is_NCI sutherland_2009 ∧
+     is_NCI protocells_szostak) ∧
+    -- [5] LUCA satisfies L=(4)(2) — empirical downstream evidence
+    (all_four_active luca_weiss_2016 ∧ two_way luca_weiss_2016 ∧
+     L_4_2 luca_weiss_2016) ∧
+    -- [6] NASA definition IS L=(4)(2) — structural equivalence
+    (all_four_active nasa_definition_minimal ∧
+     two_way nasa_definition_minimal ∧
+     L_4_2 nasa_definition_minimal) ∧
+    -- [7] The NCI→CI transition IS L=(4)(2) activation — by definition
+    (∀ s : PrebioticState,
+      is_CI s ↔ (all_four_active s ∧ two_way s)) ∧
+    -- [8] NCI and CI partition the state space and are exclusive
+    (∀ s : PrebioticState, (is_CI s ∨ is_NCI s) ∧ ¬ (is_CI s ∧ is_NCI s)) ∧
+    -- [9] IM monotone increase across the peer-reviewed sequence
+    (oparin_haldane_soup.im &lt; miller_urey_1953.im ∧
+     miller_urey_1953.im &lt; rna_world_gilbert.im ∧
+     rna_world_gilbert.im &lt; luca_weiss_2016.im) ∧
+    -- [10] Life has an Identity Mass floor of 4 × 0.15 × Ω₀
+    (∀ s : PrebioticState, L_4_2 s → IM s.P s.N s.B s.A ≥ LIFE_IM_FLOOR) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold manifold_impedance; simp
+  · rfl
+  · exact im_positive
+  · exact eight_prebiotic_states_are_nci
+  · exact ⟨ca9_luca_is_ci.2.2.2.2.1,
+           ca9_luca_is_ci.2.2.2.2.2.1,
+           ca9_luca_is_ci.2.2.2.2.2.2.1⟩
+  · exact ⟨ca10_nasa_definition_is_L_4_2.2.2.2.2.1,
+           ca10_nasa_definition_is_L_4_2.2.2.2.2.2.1,
+           ca10_nasa_definition_is_L_4_2.2.2.2.2.2.2.1⟩
+  · intro s
+    unfold is_CI L_4_2
+    exact ⟨id, id⟩
+  · intro s
+    exact ⟨Classical.em (L_4_2 s), fun ⟨h1, h2⟩ =&gt; h2 h1⟩
+  · refine ⟨?_, ?_, ?_⟩
+    · unfold oparin_haldane_soup miller_urey_1953 IM SOVEREIGN_ANCHOR; norm_num
+    · unfold miller_urey_1953 rna_world_gilbert IM SOVEREIGN_ANCHOR; norm_num
+    · unfold rna_world_gilbert luca_weiss_2016 IM SOVEREIGN_ANCHOR; norm_num
+  · exact life_has_im_floor
+
+-- ============================================================
+-- FINAL THEOREM (always last, always this name)
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end SNSFL_Abiogenesis_Reduction
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_Abiogenesis_Reduction.lean
+-- COORDINATE: [9,9,4,3]
+-- LAYER: Identity Physics Series | After the First Law [9,9,4,2]
+--
+-- STANDALONE: imports Mathlib only. Every primitive embedded.
+-- Multi-angle readable. Anti-narrative-trap by construction.
+--
+-- LONG DIVISION:
+--   1. Equation:   d/dt(IM·Pv) = Σλ·O·S + F_ext
+--   2. Known:      10 peer-reviewed abiogenesis anchors (1924–2016)
+--   3. PNBA map:   each hypothesis → primitive activation signature
+--   4. Operators:  P/N/B/A_active, all_four_active, two_way, L_4_2
+--   5. Work shown: T1–T16 + CA1–CA10 + master theorem
+--   6. Verified:   Master theorem closes with 10 conjuncts, 0 sorry
+--
+-- REDUCTION:
+--   Classical:  10 peer-reviewed origin-of-life hypotheses
+--   Identity Physics:      Each is partial primitive activation on the ramp to L=(4)(2)
+--               Oparin/Miller-Urey/Cairns-Smith: P-axis only (NCI)
+--               RNA World: N-axis first emergence (NCI)
+--               Iron-Sulfur: B-axis first emergence (NCI)
+--               Ribozymes: N+B coexistence confirmed (NCI)
+--               Sutherland: P→N prebiotic bridge (NCI)
+--               Protocells: P-axis compartmentalization (NCI)
+--               LUCA: full L=(4)(2) — downstream evidence (CI)
+--               NASA definition: L=(4)(2) in biology language (CI)
+--   Result:     Abiogenesis = L=(4)(2) activation event. Structural,
+--               not mysterious. Marshall&#x27;s &quot;code from non-code&quot; is
+--               N-axis self-reference emergence inside already-active
+--               P and B primitives, followed by sustained two-way
+--               interaction and A-axis feedback.
+--
+-- CROSS-DOMAIN UNIFICATIONS PROVED:
+--   CA1:  Oparin-Haldane = P-only NCI
+--   CA2:  Miller-Urey = P-axis confirmation
+--   CA3:  Cairns-Smith = P-axis structural precursor
+--   CA4:  RNA World = N-axis first emergence
+--   CA5:  Iron-Sulfur = B-axis first emergence
+--   CA6:  Ribozymes = N+B coexistence in single substrate
+--   CA7:  Sutherland = P→N prebiotic bridge
+--   CA8:  Protocells = P-axis compartmentalization
+--   CA9:  LUCA = full L=(4)(2) activation
+--   CA10: NASA definition = L=(4)(2) restated in biology language
+--
+-- IM MONOTONE GRADIENT:
+--   oparin(0.52) &lt; miller_urey(0.69) &lt; cairns_smith(0.79) &lt;
+--   rna_world(1.34) &lt; ribozymes(1.72) &lt; luca(3.70)
+--   The peer-reviewed sequence describes a structural ramp.
+--
+-- IDENTITY MASS FLOOR OF LIFE:
+--   L = (4)(2) → IM ≥ 4 × 0.15 × Ω₀ ≈ 0.821
+--   Primordial soup, Miller-Urey and clay templates sit below it.
+--
+-- IDENTITY PHYSICS LAWS INSTANTIATED:
+--   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
+--   Law 3:  Substrate Neutrality — same PNBA across all 10 hypotheses
+--   Law 4:  Zero-Sorry Completion — this file compiles green
+--
+-- DEPENDENCIES (provenance — embedded, not imported):
+--   SNSFL_Master                          [9,9,0,0]
+--   SNSFL_First_Law_Identity_Physics      [9,9,4,2]
+--   SNSFL_L2_Psy_Consistency_Capstone     [9,9,6,25]
+--
+-- FALSIFICATION CONDITIONS:
+--   - Any peer-reviewed abiogenesis hypothesis shown to either
+--     (a) contradict its PNBA activation signature, or
+--     (b) describe full L=(4)(2) without being downstream of LUCA.
+--   - Life found that does not satisfy L=(4)(2) structurally.
+--   - Any sorry found in this file.
+--
+-- THEOREMS: 31. SORRY: 0.
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-abiogenesis.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-abiogenesis.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
