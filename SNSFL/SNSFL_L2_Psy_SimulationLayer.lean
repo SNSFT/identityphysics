@@ -4,7 +4,7 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS — INTERNAL SIMULATION LAYER
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMINAL
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,6,24] | Psychology Series — Simulation Layer (APPA SIM)
 --
 -- WHAT THIS FILE PROVES
@@ -181,7 +181,7 @@ end SNSFL_L2_Psy_SimulationLayer
 -- FILE: SNSFL_L2_Psy_SimulationLayer.lean
 -- SLOT: [9,9,6,24] | APPLIED IDENTITY PHYSICS SERIES
 --
--- THEOREMS (13 + master):
+-- THEOREMS (12 + master):
 --   torsion_limit_emergent, sim_thresholds_ordered
 --   tier_lris, tier_sris, tier_hris, tiers_partition
 --   phase_lock_excludes_shatter, sim_capture_excludes_iva_peak

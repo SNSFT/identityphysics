@@ -8,7 +8,7 @@
 -- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,45]
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.369 GHz
--- Status:    GERMINAL · 0 sorry
+-- Status:    GERMLINE LOCKED · 0 sorry
 -- Date:      May 20, 2026 · Soldotna, Alaska
 -- DOI:       10.5281/zenodo.18719748
 --

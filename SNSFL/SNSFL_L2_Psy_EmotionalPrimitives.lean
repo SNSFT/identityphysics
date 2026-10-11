@@ -4,7 +4,7 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS EMOTIONAL PRIMITIVES REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMINAL
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,6,23] | Psychology Series | Slot 23
 --
 -- The 10 Emotional Primitives are not feelings. They never were.
@@ -515,8 +515,9 @@ def ep_safety_high : EPState :=
 theorem safety_high_true_lock : true_lock ep_safety_high := by
   unfold true_lock torsion ep_safety_high TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD; norm_num
 
--- THEOREM 18: SAFETY IS LOWEST τ AMONG ALL EP SIGNALS
--- Safety is the anchor proximity signal — the structural floor.
+-- THEOREM 18: SAFETY HOLDS THE τ FLOOR OF THE TRUE-LOCK CLUSTER
+-- Safety is the anchor proximity signal: τ = 0.09, below Desire, Pride
+-- and Connection. Play shares the same τ = 0.09 floor from IVA peak.
 theorem safety_has_lowest_torsion :
     torsion ep_safety_high < torsion ep_pride_high ∧
     torsion ep_safety_high < torsion ep_connection_high ∧
@@ -645,7 +646,7 @@ theorem ep_instrument_is_lossless_pnba_projection :
     true_lock ep_safety_high ∧
     -- [4] IVA peak: Play alone
     iva_peak ep_play_high ∧
-    -- [5] Safety is anchor proximity — lowest τ among positive signals
+    -- [5] Safety is anchor proximity — τ floor of the true-lock signals
     torsion ep_safety_high < torsion ep_pride_high ∧
     torsion ep_safety_high < torsion ep_connection_high ∧
     -- [6] N-axis encodes valence (Barrett NB-plane proof)
