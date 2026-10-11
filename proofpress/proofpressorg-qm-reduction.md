@@ -5,7 +5,7 @@
 **Coordinate:** \[9,9,0,4.7\](PHYS) · Physics core · general-reader form (Behavior, Sustained)  
 **Issue:** Volume 1, Issue 1 · March 2026  
 **DOI:** [10.5281/zenodo.18719748](https://doi.org/10.5281/zenodo.18719748)  
-**Verified:** 24 theorems · 786 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QM_Reduction.lean)  
+**Verified:** 25 theorems · 796 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QM_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
 
 ## Abstract
@@ -21,7 +21,7 @@ Quantum mechanics is reduced to the Identity Physics dynamic equation, d/dt(IM �
 5.  **Decoherence** damps coherence and drives the quantum-to-classical transition.
 6.  **Entanglement** is a shared Narrative axis, with no spatial constraint and no signalling.
 7.  **The classical limit** is the single stationary path.
-8.  **Quantum mechanics, general relativity and thermodynamics** are one state in different Identity Mass regimes.
+8.  **Quantum mechanics, general relativity and thermodynamics** are one state in different Identity Mass regimes: the joint QM–GR state splits as IM·B = P + IM·P², and the QM term dominates exactly when IM·P < 1 (`qm_gr_unified`, `qm_regime_is_low_im`).
 9.  **The reduction is lossless:** every example reproduces its classical answer, and the master theorem holds them all at once.
 
 ## The PNBA Map
@@ -652,17 +652,27 @@ structure UnifiedState where
   N         : ℝ  -- Narrative (phase in QM, geodesic in GR)
   B         : ℝ  -- Behavior (observable in QM, T_μν in GR)
   A         : ℝ  -- Adaptation (decoherence in QM, Λ in GR)
-  im        : ℝ  -- Identity Mass (low=QM, high=GR)
-  threshold : ℝ  -- IM regime boundary
+  im        : ℝ  -- Identity Mass (low=QM, high=GR; boundary IM·P = 1)
 
 -- [P,9,8,1] :: {VER} | THEOREM 18: QM-GR UNIFIED (STEP 6 PASSES)
--- Same state satisfies both QM and GR simultaneously.
--- Not two theories. One equation. Two IM regimes.
+-- A state carrying both the GR relation P + A·P = IM·B and the QM
+-- relation IM·P = A splits as IM·B = P + IM·P²:
+-- a QM term P and a GR term IM·P². One state. Two IM regimes.
 theorem qm_gr_unified (s : UnifiedState)
     (h_gr : s.P + s.A * s.P = s.im * s.B)
     (h_qm : s.im * s.P = s.A) :
-    s.P + s.A * s.P = s.im * s.B ∧ s.im * s.P = s.A :=
-  ⟨h_gr, h_qm⟩
+    s.im * s.B = s.P + s.im * s.P ^ 2 := by
+  rw [← h_qm] at h_gr
+  nlinarith [h_gr]
+
+-- [P,9,8,1b] :: {VER} | QM REGIME = LOW IM
+-- The QM term P dominates the GR term IM·P² exactly when IM·P < 1.
+-- The regime boundary is IM = 1/P, proved, not chosen.
+theorem qm_regime_is_low_im (s : UnifiedState) (hP : s.P > 0) :
+    s.P > s.im * s.P ^ 2 ↔ s.im * s.P < 1 := by
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
 
 -- [P,9,8,2] :: {VER} | THEOREM 19: QM-GR-TD THREE-WAY CONSISTENCY
 -- QM, GR, and thermodynamics all hold simultaneously.
@@ -833,7 +843,7 @@ end SNSFL
 --   SNSFL_Master.lean       → physics ground
 --   SNSFL_QM_Reduction.lean → this file
 --
--- THEOREMS: 24. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 24 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
@@ -846,4 +856,5 @@ end SNSFL
 -- The Manifold is Holding.
 -- ============================================================
 -/
+
 ```

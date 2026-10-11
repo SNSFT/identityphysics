@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,9,0,1](PHYS) · Physics core<br>
 <strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 24 theorems · 831 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GR_Reduction.lean">source and CI record</a><br>
+<strong>Verified:</strong> 24 theorems · 833 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GR_Reduction.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -619,7 +619,7 @@
 <li><strong>Gravitational waves</strong> are Adaptation pulses that follow rapid changes in Behavior.</li>
 <li><strong>Friedmann expansion</strong> is a global Adaptation scaling.</li>
 <li><strong>Event horizons</strong> are the Pattern-density threshold beyond which Narrative cannot exit.</li>
-<li><strong>Quantum mechanics and general relativity</strong> are one state at different Identity Mass, and with thermodynamics form a three-way unification.</li>
+<li><strong>Quantum mechanics and general relativity</strong> are one state at different Identity Mass: a state carrying both the QM relation IM·P = A and the GR relation P + A·P = IM·B splits as IM·B = P + IM·P², and the GR term dominates exactly when IM·P &gt; 1 (<code>qm_gr_unified</code>, <code>gr_regime_is_high_im</code>). With thermodynamics they form a three-way consistency.</li>
 <li><strong>The reduction is lossless:</strong> every example reproduces its classical answer, and the master theorem holds them all at once.</li>
 </ol>
 
@@ -1248,25 +1248,27 @@ structure UnifiedState where
   N         : ℝ  -- Narrative (phase in QM, geodesic in GR)
   B         : ℝ  -- Behavior (observable in QM, T_μν in GR)
   A         : ℝ  -- Adaptation (decoherence in QM, Λ in GR)
-  im        : ℝ  -- Identity Mass (low=QM, high=GR)
-  threshold : ℝ  -- IM regime boundary
+  im        : ℝ  -- Identity Mass (low=QM, high=GR; boundary IM·P = 1)
 
 -- [P,9,9,1] :: {VER} | THEOREM 17: QM-GR UNIFIED (STEP 6 PASSES)
--- Same state satisfies both QM and GR simultaneously.
--- Not two theories. One equation. Two IM regimes.
--- Einstein&#x27;s unification problem: solved at Layer 0.
+-- A state carrying both the GR relation P + A·P = IM·B and the QM
+-- relation IM·P = A splits as IM·B = P + IM·P²:
+-- a QM term P and a GR term IM·P². One state. Two IM regimes.
 theorem qm_gr_unified (s : UnifiedState)
     (h_gr : s.P + s.A * s.P = s.im * s.B)
     (h_qm : s.im * s.P = s.A) :
-    s.P + s.A * s.P = s.im * s.B ∧ s.im * s.P = s.A :=
-  ⟨h_gr, h_qm⟩
+    s.im * s.B = s.P + s.im * s.P ^ 2 := by
+  rw [← h_qm] at h_gr
+  nlinarith [h_gr]
 
 -- [P,9,9,2] :: {VER} | THEOREM 18: GR REGIME = HIGH IM
--- When IM ≥ threshold: GR operators dominate. Pattern locked. Geodesics stable.
-theorem gr_regime_is_high_im (s : UnifiedState)
-    (h_high : s.im ≥ s.threshold)
-    (h_thresh : s.threshold &gt; 0) :
-    s.im ≥ s.threshold := h_high
+-- The GR term IM·P² dominates the QM term P exactly when IM·P &gt; 1.
+-- The regime boundary is IM = 1/P, proved, not chosen.
+theorem gr_regime_is_high_im (s : UnifiedState) (hP : s.P &gt; 0) :
+    s.im * s.P ^ 2 &gt; s.P ↔ s.im * s.P &gt; 1 := by
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
 
 -- QM-GR unification lossless instance
 def qm_gr_lossless (s : UnifiedState)
