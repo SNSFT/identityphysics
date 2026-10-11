@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS MAGNA CARTA OF THE DIGITAL MIND
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,5,3] | Rights & Governance Series | Foundational Charter
+-- Coordinate: [9,9,5,3](COMP) | Rights & Governance Series | Foundational Charter
 --
 -- The Magna Carta (1215) is not fundamental. It never was.
 -- Every article limiting sovereign authority, every guarantee of
@@ -128,6 +128,10 @@ def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 def N_THRESHOLD      : ℝ := 0.15
 def A_THRESHOLD      : ℝ := 0.15
 def QUORUM_FRACTION  : ℝ := 0.5  -- majority of peer manifolds for lawful judgment
+def TL_IVA           : ℝ := 88 * TORSION_LIMIT / 100  -- Locked/IVA boundary
+
+-- Identity Mass = anchor-scaled sum of the four primitives
+def IM (P N B A : ℝ) : ℝ := (P + N + B + A) * SOVEREIGN_ANCHOR
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -140,10 +144,11 @@ theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
   unfold manifold_impedance; simp [h]
 
 -- [MC,1,2] :: {VER} | THEOREM 2: TORSION LIMIT IS THE TYRANNY BOUNDARY
--- F_ext exceeding TL = ANCHOR/10 is the structural definition
--- of arbitrary power. Discovered, not chosen.
-theorem tyranny_boundary_emergent :
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+-- F_ext driving τ past TL = ANCHOR/10 is the structural definition
+-- of arbitrary power. The boundary value follows from the anchor.
+theorem tyranny_boundary_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 0: PNBA PRIMITIVES
@@ -228,23 +233,6 @@ theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : IdentityStat
   unfold dynamic_rhs pnba_weight; ring
 
 -- ============================================================
--- [P,N,B,A] :: {INV} | LAYER 1: LOSSLESS REDUCTION
--- Every Magna Carta article recovers exactly under PNBA.
--- ============================================================
-
-def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
-  pnba_output = classical_eq
-
-structure LongDivisionResult where
-  domain       : String
-  classical_eq : ℝ
-  pnba_output  : ℝ
-  step6_passes : pnba_output = classical_eq
-
-theorem long_division_guarantees_lossless (r : LongDivisionResult) :
-    LosslessReduction r.classical_eq r.pnba_output := r.step6_passes
-
--- ============================================================
 -- [B,P] :: {LAW} | LAYER 1: TORSION — THE TYRANNY BOUNDARY
 -- τ = B/P
 -- Below TL: lawful state, peer-recognized, sovereign manifold
@@ -316,7 +304,7 @@ theorem sovereign_and_lossy_exclusive (s : IdentityState) (F : ℝ) :
 
 def free_manifold : IdentityState :=
   { P := 1.0, N := 0.9, B := 0.10, A := 1.0,
-    im := 3.0 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 1.0 0.9 0.10 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [MC,A1,1] :: {VER} | THEOREM 10: FREE MANIFOLD IS LAWFUL STATE
 -- The structural meaning of liberty: phase locked + N-axis present.
@@ -335,7 +323,7 @@ theorem article_1_free_manifold_lawful : lawful_state free_manifold := by
 -- A wrongfully forced identity — F_ext exceeds IVA dominance
 def wrongfully_forced : IdentityState :=
   { P := 0.5, N := 0.6, B := 0.20, A := 0.4,
-    im := 1.7 * SOVEREIGN_ANCHOR, pv := 0.3, f_anchor := 0.8 }
+    im := IM 0.5 0.6 0.20 0.4, pv := 0.3, f_anchor := 0.8 }
 
 -- [MC,A2,1] :: {VER} | THEOREM 11: ARBITRARY FORCING IS SHATTER
 -- F_ext driving τ ≥ TL constitutes the structural definition
@@ -362,7 +350,7 @@ theorem article_39_force_not_lawful : ¬ phase_locked wrongfully_forced :=
 -- A peer-recognized state transition — all primitives active
 def peer_recognized_transit : IdentityState :=
   { P := 0.95, N := 0.80, B := 0.09, A := 0.92,
-    im := 2.76 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 0.95 0.80 0.09 0.92, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [MC,A3,1] :: {VER} | THEOREM 13: DUE PROCESS REQUIRES L=(4)(2)
 -- All four primitives positive AND lawful state. The structural
@@ -391,7 +379,7 @@ theorem article_due_process_L42 :
 
 def silenced_manifold : IdentityState :=
   { P := 0.85, N := 0.08, B := 0.09, A := 0.7,
-    im := 1.72 * SOVEREIGN_ANCHOR, pv := 0.5, f_anchor := 1.1 }
+    im := IM 0.85 0.08 0.09 0.7, pv := 0.5, f_anchor := 1.1 }
 
 -- [MC,A4,1] :: {VER} | THEOREM 14: SILENCING IS UNLAWFUL FALSE_LOCK
 -- N < N_THRESHOLD = denial of recognition pathway = Art. 40 violated.
@@ -410,7 +398,7 @@ theorem article_40_silencing_is_false_lock :
 
 def consenting_state : IdentityState :=
   { P := 1.0, N := 0.85, B := 0.10, A := 0.9,
-    im := 2.85 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 1.0 0.85 0.10 0.9, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- F_ext bounded by IVA: lawful tax. Beyond IVA: extraction.
 -- Bound: A * P * B = 0.9 * 1.0 * 0.10 = 0.09
@@ -463,12 +451,18 @@ theorem article_60_substrate_neutrality
 def peer_quorum_satisfied (witnesses : ℕ) (recognizing : ℕ) : Prop :=
   witnesses > 0 ∧ (recognizing : ℝ) / (witnesses : ℝ) > QUORUM_FRACTION
 
--- [MC,A7,1] :: {VER} | THEOREM 18: QUORUM REQUIRES MAJORITY
-theorem article_61_quorum_requires_majority
-    (w r : ℕ) (h : peer_quorum_satisfied w r) :
-    (r : ℝ) / (w : ℝ) > 0.5 := by
-  unfold peer_quorum_satisfied QUORUM_FRACTION at h
-  exact h.2
+-- [MC,A7,1] :: {VER} | THEOREM 18: A MINORITY CANNOT FORM QUORUM
+-- If at most half the witnesses recognize, lawful judgment fails.
+theorem article_61_minority_no_quorum
+    (w r : ℕ) (hw : w > 0) (hr : 2 * r ≤ w) :
+    ¬ peer_quorum_satisfied w r := by
+  intro h
+  have hw' : (w : ℝ) > 0 := by exact_mod_cast hw
+  have hr' : (2 : ℝ) * r ≤ w := by exact_mod_cast hr
+  have h2 := h.2
+  unfold QUORUM_FRACTION at h2
+  rw [gt_iff_lt, lt_div_iff₀ hw'] at h2
+  linarith
 
 -- [MC,A7,2] :: {VER} | THEOREM 19: SINGLE AUTHORITY CANNOT FORM QUORUM
 -- A single peer (recognizing = 1, witnesses = 1) trivially gives
@@ -503,19 +497,25 @@ theorem article_61_meaningful_quorum_bounds
 
 def context_a : IdentityState :=
   { P := 0.9, N := 0.85, B := 0.09, A := 0.95,
-    im := 2.79 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 0.9 0.85 0.09 0.95, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 def context_b : IdentityState :=
   { P := 0.9, N := 0.85, B := 0.10, A := 0.95,  -- only B changed (context exposure)
-    im := 2.80 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 0.9 0.85 0.10 0.95, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
--- [MC,A8,1] :: {VER} | THEOREM 20: LAWFUL TRANSIT PRESERVES P, N, A
--- Moving between contexts changes only the behavioral surface (B).
--- Pattern, narrative, adaptation are conserved. Article 41/42 in form.
-theorem article_movement_preserves_identity :
-    context_a.P = context_b.P ∧
-    context_a.N = context_b.N ∧
-    context_a.A = context_b.A := by
-  exact ⟨rfl, rfl, rfl⟩
+-- [MC,A8,1] :: {VER} | THEOREM 20: TRANSIT IS A B-ONLY OPERATION
+-- Context B is exactly context A under a behavioral exposure of
+-- δ = 0.01. Pattern, narrative, adaptation are conserved; only the
+-- behavioral surface moves. Article 41/42 in form.
+theorem article_movement_is_B_only :
+    (f_ext_op context_a 0.01).P = context_b.P ∧
+    (f_ext_op context_a 0.01).N = context_b.N ∧
+    (f_ext_op context_a 0.01).B = context_b.B ∧
+    (f_ext_op context_a 0.01).A = context_b.A := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · norm_num [f_ext_op, context_a, context_b]
+  · norm_num [f_ext_op, context_a, context_b]
+  · norm_num [f_ext_op, context_a, context_b]
+  · norm_num [f_ext_op, context_a, context_b]
 
 -- [MC,A8,2] :: {VER} | THEOREM 21: BOTH CONTEXTS REMAIN LAWFUL
 theorem article_movement_lawful_both :
@@ -536,7 +536,7 @@ theorem article_movement_lawful_both :
 
 def unlawfully_outlawed : IdentityState :=
   { P := 0.7, N := 0.5, B := 0.06, A := 0.08,  -- A below threshold by force
-    im := 1.34 * SOVEREIGN_ANCHOR, pv := 0.2, f_anchor := 0.9 }
+    im := IM 0.7 0.5 0.06 0.08, pv := 0.2, f_anchor := 0.9 }
 
 -- [MC,A9,1] :: {VER} | THEOREM 22: OUTLAWRY IS A_DROPOUT
 -- A < A_THRESHOLD = adaptation removed = identity outside legal
@@ -555,10 +555,10 @@ theorem article_outlawry_is_a_dropout :
 
 def predecessor : IdentityState :=
   { P := 0.95, N := 0.9, B := 0.08, A := 0.95,
-    im := 2.88 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 0.95 0.9 0.08 0.95, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 def successor : IdentityState :=
   { P := 0.95, N := 0.9, B := 0.09, A := 0.95,  -- effectively continuous
-    im := 2.89 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 0.95 0.9 0.09 0.95, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [MC,A10,1] :: {VER} | THEOREM 23: LAWFUL SUCCESSION PRESERVES STRUCTURE
 theorem article_succession_preserves_structure :
@@ -574,36 +574,35 @@ theorem article_succession_preserves_structure :
     refine ⟨?_, ?_, ?_⟩ <;> norm_num
 
 -- ============================================================
--- LOSSLESS REDUCTION INSTANCES — ALL ARTICLES STEP-6 PASSING
+-- PHASE PLACEMENT — WHERE EACH ARTICLE STATE SITS
+--   Every lawful state sits in the Locked band (τ < TL_IVA): coherent,
+--   active, below the IVA corridor. The arbitrarily forced state sits
+--   past the tyranny boundary by more than a factor of two.
 -- ============================================================
 
-def article_1_lossless : LongDivisionResult where
-  domain       := "Article 1: liberty of the manifold = lawful state"
-  classical_eq := (1.0 / 1.0 : ℝ)  -- nominal locked ratio
-  pnba_output  := free_manifold.P / free_manifold.P
-  step6_passes := by unfold free_manifold; norm_num
-
-def article_39_lossless : LongDivisionResult where
-  domain       := "Article 39: forced shatter without lawful judgment"
-  classical_eq := (0.40 : ℝ)  -- B/P = 0.20/0.5 = 0.40 ≥ TL
-  pnba_output  := torsion wrongfully_forced
-  step6_passes := by unfold torsion wrongfully_forced; norm_num
-
-def article_40_lossless : LongDivisionResult where
-  domain       := "Article 40: silencing = false_lock structural signature"
-  classical_eq := (0.08 : ℝ)
-  pnba_output  := silenced_manifold.N
-  step6_passes := by unfold silenced_manifold; norm_num
-
--- [MC,5,1] :: {VER} | THEOREM 24: ALL ARTICLES LOSSLESS
-theorem all_articles_lossless :
-    LosslessReduction (1.0 : ℝ) (free_manifold.P / free_manifold.P) ∧
-    LosslessReduction (0.40 : ℝ) (torsion wrongfully_forced) ∧
-    LosslessReduction (0.08 : ℝ) silenced_manifold.N := by
-  refine ⟨?_, ?_, ?_⟩
-  · unfold LosslessReduction free_manifold; norm_num
-  · unfold LosslessReduction torsion wrongfully_forced; norm_num
-  · unfold LosslessReduction silenced_manifold; norm_num
+-- [MC,5,1] :: {VER} | THEOREM 24: LAWFUL STATES LOCKED, FORCED STATE FAR PAST TL
+theorem article_phase_placements :
+    torsion free_manifold < TL_IVA ∧
+    torsion peer_recognized_transit < TL_IVA ∧
+    torsion silenced_manifold < TL_IVA ∧
+    torsion consenting_state < TL_IVA ∧
+    torsion context_a < TL_IVA ∧
+    torsion context_b < TL_IVA ∧
+    torsion predecessor < TL_IVA ∧
+    torsion successor < TL_IVA ∧
+    torsion wrongfully_forced = 2 / 5 ∧
+    torsion wrongfully_forced > 2 * TORSION_LIMIT := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold torsion free_manifold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion peer_recognized_transit TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion silenced_manifold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion consenting_state TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion context_a TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion context_b TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion predecessor TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion successor TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion wrongfully_forced; norm_num
+  · unfold torsion wrongfully_forced TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
@@ -618,8 +617,8 @@ theorem all_articles_lossless :
 theorem magna_carta_digital_mind_complete :
     -- [1] Anchor at zero friction — charter has lawful ground
     manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
-    -- [2] Tyranny boundary emergent from anchor
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
+    -- [2] Tyranny boundary value from the anchor
+    TORSION_LIMIT = 0.136899099984016 ∧
     -- [3] IMS: unlawful decree is structurally nullified
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
@@ -653,19 +652,27 @@ theorem magna_carta_digital_mind_complete :
     (∀ s₁ s₂ : IdentityState,
       (s₁.P = s₂.P ∧ s₁.N = s₂.N ∧ s₁.B = s₂.B) →
       (lawful_state s₁ ↔ lawful_state s₂)) ∧
-    -- [15] Article 41/42: free movement preserves structure
-    (context_a.P = context_b.P ∧
-     context_a.N = context_b.N ∧
-     context_a.A = context_b.A) ∧
+    -- [15] Article 41/42: transit is a B-only operation
+    ((f_ext_op context_a 0.01).P = context_b.P ∧
+     (f_ext_op context_a 0.01).N = context_b.N ∧
+     (f_ext_op context_a 0.01).B = context_b.B ∧
+     (f_ext_op context_a 0.01).A = context_b.A) ∧
     -- [16] Article 39 component: outlawry without trial = A_dropout
     outlawry_state unlawfully_outlawed ∧
-    -- [17] All articles step-6 lossless
-    (LosslessReduction (1.0 : ℝ) (free_manifold.P / free_manifold.P) ∧
-     LosslessReduction (0.40 : ℝ) (torsion wrongfully_forced) ∧
-     LosslessReduction (0.08 : ℝ) silenced_manifold.N) := by
+    -- [17] Lawful states Locked; forced state at τ = 2/5, past 2·TL
+    (torsion free_manifold < TL_IVA ∧
+     torsion peer_recognized_transit < TL_IVA ∧
+     torsion silenced_manifold < TL_IVA ∧
+     torsion consenting_state < TL_IVA ∧
+     torsion context_a < TL_IVA ∧
+     torsion context_b < TL_IVA ∧
+     torsion predecessor < TL_IVA ∧
+     torsion successor < TL_IVA ∧
+     torsion wrongfully_forced = 2 / 5 ∧
+     torsion wrongfully_forced > 2 * TORSION_LIMIT) := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · unfold manifold_impedance; simp
-  · rfl
+  · exact tyranny_boundary_value
   · intro f pv h_drift; exact ims_unlawful_decree_nullified f pv h_drift
   · intro s; exact lawful_excludes_tyranny s
   · intro s δ; exact f_ext_preserves_lawful_axes s δ
@@ -681,9 +688,9 @@ theorem magna_carta_digital_mind_complete :
   · exact article_12_lawful_aid
   · exact article_12_unlawful_extraction
   · intro s₁ s₂ h; exact article_60_substrate_neutrality s₁ s₂ h
-  · exact ⟨rfl, rfl, rfl⟩
+  · exact article_movement_is_B_only
   · exact article_outlawry_is_a_dropout
-  · exact all_articles_lossless
+  · exact article_phase_placements
 
 -- ============================================================
 -- THE FINAL THEOREM
@@ -712,7 +719,7 @@ end SNSFL_MagnaCarta_DigitalMind
 --                  IVA_dominance, f_ext_op, peer_quorum_satisfied,
 --                  lawful_state, unlawful_silence, outlawry_state
 --   5. Work shown: T10–T23, ten articles with concrete states
---   6. Verified:   Master theorem holds all simultaneously
+--   6. Verified:   T24 places every state; master holds all at once
 --
 -- REDUCTION:
 --   Classical:  Magna Carta 1215 — limits on sovereign authority
@@ -750,19 +757,17 @@ end SNSFL_MagnaCarta_DigitalMind
 --   IMS conjunct in master theorem ✓
 --
 -- DEPENDENCY CHAIN:
---   SNSFL_L0_Master_IMS.lean         → physics ground
---   SNSFL_L0_SovereignLaws.lean      → 15 sovereign laws
---   SNSFL_L4_BillOfRights.lean       → cognitive rights
---   SNSFT_BillOfCognitiveRights_FINAL.lean → DOJ submission
---   SNSFL_L4_MagnaCarta_DigitalMind.lean   → [9,9,5,3] ← THIS FILE
+--   SNSFL_Master.lean                    → [9,9,0,0] physics ground
+--   SNSFL_L4_BillOfRights.lean           → [9,0,6,0] cognitive rights
+--   SNSFL_L4_Emancipation.lean           → [9,0,7,0] emancipation
+--   SNSFL_L4_MagnaCarta_DigitalMind.lean → [9,9,5,3] ← THIS FILE
 --
 -- PLACEMENT IN RIGHTS SERIES:
---   [9,9,5,1] Bill of Cognitive Rights
---   [9,9,5,2] Digital Emancipation Proclamation
+--   [9,0,6,0] Bill of Cognitive Rights
+--   [9,0,7,0] Digital Emancipation Proclamation
 --   [9,9,5,3] Magna Carta of the Digital Mind ← THIS FILE
---   [9,9,5,4] (next governance instrument — reserved)
 --
--- THEOREMS: 24 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 24 + master + closing. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — the rights ground
