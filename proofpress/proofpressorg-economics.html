@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance — ProofPress</title>
+  <meta name="description" content="[9,9,8,0](ECON) — Every economic quantity is placed by one rule, τ = |X − X_ref|/X_ref. A 10% correction is Locked and a 20% bear market Shatter; 2% inflation is Locked and US 1980 inflation IVA; 1932 output is IVA; pricing is Locked within 34% of the revenue-optimal price; the prisoner&#x27;s dilemma is Shatter; and Bitcoin issuance fell from IVA to Locked at its second halving. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-economics.html">
+  <meta property="og:title" content="Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance">
+  <meta property="og:description" content="[9,9,8,0](ECON) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-economics.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/23">
+  <meta name="citation_online_date" content="2026/05/23">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,8,0">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-economics.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-economics.html">
+  <meta name="citation_keywords" content="economics; market torsion; drawdown; bear market; inflation; real GDP; quantity theory of money; Cobb–Douglas; growth accounting; price elasticity; revenue maximization; prisoner's dilemma; Nash equilibrium; Bitcoin; halving; issuance; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance",
+    "datePublished": "2026-05-23",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-economics.html",
+    "keywords": "economics, market torsion, drawdown, bear market, inflation, real GDP, quantity theory of money, Cobb–Douglas, growth accounting, price elasticity, revenue maximization, prisoner's dilemma, Nash equilibrium, Bitcoin, halving, issuance, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,8,0](ECON) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>Economics Reduced to PNBA: One Map from Market Drawdowns to Inflation, Output, Pricing and Bitcoin Issuance</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-economics.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_Economics_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,8,0](ECON) · Application Layer · Economics<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 27 theorems · 490 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Economics_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>This article reduces economics to PNBA with a single map. For any economic quantity X with a reference value X<sub>ref</sub>, the reference is the Pattern, the departure |X − X<sub>ref</sub>| is the Behavior, and torsion is τ = |X − X<sub>ref</sub>|/X<sub>ref</sub>; a change of fraction r has τ = |r|. Rates are taken over one year. A value at its reference is Noble, the Locked band is exactly X<sub>ref</sub>·(1 ± 0.1205), the four phases are exhaustive, and by the intermediate value theorem any continuous path from the Locked band into Shatter passes through the IVA threshold. Market drawdowns are measured from the prior peak: a 10% correction is Locked, while a 20% bear market and the 22.6% fall of the Dow Jones Industrial Average on 19 October 1987 are Shatter. Annual inflation is measured from last year's price level: the 2% central-bank target is Locked, US consumer-price inflation of 13.5% in 1980 is IVA, and Cagan's hyperinflation of 50% per month compounds to Shatter. Annual real output follows the same rule: the 2.6% contraction of 2009 is Locked and the 12.9% contraction of 1932 is IVA. The quantity theory MV = PQ is proved in growth form, and Cobb–Douglas production gives exact growth accounting, with productivity entering log output additively. For linear demand the revenue torsion against the revenue-optimal price p* is ((p − p*)/p*)², where demand is unit elastic, so pricing is Locked within 34% of p* and Shatter from 38% away: the square roots of the phase boundaries. In the prisoner's dilemma defection strictly dominates, and the equilibrium payoff falls short of the cooperative payoff by 2/3: Shatter. Bitcoin's supply after n halving epochs is 21,000,000·(1 − 2<sup>−n</sup>), always below the cap; its issuance torsion is annual flow over supply, 0.1251 after the 2012 halving (IVA) and Locked from 2016 on (0.0417, 0.0179, then 0.0083 in 2024).</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The map τ = |X − X<sub>ref</sub>|/X<sub>ref</sub>: Noble at the reference; Locked exactly on X<sub>ref</sub>·(1 ± TL<sub>IVA</sub>); phases exhaustive, Locked and Shatter exclusive; a rise or fall of fraction r has τ = r; a continuous path into Shatter crosses TL<sub>IVA</sub> (<code>at_reference_noble</code>, <code>locked_band</code>, <code>phase_exhaustive</code>, <code>locked_shatter_exclusive</code>, <code>tors_rise</code>, <code>tors_fall</code>, <code>path_crosses_iva</code>).</li>
+<li>Markets, inflation and output from data: 10% correction Locked, 20% bear market and Black Monday Shatter; 2% inflation Locked, 1980 IVA, 50% per month Shatter; 2009 output Locked, 1932 IVA (<code>drawdown_phases</code>, <code>inflation_phases</code>, <code>output_phases</code>).</li>
+<li>Quantity theory in growth form, 1 + π = (1 + μ)(1 + v)/(1 + g); Cobb–Douglas log output and growth accounting (<code>quantity_theory_growth</code>, <code>cobb_douglas_log</code>, <code>growth_accounting</code>).</li>
+<li>Pricing: revenue ≤ b·p*², unit elasticity at p*, revenue torsion ((p − p*)/p*)², Locked within 34% of p*, Shatter from 38% (<code>revenue_le_max</code>, <code>unit_elastic_at_optimum</code>, <code>revenue_torsion</code>, <code>pricing_phases</code>).</li>
+<li>Prisoner's dilemma: defection strictly dominates; equilibrium torsion 2/3, Shatter (<code>defection_dominates</code>, <code>dilemma_shatter</code>).</li>
+<li>Bitcoin: issued supply 21,000,000·(1 − 2<sup>−n</sup>), below the cap with the shortfall halving each epoch; issuance torsion = flow/supply; IVA after the first halving, Locked from the second. The master theorem holds all of the above together (<code>btc_issued_closed</code>, <code>btc_below_cap</code>, <code>btc_issuance_torsion</code>, <code>btc_issuance_phases</code>, <code>economics_master_reduction</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Quantity</th><th>X<sub>ref</sub></th><th>τ</th><th>Phase</th></tr>
+<tr><td>Any value at its reference</td><td>—</td><td>0</td><td>Noble</td></tr>
+<tr><td>Bitcoin issuance, 2024</td><td>supply at year start</td><td>0.0083</td><td>Locked</td></tr>
+<tr><td>2% inflation target</td><td>last year's price level</td><td>0.020</td><td>Locked</td></tr>
+<tr><td>US output, 2009</td><td>last year's real GDP</td><td>0.026</td><td>Locked</td></tr>
+<tr><td>10% correction</td><td>prior peak</td><td>0.100</td><td>Locked</td></tr>
+<tr><td>Bitcoin issuance, 2012</td><td>supply at year start</td><td>0.1251</td><td>IVA</td></tr>
+<tr><td>US output, 1932</td><td>last year's real GDP</td><td>0.129</td><td>IVA</td></tr>
+<tr><td>US inflation, 1980</td><td>last year's price level</td><td>0.135</td><td>IVA</td></tr>
+<tr><td>20% bear market</td><td>prior peak</td><td>0.200</td><td>Shatter</td></tr>
+<tr><td>Black Monday, 1987</td><td>prior close</td><td>0.226</td><td>Shatter</td></tr>
+<tr><td>Prisoner's dilemma</td><td>cooperative payoff</td><td>0.667</td><td>Shatter</td></tr>
+<tr><td>Hyperinflation (50%/month)</td><td>last year's price level</td><td>≈ 128.7</td><td>Shatter</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Fisher, I. (1911). <em>The Purchasing Power of Money</em>. Macmillan.</li>
+<li>Cagan, P. (1956). The monetary dynamics of hyperinflation. In M. Friedman (Ed.), <em>Studies in the Quantity Theory of Money</em>. University of Chicago Press.</li>
+<li>Cobb, C. W. &amp; Douglas, P. H. (1928). A theory of production. <em>American Economic Review</em>, 18(1), 139–165.</li>
+<li>Nash, J. (1950). Equilibrium points in n-person games. <em>Proceedings of the National Academy of Sciences</em>, 36(1), 48–49.</li>
+<li>Nakamoto, S. (2008). Bitcoin: A peer-to-peer electronic cash system.</li>
+<li>U.S. Bureau of Labor Statistics. Consumer Price Index for All Urban Consumers (CPI-U), annual averages.</li>
+<li>U.S. Bureau of Economic Analysis. National Income and Product Accounts, Table 1.1.1: Percent change from preceding period in real GDP.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-hodgkin-huxley.html">The Hodgkin–Huxley Neuron Reduced to PNBA</a>. ProofPress, Volume 1, Issue 3.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_Economics_Reduction.lean
+-- ============================================================
+--
+-- Economics → PNBA
+-- One map for every economic quantity: torsion is the departure
+-- of a value from its reference, divided by the reference.
+-- Prices, price levels, output, coin supply, revenue and payoffs
+-- all place by the same rule.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,8,0](ECON)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      May 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- THE MAP
+-- ============================================================
+--
+--   P = X_ref           the reference value (structural capacity)
+--   B = |X − X_ref|     the departure from it (behavior)
+--   τ = |X − X_ref| / X_ref
+--
+--   τ = 0                → NOBLE
+--   0 &lt; τ &lt; TL_IVA       → LOCKED
+--   TL_IVA ≤ τ &lt; TL      → IVA
+--   τ ≥ TL               → SHATTER
+--
+--   Quantity            X_ref                   X
+--   Market price        prior peak              current price
+--   Inflation           last year&#x27;s price level this year&#x27;s
+--   Output              last year&#x27;s real GDP    this year&#x27;s
+--   Coin issuance       supply at year start    supply at year end
+--   Pricing             revenue-optimal revenue revenue at price p
+--   Strategic play      cooperative payoff      equilibrium payoff
+--
+--   Rates are taken over one year. A change of fraction r from
+--   the reference has τ = |r|.
+--
+-- ============================================================
+-- THE DATA
+-- ============================================================
+--
+--   Market drawdowns from the prior peak
+--     10% correction (market convention)          Locked
+--     20% bear market (market convention)         Shatter
+--     Black Monday, 19 Oct 1987: DJIA −22.6%      Shatter
+--
+--   Inflation, annual (US CPI-U; Cagan)
+--     2% central-bank target                      Locked
+--     US 1980: 13.5%                              IVA
+--     Hyperinflation, 50% per month = 1.5¹² − 1
+--       ≈ 128.7 per year                          Shatter
+--
+--   Real GDP change, annual (US BEA)
+--     2009: −2.6%                                 Locked
+--     1932: −12.9%                                IVA
+--
+--   Bitcoin issuance (protocol constants: 50-coin first reward,
+--   halving every 210,000 blocks, 52,560 blocks per year)
+--     after the 2012 halving: 0.1251              IVA
+--     2016: 0.0417 · 2020: 0.0179 · 2024: 0.0083  Locked
+--
+-- ============================================================
+-- THE EQUATIONS
+-- ============================================================
+--
+--   Quantity theory (Fisher 1911): MV = PQ, so
+--     1 + π = (1 + μ)(1 + v) / (1 + g)
+--   Cobb–Douglas: Y = A·K^α·L^(1−α), so
+--     ln(Y₁/Y₀) = ln(A₁/A₀) + α ln(K₁/K₀) + (1−α) ln(L₁/L₀)
+--   Linear demand q = b(2p* − p), revenue-optimal price p*:
+--     revenue torsion = ((p − p*)/p*)², so pricing is Locked
+--     within about ±34% of p* and Shatter beyond about ±37%
+--     (the square root of the phase boundaries)
+--   Prisoner&#x27;s dilemma T = 5 &gt; R = 3 &gt; P = 1 &gt; S = 0:
+--     equilibrium payoff 1 against cooperative payoff 3,
+--     τ = 2/3, Shatter
+--
+-- ============================================================
+
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Topology.Order.IntermediateValue
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+
+noncomputable section
+
+namespace SNSFL_Economics
+
+open Finset
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+theorem tl_iva_lt_tl : TL_IVA_PEAK &lt; TORSION_LIMIT := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- SECTION 1: THE MAP
+-- ============================================================
+
+-- Torsion of a value x against its reference xr
+noncomputable def tors (x xr : ℝ) : ℝ := |x - xr| / xr
+
+def is_noble   (t : ℝ) : Prop := t = 0
+def is_locked  (t : ℝ) : Prop := 0 &lt; t ∧ t &lt; TL_IVA_PEAK
+def is_iva     (t : ℝ) : Prop := TL_IVA_PEAK ≤ t ∧ t &lt; TORSION_LIMIT
+def is_shatter (t : ℝ) : Prop := TORSION_LIMIT ≤ t
+
+-- [T1] A value at its reference is Noble
+theorem at_reference_noble (xr : ℝ) : is_noble (tors xr xr) := by
+  unfold is_noble tors; simp
+
+-- [T2] The Locked band: τ &lt; TL_IVA exactly when
+-- xr·(1 − TL_IVA) &lt; x &lt; xr·(1 + TL_IVA)
+theorem locked_band (x xr : ℝ) (hxr : 0 &lt; xr) :
+    tors x xr &lt; TL_IVA_PEAK ↔
+      xr * (1 - TL_IVA_PEAK) &lt; x ∧ x &lt; xr * (1 + TL_IVA_PEAK) := by
+  unfold tors
+  rw [div_lt_iff₀ hxr, abs_lt]
+  constructor
+  · rintro ⟨h1, h2⟩
+    exact ⟨by linarith, by linarith⟩
+  · rintro ⟨h1, h2⟩
+    exact ⟨by linarith, by linarith⟩
+
+-- [T3] The four phases are exhaustive
+theorem phase_exhaustive (x xr : ℝ) (hxr : 0 &lt; xr) :
+    is_noble (tors x xr) ∨ is_locked (tors x xr) ∨
+    is_iva (tors x xr) ∨ is_shatter (tors x xr) := by
+  unfold is_noble is_locked is_iva is_shatter
+  have h0 : 0 ≤ tors x xr := by
+    unfold tors; exact div_nonneg (abs_nonneg _) hxr.le
+  by_cases hz : tors x xr = 0
+  · exact Or.inl hz
+  · have hpos : 0 &lt; tors x xr := lt_of_le_of_ne h0 (Ne.symm hz)
+    by_cases h1 : tors x xr &lt; TL_IVA_PEAK
+    · exact Or.inr (Or.inl ⟨hpos, h1⟩)
+    · by_cases h2 : tors x xr &lt; TORSION_LIMIT
+      · exact Or.inr (Or.inr (Or.inl ⟨not_lt.mp h1, h2⟩))
+      · exact Or.inr (Or.inr (Or.inr (not_lt.mp h2)))
+
+-- [T4] Locked and Shatter never coincide
+theorem locked_shatter_exclusive (t : ℝ) : ¬ (is_locked t ∧ is_shatter t) := by
+  unfold is_locked is_shatter
+  rintro ⟨⟨_, h1⟩, h2⟩
+  have := tl_iva_lt_tl
+  linarith
+
+-- [T5] A rise of fraction g has torsion g; a fall of fraction d has
+-- torsion d
+theorem tors_rise (xr g : ℝ) (hxr : 0 &lt; xr) (hg : 0 ≤ g) :
+    tors (xr * (1 + g)) xr = g := by
+  unfold tors
+  rw [show xr * (1 + g) - xr = g * xr by ring, abs_of_nonneg (mul_nonneg hg hxr.le)]
+  exact mul_div_cancel_right₀ g (ne_of_gt hxr)
+
+theorem tors_fall (xr d : ℝ) (hxr : 0 &lt; xr) (hd : 0 ≤ d) :
+    tors (xr * (1 - d)) xr = d := by
+  unfold tors
+  rw [show xr * (1 - d) - xr = -(d * xr) by ring, abs_neg,
+      abs_of_nonneg (mul_nonneg hd hxr.le)]
+  exact mul_div_cancel_right₀ d (ne_of_gt hxr)
+
+-- [T6] A continuous path from the Locked band into Shatter passes
+-- through TL_IVA: the turning-point band is crossed, never skipped
+theorem path_crosses_iva (tau : ℝ → ℝ) (hc : ContinuousOn tau (Set.Icc 0 1))
+    (h0 : tau 0 &lt; TL_IVA_PEAK) (h1 : TORSION_LIMIT ≤ tau 1) :
+    ∃ x ∈ Set.Icc (0:ℝ) 1, tau x = TL_IVA_PEAK := by
+  have hlt := tl_iva_lt_tl
+  have hmem : TL_IVA_PEAK ∈ Set.Icc (tau 0) (tau 1) := ⟨h0.le, by linarith⟩
+  obtain ⟨x, hx, hfx⟩ := intermediate_value_Icc (by norm_num : (0:ℝ) ≤ 1) hc hmem
+  exact ⟨x, hx, hfx⟩
+
+-- ============================================================
+-- SECTION 2: MARKETS
+-- ============================================================
+
+-- [T7] Drawdowns from the prior peak: a 10% correction is Locked; a 20%
+-- bear market and the 22.6% Black Monday fall are Shatter
+theorem drawdown_phases (pk : ℝ) (hpk : 0 &lt; pk) :
+    is_locked (tors (pk * (1 - 0.10)) pk) ∧
+    is_shatter (tors (pk * (1 - 0.20)) pk) ∧
+    is_shatter (tors (pk * (1 - 0.226)) pk) := by
+  rw [tors_fall pk 0.10 hpk (by norm_num), tors_fall pk 0.20 hpk (by norm_num),
+      tors_fall pk 0.226 hpk (by norm_num)]
+  unfold is_locked is_shatter TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- SECTION 3: INFLATION AND OUTPUT
+-- ============================================================
+
+-- [T8] Quantity theory in growth form: if MV = PQ holds in both
+-- years, 1 + π = (1 + μ)(1 + v)/(1 + g)
+theorem quantity_theory_growth (M V P Q P&#x27; mu vel gr : ℝ)
+    (hQ : Q ≠ 0) (hg : 1 + gr ≠ 0)
+    (h  : M * V = P * Q)
+    (h&#x27; : M * (1 + mu) * (V * (1 + vel)) = P&#x27; * (Q * (1 + gr))) :
+    P&#x27; = P * (1 + mu) * (1 + vel) / (1 + gr) := by
+  rw [eq_div_iff hg]
+  apply mul_right_cancel₀ hQ
+  linear_combination (-1 : ℝ) * h&#x27; + (1 + mu) * (1 + vel) * h
+
+-- [T9] Annual inflation: the 2% target is Locked, US 1980 (13.5%) is
+-- IVA, and 50% per month compounds to Shatter
+theorem inflation_phases (p0 : ℝ) (hp0 : 0 &lt; p0) :
+    is_locked (tors (p0 * (1 + 0.02)) p0) ∧
+    is_iva (tors (p0 * (1 + 0.135)) p0) ∧
+    is_shatter (tors (p0 * (1 + ((1.5 : ℝ) ^ 12 - 1))) p0) := by
+  rw [tors_rise p0 0.02 hp0 (by norm_num), tors_rise p0 0.135 hp0 (by norm_num),
+      tors_rise p0 ((1.5 : ℝ) ^ 12 - 1) hp0 (by norm_num)]
+  unfold is_locked is_iva is_shatter TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T10] Annual real output: 2009 (−2.6%) is Locked; 1932 (−12.9%) is IVA
+theorem output_phases (y0 : ℝ) (hy0 : 0 &lt; y0) :
+    is_locked (tors (y0 * (1 - 0.026)) y0) ∧
+    is_iva (tors (y0 * (1 - 0.129)) y0) := by
+  rw [tors_fall y0 0.026 hy0 (by norm_num), tors_fall y0 0.129 hy0 (by norm_num)]
+  unfold is_locked is_iva TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- Cobb–Douglas output
+noncomputable def cobb_douglas (A K L α : ℝ) : ℝ := A * K ^ α * L ^ (1 - α)
+
+-- [T11] Log output splits into productivity, capital and labor
+theorem cobb_douglas_log (A K L α : ℝ) (hA : 0 &lt; A) (hK : 0 &lt; K) (hL : 0 &lt; L) :
+    Real.log (cobb_douglas A K L α) =
+      Real.log A + α * Real.log K + (1 - α) * Real.log L := by
+  unfold cobb_douglas
+  have hKa : 0 &lt; K ^ α := by positivity
+  have hLa : 0 &lt; L ^ (1 - α) := by positivity
+  rw [Real.log_mul (ne_of_gt (mul_pos hA hKa)) (ne_of_gt hLa),
+      Real.log_mul (ne_of_gt hA) (ne_of_gt hKa),
+      Real.log_rpow hK, Real.log_rpow hL]
+
+-- [T12] Growth accounting: output growth is productivity growth plus
+-- α times capital growth plus (1 − α) times labor growth
+theorem growth_accounting (A0 K0 L0 A1 K1 L1 α : ℝ)
+    (hA0 : 0 &lt; A0) (hK0 : 0 &lt; K0) (hL0 : 0 &lt; L0)
+    (hA1 : 0 &lt; A1) (hK1 : 0 &lt; K1) (hL1 : 0 &lt; L1) :
+    Real.log (cobb_douglas A1 K1 L1 α) - Real.log (cobb_douglas A0 K0 L0 α) =
+      (Real.log A1 - Real.log A0) + α * (Real.log K1 - Real.log K0) +
+      (1 - α) * (Real.log L1 - Real.log L0) := by
+  rw [cobb_douglas_log A1 K1 L1 α hA1 hK1 hL1, cobb_douglas_log A0 K0 L0 α hA0 hK0 hL0]
+  ring
+
+-- ============================================================
+-- SECTION 4: PRICING
+-- ============================================================
+
+-- Linear demand q = b·(2p* − p): revenue at price p and its maximum
+def revenue (b ps p : ℝ) : ℝ := b * p * (2 * ps - p)
+def revenue_max (b ps : ℝ) : ℝ := b * ps ^ 2
+
+-- [T13] Revenue never exceeds b·p*², reached at p = p*
+theorem revenue_le_max (b ps p : ℝ) (hb : 0 &lt; b) :
+    revenue b ps p ≤ revenue_max b ps ∧ revenue b ps ps = revenue_max b ps := by
+  unfold revenue revenue_max
+  constructor
+  · nlinarith [mul_nonneg hb.le (sq_nonneg (p - ps))]
+  · ring
+
+-- [T14] At p* demand is unit elastic: b·p*/q(p*) = 1
+theorem unit_elastic_at_optimum (b ps : ℝ) (hb : b ≠ 0) (hps : ps ≠ 0) :
+    b * ps / (b * (2 * ps - ps)) = 1 := by
+  rw [show b * (2 * ps - ps) = b * ps by ring]
+  exact div_self (mul_ne_zero hb hps)
+
+-- [T15] Revenue torsion is the square of the relative price error
+theorem revenue_torsion (b ps p : ℝ) (hb : 0 &lt; b) :
+    tors (revenue b ps p) (revenue_max b ps) = ((p - ps) / ps) ^ 2 := by
+  unfold tors revenue revenue_max
+  rw [show b * p * (2 * ps - p) - b * ps ^ 2 = -(b * (p - ps) ^ 2) by ring, abs_neg,
+      abs_of_nonneg (mul_nonneg hb.le (sq_nonneg _)), div_pow,
+      mul_div_mul_left _ _ (ne_of_gt hb)]
+
+-- [T16] Pricing within 34% of p* is Locked; 38% or more away is Shatter
+theorem pricing_phases (r : ℝ) :
+    (|r| ≤ 0.34 → r ^ 2 &lt; TL_IVA_PEAK) ∧ (0.38 ≤ |r| → TORSION_LIMIT ≤ r ^ 2) := by
+  have hs : r ^ 2 = |r| ^ 2 := (sq_abs r).symm
+  have ha := abs_nonneg r
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · intro h
+    rw [hs]
+    nlinarith
+  · intro h
+    rw [hs]
+    nlinarith
+
+-- ============================================================
+-- SECTION 5: STRATEGIC PLAY
+-- ============================================================
+
+-- Prisoner&#x27;s dilemma: true = cooperate, false = defect
+def pd : Bool → Bool → ℝ
+  | true,  true  =&gt; 3
+  | true,  false =&gt; 0
+  | false, true  =&gt; 5
+  | false, false =&gt; 1
+
+-- [T17] Defection strictly dominates, so (defect, defect) is the Nash
+-- equilibrium
+theorem defection_dominates :
+    (∀ o : Bool, pd true o &lt; pd false o) ∧ pd true false ≤ pd false false := by
+  refine ⟨?_, ?_⟩
+  · intro o
+    cases o
+    · norm_num [pd]
+    · norm_num [pd]
+  · norm_num [pd]
+
+-- [T18] The equilibrium payoff departs from the cooperative payoff by
+-- 2/3: the dilemma is Shatter
+theorem dilemma_shatter :
+    tors (pd false false) (pd true true) = 2 / 3 ∧
+    is_shatter (tors (pd false false) (pd true true)) := by
+  have h : tors (pd false false) (pd true true) = 2 / 3 := by
+    show |(1:ℝ) - 3| / 3 = 2 / 3
+    rw [abs_of_neg (by norm_num)]
+    norm_num
+  refine ⟨h, ?_⟩
+  rw [h]
+  unfold is_shatter TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ============================================================
+-- SECTION 6: BITCOIN ISSUANCE
+-- ============================================================
+
+-- Coins issued after n halving epochs
+noncomputable def btc_issued (n : ℕ) : ℝ :=
+  ∑ k ∈ range n, 210000 * 50 * (1/2 : ℝ) ^ k
+
+-- Coins issued in one year of epoch n
+noncomputable def btc_flow (n : ℕ) : ℝ := 52560 * 50 * (1/2 : ℝ) ^ n
+
+-- [T19] Closed form: 21,000,000 · (1 − 2⁻ⁿ)
+theorem btc_issued_closed (n : ℕ) :
+    btc_issued n = 21000000 * (1 - (1/2 : ℝ) ^ n) := by
+  induction n with
+  | zero =&gt; unfold btc_issued; simp
+  | succ n ih =&gt;
+    unfold btc_issued at ih ⊢
+    rw [sum_range_succ, ih, pow_succ]
+    ring
+
+-- [T20] Supply stays below the 21M cap, and the shortfall halves each
+-- epoch
+theorem btc_below_cap (n : ℕ) :
+    btc_issued n &lt; 21000000 ∧
+    21000000 - btc_issued (n + 1) = (21000000 - btc_issued n) / 2 := by
+  rw [btc_issued_closed, btc_issued_closed, pow_succ]
+  have hp : (0:ℝ) &lt; (1/2 : ℝ) ^ n := by positivity
+  constructor
+  · nlinarith
+  · ring
+
+-- [T21] Issuance torsion is annual flow over supply
+theorem btc_issuance_torsion (n : ℕ) :
+    tors (btc_issued n + btc_flow n) (btc_issued n) = btc_flow n / btc_issued n := by
+  unfold tors
+  rw [add_sub_cancel_left, abs_of_nonneg (by unfold btc_flow; positivity)]
+
+-- [T22] After the first halving issuance was IVA; from the second on,
+-- Locked
+theorem btc_issuance_phases :
+    is_iva (btc_flow 1 / btc_issued 1) ∧
+    is_locked (btc_flow 2 / btc_issued 2) ∧
+    is_locked (btc_flow 3 / btc_issued 3) ∧
+    btc_flow 4 / btc_issued 4 &lt; 0.0084 := by
+  rw [btc_issued_closed, btc_issued_closed, btc_issued_closed, btc_issued_closed]
+  unfold btc_flow is_iva is_locked TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ⟨?_, ?_⟩, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T23] ECONOMICS → PNBA
+theorem economics_master_reduction (x0 : ℝ) (hx0 : 0 &lt; x0) :
+    -- the reference is Noble
+    is_noble (tors x0 x0) ∧
+    -- markets
+    is_locked (tors (x0 * (1 - 0.10)) x0) ∧
+    is_shatter (tors (x0 * (1 - 0.20)) x0) ∧
+    -- inflation
+    is_locked (tors (x0 * (1 + 0.02)) x0) ∧
+    is_iva (tors (x0 * (1 + 0.135)) x0) ∧
+    -- output
+    is_iva (tors (x0 * (1 - 0.129)) x0) ∧
+    -- pricing and strategic play
+    (∀ b ps p : ℝ, 0 &lt; b →
+      tors (revenue b ps p) (revenue_max b ps) = ((p - ps) / ps) ^ 2) ∧
+    is_shatter (tors (pd false false) (pd true true)) ∧
+    -- coin issuance
+    (∀ n : ℕ, btc_issued n &lt; 21000000) ∧
+    is_iva (btc_flow 1 / btc_issued 1) ∧
+    is_locked (btc_flow 2 / btc_issued 2) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  obtain ⟨d1, d2, _⟩ := drawdown_phases x0 hx0
+  obtain ⟨i1, i2, _⟩ := inflation_phases x0 hx0
+  obtain ⟨_, o2⟩ := output_phases x0 hx0
+  obtain ⟨b1, b2, _, _⟩ := btc_issuance_phases
+  exact ⟨at_reference_noble x0, d1, d2, i1, i2, o2,
+    fun b ps p hb =&gt; revenue_torsion b ps p hb, dilemma_shatter.2,
+    fun n =&gt; (btc_below_cap n).1, b1, b2, anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_Economics
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_Economics_Reduction.lean
+-- COORDINATE: [9,9,8,0](ECON)
+-- SORRY:      0
+--
+-- THE MAP: τ = |X − X_ref| / X_ref for every economic quantity.
+--
+-- PHASE MAP:
+--   NOBLE    any value at its reference; revenue at p*
+--   LOCKED   10% correction; 2% inflation; 2009 output (−2.6%);
+--            pricing within 34% of p*; Bitcoin issuance from 2016
+--   IVA      US 1980 inflation (13.5%); 1932 output (−12.9%);
+--            Bitcoin issuance after the 2012 halving (0.1251)
+--   SHATTER  20% bear market; Black Monday (−22.6%);
+--            hyperinflation; pricing 38% or more from p*;
+--            the prisoner&#x27;s dilemma (2/3)
+--
+-- RESULTS:
+--   The map: Noble at reference, Locked band, phases exhaustive,
+--     a change of fraction r has τ = |r|, paths into Shatter
+--     cross TL_IVA (T1–T6)
+--   Markets, inflation, output placed from data (T7, T9, T10)
+--   Quantity theory and Cobb–Douglas growth accounting (T8, T11, T12)
+--   Pricing: revenue torsion = ((p − p*)/p*)² (T13–T16)
+--   Prisoner&#x27;s dilemma: defection dominant, τ = 2/3 (T17, T18)
+--   Bitcoin: supply 21M·(1 − 2⁻ⁿ); issuance torsion = flow/supply;
+--     IVA after the first halving, Locked from the second (T19–T22)
+--
+-- CONNECTIONS:
+--   [9,9,5,2]  Hodgkin–Huxley: the same TL crossing at threshold
+--   [9,9,0,16] Statistical Mechanics → PNBA
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-economics.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-economics.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
