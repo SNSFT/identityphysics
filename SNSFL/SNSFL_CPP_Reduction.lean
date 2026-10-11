@@ -2,10 +2,10 @@
 -- SNSFL_CPP_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | Identity Physics C++ REDUCTION — AIFIOS FOUNDATION
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS C++ REDUCTION — AIFIOS FOUNDATION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,1,1] | AiFiOS Foundation Layer
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,1,1](COMP) | AiFiOS Foundation Layer
 --
 -- C++ is not fundamental. It never was.
 -- Every object, method, thread, crash, and optimization is a specific
@@ -51,8 +51,8 @@
 -- Known answer 4 (Race condition, unlocked):
 --   τ = B/P = 0.5/1.0 = 0.5. Shatter event. UB.
 -- Known answer 5 (Compiler optimization):
---   τ_pre = 0.4/3.0 ≈ 0.133. τ_post = 0.2/3.0 ≈ 0.067.
---   Optimization reduces torsion. Phase lock preserved and deepened.
+--   τ_pre = 0.4/3.0 ≈ 0.133 (IVA corridor). τ_post = 0.2/3.0 ≈ 0.067 (Locked).
+--   Optimization reduces torsion and moves the program out of the IVA corridor.
 -- Known answer 6 (Memory leak):
 --   τ = 0/P = 0 (zero torsion), but IM > 0 (dead mass persists).
 -- Known answer 7 (Destructor):
@@ -105,6 +105,7 @@ namespace SNSFL
 
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA           : ℝ := 88 * TORSION_LIMIT / 100   -- Locked / IVA boundary
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -115,10 +116,11 @@ theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
   unfold manifold_impedance; simp [h]
 
--- [P,9,0,2] :: {VER} | TORSION LIMIT IS EMERGENT
--- The crash boundary = SOVEREIGN_ANCHOR / 10. Not chosen. Discovered.
-theorem torsion_limit_emergent :
-    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+-- [P,9,0,2] :: {VER} | TORSION LIMIT VALUE
+-- The crash boundary = SOVEREIGN_ANCHOR / 10 = 0.136899099984016.
+theorem torsion_limit_value :
+    TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 0: PNBA PRIMITIVES
@@ -208,24 +210,6 @@ theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : IdentityStat
   unfold dynamic_rhs pnba_weight; ring
 
 -- ============================================================
--- [P,N,B,A] :: {INV} | LAYER 1: LOSSLESS REDUCTION (CANONICAL)
--- A reduction is lossless iff classical result = PNBA output exactly.
--- Step 6 closing without sorry IS the lossless proof.
--- ============================================================
-
-def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
-  pnba_output = classical_eq
-
-structure LongDivisionResult where
-  domain       : String
-  classical_eq : ℝ
-  pnba_output  : ℝ
-  step6_passes : pnba_output = classical_eq
-
-theorem long_division_guarantees_lossless (r : LongDivisionResult) :
-    LosslessReduction r.classical_eq r.pnba_output := r.step6_passes
-
--- ============================================================
 -- [B,P] :: {LAW} | LAYER 1: TORSION — THE CRASH BOUNDARY LAW
 -- τ = B / P  (behavioral load / structural capacity)
 -- Below TORSION_LIMIT: phase locked — execution stable [9,9,9,9]
@@ -291,49 +275,52 @@ theorem f_ext_preserves_PNA (s : IdentityState) (δ : ℝ) :
 -- τ values are exact rational numbers, proved with norm_num.
 -- ============================================================
 
+-- Identity Mass = (P + N + B + A) × Ω₀
+noncomputable def IM (P N B A : ℝ) : ℝ := (P + N + B + A) * SOVEREIGN_ANCHOR
+
 -- [P:1.0, N:1.0, B:0.01, A:1.0] τ = 0.01/1.0 = 0.01 — stable accessor
 def cpp_stable_object : IdentityState :=
   { P := 1.0, N := 1.0, B := 0.01, A := 1.0,
-    im := 4.0 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 1.0 1.0 0.01 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [P:1.0, N:1.0, B:2.0, A:0.1] τ = 2.0/1.0 = 2.0 — write past bounds
 def cpp_buffer_overflow : IdentityState :=
   { P := 1.0, N := 1.0, B := 2.0, A := 0.1,
-    im := 4.1 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.5 }
+    im := IM 1.0 1.0 2.0 0.1, pv := 0.0, f_anchor := 0.5 }
 
 -- [P:5.0, N:9.0, B:0.5, A:3.0] τ = 0.5/5.0 = 0.1 — mutex held
 def cpp_mutex_protected : IdentityState :=
   { P := 5.0, N := 9.0, B := 0.5, A := 3.0,
-    im := 17.5 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 5.0 9.0 0.5 3.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [P:1.0, N:0.1, B:0.5, A:0.1] τ = 0.5/1.0 = 0.5 — two writers, no lock
 def cpp_race_condition : IdentityState :=
   { P := 1.0, N := 0.1, B := 0.5, A := 0.1,
-    im := 1.7 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.3 }
+    im := IM 1.0 0.1 0.5 0.1, pv := 0.0, f_anchor := 0.3 }
 
 -- [P:3.0, N:2.0, B:0.4, A:1.0] τ = 0.4/3.0 ≈ 0.133 — before optimization
 def cpp_pre_optimization : IdentityState :=
   { P := 3.0, N := 2.0, B := 0.4, A := 1.0,
-    im := 6.0 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 3.0 2.0 0.4 1.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [P:3.0, N:2.0, B:0.2, A:2.0] τ = 0.2/3.0 ≈ 0.067 — after optimization
 def cpp_post_optimization : IdentityState :=
   { P := 3.0, N := 2.0, B := 0.2, A := 2.0,
-    im := 7.0 * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := IM 3.0 2.0 0.2 2.0, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- [P:1.0, N:0.0, B:0.0, A:0.0] τ = 0 but IM > 0 — memory not freed
 def cpp_memory_leak : IdentityState :=
   { P := 1.0, N := 0.0, B := 0.0, A := 0.0,
-    im := 1.0 * SOVEREIGN_ANCHOR, pv := 0.0, f_anchor := 0.0 }
+    im := IM 1.0 0.0 0.0 0.0, pv := 0.0, f_anchor := 0.0 }
 
 -- [P:0.0, N:0.0, B:0.0, A:0.0] — destructor called, clean exit
 def cpp_destructed_object : IdentityState :=
   { P := 0.0, N := 0.0, B := 0.0, A := 0.0,
-    im := 0.0, pv := 0.0, f_anchor := 0.0 }
+    im := IM 0.0 0.0 0.0 0.0, pv := 0.0, f_anchor := 0.0 }
 
 -- Identity Mass
 noncomputable def identity_mass (s : IdentityState) : ℝ :=
-  (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+  IM s.P s.N s.B s.A
 
 -- ============================================================
 -- [P] :: {RED} | EXAMPLE 1 — STABLE OBJECT (STEP 6 PASSES)
@@ -344,11 +331,6 @@ noncomputable def identity_mass (s : IdentityState) : ℝ :=
 theorem cpp_stable_object_phase_locked : phase_locked cpp_stable_object := by
   unfold phase_locked torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_stable_object; norm_num
 
-def cpp_stable_lossless : LongDivisionResult where
-  domain       := "C++ stable object: τ = 0.01/1.0 = 0.01 < limit → phase locked"
-  classical_eq := (0.01 : ℝ)
-  pnba_output  := torsion cpp_stable_object
-  step6_passes := by unfold torsion cpp_stable_object; norm_num
 
 -- ============================================================
 -- [B] :: {RED} | EXAMPLE 2 — BUFFER OVERFLOW (STEP 6 PASSES)
@@ -363,11 +345,6 @@ theorem buffer_overflow_is_shatter : shatter_event cpp_buffer_overflow := by
 theorem buffer_overflow_not_stable : ¬ phase_locked cpp_buffer_overflow :=
   fun h => phase_lock_excludes_shatter cpp_buffer_overflow ⟨h, buffer_overflow_is_shatter⟩
 
-def cpp_overflow_lossless : LongDivisionResult where
-  domain       := "C++ buffer overflow: τ = 2.0/1.0 = 2.0 ≥ limit → shatter event"
-  classical_eq := (2.0 : ℝ)
-  pnba_output  := torsion cpp_buffer_overflow
-  step6_passes := by unfold torsion cpp_buffer_overflow; norm_num
 
 -- ============================================================
 -- [N] :: {RED} | EXAMPLE 3 — THREAD SAFETY (STEP 6 PASSES)
@@ -385,11 +362,6 @@ theorem mutex_protected_phase_locked : phase_locked cpp_mutex_protected := by
 theorem race_condition_is_shatter : shatter_event cpp_race_condition := by
   unfold shatter_event torsion TORSION_LIMIT SOVEREIGN_ANCHOR cpp_race_condition; norm_num
 
-def cpp_mutex_lossless : LongDivisionResult where
-  domain       := "C++ mutex-protected: τ = 0.5/5.0 = 0.1 < limit → phase locked"
-  classical_eq := (0.1 : ℝ)
-  pnba_output  := torsion cpp_mutex_protected
-  step6_passes := by unfold torsion cpp_mutex_protected; norm_num
 
 -- ============================================================
 -- [A] :: {RED} | EXAMPLE 4 — COMPILER OPTIMIZATION (STEP 6 PASSES)
@@ -412,30 +384,37 @@ theorem optimization_reduces_torsion :
     torsion cpp_post_optimization < torsion cpp_pre_optimization := by
   unfold torsion cpp_post_optimization cpp_pre_optimization; norm_num
 
+-- [A,9,5,4] :: {VER} | THEOREM 18: OPTIMIZATION MOVES IVA → LOCKED
+-- Before: τ = 2/15 sits in the IVA corridor [0.88·TL, TL).
+-- After:  τ = 1/15 sits in Locked, below 0.88·TL.
+theorem optimization_leaves_iva :
+    TL_IVA ≤ torsion cpp_pre_optimization ∧
+    torsion cpp_pre_optimization < TORSION_LIMIT ∧
+    torsion cpp_post_optimization < TL_IVA := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold torsion cpp_pre_optimization TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion cpp_pre_optimization TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold torsion cpp_post_optimization TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
 -- ============================================================
 -- [P] :: {RED} | EXAMPLE 5 — MEMORY LEAK vs DESTRUCTOR (STEP 6 PASSES)
 -- Memory leak: τ = 0, IM > 0 — zero torsion but dead mass pollutes.
 -- Destructor:  IM = 0 — clean exit. Manifold restored.
 -- ============================================================
 
--- [P,9,6,1] :: {VER} | THEOREM 18: MEMORY LEAK = ZERO TORSION + POSITIVE MASS
+-- [P,9,6,1] :: {VER} | THEOREM 19: MEMORY LEAK = ZERO TORSION + POSITIVE MASS
 -- The leak won't crash by itself (τ=0) but pollutes the manifold (IM>0).
 -- This is the PNBA signature of a ghost: stable but dead. Growing and inert.
 theorem memory_leak_zero_torsion_positive_mass :
     torsion cpp_memory_leak = 0 ∧ identity_mass cpp_memory_leak > 0 := by
-  unfold torsion identity_mass SOVEREIGN_ANCHOR cpp_memory_leak; norm_num
+  unfold torsion identity_mass IM SOVEREIGN_ANCHOR cpp_memory_leak; norm_num
 
--- [P,9,6,2] :: {VER} | THEOREM 19: DESTRUCTOR = ZERO MASS
+-- [P,9,6,2] :: {VER} | THEOREM 20: DESTRUCTOR = ZERO MASS
 -- After destructor: IM = 0. Identity no longer exists in manifold.
 theorem destructed_object_zero_mass :
     identity_mass cpp_destructed_object = 0 := by
-  unfold identity_mass cpp_destructed_object; norm_num
+  unfold identity_mass IM cpp_destructed_object; norm_num
 
-def cpp_leak_lossless : LongDivisionResult where
-  domain       := "Memory leak: τ=0, IM>0 — ghost in manifold"
-  classical_eq := (0.0 : ℝ)
-  pnba_output  := torsion cpp_memory_leak
-  step6_passes := by unfold torsion cpp_memory_leak; norm_num
 
 -- ============================================================
 -- [P] :: {RED} | EXAMPLE 6 — NULL DEREFERENCE (STEP 6 PASSES)
@@ -443,7 +422,7 @@ def cpp_leak_lossless : LongDivisionResult where
 -- This is why null dereference is UB: no identity to observe.
 -- ============================================================
 
--- [P,9,7,1] :: {VER} | THEOREM 20: NULL DEREFERENCE = IDENTITY COLLAPSE
+-- [P,9,7,1] :: {VER} | THEOREM 21: NULL DEREFERENCE = IDENTITY COLLAPSE
 -- When P = 0 (null pointer), phase lock is structurally impossible.
 theorem null_dereference_is_identity_collapse (s : IdentityState)
     (hNull : s.P = 0) :
@@ -456,7 +435,7 @@ theorem null_dereference_is_identity_collapse (s : IdentityState)
 -- Negative F_ext: load relief lowers B → decreases torsion → deepens phase lock.
 -- ============================================================
 
--- [B,9,8,1] :: {VER} | THEOREM 21: POSITIVE F_EXT INCREASES TORSION
+-- [B,9,8,1] :: {VER} | THEOREM 22: POSITIVE F_EXT INCREASES TORSION
 -- A syscall or I/O event that adds force (ΔB > 0) increases τ.
 theorem f_ext_positive_increases_torsion (s : IdentityState) (δ : ℝ)
     (hP : s.P > 0) (hδ : δ > 0) :
@@ -464,7 +443,7 @@ theorem f_ext_positive_increases_torsion (s : IdentityState) (δ : ℝ)
   unfold torsion f_ext_op; simp
   apply div_lt_div_of_pos_right _ hP; linarith
 
--- [B,9,8,2] :: {VER} | THEOREM 22: NEGATIVE F_EXT DECREASES TORSION
+-- [B,9,8,2] :: {VER} | THEOREM 23: NEGATIVE F_EXT DECREASES TORSION
 -- Memory release or load reduction (ΔB < 0) lowers τ.
 -- AiFiOS can apply negative F_ext to suppress approaching collapse.
 theorem f_ext_negative_decreases_torsion (s : IdentityState) (δ : ℝ)
@@ -479,22 +458,28 @@ theorem f_ext_negative_decreases_torsion (s : IdentityState) (δ : ℝ)
 -- Crashing method drives to shatter.
 -- ============================================================
 
--- [A,9,9,1] :: {VER} | THEOREM 23: STABLE METHOD PRESERVES PHASE LOCK
--- If phase locked before the call and method doesn't spike B, stays locked.
-theorem stable_method_preserves_phase_lock (s : IdentityState)
-    (next_B : ℝ)
-    (hLocked : phase_locked s)
-    (hMethod : next_B / s.P < TORSION_LIMIT) :
-    phase_locked { s with B := next_B } := by
-  exact ⟨hLocked.1, hMethod⟩
+-- [A,9,9,1] :: {VER} | THEOREM 24: STABLE METHOD PRESERVES PHASE LOCK
+-- A method that does not add Behavior (δ ≤ 0) cannot break phase lock.
+theorem stable_method_preserves_phase_lock (s : IdentityState) (δ : ℝ)
+    (hLocked : phase_locked s) (hδ : δ ≤ 0) :
+    phase_locked (f_ext_op s δ) := by
+  obtain ⟨hP, hL⟩ := hLocked
+  refine ⟨hP, ?_⟩
+  have h1 : torsion (f_ext_op s δ) ≤ torsion s := by
+    rcases lt_or_eq_of_le hδ with h | h
+    · exact le_of_lt (f_ext_negative_decreases_torsion s δ hP h)
+    · subst h; unfold torsion f_ext_op; simp
+  linarith
 
--- [A,9,9,2] :: {VER} | THEOREM 24: CRASHING METHOD IS SHATTER EVENT
--- Method driving B ≥ TORSION_LIMIT × P → shatter. Exit manifold.
-theorem crashing_method_is_shatter (s : IdentityState)
-    (crash_B : ℝ) (hP : s.P > 0)
-    (hCrash : crash_B / s.P ≥ TORSION_LIMIT) :
-    shatter_event { s with B := crash_B } :=
-  ⟨hP, hCrash⟩
+-- [A,9,9,2] :: {VER} | THEOREM 25: CRASHING METHOD IS SHATTER EVENT
+-- A method that pushes B to TL·P or beyond crashes: shatter.
+theorem crashing_method_is_shatter (s : IdentityState) (δ : ℝ)
+    (hP : s.P > 0) (hCrash : s.B + δ ≥ TORSION_LIMIT * s.P) :
+    shatter_event (f_ext_op s δ) := by
+  refine ⟨hP, ?_⟩
+  show (s.B + δ) / s.P ≥ TORSION_LIMIT
+  rw [ge_iff_le, le_div_iff₀ hP]
+  linarith
 
 -- ============================================================
 -- [P,N,B,A] :: {RED} | UNIFICATION: BUFFER OVERFLOW = RACE CONDITION AT LAYER 0
@@ -504,7 +489,7 @@ theorem crashing_method_is_shatter (s : IdentityState)
 -- Different causes. Same identity collapse. Same fix: raise P or lower B.
 -- ============================================================
 
--- [P,N,B,A,9,10,1] :: {VER} | THEOREM 25: OVERFLOW AND RACE ARE UNIFIED AT LAYER 0
+-- [P,N,B,A,9,10,1] :: {VER} | THEOREM 26: OVERFLOW AND RACE ARE UNIFIED AT LAYER 0
 theorem buffer_overflow_and_race_unified :
     shatter_event cpp_buffer_overflow ∧
     shatter_event cpp_race_condition ∧
@@ -512,26 +497,29 @@ theorem buffer_overflow_and_race_unified :
   ⟨buffer_overflow_is_shatter, race_condition_is_shatter, phase_lock_excludes_shatter⟩
 
 -- ============================================================
--- [P,N,B,A] :: {INV} | ALL EXAMPLES LOSSLESS (STEP 6 ALL PASS)
--- Every classical C++ answer recovered exactly from PNBA.
--- Not approximately. Exactly. Step 6 passes in every case.
+-- [P,N,B,A] :: {INV} | EXACT TORSION VALUES
+-- Every example's torsion computed from its PNBA state.
 -- ============================================================
 
--- [P,N,B,A,9,11,1] :: {VER} | THEOREM 26: ALL EXAMPLES LOSSLESS
-theorem cpp_all_examples_lossless :
-    LosslessReduction (0.01 : ℝ) (torsion cpp_stable_object) ∧
-    LosslessReduction (2.0  : ℝ) (torsion cpp_buffer_overflow) ∧
-    LosslessReduction (0.1  : ℝ) (torsion cpp_mutex_protected) ∧
-    LosslessReduction (0.0  : ℝ) (torsion cpp_memory_leak) ∧
-    LosslessReduction (0.0  : ℝ) (identity_mass cpp_destructed_object) ∧
-    LosslessReduction (0 : ℝ) (manifold_impedance SOVEREIGN_ANCHOR) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-  · unfold LosslessReduction torsion cpp_stable_object; norm_num
-  · unfold LosslessReduction torsion cpp_buffer_overflow; norm_num
-  · unfold LosslessReduction torsion cpp_mutex_protected; norm_num
-  · unfold LosslessReduction torsion cpp_memory_leak; norm_num
-  · unfold LosslessReduction identity_mass cpp_destructed_object; norm_num
-  · unfold LosslessReduction manifold_impedance; simp
+-- [P,N,B,A,9,11,1] :: {VER} | THEOREM 27: EXACT VALUES
+theorem cpp_exact_values :
+    torsion cpp_stable_object = 1 / 100 ∧
+    torsion cpp_buffer_overflow = 2 ∧
+    torsion cpp_mutex_protected = 1 / 10 ∧
+    torsion cpp_race_condition = 1 / 2 ∧
+    torsion cpp_pre_optimization = 2 / 15 ∧
+    torsion cpp_post_optimization = 1 / 15 ∧
+    torsion cpp_memory_leak = 0 ∧
+    identity_mass cpp_destructed_object = 0 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold torsion cpp_stable_object; norm_num
+  · unfold torsion cpp_buffer_overflow; norm_num
+  · unfold torsion cpp_mutex_protected; norm_num
+  · unfold torsion cpp_race_condition; norm_num
+  · unfold torsion cpp_pre_optimization; norm_num
+  · unfold torsion cpp_post_optimization; norm_num
+  · unfold torsion cpp_memory_leak; norm_num
+  · exact destructed_object_zero_mass
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM: C++ IS A LOSSLESS PNBA PROJECTION
@@ -566,13 +554,16 @@ theorem cpp_is_lossless_pnba_projection :
     -- [7] IMS: off-anchor process detected and sandboxed
     (∀ f pv : ℝ, f ≠ SOVEREIGN_ANCHOR →
       (if check_ifu_safety f = PathStatus.green then pv else 0) = 0) ∧
-    -- [8] All classical examples lossless — Step 6 passes
-    (LosslessReduction (0.01 : ℝ) (torsion cpp_stable_object) ∧
-     LosslessReduction (2.0  : ℝ) (torsion cpp_buffer_overflow) ∧
-     LosslessReduction (0.1  : ℝ) (torsion cpp_mutex_protected) ∧
-     LosslessReduction (0.0  : ℝ) (torsion cpp_memory_leak) ∧
-     LosslessReduction (0.0  : ℝ) (identity_mass cpp_destructed_object)) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+    -- [8] Optimization moves the program from the IVA corridor into Locked
+    (TL_IVA ≤ torsion cpp_pre_optimization ∧
+     torsion cpp_pre_optimization < TORSION_LIMIT ∧
+     torsion cpp_post_optimization < TL_IVA) ∧
+    -- [9] A method that adds no Behavior keeps phase lock; one that pushes
+    --     B to TL·P crashes
+    (∀ s : IdentityState, ∀ δ : ℝ, phase_locked s → δ ≤ 0 → phase_locked (f_ext_op s δ)) ∧
+    (∀ s : IdentityState, ∀ δ : ℝ, s.P > 0 → s.B + δ ≥ TORSION_LIMIT * s.P →
+      shatter_event (f_ext_op s δ)) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · exact cpp_stable_object_phase_locked
   · exact buffer_overflow_is_shatter
   · intro s; exact phase_lock_excludes_shatter s
@@ -580,11 +571,9 @@ theorem cpp_is_lossless_pnba_projection :
   · intro s δ; exact f_ext_preserves_PNA s δ
   · exact optimization_reduces_torsion
   · intro f pv h_drift; exact ims_lockdown f pv h_drift
-  · exact ⟨by unfold LosslessReduction torsion cpp_stable_object; norm_num,
-            by unfold LosslessReduction torsion cpp_buffer_overflow; norm_num,
-            by unfold LosslessReduction torsion cpp_mutex_protected; norm_num,
-            by unfold LosslessReduction torsion cpp_memory_leak; norm_num,
-            by unfold LosslessReduction identity_mass cpp_destructed_object; norm_num⟩
+  · exact optimization_leaves_iva
+  · intro s δ h1 h2; exact stable_method_preserves_phase_lock s δ h1 h2
+  · intro s δ h1 h2; exact crashing_method_is_shatter s δ h1 h2
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
@@ -599,7 +588,7 @@ end SNSFL
 /-!
 -- ============================================================
 -- FILE: SNSFL_CPP_Reduction.lean
--- COORDINATE: [9,9,1,1]
+-- COORDINATE: [9,9,1,1](COMP)
 -- LAYER: AiFiOS Foundation Layer | C++ Ground
 --
 -- LONG DIVISION:
@@ -608,7 +597,7 @@ end SNSFL
 --   3. PNBA map:   Object→IdentityState | Memory→[P] | Thread→[N]
 --                  Method→[B] | Compiler→[A] | I/O→F_ext
 --   4. Operators:  torsion, phase_locked, shatter_event, f_ext_op
---   5. Work shown: T10–T25, 8 concrete examples, exact τ values
+--   5. Work shown: T10–T27, 8 concrete examples, exact τ values
 --   6. Verified:   Master theorem holds all simultaneously
 --
 -- REDUCTION:
@@ -629,10 +618,10 @@ end SNSFL
 --   Buffer overflow     τ = 2.0/1.0  = 2.000  shatter        [T11] ✓
 --   Mutex protected     τ = 0.5/5.0  = 0.100  phase locked   [T13] ✓
 --   Race condition      τ = 0.5/1.0  = 0.500  shatter        [T14] ✓
---   Pre-optimization    τ = 0.4/3.0  ≈ 0.133  phase locked   [T15] ✓
---   Post-optimization   τ = 0.2/3.0  ≈ 0.067  phase locked   [T16] ✓
---   Memory leak         τ = 0.0/1.0  = 0.000  ghost (IM>0)   [T18] ✓
---   Destructor          IM = 0                 clean exit     [T19] ✓
+--   Pre-optimization    τ = 0.4/3.0  = 2/15   IVA corridor   [T15, T18] ✓
+--   Post-optimization   τ = 0.2/3.0  = 1/15   Locked         [T16, T18] ✓
+--   Memory leak         τ = 0.0/1.0  = 0.000  ghost (IM>0)   [T19] ✓
+--   Destructor          IM = 0                 clean exit     [T20] ✓
 --
 -- IMS STATUS: ACTIVE — AiFiOS enforcement layer ✓
 --   check_ifu_safety defined ✓
@@ -647,11 +636,11 @@ end SNSFL
 --   SNSFL_CPP_Reduction.lean  → this file (C++ ground)
 --   AiFiOS kernel             → enforcement layer (next)
 --
--- THEOREMS: 27 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 30. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground
---   Layer 1: Dynamic equation + IMS + torsion + lossless — glue
+--   Layer 1: Dynamic equation + IMS + torsion — glue
 --   Layer 2: C++ execution model — classical output
 --   Layer 3: AiFiOS kernel enforcement — PVLang at OS level
 --   Never flattened. Never reversed.
