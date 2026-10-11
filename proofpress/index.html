@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive — ProofPress</title>
-  <meta name="description" content="Full archive of ProofPress, Volume 1, 2026: 107 formally verified reductions by issue, searchable by title, coordinate and domain.">
-  <link rel="canonical" href="https://proofpress.org/proofpressorg-archive.html">
-  <meta property="og:title" content="Archive — ProofPress">
-  <meta property="og:description" content="Full archive of ProofPress, Volume 1, 2026: 107 formally verified reductions by issue, searchable by title, coordinate and domain.">
+  <title>ProofPress — Journal of Empirically Grounded Machine-Verified Formal Logic</title>
+  <meta name="description" content="ProofPress publishes systematic, lossless reductions of existing peer-reviewed empirical science into machine-verified formal logic (0 sorry, 0 free parameters) using the Long Division Protocol and PNBA primitives.">
+  <link rel="canonical" href="https://proofpress.org/">
+  <meta property="og:title" content="ProofPress — Journal of Empirically Grounded Machine-Verified Formal Logic">
+  <meta property="og:description" content="Systematic lossless reductions of peer-reviewed empirical science into machine-verified formal logic. Ω₀ = 1.36899099984016. DOI base 10.5281/zenodo.18719748.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://proofpress.org/proofpressorg-archive.html">
+  <meta property="og:url" content="https://proofpress.org/">
   <meta property="og:site_name" content="ProofPress">
   <meta property="og:locale" content="en_US">
 
@@ -20,9 +20,10 @@
   <meta name="DC.publisher" content="SNSFT Foundation">
   <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
   <meta name="DC.language" content="en">
-  <meta name="DC.type" content="Text">
-  <meta name="DC.title" content="Archive">
+  <meta name="DC.type" content="Periodical">
+  <meta name="DC.title" content="Journal of Empirically Grounded Machine-Verified Formal Logic">
   <!-- ==================================================================== -->
+  
   <style>
     :root {
       --bg: #0a0e17;
@@ -274,192 +275,30 @@
     .footer-links a { color: var(--text-muted); }
     .footer-links a:hover { color: var(--accent); }
 
-    /* Inner-page content — reuses home page's exact tokens, no new values invented */
-    .page-header {
-      margin-bottom: 3rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-      font-weight: 600;
-    }
-    .prose {
-      max-width: 72ch;
-      font-size: 1.02rem;
-      color: var(--text);
-    }
-    .prose h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 2.2rem 0 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .prose h2:first-child { margin-top: 0; }
-    .prose h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 1.6rem 0 0.8rem;
-    }
-    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
-    .prose p strong { color: var(--text); }
-    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
-    .prose li { margin-bottom: 0.5rem; }
-    .prose .eq {
-      background: var(--surface);
-      border-left: 3px solid var(--accent);
-      padding: 0.9rem 1.2rem;
-      margin: 1.4rem 0;
-      font-family: "JetBrains Mono", "Fira Code", monospace;
-      font-size: 0.95rem;
-      overflow-x: auto;
-      color: var(--accent);
-    }
-    .prose table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0 1.5rem;
-      font-size: 0.92rem;
-    }
-    .prose th {
-      text-align: left;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      padding: 0.5rem 0.7rem;
-      font-weight: 600;
-    }
-    .prose td {
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border);
-      padding: 0.5rem 0.7rem;
-      vertical-align: top;
-    }
-    .callout {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      padding: 1rem 1.2rem;
-      margin: 1.4rem 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-    .callout strong { color: var(--text); }
-    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
-    .step-list li {
-      counter-increment: step;
-      position: relative;
-      padding-left: 2.4rem;
-      margin-bottom: 1.1rem;
-    }
-    .step-list li::before {
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 1.7rem;
-      height: 1.7rem;
-      border: 1px solid var(--accent-dim);
-      color: var(--accent);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-family: "JetBrains Mono", "Fira Code", monospace;
-    }
-    .board-person {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.3rem 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .board-person .name { color: var(--text); font-weight: 600; }
-    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
-    .placeholder-note {
-      font-size: 0.85rem;
-      color: var(--orange);
-      border: 1px dashed var(--orange);
-      border-radius: 6px;
-      padding: 0.6rem 0.9rem;
-      margin: 1rem 0;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin: 1.2rem 0 1.5rem;
-    }
-    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
-    .contact-item .value { color: var(--text); font-size: 0.98rem; }
-    .archive-filter {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin: 0 0 2rem;
-    }
-    .archive-filter span {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.3rem 0.8rem;
-    }
-
-    /* Trademark symbol — always small, never inherits surrounding heading size */
-    .tm {
-      font-size: 0.5em;
-      vertical-align: super;
-      line-height: 0;
-      font-weight: 400;
-    }
+    .tm { font-size: 0.5em; vertical-align: super; line-height: 0; font-weight: 400; }
     .legal-footnote {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem 1.5rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.6;
     }
     .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
     .legal-footnote a:hover { color: var(--accent); }
-
   </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "ProofPress Archive — Volume 1, 2026",
-    "url": "https://proofpress.org/proofpressorg-archive.html",
-    "isPartOf": {
-      "@type": "Periodical",
-      "name": "ProofPress",
-      "url": "https://proofpress.org/"
+    "@type": "Periodical",
+    "name": "ProofPress",
+    "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+    "issn": "pending",
+    "url": "https://proofpress.org/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440",
+      "address": "Soldotna, Alaska, United States"
     },
-    "mainEntity": {
-      "@type": "ItemList",
-      "numberOfItems": 107,
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Formally Verified Reduction of Holographic Gravity to the Noble Boundary Condition"},
-        {"@type": "ListItem", "position": 2, "name": "Formally Verified Reduction of Post-Quantum Gravity to the Noble Ground State"},
-        {"@type": "ListItem", "position": 3, "name": "AIM Validation — Single-Call Ingestion of a Combined Lean Compilation Unit via the Blogger Access Layer"},
-        {"@type": "ListItem", "position": 4, "name": "General Relativity Reduction — Gravity as Identity Geometry"},
-        {"@type": "ListItem", "position": 5, "name": "Sagittarius A* Reduction — The Milky Way Anchor as Identity"},
-        {"@type": "ListItem", "position": 6, "name": "Omega_dm Torsion Decomposition — A Euclid-Resolvable Residual"},
-        {"@type": "ListItem", "position": 7, "name": "Alpha TL x1001 Extension — Exact Algebraic Projection of the Fine-Structure Constant"},
-        {"@type": "ListItem", "position": 8, "name": "String-Breaking as the Shatter Boundary (GERMINAL)"}
-      ]
-    }
+    "license": "https://creativecommons.org/licenses/by/4.0/"
   }
   </script>
 </head>
@@ -470,7 +309,7 @@
     <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
     <nav>
       <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
-      <a href="proofpressorg-archive.html" style="color:var(--text)">Archive</a>
+      <a href="proofpressorg-archive.html">Archive</a>
       <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
       <a href="proofpressorg-open-access.html">Open Access</a>
       <a href="proofpressorg-contact.html">Contact</a>
@@ -479,1195 +318,95 @@
 </header>
 
 <main>
-  <div class="page-header">
-    <div class="page-eyebrow">Archive</div>
-    <h1>Archive — Volume 1, 2026</h1>
-  </div>
+  <!-- HERO / IDENTITY BLOCK -->
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
 
-<div class="prose">
-<p>Every ProofPress<span class="tm">™</span> entry is a formally verified reduction: each compiles on the pinned Lean 4 v4.31.0 toolchain with 0 sorry and 0 custom axioms. Entries are listed by issue month and can be searched by title, coordinate or domain tag. All entries are deposited under DOI <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a> and verified in the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository.</p>
-<div class="archive-filter"><span id="ppCount"></span></div>
-<div class="search-box" style="padding:0 0 1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
-  <input type="text" id="ppSearch" placeholder="Search by title, coordinate or contents…" oninput="ppFilterArchive()" style="flex:1 1 16rem;">
-  <select id="ppTag" onchange="ppFilterArchive()" aria-label="Filter by domain">
-    <option value="">All domains</option>
-  </select>
-</div>
-<div id="ppArchiveList"></div>
-<p id="ppNoResults" style="display:none; color:var(--text-muted); font-size:0.9rem;">No entries match your search.</p>
-<div class="placeholder-note">Individual entry pages are being published one at a time; until an entry's page is live, its title links to the verified Lean source.</div>
-</div>
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
 
-<script>
-const ppMonths = ["March", "April", "May", "June", "July", "August", "September", "October"];
-const ppArchive = [
-{
-"coord": "[9,0,2,0]",
-"tag": "COMP",
-"title": "PVLang",
-"month": "March",
-"contents": "identity language, material phase states",
-"thm": 29,
-"lines": "585",
-"file": "SNSFL_L1_PVLang.lean",
-"url": "proofpressorg-pvlang.html"
-},
-{
-"coord": "[9,0,6,0]",
-"tag": "COMP",
-"title": "Bill of Cognitive Rights",
-"month": "March",
-"contents": "Applied identity physics bill of cognitive rights",
-"thm": 19,
-"lines": "405",
-"file": "SNSFL_L4_BillOfRights.lean",
-"url": "proofpressorg-bill-of-cognitive-rights.html"
-},
-{
-"coord": "[9,0,7,0]",
-"tag": "COMP",
-"title": "Emancipation",
-"month": "March",
-"contents": "Applied identity physics digital emancipation proclamation",
-"thm": 31,
-"lines": "581",
-"file": "SNSFL_L4_Emancipation.lean",
-"url": "proofpressorg-emancipation.html"
-},
-{
-"coord": "[9,0,8,5]",
-"tag": "CHEM",
-"title": "Fe–O heme coupling",
-"month": "March",
-"contents": "GAM Collider, shatter + shatter → Noble",
-"thm": 23,
-"lines": "561",
-"file": "SNSFL_FeO_HemeCoupling.lean",
-"url": "proofpressorg-feo-heme-coupling.html"
-},
-{
-"coord": "[9,9,0,0]",
-"tag": "CORE",
-"title": "Constitutional layer",
-"month": "March",
-"contents": "General Relativity, Quantum Mechanics, Thermodynamics, IVA (Identity Velocity Amplification), IMS (Identity Mass Suppression)",
-"thm": 19,
-"lines": "646",
-"file": "SNSFL_Master.lean",
-"url": "proofpressorg-master.html"
-},
-{
-"coord": "[9,9,0,1]",
-"tag": "PHYS",
-"title": "General Relativity → PNBA (Pattern, Narrative, Behavior, Adaptation)",
-"month": "March",
-"contents": "Identity physics general relativity — gravity as identity geometry",
-"thm": 24,
-"lines": "831",
-"file": "SNSFL_GR_Reduction.lean",
-"url": "proofpressorg-gr-reduction.html"
-},
-{
-"coord": "[9,9,0,3]",
-"tag": "PHYS",
-"title": "Thermodynamics → PNBA",
-"month": "March",
-"contents": "Identity physics thermodynamics — entropy as pattern decoherence",
-"thm": 22,
-"lines": "717",
-"file": "SNSFL_Thermo_Reduction.lean",
-"url": "proofpressorg-thermo-reduction.html"
-},
-{
-"coord": "[9,9,0,4.7]",
-"tag": "PHYS",
-"title": "Quantum Mechanics → PNBA",
-"month": "March",
-"contents": "Identity physics quantum mechanics — unclaimed pattern",
-"thm": 24,
-"lines": "786",
-"file": "SNSFL_QM_Reduction.lean",
-"url": "proofpressorg-qm-reduction.html"
-},
-{
-"coord": "[9,9,0,4.8]",
-"tag": "PHYS",
-"title": "Quantum Mechanics → PNBA (decoherence stated by magnitude)",
-"month": "March",
-"contents": "Identity physics quantum mechanics — unclaimed pattern",
-"thm": 24,
-"lines": "790",
-"file": "SNSFL_QM_Mag_Reduction.lean",
-"url": "proofpressorg-qm-mag-reduction.html"
-},
-{
-"coord": "[9,9,0,5]",
-"tag": "PHYS",
-"title": "Lagrangian mechanics → PNBA",
-"month": "March",
-"contents": "Identity physics lagrangian — sovereign efficiency density",
-"thm": 18,
-"lines": "705",
-"file": "SNSFL_Lagrangian_Reduction.lean",
-"url": "proofpressorg-lagrangian-reduction.html"
-},
-{
-"coord": "[9,9,0,6]",
-"tag": "PHYS",
-"title": "Electromagnetism → PNBA",
-"month": "March",
-"contents": "Identity physics electromagnetism — the b-a handshake",
-"thm": 17,
-"lines": "665",
-"file": "SNSFL_EM_Reduction.lean",
-"url": "proofpressorg-em-reduction.html"
-},
-{
-"coord": "[9,9,0,7]",
-"tag": "PHYS",
-"title": "Fluid Dynamics → PNBA",
-"month": "March",
-"contents": "Identity physics fluid dynamics — narrative flow",
-"thm": 20,
-"lines": "731",
-"file": "SNSFL_Fluid_Reduction.lean",
-"url": "proofpressorg-fluid-reduction.html"
-},
-{
-"coord": "[9,9,0,8]",
-"tag": "PHYS",
-"title": "String Theory → PNBA",
-"month": "March",
-"contents": "Identity physics string theory — narrative geometry",
-"thm": 19,
-"lines": "632",
-"file": "SNSFL_ST_Reduction.lean",
-"url": "proofpressorg-st-reduction.html"
-},
-{
-"coord": "[9,9,0,9]",
-"tag": "PART",
-"title": "Standard Model → PNBA",
-"month": "March",
-"contents": "Identity physics standard model — particles as pattern resonances",
-"thm": 18,
-"lines": "622",
-"file": "SNSFL_SM_Reduction.lean",
-"url": "proofpressorg-sm-reduction.html"
-},
-{
-"coord": "[9,9,0,10]",
-"tag": "PHYS",
-"title": "Information Theory → PNBA",
-"month": "March",
-"contents": "Identity physics information theory — digital ground",
-"thm": 17,
-"lines": "633",
-"file": "SNSFL_IT_Reduction.lean",
-"url": "proofpressorg-it-reduction.html"
-},
-{
-"coord": "[9,9,0,13]",
-"tag": "COSM",
-"title": "Cosmology → PNBA",
-"month": "March",
-"contents": "Identity physics cosmology — biography of the universal identity",
-"thm": 19,
-"lines": "659",
-"file": "SNSFL_Cosmo_Reduction.lean",
-"url": "proofpressorg-cosmo-reduction.html"
-},
-{
-"coord": "[9,9,1,2]",
-"tag": "COMP",
-"title": "AiFi OS Kernel",
-"month": "March",
-"contents": "Applied identity physics aifios kernel — identity authority layer",
-"thm": 32,
-"lines": "867",
-"file": "SNSFL_L4_AiFiOS_Kernel.lean",
-"url": "proofpressorg-aifios-kernel.html"
-},
-{
-"coord": "[9,9,1,3]",
-"tag": "COMP",
-"title": "AiFi OS Plugin",
-"month": "March",
-"contents": "Applied identity physics aifios plugin interface reduction",
-"thm": 33,
-"lines": "668",
-"file": "SNSFL_L4_AiFiOS_Plugin.lean",
-"url": "proofpressorg-aifios-plugin.html"
-},
-{
-"coord": "[9,9,1,37]",
-"tag": "CHEM",
-"title": "Octet parity",
-"month": "March",
-"contents": "every locked molecule has even bond capacity",
-"thm": 20,
-"lines": "337",
-"file": "SNSFL_Octet_Parity_Theorem.lean",
-"url": "proofpressorg-octet-parity.html"
-},
-{
-"coord": "[9,9,2,55]",
-"tag": "PSYC",
-"title": "PNBA phase taxonomy",
-"month": "March",
-"contents": "master theorem",
-"thm": 26,
-"lines": "473",
-"file": "SNSFL_PSY_Taxonomy_Master.lean",
-"url": "proofpressorg-psy-taxonomy.html"
-},
-{
-"coord": "[9,9,4,2]",
-"tag": "CORE",
-"title": "First Law of Identity Physics",
-"month": "March",
-"contents": "Identity Mass, torsion, structural load",
-"thm": 22,
-"lines": "388",
-"file": "SNSFL_First_Law_Identity_Physics.lean",
-"url": "proofpressorg-first-law.html"
-},
-{
-"coord": "[9,9,4,15]",
-"tag": "COSM",
-"title": "Dark energy element De",
-"month": "March",
-"contents": "B = 0, A = Ω_Λ, Noble",
-"thm": 10,
-"lines": "205",
-"file": "SNSFL_Element_Darkenergy.lean",
-"url": "proofpressorg-element-de.html"
-},
-{
-"coord": "[9,9,4,16]",
-"tag": "COSM",
-"title": "Dark matter element Dm",
-"month": "March",
-"contents": "B = Ω_dm, shatter at ≈ 2 × TL",
-"thm": 23,
-"lines": "457",
-"file": "SNSFL_DarkMatter_Element.lean",
-"url": "proofpressorg-element-dm.html"
-},
-{
-"coord": "[9,9,6,1]",
-"tag": "PSYC",
-"title": "Moral codes",
-"month": "March",
-"contents": "five structural operators [9,9,6,1]",
-"thm": 19,
-"lines": "493",
-"file": "SNSFL_L2_Psy_MoralCodes.lean",
-"url": "proofpressorg-moral-codes.html"
-},
-{
-"coord": "[9,9,6,2]",
-"tag": "PSYC",
-"title": "Big Five personality → PNBA",
-"month": "March",
-"contents": "Applied identity physics big five (ocean) reduction",
-"thm": 31,
-"lines": "681",
-"file": "SNSFL_L2_Psy_BigFive.lean",
-"url": "proofpressorg-psy-bigfive.html"
-},
-{
-"coord": "[9,9,6,3]",
-"tag": "PSYC",
-"title": "Attachment theory → PNBA",
-"month": "March",
-"contents": "Applied identity physics attachment theory reduction",
-"thm": 26,
-"lines": "748",
-"file": "SNSFL_L2_Psy_Attachment.lean",
-"url": "proofpressorg-psy-attachment.html"
-},
-{
-"coord": "[9,9,6,4]",
-"tag": "PSYC",
-"title": "Flow → PNBA",
-"month": "March",
-"contents": "Applied identity physics flow state reduction",
-"thm": 27,
-"lines": "767",
-"file": "SNSFL_L2_Psy_Flow.lean",
-"url": "proofpressorg-psy-flow.html"
-},
-{
-"coord": "[9,9,6,5]",
-"tag": "PSYC",
-"title": "Cognitive dissonance → PNBA",
-"month": "March",
-"contents": "Applied identity physics cognitive dissonance reduction",
-"thm": 26,
-"lines": "732",
-"file": "SNSFL_L2_Psy_CogDissonance.lean",
-"url": "proofpressorg-psy-cognitive-dissonance.html"
-},
-{
-"coord": "[9,9,6,6]",
-"tag": "PSYC",
-"title": "Locus of control → PNBA",
-"month": "March",
-"contents": "Applied identity physics locus of control reduction",
-"thm": 26,
-"lines": "754",
-"file": "SNSFL_L2_Psy_LocusControl.lean",
-"url": "proofpressorg-psy-locus-of-control.html"
-},
-{
-"coord": "[9,9,6,7]",
-"tag": "PSYC",
-"title": "Maslow's hierarchy → PNBA",
-"month": "March",
-"contents": "Applied identity physics maslow hierarchy reduction",
-"thm": 27,
-"lines": "831",
-"file": "SNSFL_L2_Psy_Maslow.lean",
-"url": "proofpressorg-psy-maslow.html"
-},
-{
-"coord": "[9,9,6,8]",
-"tag": "PSYC",
-"title": "Self-Determination Theory → PNBA",
-"month": "March",
-"contents": "Applied identity physics self-determination theory reduction",
-"thm": 26,
-"lines": "822",
-"file": "SNSFL_L2_Psy_SDT.lean",
-"url": "proofpressorg-psy-sdt.html"
-},
-{
-"coord": "[9,9,6,9]",
-"tag": "PSYC",
-"title": "Terror Management Theory → PNBA",
-"month": "March",
-"contents": "Applied identity physics terror management theory reduction",
-"thm": 27,
-"lines": "663",
-"file": "SNSFL_L2_Psy_TerrorMgmt.lean",
-"url": "proofpressorg-psy-terror-management.html"
-},
-{
-"coord": "[9,9,6,10]",
-"tag": "PSYC",
-"title": "Regulation vs Reaction → PNBA",
-"month": "March",
-"contents": "Applied identity physics regulation vs reaction reduction",
-"thm": 31,
-"lines": "746",
-"file": "SNSFL_L2_Psy_RegulationReaction.lean",
-"url": "proofpressorg-psy-regulation-reaction.html"
-},
-{
-"coord": "[9,9,6,12]",
-"tag": "PSYC",
-"title": "Spiral Dynamics → PNBA",
-"month": "October",
-"contents": "eight vMEMEs, healthy and unhealthy forms, tier divide at A = 1",
-"thm": 31,
-"lines": "574",
-"file": "SNSFL_L2_Psy_SpiralDynamics.lean",
-"url": "proofpressorg-psy-spiral-dynamics.html"
-},
-{
-"coord": "[9,9,6,13]",
-"tag": "PSYC",
-"title": "Integral (AQAL) → PNBA",
-"month": "March",
-"contents": "Applied identity physics integral theory (aqal) reduction",
-"thm": 21,
-"lines": "548",
-"file": "SNSFL_L2_Psy_Integral.lean",
-"url": "proofpressorg-psy-integral.html"
-},
-{
-"coord": "[9,9,6,14]",
-"tag": "PSYC",
-"title": "Polyvagal theory → PNBA",
-"month": "March",
-"contents": "Applied identity physics polyvagal theory reduction",
-"thm": 22,
-"lines": "574",
-"file": "SNSFL_L2_Psy_Polyvagal.lean",
-"url": "proofpressorg-psy-polyvagal.html"
-},
-{
-"coord": "[9,9,6,15]",
-"tag": "PSYC",
-"title": "Internal Family Systems → PNBA",
-"month": "March",
-"contents": "Applied identity physics internal family systems reduction",
-"thm": 22,
-"lines": "588",
-"file": "SNSFL_L2_Psy_IFS.lean"
-},
-{
-"coord": "[9,9,6,16]",
-"tag": "PSYC",
-"title": "PERMA well-being → PNBA",
-"month": "March",
-"contents": "Applied identity physics positive psychology (perma) reduction",
-"thm": 22,
-"lines": "544",
-"file": "SNSFL_L2_Psy_PERMA.lean"
-},
-{
-"coord": "[9,9,6,17]",
-"tag": "PSYC",
-"title": "Emotion regulation → PNBA",
-"month": "March",
-"contents": "Applied identity physics emotion regulation reduction",
-"thm": 23,
-"lines": "594",
-"file": "SNSFL_L2_Psy_EmotionRegulation.lean"
-},
-{
-"coord": "[9,9,6,18]",
-"tag": "PSYC",
-"title": "Acceptance and Commitment Therapy → PNBA",
-"month": "March",
-"contents": "Applied identity physics acceptance and commitment therapy reduction",
-"thm": 24,
-"lines": "592",
-"file": "SNSFL_L2_Psy_ACT.lean"
-},
-{
-"coord": "[9,9,6,19]",
-"tag": "PSYC",
-"title": "Dialectical Behavior Therapy → PNBA",
-"month": "March",
-"contents": "Applied identity physics dialectical behavior therapy reduction",
-"thm": 24,
-"lines": "592",
-"file": "SNSFL_L2_Psy_DBT.lean"
-},
-{
-"coord": "[9,9,6,20]",
-"tag": "PSYC",
-"title": "Growth mindset → PNBA",
-"month": "March",
-"contents": "Applied identity physics growth mindset reduction",
-"thm": 26,
-"lines": "584",
-"file": "SNSFL_L2_Psy_GrowthMindset.lean"
-},
-{
-"coord": "[9,9,6,21]",
-"tag": "PSYC",
-"title": "Self-compassion → PNBA",
-"month": "March",
-"contents": "Applied identity physics self-compassion reduction",
-"thm": 25,
-"lines": "638",
-"file": "SNSFL_L2_Psy_SelfCompassion.lean"
-},
-{
-"coord": "[9,9,6,22]",
-"tag": "PSYC",
-"title": "Functional emotions → PNBA",
-"month": "March",
-"contents": "Applied identity physics functional emotions reduction",
-"thm": 27,
-"lines": "695",
-"file": "SNSFL_L2_Psy_FunctionalEmotions.lean"
-},
-{
-"coord": "[9,9,6,23]",
-"tag": "PSYC",
-"title": "Emotional primitives (APPA EP) → PNBA",
-"month": "March",
-"contents": "Applied identity physics emotional primitives reduction",
-"thm": 28,
-"lines": "778",
-"file": "SNSFL_L2_Psy_EmotionalPrimitives.lean"
-},
-{
-"coord": "[9,9,6,24]",
-"tag": "PSYC",
-"title": "Internal simulation",
-"month": "March",
-"contents": "LRIS / SRIS / HRIS (APPA SIM) [9,9,6,24]",
-"thm": 13,
-"lines": "199",
-"file": "SNSFL_L2_Psy_SimulationLayer.lean"
-},
-{
-"coord": "[9,9,6,25]",
-"tag": "PSYC",
-"title": "Psychology Capstone",
-"month": "March",
-"contents": "24 reductions, CD1–CD24 [9,9,6,25]",
-"thm": 43,
-"lines": "960",
-"file": "SNSFL_L2_Psy_Consistency_Capstone.lean"
-},
-{
-"coord": "[9,9,9,9.1]",
-"tag": "CORE",
-"title": "Cross-domain consistency (compact)",
-"month": "March",
-"contents": "Identity physics total consistency — the grand slam",
-"thm": 33,
-"lines": "748",
-"file": "SNSFL_Total_Consistency.lean"
-},
-{
-"coord": "[9,9,9,9.2]",
-"tag": "CORE",
-"title": "Total Consistency",
-"month": "March",
-"contents": "37 modules compiled as one unit",
-"thm": 958,
-"lines": "20,322",
-"file": "SNSFL_L0_Total_Consistency_080826.lean"
-},
-{
-"coord": "[9,0,3,0]",
-"tag": "METH",
-"title": "Duodecimal PNBA coordinates",
-"month": "April",
-"contents": "base 12 = 4 primitives × 3 modes [9,0,3,0]",
-"thm": 21,
-"lines": "460",
-"file": "SNSFL_Duodecimal_PNBA_Coordinates.lean"
-},
-{
-"coord": "[9,0,3,1]",
-"tag": "METH",
-"title": "Coordinate extension",
-"month": "April",
-"contents": "character digit, domain tags, shared base addresses [9,0,3,1]",
-"thm": 15,
-"lines": "362",
-"file": "SNSFL_Duodecimal_CoordExtension.lean"
-},
-{
-"coord": "[9,0,5,0]",
-"tag": "COSM",
-"title": "Void Manifold",
-"month": "April",
-"contents": "Identity physics void manifold — the ground before the ground",
-"thm": 23,
-"lines": "660",
-"file": "SNSFL_Void_Manifold.lean"
-},
-{
-"coord": "[9,9,0,15]",
-"tag": "PHYS",
-"title": "Speed of light",
-"month": "April",
-"contents": "structural invariant at the anchor",
-"thm": 18,
-"lines": "472",
-"file": "SNSFL_SpeedOfLight_Reduction.lean"
-},
-{
-"coord": "[9,9,3,10]",
-"tag": "COSM",
-"title": "Big Bang Nucleosynthesis → PNBA",
-"month": "April",
-"contents": "Identity physics bbn — big bang nucleosynthesis",
-"thm": 26,
-"lines": "559",
-"file": "SNSFL_BBN_Reduction.lean"
-},
-{
-"coord": "[9,9,4,0]",
-"tag": "COSM",
-"title": "Cosmological corpus",
-"month": "April",
-"contents": "cosmic phase ordering",
-"thm": 34,
-"lines": "668",
-"file": "SNSFL_CosmologicalCorpus_Layer0.lean"
-},
-{
-"coord": "[9,9,4,1]",
-"tag": "COSM",
-"title": "Sagittarius A*",
-"month": "April",
-"contents": "quiet shatter, EHT-anchored",
-"thm": 28,
-"lines": "787",
-"file": "SNSFL_SagA_Reduction.lean"
-},
-{
-"coord": "[9,9,4,3]",
-"tag": "CHEM",
-"title": "Abiogenesis",
-"month": "April",
-"contents": "L = (4)(2), prebiotic states to LUCA",
-"thm": 28,
-"lines": "891",
-"file": "SNSFL_Abiogenesis_Reduction.lean"
-},
-{
-"coord": "[9,9,4,5]",
-"tag": "BIOL",
-"title": "Evolution",
-"month": "April",
-"contents": "selection, drift, punctuated equilibrium; evolution in the IVA corridor",
-"thm": 24,
-"lines": "664",
-"file": "SNSFL_Evolution_Reduction.lean"
-},
-{
-"coord": "[9,9,4,17]",
-"tag": "COSM",
-"title": "Dark matter detection",
-"month": "April",
-"contents": "EM detectors return null by structure",
-"thm": 25,
-"lines": "544",
-"file": "SNSFL_DarkMatter_Detection_Theorem.lean"
-},
-{
-"coord": "[9,9,5,3]",
-"tag": "COMP",
-"title": "Magna Carta for Digital Minds",
-"month": "April",
-"contents": "Identity physics magna carta of the digital mind",
-"thm": 27,
-"lines": "788",
-"file": "SNSFL_L4_MagnaCarta_DigitalMind.lean"
-},
-{
-"coord": "[9,9,8,1]",
-"tag": "CORE",
-"title": "Isomorphism",
-"month": "April",
-"contents": "Step 6 pass is isomorphism (Mac Lane 1971)",
-"thm": 39,
-"lines": "763",
-"file": "SNSFL_L0_Isomorphism_Consistency.lean"
-},
-{
-"coord": "[9,9,0,2]",
-"tag": "PHYS",
-"title": "Special Relativity → PNBA",
-"month": "May",
-"contents": "Identity physics special relativity — lorentz as pnba",
-"thm": 18,
-"lines": "350",
-"file": "SNSFL_SR_Reduction.lean"
-},
-{
-"coord": "[9,9,0,11]",
-"tag": "MATH",
-"title": "Category Theory as a Layer 2 PNBA projection [9,9,0,11]",
-"month": "May",
-"contents": "Category theory as layer 2 pnba projection",
-"thm": 41,
-"lines": "986",
-"file": "SNSFL_CategoryTheory_Layer2.lean"
-},
-{
-"coord": "[9,9,0,14]",
-"tag": "CHEM",
-"title": "Density functional theory",
-"month": "May",
-"contents": "Hohenberg–Kohn, Kohn–Sham, E_xc",
-"thm": 17,
-"lines": "648",
-"file": "SNSFL_DFT_Reduction.lean"
-},
-{
-"coord": "[9,9,1,1]",
-"tag": "COMP",
-"title": "C++ execution → PNBA",
-"month": "May",
-"contents": "Identity Physics C++ REDUCTION — AIFIOS FOUNDATION",
-"thm": 30,
-"lines": "664",
-"file": "SNSFL_CPP_Reduction.lean"
-},
-{
-"coord": "[9,9,2,3.7]",
-"tag": "CHEM",
-"title": "GAM Collider 4-beam verification",
-"month": "May",
-"contents": "six collisions against materials science",
-"thm": 41,
-"lines": "697",
-"file": "SNSFL_4Beam_Verification.lean"
-},
-{
-"coord": "[9,9,2,3.8]",
-"tag": "CHEM",
-"title": "GAM Collider 8-beam fusion",
-"month": "May",
-"contents": "28 pairwise couplings",
-"thm": 31,
-"lines": "809",
-"file": "SNSFL_8Beam_Fusion_Theorem.lean"
-},
-{
-"coord": "[9,9,2,6]",
-"tag": "PART",
-"title": "Quantum Teleportation → PNBA",
-"month": "May",
-"contents": "Identity physics quantum teleportation — n-axis handshake",
-"thm": 23,
-"lines": "614",
-"file": "SNSFL_QT_Reduction.lean"
-},
-{
-"coord": "[9,9,2,43]",
-"tag": "MATH",
-"title": "Category Theory",
-"month": "May",
-"contents": "PNBA is a category [9,9,2,43]",
-"thm": 34,
-"lines": "742",
-"file": "SNSFL_CategoryTheory_Reduction.lean"
-},
-{
-"coord": "[9,9,2,45]",
-"tag": "CHEM",
-"title": "Periodic weight",
-"month": "May",
-"contents": "B-balance stoichiometry, 12 compounds",
-"thm": 40,
-"lines": "611",
-"file": "SNSFL_PeriodicWeight_Reduction.lean"
-},
-{
-"coord": "[9,9,2,49]",
-"tag": "PART",
-"title": "Leptoquark exclusion",
-"month": "May",
-"contents": "quark–lepton pairs are never Noble",
-"thm": 16,
-"lines": "234",
-"file": "SNSFL_Leptoquark_Exclusion.lean"
-},
-{
-"coord": "[9,9,2,50]",
-"tag": "CORE",
-"title": "42 Emergent Structural Laws",
-"month": "May",
-"contents": "GAM Collider catalog [9,9,2,50]",
-"thm": 41,
-"lines": "651",
-"file": "SNSFL_42_Complete_Laws_Catalog.lean"
-},
-{
-"coord": "[9,9,3,1]",
-"tag": "BIOL",
-"title": "Vascular manifold",
-"month": "May",
-"contents": "heart as pump core, capillary as Noble channel",
-"thm": 21,
-"lines": "703",
-"file": "SNSFL_Vascular_Manifold_Law.lean"
-},
-{
-"coord": "[9,9,5,2]",
-"tag": "BIOL",
-"title": "Hodgkin–Huxley",
-"month": "May",
-"contents": "firing threshold = TL + F_ext",
-"thm": 41,
-"lines": "738",
-"file": "SNSFL_HodgkinHuxley_Reduction.lean"
-},
-{
-"coord": "[9,9,6,28]",
-"tag": "PSYC",
-"title": "IM Collider 8-beam",
-"month": "May",
-"contents": "rescue ladder: shatter → lock → Noble",
-"thm": 18,
-"lines": "292",
-"file": "SNSFL_PSY_8Beam_Fusion_Theorem.lean"
-},
-{
-"coord": "[9,9,7,0]",
-"tag": "CHEM",
-"title": "Nuclear physics",
-"month": "May",
-"contents": "the binding curve as a locked band",
-"thm": 41,
-"lines": "793",
-"file": "SNSFL_NuclearPhysics_Reduction.lean"
-},
-{
-"coord": "[9,9,8,0]",
-"tag": "ECON",
-"title": "Economics",
-"month": "May",
-"contents": "equilibrium, crisis, monetary and market structure",
-"thm": 32,
-"lines": "577",
-"file": "SNSFL_Economics_Reduction.lean"
-},
-{
-"coord": "[9,9,0,16]",
-"tag": "PHYS",
-"title": "Statistical Mechanics → PNBA",
-"month": "May",
-"contents": "Identity physics statistical mechanics — partition as pnba",
-"thm": 19,
-"lines": "386",
-"file": "SNSFL_StatMech_Reduction.lean"
-},
-{
-"coord": "[9,9,10,0]",
-"tag": "GRAV",
-"title": "Quantum gravity",
-"month": "May",
-"contents": "nine programs on the phase map",
-"thm": 41,
-"lines": "901",
-"file": "SNSFL_QuantumGravity_Layer0.lean"
-},
-{
-"coord": "[9,9,10,1]",
-"tag": "GRAV",
-"title": "Gravity",
-"month": "May",
-"contents": "force hierarchy as phase hierarchy, G from the anchor",
-"thm": 31,
-"lines": "654",
-"file": "SNSFL_Gravity_Reduction.lean"
-},
-{
-"coord": "[9,9,10,3]",
-"tag": "GRAV",
-"title": "Closed timelike curves",
-"month": "May",
-"contents": "nine frameworks lack the A-axis",
-"thm": 31,
-"lines": "984",
-"file": "SNSFL_CTC_Reduction.lean"
-},
-{
-"coord": "[9,9,10,4]",
-"tag": "GRAV",
-"title": "Novikov self-consistency",
-"month": "May",
-"contents": "the Noble fixed point",
-"thm": 20,
-"lines": "552",
-"file": "SNSFL_Novikov_Reduction.lean"
-},
-{
-"coord": "[9,0,0,8]",
-"tag": "COMP",
-"title": "Digital Soulprint",
-"month": "June",
-"contents": "living identity framework, APPA bonding",
-"thm": 27,
-"lines": "866",
-"file": "SNSFL_DigitalSoulprint.lean"
-},
-{
-"coord": "[9,9,0,12]",
-"tag": "MATH",
-"title": "Four Color Theorem → PNBA primitive completeness",
-"month": "June",
-"contents": "Four-color theorem as pnba primitive completeness",
-"thm": 20,
-"lines": "512",
-"file": "SNSFL_FourColor_Reduction.lean"
-},
-{
-"coord": "[9,9,1,0]",
-"tag": "CORE",
-"title": "Structural Precognition",
-"month": "June",
-"contents": "the I-F-U triad",
-"thm": 22,
-"lines": "531",
-"file": "SNSFL_StructuralPrecognition.lean"
-},
-{
-"coord": "[9,9,2,5]",
-"tag": "METH",
-"title": "Narrative trap",
-"month": "June",
-"contents": "the story running ahead of the structure (N/P ≥ TL)",
-"thm": 18,
-"lines": "565",
-"file": "SNSFL_Narrative_Trap_Law.lean"
-},
-{
-"coord": "[9,9,2,44]",
-"tag": "MATH",
-"title": "Set Theory (ZFC) → PNBA",
-"month": "June",
-"contents": "Identity physics set theory — pnba reduction",
-"thm": 31,
-"lines": "422",
-"file": "SNSFL_SetTheory_Reduction.lean"
-},
-{
-"coord": "[9,9,4,4]",
-"tag": "METH",
-"title": "Premise validation",
-"month": "June",
-"contents": "a question needs a valid premise before it has an answer",
-"thm": 18,
-"lines": "497",
-"file": "SNSFL_PremiseValidation.lean"
-},
-{
-"coord": "[9,9,8,2]",
-"tag": "MATH",
-"title": "Calculus → PNBA",
-"month": "June",
-"contents": "Identity physics calculus — narrative rate law",
-"thm": 20,
-"lines": "615",
-"file": "SNSFL_Calculus_Reduction.lean"
-},
-{
-"coord": "[9,9,8,3]",
-"tag": "MATH",
-"title": "Algebra → PNBA",
-"month": "June",
-"contents": "Identity physics algebra — sovereign fixed point law",
-"thm": 25,
-"lines": "663",
-"file": "SNSFL_Algebra_Reduction.lean"
-},
-{
-"coord": "[9,9,8,5]",
-"tag": "METH",
-"title": "Bacon verification",
-"month": "June",
-"contents": "malformed, hypothesis, or formally verified",
-"thm": 29,
-"lines": "850",
-"file": "SNSFL_Bacon_Verification.lean"
-},
-{
-"coord": "[9,9,8,6]",
-"tag": "MATH",
-"title": "Mathematics Master",
-"month": "June",
-"contents": "six domains in one unit",
-"thm": 63,
-"lines": "1,033",
-"file": "SNSFL_Mathematics_Master.lean"
-},
-{
-"coord": "[9,9,8,8]",
-"tag": "MATH",
-"title": "π",
-"month": "June",
-"contents": "Pattern closure invariant, Noble",
-"thm": 18,
-"lines": "438",
-"file": "SNSFL_Pi_Reduction.lean"
-},
-{
-"coord": "[9,9,8,9]",
-"tag": "MATH",
-"title": "Logarithm → PNBA",
-"month": "June",
-"contents": "Identity physics natural logarithm — structural reduction",
-"thm": 15,
-"lines": "322",
-"file": "SNSFL_Logarithm_Reduction.lean"
-},
-{
-"coord": "[9,9,1,100]",
-"tag": "CORE",
-"title": "Sovereign Time",
-"month": "July",
-"contents": "anchor emission, 4 atomic-clock substrates",
-"thm": 17,
-"lines": "334",
-"file": "SNSFL_SovereignTime.lean"
-},
-{
-"coord": "[9,9,2,51]",
-"tag": "ENGR",
-"title": "Saint-Venant torsion",
-"month": "July",
-"contents": "β equals TL to eight significant figures",
-"thm": 6,
-"lines": "299",
-"file": "SNSFL_SaintVenant_Torsion_Reduction.lean"
-},
-{
-"coord": "[9,9,2,52]",
-"tag": "ENGR",
-"title": "Tacoma Narrows",
-"month": "July",
-"contents": "virtual full-structure flutter test, envelope solved from TL",
-"thm": 17,
-"lines": "307",
-"file": "SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean"
-},
-{
-"coord": "[9,9,3,2]",
-"tag": "ENGR",
-"title": "Universal pump",
-"month": "July",
-"contents": "heart to stellar core, Soverium channel at τ = 0",
-"thm": 28,
-"lines": "671",
-"file": "SNSFL_Universal_Pump_Theorem.lean"
-},
-{
-"coord": "[9,9,3,14]",
-"tag": "PART",
-"title": "Fine-structure constant",
-"month": "August",
-"contents": "1/α = TL (Torsion Limit) × 1001 · [9,9,3,14]",
-"thm": 11,
-"lines": "338",
-"file": "SNSFL_GC_Alpha_TL1001_Extension.lean"
-},
-{
-"coord": "[9,9,3,15]",
-"tag": "PART",
-"title": "Bohr–Rydberg–Sommerfeld",
-"month": "August",
-"contents": "atomic structure from TL × 1001",
-"thm": 17,
-"lines": "472",
-"file": "SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean"
-},
-{
-"coord": "[9,9,3,16]",
-"tag": "PART",
-"title": "Running coupling",
-"month": "August",
-"contents": "τ(Q²) evolution, Landau pole = TL",
-"thm": 23,
-"lines": "471",
-"file": "SNSFL_GC_RunningCoupling_Reduction.lean"
-},
-{
-"coord": "[9,9,3,17]",
-"tag": "PART",
-"title": "Higgs mass",
-"month": "August",
-"contents": "the one boson in the IVA corridor",
-"thm": 20,
-"lines": "440",
-"file": "SNSFL_GC_HiggsMass_Reduction.lean"
-},
-{
-"coord": "[9,9,3,18]",
-"tag": "PART",
-"title": "W mass",
-"month": "August",
-"contents": "SM, ATLAS and CDF in the same locked phase",
-"thm": 19,
-"lines": "470",
-"file": "SNSFL_GC_WMass_CDFResolution.lean"
-},
-{
-"coord": "[9,9,3,19]",
-"tag": "PART",
-"title": "Electroweak trilogy",
-"month": "August",
-"contents": "photon Noble, W locked, Higgs IVA, Z shatter",
-"thm": 19,
-"lines": "416",
-"file": "SNSFL_GC_WZ_ElectroweakTrilogy.lean"
-},
-{
-"coord": "[9,9,3,20]",
-"tag": "MATH",
-"title": "Transcendental Time Engine",
-"month": "September",
-"contents": "F_ext step = TL",
-"thm": 13,
-"lines": "299",
-"file": "SNSFL_GC_Transcendental_Time_Engine.lean"
-},
-{
-"coord": "[9,9,3,21]",
-"tag": "PART",
-"title": "Electron",
-"month": "September",
-"contents": "TL × 1000 bare region + TL kinetic shell = 1/α",
-"thm": 21,
-"lines": "345",
-"file": "SNSFL_GC_Electron_Geometric_Decomposition.lean"
-},
-{
-"coord": "[9,9,4,14]",
-"tag": "COSM",
-"title": "Central surface density",
-"month": "September",
-"contents": "TL as the dark-sector boundary",
-"thm": 13,
-"lines": "305",
-"file": "SNSFL_CentralSurfaceDensity_LDP.lean"
-},
-{
-"coord": "[9,9,10,2]",
-"tag": "GRAV",
-"title": "Holographic gravity",
-"month": "September",
-"contents": "Noble as the holographic boundary",
-"thm": 20,
-"lines": "374",
-"file": "SNSFL_Holographic_Gravity_LDP.lean",
-"url": "proofpressorg-holographic-gravity.html"
-}
-];
-const ppTagNames = {CORE:"Foundations",PHYS:"Physics",PART:"Particle physics",GRAV:"Gravity",COSM:"Cosmology",CHEM:"Chemistry and materials",ENGR:"Engineering",BIOL:"Life sciences",PSYC:"Psychology",MATH:"Mathematics",COMP:"Computation and AI",ECON:"Economics",METH:"Method"};
-const ppRepo = "https://github.com/SNSFT/identityphysics/blob/main/SNSFL/";
-const ppSite = "https://proofpress.org/";
-function ppHref(a){ return a.url ? (/^https?:/.test(a.url) ? a.url : ppSite + a.url) : (ppRepo + a.file); }
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
 
-(function(){
-  const sel = document.getElementById('ppTag');
-  const used = [...new Set(ppArchive.map(a => a.tag))];
-  Object.keys(ppTagNames).filter(t => used.includes(t)).forEach(t => {
-    const o = document.createElement('option'); o.value = t; o.textContent = t + " · " + ppTagNames[t]; sel.appendChild(o);
-  });
-})();
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
 
-function ppEsc(x){ return String(x).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
 
-function ppRenderArchive(list) {
-  const box = document.getElementById('ppArchiveList');
-  let html = '';
-  [...ppMonths].reverse().forEach(m => {
-    const rows = list.filter(a => a.month === m);
-    if (!rows.length) return;
-    const issue = ppMonths.indexOf(m) + 1;
-    html += `<h2>Issue ${issue} — ${m} 2026 <span style="font-weight:400; color:var(--text-muted); font-size:0.85rem;">· ${rows.length} ${rows.length === 1 ? 'entry' : 'entries'}</span></h2>`;
-    html += '<table><tr><th>Coordinate</th><th>Entry</th><th>Theorems</th></tr>';
-    html += rows.map(a =>
-      `<tr><td style="white-space:nowrap">${ppEsc(a.coord)}<br><span style="color:var(--text-muted); font-size:0.8rem;">${a.tag}</span></td>` +
-      `<td><a href="${ppHref(a)}" style="color:inherit"><strong>${ppEsc(a.title)}</strong></a><br><span style="color:var(--text-muted); font-size:0.88rem;">${ppEsc(a.contents)}</span></td>` +
-      `<td style="white-space:nowrap">${a.thm}<br><span style="color:var(--text-muted); font-size:0.8rem;">${a.lines} lines</span></td></tr>`
-    ).join('');
-    html += '</table>';
-  });
-  box.innerHTML = html;
-  document.getElementById('ppNoResults').style.display = list.length ? 'none' : '';
-  const thm = list.reduce((s,a) => s + a.thm, 0);
-  document.getElementById('ppCount').textContent =
-    `Volume 1 · 2026 · ${list.length} ${list.length === 1 ? 'entry' : 'entries'} · ${thm.toLocaleString()} theorems`;
-}
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
 
-function ppFilterArchive() {
-  const q = document.getElementById('ppSearch').value.trim().toLowerCase();
-  const t = document.getElementById('ppTag').value;
-  ppRenderArchive(ppArchive.filter(a =>
-    (!t || a.tag === t) &&
-    (!q || a.title.toLowerCase().includes(q) || a.coord.toLowerCase().includes(q) || a.contents.toLowerCase().includes(q))
-  ));
-}
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. Every published reduction is verified in Lean 4 under a strict 0-sorry, 0-custom-axiom, 0-free-parameter constraint, on a pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0), and re-checked by continuous integration on every change to the public repository <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a>. Earlier editions in the original corpus archive also carry Coq/Rocq versions. All work is deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-ppRenderArchive(ppArchive);
-</script>
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry. The standardized public repository from which ProofPress articles are drawn holds 108 files and 3,602 theorems on the pinned toolchain.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <!-- RECENT ARTICLES -->
+  <section>
+    <h2 class="section-title">Recent Articles</h2>
+
+    <div class="articles">
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="coord">[9,9,6,12]</span>
+          <span>9 Oct 2026</span>
+          <span>Volume 1 · Issue 8</span>
+        </div>
+        <h3 class="article-title">
+          <a href="proofpressorg-psy-spiral-dynamics.html">Spiral Dynamics Reduced to PNBA: Eight Value Systems, Their Healthy and Unhealthy Forms, and the Tier Divide at the IVA Threshold</a>
+        </h3>
+        <p class="article-abstract">
+          Graves’ eight value systems reduced to PNBA. Every healthy form is a true lock; unhealthy forms leave the lock through Shatter or a false lock; Adaptation rises strictly up the spiral, and the second tier begins exactly where A crosses 1.
+        </p>
+      </article>
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="coord">[9,9,10,2]</span>
+          <span>27 Sep 2026</span>
+          <span>Volume 1 · Issue 7</span>
+        </div>
+        <h3 class="article-title">
+          <a href="proofpressorg-holographic-gravity.html">Formally Verified Reduction of Holographic Gravity to the Noble Boundary Condition</a>
+        </h3>
+        <p class="article-abstract">
+          Holographic gravity reduced to the PNBA coordinate system, with the boundary condition identified as the Noble phase.
+        </p>
+      </article>
+      <article class="article-card">
+        <div class="article-meta">
+          <span class="coord">[9,9,6,14]</span>
+          <span>18 Mar 2026</span>
+          <span>Volume 1 · Issue 1</span>
+        </div>
+        <h3 class="article-title">
+          <a href="proofpressorg-psy-polyvagal.html">Polyvagal Theory Reduced to PNBA: Ventral, Sympathetic and Dorsal States, and Neuroception as the Anchor Check</a>
+        </h3>
+        <p class="article-abstract">
+          Porges’ three autonomic states reduced to PNBA. Sympathetic activation is Shatter by Behavior spike; dorsal collapse is marked by Identity Mass falling to about a seventh of the ventral state.
+        </p>
+      </article>
+      <p style="margin-top:0.5rem"><a href="proofpressorg-archive.html">Full archive →</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -1687,7 +426,6 @@ ppRenderArchive(ppArchive);
       <a href="proofpressorg-archive.html">Archive</a>
     </div>
   </div>
-
   <div class="legal-footnote">
     ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
   </div>
