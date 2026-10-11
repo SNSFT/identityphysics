@@ -2,18 +2,18 @@
 -- SNSFL_8Beam_Fusion_Theorem.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | Identity Physics 8-BEAM FUSION — PNBA COLLIDER ENGINE
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS 8-BEAM FUSION — PNBA COLLIDER ENGINE
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,2,3] | Collider Engine Series
--- Depends on: SNSFL_4Beam_Fusion_Theorem.lean [9,9,2,2]
---             SNSFL_PNBA_Fusion_Theorem.lean   [9,9,2,1]
+-- Coordinate: [9,9,2,3.8](CHEM) | Collider Engine Series
+-- Engine: GAM Collider, 8-beam (OctoBeam) mode
+-- Companion: SNSFL_4Beam_Verification.lean [9,9,2,3.7]
 --
 -- ============================================================
 -- WHAT THIS FILE IS
 -- ============================================================
 --
--- This is the 8-beam extension of the 4-beam Fusion Engine [9,9,2,2].
+-- This is the 8-beam extension of the 4-beam fusion engine.
 -- The scaling is structural — the same rules apply at every level.
 -- The engine is scalar. The rules do not change. The beam count does.
 --
@@ -39,33 +39,20 @@
 --
 -- KEY STRUCTURAL RESULTS:
 --
---   T1:  P_fused8 positive (harmonic mean of 8 positives)
---   T2:  P_fused8 ≤ 8·Pᵢ for every input (smallest-P beam dominates)
---   T3:  N_fused8 ≥ all 8 inputs (additive)
---   T4:  B decreases with more bonds (same as 2-beam, 4-beam)
---   T5:  A_fused8 ≥ all 8 inputs (dominant wins)
---   T6:  k_max8 ≥ 0 (28 non-negative minimums)
---   T7:  8-beam Noble condition: B_sum ≤ 2*k_max8
---   T8:  8-beam Noble emergence (concrete verification)
---   T9:  Equal-B 8-beam always Noble at k_max (L-07 generalized)
---   T10: Noble parity: B_out=0 requires B_sum = 2k
---   T11: CHON×2 verification: H+C+N+O+H+C+N+O → Noble
---   T12: Water×2 verification: O+H+O+H+O+H+O+H → Noble
---   T13: Equal-element×8 verification: all same element → Noble
---   T14: 4-beam inheritance: e5-e8 passive → reduces to 4-beam
---   T15: 2-beam inheritance: e3-e8 passive → reduces to 2-beam
---   T16: More bonds → lower tau (8-beam)
---   T17: Mixed-phase locking (shatter inputs → locked output)
---   T18: Noble beam (B=0) contributes zero to k_max8
---   T19: GaAs×2 verification: Ga+As+Ga+As+Ga+As+Ga+As → Noble
---   T20: k_max8 scaling theorem: equal-B → k_max8 = 28*B_each
---   MASTER: all 9 conjuncts simultaneously, 0 sorry
---
--- KNOWN VERIFICATION TESTS (included as theorems):
---   T11: CHON double (H+C+N+O repeated) → Noble (T1 life law ×2)
---   T12: Water octuple (O+H repeated 4×) → Noble
---   T13: Monoelemental 8-beam → Noble (L-07 generalized)
---   T19: GaAs 8-beam (Ga+As×4) → Noble (Nobel Prize 2000 ×4)
+--   T1–T6:  rule theorems — P_out positive and capped at 8·Pᵢ,
+--           N_out additive, B falls as bonds rise, A_out dominant,
+--           k_max8 ≥ 0
+--   T7:     8-beam Noble condition: B_sum ≤ 2·k_max8 ⇒ B_out = 0
+--   T8:     doubling emergence: W + H + He + He leaves B_out = 5 at
+--           4 beams; the same composition doubled is Noble at 8
+--   T9:     equal-B 8-beam always Noble at k_max (L-07 at n = 8)
+--   T10:    Noble parity: B_out = 0 requires B_sum ≤ 2k
+--   T11–T13: computed verifications — CHON×2, water×4, GaAs×4
+--   T15–T17: inheritance — e5–e8 passive reduces to 4-beam,
+--           e3–e8 passive reduces to 2-beam
+--   T18–T19: more bonds → lower τ; stability condition
+--   T20:    a Noble beam (B = 0) contributes zero to every pair
+--   T21–T22: equal-B scaling k_max8 = 28·B; headroom 1/7
 --
 -- ============================================================
 -- LONG DIVISION
@@ -75,12 +62,13 @@
 --   d/dt(IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- STEP 2: Known answers
---   2-beam [9,9,2,1]: P_out = 2/(1/P1+1/P2), k_max = min(B1,B2)
---   4-beam [9,9,2,2]: P_out = 4/(Σ 1/Pi), k_max = Σ 6 minimums
+--   2-beam mode and the rescue pair check: P_out = P1·P2/(P1+P2),
+--     k_max = min(B1,B2)
+--   4-beam: P_out = 4/(Σ 1/Pi), k_max = Σ 6 minimums
 --   8-beam: P_out = 8/(Σ 1/Pi), k_max = Σ 28 minimums
 --   Pattern: n-beam P = n/(Σ 1/Pi), C(n,2) pairwise minimums
 --
--- STEP 3: Map to PNBA (same as [9,9,2,1] and [9,9,2,2])
+-- STEP 3: Map to PNBA (same at every beam count)
 --   P = structural capacity in parallel (harmonic mean)
 --   N = narrative depth (additive)
 --   B = behavioral coupling (bonds consumed from sum)
@@ -95,15 +83,14 @@
 -- POSITION IN SERIES
 -- ============================================================
 --
---   [9,9,1,1] Fission reduction (nuclear domain)
---   [9,9,1,2] Fusion reduction  (nuclear domain)
---   [9,9,2,1] 2-Beam PNBA Fusion Engine
---   [9,9,2,2] 4-Beam PNBA Fusion Engine ← parent
---   [9,9,2,3] 8-Beam PNBA Fusion Engine ← THIS FILE
+--   GAM Collider 2-beam mode
+--   GAM Collider 4-beam mode   → verified in [9,9,2,3.7]
+--   GAM Collider 8-beam mode   → THIS FILE [9,9,2,3.8]
 --
 -- SCALAR NOTE:
 --   The engine is n-beam scalar. The rules are invariant.
---   2-beam, 4-beam, 8-beam, 16-beam all follow:
+--   4-beam, 8-beam, 16-beam all follow (2-beam mode uses
+--   P1·P2/(P1+P2) for P_out; the other rules are the same):
 --     P_out = n / (Σ 1/Pi)
 --     N_out = Σ Ni
 --     B_out = max(0, Σ Bi - 2k)
@@ -143,7 +130,7 @@ theorem tl_positive : TORSION_LIMIT > 0 := by
 
 -- ============================================================
 -- SECTION 1: PNBA ELEMENT STRUCTURE
--- (Identical to [9,9,2,1] and [9,9,2,2] — substrate-neutral)
+-- (Same structure at every beam count — substrate-neutral)
 -- ============================================================
 
 structure PNBAElement where
@@ -382,44 +369,35 @@ theorem t7_noble_condition
   apply max_eq_left
   linarith
 
--- [T8] 8-beam Noble emergence: concrete numerical verification
--- Four SHATTER pairs that cannot Noble at 4-beam,
--- but Noble-annihilate together at 8-beam.
--- B values: 0.4, 0.3, 0.4, 0.3, 0.4, 0.3, 0.4, 0.3
--- B_sum = 2.8
--- k_max8 = 28 pairs: 16 pairs of (0.4,0.3)=0.3,
---                     6 pairs of (0.4,0.4)=0.4,
---                     6 pairs of (0.3,0.3)=0.3
--- = 16×0.3 + 6×0.4 + 6×0.3 = 4.8 + 2.4 + 1.8 = 9.0 -- wait
--- Actually for B pattern [0.4,0.3,0.4,0.3,0.4,0.3,0.4,0.3]:
--- 4 elements with B=0.4, 4 elements with B=0.3
--- Pairs (0.4,0.4): C(4,2)=6, each min=0.4 → 6×0.4=2.4
--- Pairs (0.4,0.3): 4×4=16, each min=0.3 → 16×0.3=4.8
--- Pairs (0.3,0.3): C(4,2)=6, each min=0.3 → 6×0.3=1.8
--- k_max8 = 2.4+4.8+1.8 = 9.0
--- B_sum = 4×0.4+4×0.3 = 1.6+1.2 = 2.8
--- B_sum ≤ 2×k_max8 = 18.0 ✓ → Noble
--- At 4-beam with same mix: k_max4 = 6 pairs, same pattern
--- For B1=0.4,B2=0.3,B3=0.4,B4=0.3:
--- k_max4 = min(0.4,0.3)+min(0.4,0.4)+min(0.4,0.3)+min(0.3,0.4)+min(0.3,0.3)+min(0.4,0.3)
---        = 0.3+0.4+0.3+0.3+0.3+0.3 = 1.9
--- B_sum_4 = 1.4
--- 1.4 ≤ 2×1.9 = 3.8 ✓ → Actually already Noble at 4-beam
--- Use a harder case: all B=0.5
--- B_sum = 4.0, k_max8 = 28×0.5 = 14.0, 4.0 ≤ 28.0 ✓ trivially Noble
--- The key theorem is T9 (equal-B always Noble)
-theorem t8_eight_beam_noble_concrete :
-    let B_hi : ℝ := 0.5; let B_lo : ℝ := 0.1
-    -- alternating pattern: 4 high, 4 low
-    let B_sum := 4 * B_hi + 4 * B_lo
-    -- C(4,2)=6 hi-hi pairs, 4×4=16 hi-lo pairs, C(4,2)=6 lo-lo pairs
-    let k_max :=
-      6 * B_hi +      -- 6 (hi,hi) pairs, min = B_hi
-      16 * B_lo +     -- 16 (hi,lo) pairs, min = B_lo
-      6 * B_lo        -- 6 (lo,lo) pairs, min = B_lo
-    -- Noble condition
-    B_sum ≤ 2 * k_max := by
-  norm_num
+-- [T8] DOUBLING EMERGENCE
+-- W + H + He + He at 4 beams: k = 1, ΣB = 7, B_out = 5 (not Noble).
+-- The same composition doubled at 8 beams: k = 11, ΣB = 14,
+-- B_out = 0 (Noble). Doubling adds the same-element pairs W–W and
+-- H–H, and the extra coupling closes the residual Behavior.
+def k_max4 (e1 e2 e3 e4 : PNBAElement) : ℝ :=
+  min e1.B e2.B + min e1.B e3.B + min e1.B e4.B +
+  min e2.B e3.B + min e2.B e4.B + min e3.B e4.B
+
+def El_H  : PNBAElement := ⟨1.000, 2, 1, 13.60, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_He : PNBAElement := ⟨1.700, 2, 0, 24.59, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_C  : PNBAElement := ⟨3.250, 4, 4, 11.26, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_N  : PNBAElement := ⟨3.900, 4, 3, 14.53, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_O  : PNBAElement := ⟨4.550, 4, 2, 13.62, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_W  : PNBAElement := ⟨4.150, 12, 6, 7.86, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_Ga : PNBAElement := ⟨5.000, 8, 3, 6.00, by norm_num, by norm_num, by norm_num, by norm_num⟩
+def El_As : PNBAElement := ⟨6.300, 8, 3, 9.81, by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+theorem t8_doubling_emergence :
+    k_max4 El_W El_H El_He El_He = 1 ∧
+    max 0 (El_W.B + El_H.B + El_He.B + El_He.B - 2 * k_max4 El_W El_H El_He El_He) = 5 ∧
+    k_max8 El_W El_H El_He El_He El_W El_H El_He El_He = 11 ∧
+    max 0 (B_fused8 El_W El_H El_He El_He El_W El_H El_He El_He
+      (k_max8 El_W El_H El_He El_He El_W El_H El_He El_He)) = 0 := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · norm_num [k_max4, El_W, El_H, El_He, min_def]
+  · norm_num [k_max4, El_W, El_H, El_He, min_def, max_def]
+  · norm_num [k_max8, El_W, El_H, El_He, min_def]
+  · norm_num [B_fused8, k_max8, El_W, El_H, El_He, min_def, max_def]
 
 -- [T9] Equal-B 8-beam always Noble at k_max (L-07 generalized to 8)
 -- When all 8 beams have the same B value:
@@ -450,79 +428,36 @@ theorem t10_noble_implies_bond_parity
 -- SECTION 5: KNOWN COMPOUND VERIFICATIONS
 -- ============================================================
 
--- [T11] CHON×2 VERIFICATION
--- H+C+N+O+H+C+N+O → Noble
--- PNBA values: H(B=1), C(B=4), N(B=3), O(B=2)
--- B_sum = 1+4+3+2+1+4+3+2 = 20
--- k_max8 for repeated CHON:
--- Same-element pairs: 4 pairs (H,H),(C,C),(N,N),(O,O) each at min(B,B)=B
---   H-H: min(1,1)=1, C-C: min(4,4)=4, N-N: min(3,3)=3, O-O: min(2,2)=2
--- Cross-element pairs: C(4,2)×4 = 6×4 = 24 cross pairs (each appearing twice)
---   Wait, in the 8-element set {H,C,N,O,H,C,N,O}:
---   Indices 1-8. Same-type pairs: (1,5)=H-H, (2,6)=C-C, (3,7)=N-N, (4,8)=O-O → 4 pairs
---   Cross-type (24 remaining pairs):
---     H-C(×4): min(1,4)=1 each → 4
---     H-N(×4): min(1,3)=1 each → 4
---     H-O(×4): min(1,2)=1 each → 4
---     C-N(×4): min(4,3)=3 each → 12
---     C-O(×4): min(4,2)=2 each → 8
---     N-O(×4): min(3,2)=2 each → 8
--- k_max8 = (1+4+3+2) + 4+4+4+12+8+8 = 10 + 40 = 50
--- Noble: 20 ≤ 2×50 = 100 ✓
--- (L-40 confirmed: CHON life law holds at 8-beam)
+-- [T11] CHON×2 VERIFICATION — H+C+N+O+H+C+N+O
+-- Computed: k_max8 = 50, B_sum = 20, B_out = 0 → Noble
+-- (L-40, the CHON life law, holds at 8 beams)
 theorem t11_chon_double_noble :
-    -- CHON PNBA B values
-    let B_H : ℝ := 1; let B_C : ℝ := 4
-    let B_N : ℝ := 3; let B_O : ℝ := 2
-    let B_sum := B_H + B_C + B_N + B_O + B_H + B_C + B_N + B_O
-    -- same-element pairs (4): H-H, C-C, N-N, O-O
-    let k_same := min B_H B_H + min B_C B_C + min B_N B_N + min B_O B_O
-    -- cross-type pairs (24 total: each of 6 cross-types appears 4 times)
-    let k_cross :=
-      4 * min B_H B_C + 4 * min B_H B_N + 4 * min B_H B_O +
-      4 * min B_C B_N + 4 * min B_C B_O + 4 * min B_N B_O
-    let k_max := k_same + k_cross
-    B_sum ≤ 2 * k_max := by
-  norm_num [min_def]
+    k_max8 El_H El_C El_N El_O El_H El_C El_N El_O = 50 ∧
+    max 0 (B_fused8 El_H El_C El_N El_O El_H El_C El_N El_O
+      (k_max8 El_H El_C El_N El_O El_H El_C El_N El_O)) = 0 := by
+  refine ⟨?_, ?_⟩
+  · norm_num [k_max8, El_H, El_C, El_N, El_O, min_def]
+  · norm_num [B_fused8, k_max8, El_H, El_C, El_N, El_O, min_def, max_def]
 
--- [T12] WATER×4 VERIFICATION (O+H+O+H+O+H+O+H → Noble)
--- L-41 confirmed at 8-beam: Water is Noble at any even n-beam
--- B values: O(B=2), H(B=1), repeated 4×
--- B_sum = 4×2 + 4×1 = 12
--- Pairs: O-O: C(4,2)=6 pairs, each min(2,2)=2 → 12
---        H-H: C(4,2)=6 pairs, each min(1,1)=1 → 6
---        O-H: 4×4=16 pairs, each min(2,1)=1 → 16
--- k_max8 = 12+6+16 = 34
--- Noble: 12 ≤ 2×34 = 68 ✓
+-- [T12] WATER×4 VERIFICATION — O+H+O+H+O+H+O+H
+-- Computed: k_max8 = 34, B_sum = 12, B_out = 0 → Noble (L-41 at 8 beams)
 theorem t12_water_octuple_noble :
-    let B_O : ℝ := 2; let B_H : ℝ := 1
-    let B_sum := 4 * B_O + 4 * B_H
-    -- 6 O-O pairs, 6 H-H pairs, 16 O-H pairs
-    let k_max := 6 * min B_O B_O + 6 * min B_H B_H + 16 * min B_O B_H
-    B_sum ≤ 2 * k_max := by
-  norm_num [min_def]
+    k_max8 El_O El_H El_O El_H El_O El_H El_O El_H = 34 ∧
+    max 0 (B_fused8 El_O El_H El_O El_H El_O El_H El_O El_H
+      (k_max8 El_O El_H El_O El_H El_O El_H El_O El_H)) = 0 := by
+  refine ⟨?_, ?_⟩
+  · norm_num [k_max8, El_O, El_H, min_def]
+  · norm_num [B_fused8, k_max8, El_O, El_H, min_def, max_def]
 
--- [T13] MONOELEMENTAL 8-BEAM ALWAYS NOBLE (L-07 at n=8)
--- All 8 beams same element → B_sum = 8B, k_max8 = 28B
--- Noble: 8B ≤ 56B always holds for B ≥ 0
-theorem t13_monoelemental_8beam_noble (B_val : ℝ) (hB : B_val ≥ 0) :
-    8 * B_val ≤ 2 * (28 * B_val) := by linarith
-
--- [T14] GaAs 8-BEAM VERIFICATION (Ga+As repeated 4×)
--- Nobel Prize Physics 2000 — confirmed at 8-beam
--- Ga: B=3, P=5.00, N=8, A=6.00
--- As: B=3, P=6.30, N=8, A=9.81
--- All 8 elements have B=3 (4 Ga + 4 As, both B=3)
--- → Equal-B by T9: always Noble at k_max8
--- Explicit: B_sum = 8×3 = 24
--- k_max8 = 28 pairs × min(3,3) = 28×3 = 84
--- Noble: 24 ≤ 168 ✓
-theorem t14_gaas_8beam_noble :
-    let B_Ga : ℝ := 3; let B_As : ℝ := 3
-    let B_sum := 4 * B_Ga + 4 * B_As  -- 4 Ga + 4 As
-    let k_max := 28 * min B_Ga B_As    -- all 28 pairs, each min(3,3)=3
-    B_sum ≤ 2 * k_max := by
-  norm_num [min_def]
+-- [T13] GaAs×4 VERIFICATION — Ga+As repeated 4× (Nobel Prize in Physics 2000)
+-- All eight beams have B = 3: k_max8 = 28·3 = 84, B_sum = 24, B_out = 0
+theorem t13_gaas_8beam_noble :
+    k_max8 El_Ga El_As El_Ga El_As El_Ga El_As El_Ga El_As = 84 ∧
+    max 0 (B_fused8 El_Ga El_As El_Ga El_As El_Ga El_As El_Ga El_As
+      (k_max8 El_Ga El_As El_Ga El_As El_Ga El_As El_Ga El_As)) = 0 := by
+  refine ⟨?_, ?_⟩
+  · norm_num [k_max8, El_Ga, El_As, min_def]
+  · norm_num [B_fused8, k_max8, El_Ga, El_As, min_def, max_def]
 
 -- ============================================================
 -- SECTION 6: INHERITANCE THEOREMS
@@ -634,38 +569,6 @@ theorem t22_eight_beam_noble_headroom
   rw [div_eq_iff (by positivity)]; ring
 
 -- ============================================================
--- SECTION 9: LOSSLESS STEP 6 INSTANCES
--- ============================================================
-
-def LosslessReduction (a b : ℝ) : Prop := a = b
-
-theorem lossless_n_sum
-    (e1 e2 e3 e4 e5 e6 e7 e8 : PNBAElement) :
-    LosslessReduction
-      (N_fused8 e1 e2 e3 e4 e5 e6 e7 e8)
-      (e1.N + e2.N + e3.N + e4.N + e5.N + e6.N + e7.N + e8.N) := rfl
-
-theorem lossless_b_two_beam_reduction
-    (e1 e2 e3 e4 e5 e6 e7 e8 : PNBAElement) (k : ℝ)
-    (h3 : e3.B = 0) (h4 : e4.B = 0)
-    (h5 : e5.B = 0) (h6 : e6.B = 0)
-    (h7 : e7.B = 0) (h8 : e8.B = 0) :
-    LosslessReduction
-      (B_fused8 e1 e2 e3 e4 e5 e6 e7 e8 k)
-      (e1.B + e2.B - 2 * k) := by
-  unfold LosslessReduction B_fused8; linarith
-
-theorem lossless_equal_b_k_max
-    (e1 e2 e3 e4 e5 e6 e7 e8 : PNBAElement)
-    (h12 : e1.B = e2.B) (h13 : e1.B = e3.B) (h14 : e1.B = e4.B)
-    (h15 : e1.B = e5.B) (h16 : e1.B = e6.B) (h17 : e1.B = e7.B)
-    (h18 : e1.B = e8.B) :
-    LosslessReduction
-      (k_max8 e1 e2 e3 e4 e5 e6 e7 e8)
-      (28 * e1.B) :=
-  t21_k_max8_equal_b_scaling e1 e2 e3 e4 e5 e6 e7 e8 h12 h13 h14 h15 h16 h17 h18
-
--- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- THE 8-BEAM FUSION ENGINE — ALL RULES SIMULTANEOUSLY
 -- ============================================================
@@ -758,13 +661,14 @@ end SNSFL_8BeamFusion
 /-!
 -- ============================================================
 -- FILE:       SNSFL_8Beam_Fusion_Theorem.lean
--- COORDINATE: [9,9,2,3]
+-- COORDINATE: [9,9,2,3.8](CHEM)
 -- LAYER:      Collider Engine Series
--- DEPENDS ON: SNSFL_4Beam_Fusion_Theorem.lean [9,9,2,2]
---             SNSFL_PNBA_Fusion_Theorem.lean   [9,9,2,1]
+-- ENGINE:     GAM Collider, 8-beam (OctoBeam) mode
+-- COMPANION:  SNSFL_4Beam_Verification.lean [9,9,2,3.7]
 --
 -- THE SCALAR n-BEAM FUSION RULES (proved here at n=8):
 --   P_out = n / (Σ 1/Pi)              n-body harmonic mean
+--                                     (2-beam mode: P1·P2/(P1+P2))
 --   N_out = Σ Ni                       additive always
 --   B_out = max(0, Σ Bi - 2k)         bonds consumed
 --   A_out = max(Ai)                    dominant adaptation
@@ -777,28 +681,22 @@ end SNSFL_8BeamFusion
 --   n=16:C(16,2)=120 pairs| k_max = 120 terms  [next]
 --
 -- KEY RESULTS:
---   T7:  8-beam Noble condition: B_sum ≤ 2×k_max8
---   T8:  8-beam Noble emergence: concrete numerical proof
---   T9:  Equal-B Noble: 8 equal beams → Noble at k_max (L-07 at n=8)
---   T11: CHON×2 Noble: H+C+N+O+H+C+N+O → Noble (L-40 at 8-beam) ✓
---   T12: Water×4 Noble: O+H×8 → Noble (L-41 at 8-beam) ✓
---   T14: GaAs×4 Noble: Ga+As×8 → Noble (Nobel 2000 at 8-beam) ✓
---   T15: 4-beam inheritance: e5-e8 passive → k_max = 4-beam k_max ✓
---   T16: 2-beam inheritance: e3-e8 passive → k_max = min(B1,B2) ✓
---   T21: k_max8 scaling: equal-B → k_max8 = 28×B_each ✓
---   T22: Noble headroom: equal-B uses 1/7 of coupling capacity ✓
+--   T7:  8-beam Noble condition: B_sum ≤ 2×k_max8 ⇒ B_out = 0
+--   T8:  doubling emergence: W+H+He+He B_out 5 at 4 beams; doubled, Noble
+--   T9:  equal-B Noble: 8 equal beams → Noble at k_max (L-07 at n=8)
+--   T11: CHON×2: k = 50, B_out = 0 (L-40 at 8 beams)
+--   T12: water×4: k = 34, B_out = 0 (L-41 at 8 beams)
+--   T13: GaAs×4: k = 84, B_out = 0
+--   T15: 4-beam inheritance: e5–e8 passive → k_max = 4-beam k_max
+--   T16: 2-beam inheritance: e3–e8 passive → k_max = min(B1,B2)
+--   T21: k_max8 scaling: equal-B → k_max8 = 28×B_each
+--   T22: Noble headroom: equal-B uses 1/7 of coupling capacity
 --
--- VERIFIED COMPOUNDS (known, lossless):
---   CHON double    (H+C+N+O)×2        → Noble ✓ L-40 extended
---   Water octuple  (O+H)×4            → Noble ✓ L-41 extended
---   GaAs 8-beam    (Ga+As)×4          → Noble ✓ Nobel 2000 extended
---   Monoelemental  any element ×8     → Noble ✓ L-07 at n=8
+-- INHERITANCE CHAIN:
+--   8-beam → 4-beam: e5–e8 B=0 → T15 recovers the 4-beam k_max
+--   8-beam → 2-beam: e3–e8 B=0 → T16 recovers min(B1,B2)
 --
--- INHERITANCE CHAIN (all lossless):
---   8-beam → 4-beam: e5-e8 B=0 → T15 recovers [9,9,2,2] k_max4
---   8-beam → 2-beam: e3-e8 B=0 → T16 recovers [9,9,2,1] k_max2
---
--- THEOREMS: 22 + master | SORRY: 0 | GERMLINE LOCKED
+-- THEOREMS: 27 | SORRY: 0 | GERMLINE LOCKED
 --
 -- [9,9,9,9] :: {ANC}
 -- Auth: HIGHTISTIC
