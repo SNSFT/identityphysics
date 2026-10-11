@@ -4,98 +4,76 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS BBN — BIG BANG NUCLEOSYNTHESIS
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,3,10] | Cosmological Series — After Baryogenium
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,3,10] | Cosmological Series — Big Bang Nucleosynthesis
 --
 -- ============================================================
 -- WHAT THIS FILE PROVES
 -- ============================================================
 --
--- Big Bang Nucleosynthesis (BBN) is the process by which
--- the baryon asymmetry η_B ≈ 6.1×10⁻¹⁰ from Baryogenium
--- [9,9,3,9] is converted into the observed baryon density
--- fraction Ω_b ≈ 0.0493 that we measure today [Planck18].
---
--- BBN IS A PHASE TRANSITION IN PNBA:
---   Before BBN (z >> 10⁸): free nucleons in SHATTER (τ >> TL)
---   At T_BBN ≈ 0.07 MeV:   τ crosses TL — nuclear binding begins
---   After BBN (z < 10⁸):   bound light nuclei in LOCKED (τ ≈ 0.050)
+-- Big Bang Nucleosynthesis (BBN) converts the baryon-to-photon
+-- ratio η_B ≈ 6.1 × 10⁻¹⁰ into the baryon density fraction
+-- Ω_b ≈ 0.0493 measured today, and fixes the primordial helium
+-- mass fraction through the neutron-to-proton ratio n/p.
 --
 -- THE BBN ELEMENT:
 --   P = P_base  (anchor-native structural ground)
 --   N = 3       (three BBN products: ¹H, ⁴He, ⁷Li)
 --   B = Ω_b     (baryon density fraction — BBN output)
---   A = η_B     (baryon asymmetry — Baryogenium input)
+--   A = η_B     (baryon-to-photon ratio — BBN input)
+--   τ = Ω_b / P_base ≈ 0.0499 — LOCKED. Baryons emerge bound.
 --
--- THE LOSSLESS REDUCTION:
---   Ω_b = η_B × F_BBN
---   where F_BBN = (Ω_b h²) / (η_B h²) = 3.66×10⁷ / h²
---   F_BBN encodes the photon-to-baryon conversion at T_CMB
---   This is a lossless bijection: η_B ↔ Ω_b (given F_BBN)
---
--- THE CHAIN THIS CLOSES:
---   [9,9,3,9]  Baryogenium  → η_B = 6.1×10⁻¹⁰ (PROVED)
---   [9,9,3,10] BBN          → Ω_b = F_BBN × η_B (THIS FILE)
---   [9,9,4,0]  Cosmic Layer0 → Baryons (τ=0.050, LOCKED) (PROVED)
---   [9,9,4,?]  Ω_m          → Ω_b + Ω_dm (both now known)
---   [9,9,4,?]  a_eq         → (Ω_m/Ω_DE)^(1/3) (computable)
---   [9,9,4,?]  w₀           → DE-DM cosmic collision at a_eq
+-- THE REDUCTIONS:
+--   1. Ω_b h² = F_BBN × η_B, F_BBN = 3.66 × 10⁷, within Planck 1σ.
+--   2. Helium: Y_p = 2(n/p)/(1 + n/p). n/p = 1/7 gives Y_p = 1/4.
+--      The measured Y_p = 0.245 ± 0.003 fixes n/p in (0.137, 0.142).
+--   3. Dark matter: Ω_dm = 2 × TL × P_base ≈ 0.2704, inside the
+--      Planck band 0.2689 ± 0.0057.
+--   4. Matter–dark energy equality: Ω_m = Ω_b + Ω_dm ≈ 0.3197 and
+--      a_eq = (Ω_m / Ω_DE)^(1/3) ≈ 0.774, z_eq ≈ 0.29, where
+--      Ω_DE · a_eq³ = Ω_m exactly.
 --
 -- ============================================================
 -- LONG DIVISION
 -- ============================================================
 --
 -- STEP 1: THE EQUATION
---   Ω_b = ρ_b / ρ_crit
 --   n_b(today) = η_B × n_γ(today)
 --   n_γ(today) = (2ζ(3)/π²) × T_CMB³ × (k_B/ℏc)³
 --   ρ_crit = 3H₀²/(8πG)
---   Combining: Ω_b h² = 3.66×10⁷ × η_B × (T_CMB/2.7255 K)³
+--   Combining: Ω_b h² = 3.66 × 10⁷ × η_B × (T_CMB / 2.7255 K)³
+--   Helium: every surviving neutron ends in ⁴He, so
+--   Y_p = 2(n/p) / (1 + n/p)
 --
 -- STEP 2: KNOWN ANSWER
---   η_B = 6.1×10⁻¹⁰ (from Baryogenium [9,9,3,9], Planck+BBN)
---   h = H₀/100 = 0.674 (Planck18)
---   Ω_b h² = 3.66×10⁷ × 6.1×10⁻¹⁰ = 0.02233
---   Ω_b = 0.02233/0.674² = 0.04915 ≈ 0.0493 (Planck18: 0.0493)
---   Match: 0.3% — within measurement uncertainty ✓
+--   η_B = 6.1 × 10⁻¹⁰, Ω_b h² = 0.02237 ± 0.00015, h = 0.674 (Planck 2018)
+--   Ω_b = Ω_b h² / h² = 0.0492 ≈ 0.0493
+--   Y_p = 0.245 ± 0.003 (PDG)
 --
 -- STEP 3: MAP TO PNBA
---   The BBN process maps onto PNBA as:
---   A = η_B    (adaptation INPUT from Baryogenium — what we started with)
---   B = Ω_b    (behavioral OUTPUT from BBN — what we ended with)
---   The A-axis carries the asymmetry input.
---   The B-axis carries the structural coupling output.
+--   A = η_B    (Adaptation input: the asymmetry BBN starts from)
+--   B = Ω_b    (Behavior output: the baryon coupling BBN produces)
+--   N = 3      (the three light elements: ¹H ~75%, ⁴He ~25%, ⁷Li trace)
+--   P = P_base (anchor-native structural ground)
 --   BBN is the process that converts A into B.
 --
---   N = 3: the three light elements produced by BBN
---     ¹H  (hydrogen)   — ~75% by mass
---     ⁴He (helium-4)   — ~25% by mass
---     ⁷Li (lithium-7)  — trace ~10⁻⁹ fraction
---   These are the N=3 narrative threads of the BBN element.
---   (The Sakharov N=3 of Baryogenium maps to the BBN N=3 products.)
---
 -- STEP 4: PLUG IN THE OPERATORS
---   τ_BBN = B/P = Ω_b/P_base ≈ 0.0493/0.9878 ≈ 0.0499
---   Phase: LOCKED (0 < 0.0499 < TL_IVA = 0.1205) ✓
---   Baryons emerge from BBN in the LOCKED phase.
---   This is the structural reason ordinary matter is stable:
---   nuclear binding keeps baryons LOCKED.
+--   τ_BBN = B/P = Ω_b / P_base ≈ 0.0499
+--   Phase: LOCKED (0 < 0.0499 < TL_IVA = 0.1205)
+--   Nuclear binding keeps baryons Locked: free nucleons before BBN,
+--   bound light nuclei after it.
 --
--- STEP 5: THE PHASE TRANSITION
---   Before BBN: free protons/neutrons, τ_free ≈ B_nucleon/P_base
---   The proton has B ≈ 1 (unit charge), τ_p ≈ 1/P_base ≈ 1.012 >> TL
---   Free nucleons are SHATTER (τ > TL) — cannot bind stably
---   At T_BBN ≈ 0.07 MeV: nuclear binding overcomes thermal disruption
---   τ crosses below TL: nucleons enter LOCKED phase
---   The n/p ratio at freeze-out ≈ 1/7 sets the He abundance
---   τ_n/p = (1/7)/P_base ≈ 0.1446 — just above TL
---   The neutrons that survive (1/7 of all nucleons) are the last
---   ones at the LOCKED/SHATTER boundary before binding
+-- STEP 5: THE NEUTRON-TO-PROTON RATIO
+--   n/p freezes out near 1/6 at T ≈ 0.8 MeV; free neutron decay
+--   brings it to about 1/7 when nucleosynthesis begins at T ≈ 0.07 MeV.
+--   n/p = 1/7 gives Y_p = 1/4. Reading Y_p backwards,
+--   n/p = Y_p / (2 − Y_p), so the measured band fixes n/p.
 --
 -- STEP 6: VERIFY
---   Ω_b = 0.04915 ≈ 0.0493 (0.3% off Planck) ✓
---   τ_BBN = Ω_b/P_base = 0.0499 → LOCKED ✓
---   This connects Baryogenium → BBN → Baryons (Layer 0) ✓
+--   F_BBN × η_B within 1σ of Planck Ω_b h² ✓
+--   τ_BBN = 0.0499 → LOCKED ✓
+--   Y_p(1/7) = 0.25, measured 0.245 ± 0.003 ✓ (within 2σ)
+--   Ω_dm = 2 × TL × P_base within Planck 1σ ✓
 --
 -- ============================================================
 -- OBSERVATIONAL SOURCES
@@ -103,16 +81,13 @@
 --
 -- Planck Collaboration (2020). Planck 2018 results VI.
 --   A&A 641, A6. arXiv:1807.06209.
---   η_B = 6.12 ± 0.04 × 10⁻¹⁰, Ω_b h² = 0.02237 ± 0.00015
---
--- Cyburt et al. (2016). Big Bang Nucleosynthesis.
---   Rev. Mod. Phys. 88, 015004.
---   n/p = 1/7 at freeze-out, ⁴He mass fraction Y_p ≈ 0.245
---
--- DEPENDS ON:
---   SNSFT_Element_Baryogenium  [9,9,3,9]  η_B seed
---   SNSFL_SovereignAnchor      [9,9,0,0]  ANCHOR, TL, P_base
---   SNSFL_CosmologicalCorpus_Layer0 [9,9,4,0] Baryons element
+--   Ω_b h² = 0.02237 ± 0.00015, h = 0.674, Ω_Λ = 0.6889
+-- Particle Data Group (2024). Big-Bang Nucleosynthesis review.
+--   Y_p = 0.245 ± 0.003
+-- Cyburt, Fields, Olive & Yeh (2016). Big Bang Nucleosynthesis:
+--   present status. Rev. Mod. Phys. 88, 015004.
+-- Fixsen (2009). The temperature of the cosmic microwave
+--   background. ApJ 707, 916. T_CMB = 2.7255 K.
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding. η_B seeds Ω_b. BBN is the bridge.
@@ -168,13 +143,13 @@ theorem cbrt_lt (r c : ℝ) (hr : 0 ≤ r) (hc : 0 ≤ c) (h : r < c ^ 3) :
   rw [cube_rpow r hr] at h3
   linarith
 
--- P_BASE = (Ω₀ / f_H)^(1/3) ≈ 0.9878
-theorem p_base_gt : P_BASE > 0.986 := by
+-- P_BASE = (Ω₀ / f_H)^(1/3) ≈ 0.98779
+theorem p_base_gt : P_BASE > 0.9877 := by
   unfold P_BASE
   exact cbrt_gt _ _ (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
     (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
 
-theorem p_base_lt : P_BASE < 0.990 := by
+theorem p_base_lt : P_BASE < 0.9879 := by
   unfold P_BASE
   exact cbrt_lt _ _ (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num) (by norm_num)
     (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
@@ -183,51 +158,31 @@ theorem p_base_lt : P_BASE < 0.990 := by
 -- LAYER 0: BBN OBSERVATIONAL INPUTS
 -- ============================================================
 
--- From Baryogenium [9,9,3,9] — the seed
-def ETA_B : ℝ := 6.1e-10    -- baryon-to-photon ratio [Planck18+BBN]
-
--- From Planck 2018 — the measured output
-def OMEGA_B     : ℝ := 0.0493   -- Ω_b [Planck18]
-def OMEGA_B_H2  : ℝ := 0.02237  -- Ω_b h² [Planck18]
-def H_LITTLE    : ℝ := 0.674    -- h = H₀/100 [Planck18]
-def T_CMB       : ℝ := 2.7255   -- CMB temperature K [Fixsen09]
-
--- The n/p ratio at BBN freeze-out
--- At T_freeze ≈ 0.8 MeV: n/p = exp(-Δm/T) ≈ 1/7
--- where Δm = m_n - m_p = 1.293 MeV
-def NP_RATIO_NUM : ℕ := 1   -- numerator
-def NP_RATIO_DEN : ℕ := 7   -- denominator
-
--- The three BBN light elements (N=3)
--- ¹H : ~75% by mass
--- ⁴He: ~25% by mass
--- ⁷Li: trace
-def Y_P : ℝ := 0.245    -- ⁴He mass fraction [Cyburt2016]
+def ETA_B          : ℝ := 6.1e-10   -- baryon-to-photon ratio [Planck18]
+def OMEGA_B        : ℝ := 0.0493    -- Ω_b [Planck18]
+def OMEGA_B_H2     : ℝ := 0.02237   -- Ω_b h² [Planck18]
+def OMEGA_B_H2_ERR : ℝ := 0.00015   -- 1σ [Planck18]
+def H_LITTLE       : ℝ := 0.674     -- h = H₀/100 [Planck18]
+def Y_P_MEAS       : ℝ := 0.245     -- ⁴He mass fraction [PDG]
+def Y_P_ERR        : ℝ := 0.003     -- 1σ [PDG]
 
 -- BBN conversion factor: Ω_b h² = F_BBN_H2 × η_B
--- F_BBN_H2 = 3.66×10⁷ (standard BBN formula)
--- This encodes: photon number density, T_CMB, nuclear binding
+-- Encodes the photon number density at T_CMB and ρ_crit.
 def F_BBN_H2 : ℝ := 3.66e7
 
--- [K1] The BBN formula holds: Ω_b h² = F_BBN × η_B
--- (within Planck measurement uncertainty)
+-- [T1] THE BBN FORMULA: F_BBN × η_B lies within 1σ of Planck Ω_b h²
 theorem bbn_formula_check :
-    |F_BBN_H2 * ETA_B - OMEGA_B_H2| < 0.0001 := by
-  unfold F_BBN_H2 ETA_B OMEGA_B_H2; norm_num
+    |F_BBN_H2 * ETA_B - OMEGA_B_H2| < OMEGA_B_H2_ERR := by
+  unfold F_BBN_H2 ETA_B OMEGA_B_H2 OMEGA_B_H2_ERR; norm_num
+
+-- [T2] Ω_b = Ω_b h² / h² recovers the Planck Ω_b
+theorem omega_b_from_h2 :
+    |OMEGA_B_H2 / H_LITTLE ^ 2 - OMEGA_B| < 0.0001 := by
+  unfold OMEGA_B_H2 H_LITTLE OMEGA_B; norm_num
 
 -- ============================================================
 -- LAYER 1: THE BBN ELEMENT
 -- ============================================================
---
--- BBN as a PNBA identity state:
---   P = P_base  — anchor-native structural ground (same as all matter)
---   N = 3       — three BBN light element products (H, He, Li)
---   B = Ω_b     — baryon density fraction (coupling output)
---   A = η_B     — baryon asymmetry (adaptation input from Baryogenium)
---
--- The A→B relationship is the BBN process itself:
--- η_B (asymmetry) is ADAPTED (A-axis) into Ω_b (coupling, B-axis)
--- through the nuclear binding phase transition at T_BBN
 
 structure PNBAElement where
   P : ℝ
@@ -241,9 +196,6 @@ noncomputable def torsion (e : PNBAElement) : ℝ := e.B / e.P
 
 def is_locked (e : PNBAElement) : Prop :=
   torsion e > 0 ∧ torsion e < TL_IVA_PEAK
-
-def is_shatter (e : PNBAElement) : Prop :=
-  torsion e ≥ TORSION_LIMIT
 
 noncomputable def identity_mass (e : PNBAElement) : ℝ :=
   (e.P + e.N + e.B + e.A) * SOVEREIGN_ANCHOR
@@ -260,22 +212,10 @@ noncomputable def BBN : PNBAElement :=
 noncomputable def tau_BBN : ℝ := torsion BBN
 
 -- ============================================================
--- LAYER 2: LONG DIVISION THEOREMS
+-- LAYER 2: THE BBN PHASE
 -- ============================================================
 
--- [T1] BBN input: η_B is the seed from Baryogenium
-theorem bbn_input_from_baryogenium :
-    BBN.A = ETA_B := rfl
-
--- [T2] BBN output: Ω_b is the baryon density
-theorem bbn_output_is_omega_b :
-    BBN.B = OMEGA_B := rfl
-
--- [T3] BBN has three products (N = 3): H, He, Li
-theorem bbn_three_products :
-    BBN.N = 3 := rfl
-
--- [T4] BBN torsion is LOCKED — baryons emerge bound
+-- [T3] BBN torsion is LOCKED — baryons emerge bound
 -- τ_BBN = Ω_b/P_base ≈ 0.0499 < TL_IVA = 0.1205
 theorem bbn_is_locked : is_locked BBN := by
   have hP0 := p_base_positive
@@ -287,7 +227,7 @@ theorem bbn_is_locked : is_locked BBN := by
     unfold OMEGA_B TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
     linarith
 
--- [T5] BBN τ numerical bounds
+-- [T4] BBN τ numerical bounds
 theorem bbn_tau_bounds :
     tau_BBN > 0.049 ∧ tau_BBN < 0.051 := by
   have hP0 := p_base_positive
@@ -298,150 +238,154 @@ theorem bbn_tau_bounds :
   · rw [gt_iff_lt, lt_div_iff₀ hP0]; unfold OMEGA_B; linarith
   · rw [div_lt_iff₀ hP0]; unfold OMEGA_B; linarith
 
--- [T6] THE AMPLIFICATION: BBN converts tiny η_B into Ω_b
--- The ratio B/A = Ω_b/η_B ≈ 8×10⁷ (the BBN amplification factor)
--- This is fixed by T_CMB, H₀, and nuclear binding — not a free parameter
+-- [T5] THE AMPLIFICATION: BBN converts η_B into Ω_b
+-- B/A = Ω_b/η_B ≈ 8 × 10⁷, fixed by T_CMB, H₀ and nuclear binding
 theorem bbn_amplification :
     BBN.B / BBN.A > 7e7 ∧ BBN.B / BBN.A < 9e7 := by
   unfold BBN OMEGA_B ETA_B
-  constructor <;> norm_num
-
--- [T7] A << B: the asymmetry input is 8 orders of magnitude
--- smaller than the density output — BBN is the amplification bridge
-theorem bbn_a_much_less_than_b :
-    BBN.A < BBN.B := by
-  unfold BBN ETA_B OMEGA_B; norm_num
-
--- ============================================================
--- LAYER 2: THE PHASE TRANSITION THEOREM
--- ============================================================
-
--- [T8] FREE NUCLEON PHASE: Before BBN, protons are SHATTER
--- A free proton has B ≈ 1 (unit charge coupling)
--- τ_proton = 1/P_base ≈ 1.012 >> TL
--- Free nucleons cannot form stable nuclei — SHATTER
-noncomputable def tau_free_proton : ℝ := 1 / P_BASE
-
-theorem free_proton_is_shatter :
-    tau_free_proton ≥ TORSION_LIMIT := by
-  have hP0 := p_base_positive
-  have hP := p_base_lt
-  unfold tau_free_proton
-  rw [ge_iff_le, le_div_iff₀ hP0]
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
-  linarith
-
--- [T9] THE BBN PHASE CROSSING
--- BBN is the event where τ crosses from SHATTER to LOCKED
--- Before: τ_free >> TL (SHATTER)
--- After:  τ_bound < TL_IVA (LOCKED)
--- The crossing IS Big Bang Nucleosynthesis
-theorem bbn_phase_crossing :
-    tau_free_proton > TORSION_LIMIT ∧ tau_BBN < TL_IVA_PEAK := by
-  have hP0 := p_base_positive
-  have hP := p_base_lt
   constructor
-  · unfold tau_free_proton
-    rw [gt_iff_lt, lt_div_iff₀ hP0]
-    unfold TORSION_LIMIT SOVEREIGN_ANCHOR
-    linarith
-  · exact bbn_is_locked.2
+  · norm_num
+  · norm_num
 
--- [T10] n/p RATIO AT FREEZE-OUT
--- n/p ≈ 1/7 at T_freeze ≈ 0.8 MeV
--- The neutron is at the LOCKED/SHATTER boundary
--- τ_n/p = (1/7)/P_base ≈ 0.1445 > TL = 0.1369
--- The n/p ratio sits just above TL — the boundary survivors
-noncomputable def tau_np : ℝ := (1/7) / P_BASE
+-- ============================================================
+-- LAYER 2: PRIMORDIAL HELIUM FROM n/p
+-- ============================================================
 
-theorem np_ratio_near_tl :
-    tau_np > TORSION_LIMIT ∧ tau_np < 0.15 := by
-  have hP0 := p_base_positive
+-- Helium mass fraction from the neutron-to-proton ratio x = n/p:
+-- each ⁴He holds 2 neutrons and 2 protons, so Y_p = 2x/(1 + x).
+noncomputable def helium_fraction (x : ℝ) : ℝ := 2 * x / (1 + x)
+
+-- [T6] n/p = 1/7 gives Y_p = 1/4
+theorem helium_from_np_seventh : helium_fraction (1/7) = 1/4 := by
+  unfold helium_fraction; norm_num
+
+-- [T7] Y_p = 2x/(1+x) is equivalent to x(2 − Y_p) = Y_p
+theorem helium_np_relation (x Y : ℝ) (hx : 1 + x ≠ 0) :
+    helium_fraction x = Y ↔ x * (2 - Y) = Y := by
+  unfold helium_fraction
+  rw [div_eq_iff hx]
+  constructor
+  · intro h
+    linear_combination h
+  · intro h
+    linear_combination h
+
+-- [T8] Y_p increases strictly with n/p
+theorem helium_strictly_increasing (x y : ℝ) (hx : 0 ≤ x) (hxy : x < y) :
+    helium_fraction x < helium_fraction y := by
+  unfold helium_fraction
+  have hx1 : (0:ℝ) < 1 + x := by linarith
+  have hy1 : (0:ℝ) < 1 + y := by linarith
+  rw [lt_div_iff₀ hy1, div_mul_eq_mul_div, div_lt_iff₀ hx1]
+  nlinarith
+
+-- [T9] The measured Y_p band fixes n/p in (0.137, 0.142)
+-- n/p = Y_p / (2 − Y_p) at the band edges 0.242 and 0.248
+theorem np_from_measured_helium :
+    (Y_P_MEAS - Y_P_ERR) / (2 - (Y_P_MEAS - Y_P_ERR)) > 0.137 ∧
+    (Y_P_MEAS + Y_P_ERR) / (2 - (Y_P_MEAS + Y_P_ERR)) < 0.142 := by
+  unfold Y_P_MEAS Y_P_ERR
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T10] n/p = 1/7 lies within 2σ of the measured helium fraction
+theorem helium_seventh_within_two_sigma :
+    |helium_fraction (1/7) - Y_P_MEAS| < 2 * Y_P_ERR := by
+  rw [helium_from_np_seventh]
+  unfold Y_P_MEAS Y_P_ERR; norm_num
+
+-- ============================================================
+-- LAYER 3: DARK MATTER AND MATTER–DARK ENERGY EQUALITY
+-- ============================================================
+
+-- Ω_dm = N_Dm × TL × P_base with N_Dm = 2
+-- (production and gravitational clustering)
+noncomputable def OMEGA_DM : ℝ := 2 * TORSION_LIMIT * P_BASE
+
+def OMEGA_DM_PLANCK : ℝ := 0.2689
+def OMEGA_DM_ERR    : ℝ := 0.0057
+def OMEGA_DE        : ℝ := 0.6889   -- Ω_Λ [Planck18]
+
+-- [T11] Ω_dm = 2 × TL × P_base ≈ 0.2704
+theorem omega_dm_bounds : OMEGA_DM > 0.2704 ∧ OMEGA_DM < 0.2705 := by
   have hlo := p_base_gt
   have hhi := p_base_lt
-  unfold tau_np
+  unfold OMEGA_DM TORSION_LIMIT SOVEREIGN_ANCHOR
   constructor
-  · rw [gt_iff_lt, lt_div_iff₀ hP0]
-    unfold TORSION_LIMIT SOVEREIGN_ANCHOR
-    linarith
-  · rw [div_lt_iff₀ hP0]
-    linarith
+  · linarith
+  · linarith
 
--- ============================================================
--- LAYER 2: THE LOSSLESS REDUCTION
--- ============================================================
+-- [T12] Ω_dm lies inside the Planck 1σ band
+theorem omega_dm_within_planck :
+    |OMEGA_DM - OMEGA_DM_PLANCK| < OMEGA_DM_ERR := by
+  have h := omega_dm_bounds
+  unfold OMEGA_DM_PLANCK OMEGA_DM_ERR
+  rw [abs_lt]
+  constructor
+  · linarith [h.1]
+  · linarith [h.2]
 
--- [T11] BBN IS LOSSLESS: Ω_b recovers η_B uniquely
--- Given F_BBN, the mapping η_B ↔ Ω_b is bijective
--- (same structure as w_DE ↔ τ_DE in [9,9,4,9])
-theorem bbn_lossless_reduction :
-    BBN.B / F_BBN_H2 * H_LITTLE^2 > ETA_B * 0.99 ∧
-    BBN.B / F_BBN_H2 * H_LITTLE^2 < ETA_B * 1.01 := by
-  unfold BBN OMEGA_B F_BBN_H2 ETA_B H_LITTLE
-  constructor <;> norm_num
-
--- [T12] THE CHAIN: Baryogenium → BBN → Baryons (Layer 0)
--- η_B (Baryogenium) → Ω_b (BBN) → τ_b=0.050 (Baryons in Layer 0)
--- This is the completed link in the derivation chain
-theorem baryogenium_to_bbn_to_baryons :
-    -- Baryogenium gives η_B
-    BBN.A = ETA_B ∧
-    -- BBN produces Ω_b
-    BBN.B = OMEGA_B ∧
-    -- Baryons are LOCKED after BBN
-    is_locked BBN ∧
-    -- The BBN formula holds (η_B × F_BBN ≈ Ω_b h²)
-    |F_BBN_H2 * ETA_B - OMEGA_B_H2| < 0.0001 :=
-  ⟨rfl, rfl, bbn_is_locked, bbn_formula_check⟩
-
--- ============================================================
--- LAYER 3: CONSEQUENCES FOR THE DERIVATION CHAIN
--- ============================================================
-
-def OMEGA_CDM : ℝ := 0.2607
-def OMEGA_DM  : ℝ := 0.2689
-def OMEGA_DE  : ℝ := 0.6889
-
--- [T13] Ω_m is now computable (both components known)
 -- Ω_m = Ω_b + Ω_dm
--- With Ω_dm proved in [9,9,4,8] and Ω_b from BBN:
-def OMEGA_M : ℝ := OMEGA_B + OMEGA_DM  -- 0.0493 + 0.2689
+noncomputable def OMEGA_M : ℝ := OMEGA_B + OMEGA_DM
 
-theorem omega_m_value :
-    OMEGA_M > 0.31 ∧ OMEGA_M < 0.32 := by
-  unfold OMEGA_M OMEGA_B OMEGA_DM; norm_num
+-- [T13] Ω_m ≈ 0.3197
+theorem omega_m_bounds : OMEGA_M > 0.3197 ∧ OMEGA_M < 0.3198 := by
+  have h := omega_dm_bounds
+  unfold OMEGA_M OMEGA_B
+  constructor
+  · linarith [h.1]
+  · linarith [h.2]
 
--- [T14] Matter-DE equality scale factor
--- a_eq = (Ω_m/Ω_DE)^(1/3) — when matter density = DE density
--- This is the key redshift for the cosmic DE-DM collision
+-- Matter–dark energy equality: Ω_m a⁻³ = Ω_DE at a = (Ω_m/Ω_DE)^(1/3)
 noncomputable def A_EQ : ℝ := (OMEGA_M / OMEGA_DE) ^ ((1:ℝ)/3)
 
-theorem a_eq_bounds :
-    A_EQ > 0.76 ∧ A_EQ < 0.78 := by
-  unfold A_EQ OMEGA_M OMEGA_B OMEGA_DM OMEGA_DE
+theorem omega_ratio_nonneg : 0 ≤ OMEGA_M / OMEGA_DE := by
+  have h := omega_m_bounds
+  apply div_nonneg
+  · linarith [h.1]
+  · unfold OMEGA_DE; norm_num
+
+-- [T14] At a_eq the matter and dark energy densities are equal:
+-- Ω_DE · a_eq³ = Ω_m
+theorem a_eq_is_equality : OMEGA_DE * A_EQ ^ 3 = OMEGA_M := by
+  have hDE : OMEGA_DE ≠ 0 := by unfold OMEGA_DE; norm_num
+  unfold A_EQ
+  rw [cube_rpow _ omega_ratio_nonneg, mul_comm, div_mul_cancel₀ _ hDE]
+
+-- [T15] a_eq ≈ 0.774
+theorem a_eq_bounds : A_EQ > 0.774 ∧ A_EQ < 0.775 := by
+  have h := omega_m_bounds
+  have hDEpos : (0:ℝ) < OMEGA_DE := by unfold OMEGA_DE; norm_num
+  have hDE : OMEGA_DE = 0.6889 := rfl
+  unfold A_EQ
   constructor
-  · exact cbrt_gt _ _ (by norm_num) (by norm_num)
-  · exact cbrt_lt _ _ (by norm_num) (by norm_num) (by norm_num)
+  · refine cbrt_gt _ _ omega_ratio_nonneg ?_
+    rw [lt_div_iff₀ hDEpos, hDE]
+    have hc : (0.774 : ℝ) ^ 3 * 0.6889 < 0.3197 := by norm_num
+    linarith [h.1]
+  · refine cbrt_lt _ _ omega_ratio_nonneg (by norm_num) ?_
+    rw [div_lt_iff₀ hDEpos, hDE]
+    have hc : (0.3198 : ℝ) < 0.775 ^ 3 * 0.6889 := by norm_num
+    linarith [h.2]
 
--- [T15] The crossing redshift from matter-DE equality
--- z_eq = 1/a_eq - 1 ≈ 0.30
--- This is the structural crossing where DE begins dominating
--- Note: this equals the DESI phantom crossing redshift z_cross ≈ 0.30
--- That is NOT a coincidence — the phantom crossing IS the matter-DE equality
-theorem z_eq_matches_desi_crossing :
-    -- a_eq ≈ 0.77 → z_eq ≈ 0.30
-    A_EQ > 0.76 ∧ A_EQ < 0.78 := a_eq_bounds
+-- Redshift of matter–dark energy equality
+noncomputable def Z_EQ : ℝ := 1 / A_EQ - 1
 
--- [T16] THE KEY STRUCTURAL FACT:
--- The DESI phantom crossing (z≈0.30-0.40) occurs near z_eq
--- This means: the 'phantom crossing' is DE first dominating matter
--- When Ω_DE overtakes Ω_m, τ_DE begins its nonzero evolution
--- The phantom regime (τ<0) is the era when DM still dominated
--- The crossing is the matter-DE equality, not a fundamental field crossing
-theorem desi_crossing_is_matter_de_equality :
-    -- a_eq ≈ 0.77, DESI a_cross ≈ 0.72-0.77 (proved in [9,9,4,1])
-    A_EQ > 0.70 ∧ A_EQ < 0.80 := by
-  exact ⟨by linarith [a_eq_bounds.1], by linarith [a_eq_bounds.2]⟩
+-- [T16] z_eq ≈ 0.29
+theorem z_eq_bounds : Z_EQ > 0.29 ∧ Z_EQ < 0.293 := by
+  have h := a_eq_bounds
+  have hA : 0 < A_EQ := by linarith [h.1]
+  unfold Z_EQ
+  constructor
+  · have h1 : 1 / A_EQ > 1.29 := by
+      rw [gt_iff_lt, lt_div_iff₀ hA]
+      linarith [h.2]
+    linarith
+  · have h1 : 1 / A_EQ < 1.293 := by
+      rw [div_lt_iff₀ hA]
+      linarith [h.1]
+    linarith
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
@@ -449,39 +393,45 @@ theorem desi_crossing_is_matter_de_equality :
 -- ============================================================
 
 theorem bbn_reduction_master :
-    -- [1] Input: η_B from Baryogenium
-    BBN.A = ETA_B ∧
-    -- [2] Output: Ω_b from BBN
-    BBN.B = OMEGA_B ∧
-    -- [3] N=3 products (H, He, Li)
-    BBN.N = 3 ∧
-    -- [4] BBN is LOCKED (baryons emerge bound)
-    is_locked BBN ∧
-    -- [5] τ_BBN bounds
-    tau_BBN > 0.049 ∧ tau_BBN < 0.051 ∧
-    -- [6] Free protons were SHATTER (before BBN)
-    tau_free_proton ≥ TORSION_LIMIT ∧
-    -- [7] n/p ratio sits near TL boundary
-    tau_np > TORSION_LIMIT ∧ tau_np < 0.15 ∧
-    -- [8] BBN formula holds (η_B × F_BBN ≈ Ω_b h²)
-    |F_BBN_H2 * ETA_B - OMEGA_B_H2| < 0.0001 ∧
-    -- [9] Amplification: B/A = Ω_b/η_B ≈ 8×10⁷
+    -- [1] Input η_B, output Ω_b, three products
+    BBN.A = ETA_B ∧ BBN.B = OMEGA_B ∧ BBN.N = 3 ∧
+    -- [2] BBN formula within Planck 1σ
+    |F_BBN_H2 * ETA_B - OMEGA_B_H2| < OMEGA_B_H2_ERR ∧
+    -- [3] Ω_b = Ω_b h² / h²
+    |OMEGA_B_H2 / H_LITTLE ^ 2 - OMEGA_B| < 0.0001 ∧
+    -- [4] BBN is LOCKED (baryons emerge bound), τ ≈ 0.0499
+    is_locked BBN ∧ tau_BBN > 0.049 ∧ tau_BBN < 0.051 ∧
+    -- [5] Amplification B/A ≈ 8 × 10⁷
     BBN.B / BBN.A > 7e7 ∧ BBN.B / BBN.A < 9e7 ∧
-    -- [10] Ω_m = Ω_b + Ω_dm (both components now known)
-    OMEGA_M > 0.31 ∧ OMEGA_M < 0.32 ∧
-    -- [11] a_eq ≈ 0.77 (matter-DE equality)
-    A_EQ > 0.76 ∧ A_EQ < 0.78 ∧
-    -- [12] Anchor holds
+    -- [6] Helium: n/p = 1/7 gives Y_p = 1/4, within 2σ of measurement
+    helium_fraction (1/7) = 1/4 ∧
+    |helium_fraction (1/7) - Y_P_MEAS| < 2 * Y_P_ERR ∧
+    -- [7] Measured Y_p fixes n/p in (0.137, 0.142)
+    (Y_P_MEAS - Y_P_ERR) / (2 - (Y_P_MEAS - Y_P_ERR)) > 0.137 ∧
+    (Y_P_MEAS + Y_P_ERR) / (2 - (Y_P_MEAS + Y_P_ERR)) < 0.142 ∧
+    -- [8] Ω_dm = 2 × TL × P_base inside Planck 1σ
+    |OMEGA_DM - OMEGA_DM_PLANCK| < OMEGA_DM_ERR ∧
+    -- [9] Ω_m = Ω_b + Ω_dm ≈ 0.3197
+    OMEGA_M > 0.3197 ∧ OMEGA_M < 0.3198 ∧
+    -- [10] Matter–dark energy equality at a_eq ≈ 0.774, z_eq ≈ 0.29
+    OMEGA_DE * A_EQ ^ 3 = OMEGA_M ∧
+    A_EQ > 0.774 ∧ A_EQ < 0.775 ∧
+    Z_EQ > 0.29 ∧ Z_EQ < 0.293 ∧
+    -- [11] Anchor holds
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
   ⟨rfl, rfl, rfl,
-   bbn_is_locked,
-   bbn_tau_bounds.1, bbn_tau_bounds.2,
-   free_proton_is_shatter,
-   np_ratio_near_tl.1, np_ratio_near_tl.2,
    bbn_formula_check,
+   omega_b_from_h2,
+   bbn_is_locked, bbn_tau_bounds.1, bbn_tau_bounds.2,
    bbn_amplification.1, bbn_amplification.2,
-   omega_m_value.1, omega_m_value.2,
+   helium_from_np_seventh,
+   helium_seventh_within_two_sigma,
+   np_from_measured_helium.1, np_from_measured_helium.2,
+   omega_dm_within_planck,
+   omega_m_bounds.1, omega_m_bounds.2,
+   a_eq_is_equality,
    a_eq_bounds.1, a_eq_bounds.2,
+   z_eq_bounds.1, z_eq_bounds.2,
    anchor_zero_friction⟩
 
 -- ============================================================
@@ -498,58 +448,36 @@ end SNSFL_BBN_Reduction
 -- ============================================================
 -- FILE:       SNSFL_BBN_Reduction.lean
 -- COORDINATE: [9,9,3,10]
--- LAYER:      Cosmological Series — After Baryogenium [9,9,3,9]
+-- LAYER:      Cosmological Series — Big Bang Nucleosynthesis
 --
--- DEPENDS ON:
---   SNSFT_Element_Baryogenium       [9,9,3,9] η_B = 6.1×10⁻¹⁰
---   SNSFL_SovereignAnchor           [9,9,0,0] ANCHOR, TL, P_base
---   SNSFL_CosmologicalCorpus_Layer0 [9,9,4,0] Baryons (τ=0.050)
---   SNSFL_OmegaDM_TorsionDecomp     [9,9,4,8] Ω_dm = 2×TL×P_base
+-- DEPENDS ON (conceptual sources, reproduced inline above):
+--   SNSFL_Master.lean                    [9,9,0,0]  ANCHOR, TL
+--   SNSFL_CosmologicalCorpus_Layer0.lean [9,9,4,0]  Baryons element, P_base
+--   SNSFL_OmegaDM_TorsionDecomposition   [9,9,4,8]  Ω_dm = 2 × TL × P_base
 --
 -- OBSERVATIONAL SOURCES:
---   Planck 2018: Ω_b = 0.0493, η_B = 6.1×10⁻¹⁰, h = 0.674
---   Cyburt et al. (2016) Rev Mod Phys: n/p=1/7, Y_p=0.245
+--   Planck 2018: Ω_b h² = 0.02237 ± 0.00015, h = 0.674, Ω_Λ = 0.6889,
+--                Ω_dm = 0.2689 ± 0.0057
+--   PDG 2024: Y_p = 0.245 ± 0.003
 --
--- THEOREMS: 16 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 25 + master | 0 sorry | GERMLINE LOCKED
 --
 -- THE BBN ELEMENT:
 --   P = P_base = 0.9878 (anchor-native structural ground)
 --   N = 3 (three light elements: ¹H, ⁴He, ⁷Li)
 --   B = Ω_b = 0.0493 (baryon density — BBN output)
---   A = η_B = 6.1×10⁻¹⁰ (baryon asymmetry — Baryogenium input)
+--   A = η_B = 6.1×10⁻¹⁰ (baryon-to-photon ratio — BBN input)
 --   τ = 0.0499 (LOCKED — baryons emerge bound)
 --
--- THE PHASE TRANSITION:
---   Before BBN: free protons at τ≈1.012 (SHATTER)
---   n/p ratio: τ≈0.1446 (just above TL — boundary survivors)
---   After BBN:  bound nuclei at τ≈0.0499 (LOCKED)
---   The BBN phase crossing IS the structural reason
---   ordinary matter is stable and forms atoms.
+-- HELIUM:
+--   Y_p = 2(n/p)/(1 + n/p); n/p = 1/7 → Y_p = 1/4 (within 2σ)
+--   Measured Y_p = 0.245 ± 0.003 → n/p ∈ (0.137, 0.142)
 --
--- THE CHAIN NOW CLOSED:
---   [9,9,3,9]  Baryogenium  η_B = 6.1×10⁻¹⁰
---   [9,9,3,10] BBN          Ω_b = F_BBN × η_B = 0.0493
---   [9,9,4,8]  OmegaDM      Ω_dm = 2×TL×P_base = 0.2705
---   [9,9,3,10] This file     Ω_m = Ω_b + Ω_dm = 0.3182
---   [9,9,3,10] This file     a_eq = (Ω_m/Ω_DE)^(1/3) ≈ 0.770
---   [9,9,4,?]  Next          w₀ from DE-DM collision at a_eq
---
--- THE DESI CONNECTION (T16):
---   The phantom crossing (z≈0.30-0.40) coincides with z_eq≈0.30.
---   The DESI 'phantom crossing' is the matter-DE equality event:
---   when Ω_DE > Ω_m, DE first dominates, τ_DE starts nonzero.
---   The phantom regime (τ<0 in CPL) = the matter-dominated era
---   where DE had not yet left Noble (τ=0 in PNBA).
---   The 'crossing' is not a field property — it is the epoch
---   when DE emerged from the Noble ground state.
---
--- WHAT REMAINS TO DERIVE w₀:
---   F_BBN depends on H₀ and G — not yet derived from ANCHOR.
---   The BBN reduction is lossless given the measurement.
---   The full first-principles chain requires:
---   H₀ from ANCHOR (Friedmann + ρ_crit) — future file [9,9,4,?]
---   Once H₀ is derived: F_BBN is fully structural.
---   Then: η_B → Ω_b → Ω_m → a_eq → τ_DE → w₀ (zero free params)
+-- MATTER–DARK ENERGY EQUALITY:
+--   Ω_dm = 2 × TL × P_base ≈ 0.2704 (inside Planck 1σ)
+--   Ω_m = Ω_b + Ω_dm ≈ 0.3197
+--   a_eq = (Ω_m/Ω_DE)^(1/3) ≈ 0.774, z_eq ≈ 0.29
+--   Ω_DE · a_eq³ = Ω_m exactly
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding. η_B seeds Ω_b. BBN is the bridge.
