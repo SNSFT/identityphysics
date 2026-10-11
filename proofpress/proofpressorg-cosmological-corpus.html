@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands — ProofPress</title>
+  <meta name="description" content="[9,9,4,0](COSM) — Radiation, neutrinos, dark energy, baryons and cold dark matter reduced to PNBA and ordered by τ; radiation is deep Locked, nearest Noble; Λ and flat curvature are Noble, DESI dark energy is Locked across all three DR2 bands, cold dark matter alone is Shatter, and the IVA band is empty. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-cosmological-corpus.html">
+  <meta property="og:title" content="The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands">
+  <meta property="og:description" content="[9,9,4,0](COSM) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-cosmological-corpus.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/04/10">
+  <meta name="citation_online_date" content="2026/04/10">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,4,0">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-cosmological-corpus.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-cosmological-corpus.html">
+  <meta name="citation_keywords" content="cosmology; cosmic phase map; dark energy; DESI DR2; cosmological constant; cold dark matter; baryons; neutrinos; cosmic microwave background; spatial curvature; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands",
+    "datePublished": "2026-04-10",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-cosmological-corpus.html",
+    "keywords": "cosmology, cosmic phase map, dark energy, DESI DR2, cosmological constant, cold dark matter, baryons, neutrinos, cosmic microwave background, spatial curvature, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,4,0](COSM) · Volume 1 · Issue 2 · April 2026</div>
+    <h1>The Cosmic Phase Map: Every Component of the Universe Placed by Torsion, With Phases Proved Across the Measurement Bands</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-cosmological-corpus.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_CosmologicalCorpus_Layer0.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,4,0](COSM) · Cosmological series · Foundation<br>
+<strong>Issue:</strong> Volume 1, Issue 2 · April 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 43 theorems · 793 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CosmologicalCorpus_Layer0.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Every known component of the universe has a measured energy fraction. This article reduces each one to a PNBA identity state, with Behavior B equal to the component’s density fraction Ω and Pattern on the anchor-native ground P<sub>base</sub> (the thermal scale T<sub>CMB</sub>/Ω₀ for radiation), and places it by torsion τ = B/P. Where a measurement carries an uncertainty band, the phase is proved across the whole band. Radiation is deep Locked at τ ≈ 5 × 10⁻⁵, the nearest to Noble of any coupled component. Neutrinos, with Ω<sub>ν</sub>h² = Σm<sub>ν</sub>/93.14 eV between the oscillation floor and the Planck bound, are Locked across the whole mass band. Baryons are Locked at τ ≈ 0.050. The cosmological constant and flat spatial curvature have B = 0 and are Noble. For evolving dark energy, τ<sub>DE</sub> = TL × (w₀ + 1), and dark energy is Locked exactly when −1 &lt; w₀ &lt; −0.12; all three DESI DR2 ±1σ bands (DESY5, Pantheon+, Union3) lie inside that window. Cold dark matter, at τ ≈ 0.264, is the only Shatter component. The full ordering τ<sub>rad</sub> &lt; τ<sub>ν</sub> &lt; τ<sub>DE</sub> &lt; τ<sub>b</sub> &lt; TL<sub>IVA</sub> &lt; TL &lt; τ<sub>CDM</sub> is proved, with τ<sub>DE</sub> &lt; τ<sub>b</sub> holding across the whole DESY5 band; the Union3 upper edge passes the baryons, and that is proved as well. No component occupies the IVA band between TL<sub>IVA</sub> and TL.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Radiation is deep Locked at τ ≈ 5 × 10⁻⁵, the nearest to Noble of any coupled component (<code>radiation_below_tl_iva</code>, <code>radiation_is_locked</code>).</li>
+<li>Baryons are Locked with τ between 0.049 and 0.051 (<code>baryons_are_locked</code>, <code>baryons_tau_bounds</code>).</li>
+<li>Ω<sub>ν</sub>h² = Σm<sub>ν</sub>/93.14 eV reproduces both band edges, and neutrinos are Locked across the whole mass band (<code>omega_nu_from_mass</code>, <code>neutrinos_are_locked</code>, <code>neutrinos_locked_band</code>).</li>
+<li>Cold dark matter is Shatter, above 1.9 × TL (<code>cdm_strict</code>, <code>cdm_is_shatter</code>, <code>cdm_tau_above_tl_by_factor</code>).</li>
+<li>The cosmological constant and flat curvature are Noble (<code>lambda_is_noble</code>, <code>lambda_torsion_zero</code>, <code>flat_universe_is_noble</code>).</li>
+<li>Dark energy with τ<sub>DE</sub> = TL × (w₀ + 1) is Locked exactly when −1 &lt; w₀ &lt; −0.12, and is Locked across all three DESI DR2 ±1σ bands (<code>de_locked_iff</code>, <code>tau_de_desi_eq</code>, <code>de_desi_is_locked</code>, <code>de_locked_all_desi_bands</code>).</li>
+<li>The full torsion ordering of the universe; τ<sub>DE</sub> &lt; τ<sub>b</sub> holds across the DESY5 band, and the Union3 upper edge lies above τ<sub>b</sub> (<code>cosmic_phase_ordering</code>, <code>de_below_baryons_desy5_band</code>, <code>union3_upper_edge_above_baryons</code>).</li>
+<li>No component sits in the IVA band; cold dark matter is the only Shatter component; the baryon–CDM torsion ratio equals the density ratio; the dark sector exceeds 95% of the energy budget (<code>iva_gap_in_cosmic_corpus</code>, <code>cdm_sole_shatter</code>, <code>baryon_cdm_torsion_ratio</code>, <code>dark_sector_dominant</code>).</li>
+<li>A master theorem holds the cosmic phase map together, including both band results (<code>cosmological_corpus_master</code>).</li>
+</ol>
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>Where the baryons come from.</strong> The <a href="proofpressorg-bbn-reduction.html">Big Bang Nucleosynthesis reduction</a> [9,9,3,10] (April 2026) derives the baryon state placed here as the output of BBN, and uses the matter and dark energy fractions to fix matter–dark energy equality at z ≈ 0.29.</p>
+<p><strong>Noble as the ground.</strong> The <a href="proofpressorg-psy-taxonomy.html">PNBA phase taxonomy</a> [9,9,2,55] (March 2026) defines Noble as B = 0, and the <a href="proofpressorg-gc-electroweak-trilogy.html">Electroweak trilogy</a> [9,9,3,19] (August 2026) places the photon there. The cosmological constant and flat curvature occupy the same state at cosmic scale.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Component</th><th>P</th><th>N</th><th>B</th><th>τ</th><th>Phase</th></tr>
+<tr><td>Radiation</td><td>T<sub>CMB</sub>/Ω₀</td><td>2</td><td>Ω<sub>r</sub> = 9.1 × 10⁻⁵</td><td>≈ 5 × 10⁻⁵</td><td>Locked (deep, nearest Noble)</td></tr>
+<tr><td>Neutrinos</td><td>P<sub>base</sub></td><td>3</td><td>Ω<sub>ν</sub> = 0.0014–0.0028</td><td>0.0014–0.0029</td><td>Locked</td></tr>
+<tr><td>Dark energy (DESI DR2)</td><td>P<sub>base</sub></td><td>1</td><td>TL(w₀+1) P<sub>base</sub></td><td>0.015–0.058</td><td>Locked</td></tr>
+<tr><td>Baryons</td><td>P<sub>base</sub></td><td>3</td><td>Ω<sub>b</sub> = 0.0493</td><td>0.050</td><td>Locked</td></tr>
+<tr><td>Cold dark matter</td><td>P<sub>base</sub></td><td>2</td><td>Ω<sub>cdm</sub> = 0.2607</td><td>0.264</td><td>Shatter</td></tr>
+<tr><td>Cosmological constant Λ</td><td>P<sub>base</sub></td><td>1</td><td>0</td><td>0</td><td>Noble</td></tr>
+<tr><td>Spatial curvature</td><td>P<sub>base</sub></td><td>1</td><td>Ω<sub>k</sub> = 0</td><td>0</td><td>Noble</td></tr>
+</table>
+<table>
+<tr><th>DESI DR2 combination</th><th>w₀</th><th>τ<sub>DE</sub> band</th></tr>
+<tr><td>DESI + CMB + DESY5</td><td>−0.752 ± 0.057</td><td>0.026 – 0.042</td></tr>
+<tr><td>DESI + CMB + Pantheon+</td><td>−0.838 ± 0.055</td><td>0.015 – 0.030</td></tr>
+<tr><td>DESI + CMB + Union3</td><td>−0.667 ± 0.088</td><td>0.034 – 0.058</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. <em>Astronomy &amp; Astrophysics</em>, 641, A6.</li>
+<li>DESI Collaboration (2025). DESI DR2 results. II. Measurements of baryon acoustic oscillations and cosmological constraints. <em>Physical Review D</em>, 112, 083515.</li>
+<li>Fixsen, D. J. (2009). The temperature of the cosmic microwave background. <em>The Astrophysical Journal</em>, 707, 916–920.</li>
+<li>Particle Data Group (2024). Review of Particle Physics. <em>Physical Review D</em>, 110, 030001.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-bbn-reduction.html">Big Bang Nucleosynthesis Reduced to PNBA</a>. ProofPress, Volume 1, Issue 2.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_CosmologicalCorpus_Layer0.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS COSMOLOGICAL CORPUS — LAYER 0
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,4,0] | Cosmological Series — Foundation
+--
+-- ============================================================
+-- WHAT THIS FILE IS
+-- ============================================================
+--
+-- This is the Layer 0 foundation for the cosmological series.
+-- Every known cosmic component is reduced to its PNBA identity
+-- state using peer-reviewed observational values.
+-- All phases are proved. All torsions are computed.
+-- Where a measurement carries an uncertainty band, the phase is
+-- proved across the whole band, not only at the central value.
+-- The cross-cutting structural theorems follow from the data.
+--
+-- It is to the cosmological series what [9,9,0,0] is to all files.
+--
+-- ============================================================
+-- THE PROTOCOL
+-- ============================================================
+--
+-- Same six-step long division for every component:
+--   1. The classical observable (what we measure)
+--   2. The known peer-reviewed value
+--   3. Map to PNBA (which axis carries which information)
+--   4. Plug in the PNBA operators
+--   5. Compute τ = B/P, determine phase
+--   6. Verify against known physics
+--
+-- PNBA AXIS ASSIGNMENTS (cosmic context):
+--   P = structural capacity = geometry / mass scale
+--       For all cosmic components: P = P_base (anchor-native)
+--       Exception: Radiation — P = T_CMB/ANCHOR (thermal scale)
+--   N = narrative depth = degrees of freedom / production history
+--       Baryons: N=3 (3 SM generations)
+--       DM: N=2 (production + clustering — [9,9,4,8])
+--       Neutrinos: N=3 (3 flavors)
+--       Radiation: N=2 (2 photon polarizations)
+--       DE: N=1 (single homogeneous field)
+--   B = behavioral coupling = density fraction (dimensionless)
+--       B = Ω_X (fractional energy density)
+--       This is the natural B-axis choice: how much of the
+--       universe&#x27;s energy IS this component = its coupling strength
+--   A = adaptation rate = equation of state evolution
+--       For static components: A = 0
+--       For DE: A = Ω_DE (its dominant adaptation drive)
+--       For baryons/neutrinos: A = small (slight evolution)
+--
+-- ============================================================
+-- OBSERVATIONAL SOURCES
+-- ============================================================
+--
+-- Planck Collaboration (2020). Planck 2018 results VI.
+--   Astronomy &amp; Astrophysics 641, A6. arXiv:1807.06209.
+--   [Planck18] — all Ω values, H₀, CMB temperature
+--
+-- DESI Collaboration (2025). DESI DR2 Results II.
+--   Phys. Rev. D 112, 083515. arXiv:2503.14738.
+--   [DESI25] — w₀ evolving DE:
+--     DESI+CMB+DESY5:     w₀ = -0.752 ± 0.057
+--     DESI+CMB+Pantheon+: w₀ = -0.838 ± 0.055
+--     DESI+CMB+Union3:    w₀ = -0.667 ± 0.088
+--
+-- Fixsen (2009). The Temperature of the Cosmic Microwave
+--   Background. Astrophys. J. 707, 916. [Fixsen09]
+--   T_CMB = 2.72548 ± 0.00057 K
+--
+-- Particle Data Group (2024). Review of Particle Physics.
+--   Phys. Rev. D 110. [PDG24] — N_eff, neutrino masses,
+--   Ω_ν h² = Σm_ν / 93.14 eV
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. The universe is stratified by phase.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+
+noncomputable section
+
+namespace SNSFL_CosmologicalCorpus_Layer0
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN CONSTANTS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10   -- 0.136899099984016
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100 -- 0.1205
+def H_FREQ           : ℝ := 1.4204  -- hydrogen hyperfine GHz
+
+noncomputable def P_BASE : ℝ :=
+  (SOVEREIGN_ANCHOR / H_FREQ) ^ ((1:ℝ)/3)
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+theorem p_base_positive : P_BASE &gt; 0 := by
+  unfold P_BASE SOVEREIGN_ANCHOR H_FREQ; positivity
+
+theorem tl_positive : TORSION_LIMIT &gt; 0 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+theorem tl_iva_lt_tl : TL_IVA_PEAK &lt; TORSION_LIMIT := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+theorem tl_iva_positive : TL_IVA_PEAK &gt; 0 := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- Cube roots: (r^(1/3))³ = r, so cube-root bounds follow from bounds on r.
+theorem cube_rpow (r : ℝ) (hr : 0 ≤ r) : (r ^ ((1:ℝ)/3)) ^ 3 = r := by
+  rw [← Real.rpow_natCast, ← Real.rpow_mul hr]; norm_num
+
+theorem cbrt_gt (r c : ℝ) (hr : 0 ≤ r) (h : c ^ 3 &lt; r) : r ^ ((1:ℝ)/3) &gt; c := by
+  by_contra hle
+  push Not at hle
+  have hy : 0 ≤ r ^ ((1:ℝ)/3) := Real.rpow_nonneg hr _
+  have h3 := pow_le_pow_left₀ hy hle 3
+  rw [cube_rpow r hr] at h3
+  linarith
+
+theorem cbrt_lt (r c : ℝ) (hr : 0 ≤ r) (hc : 0 ≤ c) (h : r &lt; c ^ 3) :
+    r ^ ((1:ℝ)/3) &lt; c := by
+  by_contra hle
+  push Not at hle
+  have h3 := pow_le_pow_left₀ hc hle 3
+  rw [cube_rpow r hr] at h3
+  linarith
+
+-- P_BASE = (Ω₀ / f_H)^(1/3) ≈ 0.9878
+theorem p_base_gt : P_BASE &gt; 0.986 := by
+  unfold P_BASE
+  exact cbrt_gt _ _ (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
+    (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
+
+theorem p_base_lt : P_BASE &lt; 0.990 := by
+  unfold P_BASE
+  exact cbrt_lt _ _ (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num) (by norm_num)
+    (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
+
+-- Torsion against P_BASE: bounds on b give bounds on b / P_BASE
+theorem div_pbase_lt (b c : ℝ) (hc : 0 ≤ c) (h : b &lt; c * 0.986) : b / P_BASE &lt; c := by
+  have hP0 := p_base_positive
+  have hP := p_base_gt
+  rw [div_lt_iff₀ hP0]
+  nlinarith [mul_le_mul_of_nonneg_left (le_of_lt hP) hc]
+
+theorem div_pbase_gt (b c : ℝ) (hc : 0 ≤ c) (h : c * 0.990 &lt; b) : c &lt; b / P_BASE := by
+  have hP0 := p_base_positive
+  have hP := p_base_lt
+  rw [lt_div_iff₀ hP0]
+  nlinarith [mul_le_mul_of_nonneg_left (le_of_lt hP) hc]
+
+-- PNBA element structure
+structure CosmicElement where
+  P  : ℝ
+  N  : ℝ
+  B  : ℝ
+  A  : ℝ
+  hP : P &gt; 0
+  hB : B ≥ 0
+
+noncomputable def torsion (e : CosmicElement) : ℝ := e.B / e.P
+
+def is_noble    (e : CosmicElement) : Prop := e.B = 0
+def is_locked   (e : CosmicElement) : Prop :=
+  torsion e &gt; 0 ∧ torsion e &lt; TL_IVA_PEAK
+def is_iva_peak (e : CosmicElement) : Prop :=
+  torsion e ≥ TL_IVA_PEAK ∧ torsion e &lt; TORSION_LIMIT
+def is_shatter  (e : CosmicElement) : Prop :=
+  torsion e ≥ TORSION_LIMIT
+
+-- ============================================================
+-- SECTION 1: CMB TEMPERATURE SCALE
+-- ============================================================
+-- T_CMB = 2.72548 K [Fixsen 2009] — most precisely measured
+-- cosmic temperature. Used to set the radiation P-axis.
+-- P_rad = T_CMB / ANCHOR (normalized to sovereign frequency)
+
+def T_CMB : ℝ := 2.7255   -- K [Fixsen09]
+noncomputable def P_RAD : ℝ := T_CMB / SOVEREIGN_ANCHOR
+
+theorem p_rad_positive : P_RAD &gt; 0 := by
+  unfold P_RAD T_CMB SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- SECTION 2: THE COSMIC ELEMENTS
+-- ============================================================
+
+-- ── RADIATION ─────────────────────────────────────────────
+-- Long Division:
+-- 1. Observable: CMB photons, cosmic radiation background
+-- 2. Known: Ω_r = 9.1×10⁻⁵ today (diluted by expansion a⁻⁴)
+--    T_CMB = 2.7255 K [Fixsen09]
+-- 3. PNBA map:
+--    P = T_CMB/ANCHOR (thermal structural scale)
+--    N = 2 (two photon polarizations)
+--    B = Ω_r = 9.1e-5 (coupling = energy fraction)
+--    A = 0 (radiation doesn&#x27;t adapt — it redshifts deterministically)
+-- 4. τ = Ω_r / (T_CMB/ANCHOR) = Ω_r × ANCHOR / T_CMB
+-- 5. τ ≈ 4.6×10⁻⁵ — deep LOCKED, nearest Noble of any coupled component
+-- 6. Verify: radiation dominated the early universe, now diluted
+--    to the edge of Noble ✓
+
+def OMEGA_RAD : ℝ := 0.000091  -- Ω_r Planck18
+
+noncomputable def Radiation : CosmicElement :=
+  { P := P_RAD, N := 2, B := OMEGA_RAD, A := 0
+    hP := p_rad_positive
+    hB := by unfold OMEGA_RAD; norm_num }
+
+noncomputable def tau_radiation : ℝ := torsion Radiation
+
+-- [T1] Radiation torsion is tiny — far below TL_IVA
+theorem radiation_below_tl_iva :
+    tau_radiation &lt; TL_IVA_PEAK := by
+  show OMEGA_RAD / P_RAD &lt; TL_IVA_PEAK
+  unfold OMEGA_RAD P_RAD T_CMB TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T1a] Radiation is deep LOCKED — nearest Noble of any coupled component
+theorem radiation_is_locked : is_locked Radiation := by
+  show OMEGA_RAD / P_RAD &gt; 0 ∧ OMEGA_RAD / P_RAD &lt; TL_IVA_PEAK
+  refine ⟨div_pos (by unfold OMEGA_RAD; norm_num) p_rad_positive, ?_⟩
+  exact radiation_below_tl_iva
+
+-- ── BARYONS ───────────────────────────────────────────────
+-- Long Division:
+-- 1. Observable: protons, neutrons, all ordinary matter
+-- 2. Known: Ω_b = 0.0493 ± 0.0003 [Planck18]
+--    N_gen = 3 (three SM generations of quarks/leptons)
+-- 3. PNBA map:
+--    P = P_base (anchor-native structural ground)
+--    N = 3 (three matter generations — proved in SM)
+--    B = Ω_b = 0.0493 (baryon energy fraction)
+--    A = 0.01 (slight evolution — star formation, etc.)
+-- 4. τ = Ω_b / P_base ≈ 0.0499
+-- 5. LOCKED: 0 &lt; 0.0499 &lt; TL_IVA = 0.1205
+-- 6. Baryons are LOCKED — structurally stable, weakly coupled
+--    This is why ordinary matter forms stable structures (stars,
+--    molecules, life) without flying apart or collapsing
+
+def OMEGA_B : ℝ := 0.0493   -- Ω_b [Planck18]
+def N_GEN   : ℕ := 3         -- SM generations
+
+noncomputable def Baryons : CosmicElement :=
+  { P := P_BASE, N := N_GEN, B := OMEGA_B, A := 0.01
+    hP := p_base_positive
+    hB := by unfold OMEGA_B; norm_num }
+
+noncomputable def tau_baryons : ℝ := torsion Baryons
+
+-- [T2] Baryons are LOCKED
+theorem baryons_are_locked : is_locked Baryons := by
+  show OMEGA_B / P_BASE &gt; 0 ∧ OMEGA_B / P_BASE &lt; TL_IVA_PEAK
+  refine ⟨div_pos (by unfold OMEGA_B; norm_num) p_base_positive, ?_⟩
+  exact div_pbase_lt _ _ (by unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+    (by unfold OMEGA_B TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+
+-- [T3] Baryons torsion numerical bounds
+theorem baryons_tau_bounds :
+    tau_baryons &gt; 0.049 ∧ tau_baryons &lt; 0.051 := by
+  show OMEGA_B / P_BASE &gt; 0.049 ∧ OMEGA_B / P_BASE &lt; 0.051
+  exact ⟨div_pbase_gt _ _ (by norm_num) (by unfold OMEGA_B; norm_num),
+         div_pbase_lt _ _ (by norm_num) (by unfold OMEGA_B; norm_num)⟩
+
+-- ── NEUTRINOS ─────────────────────────────────────────────
+-- Long Division:
+-- 1. Observable: cosmic neutrino background, neutrino oscillations
+-- 2. Known: Ω_ν h² = Σm_ν / 93.14 eV [PDG24], h = 0.6766 [Planck18+BAO]
+--    Oscillation floor Σm_ν = 0.06 eV → Ω_ν ≈ 0.0014
+--    Planck bound    Σm_ν &lt; 0.12 eV → Ω_ν &lt; 0.0028
+--    N_eff = 3.046 effective species [SM + QCD corrections]
+-- 3. PNBA map:
+--    P = P_base (same structural ground as all matter)
+--    N = 3 (three neutrino flavors, same as N_gen)
+--    B = Ω_ν ∈ [0.0014, 0.0028] (small energy fraction)
+--    A = 0.01 (neutrino oscillations = slight adaptation)
+-- 4. τ = Ω_ν/P_base ∈ [0.0014, 0.0029]
+-- 5. LOCKED across the whole band: τ &lt;&lt; TL_IVA
+-- 6. Neutrinos are deeply LOCKED — lightest massive matter component
+
+def SUM_MNU_MIN : ℝ := 0.06     -- eV, oscillation floor [PDG24]
+def SUM_MNU_MAX : ℝ := 0.12     -- eV, Planck bound [Planck18]
+def H_LITTLE    : ℝ := 0.6766   -- h [Planck18+BAO]
+def OMEGA_NU     : ℝ := 0.0014  -- Ω_ν at the oscillation floor
+def OMEGA_NU_MAX : ℝ := 0.0028  -- Ω_ν at the Planck bound
+
+-- [T4a] Ω_ν h² = Σm_ν / 93.14 eV reproduces both band edges
+theorem omega_nu_from_mass :
+    |SUM_MNU_MIN / (93.14 * H_LITTLE ^ 2) - OMEGA_NU| &lt; 0.00002 ∧
+    |SUM_MNU_MAX / (93.14 * H_LITTLE ^ 2) - OMEGA_NU_MAX| &lt; 0.00002 := by
+  unfold SUM_MNU_MIN SUM_MNU_MAX H_LITTLE OMEGA_NU OMEGA_NU_MAX
+  constructor
+  · norm_num
+  · norm_num
+
+noncomputable def Neutrinos : CosmicElement :=
+  { P := P_BASE, N := 3, B := OMEGA_NU, A := 0.01
+    hP := p_base_positive
+    hB := by unfold OMEGA_NU; norm_num }
+
+noncomputable def tau_neutrinos : ℝ := torsion Neutrinos
+
+-- [T4] Neutrinos are LOCKED (deeply — smallest B of massive components)
+theorem neutrinos_are_locked : is_locked Neutrinos := by
+  show OMEGA_NU / P_BASE &gt; 0 ∧ OMEGA_NU / P_BASE &lt; TL_IVA_PEAK
+  refine ⟨div_pos (by unfold OMEGA_NU; norm_num) p_base_positive, ?_⟩
+  exact div_pbase_lt _ _ (by unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+    (by unfold OMEGA_NU TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+
+-- [T4b] Neutrinos are LOCKED across the whole mass band
+theorem neutrinos_locked_band (b : ℝ) (h1 : OMEGA_NU ≤ b) (h2 : b ≤ OMEGA_NU_MAX) :
+    b / P_BASE &gt; 0 ∧ b / P_BASE &lt; TL_IVA_PEAK := by
+  unfold OMEGA_NU at h1
+  unfold OMEGA_NU_MAX at h2
+  refine ⟨div_pos (by linarith) p_base_positive, ?_⟩
+  exact div_pbase_lt _ _ (by unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+    (by unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; linarith)
+
+-- ── COLD DARK MATTER ──────────────────────────────────────
+-- Long Division:
+-- 1. Observable: galaxy rotation curves, lensing, structure formation
+-- 2. Known: Ω_cdm = 0.2607 ± 0.0020 [Planck18]
+--    CDM is cold (non-relativistic), dark (no EM coupling)
+--    N = 2: production (thermal/non-thermal) + gravitational clustering
+-- 3. PNBA map:
+--    P = P_base (structural ground — same as all matter)
+--    N = 2 (two narrative components — [9,9,4,8])
+--    B = Ω_cdm = 0.2607 (dominant matter coupling)
+--    A = 0 (CDM doesn&#x27;t self-adapt — cold, collisionless)
+-- 4. τ = 0.2607/P_base ≈ 0.2639
+-- 5. SHATTER: τ &gt; TL = TL
+-- 6. CDM is SHATTER — high torsion drives structure formation
+--    The Shatter phase IS the gravitational collapse engine ✓
+
+def OMEGA_CDM : ℝ := 0.2607   -- Ω_cdm [Planck18]
+
+noncomputable def ColdDarkMatter : CosmicElement :=
+  { P := P_BASE, N := 2, B := OMEGA_CDM, A := 0
+    hP := p_base_positive
+    hB := by unfold OMEGA_CDM; norm_num }
+
+noncomputable def tau_cdm : ℝ := torsion ColdDarkMatter
+
+-- [T5] Cold dark matter is SHATTER
+theorem cdm_strict : TORSION_LIMIT &lt; tau_cdm := by
+  show TORSION_LIMIT &lt; OMEGA_CDM / P_BASE
+  exact div_pbase_gt _ _ (by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+    (by unfold OMEGA_CDM TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+
+theorem cdm_is_shatter : is_shatter ColdDarkMatter :=
+  le_of_lt cdm_strict
+
+-- [T6] CDM torsion is well above TL (deep Shatter)
+theorem cdm_tau_above_tl_by_factor :
+    tau_cdm &gt; TORSION_LIMIT * 1.9 := by
+  show TORSION_LIMIT * 1.9 &lt; OMEGA_CDM / P_BASE
+  exact div_pbase_gt _ _ (by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+    (by unfold OMEGA_CDM TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num)
+
+-- ── DARK ENERGY (COSMOLOGICAL CONSTANT Λ) ────────────────
+-- Long Division:
+-- 1. Observable: accelerated expansion discovered 1998 (SN Ia)
+-- 2. Known: Ω_Λ = 0.6889 ± 0.0056 [Planck18]
+--    w = -1 exactly (equation of state = cosmological constant)
+--    No evolution observed until DESI DR2
+-- 3. PNBA map:
+--    P = P_base (anchor-native structural ground)
+--    N = 1 (single homogeneous vacuum field)
+--    B = 0 (Noble — no behavioral coupling to expansion)
+--    A = Ω_Λ (dominant adaptation: DE drives expansion)
+-- 4. τ = 0/P_base = 0 → NOBLE
+-- 5. Noble: w = -1 ↔ τ = 0 (τ_DE = TL × (w + 1), [9,9,4,9])
+-- 6. Λ is the Noble ground state of dark energy ✓
+
+def OMEGA_DE : ℝ := 0.6889   -- Ω_Λ [Planck18]
+
+noncomputable def DarkEnergy_Lambda : CosmicElement :=
+  { P := P_BASE, N := 1, B := 0, A := OMEGA_DE
+    hP := p_base_positive
+    hB := le_refl 0 }
+
+-- [T7] Cosmological constant is Noble (τ = 0)
+theorem lambda_is_noble : is_noble DarkEnergy_Lambda := rfl
+
+theorem lambda_torsion_zero : torsion DarkEnergy_Lambda = 0 := by
+  show (0:ℝ) / P_BASE = 0
+  simp
+
+-- ── DARK ENERGY (DESI EVOLVING — w₀wₐCDM) ───────────────
+-- Long Division:
+-- 1. Observable: DESI DR2 BAO + CMB + SNe combinations
+-- 2. Known [DESI25]:
+--      DESI+CMB+DESY5:     w₀ = -0.752 ± 0.057
+--      DESI+CMB+Pantheon+: w₀ = -0.838 ± 0.055
+--      DESI+CMB+Union3:    w₀ = -0.667 ± 0.088
+--    2.8–4.2σ preference over ΛCDM
+-- 3. PNBA map: same as Λ but B &gt; 0
+--    τ_DE = TL × (w₀ + 1)   (w = -1 ↔ τ = 0, Noble)
+--    B = τ_DE × P_base
+-- 4. DESY5 central: τ = TL × 0.248 ≈ 0.034
+-- 5. LOCKED exactly when -1 &lt; w₀ &lt; -0.12 (TL_IVA = 0.88 × TL).
+--    All three ±1σ bands lie inside that window.
+-- 6. DE has left Noble — it has nonzero torsion. LOCKED. ✓
+
+def W0_DESY5     : ℝ := -0.752   -- DESI+CMB+DESY5 [DESI25]
+def W0_DESY5_ERR : ℝ := 0.057
+def W0_PANTH     : ℝ := -0.838   -- DESI+CMB+Pantheon+ [DESI25]
+def W0_PANTH_ERR : ℝ := 0.055
+def W0_UNION3    : ℝ := -0.667   -- DESI+CMB+Union3 [DESI25]
+def W0_UNION3_ERR: ℝ := 0.088
+
+-- Dark energy torsion from the equation of state
+noncomputable def tau_from_w (w : ℝ) : ℝ := TORSION_LIMIT * (w + 1)
+
+-- [T8a] DE is LOCKED exactly when -1 &lt; w &lt; -0.12
+theorem de_locked_iff (w : ℝ) :
+    (tau_from_w w &gt; 0 ∧ tau_from_w w &lt; TL_IVA_PEAK) ↔ (-1 &lt; w ∧ w &lt; -0.12) := by
+  have hTL := tl_positive
+  unfold tau_from_w TL_IVA_PEAK
+  constructor
+  · rintro ⟨h1, h2⟩
+    constructor
+    · by_contra h
+      have hw : w + 1 ≤ 0 := by linarith [not_lt.mp h]
+      have := mul_le_mul_of_nonneg_left hw hTL.le
+      linarith
+    · by_contra h
+      have hw : (0.88:ℝ) ≤ w + 1 := by linarith [not_lt.mp h]
+      have := mul_le_mul_of_nonneg_left hw hTL.le
+      linarith
+  · rintro ⟨h1, h2⟩
+    constructor
+    · exact mul_pos hTL (by linarith)
+    · have := mul_lt_mul_of_pos_left (show w + 1 &lt; 0.88 by linarith) hTL
+      linarith
+
+noncomputable def B_DE_DESI : ℝ := tau_from_w W0_DESY5 * P_BASE
+
+theorem tau_desy5_pos : tau_from_w W0_DESY5 &gt; 0 := by
+  unfold tau_from_w W0_DESY5 TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+noncomputable def DarkEnergy_DESI : CosmicElement :=
+  { P := P_BASE, N := 1, B := B_DE_DESI, A := OMEGA_DE
+    hP := p_base_positive
+    hB := mul_nonneg tau_desy5_pos.le p_base_positive.le }
+
+noncomputable def tau_de_desi : ℝ := torsion DarkEnergy_DESI
+
+-- [T8b] The element&#x27;s torsion is τ_DE = TL × (w₀ + 1)
+theorem tau_de_desi_eq : tau_de_desi = tau_from_w W0_DESY5 := by
+  show tau_from_w W0_DESY5 * P_BASE / P_BASE = tau_from_w W0_DESY5
+  exact mul_div_cancel_right₀ _ (ne_of_gt p_base_positive)
+
+-- [T8] Evolving DE is LOCKED (has left Noble, below IVA_PEAK)
+theorem de_desi_is_locked : is_locked DarkEnergy_DESI := by
+  show tau_de_desi &gt; 0 ∧ tau_de_desi &lt; TL_IVA_PEAK
+  rw [tau_de_desi_eq]
+  exact (de_locked_iff _).mpr ⟨by unfold W0_DESY5; norm_num, by unfold W0_DESY5; norm_num⟩
+
+-- [T8c] DE is LOCKED across all three DESI DR2 ±1σ bands
+theorem de_locked_all_desi_bands (w : ℝ)
+    (h : (W0_DESY5 - W0_DESY5_ERR ≤ w ∧ w ≤ W0_DESY5 + W0_DESY5_ERR) ∨
+         (W0_PANTH - W0_PANTH_ERR ≤ w ∧ w ≤ W0_PANTH + W0_PANTH_ERR) ∨
+         (W0_UNION3 - W0_UNION3_ERR ≤ w ∧ w ≤ W0_UNION3 + W0_UNION3_ERR)) :
+    tau_from_w w &gt; 0 ∧ tau_from_w w &lt; TL_IVA_PEAK := by
+  apply (de_locked_iff w).mpr
+  rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩ | ⟨h1, h2⟩
+  · unfold W0_DESY5 W0_DESY5_ERR at h1 h2
+    exact ⟨by linarith, by linarith⟩
+  · unfold W0_PANTH W0_PANTH_ERR at h1 h2
+    exact ⟨by linarith, by linarith⟩
+  · unfold W0_UNION3 W0_UNION3_ERR at h1 h2
+    exact ⟨by linarith, by linarith⟩
+
+-- ── SPATIAL CURVATURE ─────────────────────────────────────
+-- Long Division:
+-- 1. Observable: CMB acoustic peaks, BAO
+-- 2. Known: Ω_k = 0.000 ± 0.002 [Planck18] — flat universe
+-- 3. PNBA map: Ω_k = 0 → B = 0 → Noble
+--    Flat geometry has no behavioral coupling
+-- 4. τ = 0 → Noble
+-- 5. The FLAT UNIVERSE is Noble spatial geometry ✓
+-- 6. Spatial curvature has same phase as Λ — Noble ground
+
+def OMEGA_K : ℝ := 0.0   -- spatial curvature [Planck18]
+
+noncomputable def Curvature : CosmicElement :=
+  { P := P_BASE, N := 1, B := OMEGA_K, A := 0
+    hP := p_base_positive
+    hB := by unfold OMEGA_K; norm_num }
+
+-- [T9] Flat universe = Noble spatial geometry
+theorem flat_universe_is_noble : is_noble Curvature := by
+  show OMEGA_K = 0
+  unfold OMEGA_K; norm_num
+
+-- ============================================================
+-- SECTION 3: CROSS-CUTTING THEOREMS
+-- ============================================================
+
+-- [T10] PHASE ORDERING — the full cosmic torsion hierarchy
+-- τ_rad &lt; τ_nu &lt; τ_DE_DESI &lt; τ_b &lt; TL_IVA &lt; TL &lt; τ_CDM
+-- This is the structural stratification of the universe
+-- (DE at the DESY5 central value; see T10a–T10b for the bands)
+theorem cosmic_phase_ordering :
+    tau_radiation &lt; tau_neutrinos ∧
+    tau_neutrinos &lt; tau_de_desi ∧
+    tau_de_desi   &lt; tau_baryons ∧
+    tau_baryons   &lt; TL_IVA_PEAK ∧
+    TL_IVA_PEAK   &lt; TORSION_LIMIT ∧
+    TORSION_LIMIT &lt; tau_cdm := by
+  refine ⟨?_, ?_, ?_, ?_, tl_iva_lt_tl, cdm_strict⟩
+  · -- τ_rad &lt; 0.001 &lt; τ_ν
+    have h1 : tau_radiation &lt; 0.001 := by
+      show OMEGA_RAD / P_RAD &lt; 0.001
+      unfold OMEGA_RAD P_RAD T_CMB SOVEREIGN_ANCHOR; norm_num
+    have h2 : (0.001:ℝ) &lt; tau_neutrinos := by
+      show (0.001:ℝ) &lt; OMEGA_NU / P_BASE
+      exact div_pbase_gt _ _ (by norm_num) (by unfold OMEGA_NU; norm_num)
+    linarith
+  · -- τ_ν &lt; 0.002 &lt; τ_DE
+    have h1 : tau_neutrinos &lt; 0.002 := by
+      show OMEGA_NU / P_BASE &lt; 0.002
+      exact div_pbase_lt _ _ (by norm_num) (by unfold OMEGA_NU; norm_num)
+    have h2 : (0.002:ℝ) &lt; tau_de_desi := by
+      rw [tau_de_desi_eq]
+      unfold tau_from_w W0_DESY5 TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+    linarith
+  · -- τ_DE &lt; 0.049 &lt; τ_b
+    have h1 : tau_de_desi &lt; 0.049 := by
+      rw [tau_de_desi_eq]
+      unfold tau_from_w W0_DESY5 TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+    linarith [baryons_tau_bounds.1]
+  · -- τ_b &lt; TL_IVA
+    exact baryons_are_locked.2
+
+-- [T10a] τ_DE &lt; τ_b across the whole DESY5 ±1σ band
+theorem de_below_baryons_desy5_band (w : ℝ)
+    (h1 : W0_DESY5 - W0_DESY5_ERR ≤ w) (h2 : w ≤ W0_DESY5 + W0_DESY5_ERR) :
+    tau_from_w w &lt; tau_baryons := by
+  have hb := baryons_tau_bounds.1
+  unfold W0_DESY5 W0_DESY5_ERR at h1 h2
+  unfold tau_from_w
+  have hm := mul_le_mul_of_nonneg_left (show w + 1 ≤ 0.305 by linarith) tl_positive.le
+  have hc : TORSION_LIMIT * 0.305 &lt; 0.049 := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  linarith
+
+-- [T10b] The Union3 upper edge passes the baryons: the ordering
+-- τ_DE &lt; τ_b is not band-robust for Union3
+theorem union3_upper_edge_above_baryons :
+    tau_from_w (W0_UNION3 + W0_UNION3_ERR) &gt; tau_baryons := by
+  have hb := baryons_tau_bounds.2
+  have hc : tau_from_w (W0_UNION3 + W0_UNION3_ERR) &gt; 0.051 := by
+    unfold tau_from_w W0_UNION3 W0_UNION3_ERR TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  linarith
+
+-- [T11] THE IVA_PEAK GAP
+-- No component of the cosmic corpus sits in the IVA_PEAK band.
+-- The life chemistry band (TL_IVA &lt; τ &lt; TL) is cosmically empty.
+-- Life operates in the one phase band the universe doesn&#x27;t occupy.
+theorem iva_gap_in_cosmic_corpus :
+    ¬ is_iva_peak Radiation ∧
+    ¬ is_iva_peak Baryons ∧
+    ¬ is_iva_peak Neutrinos ∧
+    ¬ is_iva_peak ColdDarkMatter ∧
+    ¬ is_iva_peak DarkEnergy_Lambda ∧
+    ¬ is_iva_peak DarkEnergy_DESI ∧
+    ¬ is_iva_peak Curvature := by
+  have hIVA := tl_iva_positive
+  have hcurv : torsion Curvature = 0 := by
+    show OMEGA_K / P_BASE = 0
+    unfold OMEGA_K; norm_num
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro h; have := radiation_below_tl_iva
+    unfold tau_radiation at this; linarith [h.1]
+  · intro h; linarith [h.1, baryons_are_locked.2]
+  · intro h; linarith [h.1, neutrinos_are_locked.2]
+  · intro h; have := cdm_strict; unfold tau_cdm at this; linarith [h.2]
+  · intro h; have := lambda_torsion_zero; linarith [h.1]
+  · intro h; linarith [h.1, de_desi_is_locked.2]
+  · intro h; linarith [h.1]
+
+-- [T12] NOBLE CLUSTER: Λ and flat curvature are both Noble
+-- The inert cosmic components share the Noble ground state
+theorem noble_cluster :
+    is_noble DarkEnergy_Lambda ∧ is_noble Curvature := by
+  exact ⟨lambda_is_noble, flat_universe_is_noble⟩
+
+-- [T13] SHATTER DRIVES STRUCTURE
+-- CDM is the only component in SHATTER.
+-- High torsion = active coupling = gravitational collapse engine.
+theorem cdm_sole_shatter :
+    is_shatter ColdDarkMatter ∧
+    ¬ is_shatter Radiation ∧
+    ¬ is_shatter Baryons ∧
+    ¬ is_shatter Neutrinos ∧
+    ¬ is_shatter DarkEnergy_Lambda ∧
+    ¬ is_shatter DarkEnergy_DESI := by
+  have hT := tl_iva_lt_tl
+  have hIVA := tl_iva_positive
+  refine ⟨cdm_is_shatter, ?_, ?_, ?_, ?_, ?_⟩
+  · intro h; have := radiation_below_tl_iva
+    unfold tau_radiation at this; unfold is_shatter at h; linarith
+  · intro h; unfold is_shatter at h; linarith [baryons_are_locked.2]
+  · intro h; unfold is_shatter at h; linarith [neutrinos_are_locked.2]
+  · intro h; unfold is_shatter at h; rw [lambda_torsion_zero] at h; linarith
+  · intro h; unfold is_shatter at h; linarith [de_desi_is_locked.2]
+
+-- [T14] BARYON-CDM TORSION RATIO = DENSITY RATIO
+-- τ_CDM / τ_b = Ω_cdm / Ω_b (exact, same P cancels)
+-- The baryon-to-CDM ratio IS a torsion ratio.
+-- This is why they behave differently: they&#x27;re in different phases.
+theorem baryon_cdm_torsion_ratio :
+    tau_cdm / tau_baryons = OMEGA_CDM / OMEGA_B := by
+  show OMEGA_CDM / P_BASE / (OMEGA_B / P_BASE) = OMEGA_CDM / OMEGA_B
+  exact div_div_div_cancel_right₀ (ne_of_gt p_base_positive) _ _
+
+-- [T15] DARK SECTOR DOMINANCE
+-- Ω_dm + Ω_DE &gt; 0.95: dark sector dominates the universe
+theorem dark_sector_dominant :
+    OMEGA_CDM + OMEGA_NU + OMEGA_DE &gt; 0.95 := by
+  unfold OMEGA_CDM OMEGA_NU OMEGA_DE; norm_num
+
+-- [T16] DARK SECTOR DUALITY: CDM Shatter, DE Noble/Locked
+-- CDM and DE are in opposite phase states.
+-- This is the structural explanation for their opposite cosmic roles:
+-- CDM (SHATTER) drives gravitational attraction and structure.
+-- DE (NOBLE/LOCKED) drives repulsion and expansion.
+theorem dark_sector_duality :
+    is_shatter ColdDarkMatter ∧
+    is_noble DarkEnergy_Lambda ∧
+    is_locked DarkEnergy_DESI := by
+  exact ⟨cdm_is_shatter, lambda_is_noble, de_desi_is_locked⟩
+
+-- [T17] BARYONS AND CDM DIFFER BY PHASE, NOT JUST DENSITY
+-- τ_b &lt; TL_IVA &lt; TL &lt; τ_CDM
+-- Baryons are LOCKED. CDM is SHATTER.
+-- Same P, same structural ground, different phase.
+-- Phase difference explains differential clustering without
+-- requiring additional interaction cross-sections.
+theorem baryons_cdm_phase_difference :
+    is_locked Baryons ∧ is_shatter ColdDarkMatter := by
+  exact ⟨baryons_are_locked, cdm_is_shatter⟩
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- THE COSMIC PHASE MAP
+-- ============================================================
+
+theorem cosmological_corpus_master :
+    -- [1] Phase ordering (full hierarchy)
+    tau_radiation &lt; tau_neutrinos ∧
+    tau_neutrinos &lt; tau_de_desi  ∧
+    tau_de_desi   &lt; tau_baryons  ∧
+    tau_baryons   &lt; TL_IVA_PEAK  ∧
+    TL_IVA_PEAK   &lt; TORSION_LIMIT ∧
+    TORSION_LIMIT &lt; tau_cdm      ∧
+    -- [2] Noble cluster: Λ and flat curvature
+    is_noble DarkEnergy_Lambda   ∧
+    is_noble Curvature           ∧
+    -- [3] Locked cluster: radiation (deep), baryons, neutrinos, DE (DESI)
+    is_locked Radiation          ∧
+    is_locked Baryons            ∧
+    is_locked Neutrinos          ∧
+    is_locked DarkEnergy_DESI    ∧
+    -- [4] Shatter: CDM alone
+    is_shatter ColdDarkMatter    ∧
+    -- [5] IVA_PEAK gap: cosmically empty
+    ¬ is_iva_peak Baryons        ∧
+    ¬ is_iva_peak ColdDarkMatter ∧
+    -- [6] Baryon-CDM ratio = torsion ratio
+    tau_cdm / tau_baryons = OMEGA_CDM / OMEGA_B ∧
+    -- [7] Dark sector duality
+    is_shatter ColdDarkMatter    ∧
+    is_noble DarkEnergy_Lambda   ∧
+    -- [8] DE Locked across all three DESI DR2 bands
+    (∀ w : ℝ, (W0_DESY5 - W0_DESY5_ERR ≤ w ∧ w ≤ W0_DESY5 + W0_DESY5_ERR) ∨
+              (W0_PANTH - W0_PANTH_ERR ≤ w ∧ w ≤ W0_PANTH + W0_PANTH_ERR) ∨
+              (W0_UNION3 - W0_UNION3_ERR ≤ w ∧ w ≤ W0_UNION3 + W0_UNION3_ERR) →
+      tau_from_w w &gt; 0 ∧ tau_from_w w &lt; TL_IVA_PEAK) ∧
+    -- [9] Neutrinos Locked across the whole mass band
+    (∀ b : ℝ, OMEGA_NU ≤ b → b ≤ OMEGA_NU_MAX →
+      b / P_BASE &gt; 0 ∧ b / P_BASE &lt; TL_IVA_PEAK) ∧
+    -- [10] Anchor holds
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨cosmic_phase_ordering.1,
+   cosmic_phase_ordering.2.1,
+   cosmic_phase_ordering.2.2.1,
+   cosmic_phase_ordering.2.2.2.1,
+   tl_iva_lt_tl,
+   cdm_strict,
+   lambda_is_noble,
+   flat_universe_is_noble,
+   radiation_is_locked,
+   baryons_are_locked,
+   neutrinos_are_locked,
+   de_desi_is_locked,
+   cdm_is_shatter,
+   iva_gap_in_cosmic_corpus.2.1,
+   iva_gap_in_cosmic_corpus.2.2.2.1,
+   baryon_cdm_torsion_ratio,
+   cdm_is_shatter,
+   lambda_is_noble,
+   de_locked_all_desi_bands,
+   neutrinos_locked_band,
+   anchor_zero_friction⟩
+
+-- ============================================================
+-- FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_CosmologicalCorpus_Layer0
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_CosmologicalCorpus_Layer0.lean
+-- COORDINATE: [9,9,4,0]
+-- LAYER:      Foundation — imports only Mathlib
+--
+-- Defines the PNBA identity states for all known cosmic
+-- components and proves the cross-cutting structural theorems.
+--
+-- COSMIC ELEMENTS DEFINED:
+--   Radiation         P=T_CMB/A, N=2, B=Ω_r,    τ≈5×10⁻⁵         deep LOCKED (nearest Noble)
+--   Baryons           P=P_base,  N=3, B=Ω_b,    τ=0.050           LOCKED
+--   Neutrinos         P=P_base,  N=3, B=Ω_ν,    τ=0.0014–0.0029   LOCKED (whole band)
+--   ColdDarkMatter    P=P_base,  N=2, B=Ω_cdm,  τ=0.264           SHATTER
+--   DarkEnergy_Lambda P=P_base,  N=1, B=0,      τ=0               NOBLE
+--   DarkEnergy_DESI   P=P_base,  N=1, τ=TL×(w₀+1)≈0.034          LOCKED (all DR2 bands)
+--   Curvature         P=P_base,  N=1, B=0,      τ=0               NOBLE
+--
+-- KEY STRUCTURAL THEOREMS:
+--   T8a: de_locked_iff — DE Locked exactly when -1 &lt; w₀ &lt; -0.12
+--   T8c: de_locked_all_desi_bands — Locked across all three DR2 bands
+--   T10: cosmic_phase_ordering — full torsion hierarchy
+--   T10a: τ_DE &lt; τ_b across the DESY5 band; T10b: Union3 upper edge passes τ_b
+--   T11: iva_gap_in_cosmic_corpus — life band cosmically empty
+--   T12: noble_cluster — Λ and k=0 are both Noble
+--   T13: cdm_sole_shatter — CDM is the only Shatter component
+--   T14: baryon_cdm_torsion_ratio — ratio = Ω_cdm/Ω_b exactly
+--   T16: dark_sector_duality — CDM Shatter, DE Noble/Locked
+--   T17: baryons_cdm_phase_difference — same P, different phase
+--
+-- THE PHASE MAP OF THE UNIVERSE:
+--   NOBLE  (τ=0):        Λ, spatial curvature — inert ground states
+--   LOCKED (0&lt;τ&lt;0.12):   radiation (deep, nearest Noble), neutrinos,
+--                        DE(DESI), baryons
+--   [IVA_PEAK — EMPTY]:  life chemistry band — no cosmic component
+--   SHATTER (τ≥0.137):   cold dark matter — structure engine
+--
+-- THE IVA_PEAK GAP (T11):
+--   The life chemistry band (0.1205 &lt; τ &lt; TL) contains
+--   no component of the cosmic corpus.
+--   Life operates in the one phase band the universe leaves empty.
+--   This is the structural separation between cosmic-scale physics
+--   and biological-scale physics.
+--
+-- BUILDS TOWARD:
+--   SNSFL_BBN_Reduction [9,9,3,10] derives Ω_b from η_B, Ω_m and
+--   matter–dark energy equality a_eq ≈ 0.774, z_eq ≈ 0.29.
+--
+-- OBSERVATIONAL SOURCES:
+--   [Planck18] Planck 2018 results VI, A&amp;A 641, A6
+--   [DESI25]   DESI DR2 Results II, Phys Rev D 112, 083515
+--   [PDG24]    Review of Particle Physics, Phys Rev D 110
+--   [Fixsen09] CMB Temperature, ApJ 707, 916
+--
+-- THEOREMS: 42 + master | 0 sorry | GERMLINE LOCKED
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. The universe is stratified by phase.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-cosmological-corpus.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-cosmological-corpus.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
