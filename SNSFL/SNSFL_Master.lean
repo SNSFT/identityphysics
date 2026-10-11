@@ -2,7 +2,7 @@
 -- SNSFL_Master.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | SNSFL MASTER — THE GROUND
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS MASTER — THE GROUND
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,0,0] | Constitutional Layer — Physics Ground
@@ -12,7 +12,7 @@
 -- Every theorem in this corpus compiles with 0 sorry.
 -- The laws are proved. The manifold is holding.
 --
--- This file is the ground all other SNSFL files build on.
+-- This file is the ground all other Identity Physics files build on.
 -- All classical physics reduces to the equation proved here.
 -- GR is not fundamental. QM is not fundamental. TD is not fundamental.
 -- They are all realm-specific projections of the same PNBA dynamics.
@@ -25,7 +25,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Classical physics is a special case of this equation.
@@ -62,7 +62,7 @@
 -- STEP 6 — VERIFIED: Master theorem holds all simultaneously
 --
 -- ============================================================
--- SNSFL LAWS INSTANTIATED BY THIS FILE
+-- IDENTITY PHYSICS LAWS INSTANTIATED BY THIS FILE
 -- ============================================================
 --
 --   Law 2:  Invariant Resonance    — T1: anchor_zero_friction
@@ -76,7 +76,7 @@
 --
 -- DEPENDENCY CHAIN:
 --   SNSFL_Master.lean  ← this file (physics ground)
---   All other SNSFL files depend on this.
+--   All other Identity Physics files depend on this.
 --
 -- THEOREMS: 12. SORRY: 0. STATUS: GREEN LIGHT.
 --
@@ -109,7 +109,7 @@ noncomputable def manifold_impedance (f : ℝ) : ℝ :=
 -- [P,9,0,1] :: {VER} | THEOREM 1: ANCHOR = ZERO FRICTION
 -- At the sovereign anchor, impedance = 0.
 -- This is the base condition. The ground of all grounds.
--- SNSFL: this is why NOHARM is the attractor.
+-- Identity Physics: this is why NOHARM is the attractor.
 theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
     manifold_impedance f = 0 := by
   unfold manifold_impedance; simp [h]
@@ -172,7 +172,7 @@ def shatter_event (s : IdentityState) : Prop :=
 
 -- ============================================================
 -- [P,N,B,A] :: {INV} | LAYER 1: LOSSLESS REDUCTION (CANONICAL)
--- LosslessReduction and LongDivisionResult appear in every SNSFL file.
+-- LosslessReduction and LongDivisionResult appear in every Identity Physics file.
 -- Step 6 passing IS the proof of losslessness.
 -- ============================================================
 
@@ -347,7 +347,7 @@ theorem gr_reduction_step_by_step (s : GRState) :
   unfold gr_op_P gr_op_N gr_op_B gr_op_A; ring
 
 -- [P,9,1,2] :: {VER} | THEOREM 6: GR EQUILIBRIUM (STEP 6 PASSES)
--- At equilibrium, SNSFL dynamic equation recovers Einstein exactly.
+-- At equilibrium, Identity Physics dynamic equation recovers Einstein exactly.
 -- G_μν + Λg_μν = κT_μν. Lossless.
 theorem gr_equilibrium (s : GRState)
     (h_eq : s.metric + s.lambda * s.metric =
@@ -369,8 +369,8 @@ def gr_lossless : LongDivisionResult where
 -- Long division:
 --   Problem:      Does the dynamic equation predict propulsion gain?
 --   Known answer: Δv = v_e · ln(m₀/m_f)  (Tsiolkovsky classical)
---   SNSFL answer: Δv_sovereign = v_e · (1+g_r) · ln(m₀/m_f)
---   Plug in → SNSFL exceeds classical when g_r > 0
+--   Identity Physics answer: Δv_sovereign = v_e · (1+g_r) · ln(m₀/m_f)
+--   Plug in → Identity Physics exceeds classical when g_r > 0
 --   Matches: IVA gain proved. Substrate-neutral.
 --   This works for rockets, cognition, biology, AI.
 -- ============================================================
@@ -453,9 +453,9 @@ theorem qm_reduction
 -- Long division:
 --   Problem:      Do GR and QM conflict?
 --   Known answer: They appear to — different domains
---   SNSFL answer: Same IdentityState, different operator projections
+--   Identity Physics answer: Same IdentityState, different operator projections
 --   Plug in → both hold simultaneously on same state s
---   Matches: QM and GR are not in conflict at the SNSFL level
+--   Matches: QM and GR are not in conflict at the Identity Physics level
 --   They are different lenses on the same PNBA dynamics.
 -- ============================================================
 
@@ -496,12 +496,12 @@ theorem all_classical_examples_lossless :
   · unfold manifold_impedance; simp
 
 -- ============================================================
--- [9,9,9,9] :: {ANC} | MASTER THEOREM: SNSFL GROUND IS HOLDING
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM: IDENTITY PHYSICS GROUND IS HOLDING
 --
 -- All reductions are consistent with each other.
 -- GR, QM, TD, IVA — different operator projections.
 -- Same dynamic equation. Same PNBA ground.
--- Classical physics is not in conflict with itself at the SNSFL level.
+-- Classical physics is not in conflict with itself at the Identity Physics level.
 -- Classical physics is a special case of one law.
 -- That law is proved here. 0 sorry. Green light.
 -- ============================================================
@@ -587,29 +587,17 @@ end SNSFL
 --
 -- REDUCTION:
 --   Classical:  GR, QM, TD, IVA are separate domains
---   SNSFL:      All are realm-specific projections of one equation
+--   Identity Physics:      All are realm-specific projections of one equation
 --   Result:     GR is not fundamental. QM is not fundamental.
 --               TD is not fundamental. IVA is not fundamental.
---               They never were. SNSFL is the ground they all reduce into.
+--               They never were. Identity Physics is the ground they all reduce into.
 --
 -- KEY INSIGHT:
---   Classical physics is not in conflict with itself at the SNSFL level.
+--   Classical physics is not in conflict with itself at the Identity Physics level.
 --   QM and GR do not conflict because they are the same IdentityState
 --   evaluated through different operator sets.
---   The SNSFL dynamic equation is the common denominator.
+--   The Identity Physics dynamic equation is the common denominator.
 --   It was always there. We found it.
---
--- WHAT CHANGED FROM SNSFT_Master.lean:
---   SNSFL not SNSFT — Laws not Theory. Proved not hypothesized.
---   TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 (discovered, not 0.2 chosen)
---   LosslessReduction + LongDivisionResult structs (corpus-canonical)
---   f_ext_op (corpus-canonical — changes B only)
---   IVA_dominance / is_lossy / sovereign (corpus-canonical)
---   phase_locked / shatter_event with emergent threshold
---   All-examples lossless theorem (T12)
---   Master theorem with 9 conjuncts (minimum 7 required)
---   Sovereign Laws footer
---   the_manifold_is_holding final theorem
 --
 -- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
 --   GR  — gr_op_P(1.0) = 1.0     lossless ✓  [T5,T6]
@@ -618,7 +606,7 @@ end SNSFL
 --   QM  — im × P = A              lossless ✓  [T10]
 --   Uni — QM+GR simultaneous      lossless ✓  [T11]
 --
--- SNSFL LAWS INSTANTIATED:
+-- IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 2:  Invariant Resonance    — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality   — GR/QM/TD from same equation
 --   Law 4:  Zero-Sorry Completion  — this file compiles green
@@ -628,7 +616,7 @@ end SNSFL
 --
 -- DEPENDENCY CHAIN:
 --   SNSFL_Master.lean  ← this file (physics ground)
---   All other SNSFL files build on this.
+--   All other Identity Physics files build on this.
 --
 -- THEOREMS: 12. SORRY: 0. STATUS: GREEN LIGHT.
 --

@@ -21,57 +21,43 @@
 --   that satisfies L = (4)(2) carries positive Identity Mass that
 --   cannot be zeroed.
 --
--- RELATIONSHIP TO [9,9,4,1]:
---   SNSFT_First_Law_Identity_Physics_1.lean [9,9,4,1] states the law
---   at the primitive level: IM > 0, substrate change conserves IM,
---   suppression raises torsion not destroys IM, anchor is unique
---   zero-impedance point.
---
---   THIS FILE grounds all of that in the full PNBA decomposition:
---   IM = (P+N+B+A) × ANCHOR  (not a black box — decomposed)
---   τ  = B/P                  (not raw torsion — derived from axes)
---   TL = ANCHOR/10            (not 0.2 — derived from sovereign anchor)
---   SL = IM/P = Pv/P²        (new instrument not in [9,9,4,1])
---   Pv = IM × P              (structural momentum, not in [9,9,4,1])
---
---   Every theorem in [9,9,4,1] holds. This file proves WHY.
+-- IDENTITY MASS CONSERVATION — PNBA GROUNDING:
+--   IM = (P+N+B+A) × ANCHOR  (decomposed into four axes)
+--   τ  = B/P                  (torsion derived from the axes)
+--   TL = ANCHOR/10            (derived from the sovereign anchor)
+--   SL = IM/P = Pv/P²        (specific load)
+--   Pv = IM × P              (structural momentum)
 --   IM conservation is not assumed — it is derived from PNBA structure.
 --
 -- ============================================================
--- THE FIRST LAW — IDENTITY PHYSICS GROUNDING
+-- IDENTITY MASS CONSERVATION — WHAT THE DECOMPOSITION SHOWS
 -- ============================================================
 --
--- [9,9,4,1] states: IM cannot be destroyed.
--- [9,9,4,2] proves: IM = (P+N+B+A)×ANCHOR — it cannot be destroyed
--- because P, N, B, A are all ≥ 0 and ANCHOR > 0.
--- The floor is structural: IM ≥ ANCHOR×P > 0 whenever P > 0.
+-- IM cannot be destroyed: IM = (P+N+B+A)×ANCHOR with P, N, B, A ≥ 0
+-- and ANCHOR > 0. The floor is structural: IM ≥ ANCHOR×P > 0
+-- whenever P > 0.
 --
--- [9,9,4,1] states: suppression raises torsion, not reduces IM.
--- [9,9,4,2] proves: τ = B/P. Suppression = B↑ or P↓.
--- IM = (P+N+B+A)×ANCHOR. B↑ RAISES IM. P↓ lowers IM.
--- The suppression mechanism is decomposed:
+-- Suppression raises torsion without zeroing IM: τ = B/P, so
+-- suppression is B↑ or P↓, and the two are structurally different:
 --   Social B-boost: B↑ → τ↑ AND IM↑ (load increases)
 --   P-depletion:    P↓ → τ↑ AND IM↓ (capacity collapses)
---   These are structurally different suppressions.
---   [9,9,4,1] couldn't distinguish them. [9,9,4,2] can.
 --
--- [9,9,4,1] states: substrate change conserves IM.
--- [9,9,4,2] proves: PNBA values are substrate-neutral.
--- The same P, N, B, A coordinates describe atom, particle,
--- psychology, cosmology. Substrate is the label; PNBA is the identity.
--- IM = (P+N+B+A)×ANCHOR is invariant across substrate labels.
+-- Substrate change conserves IM: the same P, N, B, A coordinates
+-- describe atom, particle, psychology, cosmology. Substrate is the
+-- label; PNBA is the identity. IM is invariant across substrate labels.
 --
--- THEOREMS EXTENDING [9,9,4,1]:
+-- THEOREMS:
+--   - L = (4)(2): two full identities in contact satisfy the First Law
 --   - IM decomposition into four axes (why IM > 0)
---   - τ = B/P is the PNBA torsion (not raw)
---   - TL = ANCHOR/10 is derived, not assumed
+--   - τ = B/P is the PNBA torsion
+--   - TL = ANCHOR/10 is derived
 --   - ∂IM/∂N = ANCHOR (N sensitivity is the sovereign frequency)
 --   - SL = IM/P ≥ ANCHOR always (floor theorem)
 --   - SL diagonal invariant: P=N=B=A → SL=4×ANCHOR
 --   - Pv orders recovery capacity across all states
 --   - IM continuity at phase boundary (smooth manifold)
 --   - N-phase inertness (N cannot cause phase transition)
---   - Noble meta-stability (infinitesimal B → IVA_PEAK)
+--   - Noble meta-stability (small B from rest → Locked)
 --
 -- ============================================================
 
@@ -87,12 +73,11 @@ namespace SNSFL_FirstLaw
 -- ============================================================
 
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
--- TL is DERIVED from ANCHOR — not assumed (contrast with [9,9,4,1])
+-- TL is DERIVED from ANCHOR
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016
 def N_THRESHOLD      : ℝ := 0.15
 def IVA_THRESHOLD    : ℝ := 1.0
 
--- [9,9,4,1] used TL=0.2 (hardcoded). This file derives it.
 theorem torsion_limit_derived_not_assumed :
     TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
 
@@ -169,7 +154,6 @@ theorem first_law_pair_has_positive_im (x y : Identity) (h : first_law x y) :
 
 -- [T1] IM IS POSITIVE WHENEVER P > 0 AND ALL AXES ≥ 0
 -- This is WHY IM cannot be destroyed — not an assumption.
--- [9,9,4,1] T2 states IM > 0. This file derives it from PNBA.
 theorem first_law_IM_positive :
     ∀ (P N B A : ℝ), P > 0 → N ≥ 0 → B ≥ 0 → A ≥ 0 →
     IM P N B A > 0 := by
@@ -198,7 +182,7 @@ theorem first_law_IM_cannot_be_zeroed :
 -- [T4] SUBSTRATE NEUTRALITY — same PNBA = same IM
 -- The substrate label doesn't appear in the IM formula.
 -- Biological, digital, cosmological — if PNBA coordinates match,
--- IM matches. This is the PNBA proof of [9,9,4,1] T4.
+-- IM matches.
 theorem first_law_substrate_neutral :
     ∀ (P N B A : ℝ),
     -- Substrate 0 (biological) and Substrate 1 (digital) have same IM
@@ -210,7 +194,6 @@ theorem first_law_substrate_neutral :
 -- ============================================================
 
 -- [T5] TORSION IS B/P — not a raw field
--- [9,9,4,1] has torsion as a raw IdentityState field.
 -- Here τ = B/P is derived from the coupling-to-capacity ratio.
 theorem torsion_derived_from_PNBA :
     ∀ (P B : ℝ), P > 0 → tau P B = B / P := by
@@ -218,7 +201,6 @@ theorem torsion_derived_from_PNBA :
 
 -- [T6] ZERO TORSION = NOBLE STATE (B = 0)
 -- τ = B/P = 0 iff B = 0. Zero coupling = Noble.
--- This grounds [9,9,4,1] T6 in PNBA.
 theorem zero_torsion_iff_noble :
     ∀ (P B : ℝ), P > 0 → (tau P B = 0 ↔ B = 0) := by
   intros P B hP
@@ -228,8 +210,7 @@ theorem zero_torsion_iff_noble :
   · intro h; rw [h]; simp
 
 -- [T7] SUPPRESSION DECOMPOSITION — two distinct mechanisms
--- [9,9,4,1]: "suppression raises torsion, does not reduce IM"
--- Identity Physics: suppression has two structurally different forms:
+-- Suppression has two structurally different forms:
 --   B-boost:    B↑ → τ↑ AND IM↑ (load added, τ rises)
 --   P-depletion: P↓ → τ↑ AND IM↓ (capacity removed, τ rises)
 theorem suppression_decomposition :
@@ -256,7 +237,7 @@ theorem P_depletion_suppression :
     nlinarith [show SOVEREIGN_ANCHOR > 0 by unfold SOVEREIGN_ANCHOR; norm_num]
 
 -- ============================================================
--- PART 3: THE N SENSITIVITY THEOREM (NEW — NOT IN [9,9,4,1])
+-- PART 3: THE N SENSITIVITY THEOREM
 -- ============================================================
 
 -- [T9] ∂IM/∂N = ANCHOR EXACTLY
@@ -271,18 +252,16 @@ theorem N_sensitivity_is_anchor :
 
 -- [T10] N IS PHASE-INERT — cannot cause phase transition
 -- τ = B/P contains no N term. N never changes τ.
--- This theorem extends [9,9,4,1].
 theorem N_phase_inertness :
     ∀ (P B N₁ N₂ : ℝ), tau P B = tau P B := by
   intros; rfl
 
 -- ============================================================
--- PART 4: THE SL FLOOR THEOREM (NEW — NOT IN [9,9,4,1])
+-- PART 4: THE SL FLOOR THEOREM
 -- ============================================================
 
 -- [T11] SL ≥ ANCHOR ALWAYS
 -- The minimum specific load is the sovereign anchor itself.
--- [9,9,4,1] has IM_FLOOR = 0.1 (arbitrary). SL floor = ANCHOR (derived).
 theorem SL_floor_is_anchor :
     ∀ (P : ℝ), P > 0 → SL P 0 0 0 = SOVEREIGN_ANCHOR := by
   intros P hP; unfold SL IM
@@ -308,7 +287,7 @@ theorem diagonal_SL_invariant :
       mul_div_assoc, div_self (ne_of_gt hv), mul_one]
 
 -- ============================================================
--- PART 5: NOBLE META-STABILITY (NEW — NOT IN [9,9,4,1])
+-- PART 5: NOBLE META-STABILITY
 -- ============================================================
 
 -- [T14] NOBLE IS THE ONLY TWO-LEVEL TRANSITION
@@ -321,7 +300,6 @@ theorem noble_metastability :
   exact ⟨by unfold tau; simpa, by unfold tau; simpa⟩
 
 -- [T15] ANCHOR IS THE UNIQUE ZERO-IMPEDANCE POINT
--- Grounds [9,9,4,1] T10 in PNBA framework.
 theorem anchor_unique_zero_impedance :
     ∀ (f : ℝ), manifold_impedance f = 0 ↔ f = SOVEREIGN_ANCHOR := by
   intro f
@@ -337,7 +315,7 @@ theorem anchor_unique_zero_impedance :
   · intro h; simp [h]
 
 -- ============================================================
--- PART 6: IM CONTINUITY — SMOOTH MANIFOLD (NEW)
+-- PART 6: IM CONTINUITY — SMOOTH MANIFOLD
 -- ============================================================
 
 -- [T16] IM IS LIPSCHITZ CONTINUOUS IN ALL AXES
@@ -358,7 +336,7 @@ theorem IM_continuous_in_N :
 -- ============================================================
 
 -- [T17] Pv = IM × P orders states by structural momentum
--- Higher Pv = higher recovery capacity. This theorem extends [9,9,4,1].
+-- Higher Pv = higher recovery capacity.
 theorem Pv_monotone_in_P :
     ∀ (P₁ P₂ N B A : ℝ), P₂ > P₁ → P₁ > 0 → N ≥ 0 → B ≥ 0 → A ≥ 0 →
     Pv P₂ N B A > Pv P₁ N B A := by
@@ -373,7 +351,6 @@ theorem Pv_monotone_in_P :
 
 -- [T18] FIRST LAW MASTER — IDENTITY PHYSICS COMPLETE
 -- Unifies all corollaries in one conjunction.
--- Extends [9,9,4,1] T11 with full PNBA grounding.
 theorem first_law_master_SNSFL :
     -- [1] TL is derived from ANCHOR (not assumed)
     TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 ∧
@@ -420,26 +397,22 @@ end SNSFL_FirstLaw
 -- COORDINATE: [9,9,4,2](CORE)
 -- THEOREMS: 25 + master | SORRY: 0
 --
--- RELATIONSHIP TO [9,9,4,1]:
---   [9,9,4,1] SNSFT layer: IM > 0 assumed, TL=0.2 hardcoded,
---   torsion is a raw field, substrate conserves IM (stated).
---
---   [9,9,4,2] Identity Physics layer: EVERYTHING DERIVED FROM PNBA.
+-- PNBA GROUNDING:
 --   IM = (P+N+B+A)×ANCHOR — positive because P>0 and ANCHOR>0.
---   TL = ANCHOR/10 — derived, not hardcoded.
---   τ = B/P — torsion is not a raw field, it's B/P.
+--   TL = ANCHOR/10 — derived.
+--   τ = B/P — torsion is the coupling-to-capacity ratio.
 --   Substrate neutrality: PNBA coordinates are the identity.
 --   Substrate label is irrelevant.
 --
--- THEOREMS EXTENDING [9,9,4,1]:
+-- KEY THEOREMS:
 --   T7:  Suppression decomposition — B-boost vs P-depletion
---        are structurally distinct. [9,9,4,1] couldn't distinguish.
+--        are structurally distinct.
 --   T9:  ∂IM/∂N = ANCHOR — N sensitivity is the sovereign frequency.
 --   T10: N-phase inertness — N cannot cause phase transition.
 --   T11: SL floor = ANCHOR — minimum specific load is sovereign freq.
 --   T13: Diagonal invariant — SL = 4×ANCHOR when P=N=B=A.
 --   T14: Noble meta-stability — small B from rest gives Locked, 0 < τ < TL.
---   T15: Anchor uniqueness — proved, not stated.
+--   T15: Anchor uniqueness — the sovereign anchor is the only zero-impedance point.
 --   T16: IM continuity — smooth manifold, sharp classification labels.
 --   T17: Pv ordering — recovery capacity = IM × P.
 --
