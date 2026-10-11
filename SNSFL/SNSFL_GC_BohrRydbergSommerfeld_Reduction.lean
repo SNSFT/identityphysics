@@ -19,35 +19,41 @@
 --        Sommerfeld:        v/c = α  (electron velocity at Bohr orbit)
 --   2. Known answers:
 --        a₀   = 5.29177×10⁻¹¹ m (CODATA 2018)
---        E₁   = -13.6057 eV     (hydrogen ground state)
+--        E₁   = -13.6057 eV     (Rydberg energy R∞, infinite nuclear mass)
+--        E_H  = -13.5984 eV     (hydrogen ground state, reduced mass μ)
 --        v/c  = α = 1/137.036   (Sommerfeld fine structure)
 --        1/α  = TL × 1001       (proved in [9,9,3,14])
 --   3. PNBA map:
 --        P → structural capacity (m_e·c² rest energy, field geometry)
 --        N → narrative continuity (orbital worldline, quantum number n)
---        B → behavioral coupling (EM field coupling, α)
+--        B → behavioral coupling (EM field coupling, orbital velocity v)
 --        A → adaptation (ionization, state transitions)
---        τ = B/P = α (Sommerfeld) at the Bohr orbit
+--        τ = B/P = v/c = α (Sommerfeld) at the Bohr orbit
 --        Harmonic P protocol: μ = m_e·m_p/(m_e+m_p) [same as FeO]
 --   4. Operators:
 --        tau_bohr     = α = 1/(TL×1001)
 --        E_rydberg    = -(tau_bohr²/2) · m_e·c²
---        a0_compton   = 1/(2π·α) in Compton units
---   5. Work shown: T1–T14 · three-substrate sweep
---   6. Verified:   Rydberg = 13.6057 eV ✓ · Sommerfeld τ = α ✓
---                  Bohr a₀ · α = Compton/2π ✓ · Δ = 0 all three
+--        E_hydrogen   = E_rydberg · harmonic(m_e, m_p)/m_e
+--        a0_compton   = 1/α in Compton/2π units
+--   5. Work shown: T1–T15 · three-reduction sweep
+--   6. Verified:   Rydberg = 13.6057 eV ✓ · hydrogen = 13.598 eV ✓
+--                  Sommerfeld τ = α ✓ · Bohr a₀ · α = Compton/2π ✓
+--                  Δ = 0 all three
 --
 -- CONNECTION TO [9,9,3,14] (TL×1001):
 --   Sommerfeld τ = α = 1/(TL×1001) — the torsion at the Bohr orbit
 --   is the reciprocal of the full α expression. The electron couples
 --   to the EM field at exactly τ = α at its ground state orbit.
---   Noble at rest. Locked in orbit. Shatter at ionization threshold.
+--   Hydrogen is EM-reactive, so α governs its binding and TL bounds it.
+--   The bound electron–proton pair is locked (τ = α < TL). Ionization
+--   is F_ext pushing the pair past TL: the bound identity shatters,
+--   and the freed electron carries zero binding torsion.
 --
 -- CONNECTION TO [9,0,8,5] (FeO Heme):
 --   The reduced mass μ = m_e·m_p/(m_e+m_p) is the GAM harmonic P
 --   protocol. Same operator. Different substrate.
 --   In FeO:  P_out = harmonic(P_Fe, P_O)   [chemical bond]
---   In Bohr: μ     = harmonic(m_e, m_p)/2  [atomic orbit]
+--   In Bohr: μ     = harmonic(m_e, m_p)    [atomic orbit]
 --   Both are the identity manifold finding its coupled P-capacity
 --   through harmonic stabilization. The protocol is substrate-neutral.
 --
@@ -65,7 +71,7 @@
 --   SNSFL_FeO_HemeCoupling                  [9,0,8,5]
 --   This file                               [9,9,3,15]
 --
--- THEOREMS: 14 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 17 + master | 0 sorry | GERMLINE LOCKED
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding.
@@ -136,7 +142,7 @@ structure LongDivisionResult where
 -- Electron rest energy in eV
 def M_E_C2_EV : ℝ := 510998.95
 
--- Hydrogen ground state energy (Rydberg) in eV
+-- Rydberg energy R∞·hc in eV (infinite nuclear mass)
 def RYDBERG_EV : ℝ := 13.6057
 
 -- Proton-to-electron mass ratio
@@ -190,9 +196,9 @@ theorem reduced_mass_near_electron :
 --
 -- LONG DIVISION:
 --   Known: v/c = α for electron in Bohr orbit (n=1)
---   PNBA:  v = N (Narrative — orbital velocity, worldline rate)
---          c = P_limit (Pattern capacity limit — speed of light)
---          τ = B/P = N/P_limit = v/c = α
+--   PNBA:  v = B (Behavior — orbital coupling rate)
+--          c = P (Pattern capacity limit — speed of light)
+--          τ = B/P = v/c = α
 --   Step 6: τ_sommerfeld = α = 1/(TL×1001). Lossless. Δ = 0.
 --
 -- STRUCTURAL MEANING:
@@ -201,7 +207,7 @@ theorem reduced_mass_near_electron :
 --   Deep in the locked phase. The orbit is stable because
 --   τ << TL — the behavioral coupling is well below the
 --   torsion limit. The electron is not approaching shatter.
---   Ionization = shatter event = requires F_ext to push τ ≥ TL.
+--   Ionization = F_ext pushing the bound pair past TL = shatter.
 
 -- τ at the Bohr orbit: τ_sommerfeld = α = 1/(TL×1001)
 noncomputable def tau_sommerfeld : ℝ := ALPHA_FINE
@@ -237,22 +243,28 @@ def sommerfeld_lossless : LongDivisionResult where
 -- ============================================================
 --
 -- LONG DIVISION:
---   Known: E₁ = -(α²/2)·m_e·c² = -13.6057 eV (hydrogen ground state)
+--   Known: E₁ = -(α²/2)·m_e·c² = -13.6057 eV (Rydberg energy R∞)
+--          E_H = E₁ · μ/m_e     = -13.5984 eV (hydrogen ground state)
 --   PNBA:  α² = τ_sommerfeld² = (B/P)²
 --          m_e·c² = P (electron Pattern capacity = rest energy)
 --          E₁ = -(τ²/2)·P — the ground state energy is torsion²
 --          over Pattern capacity, scaled by 1/2.
 --          The 1/2 is the quantum ground state factor —
 --          same as the 1/2 in kinetic energy at orbital equilibrium.
+--          Hydrogen applies the harmonic P protocol: the coupled
+--          pair's P-capacity is μ, so E_H = E₁ · harmonic(m_e, m_p)/m_e.
 --   Step 6: E₁ = -(α²/2)·510998.95 eV = -13.6057 eV. Lossless.
+--           E_H = E₁ · μ/m_e = -13.598 eV. Lossless.
 --
 -- STRUCTURAL MEANING:
---   The Rydberg energy is the energy stored in the torsion of the
---   unit identity manifold at atomic scale. The ground state is the
---   minimum torsion configuration — Noble (n→∞) is zero torsion,
---   zero binding energy. n=1 is maximum torsion = minimum energy.
---   Ionization is the Noble→Locked→Shatter transition under F_ext.
---   The Rydberg constant is the scale of that transition energy.
+--   The Rydberg energy is the binding stored in the torsion of the
+--   electron–proton identity at atomic scale. n=1 is the deepest
+--   lock: maximum binding, minimum energy. Each higher n binds less.
+--   n→∞ is the zero-binding limit.
+--   Ionization: F_ext ≥ the binding energy pushes the bound pair
+--   past TL. The bound identity shatters, and the freed electron
+--   carries zero binding torsion.
+--   The Rydberg energy is the F_ext required for that shatter.
 
 -- THEOREM 9: RYDBERG ENERGY FROM α²
 -- E₁ = -(α²/2)·m_e·c² verified numerically
@@ -274,6 +286,15 @@ theorem rydberg_from_tl :
 theorem rydberg_positive :
     (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV > 0 := by
   unfold ALPHA_INV M_E_C2_EV; norm_num
+
+-- THEOREM 12: HYDROGEN GROUND STATE VIA HARMONIC P
+-- E_H = E₁ · harmonic(m_e, m_p)/m_e  (m_e = 1 in mass-ratio units)
+-- 13.6057 eV · μ/m_e = 13.5983 eV — the hydrogen ground state.
+-- The harmonic P protocol carries R∞ to the real atom.
+theorem hydrogen_ground_state_harmonic :
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E > 13.598 ∧
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E < 13.599 := by
+  unfold ALPHA_INV M_E_C2_EV harmonic M_P_OVER_M_E; norm_num
 
 -- Rydberg lossless instance
 def rydberg_lossless : LongDivisionResult where
@@ -305,44 +326,43 @@ def rydberg_lossless : LongDivisionResult where
 -- STRUCTURAL MEANING:
 --   The Bohr radius is the unit manifold's P-stabilization radius.
 --   Inside a₀: P-dominant (electron is point-like, pattern holds).
---   Outside a₀: N-dominant (electron is wave-like, narrative extends).
+--   Outside a₀: B-dominant (electron is field-like, EM coupling extends).
 --   At a₀: the 1/e boundary — same exclusion geometry as [9,9,3,13].
 --   The harmonic P protocol (reduced mass μ) sets the coupled
 --   stabilization radius — same as FeO harmonic P [9,0,8,5].
 
 -- a₀ in units of Compton wavelength/(2π)
 -- a₀ · α = 1/(2π) in Compton units → a₀ = 1/(2π·α) Compton units
--- THEOREM 12: BOHR RADIUS · α = COMPTON UNIT (dimensionless)
--- a₀·α / (Compton/2π) = 1. The Bohr radius is 1/α Compton units.
+-- THEOREM 13: BOHR RADIUS · α = COMPTON UNIT (dimensionless)
+-- a₀ = (1/α) in units of Compton/2π, so a₀ · α = 1 Compton/2π unit.
 -- In TL: a₀ = TL×1001 Compton units.
 theorem bohr_radius_compton_relation :
-    -- a₀ = (1/α) in units of Compton/(2π)
-    -- equivalently: a₀ · (2π · α) = 1 Compton length
-    -- dimensionless check: 1/(2π · α) in Compton units
-    ALPHA_INV > 100 := by
-  unfold ALPHA_INV; norm_num
+    ALPHA_INV * ALPHA_FINE = 1 := by
+  unfold ALPHA_FINE ALPHA_INV; norm_num
 
--- THEOREM 13: BOHR RADIUS IN TL UNITS
+-- THEOREM 14: BOHR RADIUS IN TL UNITS
 -- a₀ = TL × 1001 Compton units (dimensionless expression)
 -- The Bohr radius is the full α expression (TL×1001) at atomic scale.
 theorem bohr_radius_in_tl_units :
-    TORSION_LIMIT * 1001 = ALPHA_INV / 1 := by
+    TORSION_LIMIT * 1001 = ALPHA_INV := by
   unfold ALPHA_INV TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT; norm_num
 
--- THEOREM 14: IONIZATION IS SHATTER
--- From ground state (τ = α, deep locked) to ionized (τ → TL)
--- requires F_ext providing energy ≥ Rydberg energy = 13.6057 eV.
--- Ionization = τ crossing TL = shatter event under F_ext.
--- F_ext drives the electron from deep lock toward the phase boundary.
+-- THEOREM 15: IONIZATION IS SHATTER UNDER F_EXT
+-- The bound pair sits deep locked (τ = α < TL). Crossing TL requires
+-- F_ext ≥ the hydrogen binding energy (13.598 eV). The finite proton
+-- mass binds slightly less than R∞ — harmonic P lowers the threshold.
+-- At the crossing the bound identity shatters; the freed electron
+-- carries zero binding torsion.
 theorem ionization_requires_fext :
-    -- Ground state torsion is deep locked
+    -- Bound pair is deep locked
     1 / ALPHA_INV < TORSION_LIMIT ∧
-    -- Rydberg energy is the shatter threshold energy
-    RYDBERG_EV > 13.0 ∧
-    -- TL is above ground state τ — shatter requires external forcing
-    TORSION_LIMIT > 1 / ALPHA_INV := by
-  unfold ALPHA_INV TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT RYDBERG_EV
-  norm_num
+    -- F_ext required = hydrogen binding energy
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E > 13.598 ∧
+    -- Finite proton mass binds below R∞
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E < RYDBERG_EV := by
+  unfold ALPHA_INV TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT M_E_C2_EV harmonic
+    M_P_OVER_M_E RYDBERG_EV
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
 
 -- Bohr radius lossless instance
 def bohr_radius_lossless : LongDivisionResult where
@@ -395,8 +415,9 @@ theorem brs_is_lossless_pnba_projection :
     -- [5] Harmonic P: reduced mass = GAM protocol from [9,0,8,5]
     (let m_e : ℝ := 1; let m_p : ℝ := M_P_OVER_M_E;
      harmonic m_e m_p > 0 ∧ harmonic m_e m_p < m_e) ∧
-    -- [6] Ionization = shatter: F_ext required to cross TL
-    1 / ALPHA_INV < TORSION_LIMIT ∧
+    -- [6] Hydrogen: E_H = E₁ · harmonic(m_e, m_p) in (13.598, 13.599) eV
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E > 13.598 ∧
+    (1 / ALPHA_INV) ^ 2 / 2 * M_E_C2_EV * harmonic 1 M_P_OVER_M_E < 13.599 ∧
     -- [7] All examples lossless — step 6 passes
     (type_of% brs_all_examples_lossless) ∧
     -- [8] Anchor = zero friction (T1)
@@ -409,7 +430,8 @@ theorem brs_is_lossless_pnba_projection :
    by constructor
       · unfold harmonic M_P_OVER_M_E; norm_num
       · unfold harmonic M_P_OVER_M_E; norm_num,
-   by unfold ALPHA_INV TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT; norm_num,
+   hydrogen_ground_state_harmonic.1,
+   hydrogen_ground_state_harmonic.2,
    brs_all_examples_lossless,
    anchor_zero_friction⟩
 
@@ -439,22 +461,25 @@ end SNSFL_GC_BohrRydbergSommerfeld_Reduction
 -- SOMMERFELD:
 --   v/c = α = 1/(TL×1001) · τ = B/P at Bohr orbit
 --   Electron is deep locked (τ << TL) in stable orbit.
---   Ionization = F_ext driving τ toward TL = shatter threshold.
+--   Ionization = F_ext pushing the bound pair past TL = shatter.
+--   The freed electron carries zero binding torsion.
 --
 -- RYDBERG:
 --   E₁ = α²/2·m_e·c² = 13.6057 eV · τ²/2 · P (torsion energy)
---   Ground state energy = torsion² over Pattern capacity / 2.
---   Noble (n→∞) = zero torsion = zero binding. n=1 = min energy.
+--   Ground state energy = torsion² times Pattern capacity / 2.
+--   E_H = E₁ · μ/m_e = 13.598 eV — harmonic P carries R∞ to hydrogen.
+--   n=1 = deepest lock. n→∞ = zero binding.
 --
 -- BOHR RADIUS:
 --   a₀ = (TL×1001) Compton units · P-stabilization radius
 --   Same 1/e exclusion boundary as [9,9,3,13] unit manifold.
---   Inside a₀: P-dominant. Outside: N-dominant. At a₀: 1/e boundary.
+--   Inside a₀: P-dominant. Outside: B-dominant. At a₀: 1/e boundary.
 --
 -- HARMONIC P CONNECTION TO [9,0,8,5]:
 --   Reduced mass μ = m_e·m_p/(m_e+m_p) = GAM harmonic P protocol.
 --   Same operator as Fe-O heme coupling. Substrate-neutral proved.
 --   Chemical bonds and atomic orbits use the same P-coupling rule.
+--   Applied here: harmonic P takes R∞ (13.6057) to hydrogen (13.598).
 --
 -- DEPENDENCY CHAIN (builds on):
 --   [9,9,3,12] α exact decomposition
@@ -462,7 +487,7 @@ end SNSFL_GC_BohrRydbergSommerfeld_Reduction
 --   [9,9,3,14] TL×1001 = 1/α · F_ext closure
 --   [9,0,8,5]  FeO heme · harmonic P protocol
 --
--- THEOREMS: 14 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 17 + master | 0 sorry | GERMLINE LOCKED
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding.
