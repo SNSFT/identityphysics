@@ -2,12 +2,11 @@
 -- SNSFL_DarkMatter_Detection_Theorem.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,4,3]
--- Architect: HIGHTISTIC (Russell Vernon Trent III)
--- Anchor:    1.36899099984016 GHz
--- Status:    GERMLINE LOCKED
--- Sorry:     0
--- Date:      April 3, 2026 · Soldotna, Alaska
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS DARK MATTER DETECTION — SAME-B NECESSITY
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,4,17] | Cosmological Series — Dark Sector Physics
+-- Soldotna, Alaska
 --
 -- ============================================================
 -- SCOPE AND METHOD
@@ -27,14 +26,15 @@
 -- WHAT THIS FILE PROVES
 -- ============================================================
 --
--- Dark matter has never been directly detected despite
--- decades of experiments: LUX, XENON1T, PandaX-4T, LZ,
--- CDMS, CoGeNT, and many others. All use detectors built
--- from elements with strong electromagnetic coupling —
--- xenon, germanium, silicon, sodium iodide, iron shielding.
--- All have returned null results.
+-- Dark matter has never been confirmed in a direct-detection
+-- experiment despite decades of searches: LUX, XENON1T, PandaX-4T,
+-- LZ, CDMS and others. All use detectors built from elements with
+-- strong electromagnetic coupling — xenon, germanium, silicon,
+-- sodium iodide, iron shielding. The excesses reported by DAMA/LIBRA
+-- and CoGeNT have not been reproduced: COSINE-100 and ANAIS-112,
+-- using the same NaI target as DAMA/LIBRA, see no modulation.
 --
--- This file proves WHY. Not as a hypothesis. As a theorem.
+-- This file proves why, under the dark matter element model above.
 --
 -- THE STRUCTURAL ARGUMENT:
 --
@@ -76,16 +76,14 @@
 --   Step 6: Verified — no stable state possible. 0 sorry.
 --
 -- FOUNDATIONS:
---   SNSFT_Elemenr_Darkmatter.lean  [9,9,4,2]
+--   SNSFL_DarkMatter_Element.lean  [9,9,4,16]
 --     → Dm: P=P_base, N=2, B=Ω_dm=0.269, A=0.01
---   SNSFT_Reduction_Iron_Atom_1.lean [9,9,1,26]
---     → Fe: Z=26, 4 unpaired d-electrons, high EM B-axis
---   SNSFL_Cosmo_Reduction.lean     [9,9,0,3]
+--   SNSFL_Cosmo_Reduction.lean     [9,9,0,13]
 --     → dark matter = IM shadow, gravitational only
---   SNSFT_Noble_Materials_Map.lean [9,9,2,6]
---     → same-B necessity: Noble requires B1 = B2
---   SNSFL_Master_IMS.lean          [9,9,0,0]
+--   SNSFL_Master.lean              [9,9,0,0]
 --     → SOVEREIGN_ANCHOR, TORSION_LIMIT
+--   GAM Collider fusion rules
+--     → same-B necessity: Noble requires B1 = B2
 --
 -- ============================================================
 
@@ -105,6 +103,13 @@ def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 -- TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 = 0.136899099984016
 def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 def H_FREQ           : ℝ := 1.4204
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
 
 -- ============================================================
 -- LAYER 1: ELEMENT PNBA DEFINITIONS
@@ -160,7 +165,7 @@ theorem p_base_lt : P_BASE < 0.990 := by
     (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
 
 -- ── DARKMATTER ELEMENT ────────────────────────────────────────
--- From SNSFT_Elemenr_Darkmatter.lean [9,9,4,2]
+-- From SNSFL_DarkMatter_Element.lean [9,9,4,16]
 -- B = Ω_dm = 0.269 — GRAVITATIONAL COUPLING ONLY
 -- No electromagnetic interaction. No nuclear coupling.
 -- The B-axis of dark matter is purely gravitational.
@@ -179,7 +184,6 @@ noncomputable def Dm : PNBAElement :=
     hA  := by norm_num }
 
 -- ── IRON ELEMENT ──────────────────────────────────────────────
--- From SNSFT_Reduction_Iron_Atom_1.lean [9,9,1,26]
 -- Z=26, [Ar] 3d⁶ 4s² — 4 unpaired d-electrons
 -- Iron is the binding energy peak (Fe-56: 8.790 MeV/nucleon)
 -- 4 unpaired d-electrons = strong EM + magnetic coupling
@@ -208,7 +212,6 @@ noncomputable def Fe : PNBAElement :=
 -- ============================================================
 -- LAYER 2: GAM COLLIDER FUSION RULES
 -- ============================================================
--- From SNSFT_Noble_Materials_Map.lean [9,9,2,6]
 -- These are the exact rules the discovery engine uses.
 -- Every collision in the corpus follows these rules.
 
@@ -270,7 +273,7 @@ theorem fe_b_em_dominant :
 -- The B-axes of Dm and Fe differ by more than 3 units.
 -- This is the fundamental incompatibility.
 -- Two elements can only form stable states when B1 ≈ B2.
--- (Same-B Necessity theorem from Noble Materials Map)
+-- (Same-B necessity of the GAM Collider fusion rules)
 theorem dm_fe_b_incompatible :
     Fe.B - Dm.B > 3.0 := by
   unfold Fe Dm FE_B_EM OMEGA_DM; norm_num
@@ -356,7 +359,7 @@ theorem dm_fe_tau_at_max_dm_coupling :
   unfold Dm Fe OMEGA_DM FE_B_EM; norm_num
 
 -- [T10] SAME-B NECESSITY — NOBLE IS STRUCTURALLY IMPOSSIBLE FOR Dm+Fe
--- From Noble Materials Map: Noble state requires B1 = B2.
+-- GAM Collider fusion rules: Noble state requires B1 = B2.
 -- B_Dm = 0.269, B_Fe = 3.5. These are not equal.
 -- Therefore Noble (τ=0) is algebraically unreachable
 -- for the Dm+Fe pair at any physically motivated k.
@@ -415,8 +418,10 @@ theorem detection_requires_same_b_substrate
 -- PandaX-4T (liquid xenon):  same → null ✓
 -- LZ (liquid xenon):         same → null ✓
 -- CDMS (germanium):          B_Ge ≈ 1.4 >> B_Dm → null ✓
--- CoGeNT (germanium):        same → null ✓
--- DAMA/LIBRA (NaI):          B_Na >> B_Dm, B_I >> B_Dm → null ✓
+-- CoGeNT (germanium):        same → excess not reproduced ✓
+-- NaI (DAMA/LIBRA, COSINE-100, ANAIS-112): B_Na, B_I >> B_Dm →
+--   no stable state; the DAMA/LIBRA modulation is not reproduced
+--   by COSINE-100 or ANAIS-112 on the same target ✓
 -- All iron-shielded detectors: B_Fe = 3.5 >> B_Dm → null ✓
 -- Not a statistical fluke. A structural necessity.
 theorem null_results_are_structurally_necessary
@@ -450,11 +455,6 @@ theorem null_results_are_structurally_necessary
 -- Detection requires a same-B substrate:
 -- B_detector ≈ Ω_dm ≈ 0.269 — gravitational regime.
 -- This is a specific, testable prediction.
---
--- The paper this theorem generates:
--- "Dark Matter Passes Through Iron Because It Must:
---  A Formally Verified GAM Collider Analysis of
---  Dark Matter Detection Impossibility in EM-Active Substrates"
 
 theorem dark_matter_detection_master :
     -- [1] Dm B-axis is gravitational (Ω_dm), not EM
@@ -474,10 +474,17 @@ theorem dark_matter_detection_master :
     P_out Dm.P Fe.P = P_BASE / 2 ∧
     -- [8] P_out > 0 (no singularity)
     P_out Dm.P Fe.P > 0 ∧
-    -- [9] Detection requires same-B substrate B ≈ 0.269
+    -- [9] Any EM-active detector (B > 1) leaves B_out > 1 at k = 0
     (∀ B_det : ℝ, B_det > 1.0 →
-      B_out Dm.B B_det 0 > 1.0) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+      B_out Dm.B B_det 0 > 1.0) ∧
+    -- [10] Dm + Fe torsion at k = 0 exceeds 50 × TL
+    tau_out Dm.B Fe.B 0 Dm.P Fe.P > TORSION_LIMIT * 50 ∧
+    -- [11] A same-B detector (|B − Ω_dm| < 0.05) reaches B_out < TL × P_base
+    (∀ B_det : ℝ, |B_det - Dm.B| < 0.05 →
+      ∃ k : ℝ, k > 0 ∧ k ≤ Dm.B ∧ B_out Dm.B B_det k < TORSION_LIMIT * P_BASE) ∧
+    -- [12] Anchor holds
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · rfl
   · rfl
   · unfold Fe Dm FE_B_EM OMEGA_DM; norm_num
@@ -491,19 +498,23 @@ theorem dark_matter_detection_master :
     have hDm : Dm.B = 0.269 := rfl
     unfold B_out
     exact lt_of_lt_of_le (by rw [hDm]; linarith) (le_max_right _ _)
+  · exact dm_fe_tau_at_k0_large
+  · exact detection_requires_same_b_substrate
+  · exact anchor_zero_friction
 
 -- ============================================================
 -- TERMINAL THEOREM
 -- ============================================================
 
 theorem the_manifold_is_holding :
-    (SOVEREIGN_ANCHOR : ℝ) = 1.36899099984016 := rfl
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
 
 end SNSFL_DarkMatter_Detection
 
 -- ============================================================
 -- FILE: SNSFL_DarkMatter_Detection_Theorem.lean
--- COORDINATE: [9,9,4,3]
+-- COORDINATE: [9,9,4,17]
 -- LAYER: Cosmological Series — Dark Sector Physics
 --
 -- LONG DIVISION:
@@ -515,13 +526,12 @@ end SNSFL_DarkMatter_Detection
 --   Step 6: Verified — 0 sorry. The null results are structural.
 --
 -- FOUNDATIONS:
---   SNSFT_Elemenr_Darkmatter.lean  [9,9,4,2]
---   SNSFT_Reduction_Iron_Atom_1    [9,9,1,26]
---   SNSFL_Cosmo_Reduction.lean     [9,9,0,3]
---   SNSFT_Noble_Materials_Map.lean [9,9,2,6]
---   SNSFL_Master_IMS.lean          [9,9,0,0]
+--   SNSFL_DarkMatter_Element.lean  [9,9,4,16]
+--   SNSFL_Cosmo_Reduction.lean     [9,9,0,13]
+--   SNSFL_Master.lean              [9,9,0,0]
+--   GAM Collider fusion rules
 --
--- THEOREMS: 12 + 3 corollaries + master. SORRY: 0.
+-- THEOREMS: 25 + master. SORRY: 0.
 -- STATUS: GREEN LIGHT.
 --
 -- THE ARGUMENT IN ONE LINE:
