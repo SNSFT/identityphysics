@@ -266,7 +266,9 @@ theorem binding_curve_locked (BA : ℝ) (h0 : 0 < BA) (h16 : BA ≤ 16) :
     binding_norm BA / P_BASE > 0 ∧ binding_norm BA / P_BASE < TL_IVA_PEAK := by
   apply locked_of_binding BA h0
   have : binding_norm BA ≤ binding_norm 16 := by
-    unfold binding_norm MP_C2_MEV; linarith
+    unfold binding_norm MP_C2_MEV
+    rw [div_eq_mul_inv, div_eq_mul_inv]
+    exact mul_le_mul_of_nonneg_right h16 (by norm_num)
   have h2 : binding_norm 16 < TL_IVA_PEAK * 0.986 := by
     unfold binding_norm MP_C2_MEV TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   linarith
