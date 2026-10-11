@@ -5,10 +5,10 @@
 -- Periodic Atomic Weight → PNBA Production Recipe
 -- B-Balance Stoichiometry Law · 10 Verified Knowns · 1 Prediction
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,45]
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,45](CHEM)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
--- Anchor:    1.369 GHz
--- Status:    GERMLINE LOCKED · 0 sorry
+-- Anchor:    1.36899099984016 GHz
+-- Status:    GERMINAL · 0 sorry
 -- Date:      May 20, 2026 · Soldotna, Alaska
 -- DOI:       10.5281/zenodo.18719748
 --
@@ -22,10 +22,11 @@
 --   The integer atom ratio n1:n2 is uniquely determined by B.
 --
 -- This is the PNBA analog of charge balance / valence balance.
--- It is NOT assumed — it follows from Noble requiring B_out = 0,
--- which requires Σ(ni × Bi) = 2k where k = Σ min(Bi,Bj) over pairs.
--- For same-period elements with matching Slater B: k = n1×n2×B1.
--- The minimal solution is n1×B1 = n2×B2 (GCD-reduced).
+-- It is NOT assumed. Treat each side of the formula unit as one
+-- beam carrying its total Behavior, n1·B1 and n2·B2. The 2-beam
+-- residual is |n1·B1 − n2·B2| (DFT reduction [9,9,0,14]), so the
+-- formula unit closes Noble exactly when n1·B1 = n2·B2 (T3).
+-- The minimal solution is n1 = B2/gcd, n2 = B1/gcd (T1).
 --
 -- PRODUCTION RECIPE:
 --   mass_i = n_i × MW_i  (grams per formula unit, IUPAC 2021 weights)
@@ -63,7 +64,7 @@
 -- 11. MoS3  — Mo(B=6)+S(B=2)   1:3  · amorphous catalyst · electrodeposition
 --
 -- PREDICTION:
---     AsN   — As(B=3)+N(B=3)   1:1  · no stable bulk phase · SNSFT [9,9,2,X]
+--     AsN   — As(B=3)+N(B=3)   1:1  · no stable bulk phase · prediction, this file
 --             Recipe: 74.922g As + 14.007g N per formula unit
 --
 -- ============================================================
@@ -160,6 +161,29 @@ theorem b_balance_law (B1 B2 : ℕ) (hB1 : 0 < B1) (hB2 : 0 < B2) :
 theorem recipe_mass_positive (n : ℕ) (MW : ℝ) (hn : 0 < n) (hMW : 0 < MW) :
     0 < (n : ℝ) * MW := by
   exact mul_pos (Nat.cast_pos.mpr hn) hMW
+
+-- Two-sided residual: each side of the formula unit acts as one beam
+-- carrying its total Behavior x = n1·B1, y = n2·B2; k = min(x, y).
+noncomputable def side_residual (x y : ℝ) : ℝ := max 0 (x + y - 2 * min x y)
+
+-- [T3] THE RESIDUAL IS |x − y|; NOBLE ⇔ B-BALANCE
+theorem side_residual_abs (x y : ℝ) : side_residual x y = |x - y| := by
+  unfold side_residual
+  rcases le_total x y with h | h
+  · rw [min_eq_left h, abs_of_nonpos (show x - y ≤ 0 by linarith),
+        max_eq_right (show (0:ℝ) ≤ x + y - 2 * x by linarith)]
+    ring
+  · rw [min_eq_right h, abs_of_nonneg (show 0 ≤ x - y by linarith),
+        max_eq_right (show (0:ℝ) ≤ x + y - 2 * y by linarith)]
+    ring
+
+theorem noble_iff_b_balance (x y : ℝ) : side_residual x y = 0 ↔ x = y := by
+  rw [side_residual_abs, abs_eq_zero, sub_eq_zero]
+
+-- [T4] A B-balanced formula unit closes Noble
+theorem balanced_unit_noble (n1 B1 n2 B2 : ℕ) (h : n1 * B1 = n2 * B2) :
+    side_residual ((n1 * B1 : ℕ) : ℝ) ((n2 * B2 : ℕ) : ℝ) = 0 :=
+  (noble_iff_b_balance _ _).2 (by rw [h])
 
 -- ============================================================
 -- VERIFICATION STRUCTURE
@@ -475,7 +499,7 @@ theorem MoS3_mass_values :
 -- As(B=3) + N(B=3) → AsN (1:1)  [NO STABLE BULK PHASE IN LITERATURE]
 -- gcd(3,3)=3, n1=1, n2=1
 -- Recipe: 1×74.922g As + 1×14.007g N = 88.929g/FU
--- SNSFT Designation: SNSFT-AsN-PRED · Coordinate: [9,9,2,X]
+-- Designation: AsN-PRED · Coordinate: [9,9,2,45]
 -- Prior art: Identity Physics corpus · DOI: 10.5281/zenodo.18719748
 -- Process: high-pressure synthesis route TBD · Q2 semiconductor predicted
 -- Note: appears as PREDICTED in GAM Collider NOBLE_MAP · P_out > GaN
@@ -523,11 +547,14 @@ theorem periodic_weight_reduction_master :
     0 < ZnO_mass_FU  ∧ 0 < NaCl_mass_FU ∧ 0 < GaAs_mass_FU  ∧
     0 < NiO_mass_FU  ∧ 0 < TiC_mass_FU  ∧ 0 < MgO_mass_FU   ∧
     0 < AgCl_mass_FU ∧ 0 < MoS3_mass_FU ∧ 0 < AsN_mass_FU   ∧
-    -- [3] Anchor and TL inherited
+    -- [3] Every B-balanced formula unit closes Noble (B_out = 0)
+    (∀ n1 B1 n2 B2 : ℕ, n1 * B1 = n2 * B2 →
+      side_residual ((n1 * B1 : ℕ) : ℝ) ((n2 * B2 : ℕ) : ℝ) = 0) ∧
+    -- [4] Anchor and TL inherited
     SOVEREIGN_ANCHOR = 1.36899099984016 ∧ TORSION_LIMIT = 0.136899099984016 := by
   refine ⟨?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,
           ?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,?_,
-          ?_,?_⟩
+          ?_,?_,?_⟩
   · exact GaN_b_balance
   · exact SiC_b_balance
   · exact Al2O3_b_balance
@@ -552,6 +579,7 @@ theorem periodic_weight_reduction_master :
   · exact AgCl_recipe_positive
   · exact MoS3_recipe_positive
   · exact AsN_recipe_positive
+  · exact balanced_unit_noble
   · unfold SOVEREIGN_ANCHOR; norm_num
   · unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
@@ -563,12 +591,13 @@ end SNSFL_PeriodicWeight_Reduction
 /-!
 -- ============================================================
 -- FILE: SNSFL_PeriodicWeight_Reduction.lean
--- COORDINATE: [9,9,2,45]
--- THEOREMS: 36 (3 per compound × 12) + master + manifold | SORRY: 0
+-- COORDINATE: [9,9,2,45](CHEM)
+-- THEOREMS: 43 | SORRY: 0
 --
 -- B-BALANCE STOICHIOMETRY LAW:
 --   n1 × B1 = n2 × B2  (GCD-reduced)
---   Stoichiometry is uniquely determined by PNBA bond valence.
+--   Stoichiometry is determined by PNBA bond valence.
+--   Noble ⇔ B-balance: the two-sided residual is |n1·B1 − n2·B2| (T3).
 --   No free parameters. No assumed charge states.
 --   This is the PNBA reduction of valence balance / charge balance.
 --
@@ -590,7 +619,7 @@ end SNSFL_PeriodicWeight_Reduction
 --
 -- PREDICTION (prior art claimed, [9,9,2,45]):
 --   AsN   1As:1N  · 74.922g As + 14.007g N  · Q2 semiconductor
---         No stable bulk phase in literature. SNSFT structural prediction.
+--         No stable bulk phase in literature. Identity Physics structural prediction.
 --
 -- SOURCES:
 --   [MW]  IUPAC Commission (2021) Pure Appl. Chem. 93(5), 573-600
@@ -603,7 +632,8 @@ end SNSFL_PeriodicWeight_Reduction
 --   [MoS3] Merki, Fierro, Vrubel & Hu (2011) Chem. Sci. 2, 1262
 --   [AgCl] Greenwood & Earnshaw (1997) Chemistry of the Elements
 --
--- DEPENDENCY: inherits SOVEREIGN_ANCHOR from [9,9,0,0]
+-- DEPENDENCY: inherits SOVEREIGN_ANCHOR from [9,9,0,0];
+--             2-beam residual from SNSFL_DFT_Reduction.lean [9,9,0,14]
 --
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK · 2026-05-20
 -- ============================================================
