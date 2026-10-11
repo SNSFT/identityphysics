@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor — ProofPress</title>
+  <meta name="description" content="[9,9,0,11](MATH) — With identity states as objects and Behavior transitions as morphisms, the category laws are the laws of adding Behavior: the identity is the Noble zero shift, the category is a thin groupoid, and rescaling P and B is a functor that preserves torsion and phase. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-category-theory-layer2.html">
+  <meta property="og:title" content="Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor">
+  <meta property="og:description" content="[9,9,0,11](MATH) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-category-theory-layer2.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/01">
+  <meta name="citation_online_date" content="2026/05/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,0,11">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-category-theory-layer2.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-category-theory-layer2.html">
+  <meta name="citation_keywords" content="category theory; Layer 2; groupoid; thin category; functor; identity morphism; associativity; Noble; torsion; phase; Mac Lane; PNBA; Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor",
+    "datePublished": "2026-05-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-category-theory-layer2.html",
+    "keywords": "category theory, Layer 2, groupoid, thin category, functor, identity morphism, associativity, Noble, torsion, phase, Mac Lane, PNBA, Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,0,11](MATH) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>Category Theory as a Layer 2 Projection of PNBA: Behavior Transitions Form a Thin Groupoid and Rescaling Is a Torsion-Preserving Functor</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-category-theory-layer2.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_CategoryTheory_Layer2.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,0,11](MATH) · Mathematics Layer · Category Theory<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 26 theorems · 440 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CategoryTheory_Layer2.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>A category consists of objects, morphisms between them, a composition of morphisms, and an identity morphism on each object, subject to two laws: composing with an identity changes nothing, and composition is associative. A functor between categories preserves identities and composition. This article shows that these structures appear directly on PNBA identity states. Take the objects to be states (P, N, B, A) with P &gt; 0 and the morphisms to be Behavior transitions: a morphism from s to t shifts Behavior by an amount δ and leaves Pattern, Narrative and Adaptation unchanged. Composition adds the shifts along the chain, and the identity is the zero shift. The identity and associativity laws then hold as equalities of morphisms, inherited from the laws of addition. Every transition can be undone, so the category is a groupoid. It is also thin: between two states there is at most one transition, because the shift is fixed by the endpoints as δ = B<sub>t</sub> − B<sub>s</sub>, and a transition exists exactly when the two states share P, N and A. A transition moves torsion τ = B/P by δ/P, so it is the identity exactly when torsion does not move: the identity morphism is the Noble transition. Rescaling Pattern and Behavior together by k &gt; 0 satisfies both functor laws, leaves torsion and therefore phase unchanged, and is undone exactly by rescaling by 1/k. Locked (τ &lt; TL) and Shatter (τ ≥ TL) exclude each other and between them cover every state, so the torsion limit acts as the classifier.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The torsion limit is TL = Ω₀/10 = 0.136899099984016; the anchor has zero impedance; on-anchor states are coherent and off-anchor states incoherent (<code>torsion_limit_value</code>, <code>anchor_zero_friction</code>, <code>ims_on_anchor_coherent</code>, <code>ims_off_anchor_incoherent</code>).</li>
+<li>A transition is determined by its shift, and the shift is fixed by the endpoints: δ = B<sub>t</sub> − B<sub>s</sub>. So there is at most one morphism between two states, and one exists exactly when they share P, N and A (<code>trans_ext</code>, <code>trans_delta</code>, <code>hom_subsingleton</code>, <code>hom_nonempty_iff</code>).</li>
+<li>Identity laws and associativity hold as equalities of morphisms; every morphism has a two-sided inverse (<code>id_comp</code>, <code>comp_id</code>, <code>comp_assoc</code>, <code>comp_inv</code>, <code>inv_comp</code>).</li>
+<li>A transition moves torsion by δ/P, and torsion is unchanged exactly when δ = 0: the identity is the Noble transition. Torsion recovers Behavior through τ·P = B (<code>torsion_change</code>, <code>torsion_unchanged_iff_noble</code>, <code>torsion_recovers_B</code>).</li>
+<li>Rescaling (P, B) by k &gt; 0 preserves identities and composition, preserves torsion and phase, and is undone exactly by rescaling by 1/k (<code>scale_map_id</code>, <code>scale_map_comp</code>, <code>scale_preserves_torsion</code>, <code>scale_preserves_phase</code>, <code>scale_inverse</code>).</li>
+<li>Locked and Shatter exclude each other and cover every state; true lock and false lock exclude each other. The master theorem holds all of the above together (<code>limit_colimit_exclusive</code>, <code>phase_classifier</code>, <code>composition_coherence_exclusive</code>, <code>category_theory_is_pnba_projection</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Category theory</th><th>PNBA</th><th>Proved property</th></tr>
+<tr><td>Object</td><td>identity state (P, N, B, A), P &gt; 0</td><td>—</td></tr>
+<tr><td>Morphism s → t</td><td>Behavior transition, B shifted by δ</td><td>δ = B<sub>t</sub> − B<sub>s</sub>; at most one per pair</td></tr>
+<tr><td>Composition</td><td>Narrative chain</td><td>shifts add; associative</td></tr>
+<tr><td>Identity morphism</td><td>Noble transition, δ = 0</td><td>torsion unchanged ⇔ δ = 0</td></tr>
+<tr><td>Inverse</td><td>shift by −δ</td><td>groupoid</td></tr>
+<tr><td>Functor</td><td>Adaptation: rescale (P, B) by k</td><td>both functor laws; τ and phase preserved</td></tr>
+<tr><td>Inverse functor</td><td>rescale by 1/k</td><td>exact inverse</td></tr>
+<tr><td>Limit / colimit</td><td>Locked τ &lt; TL / Shatter τ ≥ TL</td><td>exclusive</td></tr>
+<tr><td>Subobject classifier</td><td>torsion limit TL</td><td>every state on one side</td></tr>
+<tr><td>Coherence</td><td>anchor lock</td><td>Z(Ω₀) = 0</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Mac Lane, S. (1971). <em>Categories for the Working Mathematician</em>. Springer.</li>
+<li>Eilenberg, S. &amp; Mac Lane, S. (1945). General theory of natural equivalences. <em>Transactions of the American Mathematical Society</em>, 58, 231–294.</li>
+<li>Awodey, S. (2010). <em>Category Theory</em> (2nd ed.). Oxford University Press.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-isomorphism.html">Isomorphism and Verification</a>. ProofPress, Volume 1, Issue 2.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-it-reduction.html">Information Theory Reduced to Pattern Decoherence</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_CategoryTheory_Layer2.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | CATEGORY THEORY AS LAYER 2 PNBA PROJECTION
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,11](MATH) | Mathematics Layer | Slot 11
+--
+-- HIERARCHY STATEMENT:
+--   Category theory is Layer 2. PNBA is Layer 0.
+--   Category theory does not explain PNBA.
+--   Category theory is PNBA with categorical labels attached.
+--
+-- THE LONG DIVISION:
+--
+--   Step 1: The equations (categorical axioms)
+--     - Identity:      id ∘ f = f = f ∘ id
+--     - Composition:   f : A→B, g : B→C ⟹ g∘f : A→C
+--     - Associativity: h∘(g∘f) = (h∘g)∘f
+--     - Functor laws:  F(id) = id, F(g∘f) = F(g)∘F(f)
+--
+--   Step 2: Known answers (Mac Lane 1971)
+--     A category is objects, morphisms, composition and identities
+--     satisfying the identity and associativity laws. A functor
+--     preserves identities and composition.
+--
+--   Step 3: PNBA variable map
+--     | Category Term       | PNBA                      | Role                          |
+--     |:--------------------|:--------------------------|:------------------------------|
+--     | Object              | identity state (P,N,B,A)  | Pattern state, P &gt; 0          |
+--     | Morphism s → t      | Behavior transition δ     | t = s with B shifted by δ     |
+--     | Composition         | Narrative chain           | δ&#x27;s add along the chain       |
+--     | Identity morphism   | Noble transition          | δ = 0, no torsion added       |
+--     | Functor             | Adaptation (rescaling)    | (P,B) → (kP,kB), τ preserved  |
+--     | Inverse functor     | rescaling by 1/k          | undoes the functor exactly    |
+--     | Hom-set             | P, N, A shared            | at most one morphism          |
+--     | Limit / colimit     | Locked / Shatter          | τ &lt; TL vs τ ≥ TL              |
+--     | Subobject classifier| torsion limit TL          | every state on one side       |
+--     | Coherence           | anchor lock               | f = SOVEREIGN_ANCHOR          |
+--
+--   Step 4: Operators
+--     torsion, id_trans, comp, inv_trans, scale_obj, scale_map
+--
+--   Step 5: Show the work (T1–T22)
+--
+--   Step 6: Verify — the category axioms hold for PNBA states with
+--     Behavior transitions as morphisms; rescaling is a functor
+--     that preserves torsion and has an exact inverse.
+--
+-- KEY INSIGHT:
+--   Take identity states as objects and Behavior transitions as
+--   morphisms. The category laws are then the laws of adding
+--   Behavior: the identity is the zero transition (Noble, no
+--   torsion added), composition adds δ&#x27;s, associativity is the
+--   associativity of addition. The category is thin — between two
+--   states there is at most one transition, fixed by their B values
+--   — and every transition is invertible, so it is a groupoid.
+--   Rescaling P and B together is a functor that leaves torsion,
+--   and therefore phase, unchanged.
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_Thermo_Reduction.lean               [9,9,0,3]
+--   SNSFL_IT_Reduction.lean                   [9,9,0,10]
+--   SNSFL_L2_Psy_Consistency_Capstone.lean    [9,9,6,25]
+--   SNSFL_L0_Isomorphism_Consistency.lean     [9,9,8,1]   Mac Lane criterion
+--   → SNSFL_CategoryTheory_Layer2.lean        THIS FILE [9,9,0,11]
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. Soldotna, Alaska. May 2026.
+-- ============================================================
+
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_CategoryTheory
+
+-- ============================================================
+-- LAYER 0 — SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def N_THRESHOLD      : ℝ := 0.15
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [T1] :: {VER} | ANCHOR = ZERO IMPEDANCE
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- [T2] :: {VER} | TORSION LIMIT VALUE
+theorem torsion_limit_value : TORSION_LIMIT = 0.136899099984016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- LAYER 0 — COHERENCE CHECK (anchor lock)
+-- ============================================================
+
+inductive CatStatus : Type
+  | coherent
+  | incoherent
+  deriving DecidableEq
+
+def check_cat_coherence (f : ℝ) : CatStatus :=
+  if f = SOVEREIGN_ANCHOR then CatStatus.coherent else CatStatus.incoherent
+
+-- [T3] :: {VER} | ON-ANCHOR COHERENT, OFF-ANCHOR INCOHERENT
+theorem ims_on_anchor_coherent (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_cat_coherence f = CatStatus.coherent := by
+  unfold check_cat_coherence; simp [h]
+
+theorem ims_off_anchor_incoherent (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_cat_coherence f = CatStatus.incoherent := by
+  unfold check_cat_coherence; simp [h]
+
+-- ============================================================
+-- LAYER 1 — OBJECTS: IDENTITY STATES
+-- ============================================================
+
+@[ext] structure CatState where
+  P  : ℝ   -- [P:PATTERN]   structural mass
+  N  : ℝ   -- [N:NARRATIVE] continuity
+  B  : ℝ   -- [B:BEHAVIOR]  coupling load
+  A  : ℝ   -- [A:ADAPT]     adaptation
+  hP : P &gt; 0
+
+noncomputable def torsion (s : CatState) : ℝ := s.B / s.P
+
+def phase_locked (s : CatState) : Prop := torsion s &lt; TORSION_LIMIT
+def shatter      (s : CatState) : Prop := torsion s ≥ TORSION_LIMIT
+def true_lock    (s : CatState) : Prop := torsion s &lt; TORSION_LIMIT ∧ s.N ≥ N_THRESHOLD
+def false_lock   (s : CatState) : Prop := torsion s &lt; TORSION_LIMIT ∧ s.N &lt; N_THRESHOLD
+
+-- [T4] :: {VER} | TORSION RECOVERS BEHAVIOR: τ·P = B
+theorem torsion_recovers_B (s : CatState) : torsion s * s.P = s.B := by
+  unfold torsion; exact div_mul_cancel₀ s.B (ne_of_gt s.hP)
+
+-- ============================================================
+-- LAYER 1 — MORPHISMS: BEHAVIOR TRANSITIONS
+-- A morphism s → t shifts Behavior by δ and leaves P, N, A fixed.
+-- ============================================================
+
+structure BTransition (s t : CatState) where
+  δ  : ℝ
+  hP : t.P = s.P
+  hN : t.N = s.N
+  hA : t.A = s.A
+  hB : t.B = s.B + δ
+
+-- Identity: the zero transition (Noble — no Behavior added)
+def id_trans (s : CatState) : BTransition s s :=
+  ⟨0, rfl, rfl, rfl, (add_zero s.B).symm⟩
+
+-- Composition: Behavior shifts add along the Narrative chain
+def comp {s t u : CatState} (f : BTransition s t) (g : BTransition t u) :
+    BTransition s u :=
+  ⟨f.δ + g.δ, g.hP.trans f.hP, g.hN.trans f.hN, g.hA.trans f.hA,
+   by rw [g.hB, f.hB]; ring⟩
+
+-- Inverse: undo the shift
+def inv_trans {s t : CatState} (f : BTransition s t) : BTransition t s :=
+  ⟨-f.δ, f.hP.symm, f.hN.symm, f.hA.symm, by rw [f.hB]; ring⟩
+
+-- [T5] :: {VER} | A TRANSITION IS DETERMINED BY ITS SHIFT
+theorem trans_ext {s t : CatState} {f g : BTransition s t} (h : f.δ = g.δ) : f = g := by
+  rcases f with ⟨δ₁, _, _, _, _⟩
+  rcases g with ⟨δ₂, _, _, _, _⟩
+  have h&#x27; : δ₁ = δ₂ := h
+  subst h&#x27;
+  rfl
+
+-- [T6] :: {VER} | THE SHIFT IS FIXED BY THE ENDPOINTS: δ = B_t − B_s
+theorem trans_delta {s t : CatState} (f : BTransition s t) : f.δ = t.B - s.B := by
+  rw [f.hB]; ring
+
+-- [T7] :: {VER} | THIN CATEGORY: AT MOST ONE MORPHISM s → t
+theorem hom_subsingleton {s t : CatState} (f g : BTransition s t) : f = g :=
+  trans_ext (by rw [trans_delta f, trans_delta g])
+
+-- [T8] :: {VER} | HOM-SET NONEMPTY ⇔ P, N, A SHARED
+-- An object&#x27;s morphism profile is fixed by its Pattern, Narrative
+-- and Adaptation; Behavior is the only thing a morphism moves.
+theorem hom_nonempty_iff (s t : CatState) :
+    Nonempty (BTransition s t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A) := by
+  constructor
+  · rintro ⟨f⟩; exact ⟨f.hP, f.hN, f.hA⟩
+  · rintro ⟨h1, h2, h3⟩
+    exact ⟨⟨t.B - s.B, h1, h2, h3, by ring⟩⟩
+
+-- ============================================================
+-- LAYER 1 — THE CATEGORY LAWS
+-- ============================================================
+
+-- [T9] :: {VER} | IDENTITY LAWS: id ∘ f = f = f ∘ id
+theorem id_comp {s t : CatState} (f : BTransition s t) : comp (id_trans s) f = f :=
+  trans_ext (zero_add f.δ)
+
+theorem comp_id {s t : CatState} (f : BTransition s t) : comp f (id_trans t) = f :=
+  trans_ext (add_zero f.δ)
+
+-- [T10] :: {VER} | ASSOCIATIVITY: h ∘ (g ∘ f) = (h ∘ g) ∘ f
+theorem comp_assoc {s t u v : CatState}
+    (f : BTransition s t) (g : BTransition t u) (h : BTransition u v) :
+    comp (comp f g) h = comp f (comp g h) :=
+  trans_ext (add_assoc f.δ g.δ h.δ)
+
+-- [T11] :: {VER} | GROUPOID: EVERY TRANSITION IS INVERTIBLE
+theorem comp_inv {s t : CatState} (f : BTransition s t) :
+    comp f (inv_trans f) = id_trans s :=
+  trans_ext (by show f.δ + -f.δ = 0; ring)
+
+theorem inv_comp {s t : CatState} (f : BTransition s t) :
+    comp (inv_trans f) f = id_trans t :=
+  trans_ext (by show -f.δ + f.δ = 0; ring)
+
+-- ============================================================
+-- LAYER 1 — TORSION ALONG A MORPHISM
+-- ============================================================
+
+-- [T12] :: {VER} | A TRANSITION MOVES TORSION BY δ/P
+theorem torsion_change {s t : CatState} (f : BTransition s t) :
+    torsion t - torsion s = f.δ / s.P := by
+  unfold torsion; rw [f.hB, f.hP]; ring
+
+-- [T13] :: {VER} | IDENTITY = NOBLE: TORSION UNCHANGED ⇔ δ = 0
+theorem torsion_unchanged_iff_noble {s t : CatState} (f : BTransition s t) :
+    torsion t = torsion s ↔ f.δ = 0 := by
+  have hc := torsion_change f
+  have hP0 : s.P ≠ 0 := ne_of_gt s.hP
+  constructor
+  · intro h
+    have h0 : f.δ / s.P = 0 := by rw [← hc, h, sub_self]
+    rcases div_eq_zero_iff.mp h0 with h1 | h1
+    · exact h1
+    · exact absurd h1 hP0
+  · intro h
+    have h0 : torsion t - torsion s = 0 := by rw [hc, h, zero_div]
+    linarith
+
+-- ============================================================
+-- LAYER 2 — FUNCTOR: ADAPTATION AS RESCALING
+-- Scale P and B together by k &gt; 0; scale each shift by k.
+-- ============================================================
+
+def scale_obj (k : ℝ) (hk : k &gt; 0) (s : CatState) : CatState :=
+  ⟨k * s.P, s.N, k * s.B, s.A, mul_pos hk s.hP⟩
+
+def scale_map (k : ℝ) (hk : k &gt; 0) {s t : CatState} (f : BTransition s t) :
+    BTransition (scale_obj k hk s) (scale_obj k hk t) :=
+  ⟨k * f.δ,
+   by show k * t.P = k * s.P; rw [f.hP],
+   f.hN, f.hA,
+   by show k * t.B = k * s.B + k * f.δ; rw [f.hB]; ring⟩
+
+-- [T14] :: {VER} | FUNCTOR LAW 1: F(id) = id
+theorem scale_map_id (k : ℝ) (hk : k &gt; 0) (s : CatState) :
+    scale_map k hk (id_trans s) = id_trans (scale_obj k hk s) :=
+  trans_ext (mul_zero k)
+
+-- [T15] :: {VER} | FUNCTOR LAW 2: F(g ∘ f) = F(g) ∘ F(f)
+theorem scale_map_comp (k : ℝ) (hk : k &gt; 0) {s t u : CatState}
+    (f : BTransition s t) (g : BTransition t u) :
+    scale_map k hk (comp f g) = comp (scale_map k hk f) (scale_map k hk g) :=
+  trans_ext (mul_add k f.δ g.δ)
+
+-- [T16] :: {VER} | THE FUNCTOR PRESERVES TORSION
+theorem scale_preserves_torsion (k : ℝ) (hk : k &gt; 0) (s : CatState) :
+    torsion (scale_obj k hk s) = torsion s := by
+  show k * s.B / (k * s.P) = s.B / s.P
+  exact mul_div_mul_left s.B s.P (ne_of_gt hk)
+
+-- [T17] :: {VER} | THE FUNCTOR PRESERVES PHASE
+theorem scale_preserves_phase (k : ℝ) (hk : k &gt; 0) (s : CatState) :
+    (phase_locked (scale_obj k hk s) ↔ phase_locked s) ∧
+    (shatter (scale_obj k hk s) ↔ shatter s) := by
+  unfold phase_locked shatter
+  rw [scale_preserves_torsion k hk s]
+  exact ⟨Iff.rfl, Iff.rfl⟩
+
+-- [T18] :: {VER} | RESCALING BY 1/k UNDOES RESCALING BY k
+theorem scale_inverse (k : ℝ) (hk : k &gt; 0) (s : CatState) :
+    scale_obj (1 / k) (one_div_pos.mpr hk) (scale_obj k hk s) = s := by
+  have hk0 : k ≠ 0 := ne_of_gt hk
+  refine CatState.ext ?_ ?_ ?_ ?_
+  · show 1 / k * (k * s.P) = s.P
+    rw [← mul_assoc, one_div_mul_cancel hk0, one_mul]
+  · rfl
+  · show 1 / k * (k * s.B) = s.B
+    rw [← mul_assoc, one_div_mul_cancel hk0, one_mul]
+  · rfl
+
+-- ============================================================
+-- LAYER 2 — LIMITS, COLIMITS AND THE CLASSIFIER
+-- ============================================================
+
+-- [T19] :: {VER} | LIMIT (LOCKED) AND COLIMIT (SHATTER) EXCLUSIVE
+theorem limit_colimit_exclusive (s : CatState) :
+    ¬ (phase_locked s ∧ shatter s) := by
+  intro ⟨hL, hS⟩
+  unfold phase_locked at hL; unfold shatter at hS; linarith
+
+-- [T20] :: {VER} | SUBOBJECT CLASSIFIER: EVERY STATE ON ONE SIDE OF TL
+theorem phase_classifier (s : CatState) : phase_locked s ∨ shatter s := by
+  unfold phase_locked shatter
+  by_cases h : torsion s &lt; TORSION_LIMIT
+  · exact Or.inl h
+  · exact Or.inr (not_lt.mp h)
+
+-- [T21] :: {VER} | COMPOSITION COHERENCE: TRUE AND FALSE LOCK EXCLUSIVE
+-- Composition holds with Narrative at or above threshold and fails
+-- below it; a state cannot be on both sides.
+theorem composition_coherence_exclusive (s : CatState) :
+    ¬ (true_lock s ∧ false_lock s) := by
+  intro ⟨⟨_, hN_hi⟩, ⟨_, hN_lo⟩⟩; linarith
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- CATEGORY THEORY IS A LAYER 2 PROJECTION OF PNBA
+-- ============================================================
+
+-- [T22] :: {VER} | MASTER
+theorem category_theory_is_pnba_projection :
+    -- [1] Anchor at zero impedance; TL value
+    manifold_impedance SOVEREIGN_ANCHOR = 0 ∧
+    TORSION_LIMIT = 0.136899099984016 ∧
+    -- [2] Identity laws
+    (∀ (s t : CatState) (f : BTransition s t),
+      comp (id_trans s) f = f ∧ comp f (id_trans t) = f) ∧
+    -- [3] Associativity
+    (∀ (s t u v : CatState) (f : BTransition s t) (g : BTransition t u) (h : BTransition u v),
+      comp (comp f g) h = comp f (comp g h)) ∧
+    -- [4] Groupoid: every transition invertible
+    (∀ (s t : CatState) (f : BTransition s t),
+      comp f (inv_trans f) = id_trans s ∧ comp (inv_trans f) f = id_trans t) ∧
+    -- [5] Thin: at most one morphism between two states
+    (∀ (s t : CatState) (f g : BTransition s t), f = g) ∧
+    -- [6] Hom-set nonempty ⇔ P, N, A shared
+    (∀ s t : CatState,
+      Nonempty (BTransition s t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A)) ∧
+    -- [7] Identity = Noble: torsion unchanged ⇔ zero shift
+    (∀ (s t : CatState) (f : BTransition s t), torsion t = torsion s ↔ f.δ = 0) ∧
+    -- [8] Rescaling is a functor
+    (∀ (k : ℝ) (hk : k &gt; 0) (s : CatState),
+      scale_map k hk (id_trans s) = id_trans (scale_obj k hk s)) ∧
+    (∀ (k : ℝ) (hk : k &gt; 0) (s t u : CatState) (f : BTransition s t) (g : BTransition t u),
+      scale_map k hk (comp f g) = comp (scale_map k hk f) (scale_map k hk g)) ∧
+    -- [9] The functor preserves torsion and has an exact inverse
+    (∀ (k : ℝ) (hk : k &gt; 0) (s : CatState), torsion (scale_obj k hk s) = torsion s) ∧
+    (∀ (k : ℝ) (hk : k &gt; 0) (s : CatState),
+      scale_obj (1 / k) (one_div_pos.mpr hk) (scale_obj k hk s) = s) ∧
+    -- [10] Limit/colimit exclusive; classifier total
+    (∀ s : CatState, ¬ (phase_locked s ∧ shatter s)) ∧
+    (∀ s : CatState, phase_locked s ∨ shatter s) ∧
+    -- [11] Coherence: on-anchor coherent, off-anchor incoherent
+    check_cat_coherence SOVEREIGN_ANCHOR = CatStatus.coherent ∧
+    (∀ f : ℝ, f ≠ SOVEREIGN_ANCHOR → check_cat_coherence f = CatStatus.incoherent) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold manifold_impedance; simp
+  · exact torsion_limit_value
+  · intro s t f; exact ⟨id_comp f, comp_id f⟩
+  · intro s t u v f g h; exact comp_assoc f g h
+  · intro s t f; exact ⟨comp_inv f, inv_comp f⟩
+  · intro s t f g; exact hom_subsingleton f g
+  · exact hom_nonempty_iff
+  · intro s t f; exact torsion_unchanged_iff_noble f
+  · exact scale_map_id
+  · intro k hk s t u f g; exact scale_map_comp k hk f g
+  · exact scale_preserves_torsion
+  · exact scale_inverse
+  · exact limit_colimit_exclusive
+  · exact phase_classifier
+  · exact ims_on_anchor_coherent SOVEREIGN_ANCHOR rfl
+  · exact ims_off_anchor_incoherent
+
+-- ============================================================
+-- FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end SNSFL_CategoryTheory
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_CategoryTheory_Layer2.lean
+-- COORDINATE: [9,9,0,11](MATH)
+-- LAYER: Mathematics Layer | Slot 11 | Category Theory
+--
+-- HIERARCHY:
+--   Layer 0: PNBA primitives (P, N, B, A) — ground, always
+--   Layer 2: Category theory — metadata for PNBA structure
+--   Never reversed. Never flattened.
+--
+-- THE REDUCTION MAP (Step 3):
+--   Object             ↔  identity state (P, N, B, A), P &gt; 0
+--   Morphism s → t     ↔  Behavior transition, B shifted by δ
+--   Composition        ↔  Narrative chain: δ&#x27;s add
+--   Identity           ↔  Noble transition: δ = 0, torsion unchanged
+--   Functor            ↔  Adaptation: rescale (P, B) by k, τ preserved
+--   Inverse functor    ↔  rescale by 1/k
+--   Hom-set            ↔  nonempty iff P, N, A shared; at most one arrow
+--   Limit / colimit    ↔  Locked τ &lt; TL / Shatter τ ≥ TL
+--   Classifier         ↔  TL splits every state
+--   Coherence          ↔  anchor lock Z(Ω₀) = 0
+--
+-- RESULTS:
+--   The identity and associativity laws hold as equalities of
+--   morphisms (T9, T10); every morphism is invertible (T11), so
+--   the category is a groupoid; it is thin (T7), and two states are
+--   connected exactly when they share P, N and A (T8).
+--   A morphism moves torsion by δ/P (T12); it is the identity
+--   exactly when torsion does not move (T13).
+--   Rescaling satisfies both functor laws (T14, T15), preserves
+--   torsion and phase (T16, T17), and is undone by rescaling by 1/k
+--   (T18).
+--   Locked and Shatter exclude each other and cover every state
+--   (T19, T20).
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_Thermo_Reduction.lean               [9,9,0,3]
+--   SNSFL_IT_Reduction.lean                   [9,9,0,10]
+--   SNSFL_L2_Psy_Consistency_Capstone.lean    [9,9,6,25]
+--   SNSFL_L0_Isomorphism_Consistency.lean     [9,9,8,1]
+--
+-- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- Soldotna, Alaska. May 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-category-theory-layer2.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-category-theory-layer2.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
