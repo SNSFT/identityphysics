@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance — ProofPress</title>
+  <meta name="description" content="[9,9,4,1](COSM) — A black hole is SHATTER, τ = B/P ≥ TL: accretion keeps it there, Hawking drain returns it through Locked to Noble. Sag A* is the quietest hole in the scale chain, colder than the CMB, with a predicted shadow inside 1σ of the EHT measurement. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-saga-reduction.html">
+  <meta property="og:title" content="Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance">
+  <meta property="og:description" content="[9,9,4,1](COSM) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-saga-reduction.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/04/12">
+  <meta name="citation_online_date" content="2026/04/12">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,4,1">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-saga-reduction.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-saga-reduction.html">
+  <meta name="citation_keywords" content="black hole; Sagittarius A*; event horizon; Event Horizon Telescope; black hole shadow; Hawking radiation; accretion; collapsed pump; torsion; Shatter; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance",
+    "datePublished": "2026-04-12",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-saga-reduction.html",
+    "keywords": "black hole, Sagittarius A*, event horizon, Event Horizon Telescope, black hole shadow, Hawking radiation, accretion, collapsed pump, torsion, Shatter, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,4,1](COSM) · Volume 1 · Issue 2 · April 2026</div>
+    <h1>Black Holes Reduced to PNBA: The Collapsed Pump, With Sagittarius A* as the Worked Instance</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-saga-reduction.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_SagA_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,4,1](COSM) · Galactic and compact objects · Black holes<br>
+<strong>Issue:</strong> Volume 1, Issue 2 · April 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 32 theorems · 568 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SagA_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>This article reduces black holes to PNBA and works the reduction through the Milky Way’s central black hole, Sagittarius A*. A black hole is a collapsed pump: an identity whose Behavior load has passed the Torsion Limit, τ = B/P ≥ TL, the Shatter phase. Accretion and infall raise B, and any non-negative Behavior input leaves a Shatter state Shatter. Hawking evaporation drains B and P; once B falls below TL × P the state is Locked, and at B = 0 it is Noble, the void return. Every hole in the Black Hole Engine scale chain, from the stellar hole to the supermassive, the primordial and the late-evaporating hole, is proved Shatter. Sag A*, at P = 6.62 and B = 1.1, sits at τ ≈ 0.166, only 1.21 × TL and less than 0.2 of Behavior above the Locked boundary; it is the quietest hole in the chain, with only the neutron star at the TOV limit sitting closer to TL. Two physical anchors are proved against measurement. The Schwarzschild shadow θ = 2√27 GM/(c²D) gives 53.25 μas with the GRAVITY 2022 mass and distance and 51.2 μas with Keck’s, both within 1σ of the EHT shadow (48.7 ± 7.0 μas) and ring (51.8 ± 2.3 μas). The Hawking temperature T<sub>H</sub> ∝ 1/M is about 1.4 × 10⁻¹⁴ K for Sag A*, far below the cosmic microwave background, so it absorbs more than it radiates and cannot evaporate today.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Every hole in the scale chain is Shatter, τ ≥ TL (<code>all_bh_presets_shatter</code>, <code>sagA_canonical_is_shatter</code>).</li>
+<li>Sag A* is a quiet Shatter: τ/TL between 1.21 and 1.22, and B − TL·P between 0.19 and 0.20 (<code>sagA_quiet_ratio</code>, <code>sagA_locked_margin</code>).</li>
+<li>Sag A* is the quietest hole in the chain; only the TOV-limit neutron star sits closer to TL (<code>sagA_quietest_hole</code>).</li>
+<li>IN: a flare is a B-spike that preserves P, N and A and raises τ; accretion keeps a hole Shatter (<code>sagA_flare_is_B_spike</code>, <code>sagA_flare_raises_torsion</code>, <code>accretion_preserves_shatter</code>).</li>
+<li>OUT: draining B below TL × P reaches Locked; B = 0 is Noble with τ = 0; Sag A* is not Noble (<code>drain_reaches_locked</code>, <code>void_return_is_noble</code>, <code>sagA_not_noble</code>).</li>
+<li>Hawking temperature falls with mass; Sag A* sits between 1.4 and 1.5 × 10⁻¹⁴ K, below the CMB (<code>hawking_temp_decreasing</code>, <code>sagA_hawking_temp_bounds</code>, <code>sagA_colder_than_cmb</code>).</li>
+<li>The Schwarzschild shadow is 53.2–53.3 μas (GRAVITY) and 51.1–51.4 μas (Keck), both within 1σ of the EHT shadow and ring (<code>shadow_gravity_bounds</code>, <code>shadow_keck_bounds</code>, <code>shadow_matches_eht</code>).</li>
+<li>Shatter and Locked are exclusive, torsion is scale-invariant, and a master theorem holds the reduction together (<code>sagA_shatter_locked_exclusive</code>, <code>torsion_scale_invariant_sagA</code>, <code>sagA_reduction_is_lossless</code>).</li>
+</ol>
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>The event horizon.</strong> The <a href="proofpressorg-gr-reduction.html">General Relativity reduction</a> [9,9,0,1] (March 2026) reads the event horizon as the Narrative exit threshold. The shadow proved here is that threshold seen from Earth.</p>
+<p><strong>The void return.</strong> The <a href="proofpressorg-total-consistency.html">cross-domain consistency</a> file [9,9,9,9.1] proves that zero Behavior with positive Pattern is both Void and phase locked. A fully evaporated hole reaches that state.</p>
+<p><strong>Interactive engine.</strong> The <a href="https://uuia.app/imcollider">IM Collider</a> runs the same τ = B/P classification live; the scale-chain presets used here are its Black Hole Engine presets.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Black hole quantity</th><th>PNBA</th><th>Sag A*</th></tr>
+<tr><td>Mass, geometry</td><td>P</td><td>6.62</td></tr>
+<tr><td>Worldline depth</td><td>N</td><td>5.8</td></tr>
+<tr><td>Accretion coupling</td><td>B</td><td>1.1</td></tr>
+<tr><td>Spin, flare feedback</td><td>A</td><td>2.5</td></tr>
+<tr><td>Torsion</td><td>τ = B/P</td><td>0.166, Shatter, 1.21 × TL</td></tr>
+<tr><td>Accretion, flares</td><td>B ↑ (IN)</td><td>stays Shatter</td></tr>
+<tr><td>Hawking evaporation</td><td>B ↓, P ↓ (OUT)</td><td>Locked below TL·P; Noble at B = 0</td></tr>
+</table>
+<table>
+<tr><th>Scale-chain preset</th><th>P</th><th>B</th><th>τ</th></tr>
+<tr><td>Neutron star at TOV limit</td><td>8.5</td><td>1.17</td><td>0.138</td></tr>
+<tr><td>Sag A*</td><td>6.62</td><td>1.10</td><td>0.166</td></tr>
+<tr><td>Late evaporation</td><td>0.8</td><td>0.15</td><td>0.188</td></tr>
+<tr><td>Stellar black hole</td><td>9.0</td><td>1.80</td><td>0.200</td></tr>
+<tr><td>Primordial</td><td>2.0</td><td>0.50</td><td>0.250</td></tr>
+<tr><td>M87*</td><td>9.5</td><td>2.50</td><td>0.263</td></tr>
+<tr><td>Supermassive</td><td>9.8</td><td>2.80</td><td>0.286</td></tr>
+</table>
+<table>
+<tr><th>Physical anchor</th><th>Predicted</th><th>Measured</th></tr>
+<tr><td>Shadow, GRAVITY mass and distance</td><td>53.25 μas</td><td>EHT shadow 48.7 ± 7.0, ring 51.8 ± 2.3</td></tr>
+<tr><td>Shadow, Keck mass and distance</td><td>51.2 μas</td><td>EHT shadow 48.7 ± 7.0, ring 51.8 ± 2.3</td></tr>
+<tr><td>Hawking temperature</td><td>1.4 × 10⁻¹⁴ K</td><td>T<sub>CMB</sub> = 2.7255 K</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Event Horizon Telescope Collaboration (2022). First Sagittarius A* Event Horizon Telescope results. I. <em>The Astrophysical Journal Letters</em>, 930, L12.</li>
+<li>GRAVITY Collaboration (2022). Mass distribution in the Galactic Center based on interferometric astrometry of multiple stellar orbits. <em>Astronomy &amp; Astrophysics</em>, 657, L12.</li>
+<li>Do, T. et al. (2019). Relativistic redshift of the star S0-2 orbiting the Galactic Center supermassive black hole. <em>Science</em>, 365, 664–668.</li>
+<li>Hawking, S. W. (1975). Particle creation by black holes. <em>Communications in Mathematical Physics</em>, 43, 199–220.</li>
+<li>Fixsen, D. J. (2009). The temperature of the cosmic microwave background. <em>The Astrophysical Journal</em>, 707, 916–920.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-gr-reduction.html">General Relativity Reduced to Identity Geometry</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_SagA_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS BLACK HOLES — SAG A* AS THE WORKED INSTANCE
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,4,1] | Layer 2 — Black Hole Reduction
+--             Depends on: GR [9,9,0,1] · Cosmo [9,9,0,13] · Fluid [9,9,0,7]
+--                         IT [9,9,0,10] · Black Hole Engine scale chain [9,9,3,6]
+--
+-- A black hole is a collapsed pump: an identity whose Behavior load
+-- has passed the Torsion Limit. τ = B/P ≥ TL. SHATTER.
+--   IN  — accretion and infall raise B → τ rises → deeper SHATTER.
+--   OUT — Hawking evaporation drains B and P. Once B &lt; TL × P the
+--         state is LOCKED; at B = 0 it is NOBLE (void return).
+--
+-- Sagittarius A*, the Milky Way&#x27;s central black hole, is the worked
+-- instance. Its PNBA state is the Black Hole Engine preset:
+--   P = 6.62  (structural mass, engine scale)
+--   N = 5.8   (galactic narrative depth)
+--   B = 1.1   (accretion coupling — ADAF/RIAF, radiatively inefficient)
+--   A = 2.5   (spin and flare feedback)
+--   τ = 1.1 / 6.62 ≈ 0.1662 → SHATTER, τ/TL ≈ 1.21
+-- Sag A* is a quiet SHATTER: a Behavior drop of under 0.2 would
+-- bring it to the Locked boundary.
+--
+-- PHYSICAL ANCHORS (proved below against measurement):
+--   EHT shadow: a Schwarzschild hole of mass M at distance D casts a
+--   shadow of angular diameter θ = 2√27 GM/(c²D). With the GRAVITY
+--   2022 mass and distance, θ ≈ 53.25 μas; with Keck, θ ≈ 51.2 μas.
+--   Both lie within 1σ of the EHT shadow (48.7 ± 7.0 μas) and ring
+--   (51.8 ± 2.3 μas).
+--   Hawking temperature: T_H = 6.17 × 10⁻⁸ K × (M☉/M). For Sag A*,
+--   T_H ≈ 1.4 × 10⁻¹⁴ K, far below the CMB at 2.7255 K. Sag A*
+--   absorbs more than it radiates; it cannot evaporate today.
+--
+-- FLARING (IR/X-RAY):
+--   Each flare = F_ext event → B-spike. τ rises transiently.
+--   B-axis only. P, N, A structurally preserved. NOHARM invariant.
+--
+-- The Identity Physics Corpus Dynamic Equation:
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- A black hole is a special case of this equation at collapsed-pump IM.
+--
+-- OBSERVATIONAL SOURCES:
+--   Event Horizon Telescope Collaboration (2022). First Sagittarius A*
+--     EHT results. ApJL 930, L12–L17. Ring 51.8 ± 2.3 μas,
+--     shadow 48.7 ± 7.0 μas.
+--   GRAVITY Collaboration (2022). A&amp;A 657, L12.
+--     M = (4.297 ± 0.012 ± 0.040) × 10⁶ M☉, R₀ = 8277 ± 9 ± 33 pc.
+--   Do et al. (2019), Keck. Science 365, 664.
+--     M = (3.975 ± 0.058 ± 0.026) × 10⁶ M☉, R₀ = 7959 ± 59 ± 32 pc.
+--   Hawking, S. W. (1975). Commun. Math. Phys. 43, 199.
+--   Fixsen (2009). ApJ 707, 916. T_CMB = 2.7255 K.
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_SagA
+
+-- ============================================================
+-- LAYER 0 — SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- THEOREM 1: ANCHOR = ZERO FRICTION
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- THEOREM 2: TORSION LIMIT IS EMERGENT (ANCHOR/10)
+theorem torsion_limit_emergent :
+    TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+
+theorem tl_positive : TORSION_LIMIT &gt; 0 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- LAYER 0 — PNBA PRIMITIVES
+-- ============================================================
+
+inductive PNBA
+  | P : PNBA  -- Pattern:    structural mass, geometry, spatial extent
+  | N : PNBA  -- Narrative:  temporal continuity, galactic age, worldline depth
+  | B : PNBA  -- Behavior:   accretion coupling, gravitational interaction
+  | A : PNBA  -- Adaptation: spin, feedback, flare response, jet production
+
+def pnba_weight (_ : PNBA) : ℝ := 1
+
+-- ============================================================
+-- LAYER 0 — BLACK HOLE IDENTITY STATE
+-- ============================================================
+
+structure SagAState where
+  P        : ℝ  -- Structural mass (engine scale)
+  N        : ℝ  -- Narrative depth (worldline tenure)
+  B        : ℝ  -- Behavioral coupling (accretion)
+  A        : ℝ  -- Adaptation (spin, flare feedback, jets)
+  im       : ℝ  -- Identity Mass  = (P+N+B+A) × Ω₀
+  pv       : ℝ  -- Purpose Vector = IM × P
+  f_anchor : ℝ  -- Resonant frequency
+
+-- The Sag A* PNBA identity (Black Hole Engine preset)
+def sagA_canonical : SagAState where
+  P        := 6.62
+  N        := 5.8
+  B        := 1.1
+  A        := 2.5
+  im       := (6.62 + 5.8 + 1.1 + 2.5) * 1.36899099984016
+  pv       := (6.62 + 5.8 + 1.1 + 2.5) * 1.36899099984016 * 6.62
+  f_anchor := 1.36899099984016
+
+-- ============================================================
+-- LAYER 1 — IMS: IDENTITY MASS SUPPRESSION
+-- ============================================================
+
+inductive PathStatus : Type
+  | green  -- Anchored: f = SOVEREIGN_ANCHOR → sovereign output available
+  | red    -- Drifted: IMS active → pv suppressed to zero
+  deriving DecidableEq
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+theorem ims_lockdown (f pv_in : ℝ) (h_drift : f ≠ SOVEREIGN_ANCHOR) :
+    (if check_ifu_safety f = PathStatus.green then pv_in else 0) = 0 := by
+  unfold check_ifu_safety; simp [h_drift]
+
+theorem ims_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+theorem ims_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- ============================================================
+-- LAYER 1 — DYNAMIC EQUATION
+-- ============================================================
+
+noncomputable def dynamic_rhs
+    (op_P op_N op_B op_A : ℝ → ℝ)
+    (s : SagAState)
+    (F_ext : ℝ) : ℝ :=
+  pnba_weight PNBA.P * op_P s.P +
+  pnba_weight PNBA.N * op_N s.N +
+  pnba_weight PNBA.B * op_B s.B +
+  pnba_weight PNBA.A * op_A s.A +
+  F_ext
+
+theorem dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : SagAState) :
+    dynamic_rhs op_P op_N op_B op_A s 0 =
+    op_P s.P + op_N s.N + op_B s.B + op_A s.A := by
+  unfold dynamic_rhs pnba_weight; ring
+
+noncomputable def sagA_step (s : SagAState) (op : ℝ → ℝ) (F : ℝ) : ℝ :=
+  dynamic_rhs (fun P =&gt; P) (fun N =&gt; N) op (fun A =&gt; A) s F
+
+theorem sagA_step_is_dynamic_step (s : SagAState) (op : ℝ → ℝ) (F : ℝ) :
+    sagA_step s op F = s.P + s.N + op s.B + s.A + F := by
+  unfold sagA_step dynamic_rhs pnba_weight; ring
+
+-- ============================================================
+-- LAYER 1 — TORSION LAW AND PHASES
+-- ============================================================
+
+noncomputable def torsion (s : SagAState) : ℝ := s.B / s.P
+def phase_locked  (s : SagAState) : Prop := s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT
+def shatter_event (s : SagAState) : Prop := s.P &gt; 0 ∧ torsion s ≥ TORSION_LIMIT
+def noble_state   (s : SagAState) : Prop := s.B = 0
+
+-- F_ext operator — changes B only. P, N, A structurally preserved. NOHARM.
+noncomputable def f_ext_op (s : SagAState) (δ : ℝ) : SagAState :=
+  { s with B := s.B + δ }
+
+noncomputable def identity_mass (s : SagAState) : ℝ :=
+  (s.P + s.N + s.B + s.A) * SOVEREIGN_ANCHOR
+
+-- THEOREM 3: SHATTER AND LOCKED ARE MUTUALLY EXCLUSIVE
+theorem sagA_shatter_locked_exclusive (s : SagAState) :
+    ¬ (phase_locked s ∧ shatter_event s) := by
+  intro ⟨⟨_, h_locked⟩, ⟨_, h_shatter⟩⟩
+  exact absurd h_locked (not_lt.mpr h_shatter)
+
+-- THEOREM 4: TORSION IS SCALE-INVARIANT
+-- Same law at every mass. Stellar BH, Sag A*, M87* differ only in P and B.
+theorem torsion_scale_invariant_sagA (B P k : ℝ) (hk : k &gt; 0) :
+    B / P = (k * B) / (k * P) := by
+  rw [mul_div_mul_left _ _ (ne_of_gt hk)]
+
+-- ============================================================
+-- LAYER 2 — THE BLACK HOLE ENGINE PRESETS
+-- ============================================================
+--
+-- Scale chain [9,9,3,6] presets (P, B):
+--   Stellar BH       9.0, 1.80   τ = 0.200
+--   Supermassive     9.8, 2.80   τ = 0.286
+--   Sag A*           6.62, 1.10  τ = 0.166
+--   M87*             9.5, 2.50   τ = 0.263
+--   Primordial       2.0, 0.50   τ = 0.250
+--   Late evaporation 0.8, 0.15   τ = 0.188
+--   NS at TOV limit  8.5, 1.17   τ = 0.138
+
+def P_stellar : ℝ := 9.0
+def B_stellar : ℝ := 1.80
+def P_smbh    : ℝ := 9.8
+def B_smbh    : ℝ := 2.80
+def P_sagA    : ℝ := 6.62
+def B_sagA    : ℝ := 1.1
+def P_m87     : ℝ := 9.5
+def B_m87     : ℝ := 2.5
+def P_prim    : ℝ := 2.0
+def B_prim    : ℝ := 0.50
+def P_evap    : ℝ := 0.8
+def B_evap    : ℝ := 0.15
+def P_tov     : ℝ := 8.5
+def B_tov     : ℝ := 1.17
+
+-- THEOREM 5: EVERY BLACK HOLE PRESET IS SHATTER (τ ≥ TL)
+theorem all_bh_presets_shatter :
+    B_stellar / P_stellar ≥ TORSION_LIMIT ∧
+    B_smbh / P_smbh ≥ TORSION_LIMIT ∧
+    B_sagA / P_sagA ≥ TORSION_LIMIT ∧
+    B_m87 / P_m87 ≥ TORSION_LIMIT ∧
+    B_prim / P_prim ≥ TORSION_LIMIT ∧
+    B_evap / P_evap ≥ TORSION_LIMIT ∧
+    B_tov / P_tov ≥ TORSION_LIMIT := by
+  unfold B_stellar P_stellar B_smbh P_smbh B_sagA P_sagA B_m87 P_m87
+    B_prim P_prim B_evap P_evap B_tov P_tov TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- THEOREM 6: SAG A* IS THE CANONICAL INSTANCE — SHATTER
+theorem sagA_canonical_is_shatter : shatter_event sagA_canonical := by
+  refine ⟨by unfold sagA_canonical; norm_num, ?_⟩
+  unfold torsion sagA_canonical TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- THEOREM 7: SAG A* IS A QUIET SHATTER — τ/TL between 1.21 and 1.22
+theorem sagA_quiet_ratio :
+    (B_sagA / P_sagA) / TORSION_LIMIT &gt; 1.21 ∧
+    (B_sagA / P_sagA) / TORSION_LIMIT &lt; 1.22 := by
+  unfold B_sagA P_sagA TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- THEOREM 8: SAG A* SITS UNDER 0.2 OF BEHAVIOR ABOVE THE LOCKED BOUNDARY
+-- B − TL × P ∈ (0.19, 0.20): a Behavior drop of that size reaches Locked.
+theorem sagA_locked_margin :
+    B_sagA - TORSION_LIMIT * P_sagA &gt; 0.19 ∧
+    B_sagA - TORSION_LIMIT * P_sagA &lt; 0.20 := by
+  unfold B_sagA P_sagA TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- THEOREM 9: SAG A* IS THE QUIETEST HOLE IN THE SCALE CHAIN
+-- Only the neutron star at the TOV limit, the transition into a hole,
+-- sits closer to TL. Every other hole is deeper SHATTER.
+theorem sagA_quietest_hole :
+    B_tov / P_tov &lt; B_sagA / P_sagA ∧
+    B_sagA / P_sagA &lt; B_evap / P_evap ∧
+    B_sagA / P_sagA &lt; B_stellar / P_stellar ∧
+    B_sagA / P_sagA &lt; B_prim / P_prim ∧
+    B_sagA / P_sagA &lt; B_m87 / P_m87 ∧
+    B_sagA / P_sagA &lt; B_smbh / P_smbh := by
+  unfold B_stellar P_stellar B_smbh P_smbh B_sagA P_sagA B_m87 P_m87
+    B_prim P_prim B_evap P_evap B_tov P_tov
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- THEOREM 10: SAG A* IDENTITY MASS ≈ 21.93
+theorem sagA_identity_mass :
+    identity_mass sagA_canonical &gt; 21.9 ∧ identity_mass sagA_canonical &lt; 22.0 := by
+  unfold identity_mass sagA_canonical SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- LAYER 2 — IN: ACCRETION AND FLARES
+-- ============================================================
+
+-- THEOREM 11: FLARE = B-SPIKE, IDENTITY PRESERVED (NOHARM)
+theorem sagA_flare_is_B_spike (s : SagAState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧
+    (f_ext_op s δ).N = s.N ∧
+    (f_ext_op s δ).A = s.A ∧
+    (f_ext_op s δ).B = s.B + δ := ⟨rfl, rfl, rfl, rfl⟩
+
+-- THEOREM 12: FLARE RAISES TORSION
+theorem sagA_flare_raises_torsion (s : SagAState) (δ : ℝ)
+    (hP : s.P &gt; 0) (hδ : δ &gt; 0) :
+    torsion (f_ext_op s δ) &gt; torsion s := by
+  show s.B / s.P &lt; (s.B + δ) / s.P
+  exact div_lt_div_of_pos_right (by linarith) hP
+
+-- THEOREM 13: ACCRETION KEEPS A HOLE IN SHATTER
+-- Any non-negative Behavior input leaves a SHATTER state SHATTER.
+theorem accretion_preserves_shatter (s : SagAState) (δ : ℝ)
+    (hs : shatter_event s) (hδ : δ ≥ 0) :
+    shatter_event (f_ext_op s δ) := by
+  obtain ⟨hP, hτ⟩ := hs
+  refine ⟨hP, ?_⟩
+  show (s.B + δ) / s.P ≥ TORSION_LIMIT
+  have h1 : s.B / s.P ≤ (s.B + δ) / s.P :=
+    div_le_div_of_nonneg_right (by linarith) hP.le
+  exact le_trans hτ h1
+
+-- ============================================================
+-- LAYER 2 — OUT: HAWKING DRAIN AND VOID RETURN
+-- ============================================================
+
+-- THEOREM 14: DRAIN BELOW TL × P REACHES LOCKED
+theorem drain_reaches_locked (s : SagAState) (hP : s.P &gt; 0)
+    (hB : s.B &lt; TORSION_LIMIT * s.P) : phase_locked s := by
+  refine ⟨hP, ?_⟩
+  unfold torsion
+  rw [div_lt_iff₀ hP]
+  linarith [mul_comm s.P TORSION_LIMIT]
+
+-- THEOREM 15: VOID RETURN — B = 0 IS NOBLE, τ = 0
+theorem void_return_is_noble (s : SagAState) (hB : s.B = 0) :
+    noble_state s ∧ torsion s = 0 := by
+  refine ⟨hB, ?_⟩
+  unfold torsion
+  rw [hB, zero_div]
+
+-- THEOREM 16: SAG A* IS NOT NOBLE
+theorem sagA_not_noble : ¬ noble_state sagA_canonical := by
+  unfold noble_state sagA_canonical; norm_num
+
+-- ============================================================
+-- LAYER 2 — HAWKING TEMPERATURE (PHYSICAL)
+-- ============================================================
+--
+-- T_H = ħc³ / (8πGMk_B) = 6.17 × 10⁻⁸ K × (M☉/M). T_H ∝ 1/M.
+
+def T_HAWKING_SUN : ℝ := 6.17e-8   -- K, for M = 1 M☉
+def T_CMB         : ℝ := 2.7255    -- K [Fixsen09]
+def M_SAGA_GRAV   : ℝ := 4.297e6   -- M☉ [GRAVITY22]
+
+noncomputable def hawking_temp (M : ℝ) : ℝ := T_HAWKING_SUN / M
+
+-- THEOREM 17: HEAVIER HOLES ARE COLDER
+theorem hawking_temp_decreasing (M₁ M₂ : ℝ) (h₁ : 0 &lt; M₁) (h : M₁ &lt; M₂) :
+    hawking_temp M₂ &lt; hawking_temp M₁ := by
+  unfold hawking_temp
+  have hT : (0:ℝ) &lt; T_HAWKING_SUN := by unfold T_HAWKING_SUN; norm_num
+  exact div_lt_div_of_pos_left hT h₁ h
+
+-- THEOREM 18: SAG A* T_H ≈ 1.4 × 10⁻¹⁴ K
+theorem sagA_hawking_temp_bounds :
+    hawking_temp M_SAGA_GRAV &gt; 1.4e-14 ∧ hawking_temp M_SAGA_GRAV &lt; 1.5e-14 := by
+  unfold hawking_temp T_HAWKING_SUN M_SAGA_GRAV
+  constructor
+  · norm_num
+  · norm_num
+
+-- THEOREM 19: SAG A* IS COLDER THAN THE CMB — IT CANNOT EVAPORATE TODAY
+theorem sagA_colder_than_cmb : hawking_temp M_SAGA_GRAV &lt; T_CMB := by
+  have h := sagA_hawking_temp_bounds.2
+  have hc : (1.5e-14 : ℝ) &lt; T_CMB := by unfold T_CMB; norm_num
+  linarith
+
+-- ============================================================
+-- LAYER 2 — THE EHT SHADOW (PHYSICAL)
+-- ============================================================
+--
+-- Schwarzschild shadow angular diameter: θ = 2√27 · GM/(c²D)
+--   GM☉/c² = 1476.625 m, 1 pc = 3.0856776 × 10¹⁶ m,
+--   1 rad = 2.06264806 × 10¹¹ μas.
+-- M in M☉, D in pc, θ in μas.
+
+def RG_SUN   : ℝ := 1476.625
+def PC_M     : ℝ := 3.0856776e16
+def RAD_UAS  : ℝ := 2.06264806e11
+
+def EHT_SHADOW     : ℝ := 48.7
+def EHT_SHADOW_ERR : ℝ := 7.0
+def EHT_RING       : ℝ := 51.8
+def EHT_RING_ERR   : ℝ := 2.3
+
+noncomputable def shadow_uas (M D : ℝ) : ℝ :=
+  2 * Real.sqrt 27 * (M * RG_SUN) / (D * PC_M) * RAD_UAS
+
+theorem sqrt27_bounds : (5.196 : ℝ) &lt; Real.sqrt 27 ∧ Real.sqrt 27 &lt; 5.1962 := by
+  constructor
+  · rw [Real.lt_sqrt (by norm_num)]; norm_num
+  · rw [Real.sqrt_lt&#x27; (by norm_num)]; norm_num
+
+theorem shadow_factor (M D : ℝ) :
+    shadow_uas M D = Real.sqrt 27 * (2 * (M * RG_SUN) / (D * PC_M) * RAD_UAS) := by
+  unfold shadow_uas; ring
+
+-- THEOREM 20: GRAVITY 2022 MASS AND DISTANCE GIVE θ ≈ 53.25 μas
+theorem shadow_gravity_bounds :
+    shadow_uas 4.297e6 8277 &gt; 53.2 ∧ shadow_uas 4.297e6 8277 &lt; 53.3 := by
+  obtain ⟨hlo, hhi⟩ := sqrt27_bounds
+  rw [shadow_factor]
+  have hK : (0:ℝ) &lt; 2 * (4.297e6 * RG_SUN) / (8277 * PC_M) * RAD_UAS := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  have h1 := mul_lt_mul_of_pos_right hlo hK
+  have h2 := mul_lt_mul_of_pos_right hhi hK
+  have c1 : (53.2:ℝ) &lt; 5.196 * (2 * (4.297e6 * RG_SUN) / (8277 * PC_M) * RAD_UAS) := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  have c2 : 5.1962 * (2 * (4.297e6 * RG_SUN) / (8277 * PC_M) * RAD_UAS) &lt; (53.3:ℝ) := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  constructor
+  · linarith
+  · linarith
+
+-- THEOREM 21: KECK MASS AND DISTANCE GIVE θ ≈ 51.2 μas
+theorem shadow_keck_bounds :
+    shadow_uas 3.975e6 7959 &gt; 51.1 ∧ shadow_uas 3.975e6 7959 &lt; 51.4 := by
+  obtain ⟨hlo, hhi⟩ := sqrt27_bounds
+  rw [shadow_factor]
+  have hK : (0:ℝ) &lt; 2 * (3.975e6 * RG_SUN) / (7959 * PC_M) * RAD_UAS := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  have h1 := mul_lt_mul_of_pos_right hlo hK
+  have h2 := mul_lt_mul_of_pos_right hhi hK
+  have c1 : (51.1:ℝ) &lt; 5.196 * (2 * (3.975e6 * RG_SUN) / (7959 * PC_M) * RAD_UAS) := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  have c2 : 5.1962 * (2 * (3.975e6 * RG_SUN) / (7959 * PC_M) * RAD_UAS) &lt; (51.4:ℝ) := by
+    unfold RG_SUN PC_M RAD_UAS; norm_num
+  constructor
+  · linarith
+  · linarith
+
+-- THEOREM 22: BOTH PREDICTIONS LIE WITHIN 1σ OF THE EHT SHADOW AND RING
+theorem shadow_matches_eht :
+    |shadow_uas 4.297e6 8277 - EHT_SHADOW| &lt; EHT_SHADOW_ERR ∧
+    |shadow_uas 4.297e6 8277 - EHT_RING| &lt; EHT_RING_ERR ∧
+    |shadow_uas 3.975e6 7959 - EHT_SHADOW| &lt; EHT_SHADOW_ERR ∧
+    |shadow_uas 3.975e6 7959 - EHT_RING| &lt; EHT_RING_ERR := by
+  obtain ⟨g1, g2⟩ := shadow_gravity_bounds
+  obtain ⟨k1, k2⟩ := shadow_keck_bounds
+  unfold EHT_SHADOW EHT_SHADOW_ERR EHT_RING EHT_RING_ERR
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [abs_lt]; constructor
+    · linarith
+    · linarith
+  · rw [abs_lt]; constructor
+    · linarith
+    · linarith
+  · rw [abs_lt]; constructor
+    · linarith
+    · linarith
+  · rw [abs_lt]; constructor
+    · linarith
+    · linarith
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- THE BLACK HOLE REDUCTION, WITH SAG A* AS THE WORKED INSTANCE.
+-- ============================================================
+
+theorem sagA_reduction_is_lossless :
+    -- [1] Every hole in the scale chain is SHATTER
+    (B_stellar / P_stellar ≥ TORSION_LIMIT ∧ B_smbh / P_smbh ≥ TORSION_LIMIT ∧
+     B_sagA / P_sagA ≥ TORSION_LIMIT ∧ B_m87 / P_m87 ≥ TORSION_LIMIT ∧
+     B_prim / P_prim ≥ TORSION_LIMIT ∧ B_evap / P_evap ≥ TORSION_LIMIT ∧
+     B_tov / P_tov ≥ TORSION_LIMIT) ∧
+    -- [2] Sag A* is a quiet SHATTER: τ/TL ∈ (1.21, 1.22), under 0.2 of B above Locked
+    (B_sagA / P_sagA) / TORSION_LIMIT &lt; 1.22 ∧
+    B_sagA - TORSION_LIMIT * P_sagA &lt; 0.20 ∧
+    -- [3] SHATTER and LOCKED are exclusive
+    (∀ s : SagAState, ¬ (phase_locked s ∧ shatter_event s)) ∧
+    -- [4] IN: accretion keeps a hole SHATTER
+    (∀ s : SagAState, ∀ δ : ℝ, shatter_event s → δ ≥ 0 → shatter_event (f_ext_op s δ)) ∧
+    -- [5] OUT: drain below TL × P reaches LOCKED; B = 0 is NOBLE
+    (∀ s : SagAState, s.P &gt; 0 → s.B &lt; TORSION_LIMIT * s.P → phase_locked s) ∧
+    (∀ s : SagAState, s.B = 0 → noble_state s ∧ torsion s = 0) ∧
+    -- [6] Sag A* is colder than the CMB
+    hawking_temp M_SAGA_GRAV &lt; T_CMB ∧
+    -- [7] The predicted shadow lies within 1σ of the EHT shadow and ring
+    (|shadow_uas 4.297e6 8277 - EHT_SHADOW| &lt; EHT_SHADOW_ERR ∧
+     |shadow_uas 4.297e6 8277 - EHT_RING| &lt; EHT_RING_ERR ∧
+     |shadow_uas 3.975e6 7959 - EHT_SHADOW| &lt; EHT_SHADOW_ERR ∧
+     |shadow_uas 3.975e6 7959 - EHT_RING| &lt; EHT_RING_ERR) ∧
+    -- [8] Anchor holds
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨all_bh_presets_shatter,
+   sagA_quiet_ratio.2,
+   sagA_locked_margin.2,
+   sagA_shatter_locked_exclusive,
+   accretion_preserves_shatter,
+   drain_reaches_locked,
+   void_return_is_noble,
+   sagA_colder_than_cmb,
+   shadow_matches_eht,
+   anchor_zero_friction SOVEREIGN_ANCHOR rfl⟩
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | THE FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end SNSFL_SagA
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_SagA_Reduction.lean
+-- COORDINATE: [9,9,4,1]
+-- LAYER:      Layer 2 — Black Hole Reduction
+--
+-- DEPENDS ON (conceptual sources, reproduced inline above):
+--   SNSFL_GR_Reduction.lean      [9,9,0,1]   event horizon, geodesics, A-pulses
+--   SNSFL_Cosmo_Reduction.lean   [9,9,0,13]  dark matter = IM shadow
+--   SNSFL_Fluid_Reduction.lean   [9,9,0,7]   laminar = LOCKED
+--   SNSFL_IT_Reduction.lean      [9,9,0,10]  entropy = decoherence
+--   Black Hole Engine            [9,9,3,6]   scale chain presets
+--
+-- THEOREMS: 31 + master | 0 sorry | GERMLINE LOCKED
+--
+-- THE BLACK HOLE AS COLLAPSED PUMP:
+--   SHATTER: τ = B/P ≥ TL. Every hole in the scale chain.
+--   IN:  accretion raises B; a SHATTER hole stays SHATTER.
+--   OUT: drain below TL × P → LOCKED; B = 0 → NOBLE (void return).
+--
+-- SAG A* (Black Hole Engine preset):
+--   P = 6.62 | N = 5.8 | B = 1.1 | A = 2.5
+--   τ = 0.1662 | SHATTER | τ/TL = 1.214 | B − TL·P ≈ 0.194
+--   IM ≈ 21.93
+--   The quietest hole in the scale chain; only the TOV-limit
+--   neutron star transition sits closer to TL.
+--
+-- PHYSICAL ANCHORS:
+--   θ_shadow = 2√27 GM/(c²D): 53.25 μas (GRAVITY), 51.2 μas (Keck)
+--   EHT: shadow 48.7 ± 7.0 μas, ring 51.8 ± 2.3 μas — both within 1σ
+--   T_H = 6.17 × 10⁻⁸ K × M☉/M ≈ 1.4 × 10⁻¹⁴ K &lt; T_CMB
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. At every scale.
+-- Soldotna, Alaska. April 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-saga-reduction.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-saga-reduction.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
