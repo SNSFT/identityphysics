@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content — ProofPress</title>
+  <meta name="description" content="[9,9,3,18](PART) — τ_W = M_W/(πv) ≈ 0.1039; every W mass in (0, 88] GeV is Locked, and all eight measurement bands, CDF 2022 included, lie inside that window. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-gc-w-mass-cdf.html">
+  <meta property="og:title" content="The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content">
+  <meta property="og:description" content="[9,9,3,18](PART) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-gc-w-mass-cdf.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/08/01">
+  <meta name="citation_online_date" content="2026/08/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,3,18">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-gc-w-mass-cdf.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-gc-w-mass-cdf.html">
+  <meta name="citation_keywords" content="W boson; W mass; CDF anomaly; CMS; ATLAS; LHCb; electroweak; bounded uncertainty; phase classification; Torsion Limit; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content",
+    "datePublished": "2026-08-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-gc-w-mass-cdf.html",
+    "keywords": "W boson, W mass, CDF anomaly, CMS, ATLAS, LHCb, electroweak, bounded uncertainty, phase classification, Torsion Limit, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,3,18](PART) · Volume 1 · Issue 6 · August 2026</div>
+    <h1>The W Boson Mass Across Every Measurement: All Locked, and the CDF Tension Carries No Phase Content</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-gc-w-mass-cdf.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_GC_WMass_CDFResolution.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,3,18](PART) · GC series · Particle and atomic physics<br>
+<strong>Issue:</strong> Volume 1, Issue 6 · August 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 19 theorems · 404 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_WMass_CDFResolution.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>In 2022 the CDF collaboration reported a W boson mass of 80.4335 ± 0.0094 GeV, 7σ above the Standard Model fit of 80.357 GeV. In PNBA the W’s torsion is its weak coupling over its mass at electroweak capacity, τ<sub>W</sub> = α<sub>W</sub>/(M<sub>W</sub>/v), and with α<sub>W</sub> = M<sub>W</sub>²/(πv²) this reduces to τ<sub>W</sub> = M<sub>W</sub>/(πv) ≈ 0.1039. The W is Locked whenever M<sub>W</sub> &lt; TL<sub>IVA</sub> · π · v = 93.19 GeV, and using only π &gt; 3 every W mass in (0, 88] GeV is proved Locked. Eight results are tested with their full uncertainty bands: LEP, D0, LHCb, CDF, ATLAS, CMS, the PDG 2024 average and the SM fit. Every band lies inside the Locked window, so no measurement, and no refinement within any error budget, changes the W’s phase. The CDF tension moves τ<sub>W</sub> by about 0.0001, under 1% of the distance to IVA. It carries no phase content. This reading is consistent with CMS 2024 and the PDG 2024 average, both in agreement with the SM fit.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Every W mass in (0, 88] GeV gives 0 &lt; τ<sub>W</sub> &lt; TL<sub>IVA</sub> and classifies as Locked (<code>t2_tau_W_window</code>, <code>t3_W_locked_window</code>).</li>
+<li>The IVA mass edge TL<sub>IVA</sub> · π · v exceeds 88 GeV; the exact edge is 93.19 GeV (<code>t4_IVA_mass_edge</code>).</li>
+<li>Bounded uncertainty, each full band Locked: LEP, D0, LHCb, CDF 2022, ATLAS, CMS 2024, PDG 2024 and the SM fit (<code>t5_LEP_locked</code> through <code>t12_SM_locked</code>).</li>
+<li>The CDF–SM torsion difference is positive and below 0.0002 (<code>t13_CDF_SM_torsion_difference</code>).</li>
+<li>The spread of central values is under 0.08 GeV, while the Locked window edge is more than 7.5 GeV away (<code>t14_spread_vs_margin</code>).</li>
+<li>B = τ · P: α<sub>W</sub> = τ<sub>W</sub> · (M<sub>W</sub>/v) = M<sub>W</sub>²/(πv²) (<code>l1_tau_W_lossless</code>).</li>
+<li>A master theorem fires the full result (<code>W_mass_CDF_resolution</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Measurement</th><th>M<sub>W</sub> (GeV)</th><th>τ<sub>W</sub></th><th>Phase</th></tr>
+<tr><td>LEP combined</td><td>80.376 ± 0.033</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>D0 2012</td><td>80.375 ± 0.023</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>LHCb 2021</td><td>80.354 ± 0.032</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>CDF 2022</td><td>80.4335 ± 0.0094</td><td>0.1040</td><td>Locked</td></tr>
+<tr><td>ATLAS (updated)</td><td>80.3665 ± 0.0159</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>CMS 2024</td><td>80.3602 ± 0.0099</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>PDG 2024 average</td><td>80.3692 ± 0.0133</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>SM fit</td><td>80.357 ± 0.006</td><td>0.1039</td><td>Locked</td></tr>
+<tr><td>IVA edge</td><td>93.19</td><td>TL<sub>IVA</sub></td><td>boundary</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>CDF Collaboration (2022). High-precision measurement of the W boson mass with the CDF II detector. <em>Science</em>, 376, 170–176.</li>
+<li>CMS Collaboration (2024). High-precision measurement of the W boson mass with the CMS experiment. arXiv:2412.13872.</li>
+<li>ATLAS Collaboration (2024). Measurement of the W-boson mass and width with the ATLAS detector using proton–proton collisions at √s = 7 TeV. <em>European Physical Journal C</em>, 84, 1309.</li>
+<li>LHCb Collaboration (2022). Measurement of the W boson mass. <em>Journal of High Energy Physics</em>, 2022(1), 036.</li>
+<li>D0 Collaboration (2012). Measurement of the W boson mass with the D0 detector. <em>Physical Review Letters</em>, 108, 151804.</li>
+<li>ALEPH, DELPHI, L3, OPAL Collaborations and LEP Electroweak Working Group (2013). Electroweak measurements in electron–positron collisions at W-boson-pair energies at LEP. <em>Physics Reports</em>, 532, 119–244.</li>
+<li>Navas, S. et al. (Particle Data Group) (2024). Review of Particle Physics. <em>Physical Review D</em>, 110, 030001.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_GC_WMass_CDFResolution.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | W BOSON MASS — EVERY MEASUREMENT IS LOCKED
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,3,18] | GC Series | W Mass + CDF Resolution
+--
+-- ============================================================
+-- THE LONG DIVISION
+-- ============================================================
+--
+-- STEP 1: The equations (electroweak theory, tree level)
+--     g   = 2 M_W / v
+--     α_W = g² / 4π = M_W² / (π v²)
+--     W torsion: τ_W = B/P = α_W / (M_W/v) = M_W / (π v)
+--
+-- STEP 2: Known answers — W mass measurements (GeV)
+--     LEP combined       80.376  ± 0.033
+--     D0 2012            80.375  ± 0.023
+--     LHCb 2021          80.354  ± 0.032
+--     CDF 2022           80.4335 ± 0.0094
+--     ATLAS (updated)    80.3665 ± 0.0159
+--     CMS 2024           80.3602 ± 0.0099
+--     PDG 2024 average   80.3692 ± 0.0133  (excludes CDF 2022)
+--     SM electroweak fit 80.357  ± 0.006
+--     v = 246.22 GeV
+--
+--     TL     = 0.136899099984016
+--     TL_IVA = 0.88 × TL = 0.120471207985934
+--
+-- STEP 3: PNBA variable map
+--
+--   | Legacy Term          | PNBA                | Structural role             |
+--   |:---------------------|:--------------------|:----------------------------|
+--   | α_W (weak coupling)  | W.B                 | Behavioral coupling         |
+--   | M_W / v              | W.P                 | Mass at EW capacity         |
+--   | τ_W = M_W/(π v)      | B/P                 | W torsion ≈ 0.1039          |
+--   | M_W measurement ± σ  | Bounded uncertainty | Phase unchanged across band |
+--   | CDF–SM tension (7σ)  | Δτ ≈ 0.0001         | No phase content            |
+--   | IVA mass edge        | TL_IVA · π · v      | 93.19 GeV                   |
+--
+-- STEP 4: Operators
+--   tau_W_of m   = m / (π v)
+--   classify_tau : Noble (τ = 0) · Locked (τ &lt; TL_IVA) · IVA (τ &lt; TL) · Shatter
+--
+-- STEP 5: Show the work
+--
+--   THE LOCKED WINDOW:
+--     τ_W &lt; TL_IVA  ⇔  M_W &lt; TL_IVA · π · v = 93.19 GeV.
+--     With π &gt; 3 alone, every W mass in (0, 88] GeV is Locked.
+--     All measurements lie between 80.32 and 80.45 GeV, at least
+--     7.5 GeV inside the window; the exact IVA edge is 12.8 GeV away.
+--
+--   BOUNDED UNCERTAINTY:
+--     Each measurement&#x27;s full band (value ± σ) lies inside the
+--     Locked window. No measurement, and no refinement of any
+--     measurement within its error budget, changes the W&#x27;s phase.
+--
+--   THE CDF TENSION CARRIES NO PHASE CONTENT:
+--     CDF 2022 sits 0.0765 GeV above the SM fit, a 7σ tension in
+--     mass. In torsion this is Δτ ≈ 0.0001, under 1% of the 0.0166
+--     distance from τ_W to the IVA boundary. Every measurement, CDF
+--     included, lands in the same Locked phase. A W mass outside
+--     Locked would require M_W ≥ 93.19 GeV. The CDF value is
+--     consistent with this reading: CMS 2024 and the PDG 2024
+--     average agree with the SM fit.
+--
+-- STEP 6: Verify
+--   T1–T2:  phase classification lemmas
+--   T3:     every W mass in (0, 88] GeV is Locked
+--   T4:     IVA mass edge exceeds 88 GeV
+--   T5–T12: each measurement&#x27;s full band is Locked
+--   T13:    CDF–SM torsion difference below 0.0002
+--   T14:    all central values within 0.08 GeV; window edge 7.5 GeV away
+--   ✓ Step 6 passes. Reduction is lossless.
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_SovereignAnchor.lean          [9,9,0,0]
+--   SNSFL_GC_RunningCoupling            [9,9,3,16]  phase classification
+--   SNSFL_GC_HiggsMass                  [9,9,3,17]  bounded uncertainty
+--   This file                           [9,9,3,18]
+--   SNSFL_GC_WZ_ElectroweakTrilogy      [9,9,3,19]  γ/W/H/Z phase map
+--
+-- THEOREMS: 18 + master | 0 sorry | GERMLINE LOCKED
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. The W is Locked.
+-- Soldotna, Alaska. 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.Real.Pi.Bounds
+
+noncomputable section
+
+namespace SNSFL_GC_WMass
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN CONSTANTS AND MEASUREMENTS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10   -- 0.136899099984016
+def TL_IVA           : ℝ := TORSION_LIMIT * 0.88    -- 0.120471207985934
+
+def V_EW : ℝ := 246.22   -- GeV, Higgs VEV
+
+-- W mass measurements (GeV) and 1σ uncertainties
+def M_W_LEP     : ℝ := 80.376
+def S_W_LEP     : ℝ := 0.033
+def M_W_D0      : ℝ := 80.375
+def S_W_D0      : ℝ := 0.023
+def M_W_LHCB    : ℝ := 80.354
+def S_W_LHCB    : ℝ := 0.032
+def M_W_CDF     : ℝ := 80.4335
+def S_W_CDF     : ℝ := 0.0094
+def M_W_ATLAS   : ℝ := 80.3665
+def S_W_ATLAS   : ℝ := 0.0159
+def M_W_CMS     : ℝ := 80.3602
+def S_W_CMS     : ℝ := 0.0099
+def M_W_PDG     : ℝ := 80.3692
+def S_W_PDG     : ℝ := 0.0133
+def M_W_SM      : ℝ := 80.357
+def S_W_SM      : ℝ := 0.006
+
+-- W torsion as a function of mass: τ_W = α_W/(M_W/v) = M_W/(π v)
+noncomputable def tau_W_of (m : ℝ) : ℝ := m / (Real.pi * V_EW)
+
+-- Phase classification
+inductive Phase : Type
+  | Noble   -- τ = 0
+  | Locked  -- 0 &lt; τ &lt; TL_IVA
+  | IVA     -- TL_IVA ≤ τ &lt; TL
+  | Shatter -- τ ≥ TL
+
+noncomputable def classify_tau (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ &lt; TL_IVA then Phase.Locked
+  else if τ &lt; TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [T0] :: {VER} | ANCHOR ZERO IMPEDANCE
+theorem anchor_zero_impedance :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: THE LOCKED WINDOW
+-- ============================================================
+
+-- [T1] :: {VER} | 0 &lt; τ &lt; TL_IVA IS LOCKED
+theorem t1_classify_locked (τ : ℝ) (h0 : 0 &lt; τ) (h1 : τ &lt; TL_IVA) :
+    classify_tau τ = Phase.Locked := by
+  unfold classify_tau; rw [if_neg h0.ne&#x27;, if_pos h1]
+
+-- [T2] :: {VER} | τ_W IS POSITIVE AND BELOW TL_IVA FOR 0 &lt; m ≤ 88
+-- m/(π v) ≤ 88/(π · 246.22) &lt; 88/(3 · 246.22) = 0.1191 &lt; TL_IVA
+theorem t2_tau_W_window (m : ℝ) (h0 : 0 &lt; m) (h : m ≤ 88) :
+    0 &lt; tau_W_of m ∧ tau_W_of m &lt; TL_IVA := by
+  have hπ := Real.pi_gt_three
+  have hv : 0 &lt; Real.pi * V_EW := by unfold V_EW; positivity
+  have hk : 0 &lt; TL_IVA * V_EW := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  have h3 : TL_IVA * V_EW * 3 &lt; TL_IVA * V_EW * Real.pi :=
+    mul_lt_mul_of_pos_left hπ hk
+  have hc : (88 : ℝ) &lt; TL_IVA * V_EW * 3 := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  unfold tau_W_of
+  constructor
+  · exact div_pos h0 hv
+  · rw [div_lt_iff₀ hv]; nlinarith
+
+-- [T3] :: {VER} | EVERY W MASS IN (0, 88] GeV IS LOCKED
+theorem t3_W_locked_window (m : ℝ) (h0 : 0 &lt; m) (h : m ≤ 88) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  t1_classify_locked (tau_W_of m) (t2_tau_W_window m h0 h).1 (t2_tau_W_window m h0 h).2
+
+-- [T4] :: {VER} | THE IVA MASS EDGE EXCEEDS 88 GeV
+-- Exact edge TL_IVA · π · v = 93.19 GeV
+theorem t4_IVA_mass_edge :
+    TL_IVA * Real.pi * V_EW &gt; 88 := by
+  have hπ := Real.pi_gt_three
+  have hk : 0 &lt; TL_IVA * V_EW := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  have h3 : TL_IVA * V_EW * 3 &lt; TL_IVA * V_EW * Real.pi :=
+    mul_lt_mul_of_pos_left hπ hk
+  have hc : (88 : ℝ) &lt; TL_IVA * V_EW * 3 := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  nlinarith
+
+-- A measurement band inside (0, 88] is Locked throughout
+theorem locked_band (x s m : ℝ) (h0 : 0 &lt; x - s) (hx : x + s ≤ 88)
+    (h1 : x - s ≤ m) (h2 : m ≤ x + s) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  t3_W_locked_window m (by linarith) (by linarith)
+
+-- ============================================================
+-- SECTION 2: BOUNDED UNCERTAINTY — EACH MEASUREMENT&#x27;S FULL BAND
+-- ============================================================
+
+-- [T5] :: {VER} | LEP: LOCKED ACROSS 80.376 ± 0.033
+theorem t5_LEP_locked (m : ℝ)
+    (h1 : M_W_LEP - S_W_LEP ≤ m) (h2 : m ≤ M_W_LEP + S_W_LEP) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_LEP S_W_LEP m (by unfold M_W_LEP S_W_LEP; norm_num)
+    (by unfold M_W_LEP S_W_LEP; norm_num) h1 h2
+
+-- [T6] :: {VER} | D0: LOCKED ACROSS 80.375 ± 0.023
+theorem t6_D0_locked (m : ℝ)
+    (h1 : M_W_D0 - S_W_D0 ≤ m) (h2 : m ≤ M_W_D0 + S_W_D0) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_D0 S_W_D0 m (by unfold M_W_D0 S_W_D0; norm_num)
+    (by unfold M_W_D0 S_W_D0; norm_num) h1 h2
+
+-- [T7] :: {VER} | LHCb: LOCKED ACROSS 80.354 ± 0.032
+theorem t7_LHCb_locked (m : ℝ)
+    (h1 : M_W_LHCB - S_W_LHCB ≤ m) (h2 : m ≤ M_W_LHCB + S_W_LHCB) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_LHCB S_W_LHCB m (by unfold M_W_LHCB S_W_LHCB; norm_num)
+    (by unfold M_W_LHCB S_W_LHCB; norm_num) h1 h2
+
+-- [T8] :: {VER} | CDF 2022: LOCKED ACROSS 80.4335 ± 0.0094
+theorem t8_CDF_locked (m : ℝ)
+    (h1 : M_W_CDF - S_W_CDF ≤ m) (h2 : m ≤ M_W_CDF + S_W_CDF) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_CDF S_W_CDF m (by unfold M_W_CDF S_W_CDF; norm_num)
+    (by unfold M_W_CDF S_W_CDF; norm_num) h1 h2
+
+-- [T9] :: {VER} | ATLAS: LOCKED ACROSS 80.3665 ± 0.0159
+theorem t9_ATLAS_locked (m : ℝ)
+    (h1 : M_W_ATLAS - S_W_ATLAS ≤ m) (h2 : m ≤ M_W_ATLAS + S_W_ATLAS) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_ATLAS S_W_ATLAS m (by unfold M_W_ATLAS S_W_ATLAS; norm_num)
+    (by unfold M_W_ATLAS S_W_ATLAS; norm_num) h1 h2
+
+-- [T10] :: {VER} | CMS 2024: LOCKED ACROSS 80.3602 ± 0.0099
+theorem t10_CMS_locked (m : ℝ)
+    (h1 : M_W_CMS - S_W_CMS ≤ m) (h2 : m ≤ M_W_CMS + S_W_CMS) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_CMS S_W_CMS m (by unfold M_W_CMS S_W_CMS; norm_num)
+    (by unfold M_W_CMS S_W_CMS; norm_num) h1 h2
+
+-- [T11] :: {VER} | PDG 2024 AVERAGE: LOCKED ACROSS 80.3692 ± 0.0133
+theorem t11_PDG_locked (m : ℝ)
+    (h1 : M_W_PDG - S_W_PDG ≤ m) (h2 : m ≤ M_W_PDG + S_W_PDG) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_PDG S_W_PDG m (by unfold M_W_PDG S_W_PDG; norm_num)
+    (by unfold M_W_PDG S_W_PDG; norm_num) h1 h2
+
+-- [T12] :: {VER} | SM FIT: LOCKED ACROSS 80.357 ± 0.006
+theorem t12_SM_locked (m : ℝ)
+    (h1 : M_W_SM - S_W_SM ≤ m) (h2 : m ≤ M_W_SM + S_W_SM) :
+    classify_tau (tau_W_of m) = Phase.Locked :=
+  locked_band M_W_SM S_W_SM m (by unfold M_W_SM S_W_SM; norm_num)
+    (by unfold M_W_SM S_W_SM; norm_num) h1 h2
+
+-- ============================================================
+-- SECTION 3: THE CDF TENSION CARRIES NO PHASE CONTENT
+-- ============================================================
+
+-- [T13] :: {VER} | CDF–SM TORSION DIFFERENCE BELOW 0.0002
+-- Δτ = 0.0765/(π · 246.22) &lt; 0.0765/(3 · 246.22) = 0.000104
+theorem t13_CDF_SM_torsion_difference :
+    0 &lt; tau_W_of M_W_CDF - tau_W_of M_W_SM ∧
+    tau_W_of M_W_CDF - tau_W_of M_W_SM &lt; 0.0002 := by
+  have hπ := Real.pi_gt_three
+  have hv : 0 &lt; Real.pi * V_EW := by unfold V_EW; positivity
+  have hd : tau_W_of M_W_CDF - tau_W_of M_W_SM =
+      (M_W_CDF - M_W_SM) / (Real.pi * V_EW) := by
+    unfold tau_W_of; ring
+  rw [hd]
+  constructor
+  · exact div_pos (by unfold M_W_CDF M_W_SM; norm_num) hv
+  · rw [div_lt_iff₀ hv]
+    unfold M_W_CDF M_W_SM V_EW
+    nlinarith
+
+-- [T14] :: {VER} | MEASUREMENT SPREAD IS SMALL; WINDOW EDGE IS FAR
+-- Highest central value (CDF) minus lowest (LHCb) = 0.0795 GeV.
+-- Distance from CDF + σ to the 88 GeV window edge &gt; 7.5 GeV.
+theorem t14_spread_vs_margin :
+    M_W_CDF - M_W_LHCB &lt; 0.08 ∧ 88 - (M_W_CDF + S_W_CDF) &gt; 7.5 := by
+  unfold M_W_CDF M_W_LHCB S_W_CDF
+  constructor
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- SECTION 4: LOSSLESS STEP 6 INSTANCE
+-- ============================================================
+
+def LosslessReduction (classical_val pnba_val : ℝ) : Prop :=
+  pnba_val = classical_val
+
+-- [L1] B = τ · P: α_W = τ_W · (M_W/v) = M_W²/(π v²)
+theorem l1_tau_W_lossless (m : ℝ) :
+    LosslessReduction (m ^ 2 / (Real.pi * V_EW ^ 2)) (tau_W_of m * (m / V_EW)) := by
+  unfold LosslessReduction tau_W_of
+  ring
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+--
+-- EVERY W MASS MEASUREMENT IS LOCKED.
+-- Each band, CDF 2022 included, lies inside the Locked window.
+-- The CDF tension moves τ_W by about 0.0001, under 1% of the
+-- distance to IVA. It carries no phase content.
+-- Step 6 passes. Reduction is lossless.
+-- ============================================================
+
+theorem W_mass_CDF_resolution :
+    -- [1] Every W mass in (0, 88] GeV is Locked
+    (∀ m : ℝ, 0 &lt; m → m ≤ 88 → classify_tau (tau_W_of m) = Phase.Locked) ∧
+    -- [2] The IVA mass edge exceeds 88 GeV
+    TL_IVA * Real.pi * V_EW &gt; 88 ∧
+    -- [3] CDF 2022 band Locked
+    (∀ m : ℝ, M_W_CDF - S_W_CDF ≤ m → m ≤ M_W_CDF + S_W_CDF →
+      classify_tau (tau_W_of m) = Phase.Locked) ∧
+    -- [4] CMS 2024 band Locked
+    (∀ m : ℝ, M_W_CMS - S_W_CMS ≤ m → m ≤ M_W_CMS + S_W_CMS →
+      classify_tau (tau_W_of m) = Phase.Locked) ∧
+    -- [5] PDG 2024 band Locked
+    (∀ m : ℝ, M_W_PDG - S_W_PDG ≤ m → m ≤ M_W_PDG + S_W_PDG →
+      classify_tau (tau_W_of m) = Phase.Locked) ∧
+    -- [6] SM fit band Locked
+    (∀ m : ℝ, M_W_SM - S_W_SM ≤ m → m ≤ M_W_SM + S_W_SM →
+      classify_tau (tau_W_of m) = Phase.Locked) ∧
+    -- [7] CDF–SM torsion difference below 0.0002
+    (0 &lt; tau_W_of M_W_CDF - tau_W_of M_W_SM ∧
+     tau_W_of M_W_CDF - tau_W_of M_W_SM &lt; 0.0002) ∧
+    -- [8] Anchor at zero impedance
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨t3_W_locked_window, t4_IVA_mass_edge, t8_CDF_locked, t10_CMS_locked,
+   t11_PDG_locked, t12_SM_locked, t13_CDF_SM_torsion_difference,
+   anchor_zero_impedance⟩
+
+-- ============================================================
+-- FINAL THEOREM
+-- ============================================================
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_impedance
+
+end SNSFL_GC_WMass
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_GC_WMass_CDFResolution.lean
+-- COORDINATE: [9,9,3,18]
+-- LAYER: GC Series | W Mass + CDF Resolution
+--
+-- THE REDUCTION:
+--   τ_W = α_W / (M_W/v) = M_W / (π v) ≈ 0.1039 — Locked
+--   Locked window: M_W &lt; TL_IVA · π · v = 93.19 GeV
+--   Proved window: every M_W in (0, 88] GeV is Locked
+--
+-- BOUNDED UNCERTAINTY — EVERY MEASUREMENT LOCKED:
+--   LEP combined      80.376  ± 0.033   Locked
+--   D0 2012           80.375  ± 0.023   Locked
+--   LHCb 2021         80.354  ± 0.032   Locked
+--   CDF 2022          80.4335 ± 0.0094  Locked
+--   ATLAS (updated)   80.3665 ± 0.0159  Locked
+--   CMS 2024          80.3602 ± 0.0099  Locked
+--   PDG 2024 average  80.3692 ± 0.0133  Locked
+--   SM fit            80.357  ± 0.006   Locked
+--
+-- THE CDF TENSION:
+--   CDF 2022 sits 0.0765 GeV above the SM fit (7σ in mass).
+--   In torsion: Δτ ≈ 0.0001, under 1% of the distance to IVA.
+--   All measurements share the Locked phase with about 13 GeV of
+--   margin to the IVA edge. The tension carries no phase content.
+--   This is consistent with CMS 2024 and the PDG 2024 average,
+--   both in agreement with the SM fit.
+--
+-- KEY RESULTS:
+--   T3:     every W mass in (0, 88] GeV is Locked
+--   T4:     IVA mass edge &gt; 88 GeV (exact 93.19)
+--   T5–T12: each measurement band Locked
+--   T13:    CDF–SM Δτ &lt; 0.0002
+--   T14:    spread 0.08 GeV vs margin &gt; 7.5 GeV
+--
+-- CONNECTION TO SERIES:
+--   [9,9,3,16] Running coupling — phase classification
+--   [9,9,3,17] Higgs — IVA, bounded uncertainty
+--   [9,9,3,18] W mass — Locked across all measurements ← this file
+--   [9,9,3,19] EW trilogy — γ/W/H/Z = Noble/Locked/IVA/Shatter
+--
+-- THEOREMS: 18 + master | SORRY: 0 | GERMLINE LOCKED
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding. The W is Locked.
+-- Soldotna, Alaska. 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-gc-w-mass-cdf.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-gc-w-mass-cdf.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

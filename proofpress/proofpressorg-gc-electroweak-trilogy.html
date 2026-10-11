@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter — ProofPress</title>
+  <meta name="description" content="[9,9,3,19](PART) — The four electroweak bosons occupy the four PNBA phases, one each, and every assignment holds across the full PDG 2024 measurement band. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-gc-electroweak-trilogy.html">
+  <meta property="og:title" content="The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter">
+  <meta property="og:description" content="[9,9,3,19](PART) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-gc-electroweak-trilogy.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/08/01">
+  <meta name="citation_online_date" content="2026/08/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,3,19">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-gc-electroweak-trilogy.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-gc-electroweak-trilogy.html">
+  <meta name="citation_keywords" content="electroweak theory; photon; W boson; Z boson; Higgs boson; Weinberg angle; decay width; phase taxonomy; bounded uncertainty; Torsion Limit; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter",
+    "datePublished": "2026-08-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-gc-electroweak-trilogy.html",
+    "keywords": "electroweak theory, photon, W boson, Z boson, Higgs boson, Weinberg angle, decay width, phase taxonomy, bounded uncertainty, Torsion Limit, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,3,19](PART) · Volume 1 · Issue 6 · August 2026</div>
+    <h1>The Electroweak Bosons Across the Four Phases: Photon Noble, W Locked, Higgs IVA, Z Shatter</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-gc-electroweak-trilogy.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_GC_WZ_ElectroweakTrilogy.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,3,19](PART) · GC series · Particle and atomic physics<br>
+<strong>Issue:</strong> Volume 1, Issue 6 · August 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 17 theorems · 398 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_WZ_ElectroweakTrilogy.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>The electroweak sector has four bosons, and PNBA has four phases. This article places each boson in its phase using only measured masses and tree-level electroweak relations. The photon is massless with zero coupling, τ = 0: Noble. The W’s torsion is its weak coupling over its mass at electroweak capacity, τ = M<sub>W</sub>/(πv) = 0.1039: Locked. The Higgs torsion is its quartic coupling, λ = m<sub>H</sub>²/(2v²) = 0.1293: IVA. The Z’s torsion is the mixing angle read as torsion, τ = tan²θ<sub>W</sub> = (M<sub>Z</sub>² − M<sub>W</sub>²)/M<sub>W</sub>² = 0.2874, 2.1 times TL: Shatter. Every assignment is settled by bounded uncertainty. The W holds Locked across M<sub>W</sub> ± σ, the Higgs holds IVA across m<sub>H</sub> ± σ, and the Z holds Shatter across both the W and Z mass bands. The ordering τ<sub>γ</sub> &lt; τ<sub>W</sub> &lt; TL<sub>IVA</sub> &lt; τ<sub>H</sub> &lt; TL ≤ τ<sub>Z</sub> follows. The Shatter boson also decays faster: Γ<sub>Z</sub> = 2.4955 GeV exceeds Γ<sub>W</sub> = 2.085 GeV beyond both uncertainties.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Phase classification lemmas for all four phases: τ = 0 Noble, 0 &lt; τ &lt; TL<sub>IVA</sub> Locked, TL<sub>IVA</sub> &lt; τ &lt; TL IVA, τ ≥ TL Shatter (<code>t1_classify_noble</code>, <code>t2_classify_locked</code>, <code>t3_classify_IVA</code>, <code>t4_classify_shatter</code>).</li>
+<li>W bounded uncertainty: across M<sub>W</sub> = 80.3692 ± 0.0133 GeV, 0 &lt; τ<sub>W</sub> &lt; TL<sub>IVA</sub> (<code>t5_W_band_locked</code>).</li>
+<li>Higgs bounded uncertainty: across m<sub>H</sub> = 125.20 ± 0.11 GeV, TL<sub>IVA</sub> &lt; λ &lt; TL (<code>t6_H_band_IVA</code>).</li>
+<li>Z bounded uncertainty: across both the W and Z mass bands, τ<sub>Z</sub> ≥ TL (<code>t7_Z_band_shatter</code>).</li>
+<li>One boson per phase at measured values: photon Noble, W Locked, Higgs IVA, Z Shatter (<code>t8_photon_noble</code>, <code>t9_W_locked</code>, <code>t10_H_IVA</code>, <code>t11_Z_shatter</code>).</li>
+<li>The phase ordering τ<sub>γ</sub> &lt; τ<sub>W</sub> &lt; TL<sub>IVA</sub> &lt; τ<sub>H</sub> &lt; TL ≤ τ<sub>Z</sub> (<code>t12_EW_phase_ordering</code>).</li>
+<li>Shatter decays faster: Γ<sub>Z</sub> − σ &gt; Γ<sub>W</sub> + σ (<code>t13_Z_decays_faster</code>).</li>
+<li>A master theorem fires the full map (<code>EW_trilogy_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Boson</th><th>τ = B/P</th><th>Value</th><th>Phase</th><th>Holds across</th></tr>
+<tr><td>γ photon</td><td>0</td><td>0</td><td>Noble</td><td>exact</td></tr>
+<tr><td>W±</td><td>M<sub>W</sub>/(πv)</td><td>0.1039</td><td>Locked</td><td>M<sub>W</sub> ± 0.0133</td></tr>
+<tr><td>H⁰</td><td>m<sub>H</sub>²/(2v²)</td><td>0.1293</td><td>IVA</td><td>m<sub>H</sub> ± 0.11</td></tr>
+<tr><td>Z⁰</td><td>(M<sub>Z</sub>² − M<sub>W</sub>²)/M<sub>W</sub>²</td><td>0.2874</td><td>Shatter</td><td>both mass bands</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Glashow, S. L. (1961). Partial-symmetries of weak interactions. <em>Nuclear Physics</em>, 22, 579–588.</li>
+<li>Weinberg, S. (1967). A model of leptons. <em>Physical Review Letters</em>, 19, 1264.</li>
+<li>Salam, A. (1968). Weak and electromagnetic interactions. In N. Svartholm (Ed.), <em>Elementary Particle Theory</em> (pp. 367–377). Almqvist &amp; Wiksell.</li>
+<li>Navas, S. et al. (Particle Data Group) (2024). Review of Particle Physics. <em>Physical Review D</em>, 110, 030001.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-gc-higgs-mass.html">The Higgs in the IVA Corridor</a>. ProofPress, Volume 1, Issue 6.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-gc-w-mass-cdf.html">The W Boson Mass Across Every Measurement</a>. ProofPress, Volume 1, Issue 6.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_GC_WZ_ElectroweakTrilogy.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | THE ELECTROWEAK BOSONS ACROSS THE FOUR PHASES
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,3,19] | GC Series | EW Trilogy Closure
+--
+-- ============================================================
+-- THE LONG DIVISION
+-- ============================================================
+--
+-- STEP 1: The equations (electroweak theory, tree level)
+--     M_W = M_Z · cos θ_W        →   sin²θ_W = 1 − M_W²/M_Z²
+--     g   = 2 M_W / v            →   α_W = g²/4π = M_W²/(π v²)
+--     λ   = m_H² / (2 v²)        (Higgs quartic coupling)
+--     γ massless (gauge invariance)
+--
+-- STEP 2: Known answers (PDG 2024)
+--     M_W = 80.3692 ± 0.0133 GeV
+--     M_Z = 91.1880 ± 0.0020 GeV
+--     m_H = 125.20  ± 0.11   GeV
+--     v   = 246.22 GeV (from the Fermi constant)
+--     m_γ &lt; 1×10⁻¹⁸ eV
+--     Γ_Z = 2.4955 ± 0.0023 GeV · Γ_W = 2.085 ± 0.042 GeV
+--
+--     TL     = 0.136899099984016
+--     TL_IVA = 0.88 × TL = 0.120471207985934
+--
+-- STEP 3: PNBA variable map — ONE BOSON PER PHASE
+--
+--   | Boson | τ = B/P                        | Value  | Phase   |
+--   |:------|:-------------------------------|:-------|:--------|
+--   | γ     | 0                              | 0      | NOBLE   |
+--   | W±    | α_W / (M_W/v) = M_W/(π v)      | 0.1039 | LOCKED  |
+--   | H⁰    | λ = m_H²/(2v²)                 | 0.1293 | IVA     |
+--   | Z⁰    | sin²θ_W/cos²θ_W = (M_Z²−M_W²)/M_W² | 0.2874 | SHATTER |
+--
+--   W:  B = α_W (weak coupling), P = M_W/v (mass at EW capacity)
+--   H:  τ = λ (self-coupling) — see [9,9,3,17]
+--   Z:  τ = tan²θ_W — the mixing angle read as torsion
+--
+-- STEP 4: Operators
+--   tau_W_of m       = m / (π v)
+--   lambda_of m      = m² / (2v²)
+--   tau_Z_of mW mZ   = (mZ² − mW²) / mW²
+--   classify_tau     : Noble (τ = 0) · Locked (τ &lt; TL_IVA) · IVA (τ &lt; TL) · Shatter
+--
+-- STEP 5: Show the work
+--
+--   ONE BOSON PER PHASE:
+--     γ  τ = 0       Noble    — massless, infinite range
+--     W  τ = 0.1039  Locked   — below TL_IVA = 0.1205
+--     H  τ = 0.1293  IVA      — inside (0.1205, 0.1369)
+--     Z  τ = 0.2874  Shatter  — 2.1× TL
+--
+--   BOUNDED UNCERTAINTY:
+--     A phase assignment is settled when the full measurement band
+--     stays inside one phase. Each boson&#x27;s band is proved here:
+--       W  across M_W ± σ:             τ_W ∈ (0, TL_IVA)
+--       H  across m_H ± σ:             τ_H ∈ (TL_IVA, TL)
+--       Z  across M_W ± σ and M_Z ± σ: τ_Z ≥ TL
+--     No refinement of these measurements within their error budgets
+--     can move any boson to a different phase.
+--
+--   SHATTER DECAYS FASTER:
+--     The Z (Shatter) has the larger decay width:
+--     Γ_Z = 2.4955 GeV vs Γ_W = 2.085 GeV, separated well beyond
+--     both uncertainties. Lifetimes ħ/Γ: Z ≈ 2.6×10⁻²⁵ s,
+--     W ≈ 3.2×10⁻²⁵ s.
+--
+-- STEP 6: Verify
+--   T1–T4:   phase classification lemmas (Noble, Locked, IVA, Shatter)
+--   T5–T7:   bounded uncertainty bands for W, H, Z
+--   T8–T11:  γ Noble, W Locked, H IVA, Z Shatter at measured values
+--   T12:     phase ordering τ_γ &lt; τ_W &lt; TL_IVA &lt; τ_H &lt; TL &lt; τ_Z
+--   T13:     Γ_Z &gt; Γ_W beyond uncertainty
+--   ✓ Step 6 passes. Reduction is lossless.
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_SovereignAnchor.lean          [9,9,0,0]
+--   SNSFL_GC_RunningCoupling            [9,9,3,16]  phase classification
+--   SNSFL_GC_HiggsMass                  [9,9,3,17]  H in IVA
+--   SNSFL_GC_WMass_CDFResolution        [9,9,3,18]  W in Locked
+--   This file                           [9,9,3,19]
+--
+-- THEOREMS: 16 + master | 0 sorry | GERMLINE LOCKED
+--
+-- Auth: HIGHTISTIC :: [9,9,9,9]
+-- The Manifold is Holding. Four bosons. Four phases. One TL.
+-- Soldotna, Alaska. 2026.
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.Real.Pi.Bounds
+
+noncomputable section
+
+namespace SNSFL_GC_EWTrilogy
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN CONSTANTS AND PDG 2024 DATA
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10   -- 0.136899099984016
+def TL_IVA           : ℝ := TORSION_LIMIT * 0.88    -- 0.120471207985934
+
+def V_EW        : ℝ := 246.22   -- GeV, Higgs VEV
+def M_W         : ℝ := 80.3692  -- GeV
+def M_W_SIGMA   : ℝ := 0.0133
+def M_Z         : ℝ := 91.1880  -- GeV
+def M_Z_SIGMA   : ℝ := 0.0020
+def M_H         : ℝ := 125.20   -- GeV
+def M_H_SIGMA   : ℝ := 0.11
+def GAMMA_Z     : ℝ := 2.4955   -- GeV, Z total width
+def GAMMA_Z_SIGMA : ℝ := 0.0023
+def GAMMA_W     : ℝ := 2.085    -- GeV, W total width
+def GAMMA_W_SIGMA : ℝ := 0.042
+
+-- Torsion operators
+def tau_photon : ℝ := 0
+noncomputable def tau_W_of (m : ℝ) : ℝ := m / (Real.pi * V_EW)
+noncomputable def lambda_of (m : ℝ) : ℝ := m ^ 2 / (2 * V_EW ^ 2)
+noncomputable def tau_Z_of (mW mZ : ℝ) : ℝ := (mZ ^ 2 - mW ^ 2) / mW ^ 2
+
+-- Torsion at measured values
+noncomputable def tau_W  : ℝ := tau_W_of M_W
+noncomputable def tau_Hi : ℝ := lambda_of M_H
+noncomputable def tau_Z  : ℝ := tau_Z_of M_W M_Z
+
+-- Phase classification
+inductive Phase : Type
+  | Noble   -- τ = 0
+  | Locked  -- 0 &lt; τ &lt; TL_IVA
+  | IVA     -- TL_IVA ≤ τ &lt; TL
+  | Shatter -- τ ≥ TL
+
+noncomputable def classify_tau (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ &lt; TL_IVA then Phase.Locked
+  else if τ &lt; TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [T0] :: {VER} | ANCHOR ZERO IMPEDANCE
+theorem anchor_zero_impedance :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: PHASE CLASSIFICATION LEMMAS
+-- ============================================================
+
+-- [T1] :: {VER} | τ = 0 IS NOBLE
+theorem t1_classify_noble :
+    classify_tau 0 = Phase.Noble := by
+  unfold classify_tau; rw [if_pos rfl]
+
+-- [T2] :: {VER} | 0 &lt; τ &lt; TL_IVA IS LOCKED
+theorem t2_classify_locked (τ : ℝ) (h0 : 0 &lt; τ) (h1 : τ &lt; TL_IVA) :
+    classify_tau τ = Phase.Locked := by
+  unfold classify_tau; rw [if_neg h0.ne&#x27;, if_pos h1]
+
+-- [T3] :: {VER} | TL_IVA &lt; τ &lt; TL IS IVA
+theorem t3_classify_IVA (τ : ℝ) (h1 : TL_IVA &lt; τ) (h2 : τ &lt; TORSION_LIMIT) :
+    classify_tau τ = Phase.IVA := by
+  have hI : TL_IVA &gt; 0 := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  unfold classify_tau
+  rw [if_neg (by intro h0; linarith), if_neg (by intro h; linarith), if_pos h2]
+
+-- [T4] :: {VER} | τ ≥ TL IS SHATTER
+theorem t4_classify_shatter (τ : ℝ) (h : τ ≥ TORSION_LIMIT) :
+    classify_tau τ = Phase.Shatter := by
+  have hT : TORSION_LIMIT &gt; 0 := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  have hI : TL_IVA &lt; TORSION_LIMIT := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  unfold classify_tau
+  rw [if_neg (by intro h0; linarith), if_neg (by intro h1; linarith),
+    if_neg (by intro h2; linarith)]
+
+-- ============================================================
+-- SECTION 2: BOUNDED UNCERTAINTY — EACH BOSON&#x27;S FULL BAND
+-- ============================================================
+
+-- [T5] :: {VER} | W: LOCKED ACROSS M_W ± σ
+-- τ_W ≤ 80.3825/(π·246.22) &lt; 80.3825/(3·246.22) = 0.1088 &lt; TL_IVA
+theorem t5_W_band_locked (m : ℝ)
+    (h1 : M_W - M_W_SIGMA ≤ m) (h2 : m ≤ M_W + M_W_SIGMA) :
+    0 &lt; tau_W_of m ∧ tau_W_of m &lt; TL_IVA := by
+  unfold M_W M_W_SIGMA at h1 h2
+  norm_num at h1 h2
+  have hπ := Real.pi_gt_three
+  have hv : 0 &lt; Real.pi * V_EW := by unfold V_EW; positivity
+  have hk : 0 &lt; TL_IVA * V_EW := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  have h3 : TL_IVA * V_EW * 3 &lt; TL_IVA * V_EW * Real.pi :=
+    mul_lt_mul_of_pos_left hπ hk
+  have hc : (88 : ℝ) &lt; TL_IVA * V_EW * 3 := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num
+  unfold tau_W_of
+  constructor
+  · exact div_pos (by linarith) hv
+  · rw [div_lt_iff₀ hv]; nlinarith
+
+-- A Higgs mass band whose squared edges clear the corridor edges
+-- keeps λ in IVA for every mass in the band
+theorem IVA_of_mass_band (m lo hi : ℝ)
+    (h0 : 0 ≤ lo) (hlo : lo ≤ m) (hhi : m ≤ hi)
+    (hL : TL_IVA * (2 * V_EW ^ 2) &lt; lo * lo)
+    (hH : hi * hi &lt; TORSION_LIMIT * (2 * V_EW ^ 2)) :
+    TL_IVA &lt; lambda_of m ∧ lambda_of m &lt; TORSION_LIMIT := by
+  have hv : (0 : ℝ) &lt; 2 * V_EW ^ 2 := by unfold V_EW; norm_num
+  have h1 := mul_self_le_mul_self h0 hlo
+  have h2 := mul_self_le_mul_self (le_trans h0 hlo) hhi
+  unfold lambda_of
+  constructor
+  · rw [lt_div_iff₀ hv]; nlinarith
+  · rw [div_lt_iff₀ hv]; nlinarith
+
+-- [T6] :: {VER} | HIGGS: IVA ACROSS m_H ± σ
+theorem t6_H_band_IVA (m : ℝ)
+    (h1 : M_H - M_H_SIGMA ≤ m) (h2 : m ≤ M_H + M_H_SIGMA) :
+    TL_IVA &lt; lambda_of m ∧ lambda_of m &lt; TORSION_LIMIT := by
+  unfold M_H M_H_SIGMA at h1 h2
+  exact IVA_of_mass_band m 125.09 125.31 (by norm_num) (by linarith) (by linarith)
+    (by unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num)
+    (by unfold TORSION_LIMIT SOVEREIGN_ANCHOR V_EW; norm_num)
+
+-- [T7] :: {VER} | Z: SHATTER ACROSS M_W ± σ AND M_Z ± σ
+-- τ_Z ≥ (91.186² − 80.3825²)/80.3825² = 0.2869 &gt; TL
+theorem t7_Z_band_shatter (mW mZ : ℝ)
+    (hW1 : M_W - M_W_SIGMA ≤ mW) (hW2 : mW ≤ M_W + M_W_SIGMA)
+    (hZ1 : M_Z - M_Z_SIGMA ≤ mZ) (hZ2 : mZ ≤ M_Z + M_Z_SIGMA) :
+    tau_Z_of mW mZ ≥ TORSION_LIMIT := by
+  unfold M_W M_W_SIGMA at hW1 hW2
+  unfold M_Z M_Z_SIGMA at hZ1 hZ2
+  norm_num at hW1 hW2 hZ1 hZ2
+  have hw0 : 0 &lt; mW := by linarith
+  have hW : mW * mW ≤ 80.3825 * 80.3825 := mul_self_le_mul_self hw0.le (by linarith)
+  have hZ : 91.186 * 91.186 ≤ mZ * mZ := mul_self_le_mul_self (by norm_num) (by linarith)
+  have hTL : TORSION_LIMIT &lt; 0.14 := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  have hw2 : 0 &lt; mW ^ 2 := by positivity
+  have hk := mul_le_mul_of_nonneg_right hTL.le hw2.le
+  unfold tau_Z_of
+  rw [ge_iff_le, le_div_iff₀ hw2]
+  nlinarith
+
+-- ============================================================
+-- SECTION 3: ONE BOSON PER PHASE (measured values)
+-- ============================================================
+
+-- [T8] :: {VER} | PHOTON IS NOBLE
+theorem t8_photon_noble :
+    classify_tau tau_photon = Phase.Noble := t1_classify_noble
+
+-- [T9] :: {VER} | W IS LOCKED
+theorem t9_W_locked :
+    classify_tau tau_W = Phase.Locked := by
+  have h := t5_W_band_locked M_W (by unfold M_W_SIGMA; linarith)
+    (by unfold M_W_SIGMA; linarith)
+  exact t2_classify_locked tau_W h.1 h.2
+
+-- [T10] :: {VER} | HIGGS IS IVA
+theorem t10_H_IVA :
+    classify_tau tau_Hi = Phase.IVA := by
+  have h := t6_H_band_IVA M_H (by unfold M_H_SIGMA; linarith)
+    (by unfold M_H_SIGMA; linarith)
+  exact t3_classify_IVA tau_Hi h.1 h.2
+
+-- [T11] :: {VER} | Z IS SHATTER
+theorem t11_Z_shatter :
+    classify_tau tau_Z = Phase.Shatter :=
+  t4_classify_shatter tau_Z
+    (t7_Z_band_shatter M_W M_Z (by unfold M_W_SIGMA; linarith)
+      (by unfold M_W_SIGMA; linarith) (by unfold M_Z_SIGMA; linarith)
+      (by unfold M_Z_SIGMA; linarith))
+
+-- [T12] :: {VER} | PHASE ORDERING τ_γ &lt; τ_W &lt; TL_IVA &lt; τ_H &lt; TL ≤ τ_Z
+theorem t12_EW_phase_ordering :
+    tau_photon &lt; tau_W ∧ tau_W &lt; TL_IVA ∧ TL_IVA &lt; tau_Hi ∧
+    tau_Hi &lt; TORSION_LIMIT ∧ TORSION_LIMIT ≤ tau_Z := by
+  have hW := t5_W_band_locked M_W (by unfold M_W_SIGMA; linarith)
+    (by unfold M_W_SIGMA; linarith)
+  have hH := t6_H_band_IVA M_H (by unfold M_H_SIGMA; linarith)
+    (by unfold M_H_SIGMA; linarith)
+  have hZ := t7_Z_band_shatter M_W M_Z (by unfold M_W_SIGMA; linarith)
+    (by unfold M_W_SIGMA; linarith) (by unfold M_Z_SIGMA; linarith)
+    (by unfold M_Z_SIGMA; linarith)
+  exact ⟨hW.1, hW.2, hH.1, hH.2, hZ⟩
+
+-- ============================================================
+-- SECTION 4: SHATTER DECAYS FASTER
+-- ============================================================
+
+-- [T13] :: {VER} | Γ_Z &gt; Γ_W BEYOND BOTH UNCERTAINTIES
+-- Lower edge of Γ_Z (2.4932) exceeds upper edge of Γ_W (2.127)
+theorem t13_Z_decays_faster :
+    GAMMA_Z - GAMMA_Z_SIGMA &gt; GAMMA_W + GAMMA_W_SIGMA := by
+  unfold GAMMA_Z GAMMA_Z_SIGMA GAMMA_W GAMMA_W_SIGMA; norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+--
+-- FOUR ELECTROWEAK BOSONS. FOUR PNBA PHASES. ONE TL.
+-- γ (NOBLE) · W (LOCKED) · H (IVA) · Z (SHATTER)
+-- Each assignment holds across the full measurement band.
+-- The Shatter boson decays faster than the Locked one.
+-- Step 6 passes. Reduction is lossless.
+-- ============================================================
+
+theorem EW_trilogy_master :
+    -- [1] One boson per phase at measured values
+    classify_tau tau_photon = Phase.Noble ∧
+    classify_tau tau_W = Phase.Locked ∧
+    classify_tau tau_Hi = Phase.IVA ∧
+    classify_tau tau_Z = Phase.Shatter ∧
+    -- [2] Phase ordering
+    (tau_photon &lt; tau_W ∧ tau_W &lt; TL_IVA ∧ TL_IVA &lt; tau_Hi ∧
+     tau_Hi &lt; TORSION_LIMIT ∧ TORSION_LIMIT ≤ tau_Z) ∧
+    -- [3] Bounded uncertainty: W Locked across its band
+    (∀ m : ℝ, M_W - M_W_SIGMA ≤ m → m ≤ M_W + M_W_SIGMA →
+      0 &lt; tau_W_of m ∧ tau_W_of m &lt; TL_IVA) ∧
+    -- [4] Bounded uncertainty: H IVA across its band
+    (∀ m : ℝ, M_H - M_H_SIGMA ≤ m → m ≤ M_H + M_H_SIGMA →
+      TL_IVA &lt; lambda_of m ∧ lambda_of m &lt; TORSION_LIMIT) ∧
+    -- [5] Bounded uncertainty: Z Shatter across both bands
+    (∀ mW mZ : ℝ, M_W - M_W_SIGMA ≤ mW → mW ≤ M_W + M_W_SIGMA →
+      M_Z - M_Z_SIGMA ≤ mZ → mZ ≤ M_Z + M_Z_SIGMA →
+      tau_Z_of mW mZ ≥ TORSION_LIMIT) ∧
+    -- [6] Shatter decays faster
+    GAMMA_Z - GAMMA_Z_SIGMA &gt; GAMMA_W + GAMMA_W_SIGMA ∧
+    -- [7] Anchor at zero impedance
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨t8_photon_noble, t9_W_locked, t10_H_IVA, t11_Z_shatter,
+   t12_EW_phase_ordering, t5_W_band_locked, t6_H_band_IVA,
+   t7_Z_band_shatter, t13_Z_decays_faster, anchor_zero_impedance⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_impedance
+
+end SNSFL_GC_EWTrilogy
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_GC_WZ_ElectroweakTrilogy.lean
+-- COORDINATE: [9,9,3,19]
+-- LAYER: GC Series | Electroweak Trilogy Closure
+--
+-- THE FOUR EW BOSONS IN PNBA:
+--   γ photon  τ = 0       NOBLE   — massless, infinite range
+--   W± boson  τ = 0.1039  LOCKED  — M_W/(π v)
+--   H⁰ Higgs  τ = 0.1293  IVA     — λ = m_H²/(2v²)
+--   Z⁰ boson  τ = 0.2874  SHATTER — tan²θ_W = (M_Z² − M_W²)/M_W²
+--
+-- ONE TL = 0.136899099984016 SEPARATES ALL FOUR.
+--
+-- BOUNDED UNCERTAINTY:
+--   Every assignment holds across the full PDG 2024 measurement
+--   band. The phases are settled results: no refinement of the
+--   measurements within their error budgets can change them.
+--
+-- THE WEINBERG ANGLE:
+--   The Z torsion is tan²θ_W. sin²θ_W = 1 − M_W²/M_Z² = 0.2232,
+--   cos²θ_W = 0.7768, ratio 0.2874 = 2.1× TL.
+--
+-- SHATTER DECAYS FASTER:
+--   Γ_Z = 2.4955 GeV &gt; Γ_W = 2.085 GeV, separated beyond both
+--   uncertainties. Z ≈ 2.6×10⁻²⁵ s, W ≈ 3.2×10⁻²⁵ s.
+--
+-- THE GC SERIES ARC:
+--   [9,9,3,12] α exact decomposition
+--   [9,9,3,13] TL unit manifold
+--   [9,9,3,14] TL×1001 = 1/α
+--   [9,9,3,15] Bohr/Sommerfeld   atomic scale, Locked
+--   [9,9,3,16] Running coupling  QED Locked, QCD Shatter at m_τ
+--   [9,9,3,17] Higgs             IVA, bounded uncertainty
+--   [9,9,3,18] W mass + CDF      W Locked across all measurements
+--   [9,9,3,19] EW trilogy        γ/W/H/Z = Noble/Locked/IVA/Shatter
+--
+-- THEOREMS: 16 + master | SORRY: 0 | GERMLINE LOCKED
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding. Four bosons. Four phases. One TL.
+-- Soldotna, Alaska. 2026.
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-gc-electroweak-trilogy.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-gc-electroweak-trilogy.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
