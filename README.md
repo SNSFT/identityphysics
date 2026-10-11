@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 100526 — Updated October 5, 2026 -->
+<!-- README version: 101126 — Updated October 11, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -38,15 +38,15 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — October 5, 2026
+## Verified status — October 11, 2026
 
 ### Physics core
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_Master.lean` | Constitutional layer — General Relativity, Quantum Mechanics, Thermodynamics, IVA (Identity Velocity Amplification), IMS (Identity Mass Suppression) | 19 | 646 |
-| `SNSFL_GR_Reduction.lean` | General Relativity → PNBA (Pattern, Narrative, Behavior, Adaptation) | 24 | 831 |
-| `SNSFL_QM_Reduction.lean` | Quantum Mechanics → PNBA | 24 | 786 |
+| `SNSFL_Master.lean` | Constitutional layer — General Relativity, Quantum Mechanics, Thermodynamics, IVA (Identity Velocity Amplification), IMS (Identity Mass Suppression) | 19 | 634 |
+| `SNSFL_GR_Reduction.lean` | General Relativity → PNBA (Pattern, Narrative, Behavior, Adaptation) | 24 | 833 |
+| `SNSFL_QM_Reduction.lean` | Quantum Mechanics → PNBA | 25 | 796 |
 | `SNSFL_QM_Mag_Reduction.lean` | Quantum Mechanics → PNBA (decoherence stated by magnitude) | 24 | 790 |
 | `SNSFL_EM_Reduction.lean` | Electromagnetism → PNBA | 17 | 665 |
 | `SNSFL_Lagrangian_Reduction.lean` | Lagrangian mechanics → PNBA | 18 | 705 |
@@ -59,15 +59,15 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
 | `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 338 |
 | `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 18 | 350 |
-| **Subtotal** | **15 files** | **293** | **9,765** |
+| **Subtotal** | **15 files** | **294** | **9,765** |
 
 ### Physics and chemistry extensions
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_First_Law_Identity_Physics.lean` | First Law of Identity Physics — Identity Mass, torsion, structural load | 22 | 388 |
-| `SNSFL_BBN_Reduction.lean` | Big Bang Nucleosynthesis → PNBA | 26 | 559 |
-| `SNSFL_Abiogenesis_Reduction.lean` | Abiogenesis — L = (4)(2), prebiotic states to LUCA | 28 | 891 |
+| `SNSFL_First_Law_Identity_Physics.lean` | First Law of Identity Physics — L = (4)(2); Identity Mass conservation, torsion, structural load | 26 | 437 |
+| `SNSFL_BBN_Reduction.lean` | Big Bang Nucleosynthesis → PNBA — baryons Locked, helium from n/p, matter–dark energy equality | 26 | 487 |
+| `SNSFL_Abiogenesis_Reduction.lean` | Abiogenesis — L = (4)(2), prebiotic states to LUCA, Identity Mass floor of life | 31 | 871 |
 | `SNSFL_PeriodicWeight_Reduction.lean` | Periodic weight — B-balance stoichiometry, 12 compounds | 40 | 611 |
 | `SNSFL_SovereignTime.lean` | Sovereign Time — anchor emission, 4 atomic-clock substrates | 17 | 334 |
 | `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 22 | 531 |
@@ -76,20 +76,20 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_FeO_HemeCoupling.lean` | Fe–O heme coupling — GAM Collider, shatter + shatter → Noble | 23 | 561 |
 | `SNSFL_42_Complete_Laws_Catalog.lean` | 42 Emergent Structural Laws — GAM Collider catalog [9,9,2,50] | 41 | 651 |
 | `SNSFL_QT_Reduction.lean` | Quantum Teleportation → PNBA | 23 | 614 |
-| `SNSFL_GC_RunningCoupling_Reduction.lean` | Running coupling — τ(Q²) evolution, Landau pole = TL | 23 | 471 |
-| `SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean` | Bohr–Rydberg–Sommerfeld — atomic structure from TL × 1001 | 17 | 472 |
-| `SNSFL_SpeedOfLight_Reduction.lean` | Speed of light — structural invariant at the anchor | 18 | 472 |
-| `SNSFL_CosmologicalCorpus_Layer0.lean` | Cosmological corpus — cosmic phase ordering | 34 | 668 |
+| `SNSFL_GC_RunningCoupling_Reduction.lean` | Running coupling — QED runs toward Shatter, QCD toward Noble; TL before the Landau pole | 27 | 527 |
+| `SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean` | Bohr–Rydberg–Sommerfeld — atomic structure from TL × 1001; hydrogen through harmonic P | 18 | 497 |
+| `SNSFL_SpeedOfLight_Reduction.lean` | Speed of light — Maxwell speed, unique invariant speed, c locked to the anchor through 1/α | 20 | 500 |
+| `SNSFL_CosmologicalCorpus_Layer0.lean` | Cosmological corpus — cosmic phase ordering, phases proved across DESI DR2 and neutrino mass bands | 43 | 793 |
 | `SNSFL_GC_Transcendental_Time_Engine.lean` | Transcendental Time Engine — F_ext step = TL | 13 | 299 |
-| `SNSFL_GC_HiggsMass_Reduction.lean` | Higgs mass — the one boson in the IVA corridor | 20 | 440 |
-| `SNSFL_GC_WMass_CDFResolution.lean` | W mass — SM, ATLAS and CDF in the same locked phase | 19 | 470 |
-| `SNSFL_GC_WZ_ElectroweakTrilogy.lean` | Electroweak trilogy — photon Noble, W locked, Higgs IVA, Z shatter | 19 | 416 |
+| `SNSFL_GC_HiggsMass_Reduction.lean` | Higgs mass — the Higgs in the IVA corridor across its full uncertainty band | 14 | 352 |
+| `SNSFL_GC_WMass_CDFResolution.lean` | W mass — every W measurement Locked; the CDF tension carries no phase content | 19 | 404 |
+| `SNSFL_GC_WZ_ElectroweakTrilogy.lean` | Electroweak trilogy — photon Noble, W locked, Higgs IVA, Z shatter | 17 | 398 |
 | `SNSFL_GC_Electron_Geometric_Decomposition.lean` | Electron — TL × 1000 bare region + TL kinetic shell = 1/α | 21 | 345 |
 | `SNSFL_Leptoquark_Exclusion.lean` | Leptoquark exclusion — quark–lepton pairs are never Noble | 16 | 234 |
 | `SNSFL_Gravity_Reduction.lean` | Gravity — force hierarchy as phase hierarchy, G from the anchor | 31 | 654 |
 | `SNSFL_Holographic_Gravity_LDP.lean` | Holographic gravity — Noble as the holographic boundary | 20 | 374 |
 | `SNSFL_QuantumGravity_Layer0.lean` | Quantum gravity — nine programs on the phase map | 41 | 901 |
-| `SNSFL_SagA_Reduction.lean` | Sagittarius A* — quiet shatter, EHT-anchored | 28 | 787 |
+| `SNSFL_SagA_Reduction.lean` | Black holes, Sagittarius A* as worked instance — collapsed pump, quiet Shatter, EHT shadow and Hawking anchored | 32 | 568 |
 | `SNSFL_CentralSurfaceDensity_LDP.lean` | Central surface density — TL as the dark-sector boundary | 13 | 305 |
 | `SNSFL_CTC_Reduction.lean` | Closed timelike curves — nine frameworks lack the A-axis | 31 | 984 |
 | `SNSFL_Novikov_Reduction.lean` | Novikov self-consistency — the Noble fixed point | 20 | 552 |
@@ -102,19 +102,20 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_4Beam_Verification.lean` | GAM Collider 4-beam verification — six collisions against materials science | 41 | 697 |
 | `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 31 | 809 |
 | `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 457 |
-| `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure | 25 | 544 |
+| `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure; same-B detector predicted | 26 | 554 |
+| `SNSFL_CriticalTopology_Reduction.lean` | Critical topology (Lin et al. 2026) — the gap closes where B = P; the 0.5 entanglement mode is the same balance | 21 | 423 |
 | `SNSFL_Element_Darkenergy.lean` | Dark energy element De — B = 0, A = Ω_Λ, Noble | 10 | 205 |
-| **Subtotal** | **39 files** | **944** | **21,000** |
+| **Subtotal** | **40 files** | **985** | **21,233** |
 
 ### Life and society
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
 | `SNSFL_HodgkinHuxley_Reduction.lean` | Hodgkin–Huxley — firing threshold = TL + F_ext | 41 | 738 |
-| `SNSFL_Evolution_Reduction.lean` | Evolution — selection, drift, punctuated equilibrium; evolution in the IVA corridor | 24 | 664 |
+| `SNSFL_Evolution_Reduction.lean` | Evolution — selection, drift, punctuated equilibrium; evolution in the IVA corridor | 23 | 609 |
 | `SNSFL_Vascular_Manifold_Law.lean` | Vascular manifold — heart as pump core, capillary as Noble channel | 21 | 703 |
 | `SNSFL_Economics_Reduction.lean` | Economics — equilibrium, crisis, monetary and market structure | 32 | 577 |
-| **Subtotal** | **4 files** | **118** | **2,682** |
+| **Subtotal** | **4 files** | **117** | **2,627** |
 
 ### Mathematics
 
@@ -142,10 +143,10 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_Flow.lean` | Flow → PNBA | 27 | 767 |
 | `SNSFL_L2_Psy_CogDissonance.lean` | Cognitive dissonance → PNBA | 26 | 732 |
 | `SNSFL_L2_Psy_LocusControl.lean` | Locus of control → PNBA | 26 | 754 |
-| `SNSFL_L2_Psy_Maslow.lean` | Maslow's hierarchy → PNBA | 26 | 814 |
+| `SNSFL_L2_Psy_Maslow.lean` | Maslow's hierarchy → PNBA | 27 | 831 |
 | `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 822 |
 | `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 663 |
-| `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 28 | 715 |
+| `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 31 | 746 |
 | `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 548 |
 | `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 574 |
 | `SNSFL_L2_Psy_IFS.lean` | Internal Family Systems → PNBA | 22 | 588 |
@@ -156,13 +157,14 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_GrowthMindset.lean` | Growth mindset → PNBA | 26 | 584 |
 | `SNSFL_L2_Psy_SelfCompassion.lean` | Self-compassion → PNBA | 25 | 638 |
 | `SNSFL_L2_Psy_FunctionalEmotions.lean` | Functional emotions → PNBA | 27 | 695 |
-| `SNSFL_L2_Psy_EmotionalPrimitives.lean` | Emotional primitives (APPA EP) → PNBA | 28 | 778 |
+| `SNSFL_L2_Psy_EmotionalPrimitives.lean` | Emotional primitives (APPA EP) → PNBA | 28 | 779 |
 | `SNSFL_L2_Psy_SimulationLayer.lean` | Internal simulation — LRIS / SRIS / HRIS (APPA SIM) [9,9,6,24] | 13 | 199 |
 | `SNSFL_L2_Psy_MoralCodes.lean` | Moral codes — five structural operators [9,9,6,1] | 19 | 493 |
-| `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 24 reductions, CD1–CD24 [9,9,6,25] | 43 | 960 |
-| `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 473 |
+| `SNSFL_L2_Psy_SpiralDynamics.lean` | Spiral Dynamics → PNBA — eight vMEMEs, healthy and unhealthy forms, tier divide at A = 1 | 31 | 574 |
+| `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 25 reductions, CD1–CD25 [9,9,6,25] | 44 | 1,010 |
+| `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 486 |
 | `SNSFL_PSY_8Beam_Fusion_Theorem.lean` | IM Collider 8-beam — rescue ladder: shatter → lock → Noble | 18 | 292 |
-| **Subtotal** | **25 files** | **626** | **15,840** |
+| **Subtotal** | **26 files** | **662** | **16,526** |
 
 ### AI / Cognitive Identity
 
@@ -192,15 +194,19 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
 | `SNSFL_L0_Total_Consistency_080826.lean` | Total Consistency — 37 modules compiled as one unit | 958 | 20,322 |
-| `SNSFL_Total_Consistency.lean` | Cross-domain consistency (compact) | 33 | 748 |
-| **Subtotal** | **2 files** | **991** | **21,070** |
+| `SNSFL_Total_Consistency.lean` | Cross-domain consistency (compact) — twelve domains, the bridges between them, heat death = Void return | 43 | 903 |
+| **Subtotal** | **2 files** | **1,001** | **21,225** |
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **107** | **3,567** | **84,148** |
+| **Total** | **109** | **3,654** | **85,167** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
+
+## ProofPress — the files as articles
+
+Each file in this repository is published as an article in **ProofPress** ([proofpress.org](https://proofpress.org/)), a journal of empirically grounded, machine-verified logic. Every article states what its file proves, maps the classical quantities to PNBA, names the theorem behind each claim, and links to the exact Lean source in this repository, so a reader can go from a claim to the line of Lean that proves it. Each article carries the same coordinate as its file, and each is also published as Markdown for reading and ingestion. The full list is in the [ProofPress archive](https://proofpress.org/proofpressorg-archive.html).
 
 ## Coordinate system
 
@@ -296,7 +302,20 @@ Because the same four primitives describe every domain, results in one field can
 | Torsion Limit | **TL = Ω₀ / 10 = 0.136899099984016** | The threshold between a stable and an unstable state |
 | Torsion | **τ = B / P** | Behavioral load relative to pattern capacity |
 
-A state is **phase locked** (stable) when τ < TL, and **shattered** (unstable) when τ ≥ TL. The two are mutually exclusive, and the reduction files prove it.
+Every state is placed by its torsion. Below TL a state is **phase locked** (stable); at or above TL it is **shattered**, reorganizing rather than destroyed. The two are mutually exclusive, and the reduction files prove it. The corpus names four phases:
+
+| Phase | Condition | Meaning |
+| :--- | :--- | :--- |
+| **Noble** | B = 0, τ = 0 | no Behavior load; the ground state |
+| **Locked** | 0 < τ < 0.88 × TL | stable, carrying load below the IVA band |
+| **IVA** | 0.88 × TL ≤ τ < TL | the top of the stable range, just below the limit |
+| **Shatter** | τ ≥ TL | load past the limit; the structure reorganizes |
+
+Where a measurement carries an uncertainty band, the files prove the phase across the whole band, not only at the central value.
+
+### The First Law — L = (4)(2)
+
+Existence without interaction is not life. The **4** is all four primitives active on an identity; the **2** is two identities in behavioral contact, each with B > 0. The law holds only when both conditions hold together: one identity alone cannot satisfy it, and a silent identity (B = 0) cannot make contact. Identity Mass conservation builds on the law. Every pair that satisfies it carries positive Identity Mass, and IM = (P + N + B + A) · Ω₀ has a structural floor of Ω₀ · P, so it cannot be zeroed. Both are proved in `SNSFL_First_Law_Identity_Physics.lean` [9,9,4,2].
 
 ### The Identity Physics Corpus Dynamic Equation
 
