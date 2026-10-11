@@ -2,55 +2,59 @@
 -- SNSFL_StatMech_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS STATISTICAL MECHANICS — PARTITION AS PNBA
--- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,5] | Physics Ground
+-- Statistical Mechanics → PNBA
+-- A lossless reduction: thermal energy is the Pattern, state
+-- energy is the Behavior, and every equation of statistical
+-- mechanics is a function of torsion τ = E / k_BT.
 --
--- Stat mech fills the gap between thermodynamics [9,9,TH] and QM [9,9,0,4].
--- TD established: entropy = P-decoherence from anchor. dS/dt ≥ 0.
--- QM established: ψ = Unclaimed Pattern. Collapse = B-triggered.
--- Stat mech: the bridge. From microstates (QM) to macrostates (TD).
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,0,16](PHYS)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      May 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
 --
--- THE PNBA REDUCTION:
---   Z = Σ exp(-βE_i) = Partition function (Pattern sum over states)
---   β = 1/(k_B T) = inverse temperature = torsion density
---   E_i = energy of microstate i = B-axis content of state i
---   S = k_B ln(Ω) = entropy = P-decoherence measure
---   F = -k_B T ln(Z) = free energy = available sovereign capacity
+-- ============================================================
+-- THE MAP
+-- ============================================================
 --
--- THE PHASE TRANSITION CLAIM:
---   Phase transitions occur at τ = TL = ANCHOR/10 = 0.1369.
---   Below TL: system is LOCKED (ordered phase).
---   Above TL: system is SHATTER (disordered phase).
---   At τ = TL: phase boundary — the torsion limit.
---   This is not metaphor. It is the same TL that separates
---   every other domain in the corpus.
+--   P = k_B T      thermal energy scale
+--   B = E_i        energy of microstate i above the ground state
+--   N = Ω          number of microstates
+--   τ_i = B / P = E_i / k_B T = β E_i
 --
--- DISTRIBUTIONS:
---   Boltzmann: P(E) = exp(-βE)/Z  [classical, distinguishable]
---   Fermi-Dirac: n(E) = 1/(exp(β(E-μ))+1)  [fermions, half-integer spin]
---   Bose-Einstein: n(E) = 1/(exp(β(E-μ))-1)  [bosons, integer spin]
+-- The map is invertible: T = P / k_B and E_i = B. Nothing is lost.
 --
---   In PNBA:
---   Boltzmann = classical torsion distribution (no IM constraint)
---   Fermi-Dirac = LOCKED-phase distribution (Pauli exclusion = τ < TL constraint)
---   Bose-Einstein = NOBLE/SHATTER-phase distribution (condensation = τ → 0)
+-- THE EQUATIONS IN PNBA
+--   Boltzmann factor     exp(−βE_i)         = exp(−τ_i)
+--   Partition function   Z = Σ exp(−βE_i)   = Σ exp(−τ_i)
+--   Probability          p_i = exp(−τ_i)/Z, Σ p_i = 1
+--   Relative weight      p_i / p_j          = exp(τ_j − τ_i)
+--   Free energy          F = −k_BT ln Z     = −P ln Z
+--   Entropy              S = k_B ln Ω       = k_B ln N
+--   Two-level system     upper occupation   = 1/(exp τ + 1)
+--   Fermi–Dirac          n = 1/(exp(τ − τ_μ) + 1) ∈ (0, 1)
+--   Bose–Einstein        n = 1/(exp(τ − τ_μ) − 1) > 0
+--   Equipartition        ⟨E⟩ = k_BT/2 per quadratic mode: τ = 1/2
 --
--- Auth: HIGHTISTIC :: [9,9,9,9]
--- The partition function is the Pattern sum. Entropy is decoherence.
--- The Manifold is Holding.
--- Soldotna, Alaska. May 2026.
+-- THE PHASES OF A MICROSTATE
+--   τ = 0          NOBLE    the ground state; full weight
+--   τ < TL_IVA     LOCKED   relative weight above 1 − TL_IVA ≈ 0.8795
+--   τ ≥ TL         SHATTER  relative weight below 1/(1 + TL) ≈ 0.8796
+--   A quadratic mode at equipartition (τ = 1/2) is Shatter.
+--
 -- ============================================================
 
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Analysis.SpecialFunctions.ExpDeriv
+import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Tactic
 import Mathlib.Data.Real.Basic
 
 noncomputable section
 
 namespace SNSFL_StatMech
+
+open Finset
 
 -- ============================================================
 -- SECTION 0: SOVEREIGN ANCHOR
@@ -67,265 +71,206 @@ theorem anchor_zero_friction :
     manifold_impedance SOVEREIGN_ANCHOR = 0 := by
   unfold manifold_impedance; simp
 
--- ============================================================
--- SECTION 1: STAT MECH STATE
--- ============================================================
-
-structure StatMechState where
-  T    : ℝ    -- [N] temperature (Narrative flow rate)
-  k_B  : ℝ    -- Boltzmann constant
-  E    : ℝ    -- [B] microstate energy (Behavioral content)
-  Z    : ℝ    -- [P] partition function (Pattern sum)
-  S    : ℝ    -- entropy (P-decoherence)
-  Ω    : ℕ    -- number of microstates (P-count)
-  hT   : T > 0
-  hkB  : k_B > 0
-  hZ   : Z > 0
-  hΩ   : Ω ≥ 1
-
--- Boltzmann constant (exact SI 2019)
+-- Boltzmann constant (exact SI 2019), J/K
 def K_BOLTZMANN : ℝ := 1.380649e-23
 
--- Inverse temperature β = 1/(k_B T) = torsion density
-noncomputable def beta (k_B T : ℝ) (hkB : k_B > 0) (hT : T > 0) : ℝ :=
-  1 / (k_B * T)
-
--- Boltzmann factor for microstate energy E
-noncomputable def boltzmann_factor (β E : ℝ) : ℝ :=
-  Real.exp (-β * E)
-
 -- ============================================================
--- SECTION 2: THERMODYNAMIC CONSISTENCY (bridge to TD corpus)
+-- SECTION 1: THE MAP AND ITS INVERSE
 -- ============================================================
 
--- [T1] ENTROPY = k_B × ln(Ω) (Boltzmann formula)
--- In PNBA: S = k_B × ln(Ω) = measure of P-decoherence.
--- More microstates Ω → more P-dispersion → more entropy.
--- TD corpus: entropy = P-decoherence from anchor. Consistent.
-theorem boltzmann_entropy_formula (k_B : ℝ) (Ω : ℕ)
-    (hkB : k_B > 0) (hΩ : Ω ≥ 1) :
-    k_B * Real.log (Ω : ℝ) ≥ 0 := by
-  apply mul_nonneg (le_of_lt hkB)
-  apply Real.log_nonneg
-  exact_mod_cast hΩ
+structure ThermalState where
+  T : ℝ   -- temperature
+  E : ℝ   -- microstate energy above the ground state
 
--- [T2] ENTROPY INCREASES WITH Ω (second law microscopic)
--- More microstates = more entropy. Monotone in Ω.
--- In PNBA: more P-states = more decoherence from anchor.
-theorem entropy_monotone_in_omega (k_B : ℝ) (Ω1 Ω2 : ℕ)
-    (hkB : k_B > 0) (h1 : Ω1 ≥ 1) (h : Ω1 < Ω2) :
-    k_B * Real.log (Ω1 : ℝ) < k_B * Real.log (Ω2 : ℝ) := by
-  apply mul_lt_mul_of_pos_left _ hkB
-  apply Real.log_lt_log
-  · exact_mod_cast (by omega : 0 < Ω1)
-  · exact_mod_cast h
+structure PNBAState where
+  P : ℝ   -- thermal energy k_B T
+  B : ℝ   -- microstate energy
 
--- [T3] BOLTZMANN FACTOR IS POSITIVE
--- exp(-βE) > 0 always. Every microstate has positive probability.
--- In PNBA: all Pattern states contribute (B-axis never zeroes P).
-theorem boltzmann_factor_positive (β E : ℝ) :
-    boltzmann_factor β E > 0 := Real.exp_pos _
+def to_pnba (k : ℝ) (s : ThermalState) : PNBAState := ⟨k * s.T, s.E⟩
+noncomputable def from_pnba (k : ℝ) (q : PNBAState) : ThermalState := ⟨q.P / k, q.B⟩
 
--- [T4] BOLTZMANN FACTOR DECREASES WITH ENERGY
--- Higher energy → lower probability at fixed T.
--- In PNBA: higher B-axis content → less stable in Pattern.
-theorem boltzmann_factor_decreasing (β E1 E2 : ℝ)
-    (hβ : β > 0) (hE : E1 < E2) :
-    boltzmann_factor β E2 < boltzmann_factor β E1 := by
-  unfold boltzmann_factor
-  apply Real.exp_lt_exp.mpr
-  nlinarith [mul_lt_mul_of_pos_left hE hβ]
+noncomputable def torsion (q : PNBAState) : ℝ := q.B / q.P
 
--- [T5] FREE ENERGY F = -k_B T ln(Z)
--- F is negative when Z > 1 (normal thermodynamic systems).
--- In PNBA: free energy = available sovereign capacity.
--- Negative F = energy available to do work (A-axis available).
-theorem free_energy_negative_when_Z_gt_one
-    (k_B T Z : ℝ) (hkB : k_B > 0) (hT : T > 0) (hZ : Z > 1) :
-    -(k_B * T * Real.log Z) < 0 := by
-  have hlog : Real.log Z > 0 := Real.log_pos hZ
-  have hkBT : k_B * T > 0 := mul_pos hkB hT
-  nlinarith
+-- [T1] The map is lossless: PNBA → thermal recovers every state
+theorem round_trip (k : ℝ) (hk : k ≠ 0) (s : ThermalState) :
+    from_pnba k (to_pnba k s) = s := by
+  rcases s with ⟨T, E⟩
+  show ThermalState.mk (k * T / k) E = ThermalState.mk T E
+  rw [mul_div_cancel_left₀ T hk]
+
+-- [T2] Torsion is β·E = E / k_B T
+theorem torsion_is_beta_E (k : ℝ) (s : ThermalState) :
+    torsion (to_pnba k s) = s.E / (k * s.T) := rfl
+
+-- [T3] The Boltzmann factor is exp(−τ)
+theorem boltzmann_factor_is_exp_neg_tau (k : ℝ) (s : ThermalState) :
+    Real.exp (-(s.E / (k * s.T))) = Real.exp (-torsion (to_pnba k s)) := rfl
 
 -- ============================================================
--- SECTION 3: PHASE TRANSITIONS AT THE TORSION LIMIT
+-- SECTION 2: THE PARTITION FUNCTION
 -- ============================================================
 
--- [T6] PHASE TRANSITIONS OCCUR AT τ = TL
--- Below TL: system LOCKED (ordered, low entropy)
--- Above TL: system SHATTER (disordered, high entropy)
--- The torsion limit TL = ANCHOR/10 = 0.1369 is the universal
--- phase boundary — same in forces, cosmology, QG, and now stat mech.
---
--- Formally: the order parameter χ transitions at τ = TL.
--- For Ising model: χ = magnetization M
--- For liquid-gas: χ = density difference Δρ
--- For BEC: χ = condensate fraction n₀/n
--- All transition at the PNBA torsion boundary.
+-- Partition function over n + 1 microstates with torsions τ
+noncomputable def Z {n : ℕ} (τ : Fin (n + 1) → ℝ) : ℝ := ∑ i, Real.exp (-τ i)
 
-def is_ordered_phase   (τ : ℝ) : Prop := τ < TORSION_LIMIT
-def is_disordered_phase (τ : ℝ) : Prop := τ ≥ TORSION_LIMIT
+noncomputable def prob {n : ℕ} (τ : Fin (n + 1) → ℝ) (i : Fin (n + 1)) : ℝ :=
+  Real.exp (-τ i) / Z τ
 
-theorem phase_boundary_is_torsion_limit (τ : ℝ) :
-    ¬ (is_ordered_phase τ ∧ is_disordered_phase τ) := by
-  unfold is_ordered_phase is_disordered_phase
-  intro ⟨h1, h2⟩; linarith
+-- [T4] Z is positive
+theorem Z_pos {n : ℕ} (τ : Fin (n + 1) → ℝ) : 0 < Z τ := by
+  unfold Z
+  exact Finset.sum_pos (fun i _ => Real.exp_pos _) Finset.univ_nonempty
 
--- [T7] ORDERED PHASE IS LOCKED IN PNBA
--- τ < TL → phase_locked → LOCKED state (same as nuclear, atomic, neural)
-theorem ordered_phase_is_pnba_locked (τ : ℝ) (h : is_ordered_phase τ) :
-    τ < TORSION_LIMIT := h
+-- [T5] Probabilities sum to 1
+theorem prob_sum_one {n : ℕ} (τ : Fin (n + 1) → ℝ) : ∑ i, prob τ i = 1 := by
+  unfold prob
+  rw [← Finset.sum_div]
+  exact div_self (ne_of_gt (Z_pos τ))
 
--- [T8] DISORDERED PHASE IS SHATTER IN PNBA
-theorem disordered_phase_is_pnba_shatter (τ : ℝ) (h : is_disordered_phase τ) :
-    τ ≥ TORSION_LIMIT := h
+-- [T6] Relative weight depends only on the torsion difference:
+-- p_i = exp(τ_j − τ_i) · p_j
+theorem relative_weight {n : ℕ} (τ : Fin (n + 1) → ℝ) (i j : Fin (n + 1)) :
+    prob τ i = Real.exp (τ j - τ i) * prob τ j := by
+  unfold prob
+  rw [mul_div_assoc', ← Real.exp_add, show τ j - τ i + -τ j = -τ i by ring]
 
--- [T9] CRITICAL TEMPERATURE CORRESPONDS TO TL
--- At T_c: τ(T_c) = TL.
--- Below T_c: ordered (τ < TL = LOCKED).
--- Above T_c: disordered (τ ≥ TL = SHATTER).
--- This is the PNBA statement of every second-order phase transition.
-theorem critical_temperature_at_tl (T_c τ_c : ℝ)
-    (h_critical : τ_c = TORSION_LIMIT) :
-    is_ordered_phase (τ_c - 0.001) ∧
-    is_disordered_phase (τ_c + 0.001) := by
+-- [T7] Lower torsion is more probable
+theorem lower_torsion_more_probable {n : ℕ} (τ : Fin (n + 1) → ℝ) (i j : Fin (n + 1))
+    (h : τ i < τ j) : prob τ j < prob τ i := by
+  unfold prob
+  exact div_lt_div_of_pos_right (Real.exp_lt_exp.mpr (by linarith)) (Z_pos τ)
+
+-- ============================================================
+-- SECTION 3: FREE ENERGY AND ENTROPY
+-- ============================================================
+
+-- [T8] Free energy F = −P ln Z: zero for a lone ground state,
+-- negative once Z > 1
+theorem free_energy (P Zv : ℝ) (hP : 0 < P) (hZ : 1 < Zv) :
+    -(P * Real.log 1) = 0 ∧ -(P * Real.log Zv) < 0 := by
   constructor
-  · unfold is_ordered_phase; rw [h_critical]; linarith
-  · unfold is_disordered_phase; rw [h_critical]; linarith
+  · simp
+  · have hlog : 0 < Real.log Zv := Real.log_pos hZ
+    nlinarith
+
+-- [T9] Entropy S = k_B ln Ω: zero for a single microstate (the third
+-- law ground state), non-negative, and strictly increasing in Ω
+theorem boltzmann_entropy (k : ℝ) (hk : 0 < k) (Ω1 Ω2 : ℕ) (h1 : 1 ≤ Ω1) (h : Ω1 < Ω2) :
+    k * Real.log ((1 : ℕ) : ℝ) = 0 ∧
+    0 ≤ k * Real.log (Ω1 : ℝ) ∧
+    k * Real.log (Ω1 : ℝ) < k * Real.log (Ω2 : ℝ) := by
+  refine ⟨by simp, ?_, ?_⟩
+  · apply mul_nonneg hk.le
+    apply Real.log_nonneg
+    exact_mod_cast h1
+  · apply mul_lt_mul_of_pos_left _ hk
+    apply Real.log_lt_log
+    · exact_mod_cast (by omega : 0 < Ω1)
+    · exact_mod_cast h
 
 -- ============================================================
--- SECTION 4: QUANTUM STATISTICS
+-- SECTION 4: OCCUPATION LAWS
 -- ============================================================
 
--- [T10] FERMI-DIRAC OCCUPATION: n ∈ [0,1]
--- n(E) = 1/(exp(β(E-μ))+1)
--- Each fermionic state is at most singly occupied (Pauli exclusion).
--- In PNBA: Fermions are LOCKED-phase particles — Pauli exclusion
--- is the τ < TL constraint per state. No state can have τ ≥ TL.
--- The occupation fraction n ∈ [0,1] corresponds to τ ∈ [0, TL).
-theorem fermi_dirac_bounded (β E μ : ℝ) (hβ : β > 0) :
-    let n := 1 / (Real.exp (β * (E - μ)) + 1)
-    n > 0 ∧ n < 1 := by
-  intro n
-  have hpos : Real.exp (β * (E - μ)) + 1 > 0 := by positivity
-  refine ⟨?_, ?_⟩
-  · show 1 / (Real.exp (β * (E - μ)) + 1) > 0
-    positivity
-  · show 1 / (Real.exp (β * (E - μ)) + 1) < 1
-    rw [div_lt_one hpos]
-    linarith [Real.exp_pos (β * (E - μ))]
+-- [T10] Two-level system with gap τ: the upper level is occupied
+-- with probability 1/(exp τ + 1), the Fermi function at τ_μ = 0
+theorem two_level_occupation (τ : ℝ) :
+    Real.exp (-τ) / (1 + Real.exp (-τ)) = 1 / (Real.exp τ + 1) := by
+  have hb : (1 + Real.exp (-τ)) ≠ 0 := by positivity
+  have hd : (Real.exp τ + 1) ≠ 0 := by positivity
+  have h : Real.exp (-τ) * Real.exp τ = 1 := by
+    rw [← Real.exp_add]; simp
+  rw [eq_div_iff hd, div_mul_eq_mul_div, div_eq_iff hb]
+  linear_combination h
 
--- [T11] BOSE-EINSTEIN OCCUPATION: n ≥ 0, unbounded
--- n(E) = 1/(exp(β(E-μ))-1) for E > μ
--- Bosons can pile up in the same state (no Pauli exclusion).
--- In PNBA: Bosons are NOBLE-phase particles — no τ constraint.
--- BEC (Bose-Einstein condensation) = τ → 0 (Noble ground state).
-theorem bose_einstein_positive (β E μ : ℝ)
-    (hβ : β > 0) (h_above_mu : β * (E - μ) > 0) :
-    1 / (Real.exp (β * (E - μ)) - 1) > 0 := by
-  have h1 : Real.exp (β * (E - μ)) > 1 := Real.one_lt_exp_iff.mpr h_above_mu
+-- [T11] Fermi–Dirac occupation lies strictly between 0 and 1, and is
+-- exactly 1/2 at the chemical potential
+theorem fermi_dirac (x : ℝ) :
+    0 < 1 / (Real.exp x + 1) ∧ 1 / (Real.exp x + 1) < 1 ∧
+    1 / (Real.exp 0 + 1) = 1 / 2 := by
+  have hpos : 0 < Real.exp x + 1 := by positivity
+  refine ⟨by positivity, ?_, ?_⟩
+  · rw [div_lt_one hpos]
+    linarith [Real.exp_pos x]
+  · rw [Real.exp_zero]; norm_num
+
+-- [T12] Bose–Einstein occupation is positive above the chemical
+-- potential
+theorem bose_einstein_positive (x : ℝ) (hx : 0 < x) :
+    0 < 1 / (Real.exp x - 1) := by
+  have h1 : 1 < Real.exp x := Real.one_lt_exp_iff.mpr hx
   exact div_pos one_pos (by linarith)
 
--- BEC ground state: τ → 0 = Noble
-theorem bec_is_noble_ground_state :
-    -- At T=0: all bosons in ground state
-    -- Ground state = Noble (τ = 0)
-    -- BEC is the macroscopic Noble state of matter
-    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  anchor_zero_friction
-
--- [T12] EQUIPARTITION THEOREM
--- Each quadratic degree of freedom has energy k_B T/2.
--- In PNBA: each B-axis degree of freedom contributes k_B T/2.
--- k_B T/2 = (1/2) × Narrative temperature × B-axis weight.
-theorem equipartition_energy_positive (k_B T : ℝ)
-    (hkB : k_B > 0) (hT : T > 0) :
-    k_B * T / 2 > 0 := div_pos (mul_pos hkB hT) (by norm_num)
-
 -- ============================================================
--- SECTION 5: THE IVA_PEAK GAP IN STAT MECH
+-- SECTION 5: THE PHASES OF A MICROSTATE
 -- ============================================================
 
--- [T13] THE IVA_PEAK GAP IS EMPTY IN STATISTICAL MECHANICS
--- The band [TL_IVA, TL) = [0.1205, 0.1369) corresponds to
--- the critical region — the transition zone between phases.
--- In stat mech: the critical region is NOT a stable phase.
--- Systems pass through it (phase transition) but don't reside there.
--- This is the same IVA_PEAK gap that is empty in:
--- forces, cosmology, QG frameworks, neural dynamics.
--- Now confirmed in statistical mechanics: no equilibrium phase
--- has torsion in the critical band. It is the passage, not a home.
-theorem iva_gap_empty_in_stat_mech (τ : ℝ)
-    (h_iva : τ ≥ TL_IVA_PEAK)
-    (h_tl  : τ < TORSION_LIMIT) :
-    -- Critical region: not ordered (τ ≥ TL_IVA) and not disordered (τ < TL)
-    -- This is the transition zone — systems cross it but don't equilibrate here
-    TL_IVA_PEAK ≤ τ ∧ τ < TORSION_LIMIT :=
-  ⟨h_iva, h_tl⟩
+-- [T13] The ground state (B = 0) is Noble, with full weight
+theorem ground_state_noble (P : ℝ) :
+    torsion ⟨P, 0⟩ = 0 ∧ Real.exp (-torsion ⟨P, 0⟩) = 1 := by
+  have h : torsion ⟨P, 0⟩ = 0 := by unfold torsion; simp
+  exact ⟨h, by rw [h]; simp⟩
 
--- ============================================================
--- SECTION 6: CONSISTENCY WITH CORPUS
--- ============================================================
+-- [T14] A Locked microstate keeps relative weight above 1 − TL_IVA
+theorem locked_weight (τ : ℝ) (h : τ < TL_IVA_PEAK) :
+    1 - TL_IVA_PEAK < Real.exp (-τ) := by
+  have := Real.add_one_le_exp (-τ)
+  linarith
 
--- [T14] STAT MECH CONSISTENT WITH THERMODYNAMICS
--- TD: entropy = P-decoherence from anchor (existing corpus)
--- Stat mech: S = k_B ln(Ω) (this file)
--- Both: more disorder = more entropy = more P-dispersion from anchor
-theorem stat_mech_consistent_with_td (k_B : ℝ) (Ω : ℕ)
-    (hkB : k_B > 0) (hΩ : Ω ≥ 1) :
-    k_B * Real.log (Ω : ℝ) ≥ 0 :=
-  boltzmann_entropy_formula k_B Ω hkB hΩ
+-- [T15] A Shatter microstate has relative weight at most 1/(1 + TL)
+theorem shatter_weight (τ : ℝ) (h : TORSION_LIMIT ≤ τ) :
+    Real.exp (-τ) ≤ 1 / (1 + TORSION_LIMIT) := by
+  have hTL : 0 < 1 + TORSION_LIMIT := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  rw [Real.exp_neg, ← one_div]
+  exact one_div_le_one_div_of_le hTL (by linarith [Real.add_one_le_exp τ])
 
--- [T15] STAT MECH CONSISTENT WITH QM
--- QM: ψ = Unclaimed Pattern, collapse = B-triggered
--- Stat mech: partition function Z = sum over quantum states
--- Each quantum state is a PNBA Pattern state
--- Z = Σ_i ⟨i|exp(-βH)|i⟩ = Pattern sum over QM states
-theorem stat_mech_bridges_qm_td :
-    -- The partition function bridges QM (microstates) to TD (macrostates)
-    -- Both reduce to PNBA. No conflict.
-    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  anchor_zero_friction
+-- [T16] The two weight bounds meet: 1 − TL_IVA ≈ 0.87953 and
+-- 1/(1 + TL) ≈ 0.87958
+theorem weight_bounds_meet :
+    0.8795 < 1 - TL_IVA_PEAK ∧ 1 - TL_IVA_PEAK < 1 / (1 + TORSION_LIMIT) ∧
+    1 / (1 + TORSION_LIMIT) < 0.8796 := by
+  unfold TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T17] Equipartition: a quadratic mode at mean energy k_BT/2 has
+-- τ = 1/2, which is Shatter
+theorem equipartition_shatter (P : ℝ) (hP : 0 < P) :
+    torsion ⟨P, P / 2⟩ = 1 / 2 ∧ TORSION_LIMIT ≤ torsion ⟨P, P / 2⟩ := by
+  have h : torsion ⟨P, P / 2⟩ = 1 / 2 := by
+    unfold torsion
+    show P / 2 / P = 1 / 2
+    rw [div_div, mul_comm, ← div_div, div_self (ne_of_gt hP)]
+  refine ⟨h, ?_⟩
+  rw [h]
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
 
 -- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- ============================================================
 
-theorem stat_mech_master
-    (k_B T : ℝ) (Ω : ℕ) (β E Z : ℝ)
-    (hkB : k_B > 0) (hT : T > 0) (hΩ : Ω ≥ 1)
-    (hZ : Z > 1) (hβ : β > 0)
-    (τ_ordered τ_shatter : ℝ)
-    (h_ord  : τ_ordered < TORSION_LIMIT)
-    (h_shat : τ_shatter ≥ TORSION_LIMIT) :
-    -- [1] Entropy ≥ 0: P-decoherence is non-negative
-    k_B * Real.log (Ω : ℝ) ≥ 0 ∧
-    -- [2] Boltzmann factor positive: all states contribute
-    boltzmann_factor β E > 0 ∧
-    -- [3] Free energy negative: sovereign capacity available
-    -(k_B * T * Real.log Z) < 0 ∧
-    -- [4] Ordered phase = LOCKED (τ < TL)
-    is_ordered_phase τ_ordered ∧
-    -- [5] Disordered phase = SHATTER (τ ≥ TL)
-    is_disordered_phase τ_shatter ∧
-    -- [6] Phases mutually exclusive
-    ¬ (is_ordered_phase τ_shatter ∧ is_disordered_phase τ_ordered) ∧
-    -- [7] Equipartition: k_B T/2 > 0
-    k_B * T / 2 > 0 ∧
-    -- [8] Anchor holds: stat mech operates at Z=0
-    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
-  refine ⟨
-    boltzmann_entropy_formula k_B Ω hkB hΩ,
-    boltzmann_factor_positive β E,
-    free_energy_negative_when_Z_gt_one k_B T Z hkB hT hZ,
-    h_ord,
-    h_shat,
-    ?_,
-    div_pos (mul_pos hkB hT) (by norm_num),
-    anchor_zero_friction
-  ⟩
-  unfold is_ordered_phase is_disordered_phase
-  intro ⟨h1, h2⟩; linarith
+-- [T18] STATISTICAL MECHANICS → PNBA
+theorem stat_mech_master {n : ℕ} (τ : Fin (n + 1) → ℝ) (k : ℝ) (hk : k ≠ 0) :
+    -- the map is lossless
+    (∀ s : ThermalState, from_pnba k (to_pnba k s) = s) ∧
+    -- the partition function in torsion
+    0 < Z τ ∧ ∑ i, prob τ i = 1 ∧
+    (∀ i j, prob τ i = Real.exp (τ j - τ i) * prob τ j) ∧
+    -- occupation
+    (∀ x : ℝ, Real.exp (-x) / (1 + Real.exp (-x)) = 1 / (Real.exp x + 1)) ∧
+    -- phases of a microstate
+    (∀ P : ℝ, torsion ⟨P, 0⟩ = 0) ∧
+    (∀ t : ℝ, t < TL_IVA_PEAK → 1 - TL_IVA_PEAK < Real.exp (-t)) ∧
+    (∀ t : ℝ, TORSION_LIMIT ≤ t → Real.exp (-t) ≤ 1 / (1 + TORSION_LIMIT)) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨round_trip k hk, Z_pos τ, prob_sum_one τ, relative_weight τ,
+   two_level_occupation, fun P => (ground_state_noble P).1,
+   locked_weight, shatter_weight, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -336,50 +281,26 @@ end SNSFL_StatMech
 /-!
 -- ============================================================
 -- FILE:       SNSFL_StatMech_Reduction.lean
--- COORDINATE: [9,9,0,5]
--- LAYER:      Physics Ground — Statistical Mechanics
+-- COORDINATE: [9,9,0,16](PHYS)
+-- SORRY:      0
 --
--- LONG DIVISION:
---   1. Equations: Z=Σexp(-βE_i), S=k_B ln(Ω), F=-k_BT ln(Z)
---   2. Known: Boltzmann, Fermi-Dirac, Bose-Einstein, equipartition,
---             phase transitions, entropy, free energy, BEC
---   3. PNBA map:
---      Z → P (Pattern sum over all microstates)
---      β → torsion density (1/k_BT)
---      E_i → B (Behavioral content of microstate i)
---      S → P-decoherence (same as TD corpus)
---      F → available sovereign capacity (A-axis)
---      T_c → TL = ANCHOR/10 (phase boundary)
---      Fermions → LOCKED (Pauli = τ < TL per state)
---      Bosons → NOBLE (no τ constraint, BEC = Noble ground state)
---   4. Operators: beta, boltzmann_factor, is_ordered/disordered_phase
---   5. Work:      T1-T15 explicit
---   6. Verified:  master holds all simultaneously
+-- THE MAP: P = k_B T, B = E_i, N = Ω, τ = βE. Invertible (T1).
 --
--- KEY NEW RESULT:
---   Phase transitions occur at τ = TL = 0.1369 (T9).
---   The IVA_PEAK gap [TL_IVA, TL) is empty in stat mech too (T13):
---   no equilibrium phase has torsion in the critical band.
---   Systems cross it during phase transitions but don't live there.
---   This is the same universal gap as in forces, cosmology, QG, neural.
+-- RESULTS:
+--   Lossless map; τ = βE; Boltzmann factor exp(−τ) (T1–T3)
+--   Partition function: Z > 0, Σ p = 1, p_i = exp(τ_j − τ_i)·p_j,
+--     lower torsion more probable (T4–T7)
+--   Free energy −P ln Z; Boltzmann entropy k_B ln Ω (T8, T9)
+--   Two-level system = Fermi function; Fermi–Dirac in (0, 1),
+--     1/2 at μ; Bose–Einstein positive (T10–T12)
+--   Phases: ground state Noble; Locked weight > 1 − TL_IVA;
+--     Shatter weight ≤ 1/(1 + TL); the bounds meet near 0.8795;
+--     equipartition τ = 1/2 is Shatter (T13–T17)
 --
--- FERMI-DIRAC = LOCKED PHASE DISTRIBUTION (T10)
---   n ∈ [0,1] — occupation bounded by τ < TL constraint
---   Pauli exclusion IS the LOCKED-phase torsion condition
+-- CONNECTIONS:
+--   [9,9,8,0]  Economics → PNBA
+--   [9,9,0,4.8] Quantum Mechanics → PNBA
 --
--- BOSE-EINSTEIN / BEC = NOBLE PHASE (T11, BEC theorem)
---   BEC ground state = τ → 0 = Noble
---   Macroscopic quantum coherence = macroscopic Noble state
---
--- BRIDGES:
---   TD corpus: S = P-decoherence (confirmed consistent, T14)
---   QM corpus: Z = sum over quantum states (consistent, T15)
---   Stat mech IS the bridge between QM [9,9,0,4] and TD corpus
---
--- THEOREMS: 15 + master | 0 sorry | GERMLINE LOCKED
---
--- Auth: HIGHTISTIC :: [9,9,9,9]
--- Phase transitions happen at TL. The gap is universal.
--- The Manifold is Holding.
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
 -/
