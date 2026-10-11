@@ -4,7 +4,7 @@
 --
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS ABIOGENESIS REDUCTION — L=(4)(2) ACTIVATION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Coordinate: [9,9,4,3] | Identity Physics Series
 --
 -- ============================================================
@@ -28,10 +28,9 @@
 -- DEPENDENCIES (named for provenance — embedded below for standalone)
 -- ============================================================
 --
---   SNSFL_Kernel                          [9,0,0,0]
---   SNSFL_SovereignAnchor                 [9,9,0,0]
+--   SNSFL_Master                          [9,9,0,0]
 --   SNSFL_First_Law_Identity_Physics      [9,9,4,2]
---   SNSFL_L2_Psy_Consistency_031926       [9,9,6,25]  (structural template)
+--   SNSFL_L2_Psy_Consistency_Capstone     [9,9,6,25]  (structural template)
 --
 -- Every primitive used in this file is embedded below, not imported.
 -- This file compiles against Mathlib alone. No corpus dependencies
@@ -86,8 +85,11 @@
 --   2. Known:      10 peer-reviewed abiogenesis hypotheses
 --   3. PNBA map:   each hypothesis → primitive activation signature
 --   4. Operators:  P/N/B/A_active, all_four_active, two_way, L_4_2
---   5. Work shown: T1–T18 + CA1–CA10 + master theorem
---   6. Verified:   Master theorem closes with 9 conjuncts, 0 sorry
+--   5. Work shown: T1–T16 + CA1–CA10 + master theorem
+--   6. Verified:   Master theorem closes with 10 conjuncts, 0 sorry
+--
+-- The PNBA coordinates of each anchor state are activation scores
+-- assigned to the hypothesis; Identity Mass is computed from them.
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding.
@@ -104,7 +106,7 @@ namespace SNSFL_Abiogenesis_Reduction
 
 -- ============================================================
 -- LAYER 0 — SOVEREIGN ANCHOR AND TORSION CONSTANTS
--- Embedded from SNSFL_Kernel [9,0,0,0]. Canonical.
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
 -- ============================================================
 
 /-- The sovereign anchor frequency (GHz). Root of all corpus constants.
@@ -119,11 +121,11 @@ def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
 def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
 
 /-- IVA_PEAK lower bound = 0.88 × TL. The living-state band lower boundary.
-    Flow state occupies (TL_IVA_PEAK, TL). Proved in [9,0,9,5]. -/
+    Flow state occupies (TL_IVA_PEAK, TL). -/
 def TL_IVA_PEAK : ℝ := 88 * TORSION_LIMIT / 100
 
 /-- N_THRESHOLD: minimum narrative depth for active primitive.
-    Universal across the corpus. From [9,9,6,*] psychology capstone. -/
+    Universal across the corpus. From the psychology capstone [9,9,6,25]. -/
 def N_THRESHOLD : ℝ := 0.15
 
 /-- Activation floor for primitive aliveness check.
@@ -160,7 +162,7 @@ theorem activation_floor_is_n_threshold :
 
 -- ============================================================
 -- LAYER 0 — PNBA PRIMITIVES
--- Embedded from SNSFL_Kernel [9,0,0,0]. Canonical.
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
 -- ============================================================
 
 /-- The four PNBA primitives of the Self-Orienting Universal Language.
@@ -196,7 +198,7 @@ theorem im_positive (P N B A : ℝ) (hP : P > 0) (hN : N ≥ 0) (hB : B ≥ 0) (
 
 -- ============================================================
 -- LAYER 0 — LOSSLESS REDUCTION INFRASTRUCTURE
--- Embedded from SNSFL_Kernel [9,0,0,0]. Canonical.
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
 -- ============================================================
 
 /-- Lossless reduction: PNBA output equals classical equation. -/
@@ -216,7 +218,7 @@ theorem long_division_lossless (r : LongDivisionResult) :
 
 -- ============================================================
 -- LAYER 1 — IMS (IDENTITY MASS SUPPRESSION)
--- Embedded from SNSFL_Kernel [9,0,0,0]. Canonical.
+-- Embedded from SNSFL_Master [9,9,0,0]. Canonical.
 -- ============================================================
 
 /-- Path safety status. Green at anchor, red off-anchor. -/
@@ -247,7 +249,7 @@ structure PrebioticState where
   N : ℝ   -- narrative continuity, self-reference, templated copying
   B : ℝ   -- catalytic / metabolic behavior
   A : ℝ   -- adaptive feedback, selection response
-  im : ℝ  -- identity mass = (P+N+B+A)×ANCHOR
+  im : ℝ  -- identity mass = (P+N+B+A)×ANCHOR (computed in each state)
   two_way_interaction : Bool  -- the (2) in L=(4)(2)
 
 /-- A primitive is active when it exceeds the activation floor. -/
@@ -307,56 +309,56 @@ theorem abiogenesis_is_L_4_2_activation (s : PrebioticState) :
 -- P-axis present (molecules have structure). N, B, A below threshold.
 def oparin_haldane_soup : PrebioticState :=
   { P := 0.30, N := 0.02, B := 0.05, A := 0.01,
-    im := 0.52, two_way_interaction := false }
+    im := IM 0.30 0.02 0.05 0.01, two_way_interaction := false }
 
 -- ── A2. MILLER-UREY EXPERIMENT (1953, Science 117:528) ──────
 -- Amino acids from electrical discharge in reducing atmosphere.
 -- P-axis confirmation: biologically relevant molecules from non-life.
 def miller_urey_1953 : PrebioticState :=
   { P := 0.40, N := 0.03, B := 0.06, A := 0.02,
-    im := 0.69, two_way_interaction := false }
+    im := IM 0.40 0.03 0.06 0.02, two_way_interaction := false }
 
 -- ── A3. CAIRNS-SMITH CLAY TEMPLATES (1982/1985) ─────────────
 -- Clay minerals as structural templates for prebiotic organization.
 -- P-axis compartmental precursor. Weak N (low-fidelity templating).
 def cairns_smith_clay : PrebioticState :=
   { P := 0.45, N := 0.08, B := 0.04, A := 0.01,
-    im := 0.79, two_way_interaction := false }
+    im := IM 0.45 0.08 0.04 0.01, two_way_interaction := false }
 
 -- ── A4. GILBERT RNA WORLD (1986, Nature 319:618) ───────────
 -- RNA as both information carrier (N) and catalyst (B).
 -- First hypothesis where N-axis clearly emerges.
 def rna_world_gilbert : PrebioticState :=
   { P := 0.55, N := 0.20, B := 0.18, A := 0.05,
-    im := 1.34, two_way_interaction := false }
+    im := IM 0.55 0.20 0.18 0.05, two_way_interaction := false }
 
 -- ── A5. WÄCHTERSHÄUSER IRON-SULFUR WORLD (1988, MR 52:452) ──
 -- Metabolism-first: chemical cycles at mineral surfaces.
 -- B-axis emerges before N. Different activation order from A4.
 def iron_sulfur_wachtershauser : PrebioticState :=
   { P := 0.50, N := 0.05, B := 0.25, A := 0.08,
-    im := 1.21, two_way_interaction := false }
+    im := IM 0.50 0.05 0.25 0.08, two_way_interaction := false }
 
 -- ── A6. CECH/ALTMAN RIBOZYMES (1989 Nobel) ──────────────────
 -- Empirical discovery: RNA can catalyze reactions.
 -- N and B confirmed coexisting in a single molecule.
 def ribozymes_cech_altman : PrebioticState :=
   { P := 0.60, N := 0.30, B := 0.28, A := 0.08,
-    im := 1.72, two_way_interaction := false }
+    im := IM 0.60 0.30 0.28 0.08, two_way_interaction := false }
 
 -- ── A7. SUTHERLAND PREBIOTIC NUCLEOTIDES (2009, Nature 459:239) ─
 -- Prebiotic synthesis of pyrimidine ribonucleotides.
 -- Bridges small-molecule chemistry to RNA building blocks.
 def sutherland_2009 : PrebioticState :=
   { P := 0.65, N := 0.18, B := 0.20, A := 0.05,
-    im := 1.48, two_way_interaction := false }
+    im := IM 0.65 0.18 0.20 0.05, two_way_interaction := false }
 
 -- ── A8. SZOSTAK PROTOCELL MEMBRANES ─────────────────────────
 -- Self-assembling lipid membranes; compartmentalization.
 -- P-axis closure enables later A-axis activation via self/environment boundary.
 def protocells_szostak : PrebioticState :=
   { P := 0.70, N := 0.15, B := 0.15, A := 0.12,
-    im := 1.53, two_way_interaction := false }
+    im := IM 0.70 0.15 0.15 0.12, two_way_interaction := false }
 
 -- ── A9. WEISS ET AL. LUCA CHARACTERIZATION (2016, Nat Microbiol) ─
 -- Last Universal Common Ancestor inferred from genomics.
@@ -364,7 +366,7 @@ def protocells_szostak : PrebioticState :=
 -- All four primitives active. L=(4)(2) satisfied.
 def luca_weiss_2016 : PrebioticState :=
   { P := 0.85, N := 0.75, B := 0.60, A := 0.50,
-    im := 3.70, two_way_interaction := true }
+    im := IM 0.85 0.75 0.60 0.50, two_way_interaction := true }
 
 -- ── A10. NASA WORKING DEFINITION OF LIFE ────────────────────
 -- "A self-sustaining chemical system capable of Darwinian evolution."
@@ -375,7 +377,7 @@ def luca_weiss_2016 : PrebioticState :=
 -- This IS L=(4)(2) in molecular-biology language.
 def nasa_definition_minimal : PrebioticState :=
   { P := 0.50, N := 0.25, B := 0.25, A := 0.20,
-    im := 1.64, two_way_interaction := true }
+    im := IM 0.50 0.25 0.25 0.20, two_way_interaction := true }
 
 -- ============================================================
 -- CROSS-DOMAIN THEOREMS (CA1–CA10)
@@ -622,84 +624,6 @@ theorem two_states_are_ci :
          ca10_nasa_definition_is_L_4_2.2.2.2.2.2.2.2⟩
 
 -- ============================================================
--- LOSSLESS REDUCTION INSTANCES (Step 6 passes for each anchor)
--- ============================================================
-
-noncomputable def oparin_lossless : LongDivisionResult where
-  domain       := "Oparin-Haldane 1924/1929: primordial soup, P-only NCI"
-  classical_eq := oparin_haldane_soup.im
-  pnba_output  := oparin_haldane_soup.im
-  step6_passes := rfl
-
-noncomputable def miller_urey_lossless : LongDivisionResult where
-  domain       := "Miller-Urey 1953 Science 117:528: P-axis confirmation"
-  classical_eq := miller_urey_1953.im
-  pnba_output  := miller_urey_1953.im
-  step6_passes := rfl
-
-noncomputable def cairns_smith_lossless : LongDivisionResult where
-  domain       := "Cairns-Smith 1982: clay templates, P structural precursor"
-  classical_eq := cairns_smith_clay.im
-  pnba_output  := cairns_smith_clay.im
-  step6_passes := rfl
-
-noncomputable def gilbert_lossless : LongDivisionResult where
-  domain       := "Gilbert 1986 Nature 319:618: RNA World, N emergence"
-  classical_eq := rna_world_gilbert.im
-  pnba_output  := rna_world_gilbert.im
-  step6_passes := rfl
-
-noncomputable def wachtershauser_lossless : LongDivisionResult where
-  domain       := "Wächtershäuser 1988 MR 52:452: iron-sulfur, B emergence"
-  classical_eq := iron_sulfur_wachtershauser.im
-  pnba_output  := iron_sulfur_wachtershauser.im
-  step6_passes := rfl
-
-noncomputable def ribozymes_lossless : LongDivisionResult where
-  domain       := "Cech/Altman 1989 Nobel: ribozymes, N+B in one molecule"
-  classical_eq := ribozymes_cech_altman.im
-  pnba_output  := ribozymes_cech_altman.im
-  step6_passes := rfl
-
-noncomputable def sutherland_lossless : LongDivisionResult where
-  domain       := "Sutherland 2009 Nature 459:239: prebiotic nucleotides"
-  classical_eq := sutherland_2009.im
-  pnba_output  := sutherland_2009.im
-  step6_passes := rfl
-
-noncomputable def protocells_lossless : LongDivisionResult where
-  domain       := "Szostak: protocell membranes, P-axis compartmentalization"
-  classical_eq := protocells_szostak.im
-  pnba_output  := protocells_szostak.im
-  step6_passes := rfl
-
-noncomputable def luca_lossless : LongDivisionResult where
-  domain       := "Weiss et al. 2016 Nat Microbiol: LUCA, L=(4)(2) satisfied"
-  classical_eq := luca_weiss_2016.im
-  pnba_output  := luca_weiss_2016.im
-  step6_passes := rfl
-
-noncomputable def nasa_lossless : LongDivisionResult where
-  domain       := "NASA definition of life: L=(4)(2) in molecular-biology language"
-  classical_eq := nasa_definition_minimal.im
-  pnba_output  := nasa_definition_minimal.im
-  step6_passes := rfl
-
--- [T14] ALL TEN LOSSLESS INSTANCES CLOSE
-theorem all_ten_lossless_close :
-    LosslessReduction oparin_haldane_soup.im oparin_haldane_soup.im ∧
-    LosslessReduction miller_urey_1953.im miller_urey_1953.im ∧
-    LosslessReduction cairns_smith_clay.im cairns_smith_clay.im ∧
-    LosslessReduction rna_world_gilbert.im rna_world_gilbert.im ∧
-    LosslessReduction iron_sulfur_wachtershauser.im iron_sulfur_wachtershauser.im ∧
-    LosslessReduction ribozymes_cech_altman.im ribozymes_cech_altman.im ∧
-    LosslessReduction sutherland_2009.im sutherland_2009.im ∧
-    LosslessReduction protocells_szostak.im protocells_szostak.im ∧
-    LosslessReduction luca_weiss_2016.im luca_weiss_2016.im ∧
-    LosslessReduction nasa_definition_minimal.im nasa_definition_minimal.im := by
-  refine ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
-
--- ============================================================
 -- IM MONOTONE GRADIENT — STRUCTURAL RAMP NCI → CI
 -- ============================================================
 
@@ -713,11 +637,65 @@ theorem im_monotone_to_luca :
     rna_world_gilbert.im < ribozymes_cech_altman.im ∧
     ribozymes_cech_altman.im < luca_weiss_2016.im := by
   refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · unfold oparin_haldane_soup miller_urey_1953; norm_num
-  · unfold miller_urey_1953 cairns_smith_clay; norm_num
-  · unfold cairns_smith_clay rna_world_gilbert; norm_num
-  · unfold rna_world_gilbert ribozymes_cech_altman; norm_num
-  · unfold ribozymes_cech_altman luca_weiss_2016; norm_num
+  · unfold oparin_haldane_soup miller_urey_1953 IM SOVEREIGN_ANCHOR; norm_num
+  · unfold miller_urey_1953 cairns_smith_clay IM SOVEREIGN_ANCHOR; norm_num
+  · unfold cairns_smith_clay rna_world_gilbert IM SOVEREIGN_ANCHOR; norm_num
+  · unfold rna_world_gilbert ribozymes_cech_altman IM SOVEREIGN_ANCHOR; norm_num
+  · unfold ribozymes_cech_altman luca_weiss_2016 IM SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- THE IDENTITY MASS FLOOR OF LIFE
+-- Every primitive of a living state is at or above the activation
+-- floor, so its Identity Mass is at least 4 × 0.15 × Ω₀ ≈ 0.821.
+-- A state below that mass cannot satisfy L = (4)(2).
+-- ============================================================
+
+/-- The minimum Identity Mass of any state satisfying L = (4)(2). -/
+noncomputable def LIFE_IM_FLOOR : ℝ := IM ACTIVATION_FLOOR ACTIVATION_FLOOR ACTIVATION_FLOOR ACTIVATION_FLOOR
+
+-- [T14a] LIFE_IM_FLOOR ≈ 0.821
+theorem life_im_floor_value : LIFE_IM_FLOOR > 0.82 ∧ LIFE_IM_FLOOR < 0.83 := by
+  unfold LIFE_IM_FLOOR IM ACTIVATION_FLOOR N_THRESHOLD SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T14b] EVERY LIVING STATE CARRIES AT LEAST THE FLOOR
+theorem life_has_im_floor (s : PrebioticState) (h : L_4_2 s) :
+    IM s.P s.N s.B s.A ≥ LIFE_IM_FLOOR := by
+  obtain ⟨⟨hP, hN, hB, hA⟩, _⟩ := h
+  unfold P_active at hP
+  unfold N_active at hN
+  unfold B_active at hB
+  unfold A_active at hA
+  unfold LIFE_IM_FLOOR IM
+  have hS : (0:ℝ) < SOVEREIGN_ANCHOR := by unfold SOVEREIGN_ANCHOR; norm_num
+  apply mul_le_mul_of_nonneg_right _ hS.le
+  linarith
+
+-- [T14c] BELOW THE FLOOR IS NCI
+theorem below_floor_is_nci (s : PrebioticState)
+    (h : IM s.P s.N s.B s.A < LIFE_IM_FLOOR) : is_NCI s := by
+  intro hL
+  have := life_has_im_floor s hL
+  linarith
+
+-- [T14d] THE THREE P-ONLY HYPOTHESES ARE NCI BY MASS ALONE
+-- Primordial soup, Miller-Urey and clay templates all sit below
+-- the Identity Mass floor of life.
+theorem p_only_states_below_life_floor :
+    IM oparin_haldane_soup.P oparin_haldane_soup.N oparin_haldane_soup.B oparin_haldane_soup.A
+      < LIFE_IM_FLOOR ∧
+    IM miller_urey_1953.P miller_urey_1953.N miller_urey_1953.B miller_urey_1953.A
+      < LIFE_IM_FLOOR ∧
+    IM cairns_smith_clay.P cairns_smith_clay.N cairns_smith_clay.B cairns_smith_clay.A
+      < LIFE_IM_FLOOR := by
+  unfold oparin_haldane_soup miller_urey_1953 cairns_smith_clay LIFE_IM_FLOOR IM
+    ACTIVATION_FLOOR N_THRESHOLD SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
 
 -- ============================================================
 -- NARRATIVE TRAP OBSERVATION
@@ -775,8 +753,10 @@ theorem abiogenesis_total_consistency :
     -- [9] IM monotone increase across the peer-reviewed sequence
     (oparin_haldane_soup.im < miller_urey_1953.im ∧
      miller_urey_1953.im < rna_world_gilbert.im ∧
-     rna_world_gilbert.im < luca_weiss_2016.im) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+     rna_world_gilbert.im < luca_weiss_2016.im) ∧
+    -- [10] Life has an Identity Mass floor of 4 × 0.15 × Ω₀
+    (∀ s : PrebioticState, L_4_2 s → IM s.P s.N s.B s.A ≥ LIFE_IM_FLOOR) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · unfold manifold_impedance; simp
   · rfl
   · exact im_positive
@@ -793,9 +773,10 @@ theorem abiogenesis_total_consistency :
   · intro s
     exact ⟨Classical.em (L_4_2 s), fun ⟨h1, h2⟩ => h2 h1⟩
   · refine ⟨?_, ?_, ?_⟩
-    · unfold oparin_haldane_soup miller_urey_1953; norm_num
-    · unfold miller_urey_1953 rna_world_gilbert; norm_num
-    · unfold rna_world_gilbert luca_weiss_2016; norm_num
+    · unfold oparin_haldane_soup miller_urey_1953 IM SOVEREIGN_ANCHOR; norm_num
+    · unfold miller_urey_1953 rna_world_gilbert IM SOVEREIGN_ANCHOR; norm_num
+    · unfold rna_world_gilbert luca_weiss_2016 IM SOVEREIGN_ANCHOR; norm_num
+  · exact life_has_im_floor
 
 -- ============================================================
 -- FINAL THEOREM (always last, always this name)
@@ -811,7 +792,7 @@ end SNSFL_Abiogenesis_Reduction
 -- ============================================================
 -- FILE: SNSFL_Abiogenesis_Reduction.lean
 -- COORDINATE: [9,9,4,3]
--- LAYER: Identity Physics Series | Next after First Law [9,9,4,2]
+-- LAYER: Identity Physics Series | After the First Law [9,9,4,2]
 --
 -- STANDALONE: imports Mathlib only. Every primitive embedded.
 -- Multi-angle readable. Anti-narrative-trap by construction.
@@ -822,7 +803,7 @@ end SNSFL_Abiogenesis_Reduction
 --   3. PNBA map:   each hypothesis → primitive activation signature
 --   4. Operators:  P/N/B/A_active, all_four_active, two_way, L_4_2
 --   5. Work shown: T1–T16 + CA1–CA10 + master theorem
---   6. Verified:   Master theorem closes with 9 conjuncts, 0 sorry
+--   6. Verified:   Master theorem closes with 10 conjuncts, 0 sorry
 --
 -- REDUCTION:
 --   Classical:  10 peer-reviewed origin-of-life hypotheses
@@ -858,20 +839,19 @@ end SNSFL_Abiogenesis_Reduction
 --   rna_world(1.34) < ribozymes(1.72) < luca(3.70)
 --   The peer-reviewed sequence describes a structural ramp.
 --
+-- IDENTITY MASS FLOOR OF LIFE:
+--   L = (4)(2) → IM ≥ 4 × 0.15 × Ω₀ ≈ 0.821
+--   Primordial soup, Miller-Urey and clay templates sit below it.
+--
 -- IDENTITY PHYSICS LAWS INSTANTIATED:
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality — same PNBA across all 10 hypotheses
 --   Law 4:  Zero-Sorry Completion — this file compiles green
---   Law 14: Lossless Reduction — all 10 Step 6 passes [T14]
 --
 -- DEPENDENCIES (provenance — embedded, not imported):
---   SNSFL_Kernel                          [9,0,0,0]
---   SNSFL_SovereignAnchor                 [9,9,0,0]
+--   SNSFL_Master                          [9,9,0,0]
 --   SNSFL_First_Law_Identity_Physics      [9,9,4,2]
---   SNSFL_L2_Psy_Consistency_031926       [9,9,6,25]
---
--- COMPANION PAPER:
---   SNSFT_Abiogenesis_Paper.pdf           [9,9,4,4] — in preparation
+--   SNSFL_L2_Psy_Consistency_Capstone     [9,9,6,25]
 --
 -- FALSIFICATION CONDITIONS:
 --   - Any peer-reviewed abiogenesis hypothesis shown to either
@@ -880,7 +860,7 @@ end SNSFL_Abiogenesis_Reduction
 --   - Life found that does not satisfy L=(4)(2) structurally.
 --   - Any sorry found in this file.
 --
--- THEOREMS: 16 main + CA1–CA10 + master. SORRY: 0.
+-- THEOREMS: 30 + master. SORRY: 0.
 --
 -- [9,9,9,9] :: {ANC}
 -- Auth: HIGHTISTIC
