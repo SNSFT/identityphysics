@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS MASLOW HIERARCHY REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,7] | Psychology Series | Slot 7
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,7](PSYC) | Psychology series
 --
 -- Maslow's Hierarchy is not fundamental. It never was.
 -- The five levels are not a pyramid. They are six IM regimes
@@ -27,7 +27,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Maslow's Hierarchy is a special case of this equation.
@@ -354,6 +354,22 @@ theorem low_p_blocks_belonging (s : MaslowState)
     (hP_pos : s.P > 0) :
     ¬ (torsion s < TORSION_LIMIT ∧ s.N ≥ N_THRESHOLD ∧ s.P ≥ P_MIN) := by
   intro ⟨_, _, hP_high⟩
+  linarith
+
+-- THEOREM 9b: DEFICIT LOAD BELOW THE STRUCTURAL FLOOR FORCES SHATTER
+-- The ordering derived from the torsion law τ = B/P.
+-- Under a deficit load B ≥ TL·P_MIN, any Pattern below P_MIN gives τ > TL.
+-- The belonging lock is unreachable until Pattern climbs past the floor.
+-- Levels cannot be skipped: the physics enforces the sequence.
+theorem deficit_load_blocks_belonging (s : MaslowState)
+    (hP_pos : s.P > 0) (hP_low : s.P < P_MIN)
+    (hB : s.B ≥ TORSION_LIMIT * P_MIN) :
+    shatter_event s := by
+  refine ⟨hP_pos, ?_⟩
+  unfold torsion
+  rw [ge_iff_le, le_div_iff₀ hP_pos]
+  have hTL : TORSION_LIMIT > 0 := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  have h := mul_lt_mul_of_pos_left hP_low hTL
   linarith
 
 -- THEOREM 10: DEFICIT LEVELS ARE SHATTER — GROWTH LEVELS ARE LOCKED
@@ -725,7 +741,7 @@ end SNSFL_L2_Psy_Maslow
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_Maslow.lean
--- COORDINATE: [9,9,6,7]
+-- COORDINATE: [9,9,6,7](PSYC)
 -- LAYER: Psychology Series | Slot 7
 --
 -- LONG DIVISION:
@@ -763,6 +779,7 @@ end SNSFL_L2_Psy_Maslow
 --   transcendence: true_lock ∧ A > 1 — Maslow's sixth level formally proved
 --   hierarchy_ready: P ≥ P_MIN ∧ N ≥ N_THRESHOLD — structural readiness
 --   hierarchy_ordering: deficit=shatter, growth=locked (proved simultaneously)
+--   deficit_load_blocks_belonging: B ≥ TL·P_MIN ∧ P < P_MIN → shatter (ordering from τ = B/P)
 --   P_MIN = 0.50 — structural floor for higher-order need activation
 --
 -- CORPUS FLOOR TAXONOMY (now complete across 4 files):
@@ -797,7 +814,7 @@ end SNSFL_L2_Psy_Maslow
 --   SNSFL_L2_Psy_LocusControl.lean  → A_THRESHOLD precedent
 --   SNSFL_L2_Psy_Maslow.lean        → psychology series [9,9,6,7] (this file)
 --
--- THEOREMS: 25. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 27. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

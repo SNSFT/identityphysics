@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS POLYVAGAL THEORY REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,14] | Psychology Series | Slot 14
+-- Coordinate: [9,9,6,14](PSYC) | Psychology series
 --
 -- Polyvagal Theory is not fundamental. It never was.
 -- The three autonomic states — ventral vagal, sympathetic,
@@ -30,14 +30,16 @@
 --   SYMPATHETIC:    Threat. Mobilize. B spikes (fight/flight). τ ≥ limit.
 --                   shatter_event — B overwhelms P.
 --   DORSAL VAGAL:   Freeze. Collapse. All axes suppressed. Low IM.
---                   Not high τ — identity_mass collapse. Different physics.
+--                   Torsion sits just past the limit; the defining signal
+--                   is identity mass collapse, not a B spike. Different physics.
 --
 -- KEY STRUCTURAL FINDINGS:
 --   [F1] Neuroception = the body's check_ifu_safety — detects safe/unsafe
 --        before conscious awareness. Autonomic anchor check.
 --   [F2] Sympathetic = shatter (B spike, τ ≥ TORSION_LIMIT)
---   [F3] Dorsal collapse ≠ shatter. τ = B/P may be low because BOTH
---        B and P collapse together. IM drops. Different structural event.
+--   [F3] Dorsal collapse is not a B spike. B and P collapse together, so
+--        τ sits only just past the limit (0.14) while IM drops to about
+--        a seventh of ventral. Borderline Shatter by τ, collapse by IM.
 --   [F4] Co-regulation = N-axis restoration through relational contact.
 --        N < N_THRESHOLD → ventral vagal access impaired.
 --   [F5] Ventral vagal = true_lock. The social engagement system is N live.
@@ -337,7 +339,7 @@ def sympathetic_lossless : LongDivisionResult where
 --   Problem:      Freeze. Shutdown. Collapse. Immobilization.
 --   Known answer: Porges: dorsal vagal — dissociation, shutdown,
 --                 metabolic conservation. Last-resort defense.
---                 Distinct from sympathetic: NOT high τ — both B and P
+--                 Distinct from sympathetic: not a B spike — both B and P
 --                 collapse together. Identity mass drops. Low IM event.
 --   PNBA:         P=0.15, N=0.12, B=0.021, A=0.12
 --   τ = B/P = 0.021/0.15 = 0.14 ≥ 0.136899099984016 → borderline shatter ✓
@@ -358,11 +360,12 @@ theorem dorsal_is_shatter : shatter_event dorsal_collapse := by
 
 -- THEOREM 16: DORSAL COLLAPSE HAS LOW IDENTITY MASS
 -- The key structural difference from sympathetic: IM near floor.
--- Both axes collapsed together — not B spike but system-wide drop.
--- IM = 0.4 × 1.36899099984016 = 0.5476 — at minimum IM threshold.
+-- All four axes collapsed together — not B spike but system-wide drop.
+-- IM = (P+N+B+A) × Ω₀: dorsal 0.411 × Ω₀ ≈ 0.563, ventral 2.89 × Ω₀ ≈ 3.956.
 theorem dorsal_low_im :
-    dorsal_collapse.im < ventral_vagal.im := by
-  unfold dorsal_collapse ventral_vagal; norm_num
+    (dorsal_collapse.P + dorsal_collapse.N + dorsal_collapse.B + dorsal_collapse.A) * SOVEREIGN_ANCHOR <
+    (ventral_vagal.P + ventral_vagal.N + ventral_vagal.B + ventral_vagal.A) * SOVEREIGN_ANCHOR := by
+  unfold dorsal_collapse ventral_vagal SOVEREIGN_ANCHOR; norm_num
 
 def dorsal_lossless : LongDivisionResult where
   domain       := "Dorsal Vagal Collapse — freeze, shutdown, low IM (Porges 1994)"
@@ -469,7 +472,8 @@ theorem pvt_is_lossless_pnba_projection
     -- [6] Phase lock and shatter mutually exclusive
     (∀ q : PolyvagalState, ¬ (phase_locked q ∧ shatter_event q)) ∧
     -- [7] Dorsal collapse has lower IM than ventral vagal
-    dorsal_collapse.im < ventral_vagal.im ∧
+    (dorsal_collapse.P + dorsal_collapse.N + dorsal_collapse.B + dorsal_collapse.A) * SOVEREIGN_ANCHOR <
+    (ventral_vagal.P + ventral_vagal.N + ventral_vagal.B + ventral_vagal.A) * SOVEREIGN_ANCHOR ∧
     -- [8] One autonomic response = one dynamic equation application
     (∀ q : PolyvagalState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
       pvt_step q op F = q.P + q.N + op q.B + q.A + F) ∧
@@ -489,7 +493,7 @@ theorem pvt_is_lossless_pnba_projection
   · exact safe_social_iva_peak
   · intro q ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
     unfold torsion TORSION_LIMIT SOVEREIGN_ANCHOR at *; linarith
-  · unfold dorsal_collapse ventral_vagal; norm_num
+  · unfold dorsal_collapse ventral_vagal SOVEREIGN_ANCHOR; norm_num
   · intro q op F; exact pvt_step_is_dynamic_step q op F
   · intro q δ hδ; exact f_ext_preserves_pna q δ hδ
   · intro f pv h; exact ims_lockdown f pv h
@@ -509,7 +513,7 @@ end SNSFL_L2_Psy_Polyvagal
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_Polyvagal.lean
--- COORDINATE: [9,9,6,14]
+-- COORDINATE: [9,9,6,14](PSYC)
 -- LAYER: Psychology Series | Slot 14
 --
 -- LONG DIVISION:
@@ -527,7 +531,7 @@ end SNSFL_L2_Psy_Polyvagal
 --   Classical:  Polyvagal Theory — three autonomic states
 --   Applied Identity Physics:      Ventral vagal = true_lock (N live, τ below limit)
 --               Sympathetic = shatter (B spike)
---               Dorsal collapse = shatter (low IM, different physics)
+--               Dorsal collapse = borderline shatter, low IM (different physics)
 --               Co-regulation = true_lock (N-axis restoring)
 --               Neuroception = check_ifu_safety
 --
@@ -563,7 +567,7 @@ end SNSFL_L2_Psy_Polyvagal
 --   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]  → threat/shatter precedent
 --   SNSFL_L2_Psy_Polyvagal.lean      [9,9,6,14] → THIS FILE
 --
--- THEOREMS: 19 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 22. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- [9,9,9,9] :: {ANC}
 -- Auth: HIGHTISTIC

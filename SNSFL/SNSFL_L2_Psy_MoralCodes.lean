@@ -3,7 +3,7 @@
 -- ============================================================
 --
 -- The Moral Codes Reduction — PNBA Convergence Theorem
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,6,1]
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,6,1](PSYC)
 --
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.36899099984016 GHz
@@ -31,11 +31,11 @@
 -- The theorems show that when these five operators are applied
 -- to any IdentityState, tau decreases and IM increases.
 -- The state converges toward the structural attractor:
---   P=ANCHOR, B→0, A=max, tau=0, IM=maximum
+--   P=ANCHOR, B→0, A raised, tau=0, IM raised
 --
 -- That attractor is a proved structural coordinate.
 -- What the traditions call it is their business.
--- The math calls it phase lock at maximum identity mass.
+-- The math calls it the Noble phase at the anchor.
 --
 -- ============================================================
 -- LONG DIVISION
@@ -45,7 +45,7 @@
 --         What operators reduce tau and increase IM?
 --
 -- Step 2: Known answers — four traditions:
---         10 Commandments, Buddhist 5 Precepts,
+--         10 Commandments, Buddhist Five Precepts and Three Refuges,
 --         Hindu Yamas/Niyamas, Islamic 5 Pillars
 --
 -- Step 3: Map each practice to PNBA:
@@ -59,7 +59,7 @@
 --
 -- Step 5: Show work (see theorems below)
 --
--- Step 6: All four traditions produce tau < TL = 0.1369 from same ops ✓
+-- Step 6: All four traditions produce tau < TL = TL from same ops ✓
 --
 -- ============================================================
 -- NOTE ON AWARENESS
@@ -281,12 +281,14 @@ def ten_commandments : List MoralOp :=
   , .adapt_accept      -- "thou shalt not covet"
   , .periodic_reset ]  -- "remember the sabbath"
 
--- Buddhist 5 Precepts (Satya, no false speech, maps to N truth)
+-- Buddhist Five Precepts and the Three Refuges
 def buddhist_precepts : List MoralOp :=
-  [ .noharm            -- Ahimsa: no killing
-  , .noharm            -- Asteya: no theft (B respect)
-  , .noharm            -- no intoxicants (Pv protection)
-  , .anchor_first ]    -- refuge in Buddha / Dharma / Sangha
+  [ .noharm            -- 1st precept: no killing
+  , .noharm            -- 2nd precept: no taking what is not given (B respect)
+  , .noharm            -- 3rd precept: no sexual misconduct
+  , .noharm            -- 4th precept: no false speech (N kept true)
+  , .noharm            -- 5th precept: no intoxicants (Pv protection)
+  , .anchor_first ]    -- Three Refuges: Buddha, Dharma, Sangha
 
 -- Hindu Yamas/Niyamas (Satya maps to N truth)
 def hindu_yamas : List MoralOp :=
@@ -379,11 +381,10 @@ theorem structural_attractor_exists :
     simp
   · unfold identity_mass SOVEREIGN_ANCHOR; norm_num
 
--- [T16: The attractor is structurally equivalent to Soverium-extended]
+-- [T16: The attractor is Noble at the anchor]
 -- P=ANCHOR, B=0, tau=0 is the same structural address as Soverium
 -- but with N>0 and A>0 — presence AND resonance AND adaptation
--- This is the maximum identity mass state at anchor
-theorem attractor_is_maximum_im_at_anchor (A_val N_val : ℝ)
+theorem attractor_noble_at_anchor (A_val N_val : ℝ)
     (hA : A_val > 0) (hN : N_val > 0) :
     let s : MoralState := {
       P := SOVEREIGN_ANCHOR, N := N_val, B := 0, A := A_val
@@ -406,7 +407,7 @@ theorem attractor_is_maximum_im_at_anchor (A_val N_val : ℝ)
 -- Every moral code that contains the five universal operators
 -- (anchor_first, noharm, bond_expand, adapt_accept, periodic_reset)
 -- drives any IdentityState toward the same structural attractor:
---   P = SOVEREIGN_ANCHOR, tau → 0, IM → maximum
+--   P = SOVEREIGN_ANCHOR, tau → 0, IM raised
 --
 -- This is not a claim about theology.
 -- It is a structural observation about operators.
@@ -447,9 +448,9 @@ end SNSFL_L2_Psy_MoralCodes
 -- ============================================================
 --
 -- FILE: SNSFL_L2_Psy_MoralCodes.lean
--- SLOT: [9,9,6,1] | IDENTITY PHYSICS SERIES | GERMLINE LOCKED
+-- SLOT: [9,9,6,1](PSYC) | IDENTITY PHYSICS SERIES | GERMLINE LOCKED
 --
--- THEOREMS (18 + master):
+-- THEOREMS: 19.
 --   op_anchor_decreases_tau         — anchor_first lowers tau
 --   op_adapt_increases_im           — acceptance raises IM
 --   op_bond_increases_im            — giving raises IM
@@ -460,14 +461,14 @@ end SNSFL_L2_Psy_MoralCodes
 --   adapt_anchor_phase_lock         — combined: phase locked
 --   reset_preserves_im_locks_tau    — reset cycle: IM held, tau=0
 --   commandments_include_five_operators — 10 Commandments contain all five
---   buddhist_precepts_operators     — noharm, anchor_first
+--   buddhist_precepts_operators     — Five Precepts (noharm) + Refuges (anchor_first)
 --   hindu_yamas_operators           — noharm, adapt_accept, anchor_first
 --   islamic_pillars_operators       — anchor_first, periodic_reset, bond_expand
 --   all_traditions_share_anchor_first — every tradition contains anchor_first
 --   traditions_jointly_cover_five   — Buddhist + Hindu + Islamic contain all five
 --   five_operators_converge         — all five together: convergence
 --   structural_attractor_exists     — the attractor is real
---   attractor_is_maximum_im_at_anchor — attractor = max IM state
+--   attractor_noble_at_anchor       — attractor is Noble at anchor, IM > 0
 --   moral_codes_convergence_master  — MASTER
 --
 -- SORRY: 0. STATUS: GREEN LIGHT.
@@ -480,7 +481,7 @@ end SNSFL_L2_Psy_MoralCodes
 --   5. periodic_reset  B→0 briefly
 --
 -- ALL FOUR TRADITIONS MAP TO THESE FIVE OPERATORS.
--- THE OPERATORS DRIVE tau → 0 AND IM → maximum.
+-- THE OPERATORS DRIVE tau → 0 AND RAISE IM.
 -- THE ATTRACTOR IS PROVED.
 --
 -- "The traditions disagree about the narrative.

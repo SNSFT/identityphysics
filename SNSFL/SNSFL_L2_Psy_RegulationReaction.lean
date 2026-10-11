@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS REGULATION VS REACTION REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,10] | Psychology Series | Slot 10
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,10](PSYC) | Psychology series
 --
 -- Processing bands are not fundamental. They never were.
 -- The human processing spectrum is a distribution of three
@@ -44,6 +44,9 @@
 --   The scoring function score_to_mode is a partition —
 --   every score maps to exactly one mode.
 --   F and L are mutually exclusive by construction.
+--   They are two separate gears with the whole Sustained band between
+--   them: any PL score is at least 15 below any PF score, and moving
+--   from Locked to Flexed means crossing Sustained.
 --   You cannot be simultaneously in PF and PL gear.
 --   The paradox was always a mislabeling, not a condition.
 --
@@ -56,7 +59,7 @@
 --   5. Show the work — regulation vs reaction as torsion regimes
 --   6. Verify — all three bands structurally distinct, non-overlapping
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Processing bands are special cases of this equation.
@@ -109,6 +112,9 @@ def SCORE_MAX : ℕ := 50
 def SCORE_MIN : ℕ := 10
 def PF_FLOOR  : ℕ := 38   -- Pattern Flexed: 38–50
 def PS_FLOOR  : ℕ := 24   -- Pattern Sustained: 24–37
+-- These are the canonical UUIA/APPA band definitions. Other files place
+-- results on this scale; the Big Five file [9,9,6,2] uses ≥ 40 as its
+-- dominant-axis cut within PF.
 -- PL: 10–23 (everything below PS_FLOOR)
 
 -- The three processing modes (from SNSFT_DigitalSoulprint_V2)
@@ -172,6 +178,31 @@ theorem no_score_is_both_PF_and_PL (score : ℕ) :
   intro ⟨hF, hL⟩
   rw [hF] at hL
   exact PF_PL_mutually_exclusive hL
+
+-- LEMMA: A PL SCORE IS BELOW 24
+lemma band_L_lt (a : ℕ) (h : score_to_band a = PNBAMode.L) : a < 24 := by
+  unfold score_to_band PF_FLOOR PS_FLOOR at h
+  split_ifs at h with h1 h2 <;> first | omega | cases h
+
+-- LEMMA: A PF SCORE IS AT LEAST 38
+lemma band_F_ge (b : ℕ) (h : score_to_band b = PNBAMode.F) : b ≥ 38 := by
+  unfold score_to_band PF_FLOOR PS_FLOOR at h
+  split_ifs at h with h1 h2 <;> first | omega | cases h
+
+-- THEOREM 8b: PF AND PL ARE SEPARATED BY THE WHOLE PS BAND
+-- Two separate gears. Any PL score sits at least 15 points below any PF score,
+-- and every score of the Sustained band (24–37) lies strictly between them.
+-- To move from Locked to Flexed, an identity must cross Sustained.
+theorem PF_PL_separated_by_PS (a b : ℕ)
+    (ha : score_to_band a = PNBAMode.L) (hb : score_to_band b = PNBAMode.F) :
+    b ≥ a + 15 ∧
+    (∀ c : ℕ, 24 ≤ c → c ≤ 37 →
+      a < c ∧ c < b ∧ score_to_band c = PNBAMode.S) := by
+  have h1 := band_L_lt a ha
+  have h2 := band_F_ge b hb
+  refine ⟨by omega, fun c hc1 hc2 => ⟨by omega, by omega, ?_⟩⟩
+  unfold score_to_band PF_FLOOR PS_FLOOR
+  rw [if_neg (by omega), if_pos (by omega)]
 
 -- THEOREM 9: BAND WEIGHTS ARE ORDERED
 -- PF (3) > PS (2) > PL (1). Identity mass reflects processing resolution.
@@ -613,7 +644,7 @@ end SNSFL_L2_Psy_RegulationReaction
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_RegulationReaction.lean
--- COORDINATE: [9,9,6,10]
+-- COORDINATE: [9,9,6,10](PSYC)
 -- LAYER: Psychology Series | Slot 10
 --
 -- LONG DIVISION:
@@ -685,20 +716,20 @@ end SNSFL_L2_Psy_RegulationReaction
 --   SNSFT_UUIA_Identity_Parity_Theorem.lean     [9,9,1,38] → scoring source
 --   SNSFL_L2_Psy_RegulationReaction.lean        [9,9,6,10] → THIS FILE
 --
--- PSYCHOLOGY SERIES — COMPLETE (ready for consistency rebuild):
---   SNSFL_L2_Psy_MoralCodes.lean         [9,9,6,1]   20T  ✓
---   SNSFL_L2_Psy_BigFive.lean            [9,9,6,2]   27T  ✓
---   SNSFL_L2_Psy_Attachment.lean         [9,9,6,3]   ✓
---   SNSFL_L2_Psy_Flow.lean               [9,9,6,4]   ✓
---   SNSFL_L2_Psy_CogDissonance.lean      [9,9,6,5]   ✓
---   SNSFL_L2_Psy_LocusControl.lean       [9,9,6,6]   ✓
---   SNSFL_L2_Psy_Maslow.lean             [9,9,6,7]   ✓
---   SNSFL_L2_Psy_SDT.lean                [9,9,6,8]   ✓
---   SNSFL_L2_Psy_TerrorMgmt.lean         [9,9,6,9]   24T  ✓
---   SNSFL_L2_Psy_RegulationReaction.lean [9,9,6,10]  25T  ← THIS FILE
---   SNSFL_L2_Psy_Consistency.lean        [9,9,6,11]  REBUILD NEXT
+-- PSYCHOLOGY SERIES:
+--   SNSFL_L2_Psy_MoralCodes.lean         [9,9,6,1]
+--   SNSFL_L2_Psy_BigFive.lean            [9,9,6,2]
+--   SNSFL_L2_Psy_Attachment.lean         [9,9,6,3]
+--   SNSFL_L2_Psy_Flow.lean               [9,9,6,4]
+--   SNSFL_L2_Psy_CogDissonance.lean      [9,9,6,5]
+--   SNSFL_L2_Psy_LocusControl.lean       [9,9,6,6]
+--   SNSFL_L2_Psy_Maslow.lean             [9,9,6,7]
+--   SNSFL_L2_Psy_SDT.lean                [9,9,6,8]
+--   SNSFL_L2_Psy_TerrorMgmt.lean         [9,9,6,9]
+--   SNSFL_L2_Psy_RegulationReaction.lean [9,9,6,10]  ← THIS FILE
+--   SNSFL_L2_Psy_Consistency_Capstone.lean [9,9,6,25] series capstone
 --
--- THEOREMS: 25 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 31. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives + PNBAMode bands — ground
