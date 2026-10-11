@@ -88,7 +88,7 @@
 --                  noble_regime, adaptive_pressure,
 --                  evo_burst, neutral_drift, predator_prey_cycle
 --   5. Work shown: CE1–CE7 + master theorem
---   6. Verified:   master closes with 8 conjuncts, 0 sorry
+--   6. Verified:   master closes with 9 conjuncts, 0 sorry
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding.
@@ -159,7 +159,7 @@ structure EvoState where
   N        : ℝ   -- narrative: hereditary continuity, lineage, generation count
   B        : ℝ   -- behavior: metabolic rate, predation pressure, competition
   A        : ℝ   -- adaptation: selection coefficient, fitness differential
-  im       : ℝ   -- identity mass = (P+N+B+A) × ANCHOR
+  im       : ℝ   -- identity mass = (P+N+B+A) × ANCHOR (computed in each state)
   pv       : ℝ   -- purpose vector: adaptive trajectory direction
   f_anchor : ℝ   -- resonant frequency: proximity to SOVEREIGN_ANCHOR
 
@@ -258,63 +258,63 @@ theorem im_positive (s : EvoState) (hP : s.P > 0)
 -- Under selection: unfit variants shatter, fit variants relock.
 def darwin_selection_pressure : EvoState :=
   { P := 1.0, N := 0.80, B := 0.18, A := 0.75,
-    im := 2.74, pv := 0.80, f_anchor := 1.2 }
+    im := (1.0 + 0.80 + 0.18 + 0.75) * SOVEREIGN_ANCHOR, pv := 0.80, f_anchor := 1.2 }
 
 -- ── E2. HARDY-WEINBERG 1908 — POPULATION EQUILIBRIUM ───────
 -- No selection, no mutation, random mating: τ stays below TL.
 -- Phase locked across generations. Allele frequencies stable.
 def hardy_weinberg_equilibrium : EvoState :=
   { P := 1.0, N := 1.0, B := 0.10, A := 0.20,
-    im := 3.15, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    im := (1.0 + 1.0 + 0.10 + 0.20) * SOVEREIGN_ANCHOR, pv := 1.0, f_anchor := SOVEREIGN_ANCHOR }
 
 -- ── E3a. LOTKA-VOLTERRA PREY (1925/1926) — HIGH N, LOW B ───
 -- Prey: high structural + narrative capacity, low predation load.
 -- Phase locked; becomes vulnerable when B rises (predator bloom).
 def lotka_volterra_prey : EvoState :=
   { P := 1.0, N := 0.90, B := 0.08, A := 0.30,
-    im := 3.12, pv := 0.90, f_anchor := 1.3 }
+    im := (1.0 + 0.90 + 0.08 + 0.30) * SOVEREIGN_ANCHOR, pv := 0.90, f_anchor := 1.3 }
 
 -- ── E3b. LOTKA-VOLTERRA PREDATOR (1925/1926) — HIGH B ──────
 -- Predator: high behavioral load. τ approaches TL.
 -- When prey (N) collapses, predator B load drops → cycle continues.
 def lotka_volterra_predator : EvoState :=
   { P := 0.80, N := 0.50, B := 0.15, A := 0.40,
-    im := 2.53, pv := 0.70, f_anchor := 1.1 }
+    im := (0.80 + 0.50 + 0.15 + 0.40) * SOVEREIGN_ANCHOR, pv := 0.70, f_anchor := 1.1 }
 
 -- ── E4a. ELDREDGE-GOULD STASIS (1972) — PHASE LOCKED ───────
 -- Punctuated equilibrium: long stasis periods = phase locked.
 -- τ well below TL. No selection pressure active.
 def punctuated_stasis : EvoState :=
   { P := 1.0, N := 0.85, B := 0.08, A := 0.25,
-    im := 3.01, pv := 0.85, f_anchor := SOVEREIGN_ANCHOR }
+    im := (1.0 + 0.85 + 0.08 + 0.25) * SOVEREIGN_ANCHOR, pv := 0.85, f_anchor := SOVEREIGN_ANCHOR }
 
 -- ── E4b. ELDREDGE-GOULD BURST (1972) — SHATTER EVENT ───────
 -- Rapid environmental shift: B spikes, τ ≥ TL, shatter fires.
 -- Brief burst of rapid speciation / extinction.
 def punctuated_burst : EvoState :=
   { P := 0.80, N := 0.60, B := 0.15, A := 0.65,
-    im := 3.02, pv := 0.60, f_anchor := 0.9 }
+    im := (0.80 + 0.60 + 0.15 + 0.65) * SOVEREIGN_ANCHOR, pv := 0.60, f_anchor := 0.9 }
 
 -- ── E4c. ELDREDGE-GOULD RELOCK (1972) — POST-BURST STASIS ──
 -- After burst: survivors relock at new phase-locked configuration.
 -- τ drops back below TL. New stasis begins.
 def punctuated_relock : EvoState :=
   { P := 0.90, N := 0.80, B := 0.10, A := 0.50,
-    im := 3.02, pv := 0.80, f_anchor := 1.3 }
+    im := (0.90 + 0.80 + 0.10 + 0.50) * SOVEREIGN_ANCHOR, pv := 0.80, f_anchor := 1.3 }
 
 -- ── E5. KIMURA 1968 — NEUTRAL DRIFT ─────────────────────────
 -- Neutral mutations: A-axis quiescent, τ → 0.
 -- NOBLE regime: no selection pressure, random fixation by drift.
 def kimura_neutral_drift : EvoState :=
   { P := 1.0, N := 0.80, B := 0.0005, A := 0.05,
-    im := 2.53, pv := 0.80, f_anchor := SOVEREIGN_ANCHOR }
+    im := (1.0 + 0.80 + 0.0005 + 0.05) * SOVEREIGN_ANCHOR, pv := 0.80, f_anchor := SOVEREIGN_ANCHOR }
 
 -- ── E6. LUCA BASELINE (Weiss et al. 2016, Nat Microbiol) ───
--- Inherited from [9,9,4,3]. Minimal viable CI state.
+-- Re-anchored from [9,9,4,3] for evolutionary continuity. Minimal viable CI state.
 -- All four active, two-way interaction, IM at minimal viable level.
 def luca_ci_baseline : EvoState :=
   { P := 0.85, N := 0.75, B := 0.11, A := 0.50,
-    im := 3.70, pv := 0.75, f_anchor := SOVEREIGN_ANCHOR }
+    im := (0.85 + 0.75 + 0.11 + 0.50) * SOVEREIGN_ANCHOR, pv := 0.75, f_anchor := SOVEREIGN_ANCHOR }
 
 -- ── E7. NASA / CLELAND-CHYBA 2002 — EVOLUTION AS CI MOTION ─
 -- Self-sustaining + Darwinian = L=(4)(2) in motion.
@@ -322,7 +322,7 @@ def luca_ci_baseline : EvoState :=
 -- Evolution = the A-axis sustaining CI across time.
 def nasa_evo_ci_motion : EvoState :=
   { P := 0.90, N := 0.80, B := 0.12, A := 0.60,
-    im := 3.26, pv := 0.80, f_anchor := SOVEREIGN_ANCHOR }
+    im := (0.90 + 0.80 + 0.12 + 0.60) * SOVEREIGN_ANCHOR, pv := 0.80, f_anchor := SOVEREIGN_ANCHOR }
 
 -- ============================================================
 -- CROSS-DOMAIN THEOREMS (CE1–CE7)
@@ -479,63 +479,6 @@ theorem ci_im_monotone_luca_to_nasa :
   norm_num
 
 -- ============================================================
--- LOSSLESS REDUCTION INSTANCES (Step 6 passes for each anchor)
--- ============================================================
-
-noncomputable def darwin_lossless : LongDivisionResult where
-  domain       := "Darwin 1859: natural selection = A-axis adaptive pressure above TL"
-  classical_eq := darwin_selection_pressure.im
-  pnba_output  := darwin_selection_pressure.im
-  step6_passes := rfl
-
-noncomputable def hardy_weinberg_lossless : LongDivisionResult where
-  domain       := "Hardy 1908 / Weinberg 1908: H-W equilibrium = phase lock τ < TL"
-  classical_eq := hardy_weinberg_equilibrium.im
-  pnba_output  := hardy_weinberg_equilibrium.im
-  step6_passes := rfl
-
-noncomputable def lotka_volterra_lossless : LongDivisionResult where
-  domain       := "Lotka 1925 / Volterra 1926: predator-prey = N-B torsion oscillation"
-  classical_eq := lotka_volterra_prey.im
-  pnba_output  := lotka_volterra_prey.im
-  step6_passes := rfl
-
-noncomputable def punctuated_eq_lossless : LongDivisionResult where
-  domain       := "Eldredge & Gould 1972: punctuated equilibrium = shatter-relock cycle"
-  classical_eq := punctuated_stasis.im
-  pnba_output  := punctuated_stasis.im
-  step6_passes := rfl
-
-noncomputable def kimura_lossless : LongDivisionResult where
-  domain       := "Kimura 1968 Nature 217:624: neutral drift = noble regime τ → 0"
-  classical_eq := kimura_neutral_drift.im
-  pnba_output  := kimura_neutral_drift.im
-  step6_passes := rfl
-
-noncomputable def luca_lossless : LongDivisionResult where
-  domain       := "Weiss et al. 2016 Nat Microbiol: LUCA = minimal viable CI baseline"
-  classical_eq := luca_ci_baseline.im
-  pnba_output  := luca_ci_baseline.im
-  step6_passes := rfl
-
-noncomputable def nasa_lossless : LongDivisionResult where
-  domain       := "Cleland & Chyba 2002: evolution = A-axis sustaining L=(4)(2)"
-  classical_eq := nasa_evo_ci_motion.im
-  pnba_output  := nasa_evo_ci_motion.im
-  step6_passes := rfl
-
--- [T11] ALL SEVEN LOSSLESS INSTANCES CLOSE
-theorem all_seven_lossless_close :
-    LosslessReduction darwin_selection_pressure.im darwin_selection_pressure.im ∧
-    LosslessReduction hardy_weinberg_equilibrium.im hardy_weinberg_equilibrium.im ∧
-    LosslessReduction lotka_volterra_prey.im lotka_volterra_prey.im ∧
-    LosslessReduction punctuated_stasis.im punctuated_stasis.im ∧
-    LosslessReduction kimura_neutral_drift.im kimura_neutral_drift.im ∧
-    LosslessReduction luca_ci_baseline.im luca_ci_baseline.im ∧
-    LosslessReduction nasa_evo_ci_motion.im nasa_evo_ci_motion.im := by
-  exact ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
-
--- ============================================================
 -- MASTER THEOREM — EVOLUTION TOTAL CONSISTENCY
 -- ============================================================
 
@@ -558,8 +501,10 @@ theorem evolution_is_lossless_pnba_projection :
     (phase_locked luca_ci_baseline ∧ IM luca_ci_baseline > 0) ∧
     -- [8] Evolution = A-axis sustaining CI across time (E7)
     (phase_locked nasa_evo_ci_motion ∧
-     nasa_evo_ci_motion.A ≥ ACTIVATION_FLOOR) := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+     nasa_evo_ci_motion.A ≥ ACTIVATION_FLOOR) ∧
+    -- [9] Evolution as CI motion sits in the IVA corridor
+    iva_peak nasa_evo_ci_motion := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · unfold manifold_impedance; simp
   · rfl
   · exact phase_boundary_ordering
@@ -570,6 +515,7 @@ theorem evolution_is_lossless_pnba_projection :
            ce6_luca_is_minimal_ci_baseline.2.2⟩
   · exact ⟨ce7_evolution_is_a_axis_sustaining_ci.1,
            ce7_evolution_is_a_axis_sustaining_ci.2.1⟩
+  · exact ce7b_evolution_in_iva_corridor
 
 -- ============================================================
 -- FINAL THEOREM (always last, always this name)
@@ -604,8 +550,8 @@ end SNSFL_Evolution_Reduction
 --   4. Operators:  torsion, phase_locked, shatter_event, noble_regime,
 --                  iva_peak, evo_burst, predator_prey_oscillation,
 --                  adaptive_pressure, IM
---   5. Work shown: CE1–CE7 + T8–T11 + master theorem
---   6. Verified:   master closes with 8 conjuncts, 0 sorry
+--   5. Work shown: CE1–CE7 + T8–T10 + master theorem
+--   6. Verified:   master closes with 9 conjuncts, 0 sorry
 --
 -- REDUCTION:
 --   Classical:  7 canonical peer-reviewed evolutionary anchors
@@ -651,9 +597,8 @@ end SNSFL_Evolution_Reduction
 --   Law 2:  Invariant Resonance — anchor_zero_friction [T1]
 --   Law 3:  Substrate Neutrality — same PNBA across all 7 anchors
 --   Law 4:  Zero-Sorry Completion — this file compiles green
---   Law 14: Lossless Reduction — all 7 Step 6 passes [T11]
 --
--- THEOREMS: 11 main + CE1–CE7 (+ sub-theorems) + master. SORRY: 0.
+-- THEOREMS: 22 + master. SORRY: 0.
 --
 -- [9,9,9,9] :: {ANC}
 -- Auth: HIGHTISTIC
