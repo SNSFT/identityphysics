@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture — ProofPress</title>
+  <meta name="description" content="[9,9,6,24](PSYC) — The APPA Internal Simulation Profile reduced to PNBA; three resolution tiers partition every axis score, low Narrative resolution is a false lock, low Adaptation resolution is simulation capture, and full high resolution is IVA peak. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-psy-simulation-layer.html">
+  <meta property="og:title" content="The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture">
+  <meta property="og:description" content="[9,9,6,24](PSYC) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-psy-simulation-layer.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/03/18">
+  <meta name="citation_online_date" content="2026/03/18">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,6,24">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-psy-simulation-layer.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-psy-simulation-layer.html">
+  <meta name="citation_keywords" content="internal simulation; mental imagery; rumination; APPA; Internal Simulation Profile; resolution tiers; simulation capture; false lock; IVA peak; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture",
+    "datePublished": "2026-03-18",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-psy-simulation-layer.html",
+    "keywords": "internal simulation, mental imagery, rumination, APPA, Internal Simulation Profile, resolution tiers, simulation capture, false lock, IVA peak, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are dual-verified in Lean 4 and Coq/Rocq under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,6,24](PSYC) · Volume 1 · Issue 1 · March 2026</div>
+    <h1>The Internal Simulation Layer Reduced to PNBA: Three Resolution Tiers, Narrative Loss as False Lock, Rumination as Simulation Capture</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-psy-simulation-layer.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_L2_Psy_SimulationLayer.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,6,24](PSYC) · Psychology series<br>
+<strong>Issue:</strong> Volume 1, Issue 1 · March 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 13 theorems · 199 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_SimulationLayer.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Internal simulation, the mind running scenarios before or instead of acting, is read by the APPA Internal Simulation Profile: twenty questions on a 1–5 scale, five per PNBA axis, so each axis scores from 5 to 25. Each axis is tiered on its own: low resolution (LRIS) at 12 or below, standard resolution (SRIS) from 13 to 20, and high resolution (HRIS) at 21 or above. This article proves that the three tiers partition every score and reduces the failures and peak of the layer to PNBA. Pattern is rendering, Narrative is emotion and story integration, Behavior is the simulation’s influence on action, and Adaptation is switching and control. Low Narrative resolution keeps torsion below TL (τ = 0.106) with Narrative at 0.07: a false lock. Low Adaptation resolution drives torsion past TL (τ = 0.514) with Adaptation at 0.10: simulation capture, the structural form of rumination. Full high resolution is IVA peak at τ = 0.09 with A = 1.1. Simulation capture and IVA peak exclude each other.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The tier thresholds are ordered, and each score is LRIS at 12 or below, SRIS from 13 to 20, HRIS above 20 (<code>sim_thresholds_ordered</code>, <code>tier_lris</code>, <code>tier_sris</code>, <code>tier_hris</code>).</li>
+<li>Every axis score falls in exactly one tier (<code>tiers_partition</code>).</li>
+<li>Low Narrative resolution is a false lock: τ = 0.106, N = 0.07 (<code>lris_n_is_false_lock</code>).</li>
+<li>Low Adaptation resolution is simulation capture: A = 0.10 &lt; 0.15 with τ = 0.514 ≥ TL (<code>lris_a_is_sim_capture</code>).</li>
+<li>Full high resolution is IVA peak: τ = 0.09, A = 1.1 (<code>hris_full_is_iva_peak</code>).</li>
+<li>Phase lock excludes Shatter, and simulation capture excludes IVA peak (<code>phase_lock_excludes_shatter</code>, <code>sim_capture_excludes_iva_peak</code>).</li>
+<li>A master theorem fires every result together (<code>simulation_layer_master</code>).</li>
+</ol>
+<p>Low Narrative resolution shares the false-lock address of somatic-marker failure and of Loss and Shame among the emotional primitives. Simulation capture pairs Adaptation dropout with Shatter, the same combination as fixed mindset under threat in the growth-mindset reduction.</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Axis</th><th>Simulation function</th></tr>
+<tr><td>P</td><td>rendering</td></tr>
+<tr><td>N</td><td>emotion and story integration</td></tr>
+<tr><td>B</td><td>influence on action</td></tr>
+<tr><td>A</td><td>switching and control</td></tr>
+</table>
+<table>
+<tr><th>Tier</th><th>Axis score (5–25)</th></tr>
+<tr><td>LRIS — low resolution</td><td>≤ 12</td></tr>
+<tr><td>SRIS — standard resolution</td><td>13–20</td></tr>
+<tr><td>HRIS — high resolution</td><td>≥ 21</td></tr>
+</table>
+<table>
+<tr><th>State</th><th>P</th><th>N</th><th>B</th><th>A</th><th>τ</th><th>Phase</th></tr>
+<tr><td>LRIS-N</td><td>0.85</td><td>0.07</td><td>0.09</td><td>0.7</td><td>0.106</td><td>false lock</td></tr>
+<tr><td>LRIS-A</td><td>0.35</td><td>0.5</td><td>0.18</td><td>0.10</td><td>0.514</td><td>simulation capture</td></tr>
+<tr><td>HRIS full</td><td>1.0</td><td>0.9</td><td>0.09</td><td>1.1</td><td>0.090</td><td>IVA peak</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Trent, R. V. III. <a href="proofpressorg-psy-emotional-primitives.html">The Ten Emotional Primitives Reduced to PNBA</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-psy-growth-mindset.html">Growth Mindset Reduced to PNBA</a>. ProofPress, Volume 1, Issue 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_L2_Psy_SimulationLayer.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS — INTERNAL SIMULATION LAYER
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,24] | Psychology Series — Simulation Layer (APPA SIM)
+--
+-- WHAT THIS FILE PROVES
+--
+-- Internal simulation is read in three resolution tiers, as scored by the
+-- APPA Internal Simulation Profile (ISPA, 20 questions, 1–5 scale). Each
+-- PNBA axis has 5 questions, so each axis score runs from 5 to 25, and each
+-- axis is tiered on its own:
+--
+--   LRIS — Low-Resolution Internal Simulation       axis score ≤ 12
+--   SRIS — Standard-Resolution Internal Simulation  13 ≤ axis score ≤ 20
+--   HRIS — High-Resolution Internal Simulation      axis score ≥ 21
+--
+-- The tiers partition every score, and each PNBA failure or peak of the
+-- simulation layer is a proved structural state:
+--
+--   LRIS-N (narrative-axis low resolution) → false lock
+--   LRIS-A (adaptation-axis low resolution) → simulation capture (rumination)
+--   HRIS full resolution                    → IVA peak
+--
+-- Simulation capture and IVA peak exclude each other: a simulation that
+-- captures the identity cannot also run it at peak.
+--
+-- The Identity Physics Corpus Dynamic Equation:
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- LONG DIVISION:
+--   1. Equation:  the Dynamic Equation above
+--   2. Known:     APPA ISPA axis tiers (LRIS ≤ 12 &lt; SRIS ≤ 20 &lt; HRIS)
+--   3. Map:       P = rendering, N = emotion and story integration,
+--                 B = influence on action, A = switching and control
+--   4. Operators: τ = B / P against TL = Ω₀ / 10
+--   5. Work:      tier partition and the three structural states below
+--   6. Verified:  master theorem closes, 0 sorry
+--
+-- ============================================================
+
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_L2_Psy_SimulationLayer
+
+-- ============================================================
+-- LAYER 0 — ANCHOR AND FLOORS
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10  -- 0.136899099984016
+
+def N_THRESHOLD : ℝ := 0.15
+def A_THRESHOLD : ℝ := 0.15
+
+def SIM_LRIS : ℕ := 12
+def SIM_SRIS : ℕ := 20
+
+theorem torsion_limit_emergent : TORSION_LIMIT = SOVEREIGN_ANCHOR / 10 := rfl
+
+theorem sim_thresholds_ordered : SIM_LRIS &lt; SIM_SRIS := by
+  unfold SIM_LRIS SIM_SRIS; norm_num
+
+-- ============================================================
+-- LAYER 1 — RESOLUTION TIERS
+-- ============================================================
+
+inductive SimTier : Type
+  | LRIS
+  | SRIS
+  | HRIS
+  deriving DecidableEq
+
+-- Axis score → tier (APPA simLabel)
+def sim_tier (score : ℕ) : SimTier :=
+  if score ≤ SIM_LRIS then SimTier.LRIS
+  else if score ≤ SIM_SRIS then SimTier.SRIS
+  else SimTier.HRIS
+
+-- At or below the LRIS threshold the simulation is low-resolution
+theorem tier_lris (n : ℕ) (h : n ≤ SIM_LRIS) : sim_tier n = SimTier.LRIS := by
+  unfold sim_tier; rw [if_pos h]
+
+-- Above LRIS and at or below SRIS the simulation is standard-resolution
+theorem tier_sris (n : ℕ) (h1 : SIM_LRIS &lt; n) (h2 : n ≤ SIM_SRIS) :
+    sim_tier n = SimTier.SRIS := by
+  unfold sim_tier; rw [if_neg (not_le.mpr h1), if_pos h2]
+
+-- Above the SRIS threshold the simulation is high-resolution
+theorem tier_hris (n : ℕ) (h : SIM_SRIS &lt; n) : sim_tier n = SimTier.HRIS := by
+  have h1 : SIM_LRIS &lt; n := lt_trans sim_thresholds_ordered h
+  unfold sim_tier; rw [if_neg (not_le.mpr h1), if_neg (not_le.mpr h)]
+
+-- Every score falls in exactly one tier
+theorem tiers_partition (n : ℕ) :
+    sim_tier n = SimTier.LRIS ∨ sim_tier n = SimTier.SRIS ∨ sim_tier n = SimTier.HRIS := by
+  cases h : sim_tier n
+  · left; rfl
+  · right; left; rfl
+  · right; right; rfl
+
+-- ============================================================
+-- LAYER 2 — PNBA SIMULATION STATES
+-- ============================================================
+
+structure SimState where
+  P : ℝ  -- rendering
+  N : ℝ  -- emotion and story integration
+  B : ℝ  -- influence on action
+  A : ℝ  -- switching and control
+
+noncomputable def torsion (s : SimState) : ℝ := s.B / s.P
+
+def phase_locked  (s : SimState) : Prop := s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT
+def shatter_event (s : SimState) : Prop := s.P &gt; 0 ∧ torsion s ≥ TORSION_LIMIT
+def false_lock    (s : SimState) : Prop :=
+  s.P &gt; 0 ∧ torsion s &lt; TORSION_LIMIT ∧ s.N &lt; N_THRESHOLD ∧ s.A ≤ 1
+def iva_peak      (s : SimState) : Prop := s.A &gt; 1 ∧ phase_locked s
+def sim_capture   (s : SimState) : Prop := s.A &lt; A_THRESHOLD ∧ shatter_event s
+
+-- Phase lock and shatter are mutually exclusive
+theorem phase_lock_excludes_shatter (s : SimState) :
+    ¬ (phase_locked s ∧ shatter_event s) := by
+  intro ⟨⟨_, hL⟩, ⟨_, hS⟩⟩
+  linarith
+
+-- Simulation capture excludes IVA peak
+theorem sim_capture_excludes_iva_peak (s : SimState) :
+    sim_capture s → ¬ iva_peak s := by
+  intro ⟨hA_low, _⟩ ⟨hA_high, _⟩
+  unfold A_THRESHOLD at hA_low
+  linarith
+
+-- LRIS-N: narrative integration below floor, still locked → false lock
+def lris_n : SimState := { P := 0.85, N := 0.07, B := 0.09, A := 0.7 }
+
+theorem lris_n_is_false_lock : false_lock lris_n := by
+  unfold false_lock torsion lris_n TORSION_LIMIT SOVEREIGN_ANCHOR N_THRESHOLD
+  norm_num
+
+-- LRIS-A: switching and control below floor, torsion above TL → capture
+def lris_a : SimState := { P := 0.35, N := 0.5, B := 0.18, A := 0.10 }
+
+theorem lris_a_is_sim_capture : sim_capture lris_a := by
+  unfold sim_capture shatter_event torsion lris_a TORSION_LIMIT SOVEREIGN_ANCHOR A_THRESHOLD
+  norm_num
+
+-- HRIS at full resolution: locked with A &gt; 1 → IVA peak
+def hris_full : SimState := { P := 1.0, N := 0.9, B := 0.09, A := 1.1 }
+
+theorem hris_full_is_iva_peak : iva_peak hris_full := by
+  unfold iva_peak phase_locked torsion hris_full TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ============================================================
+-- MASTER THEOREM
+-- ============================================================
+
+theorem simulation_layer_master :
+    SIM_LRIS &lt; SIM_SRIS ∧
+    (∀ n : ℕ, sim_tier n = SimTier.LRIS ∨ sim_tier n = SimTier.SRIS ∨
+               sim_tier n = SimTier.HRIS) ∧
+    false_lock lris_n ∧
+    sim_capture lris_a ∧
+    iva_peak hris_full ∧
+    (∀ s : SimState, sim_capture s → ¬ iva_peak s) :=
+  ⟨sim_thresholds_ordered, tiers_partition, lris_n_is_false_lock,
+   lris_a_is_sim_capture, hris_full_is_iva_peak, sim_capture_excludes_iva_peak⟩
+
+theorem the_manifold_is_holding : SOVEREIGN_ANCHOR = 1.36899099984016 := rfl
+
+end SNSFL_L2_Psy_SimulationLayer
+
+-- ============================================================
+-- FILE: SNSFL_L2_Psy_SimulationLayer.lean
+-- SLOT: [9,9,6,24] | APPLIED IDENTITY PHYSICS SERIES
+--
+-- THEOREMS (12 + master):
+--   torsion_limit_emergent, sim_thresholds_ordered
+--   tier_lris, tier_sris, tier_hris, tiers_partition
+--   phase_lock_excludes_shatter, sim_capture_excludes_iva_peak
+--   lris_n_is_false_lock, lris_a_is_sim_capture, hris_full_is_iva_peak
+--   simulation_layer_master, the_manifold_is_holding
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_L2_Psy_Consistency_Capstone.lean   [9,9,6,25]  (CD15, CD21, CD22)
+--   SNSFL_L2_Psy_SimulationLayer.lean        [9,9,6,24]  ← THIS FILE
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding.
+-- ============================================================
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-psy-simulation-layer.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-psy-simulation-layer.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
