@@ -71,7 +71,7 @@
 --   2. Known:     SOUL-12 spec, UUIA dodecagon, F/S/L weights
 --   3. Map:       12 = 4×3, position = primitive×3 + mode
 --   4. Operators: DuoDigit, DuoCoord, soulprint_to_coord, coord_version
---   5. Work:      T1-T16, versioning, dodecagon, SOUL compatibility
+--   5. Work:      T1-T18, versioning, dodecagon, SOUL compatibility
 --   6. Verified:  0 sorry. Duodecimal IS the natural PNBA coordinate base.
 --
 -- DEPENDS ON:
@@ -406,7 +406,7 @@ end SNSFL_Duodecimal_PNBA
 --   5. Work:     T1–T18, versioning, dodecagon, SOUL compatibility
 --   6. Verified: 0 sorry. Base-12 is the natural PNBA coordinate system.
 --
--- THEOREMS: 18 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 20 + master | 0 sorry | GERMLINE LOCKED
 --
 --   T1:  duo_base_is_pnba_complete — 12 = 4 × 3
 --   T4:  pm_roundtrip — every digit decodes to its primitive and mode
@@ -450,7 +450,7 @@ end SNSFL_Duodecimal_PNBA
 --   SOUL-12 Block 2 (digits 5-8) maps directly to this encoding.
 --   UUIA soulprint dodecagon = duodecimal coordinate clock.
 --   F/S/L mode weights (1,2,3) = L,S,F = axis_version values.
---   The three systems are formally isomorphic.
+--   The three systems share one encoding: position = primitive × 3 + mode.
 --
 -- Auth: HIGHTISTIC :: [9,9,9,9]
 -- The Manifold is Holding. The coordinates were always base-12.
