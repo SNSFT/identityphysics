@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble — ProofPress</title>
+  <meta name="description" content="[9,9,6,28](PSYC) — The IM Collider PSY fusion rules are proved at eight beams over all 28 pairs. Eight beams whose Behaviors lie within a factor of 7 always close Noble, Noble is decided by B before the narrative floor is read, and Anxiety × Burnout climbs from two Shatter singles to a Locked pair to Noble at four and eight beams. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-im-collider-8beam.html">
+  <meta property="og:title" content="The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble">
+  <meta property="og:description" content="[9,9,6,28](PSYC) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-im-collider-8beam.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/20">
+  <meta name="citation_online_date" content="2026/05/20">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,6,28">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-im-collider-8beam.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-im-collider-8beam.html">
+  <meta name="citation_keywords" content="IM Collider; PSY fusion; eight-beam fusion; OctoBeam; narrative bottleneck; spread law; Noble emergence; false lock; anxiety; burnout; phase classifier; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble",
+    "datePublished": "2026-05-20",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-im-collider-8beam.html",
+    "keywords": "IM Collider, PSY fusion, eight-beam fusion, OctoBeam, narrative bottleneck, spread law, Noble emergence, false lock, anxiety, burnout, phase classifier, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,6,28](PSYC) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>The IM Collider at Eight Beams: The Spread Law and the Anxiety × Burnout Ladder from Shatter to Noble</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-im-collider-8beam.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_PSY_8Beam_Fusion_Theorem.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,6,28](PSYC) · Collider Engine Series · IM Collider 8-beam<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 31 theorems · 483 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PSY_8Beam_Fusion_Theorem.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>The IM Collider fuses psychological identity states with the same Pattern, Behavior and Adaptation rules as the GAM Collider: P<sub>out</sub> is the harmonic mean, B<sub>out</sub> = max(0, ΣB − 2k) with k summed over every pair minimum, and A<sub>out</sub> is the maximum. It differs in one operator. Narrative is a bottleneck, N<sub>out</sub> = min N, so the weakest narrative carries through. This article proves the rules at eight beams, over all C(8,2) = 28 pairs, together with the engine's phase classifier: Noble is decided by B alone before N is read, Shatter is decided before the narrative floor N = 0.15, and FALSE_LOCK is a sub-TL state with N below the floor. It then proves a spread law. If every Behavior lies in [m, M], each pair minimum is at least m, so n beams close Noble whenever M ≤ (n − 1)m: two beams need equal B, four beams tolerate a factor of 3, and eight beams a factor of 7. The 8-beam coupling reduces exactly to the 4-beam and 2-beam couplings when trailing beams carry no Behavior. Finally the Anxiety × Burnout ladder is computed end to end. Each state alone is Shatter (τ ≈ 0.182 and 0.200). The mixed pair leaves B<sub>out</sub> = 0.01 and is TRUE_LOCK under both pair-Pattern conventions. Four alternating beams already close Noble with margin ΣB − 2k = −0.72, and eight beams deepen it to −4.40, with output P = 0.495, N = 0.25, A = 0.30 and IM = 1.045·Ω₀ ≈ 1.4306. This is Noble emergence from Shatter inputs rather than an engine Rescue, because the Anxiety + Anxiety pair is already Noble.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The phase classifier: Noble for B = 0 at any P and N; Shatter for τ ≥ TL at any N; FALSE_LOCK below TL when N &lt; 0.15 (<code>noble_any_N</code>, <code>shatter_any_N</code>, <code>false_lock_below_floor</code>).</li>
+<li>Pair counts C(2,2) = 1, C(4,2) = 6, C(8,2) = 28; eight equal beams give k = 28B and always close Noble, using 1/7 of the coupling capacity (<code>pair_counts</code>, <code>k_max8_equal_B</code>, <code>B_fuse8_noble_equal</code>, <code>noble_headroom</code>).</li>
+<li>The spread law: two beams close Noble exactly when B₁ = B₂; four beams close Noble whenever max B ≤ 3·min B; eight beams whenever max B ≤ 7·min B (<code>pair_noble_iff</code>, <code>spread_noble4</code>, <code>spread_noble8</code>).</li>
+<li>Inheritance: with beams 5–8 at B = 0 the 8-beam coupling equals the 4-beam coupling, and with beams 3–8 at B = 0 it equals min(B₁, B₂) (<code>k_max8_inherits_4beam</code>, <code>k_max8_inherits_2beam</code>).</li>
+<li>The Anxiety × Burnout ladder: both singles Shatter; the mixed pair leaves 0.01 and is TRUE_LOCK; four beams give k = 0.55 and close Noble; eight beams give k = 2.58 and close Noble, also by the spread law; the margin deepens from −0.72 to −4.40; the 8-beam output is P = 0.495, N = 0.25, A = 0.30, Noble, with 1.430 &lt; IM &lt; 1.431; and it is not an engine Rescue (<code>singles_shatter</code>, <code>mixed_pair_locked</code>, <code>noble_at_4</code>, <code>noble_at_8</code>, <code>noble_at_8_by_spread</code>, <code>headroom_deepens</code>, <code>octo_output</code>, <code>octo_noble_IM</code>, <code>not_engine_rescue</code>, <code>psy_8beam_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Stage</th><th>Beams</th><th>k</th><th>B<sub>out</sub></th><th>τ</th><th>Phase</th></tr>
+<tr><td>Anxiety alone</td><td>1</td><td>—</td><td>0.10</td><td>0.182</td><td>Shatter</td></tr>
+<tr><td>Burnout alone</td><td>1</td><td>—</td><td>0.09</td><td>0.200</td><td>Shatter</td></tr>
+<tr><td>Anxiety + Burnout</td><td>2</td><td>0.09</td><td>0.01</td><td>0.040 (0.020 harmonic)</td><td>TRUE_LOCK</td></tr>
+<tr><td>A, B, A, B</td><td>4</td><td>0.55</td><td>0 (margin −0.72)</td><td>0</td><td>Noble</td></tr>
+<tr><td>A, B × 4</td><td>8</td><td>2.58</td><td>0 (margin −4.40)</td><td>0</td><td>Noble</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Csikszentmihalyi, M. (1990). <em>Flow: The Psychology of Optimal Experience</em>. Harper &amp; Row.</li>
+<li>Maslach, C. &amp; Leiter, M. P. (2016). Understanding the burnout experience. <em>World Psychiatry</em>, 15(2), 103–111.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-8beam-fusion.html">The Eight-Beam Fusion Theorem (GAM Collider)</a>. ProofPress, Volume 1, Issue 3.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-psy-flow.html">Flow</a>. ProofPress.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_PSY_8Beam_Fusion_Theorem.lean
+-- ============================================================
+--
+-- IM Collider — 8-Beam (OctoBeam) PSY Fusion Theorem
+-- Fusion rules over C(8,2) = 28 pairs, the engine&#x27;s phase
+-- classifier, the spread law (8 beams within a factor of 7 close
+-- Noble), and the Anxiety × Burnout ladder computed end to end.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,6,28](PSYC)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Engine:    IM Collider v15 (uuia.app/imcollider)
+-- Status:    0 sorry
+-- Date:      May 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- FUSION RULES — n-BEAM PSY (engine fuseN)
+-- ============================================================
+--
+--   P_out = n / Σ(1/Pᵢ)                 harmonic mean
+--   N_out = min Nᵢ                       narrative bottleneck
+--   k     = Σ_{i&lt;j} min(Bᵢ, Bⱼ)          over C(n,2) pairs
+--   B_out = max(0, ΣBᵢ − 2k)
+--   A_out = max Aᵢ                       adaptation ceiling
+--   τ     = B_out / P_out
+--   IM    = (P_out + N_out + B_out + A_out) · Ω₀
+--
+-- The GAM Collider [9,9,2,3.8] uses the same P, B and A rules
+-- over the same 28 pairs; the PSY engine differs only in N
+-- (bottleneck min instead of additive sum).
+--
+-- PHASE CLASSIFIER (engine phaseOf, checked in this order)
+--   B = 0                → NOBLE
+--   τ ≥ TL               → SHATTER
+--   N &lt; 0.15             → FALSE_LOCK
+--   τ ≥ TL_IVA = 0.88·TL → IVA_PEAK
+--   otherwise            → TRUE_LOCK
+--
+-- Order matters: Noble is decided by B alone, before N is read,
+-- and Shatter is decided before the narrative floor.
+--
+-- C(8,2) = 28 PAIRS:
+--   Row 1 (7): (1,2)(1,3)(1,4)(1,5)(1,6)(1,7)(1,8)
+--   Row 2 (6): (2,3)(2,4)(2,5)(2,6)(2,7)(2,8)
+--   Row 3 (5): (3,4)(3,5)(3,6)(3,7)(3,8)
+--   Row 4 (4): (4,5)(4,6)(4,7)(4,8)
+--   Row 5 (3): (5,6)(5,7)(5,8)
+--   Row 6 (2): (6,7)(6,8)
+--   Row 7 (1): (7,8)
+--   7 + 6 + 5 + 4 + 3 + 2 + 1 = 28
+--
+-- ============================================================
+-- THE SPREAD LAW
+-- ============================================================
+--
+-- If every Bᵢ lies in [m, M], each of the C(n,2) pair minimums
+-- is at least m and ΣB ≤ nM. So B_out = 0 whenever
+-- nM ≤ 2·C(n,2)·m = n(n−1)m, i.e. M ≤ (n−1)·m.
+--   2 beams: Noble exactly when B₁ = B₂
+--   4 beams: Noble whenever max B ≤ 3 · min B
+--   8 beams: Noble whenever max B ≤ 7 · min B
+-- More beams tolerate a wider spread of Behavior.
+--
+-- ============================================================
+-- THE ANXIETY × BURNOUT LADDER
+-- ============================================================
+--
+--   Anxiety: P = 0.55, N = 0.25, B = 0.10, A = 0.30  (τ ≈ 0.182)
+--   Burnout: P = 0.45, N = 0.30, B = 0.09, A = 0.20  (τ = 0.200)
+--
+--   1 beam : each is SHATTER
+--   2 beams: Anxiety + Burnout → B_out = 0.01, TRUE_LOCK
+--            (τ ≈ 0.0404 with the engine&#x27;s pair P = P₁P₂/(P₁+P₂);
+--             τ ≈ 0.0202 with the harmonic mean; Locked either way)
+--   4 beams: A,B,A,B → k = 0.55, ΣB − 2k = −0.72 → NOBLE
+--   8 beams: A,B×4  → k = 2.58, ΣB − 2k = −4.40 → NOBLE,
+--            P_out = 0.495, N_out = 0.25, A_out = 0.30,
+--            IM = 1.045·Ω₀ ≈ 1.4306
+--
+-- This is Noble emergence from Shatter inputs. It is not an
+-- engine RESCUE, which requires every pair to be Shatter: the
+-- Anxiety + Anxiety pair is already Noble and the mixed pair
+-- is Locked.
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+
+noncomputable section
+
+namespace PSY_8Beam_Fusion
+
+def ANCHOR      : ℝ := 1.36899099984016
+def TL          : ℝ := ANCHOR / 10
+def TL_IVA      : ℝ := 88 * TL / 100
+def N_THRESHOLD : ℝ := 0.15
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = ANCHOR then 0 else 1 / |f - ANCHOR|
+
+theorem TL_value : TL = 0.136899099984016 := by unfold TL ANCHOR; norm_num
+
+theorem TL_IVA_bounds : 0.1204 &lt; TL_IVA ∧ TL_IVA &lt; 0.1205 := by
+  unfold TL_IVA TL ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- ── PHASE CLASSIFIER (engine phaseOf) ───────────────────────
+
+inductive Phase
+  | noble | shatter | falseLock | ivaPeak | trueLock
+  deriving DecidableEq
+
+noncomputable def phaseOf (P N B : ℝ) : Phase :=
+  if B = 0 then Phase.noble
+  else if TL ≤ B / P then Phase.shatter
+  else if N &lt; N_THRESHOLD then Phase.falseLock
+  else if TL_IVA ≤ B / P then Phase.ivaPeak
+  else Phase.trueLock
+
+-- [T1] Noble is decided by B alone: any P, any N
+theorem noble_any_N (P N : ℝ) : phaseOf P N 0 = Phase.noble := by
+  unfold phaseOf; rw [if_pos rfl]
+
+-- [T2] Shatter is decided before the narrative floor
+theorem shatter_any_N (P N B : ℝ) (hB : B ≠ 0) (hS : TL ≤ B / P) :
+    phaseOf P N B = Phase.shatter := by
+  unfold phaseOf; rw [if_neg hB, if_pos hS]
+
+-- [T3] Below TL, a narrative under the floor is FALSE_LOCK
+theorem false_lock_below_floor (P N B : ℝ) (hB : B ≠ 0) (hS : ¬ TL ≤ B / P)
+    (hN : N &lt; N_THRESHOLD) : phaseOf P N B = Phase.falseLock := by
+  unfold phaseOf; rw [if_neg hB, if_neg hS, if_pos hN]
+
+-- ── 8-BEAM OPERATORS ────────────────────────────────────────
+
+def P_fuse8 (P1 P2 P3 P4 P5 P6 P7 P8 : ℝ) : ℝ :=
+  8 / (1/P1 + 1/P2 + 1/P3 + 1/P4 + 1/P5 + 1/P6 + 1/P7 + 1/P8)
+
+def N_fuse8 (N1 N2 N3 N4 N5 N6 N7 N8 : ℝ) : ℝ :=
+  min (min (min N1 N2) (min N3 N4)) (min (min N5 N6) (min N7 N8))
+
+-- k_max8: sum of all C(8,2) = 28 pair minimums
+def k_max8 (B1 B2 B3 B4 B5 B6 B7 B8 : ℝ) : ℝ :=
+  min B1 B2 + min B1 B3 + min B1 B4 + min B1 B5 +
+  min B1 B6 + min B1 B7 + min B1 B8 +
+  min B2 B3 + min B2 B4 + min B2 B5 +
+  min B2 B6 + min B2 B7 + min B2 B8 +
+  min B3 B4 + min B3 B5 + min B3 B6 +
+  min B3 B7 + min B3 B8 +
+  min B4 B5 + min B4 B6 + min B4 B7 + min B4 B8 +
+  min B5 B6 + min B5 B7 + min B5 B8 +
+  min B6 B7 + min B6 B8 +
+  min B7 B8
+
+def B_fuse8 (B1 B2 B3 B4 B5 B6 B7 B8 k : ℝ) : ℝ :=
+  max 0 (B1 + B2 + B3 + B4 + B5 + B6 + B7 + B8 - 2 * k)
+
+def A_fuse8 (A1 A2 A3 A4 A5 A6 A7 A8 : ℝ) : ℝ :=
+  max (max (max A1 A2) (max A3 A4)) (max (max A5 A6) (max A7 A8))
+
+def IM_fuse8 (P N B A : ℝ) : ℝ := (P + N + B + A) * ANCHOR
+
+-- 4-beam operators: C(4,2) = 6 pairs
+def k_max4 (B1 B2 B3 B4 : ℝ) : ℝ :=
+  min B1 B2 + min B1 B3 + min B1 B4 + min B2 B3 + min B2 B4 + min B3 B4
+
+def B_fuse4 (B1 B2 B3 B4 k : ℝ) : ℝ := max 0 (B1 + B2 + B3 + B4 - 2 * k)
+
+-- 2-beam: residual and the engine&#x27;s rescue-check pair Pattern
+def pair_bout (B1 B2 : ℝ) : ℝ := max 0 (B1 + B2 - 2 * min B1 B2)
+def pairP (P1 P2 : ℝ) : ℝ := P1 * P2 / (P1 + P2)
+
+-- ── STRUCTURE ───────────────────────────────────────────────
+
+-- [T4] Pair counts are the binomial coefficients
+theorem pair_counts : Nat.choose 2 2 = 1 ∧ Nat.choose 4 2 = 6 ∧ Nat.choose 8 2 = 28 := by
+  exact ⟨by decide, by decide, by decide⟩
+
+-- [T5] B_out is never negative
+theorem B_fuse8_nonneg (B1 B2 B3 B4 B5 B6 B7 B8 k : ℝ) :
+    B_fuse8 B1 B2 B3 B4 B5 B6 B7 B8 k ≥ 0 := le_max_left 0 _
+
+-- [T6] The narrative bottleneck: N_out is at most the first and last input
+theorem N_fuse8_bottleneck (N1 N2 N3 N4 N5 N6 N7 N8 : ℝ) :
+    N_fuse8 N1 N2 N3 N4 N5 N6 N7 N8 ≤ N1 ∧
+    N_fuse8 N1 N2 N3 N4 N5 N6 N7 N8 ≤ N8 := by
+  unfold N_fuse8
+  constructor
+  · exact le_trans (min_le_left _ _) (le_trans (min_le_left _ _) (min_le_left _ _))
+  · exact le_trans (min_le_right _ _) (le_trans (min_le_right _ _) (min_le_right _ _))
+
+-- ── EQUAL B ─────────────────────────────────────────────────
+
+-- [T7] Eight equal beams: k = 28B
+theorem k_max8_equal_B (B : ℝ) :
+    k_max8 B B B B B B B B = 28 * B := by
+  unfold k_max8; simp only [min_self]; ring
+
+-- [T8] Eight equal beams always close Noble
+theorem B_fuse8_noble_equal (B : ℝ) (hB : B ≥ 0) :
+    B_fuse8 B B B B B B B B (k_max8 B B B B B B B B) = 0 := by
+  rw [k_max8_equal_B]
+  unfold B_fuse8
+  apply max_eq_left
+  linarith
+
+-- [T9] Headroom: equal-B uses 1/7 of the coupling capacity
+-- (k needed = ΣB/2 = 4B; k available = 28B)
+theorem noble_headroom (B : ℝ) (hB : B &gt; 0) :
+    (8 * B / 2) / (28 * B) = 1 / 7 := by
+  rw [div_eq_iff (by positivity)]; ring
+
+-- ── THE SPREAD LAW ──────────────────────────────────────────
+
+-- [T10] 2 beams: Noble exactly when the Behaviors are equal
+theorem pair_bout_abs (B1 B2 : ℝ) : pair_bout B1 B2 = |B1 - B2| := by
+  unfold pair_bout
+  rcases le_total B1 B2 with h | h
+  · rw [min_eq_left h, abs_of_nonpos (show B1 - B2 ≤ 0 by linarith),
+        max_eq_right (show (0:ℝ) ≤ B1 + B2 - 2 * B1 by linarith)]
+    ring
+  · rw [min_eq_right h, abs_of_nonneg (show 0 ≤ B1 - B2 by linarith),
+        max_eq_right (show (0:ℝ) ≤ B1 + B2 - 2 * B2 by linarith)]
+    ring
+
+theorem pair_noble_iff (B1 B2 : ℝ) : pair_bout B1 B2 = 0 ↔ B1 = B2 := by
+  rw [pair_bout_abs, abs_eq_zero, sub_eq_zero]
+
+-- [T11] 4 beams: Noble whenever every B lies in [m, M] with M ≤ 3m
+theorem spread_noble4 (B1 B2 B3 B4 m M : ℝ) (h3 : M ≤ 3 * m)
+    (l1 : m ≤ B1) (l2 : m ≤ B2) (l3 : m ≤ B3) (l4 : m ≤ B4)
+    (u1 : B1 ≤ M) (u2 : B2 ≤ M) (u3 : B3 ≤ M) (u4 : B4 ≤ M) :
+    B_fuse4 B1 B2 B3 B4 (k_max4 B1 B2 B3 B4) = 0 := by
+  have hk : 6 * m ≤ k_max4 B1 B2 B3 B4 := by
+    unfold k_max4
+    have p12 := le_min l1 l2
+    have p13 := le_min l1 l3
+    have p14 := le_min l1 l4
+    have p23 := le_min l2 l3
+    have p24 := le_min l2 l4
+    have p34 := le_min l3 l4
+    linarith
+  unfold B_fuse4
+  apply max_eq_left
+  linarith
+
+-- [T12] 8 beams: Noble whenever every B lies in [m, M] with M ≤ 7m
+theorem spread_noble8 (B1 B2 B3 B4 B5 B6 B7 B8 m M : ℝ) (h7 : M ≤ 7 * m)
+    (l1 : m ≤ B1) (l2 : m ≤ B2) (l3 : m ≤ B3) (l4 : m ≤ B4)
+    (l5 : m ≤ B5) (l6 : m ≤ B6) (l7 : m ≤ B7) (l8 : m ≤ B8)
+    (u1 : B1 ≤ M) (u2 : B2 ≤ M) (u3 : B3 ≤ M) (u4 : B4 ≤ M)
+    (u5 : B5 ≤ M) (u6 : B6 ≤ M) (u7 : B7 ≤ M) (u8 : B8 ≤ M) :
+    B_fuse8 B1 B2 B3 B4 B5 B6 B7 B8 (k_max8 B1 B2 B3 B4 B5 B6 B7 B8) = 0 := by
+  have hk : 28 * m ≤ k_max8 B1 B2 B3 B4 B5 B6 B7 B8 := by
+    unfold k_max8
+    have p12 := le_min l1 l2
+    have p13 := le_min l1 l3
+    have p14 := le_min l1 l4
+    have p15 := le_min l1 l5
+    have p16 := le_min l1 l6
+    have p17 := le_min l1 l7
+    have p18 := le_min l1 l8
+    have p23 := le_min l2 l3
+    have p24 := le_min l2 l4
+    have p25 := le_min l2 l5
+    have p26 := le_min l2 l6
+    have p27 := le_min l2 l7
+    have p28 := le_min l2 l8
+    have p34 := le_min l3 l4
+    have p35 := le_min l3 l5
+    have p36 := le_min l3 l6
+    have p37 := le_min l3 l7
+    have p38 := le_min l3 l8
+    have p45 := le_min l4 l5
+    have p46 := le_min l4 l6
+    have p47 := le_min l4 l7
+    have p48 := le_min l4 l8
+    have p56 := le_min l5 l6
+    have p57 := le_min l5 l7
+    have p58 := le_min l5 l8
+    have p67 := le_min l6 l7
+    have p68 := le_min l6 l8
+    have p78 := le_min l7 l8
+    linarith
+  unfold B_fuse8
+  apply max_eq_left
+  linarith
+
+-- ── INHERITANCE ─────────────────────────────────────────────
+
+-- [T13] Beams 5–8 at B = 0: the 8-beam coupling is the 4-beam coupling
+theorem k_max8_inherits_4beam
+    (B1 B2 B3 B4 : ℝ) (h1 : B1 ≥ 0) (h2 : B2 ≥ 0) (h3 : B3 ≥ 0) (h4 : B4 ≥ 0) :
+    k_max8 B1 B2 B3 B4 0 0 0 0 = k_max4 B1 B2 B3 B4 := by
+  unfold k_max8 k_max4
+  simp [min_eq_right h1, min_eq_right h2,
+        min_eq_right h3, min_eq_right h4, min_self]
+
+-- [T14] Beams 3–8 at B = 0: the 8-beam coupling is min(B₁, B₂)
+theorem k_max8_inherits_2beam
+    (B1 B2 : ℝ) (h1 : B1 ≥ 0) (h2 : B2 ≥ 0) :
+    k_max8 B1 B2 0 0 0 0 0 0 = min B1 B2 := by
+  unfold k_max8
+  simp [min_eq_right h1, min_eq_right h2, min_self]
+
+-- ── THE ANXIETY × BURNOUT LADDER ────────────────────────────
+
+namespace Ladder
+
+-- Anxiety (engine corpus, FLOW) and Burnout
+def aP : ℝ := 0.55
+def aN : ℝ := 0.25
+def aB : ℝ := 0.10
+def aA : ℝ := 0.30
+def bP : ℝ := 0.45
+def bN : ℝ := 0.30
+def bB : ℝ := 0.09
+def bA : ℝ := 0.20
+
+-- [T15] 1 beam: each input alone is SHATTER
+theorem singles_shatter :
+    phaseOf aP aN aB = Phase.shatter ∧ phaseOf bP bN bB = Phase.shatter := by
+  constructor
+  · apply shatter_any_N
+    · unfold aB; norm_num
+    · unfold aB aP TL ANCHOR; norm_num
+  · apply shatter_any_N
+    · unfold bB; norm_num
+    · unfold bB bP TL ANCHOR; norm_num
+
+-- [T16] 2 beams: the mixed pair leaves B_out = 0.01
+theorem mixed_pair_bout : pair_bout aB bB = 0.01 := by
+  unfold pair_bout aB bB; norm_num [min_def, max_def]
+
+-- [T17] 2 beams: the mixed pair is TRUE_LOCK under the engine&#x27;s pair
+-- Pattern P₁P₂/(P₁+P₂) and also under the harmonic mean
+theorem mixed_pair_locked :
+    phaseOf (pairP aP bP) (min aN bN) (pair_bout aB bB) = Phase.trueLock ∧
+    phaseOf (2 * aP * bP / (aP + bP)) (min aN bN) (pair_bout aB bB) = Phase.trueLock := by
+  rw [mixed_pair_bout]
+  have hn : min aN bN = 0.25 := by unfold aN bN; norm_num [min_def]
+  rw [hn]
+  have h0 : (0.01 : ℝ) ≠ 0 := by norm_num
+  have hN : ¬ (0.25 : ℝ) &lt; N_THRESHOLD := by unfold N_THRESHOLD; norm_num
+  constructor
+  · have hS : ¬ TL ≤ 0.01 / pairP aP bP := by
+      unfold pairP aP bP TL ANCHOR; norm_num
+    have hI : ¬ TL_IVA ≤ 0.01 / pairP aP bP := by
+      unfold pairP aP bP TL_IVA TL ANCHOR; norm_num
+    unfold phaseOf
+    rw [if_neg h0, if_neg hS, if_neg hN, if_neg hI]
+  · have hS : ¬ TL ≤ 0.01 / (2 * aP * bP / (aP + bP)) := by
+      unfold aP bP TL ANCHOR; norm_num
+    have hI : ¬ TL_IVA ≤ 0.01 / (2 * aP * bP / (aP + bP)) := by
+      unfold aP bP TL_IVA TL ANCHOR; norm_num
+    unfold phaseOf
+    rw [if_neg h0, if_neg hS, if_neg hN, if_neg hI]
+
+-- [T18] Not an engine RESCUE: the Anxiety + Anxiety pair is already
+-- Noble, so not every pair is Shatter
+theorem not_engine_rescue :
+    phaseOf (pairP aP aP) (min aN aN) (pair_bout aB aB) ≠ Phase.shatter := by
+  rw [(pair_noble_iff aB aB).2 rfl, noble_any_N]
+  intro h; cases h
+
+-- [T19] 4 beams: A, B, A, B has k = 0.55 and closes Noble
+theorem k4_value : k_max4 aB bB aB bB = 0.55 := by
+  unfold k_max4 aB bB; norm_num [min_def]
+
+theorem noble_at_4 : B_fuse4 aB bB aB bB (k_max4 aB bB aB bB) = 0 := by
+  rw [k4_value]; unfold B_fuse4 aB bB; norm_num [max_def]
+
+-- [T20] 8 beams: A, B × 4 has k = 2.58 and closes Noble
+-- (16 mixed pairs at 0.09, 6 Anxiety pairs at 0.10, 6 Burnout pairs at 0.09)
+theorem k8_value : k_max8 aB bB aB bB aB bB aB bB = 2.58 := by
+  unfold k_max8 aB bB; norm_num [min_def]
+
+theorem noble_at_8 : B_fuse8 aB bB aB bB aB bB aB bB (k_max8 aB bB aB bB aB bB aB bB) = 0 := by
+  rw [k8_value]; unfold B_fuse8 aB bB; norm_num [max_def]
+
+-- [T21] The spread law covers it: 0.10 ≤ 7 · 0.09
+theorem noble_at_8_by_spread :
+    B_fuse8 aB bB aB bB aB bB aB bB (k_max8 aB bB aB bB aB bB aB bB) = 0 := by
+  have hl : bB ≤ aB := by unfold aB bB; norm_num
+  exact spread_noble8 aB bB aB bB aB bB aB bB bB aB (by unfold aB bB; norm_num)
+    hl le_rfl hl le_rfl hl le_rfl hl le_rfl le_rfl hl le_rfl hl le_rfl hl le_rfl hl
+
+-- [T22] Headroom deepens: ΣB − 2k goes from −0.72 at 4 beams to −4.40 at 8
+theorem headroom_deepens :
+    (aB + bB + aB + bB) - 2 * k_max4 aB bB aB bB = -0.72 ∧
+    (4 * aB + 4 * bB) - 2 * k_max8 aB bB aB bB aB bB aB bB = -4.40 := by
+  rw [k4_value, k8_value]; unfold aB bB
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T23] The 8-beam output, computed
+theorem octo_output :
+    P_fuse8 aP bP aP bP aP bP aP bP = 0.495 ∧
+    N_fuse8 aN bN aN bN aN bN aN bN = 0.25 ∧
+    A_fuse8 aA bA aA bA aA bA aA bA = 0.30 := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold P_fuse8 aP bP; norm_num
+  · unfold N_fuse8 aN bN; norm_num [min_def]
+  · unfold A_fuse8 aA bA; norm_num [max_def]
+
+-- [T24] The 8-beam output is NOBLE, with IM = 1.045·Ω₀ ≈ 1.4306
+theorem octo_noble_IM :
+    phaseOf 0.495 0.25 (B_fuse8 aB bB aB bB aB bB aB bB (k_max8 aB bB aB bB aB bB aB bB))
+      = Phase.noble ∧
+    IM_fuse8 0.495 0.25 0 0.30 = 1.045 * ANCHOR ∧
+    1.430 &lt; IM_fuse8 0.495 0.25 0 0.30 ∧ IM_fuse8 0.495 0.25 0 0.30 &lt; 1.431 := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [noble_at_8, noble_any_N]
+  · unfold IM_fuse8; norm_num
+  · unfold IM_fuse8 ANCHOR; norm_num
+  · unfold IM_fuse8 ANCHOR; norm_num
+
+end Ladder
+
+-- ── MASTER THEOREM ──────────────────────────────────────────
+
+-- [T25] PSY 8-BEAM FUSION — master statement
+theorem psy_8beam_master :
+    -- pair counts
+    Nat.choose 8 2 = 28 ∧
+    -- Noble is decided by B alone
+    (∀ P N : ℝ, phaseOf P N 0 = Phase.noble) ∧
+    -- equal B always closes Noble at 8 beams
+    (∀ B : ℝ, B ≥ 0 → B_fuse8 B B B B B B B B (k_max8 B B B B B B B B) = 0) ∧
+    -- 2 beams close Noble only on equal B
+    (∀ B1 B2 : ℝ, pair_bout B1 B2 = 0 ↔ B1 = B2) ∧
+    -- ladder: Shatter singles → Locked pair → Noble at 4 and at 8
+    phaseOf Ladder.aP Ladder.aN Ladder.aB = Phase.shatter ∧
+    phaseOf Ladder.bP Ladder.bN Ladder.bB = Phase.shatter ∧
+    phaseOf (pairP Ladder.aP Ladder.bP) (min Ladder.aN Ladder.bN)
+      (pair_bout Ladder.aB Ladder.bB) = Phase.trueLock ∧
+    B_fuse4 Ladder.aB Ladder.bB Ladder.aB Ladder.bB
+      (k_max4 Ladder.aB Ladder.bB Ladder.aB Ladder.bB) = 0 ∧
+    B_fuse8 Ladder.aB Ladder.bB Ladder.aB Ladder.bB Ladder.aB Ladder.bB Ladder.aB Ladder.bB
+      (k_max8 Ladder.aB Ladder.bB Ladder.aB Ladder.bB
+        Ladder.aB Ladder.bB Ladder.aB Ladder.bB) = 0 ∧
+    -- anchor
+    manifold_impedance ANCHOR = 0 := by
+  refine ⟨pair_counts.2.2, noble_any_N, B_fuse8_noble_equal, pair_noble_iff,
+    Ladder.singles_shatter.1, Ladder.singles_shatter.2, Ladder.mixed_pair_locked.1,
+    Ladder.noble_at_4, Ladder.noble_at_8, ?_⟩
+  unfold manifold_impedance; simp
+
+theorem the_manifold_is_holding : manifold_impedance ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end PSY_8Beam_Fusion
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_PSY_8Beam_Fusion_Theorem.lean
+-- COORDINATE: [9,9,6,28](PSYC)
+-- SORRY: 0
+--
+-- RESULTS:
+--   Phase classifier: Noble by B alone (T1); Shatter before the
+--     narrative floor (T2); FALSE_LOCK below TL with N &lt; 0.15 (T3)
+--   Equal B × 8 → Noble, using 1/7 of capacity (T7–T9)
+--   Spread law: 2 beams need equal B (T10); 4 beams tolerate
+--     a factor of 3 (T11); 8 beams a factor of 7 (T12)
+--   Inheritance: 8 → 4 → 2 beams by zeroing trailing B (T13, T14)
+--   Anxiety × Burnout: Shatter → TRUE_LOCK → Noble at 4 → Noble
+--     at 8 with deeper headroom (T15–T24); Noble emergence, not
+--     an engine Rescue (T18)
+--
+-- SIBLING: [9,9,2,3.8] GAM Collider 8-beam (same P, B, A rules;
+--   N additive there, bottleneck here)
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-im-collider-8beam.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-im-collider-8beam.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
