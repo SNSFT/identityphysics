@@ -4,14 +4,14 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS LOCUS OF CONTROL REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,6] | Psychology Series | Slot 6
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,6](PSYC) | Psychology series
 --
 -- Locus of Control is not fundamental. It never was.
 -- Internal and external locus are not personality types.
 -- They are two torsion regimes under the same dynamic equation.
 -- Perceived control IS the P-axis. F_ext dominance IS external locus.
--- The I-E scale IS the torsion ratio made visible in psychology.
+-- The I-E scale tracks the torsion balance B/P: control carrying the load.
 --
 -- NEW THEOREM INTRODUCED:
 --   helplessness — extreme external locus where P collapses AND A fails.
@@ -27,7 +27,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Locus of Control is a special case of this equation.
@@ -57,7 +57,7 @@ namespace SNSFL_L2_Psy_LocusControl
 --   Internal: belief that outcomes are controlled by own actions
 --   External: belief that outcomes are controlled by chance, fate, others
 --   I-E Scale: 0-23 forced-choice items. Lower score = more internal.
---   Validated across 50+ years, 10,000+ studies.
+--   One of the most widely used scales in personality psychology.
 --
 -- Seligman (1975) Learned Helplessness extension:
 --   Extreme external locus after repeated uncontrollable aversive events.
@@ -153,10 +153,11 @@ namespace SNSFL_L2_Psy_LocusControl
 -- | IVA dominance                 | A·P·B ≥ F_ext | Internal exceeds external force   |
 --
 -- THE KEY MAPPING:
---   Rotter's I-E scale IS the torsion ratio B/P.
+--   Rotter's I-E scale tracks the torsion balance B/P.
 --   Internal locus = P high, B controlled → τ low → phase locked.
 --   External locus = P eroded, B reactive → τ high → shatter.
---   The scale measures the same thing as τ. Not analogy. Same ratio.
+--   The scale tracks the same balance τ measures: perceived control (P)
+--   carrying the action load (B).
 --
 -- ============================================================
 -- STEP 4: PLUG IN THE OPERATORS
@@ -282,7 +283,7 @@ theorem long_division_guarantees_lossless (result : LongDivisionResult) :
 
 -- ============================================================
 -- LAYER 1 — TORSION LAW
--- I-E scale score = B/P = τ. Not analogy. Same ratio.
+-- The I-E scale tracks the balance τ = B/P.
 -- Internal locus = P high, B controlled → τ low.
 -- External locus = P eroded, B reactive → τ high.
 -- ============================================================
@@ -661,7 +662,7 @@ end SNSFL_L2_Psy_LocusControl
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_LocusControl.lean
--- COORDINATE: [9,9,6,6]
+-- COORDINATE: [9,9,6,6](PSYC)
 -- LAYER: Psychology Series | Slot 6
 --
 -- LONG DIVISION:
@@ -689,10 +690,11 @@ end SNSFL_L2_Psy_LocusControl
 --
 -- KEY INSIGHT:
 --   Locus of Control is not fundamental. It never was.
---   Rotter's I-E scale IS the torsion ratio B/P.
+--   Rotter's I-E scale tracks the torsion balance B/P.
 --   Internal locus = P high, B controlled → τ low → phase locked.
 --   External locus = P eroded, B reactive → τ high → shatter.
---   The scale measures the same thing as τ. Not analogy. Same ratio.
+--   The scale tracks the same balance τ measures: perceived control (P)
+--   carrying the action load (B).
 --
 -- NEW THEOREM INTRODUCED:
 --   helplessness: shatter_event ∧ A < A_THRESHOLD
@@ -737,7 +739,7 @@ end SNSFL_L2_Psy_LocusControl
 --   SNSFL_L2_Psy_CogDissonance.lean   → cross-domain false_lock confirmed
 --   SNSFL_L2_Psy_LocusControl.lean    → psychology series [9,9,6,6] (this file)
 --
--- THEOREMS: 25. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

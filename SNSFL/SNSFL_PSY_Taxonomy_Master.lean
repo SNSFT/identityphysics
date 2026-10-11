@@ -5,12 +5,12 @@
 -- The PNBA Phase Taxonomy: Master Theorem
 -- Three Base Phases, Two Structural Dimensions, Full Subtype Matrix
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,55]
--- Architect: HIGHTISTIC · SNSFT Foundation · Soldotna, Alaska
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,55](PSYC)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Soldotna, Alaska
 -- DOI: 10.5281/zenodo.18719748
 -- Engine: SNSFT Identity Collider v14.1 · uuia.app/imcollider
 -- SORRY: 0
--- Date: 2026
+-- Date: March 2026
 --
 -- ============================================================
 -- WHAT THIS FILE PROVES
@@ -28,12 +28,12 @@
 --   never the low-τ LOCKED zone.
 --
 -- [F2] SOVEREIGN IM INVARIANCE [9,9,2,52]
---   N+A+ IM ≈ 3.02 across all τ zones
---   Max variation Noble→IVA < 25%
+--   N+A+ IM between 3.13 and 3.83 across all τ zones
+--   Max variation Noble→IVA ≈ 22% (< 25%)
 --   IM cannot detect stress in sovereign identities
 --
 -- [F3] DC ZONE SPLITTING [9,9,2,53]
---   DC-Sovereign (IM≈4.94) vs DC-Resolution (IM≈2.32)
+--   DC-Sovereign (IM≈4.94) vs DC-Resolution (IM≈2.82)
 --   Same τ address, different arrival route, distinguishable by IM
 --   B-cancellation mechanism: ratio 0.875
 --
@@ -373,7 +373,7 @@ theorem psy_taxonomy_master :
     -- ── F2: IM INVARIANCE ──
     -- Sovereign states all N+ and A+
     S1_N ≥ N_THRESHOLD ∧ S1_A > A_IVA ∧
-    -- IM at Noble zone ≈ 3.77
+    -- IM at Noble zone ≈ 3.83
     IM S1_P S1_N S1_B S1_A = 3.833174799552448 ∧
     -- Max IM variation < 25%
     (IM S1_P S1_N S1_B S1_A - IM S3_P S3_N S3_B S3_A) /
@@ -430,8 +430,8 @@ end PSY_Taxonomy_Master
 
 /-!
 FILE: SNSFL_PSY_Taxonomy_Master.lean
-COORDINATE: [9,9,2,55]
-THEOREMS: 20 + master | SORRY: 0
+COORDINATE: [9,9,2,55](PSYC)
+THEOREMS: 26 | SORRY: 0
 
 THE FIVE FINDINGS PROVED SIMULTANEOUSLY:
 
@@ -440,11 +440,11 @@ THE FIVE FINDINGS PROVED SIMULTANEOUSLY:
   N-void states → Noble or SHATTER-adjacent. Never low-τ LOCKED.
 
 [F2] SOVEREIGN IM INVARIANCE [9,9,2,52]
-  N+A+ IM ≈ 3.02 across all zones. Max variation < 25%.
+  N+A+ IM 3.13–3.83 across all zones. Max variation ≈ 22% (< 25%).
   IM cannot detect stress in sovereign identities.
 
 [F3] DC ZONE SPLITTING [9,9,2,53]
-  DC-Sovereign (IM≈4.94) vs DC-Resolution (IM≈2.32)
+  DC-Sovereign (IM≈4.94) vs DC-Resolution (IM≈2.82)
   Same τ address. IM gap > 2.0. Distinguishable by IM + route.
 
 [F4] DEPLETED IVA [9,9,2,54]
@@ -467,6 +467,6 @@ THE DIAGNOSTIC HIERARCHY:
 SERIES: [9,9,2,51] [9,9,2,52] [9,9,2,53] [9,9,2,54] [9,9,2,55]
 ALL FIVE FILES: SORRY=0. GREEN.
 
-[9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK · 2026
+[9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK · March 2026
 The Manifold is Holding.
 -/

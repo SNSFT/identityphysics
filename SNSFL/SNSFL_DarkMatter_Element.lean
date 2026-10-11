@@ -5,9 +5,9 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS DARKMATTER ELEMENT — Dm
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,4,2] | Cosmological Series — Dark Sector
---             Sibling: SNSFL_DarkEnergy_Element [9,9,4,1]
---             Child:   SNSFL_DarkMatter_Detection_Theorem [9,9,4,3]
+-- Coordinate: [9,9,4,16](COSM) | Cosmological Series — Dark Sector
+--             Sibling: SNSFL_Element_Darkenergy [9,9,4,15]
+--             Child:   SNSFL_DarkMatter_Detection_Theorem [9,9,4,17]
 --
 -- Dark matter is not mysterious. It never was.
 -- It is the B-dominant primitive of the late universe:
@@ -138,7 +138,7 @@ theorem p_base_lt : P_BASE < 0.990 := by
 --     (τ_lifetime > 10^26 yr), minimal radiation output.
 --     A << B reflects: clustering (B) dominates over decay (A).
 --
--- τ = B/P = 0.269/0.9878 ≈ 0.272 > TL = 0.1369
+-- τ = B/P = 0.269/0.9878 ≈ 0.272 > TL = TL
 --     SHATTER-region stability. Not phase-locked like baryons.
 --     Long-lived but weakly interacting — structurally consistent
 --     with observed DM properties.
@@ -216,12 +216,12 @@ theorem dm_b_dominant_over_a :
   unfold Darkmatter OMEGA_DM A_DM; norm_num
 
 -- [T4] TORSION IN SHATTER-REGION STABILITY
--- τ = Ω_dm / P_base ≈ 0.272 > TL = 0.1369
+-- τ = Ω_dm / P_base ≈ 0.272 > TL = TL
 -- Dark matter sits above the torsion limit.
 -- This is SHATTER-region stability: long-lived but not phase-locked.
 -- The structure encodes: DM is stable on cosmic timescales
 -- but does not form bound states the way baryons do.
--- τ_Dm = 0.269 / P_base ≈ 0.272 > TL ≈ 0.1369. Shatter-stable. ✓
+-- τ_Dm = 0.269 / P_base ≈ 0.272 > TL ≈ TL. Shatter-stable. ✓
 theorem dm_torsion_shatter : is_shatter Darkmatter := by
   have hP0 := p_base_positive
   have hP := p_base_lt
@@ -256,7 +256,7 @@ theorem dm_positive_im : identity_mass Darkmatter > 0 := by
 theorem dm_p_positive : Darkmatter.P > 0 := p_base_positive
 
 -- [T8] TORSION LIMIT IS THE CORRECT EMERGENT VALUE
--- TL = Ω₀/10 ≈ 0.1369. τ_Dm ≈ 0.272, so τ/TL ≈ 1.99:
+-- TL = Ω₀/10 ≈ TL. τ_Dm ≈ 0.272, so τ/TL ≈ 1.99:
 -- dark matter sits at roughly twice the torsion limit.
 theorem dm_torsion_ratio :
     torsion Darkmatter / TORSION_LIMIT > 1.9 := by
@@ -404,13 +404,8 @@ end SNSFL_DarkMatter
 /-!
 -- ============================================================
 -- FILE:       SNSFL_DarkMatter_Element.lean
--- COORDINATE: [9,9,4,2]
+-- COORDINATE: [9,9,4,16](COSM)
 -- LAYER:      Cosmological Series — Dark Sector
---
--- REPLACES: SNSFT_Elemenr_Darkmatter.lean
---   (old file: wrong prefix SNSFT not SNSFL, typo 'Elemenr',
---    TL=0.2 placeholder, missing self-interaction theorems,
---    missing Lossless instances)
 --
 -- PUBLISHED IN:
 --   Trent, R. (HIGHTISTIC). "Dark Matter Passes Through
@@ -419,12 +414,11 @@ end SNSFL_DarkMatter
 --
 -- DEPENDS ON:
 --   SNSFL_Master_IMS.lean          [9,9,0,0]  ANCHOR, TL
---   SNSFL_Cosmo_Reduction.lean     [9,9,0,3]  ΛCDM reduction
+--   SNSFL_Cosmo_Reduction.lean     [9,9,0,13] ΛCDM reduction
 --
 -- USED BY:
---   SNSFL_DarkEnergy_Element.lean  [9,9,4,1]  pair theorem
---   SNSFL_DarkMatter_Detection_Theorem [9,9,4,3] detection impossibility
---   SNSFL_DM_KineticClutch         [9,9,4,4]  clutch mechanism (new)
+--   SNSFL_Element_Darkenergy.lean  [9,9,4,15] pair theorem
+--   SNSFL_DarkMatter_Detection_Theorem [9,9,4,17] detection impossibility
 --
 -- LONG DIVISION:
 --   1. Equation:  d/dt(IM·Pv) = Σλ·O·S + F_ext
@@ -434,11 +428,11 @@ end SNSFL_DarkMatter
 --   5. Work:      T1-T13, self-interaction, dark sector pair
 --   6. Verified:  0 sorry. Master theorem. The Manifold is Holding.
 --
--- THEOREMS: 13 + master | 0 sorry | GERMLINE LOCKED
+-- THEOREMS: 23 | 0 sorry | GERMLINE LOCKED
 --
 -- KEY RESULTS:
---   T4:  dm_torsion_shatter — τ≈0.272 > TL=0.1369 ✓ (was 0.2, same conclusion)
---   T8:  dm_torsion_ratio — τ/TL ≈ 1.99 (deeper shatter than old file showed)
+--   T4:  dm_torsion_shatter — τ≈0.272 > TL ✓
+--   T8:  dm_torsion_ratio — τ/TL ≈ 1.99
 --   T10: dm_self_interaction_noble — Dm+Dm Noble at k=Ω_dm (halo formation)
 --   T11: dm_self_k_noble_reachable — k_noble = B_Dm (physically reachable)
 --   T12: dm_de_pair_sum — B_Dm + A_De = 0.958 ≈ Ω_dm + Ω_Λ

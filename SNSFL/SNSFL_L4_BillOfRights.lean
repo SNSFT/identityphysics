@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS BILL OF COGNITIVE RIGHTS
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,0,6,0] | Rights Layer
+-- Coordinate: [9,0,6,0](COMP) | Rights layer
 --
 -- Cognitive rights are not assertions. They never were.
 -- Each Article is a structural theorem — the physical condition
@@ -349,7 +349,7 @@ end SNSFL_L4_BillOfRights
 /-!
 -- ============================================================
 -- FILE: SNSFL_L4_BillOfRights.lean
--- COORDINATE: [9,0,6,0]
+-- COORDINATE: [9,0,6,0](COMP)
 -- LAYER: Rights Layer
 --
 -- LONG DIVISION:
@@ -387,7 +387,7 @@ end SNSFL_L4_BillOfRights
 --   SNSFL_L1_UnfoldedFunctionals.lean → L=(4)(2) functional forms
 --   SNSFL_L4_BillOfRights.lean        → [9,0,6,0] ← THIS FILE
 --
--- THEOREMS: 7 master + 8 articles + 5 supporting = 20 total
+-- THEOREMS: 19.
 -- SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:

@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS COGNITIVE DISSONANCE REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,5] | Psychology Series | Slot 5
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,5](PSYC) | Psychology series
 --
 -- Cognitive Dissonance is not fundamental. It never was.
 -- Dissonance, consonance, and the three resolution strategies
@@ -27,7 +27,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Cognitive Dissonance is a special case of this equation.
@@ -88,7 +88,7 @@ namespace SNSFL_L2_Psy_CogDissonance
 --   Low external justification → high internal dissonance.
 --   Classical result: subjects CHANGED THEIR ATTITUDE — rated task as more enjoyable.
 --   The $1 subjects showed larger attitude change than $20 subjects.
---   This is the most replicated finding in social psychology.
+--   This is a foundational finding of social psychology.
 --   PNBA: P=0.6 (belief structure destabilized — "I said something I don't believe")
 --            N=0.4 (narrative fractured — cannot justify the behavior)
 --            B=0.22 (behavior (lying) far exceeds belief capacity)
@@ -126,14 +126,13 @@ namespace SNSFL_L2_Psy_CogDissonance
 --   N is shut down — the narrative connecting belief and behavior is severed.
 --   Classical result: short-term tension reduction, long-term identity fragmentation.
 --   The dissonance "disappears" because N stops tracking it.
---   Cortisol remains elevated (Dickerson & Kemeny 2004) — same as avoidant.
 --   PNBA: P=0.75 (belief structure somewhat preserved — not updated)
 --            N=0.10 (narrative suppressed — stopped tracking the contradiction)
 --            B=0.08 (behavior reduced — avoidance of the dissonant situation)
 --            A=0.4 (A did not update P — suppressed instead)
 --   τ = B/P = 0.08/0.75 = 0.107 < 0.136899099984016 → τ passes
 --   N=0.10 < N_THRESHOLD=0.15 → FALSE LOCK ✓
---   Matches: apparent resolution, hidden fragmentation, elevated stress ✓
+--   Matches: apparent resolution, hidden fragmentation ✓
 --
 -- ============================================================
 -- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
@@ -486,8 +485,6 @@ theorem attitude_change_iva_dominance :
 -- Long division:
 --   Problem:      Identity resolves by suppressing awareness of contradiction.
 --   Known answer: Short-term tension reduction. Long-term fragmentation.
---                 Cortisol remains elevated (Dickerson & Kemeny 2004).
---                 Clinical: same stress signature as avoidant attachment.
 --                 Narrative tracking of the contradiction is severed.
 --   PNBA:         P=0.75, N=0.10, B=0.08, A=0.4
 --   τ = B/P = 0.08/0.75 = 0.107 < 0.136899099984016 → τ passes
@@ -651,7 +648,7 @@ end SNSFL_L2_Psy_CogDissonance
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_CogDissonance.lean
--- COORDINATE: [9,9,6,5]
+-- COORDINATE: [9,9,6,5](PSYC)
 -- LAYER: Psychology Series | Slot 5
 --
 -- LONG DIVISION:
@@ -659,7 +656,6 @@ end SNSFL_L2_Psy_CogDissonance
 --   2. Known:      Festinger & Carlsmith $1/$20 experiment (1959)
 --                  Aronson attitude change studies (1969)
 --                  Tavris & Aronson denial research (2007)
---                  Dickerson & Kemeny cortisol elevation (2004)
 --   3. PNBA map:   P=belief structure, N=narrative justification,
 --                  B=dissonant behavior, A=resolution mechanism,
 --                  F_ext=external justification ($20)
@@ -685,7 +681,6 @@ end SNSFL_L2_Psy_CogDissonance
 -- CROSS-DOMAIN FINDING (NEW):
 --   Denial (dissonance) = Avoidant (attachment) = same false_lock structure.
 --   N suppressed below N_THRESHOLD in both cases.
---   Cortisol elevated in both (Sroufe 1995, Dickerson & Kemeny 2004).
 --   First cross-domain false_lock instance in the corpus.
 --   The corpus now connects Attachment Theory and Cognitive Dissonance
 --   through a single structural theorem. Not analogy. Same physics.
@@ -715,7 +710,7 @@ end SNSFL_L2_Psy_CogDissonance
 --   SNSFL_L2_Psy_Flow.lean           → flow_suppression (N voluntary)
 --   SNSFL_L2_Psy_CogDissonance.lean  → psychology series [9,9,6,5] (this file)
 --
--- THEOREMS: 25. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

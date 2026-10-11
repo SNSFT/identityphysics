@@ -4,13 +4,13 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS FLOW STATE REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,4] | Psychology Series | Slot 4
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,4](PSYC) | Psychology series
 --
 -- Flow State is not fundamental. It never was.
 -- Flow, boredom, anxiety, and apathy are not four experiences.
 -- They are four torsion regimes under the same dynamic equation.
--- The challenge/skill ratio IS the torsion ratio B/P.
+-- Flow is skill (P) carrying the challenge load (B): τ = B/P below TL.
 -- Flow = phase locked with N voluntarily suppressed.
 -- Time disappears because Narrative releases to maximize P·B coupling.
 --
@@ -27,7 +27,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Flow State is a special case of this equation.
@@ -160,8 +160,10 @@ namespace SNSFL_L2_Psy_Flow
 -- | Challenge/skill ratio       | τ = B/P       | The torsion ratio itself          |
 --
 -- THE KEY MAPPING:
---   Csikszentmihalyi's challenge/skill ratio IS the PNBA torsion ratio.
---   Not an analogy. The same ratio. B/P = challenge/skill = τ.
+--   Flow needs skill to carry the challenge. In PNBA, skill is P and the
+--   challenge load is B, so the balance is the torsion τ = B/P.
+--   Skill covers the load (τ < TL) → flow. Load outruns skill (τ ≥ TL) → anxiety.
+--   "Challenge ≈ skill" in the channel model means skill covers the challenge.
 --   Flow occurs when τ < TORSION_LIMIT AND P·B coupling is high.
 --   The channel model IS the torsion law made visible.
 --
@@ -330,7 +332,7 @@ theorem flow_suppression_not_shatter (s : FlowState)
   linarith
 
 -- THEOREM 9: CHALLENGE/SKILL RATIO IS TORSION
--- Csikszentmihalyi's ratio = PNBA torsion. Same thing. Not analogy.
+-- The challenge/skill balance is read as torsion: load B over skill P.
 theorem challenge_skill_is_torsion (s : FlowState) (hP : s.P > 0) :
     torsion s = s.B / s.P := by
   unfold torsion; rfl
@@ -691,7 +693,7 @@ end SNSFL_L2_Psy_Flow
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_Flow.lean
--- COORDINATE: [9,9,6,4]
+-- COORDINATE: [9,9,6,4](PSYC)
 -- LAYER: Psychology Series | Slot 4
 --
 -- LONG DIVISION:
@@ -716,8 +718,8 @@ end SNSFL_L2_Psy_Flow
 --
 -- KEY INSIGHT:
 --   Flow State is not fundamental. It never was.
---   The challenge/skill ratio IS the torsion ratio B/P. Not analogy. Same ratio.
---   Csikszentmihalyi's channel model IS the torsion law made visible in psychology.
+--   The challenge/skill balance is the torsion B/P: skill carries the load.
+--   Csikszentmihalyi's channel model is the torsion law made visible in psychology.
 --
 -- NEW THEOREM INTRODUCED:
 --   flow_suppression: phase_locked ∧ N ≤ N_FLOW_FLOOR ∧ A > 1
@@ -750,7 +752,7 @@ end SNSFL_L2_Psy_Flow
 --   SNSFL_L2_Psy_Attachment.lean  → false_lock precedent (N pathological)
 --   SNSFL_L2_Psy_Flow.lean        → psychology series [9,9,6,4] (this file)
 --
--- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 27. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

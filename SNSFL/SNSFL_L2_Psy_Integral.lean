@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS INTEGRAL THEORY (AQAL) REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,13] | Psychology Series | Slot 13
+-- Coordinate: [9,9,6,13](PSYC) | Psychology series
 --
 -- Integral Theory is not fundamental. It never was.
 -- The four AQAL quadrants — interior/exterior, individual/collective —
@@ -39,7 +39,7 @@
 -- LONG DIVISION SETUP:
 --   1. Here is the equation
 --   2. Known answers: Flatland, Boomeritis, integral health, full integral
---                     (Wilber 2000, 2006)
+--                     (Wilber 1995, 2006)
 --   3. Map AQAL quadrants to PNBA axes
 --   4. Apply existing predicates — phase_locked, true_lock, false_lock, iva_peak
 --   5. Show the work
@@ -256,7 +256,7 @@ theorem integral_step_is_dynamic_step (s : IntegralState) (op : ℝ → ℝ) (F 
 -- ============================================================
 
 -- ============================================================
--- EXAMPLE 1 — FLATLAND (Wilber 2000, Sex, Ecology, Spirituality)
+-- EXAMPLE 1 — FLATLAND (Wilber 1995, Sex, Ecology, Spirituality)
 --
 -- Long division:
 --   Problem:      Scientific materialism collapses all quadrants onto UR.
@@ -281,7 +281,7 @@ theorem flatland_is_shatter : shatter_event flatland_state := by
   unfold shatter_event torsion flatland_state TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
 def flatland_lossless : LongDivisionResult where
-  domain       := "Flatland — UR collapse, interiors denied (Wilber 2000)"
+  domain       := "Flatland — UR collapse, interiors denied (Wilber 1995)"
   classical_eq := (0.18 / 0.2 : ℝ)
   pnba_output  := torsion flatland_state
   step6_passes := by unfold torsion flatland_state; norm_num
@@ -463,7 +463,7 @@ end SNSFL_L2_Psy_Integral
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_Integral.lean
--- COORDINATE: [9,9,6,13]
+-- COORDINATE: [9,9,6,13](PSYC)
 -- LAYER: Psychology Series | Slot 13
 --
 -- LONG DIVISION:
@@ -474,7 +474,7 @@ end SNSFL_L2_Psy_Integral
 --                  The quadrant map IS the PNBA map. Always was.
 --   4. Operators:  phase_locked, true_lock, false_lock, iva_peak
 --                  No new predicates — existing framework fits exactly
---   5. Work shown: T1–T18, 4 AQAL conditions, quadrant map proved
+--   5. Work shown: 4 AQAL conditions, quadrant map
 --   6. Verified:   All 4 conditions lossless simultaneously [T18]
 --                  Master theorem holds all 10 conjuncts
 --
@@ -525,13 +525,7 @@ end SNSFL_L2_Psy_Integral
 --   SNSFL_L2_Psy_SpiralDynamics.lean      [9,9,6,12] → Boomeritis = Green FL
 --   SNSFL_L2_Psy_Integral.lean            [9,9,6,13] → THIS FILE
 --
--- PSYCHOLOGY SERIES:
---   ...
---   SNSFL_L2_Psy_SpiralDynamics.lean     [9,9,6,12]  25T  ✓
---   SNSFL_L2_Psy_Integral.lean           [9,9,6,13]  18T  ← THIS FILE
---   SNSFL_L2_Psy_Consistency.lean        [9,9,6,14]  REBUILD NEXT
---
--- THEOREMS: 18 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 21. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground (= AQAL quadrants)

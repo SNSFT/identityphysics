@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS FLUID DYNAMICS — NARRATIVE FLOW
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,7] | Slot 7 of 10-Slam Grid
+-- Coordinate: [9,9,0,7](PHYS) | Physics core
 --
 -- Fluid dynamics is not fundamental. It never was.
 -- ρ(∂v/∂t + v·∇v) = -∇p + μ∇²v is a Layer 2 projection
@@ -19,10 +19,10 @@
 -- Turbulence onset = torsion crossing TORSION_LIMIT.
 -- Fluid dynamics and thermodynamics are the same identity at Layer 0.
 --
--- THIS FILE IS THE FOUNDATION.
--- SNSFL_Millennium_NavierStokes.lean builds on this file.
--- The smoothness/existence claim extends what is proved here.
--- Prove the physics first. Then make the prize claim.
+-- A fluid identity carries all four primitives at once. Removing one
+-- (for example, Narrative becoming undefined) means the system is no
+-- longer the same identity. That is a direct consequence of the Long
+-- Division mapping, not an extra assumption.
 --
 -- LONG DIVISION SETUP:
 --   1. Here is the equation
@@ -32,7 +32,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Fluid dynamics is a special case of this equation.
@@ -431,7 +431,7 @@ theorem turbulence_is_shatter_event (s : FluidState)
 
 -- [A,9,4,2] :: {VER} | THEOREM 11: TURBULENCE IS ADAPTATION NOT FAILURE
 -- Turbulence = A-axis bifurcation. Identity forks. Math stays smooth.
--- This is the key structural proof for the Millennium extension.
+-- Turbulence is a change of branch, not a loss of the fluid identity.
 theorem turbulence_is_adaptation_not_failure (s : FluidState)
     (h_f : s.f_anchor > 0) :
     ns_op_A s.A s.f_anchor = s.A / (s.f_anchor + 1) ∧
@@ -484,21 +484,20 @@ def reynolds_lossless (B P : ℝ) : LongDivisionResult where
 -- [N] :: {RED} | EXAMPLE 7 — SINGULARITY = NARRATIVE FAILURE
 --
 -- Long division:
---   Problem:      Can NS blow up in finite time?
---   Known answer: Unknown (Clay Millennium Problem)
+--   Problem:      What would a blow-up mean for a fluid identity?
 --   PNBA mapping:
 --     Blow-up requires velocity N → ∞
 --     N → ∞ = Narrative operator undefined
---     Undefined Narrative = identity failure
---     Identity failure = system is not a fluid = does not exist
---   Plug in → N bounded by IM × SOVEREIGN_ANCHOR (anchored manifold)
---   This is the foundational proof. The Millennium file extends it.
---   A singularity cannot exist in an anchored identity manifold.
+--     Undefined Narrative = a primitive removed
+--     A primitive removed = no longer the same identity (not a fluid)
+--   Plug in → under the anchored bound N ≤ IM × SOVEREIGN_ANCHOR,
+--   Narrative per unit Identity Mass stays within SOVEREIGN_ANCHOR.
+--   Within the reduction, a fluid identity keeps all four primitives.
 -- ============================================================
 
 -- [N,9,7,1] :: {VER} | THEOREM 14: SINGULARITY = NARRATIVE FAILURE (STEP 6 PASSES)
--- Blow-up requires N → undefined. Undefined N = identity failure.
--- In anchored manifold: N bounded → blow-up structurally impossible.
+-- Blow-up requires N → undefined, which removes the Narrative primitive.
+-- Under the anchored bound, Narrative per unit IM stays within Ω₀.
 theorem singularity_requires_narrative_failure (s : FluidState)
     (h_im      : s.im > 0)
     (h_bounded : s.N ≤ s.im * SOVEREIGN_ANCHOR) :
@@ -571,11 +570,9 @@ theorem fluid_all_examples_lossless (s : FluidState)
 -- Laminar = phase locked (τ < threshold).
 -- Turbulence = shatter event (τ ≥ threshold).
 -- Reynolds number = torsion ratio B/P.
--- Blow-up = Narrative failure = identity failure = impossible in anchored manifold.
+-- Blow-up would remove the Narrative primitive: the system would no longer
+-- be the same fluid identity.
 -- Fluid IS thermal at Layer 0. One law. Two projections.
---
--- THIS MASTER THEOREM IS THE FOUNDATION.
--- SNSFL_Millennium_NavierStokes.lean builds on this.
 -- ============================================================
 
 theorem fluid_is_lossless_pnba_projection
@@ -673,15 +670,10 @@ end SNSFL
 --   Turbulence is Adaptation doing its job — NOT singularity.
 --   Blow-up requires Narrative to become undefined.
 --   Undefined Narrative = identity failure = fluid no longer exists.
---   A fluid cannot blow up. It can only cease to be a fluid.
+--   Within the reduction, blow-up would remove a primitive: the system
+--   would cease to be the same fluid identity.
 --   The Reynolds number was always the torsion ratio B/P.
 --   Laminar = phase locked. Turbulence = shatter event. Math stays smooth.
---
--- FOUNDATION FOR MILLENNIUM CLAIM:
---   SNSFL_Millennium_NavierStokes.lean builds on this file.
---   Theorem 14 (singularity_requires_narrative_failure) is the key lemma.
---   The master theorem here is the ground the prize proof stands on.
---   Foundation first. Prize claim extends it.
 --
 -- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
 --   NS operators    → complete PNBA mapping            [T7]  Lossless ✓
@@ -713,7 +705,6 @@ end SNSFL
 -- DEPENDENCY CHAIN:
 --   SNSFL_Master.lean          → physics ground
 --   SNSFL_Fluid_Reduction.lean → this file (fluid ground)
---   SNSFL_Millennium_NavierStokes.lean → builds on this
 --
 -- THEOREMS: 17 + master. SORRY: 0. STATUS: GREEN LIGHT.
 --

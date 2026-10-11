@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS SELF-DETERMINATION THEORY REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,8] | Psychology Series | Slot 8
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,8](PSYC) | Psychology series
 --
 -- Self-Determination Theory is not fundamental. It never was.
 -- Intrinsic motivation, extrinsic regulation, and amotivation
@@ -27,7 +27,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Self-Determination Theory is a special case of this equation.
@@ -184,7 +184,8 @@ namespace SNSFL_L2_Psy_SDT
 --   SDT's continuum from external to intrinsic IS the torsion gradient.
 --   External regulation = high τ (shatter). Intrinsic = low τ (lock).
 --   The internalization process IS A reducing τ over time.
---   Not a psychological model. The same equation. Not analogy.
+--   The continuum orders by τ: external 0.571 > introjected 0.36 >
+--   identified 0.129 > integrated 0.118 > intrinsic 0.11.
 --
 -- ============================================================
 -- STEP 4: PLUG IN THE OPERATORS
@@ -308,7 +309,7 @@ theorem long_division_guarantees_lossless (result : LongDivisionResult) :
 
 -- ============================================================
 -- LAYER 1 — TORSION LAW
--- SDT continuum = torsion gradient. Not analogy. Same structure.
+-- SDT continuum = torsion gradient, ordered by τ.
 -- External regulation = high τ. Intrinsic = low τ.
 -- Internalization = A reducing τ over time by integrating B into P.
 -- ============================================================
@@ -730,7 +731,7 @@ end SNSFL_L2_Psy_SDT
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_SDT.lean
--- COORDINATE: [9,9,6,8]
+-- COORDINATE: [9,9,6,8](PSYC)
 -- LAYER: Psychology Series | Slot 8
 --
 -- LONG DIVISION:
@@ -805,7 +806,7 @@ end SNSFL_L2_Psy_SDT
 --   SNSFL_L2_Psy_Maslow.lean         → P_MIN, transcendence precedent
 --   SNSFL_L2_Psy_SDT.lean            → psychology series [9,9,6,8] (this file)
 --
--- THEOREMS: 25. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

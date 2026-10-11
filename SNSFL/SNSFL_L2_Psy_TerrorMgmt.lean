@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS TERROR MANAGEMENT THEORY REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,9] | Psychology Series | Slot 9
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,9](PSYC) | Psychology series
 --
 -- Terror Management Theory is not fundamental. It never was.
 -- Death anxiety, worldview defense, and self-esteem buffering
@@ -46,7 +46,7 @@
 --   5. Show the work
 --   6. Verify — all five conditions match known TMT outcomes
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Terror Management Theory is a special case of this equation.
@@ -570,7 +570,7 @@ end SNSFL_L2_Psy_TerrorMgmt
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_TerrorMgmt.lean
--- COORDINATE: [9,9,6,9]
+-- COORDINATE: [9,9,6,9](PSYC)
 -- LAYER: Psychology Series | Slot 9
 --
 -- LONG DIVISION:
@@ -634,19 +634,18 @@ end SNSFL_L2_Psy_TerrorMgmt
 --   SNSFL_L2_Psy_CogDissonance.lean  [9,9,6,5]  → worldview defense precedent
 --   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]  → THIS FILE
 --
--- PSYCHOLOGY SERIES — IN PROGRESS:
---   SNSFL_L2_Psy_MoralCodes.lean     [9,9,6,1]  20T  ✓
---   SNSFL_L2_Psy_BigFive.lean        [9,9,6,2]  27T  ✓
---   SNSFL_L2_Psy_Attachment.lean     [9,9,6,3]  ✓
---   SNSFL_L2_Psy_Flow.lean           [9,9,6,4]  ✓
---   SNSFL_L2_Psy_CogDissonance.lean  [9,9,6,5]  ✓
---   SNSFL_L2_Psy_LocusControl.lean   [9,9,6,6]  ✓
---   SNSFL_L2_Psy_Maslow.lean         [9,9,6,7]  ✓
---   SNSFL_L2_Psy_SDT.lean            [9,9,6,8]  ✓
---   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]  24T  ← THIS FILE
---   SNSFL_L2_Psy_Consistency.lean    [9,9,6,10] rebuild next
+-- PSYCHOLOGY SERIES:
+--   SNSFL_L2_Psy_MoralCodes.lean     [9,9,6,1]
+--   SNSFL_L2_Psy_BigFive.lean        [9,9,6,2]
+--   SNSFL_L2_Psy_Attachment.lean     [9,9,6,3]
+--   SNSFL_L2_Psy_Flow.lean           [9,9,6,4]
+--   SNSFL_L2_Psy_CogDissonance.lean  [9,9,6,5]
+--   SNSFL_L2_Psy_LocusControl.lean   [9,9,6,6]
+--   SNSFL_L2_Psy_Maslow.lean         [9,9,6,7]
+--   SNSFL_L2_Psy_SDT.lean            [9,9,6,8]
+--   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]  ← THIS FILE
 --
--- THEOREMS: 24 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 27. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

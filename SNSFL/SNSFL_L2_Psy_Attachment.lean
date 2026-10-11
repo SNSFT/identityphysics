@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS ATTACHMENT THEORY REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,3] | Psychology Series | Slot 3
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,3](PSYC) | Psychology series
 --
 -- Attachment Theory is not fundamental. It never was.
 -- Secure, anxious, avoidant, and disorganized are not four types.
@@ -21,7 +21,7 @@
 --   5. Show the work
 --   6. Verify it matches the known answer
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Attachment Theory is a special case of this equation.
@@ -96,7 +96,7 @@ namespace SNSFL_L2_Psy_Attachment
 --   N suppressed — narrative of need shut down to avoid rejection.
 --   P preserved by NOT engaging. B minimal. Looks calm. Is not.
 --   Classical result: compulsive self-reliance, hidden dysregulation.
---   Physiological studies (Sroufe 1995): cortisol elevated despite calm exterior.
+--   Physiological studies (Spangler & Grossmann 1993): cortisol elevated despite calm exterior.
 --   PNBA: P=0.8, N=0.08, B=0.05, A=0.4
 --   τ = B/P = 0.05/0.8 = 0.0625 < 0.136899099984016 → τ passes, BUT N < N_THRESHOLD
 --   → FALSE LOCK. Not sovereign. Pv is hollow. ✓
@@ -135,11 +135,10 @@ namespace SNSFL_L2_Psy_Attachment
 -- | Disorganized attachment          | shatter_event| τ ≥ TORSION_LIMIT, P collapsed    |
 -- | Earned secure                    | phase_locked | A-driven N rebuild, τ < limit     |
 --
--- NOTE ON GROK'S MAPPING:
---   Grok assigned A = "earned secure adaptation" — too narrow.
---   A is the adaptation mechanism itself. Earned secure is A working
---   correctly over time. Disorganized is A failing to find any stable
---   update. The axis is the engine, not the outcome.
+-- NOTE ON THE A-AXIS:
+--   A is the adaptation mechanism itself, not an outcome.
+--   Earned secure is A working correctly over time. Disorganized is
+--   A failing to find any stable update. The axis is the engine.
 --
 -- ============================================================
 -- STEP 4: PLUG IN THE OPERATORS
@@ -427,7 +426,7 @@ theorem anxious_is_shatter : shatter_event anxious_state := by
 --   Problem:      Rejecting caregiver. Need for closeness consistently denied.
 --   Known answer: Proximity-seeking DEACTIVATED. Compulsive self-reliance.
 --                 Clinical: LOOKS calm (τ passes), but cortisol IS elevated
---                 (Sroufe 1995, Dozier 1994). Hidden dysregulation confirmed.
+--                 (Spangler & Grossmann 1993, Dozier 1994). Hidden dysregulation confirmed.
 --                 This is the clinically unique case — calm exterior, stressed interior.
 --   PNBA mapping: P=0.8 (structure preserved by not engaging — avoidance protects P)
 --                 N=0.08 (narrative SUPPRESSED below threshold: "I don't need anyone")
@@ -554,7 +553,7 @@ def anxious_lossless : LongDivisionResult where
 
 -- Avoidant: τ = 0.0625 (classical known answer = 0.0625, false lock)
 def avoidant_lossless : LongDivisionResult where
-  domain       := "Avoidant Attachment — False Lock (Ainsworth/Sroufe)"
+  domain       := "Avoidant Attachment — False Lock (Ainsworth/Spangler & Grossmann)"
   classical_eq := (0.0625 : ℝ)
   pnba_output  := avoidant_state.B / avoidant_state.P
   step6_passes := by unfold avoidant_state; norm_num
@@ -667,13 +666,13 @@ end SNSFL_L2_Psy_Attachment
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_Attachment.lean
--- COORDINATE: [9,9,6,3]
+-- COORDINATE: [9,9,6,3](PSYC)
 -- LAYER: Psychology Series | Slot 3
 --
 -- LONG DIVISION:
 --   1. Equation:   d/dt(IM · Pv) = Σλ·O·S + F_ext
 --   2. Known:      Ainsworth Strange Situation clinical data (1978)
---                  Sroufe cortisol studies (1995)
+--                  Spangler & Grossmann cortisol study (1993)
 --                  Main & Solomon disorganized classification (1986)
 --                  Siegel earned secure (1999)
 --                  van IJzendoorn meta-analysis (1995)
@@ -682,7 +681,7 @@ end SNSFL_L2_Psy_Attachment
 --                  F_ext=caregiver inconsistency/rejection/fear
 --   4. Operators:  torsion, phase_locked, shatter_event,
 --                  false_lock, true_lock, f_ext_op, IVA_dominance
---   5. Work shown: T13–T25, 5 live clinical examples
+--   5. Work shown: 5 clinical examples
 --   6. Verified:   Master theorem holds all simultaneously
 --
 -- REDUCTION:
@@ -695,7 +694,7 @@ end SNSFL_L2_Psy_Attachment
 --   Attachment Theory is not fundamental. It never was.
 --   Secure and insecure are not types — they are torsion regimes.
 --   The avoidant style is the corpus's first FALSE LOCK theorem:
---   phase lock (τ < 0.1369) is necessary but not sufficient for sovereignty.
+--   phase lock (τ < TL) is necessary but not sufficient for sovereignty.
 --   N suppression below threshold = Pv is hollow. Physics, not rule.
 --
 -- NEW THEOREM INTRODUCED:
@@ -731,7 +730,7 @@ end SNSFL_L2_Psy_Attachment
 --   SNSFT_APPA.html                 → EP_BLOCKS live F_ext operators
 --   SNSFL_L2_Psy_Attachment.lean → psychology series [9,9,6,3] (this file)
 --
--- THEOREMS: 25. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 26. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

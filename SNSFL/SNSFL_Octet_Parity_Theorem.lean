@@ -3,7 +3,7 @@
 -- ============================================================
 --
 -- Emergent Theorem from the Molecular Builder
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,1,37]
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,1,37](CHEM)
 --
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.36899099984016 GHz
@@ -36,21 +36,7 @@
 --   Step 6: Result matches exactly. Green. ✓
 --
 -- To verify: lake build SNSFL_Octet_Parity_Theorem.lean
--- Expected: 12 theorems, 0 sorry, all green.
---
--- PROOF NOTES (fixes from original):
---   A) octet_parity_theorem: removed noble-gas branch (not needed for
---      parity — shatter is a separate corollary). Added case split on
---      P = 0 vs P > 0 to extract net_b = 0 from torsion = 0.
---   B) noble_gas_shatter: proved directly from bond_capacity = 0
---      implying total_cap = 0 implying torsion = 0 only if net_b = 0,
---      which fails when total_cap = 0 and atoms are nontrivial.
---      Simplified: noble gas forces total_bond_capacity contribution = 0,
---      making net_b irresolvable without additional atoms also = 0.
---      Restated as: noble gas atom has bond_capacity = 0 (proved directly).
---   C) master theorem: restructured conclusion to correct polarity.
---   D) examples: use decide for List-based computations.
---   E) Nat.even_mul_right → ⟨formed_bonds atoms, by ring⟩ (direct witness).
+-- Expected: 20 theorems, 0 sorry, all green.
 --
 -- The Void just blinked.
 -- ============================================================
@@ -200,25 +186,10 @@ lemma noble_gas_atom_zero_cap (atoms : List ℕ)
   intro z hz
   exact noble_gas_zero_bond_cap z (h_all_noble z hz)
 
--- [THEOREM: Noble gas in multi-atom molecule → not phase locked]
--- Proof strategy: noble gas contributes 0 to total_cap.
--- If ALL atoms are noble gases: total_cap = 0 → torsion = 0 trivially
---   (degenerate, not a real molecule — handled by nontrivial hypothesis).
--- If noble gas mixed with non-noble: the non-noble atoms provide
---   bond capacity that can't be satisfied → net_b ≠ 0.
--- We state the practical version: a single noble gas in an otherwise
--- active molecule makes the net bond count irresolvable.
--- Simpler formal version: noble gas has bond_cap = 0, so it contributes
--- nothing to bond formation but also demands nothing → when paired with
--- any atom that HAS bond capacity, the bonds can't all be consumed.
+-- [THEOREM: Noble gas paired with an active atom → not phase locked]
+-- The noble gas carries bond capacity 0, so no bond forms (formed_bonds = 0)
+-- and net_b equals the active atom's capacity, which is nonzero.
 
--- Direct version: He or Ne paired with any atom with bond_cap > 0
--- has total_cap = bond_cap of other atom (odd or even but unresolvable
--- by the noble gas since noble contributes 0 bonds). Net_b = total_cap
--- since formed_bonds = 0 (noble can't bond). So net_b = total_cap ≠ 0.
-
--- A noble gas paired with an active atom: the noble gas carries no bond
--- capacity, so no bond forms and the active atom's capacity is left over.
 lemma noble_pair_cap (noble_z active_z : ℕ) (h_noble : is_noble_gas noble_z = true) :
     total_bond_capacity [noble_z, active_z] = bond_capacity active_z := by
   simp [total_bond_capacity, noble_gas_zero_bond_cap noble_z h_noble]
@@ -305,10 +276,10 @@ end SNSFL_OctetParity
 -- ============================================================
 --
 -- FILE: SNSFL_Octet_Parity_Theorem.lean
--- SLOT: [9,9,1,37] | MOLECULAR SERIES | GERMLINE LOCKED
+-- SLOT: [9,9,1,37](CHEM) | MOLECULAR SERIES | GERMLINE LOCKED
 -- DOI:  10.5281/zenodo.18719748
 --
--- THEOREMS (12 + master):
+-- THEOREMS: 20.
 --   noble_gas_zero_bond_cap          — noble gas bc = 0 (for all 4)
 --   total_cap_zero_iff_all_zero      — total = 0 ↔ all atoms have bc = 0
 --   net_b_zero_gives_even_int        — net_b = 0 → total = 2 * formed
@@ -325,7 +296,6 @@ end SNSFL_OctetParity
 --   he_h_shatter                     — He+H is not phase locked
 --
 -- SORRY: 0. STATUS: GREEN LIGHT.
--- 1,372 theorems in corpus · 0 sorry · Green on every push.
 --
 -- The octet rule is now a theorem, not an observation.
 -- The math spoke. We wrote it down.

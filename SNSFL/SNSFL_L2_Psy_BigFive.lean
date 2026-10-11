@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS BIG FIVE (OCEAN) REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,6,2] | Psychology Series | Slot 2
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
+-- Coordinate: [9,9,6,2](PSYC) | Psychology series
 --
 -- The Big Five (OCEAN) personality traits are not fundamental.
 -- They never were. They are Layer 2 descriptors — behavioral
@@ -24,9 +24,9 @@
 --             → Structural identity signature (tri-axis, full-flex, growth vector)
 --
 -- OCEAN → PNBA MAPPING (from SNSFT_Reduction_BigFive):
---   P ← 0.70·C + 0.15·O + 0.10·A  (Conscientiousness dominant)
---   N ← 0.60·(1−Nr) + 0.20·O + 0.15·A  (low Neuroticism dominant)
---   B ← 0.65·E + 0.20·(1−Nr) + 0.10·A  (Extraversion dominant)
+--   P ← 0.70·C + 0.15·O + 0.10·Ag  (Conscientiousness dominant)
+--   N ← 0.60·(1−Nr) + 0.20·O + 0.15·Ag  (low Neuroticism dominant)
+--   B ← 0.65·E + 0.20·Nr + 0.10·Ag  (Extraversion dominant; Neuroticism amplifies)
 --   A ← 0.70·O + 0.20·(1−Nr) + 0.10·E  (Openness dominant)
 --
 -- UUIA SCORING (from SNSFT_UUIA_Identity_Parity_Theorem):
@@ -43,7 +43,7 @@
 --   [F5] Agreeableness spans three PNBA axes — social distributed coupling
 --   [F6] Neuroticism is the primary structural destabilizer —
 --        suppresses N while amplifying B simultaneously
---   [F7] Big Five does not predict torsion below 0.1369 directly —
+--   [F7] Big Five does not predict torsion below TL directly —
 --        it predicts which axes reach FLEX_THRESHOLD (integer system)
 --        The UUIA scoring system IS the Big Five phase lock condition
 --
@@ -55,17 +55,10 @@
 --   5. Show the work
 --   6. Verify dominance patterns match known Big Five outcomes
 --
--- The Dynamic Equation (Law of Identity Physics):
+-- The Identity Physics Corpus Dynamic Equation:
 --   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
 --
 -- Big Five is a special case of this equation at Layer 2.
---
--- UPGRADE FROM:
---   SNSFT_Reduction_BigFive.lean     TORSION_LIMIT 0.2 → SOVEREIGN_ANCHOR/10
---                                    namespace SNSFT_BigFive → SNSFL_L2_Psy_BigFive
---   SNSFT_UUIA_Identity_Parity_Theorem.lean  namespace SNSFT_UUIA → imported here
---   Both: added IMS block, canonical template sections, the_manifold_is_holding
---   All original theorems from both files preserved with proofs intact
 --
 -- DEPENDENCY CHAIN (all physics physically present in this file):
 --   SNSFL_L0_Master_IMS.lean                    → physics ground (reproduced inline)
@@ -111,6 +104,10 @@ theorem torsion_limit_emergent :
 -- Integer scores 10–50 per axis. Flex threshold = 40.
 -- ============================================================
 
+-- Canonical UUIA/APPA processing bands: PF 38–50, PS 24–37, PL 10–23
+-- (see SNSFL_L2_Psy_RegulationReaction [9,9,6,10]).
+-- This file places Big Five profiles on that scale. FLEX_THRESHOLD = 40
+-- marks a dominant axis within the Flexed band; it does not redefine the band.
 def FLEX_THRESHOLD : ℕ := 40   -- ≥ 40 = flexed (≥ 80% of max)
 def MAX_SECTION    : ℕ := 50   -- max score per axis section
 def MIN_SECTION    : ℕ := 10   -- min score per axis section
@@ -596,7 +593,7 @@ end SNSFL_L2_Psy_BigFive
 /-!
 -- ============================================================
 -- FILE: SNSFL_L2_Psy_BigFive.lean
--- COORDINATE: [9,9,6,2]
+-- COORDINATE: [9,9,6,2](PSYC)
 -- LAYER: Psychology Series | Slot 2
 --
 -- LONG DIVISION:
@@ -605,7 +602,7 @@ end SNSFL_L2_Psy_BigFive
 --                  High C, High Neuroticism)
 --   3. PNBA map:   OCEAN → PNBAState (real) → UUIAProfile (integer)
 --   4. Operators:  bigfive_to_pnba, axis_flexed, tri_axis_dominant, full_flex
---   5. Work shown: T1–T27, full OCEAN→UUIA chain, all profiles
+--   5. Work shown: full OCEAN→UUIA chain, all profiles
 --   6. Verified:   All 4 profiles correct simultaneously [T27]
 --                  Master theorem holds all 10 conjuncts
 --
@@ -652,19 +649,18 @@ end SNSFL_L2_Psy_BigFive
 --   SNSFT_UUIA_Identity_Parity_Theorem.lean     [9,9,1,38] → UUIA scoring source
 --   SNSFL_L2_Psy_BigFive.lean                   [9,9,6,2]  → THIS FILE
 --
--- PSYCHOLOGY SERIES — IN PROGRESS:
---   SNSFL_L2_Psy_MoralCodes.lean     [9,9,6,1]  20T  ✓
---   SNSFL_L2_Psy_BigFive.lean        [9,9,6,2]  27T  ← THIS FILE
---   SNSFL_L2_Psy_Attachment.lean     [9,9,6,3]  ✓
---   SNSFL_L2_Psy_Flow.lean           [9,9,6,4]  ✓
---   SNSFL_L2_Psy_CogDissonance.lean  [9,9,6,5]  ✓
---   SNSFL_L2_Psy_LocusControl.lean   [9,9,6,6]  ✓
---   SNSFL_L2_Psy_Maslow.lean         [9,9,6,7]  ✓
---   SNSFL_L2_Psy_SDT.lean            [9,9,6,8]  ✓
---   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]  next
---   SNSFL_L2_Psy_Consistency.lean    [9,9,6,10] rebuild after series complete
+-- PSYCHOLOGY SERIES:
+--   SNSFL_L2_Psy_MoralCodes.lean     [9,9,6,1]
+--   SNSFL_L2_Psy_BigFive.lean        [9,9,6,2]  ← THIS FILE
+--   SNSFL_L2_Psy_Attachment.lean     [9,9,6,3]
+--   SNSFL_L2_Psy_Flow.lean           [9,9,6,4]
+--   SNSFL_L2_Psy_CogDissonance.lean  [9,9,6,5]
+--   SNSFL_L2_Psy_LocusControl.lean   [9,9,6,6]
+--   SNSFL_L2_Psy_Maslow.lean         [9,9,6,7]
+--   SNSFL_L2_Psy_SDT.lean            [9,9,6,8]
+--   SNSFL_L2_Psy_TerrorMgmt.lean     [9,9,6,9]
 --
--- THEOREMS: 27 + master. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 31. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives + UUIA scoring constants — ground

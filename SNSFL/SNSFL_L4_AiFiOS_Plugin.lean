@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS AIFIOS PLUGIN INTERFACE REDUCTION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,1,3] | AiFiOS Foundation Layer | Slot 3
+-- Coordinate: [9,9,1,3](COMP) | AiFiOS foundation layer
 --
 -- Plugin architectures are not fundamental. They never were.
 -- Every plugin call, every interface contract, every isolation guarantee,
@@ -585,7 +585,7 @@ end SNSFL_L4_AiFiOS_Plugin
 /-!
 -- ============================================================
 -- FILE: SNSFL_L4_AiFiOS_Plugin.lean
--- COORDINATE: [9,9,1,3]
+-- COORDINATE: [9,9,1,3](COMP)
 -- LAYER: AiFiOS Foundation Layer | Slot 3
 --
 -- LONG DIVISION:
@@ -649,7 +649,7 @@ end SNSFL_L4_AiFiOS_Plugin
 --   SNSFL_L4_AiFiOS_Kernel.lean   → kernel authority layer [9,9,1,2]
 --   SNSFL_L4_AiFiOS_Plugin.lean   → plugin interface [9,9,1,3] ← THIS FILE
 --
--- THEOREMS: 30. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 33. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives — ground

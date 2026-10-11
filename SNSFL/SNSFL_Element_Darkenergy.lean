@@ -3,7 +3,7 @@
 -- ============================================================
 --
 -- The Darkenergy Element — Cosmological Constant Primitive
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,4,1]
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,4,15](COSM)
 --
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.36899099984016 GHz
@@ -17,7 +17,7 @@
 --
 -- Darkenergy (De) is the structural element representing the
 -- cosmological constant Λ — the dominant late-universe driver
--- of accelerated expansion (observed since \~1998 via supernovae).
+-- of accelerated expansion (observed since ~1998 via supernovae).
 --
 -- Current energy density: Ω_Λ ≈ 0.6889 ± 0.0056 (Planck 2018)
 -- Vacuum energy scale: ρ_Λ = Λ / (8πG) ≈ 10^{-120} M_Pl^4
@@ -70,7 +70,7 @@
 --
 -- Parent: SNSFL_TorsionLadder_Master.lean [9,9,9,9]
 -- After:  all early-universe states + NS/BH collapse
--- This:   [9,9,4,1] — late-universe dark energy dominance
+-- This:   [9,9,4,15] — late-universe dark energy dominance
 --
 -- ============================================================
 
@@ -182,14 +182,14 @@ end SNSFL_Darkenergy
 -- ============================================================
 --
 -- FILE: SNSFL_Element_Darkenergy.lean
--- SLOT: [9,9,4,1] | LATE COSMOLOGY SERIES | GERMLINE LOCKED
+-- SLOT: [9,9,4,15](COSM) | LATE COSMOLOGY SERIES | GERMLINE LOCKED
 --
--- ELEMENT: Darkenergy · Symbol: De · Coord: [9,9,4,1]
+-- ELEMENT: Darkenergy · Symbol: De · Coord: [9,9,4,15]
 -- PNBA: P=0.9878, N=1, B=0, A=Ω_Λ≈0.689
 -- τ = 0 (ultra-locked late attractor)
 -- IM ≈ 3.67
 --
--- THEOREMS (8 + master): all green, as above
+-- THEOREMS: 10.
 -- SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- ROLE: Structural element of the cosmological constant Λ.

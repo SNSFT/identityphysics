@@ -5,12 +5,12 @@
 -- [9,9,9,9] :: {ANC} | Identity Physics Fe-O HEME COUPLING — GAM COLLIDER RESULT
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,0,8,5] | Layer 2 — Biological Domain
+-- Coordinate: [9,0,8,5](CHEM) | Layer 2 — Biological domain
 --
 -- Heme coupling is not fundamental. It never was.
 -- Fe (SHATTER, τ=1.0667) + O (SHATTER, τ=0.4396) collide at k=2
 -- via the GAM Collider protocol, producing Fe-O (SHATTER, τ=0.9729).
--- At k=3, the collision reaches Noble (τ=0) — the fully saturated state.
+-- At k=3, the collision reaches Noble (τ=0) — the all-bonds-satisfied state.
 -- The reversible O₂ binding corridor is the gap between k=2 and k=3.
 -- Biology lives in that gap.
 --
@@ -19,7 +19,7 @@
 --   2. Known:      Fe has 4 unpaired d-electrons (Hund, [9,9,1,26])
 --                  O has 2 unpaired p-electrons ([9,9,1,8])
 --                  Heme Fe-O bond is reversible (biochemistry fact)
---                  Hemoglobin releases O₂ at low pO₂ (Bohr effect)
+--                  Hemoglobin binds and releases O₂ as pO₂ rises and falls
 --   3. PNBA map:   P → harmonic(P_Fe, P_O) = 2.0557
 --                  N → N_Fe + N_O = 8 + 4 = 12
 --                  B → max(0, B_Fe + B_O - 2k) at k=2 → B=2
@@ -28,7 +28,7 @@
 --                  τ = B/P · monotone decreasing in k (dτ/dk = -2/P_out)
 --   5. Work shown: T1–T15 · full collision sweep · k=2 heme · k=3 Noble
 --   6. Verified:   τ_heme = 0.9729 SHATTER (reversible zone)
---                  τ_k3   = 0.0000 NOBLE (fully saturated)
+--                  τ_k3   = 0.0000 NOBLE (all bonds satisfied)
 --                  Master theorem holds all simultaneously
 --
 -- The Identity Physics Corpus Dynamic Equation:
@@ -36,7 +36,7 @@
 --
 -- Heme coupling is a special case of this equation.
 -- k is the external coupling operator. F_ext = pO₂ pressure.
--- The Bohr effect is F_ext modulating k in real time.
+-- F_ext rising and falling moves k across the window in real time.
 --
 -- DEPENDS ON:
 --   SNSFT_Reduction_Iron_Atom_1.lean  [9,9,1,26]  Fe PNBA
@@ -297,7 +297,7 @@ theorem T9_o_shatter :
 
 -- ── T10: B RESIDUAL AT k=3 — NOBLE EMERGENCE ────────────────
 -- At k=3: B_out = max(0, 4 + 2 - 2×3) = max(0, 0) = 0
--- τ = 0 → NOBLE. Fully saturated state.
+-- τ = 0 → NOBLE. All bonds satisfied.
 -- This is hemoglobin that has released its oxygen.
 -- Two SHATTER inputs (Fe, O) produce Noble at k=3.
 -- Noble emergence from SHATTER collision — proved.
@@ -315,7 +315,7 @@ theorem T10b_k3_tau_zero :
 -- dτ/dk = -2/P_out
 -- Each unit increase in k decreases τ by 2/P_out.
 -- This is the control law: k is the coupling operator.
--- F_ext (pO₂) modulates k. The Bohr effect is this theorem.
+-- F_ext (pO₂, with CO₂ and pH as the Bohr shift) modulates k.
 theorem T11_tau_monotone_in_k (k1 k2 : ℝ) (hk : k1 < k2)
     (hB1 : Fe_B + O_B - 2*k1 > 0)
     (hB2 : Fe_B + O_B - 2*k2 ≥ 0) :
@@ -404,7 +404,7 @@ def k2_B_lossless : LongDivisionResult where
   step6_passes := by unfold Fe_B O_B; norm_num
 
 def k3_B_lossless : LongDivisionResult where
-  domain       := "Fe-O k=3 Noble emergence · fully saturated"
+  domain       := "Fe-O k=3 Noble emergence · all bonds satisfied"
   classical_eq := (0 : ℝ)
   pnba_output  := max 0 (Fe_B + O_B - 2 * 3)
   step6_passes := by unfold Fe_B O_B; norm_num
@@ -489,14 +489,14 @@ end SNSFL_FeO_HemeCoupling
 /-!
 -- ============================================================
 -- FILE: SNSFL_FeO_HemeCoupling.lean
--- COORDINATE: [9,0,8,5]
+-- COORDINATE: [9,0,8,5](CHEM)
 -- LAYER: Layer 2 — Biological Domain
 --
 -- LONG DIVISION:
 --   1. Equation:   d/dt(IM·Pv) = Σλ·O·S + F_ext
 --   2. Known:      Fe has 4 unpaired d-electrons · O has 2
 --                  Heme Fe-O bond is reversible
---                  Hemoglobin obeys Bohr effect (pO₂ modulates binding)
+--                  Hemoglobin binding follows pO₂ (CO₂ and pH shift it: Bohr effect)
 --   3. PNBA map:   P → harmonic(3.750, 4.550) = 2.0557
 --                  N → 8 + 4 = 12
 --                  B → max(0, 4 + 2 - 2k)
@@ -508,14 +508,14 @@ end SNSFL_FeO_HemeCoupling
 -- REDUCTION:
 --   Classical:  Hemoglobin reversibly binds O₂ via Fe-heme coordination
 --   Identity Physics:      Fe(SHATTER) + O(SHATTER) at k=2 → τ=0.9729 SHATTER
---               Same pair at k=3 → τ=0 NOBLE (fully saturated)
+--               Same pair at k=3 → τ=0 NOBLE (all bonds satisfied)
 --               Reversible window: k ∈ [2,3), F_ext = pO₂ drives k
 --   Result:     Biology lives in the gap between k=2 and k=3
 --
 -- KEY INSIGHT:
 --   Heme coupling is not fundamental. It never was.
 --   The reversible O₂ binding is the PNBA arithmetic of k.
---   The Bohr effect is F_ext modulating k in real time.
+--   F_ext rising and falling moves k across the window in real time.
 --   Two SHATTER states produce Noble at sufficient k. Proved.
 --
 -- CLASSICAL EXAMPLES VERIFIED LOSSLESS:
@@ -545,7 +545,7 @@ end SNSFL_FeO_HemeCoupling
 --   SNSFL_BiologicalAnalog.lean       [9,0,8,4]   → T14 hemoglobin basis
 --   SNSFL_FeO_HemeCoupling.lean       [9,0,8,5]   → this file
 --
--- THEOREMS: 14 + lossless instances. SORRY: 0. STATUS: GREEN LIGHT.
+-- THEOREMS: 23. SORRY: 0. STATUS: GREEN LIGHT.
 --
 -- HIERARCHY MAINTAINED:
 --   Layer 0: PNBA primitives + corpus values — ground

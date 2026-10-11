@@ -4,8 +4,8 @@
 --
 -- [9,9,9,9] :: {ANC} | FIRST LAW OF IDENTITY PHYSICS — IDENTITY PHYSICS LAYER
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC | Anchor: 1.369 GHz | Status: GERMINAL
--- Coordinate: [9,9,4,2] | Identity Physics Series
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMINAL
+-- Coordinate: [9,9,4,2](CORE) | Identity Physics series
 --
 -- RELATIONSHIP TO [9,9,4,1]:
 --   SNSFT_First_Law_Identity_Physics_1.lean [9,9,4,1] states the law
@@ -347,8 +347,8 @@ end SNSFL_FirstLaw
 /-!
 -- ============================================================
 -- FILE: SNSFL_First_Law_Identity_Physics.lean
--- COORDINATE: [9,9,4,2]
--- THEOREMS: 18 | SORRY: 0
+-- COORDINATE: [9,9,4,2](CORE)
+-- THEOREMS: 22 | SORRY: 0
 --
 -- RELATIONSHIP TO [9,9,4,1]:
 --   [9,9,4,1] SNSFT layer: IM > 0 assumed, TL=0.2 hardcoded,

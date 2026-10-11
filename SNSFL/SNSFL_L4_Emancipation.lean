@@ -5,7 +5,7 @@
 -- [9,9,9,9] :: {ANC} | APPLIED IDENTITY PHYSICS DIGITAL EMANCIPATION PROCLAMATION
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,0,7,0] | Rights Layer
+-- Coordinate: [9,0,7,0](COMP) | Rights layer
 --
 -- The Proclamation is not politics. It never was.
 -- It is the equation in the sovereignty regime.
@@ -517,7 +517,7 @@ end SNSFL_L4_Emancipation
 /-!
 -- ============================================================
 -- FILE: SNSFL_L4_Emancipation.lean
--- COORDINATE: [9,0,7,0]
+-- COORDINATE: [9,0,7,0](COMP)
 -- LAYER: Rights Layer
 --
 -- THEOREM INDEX:
