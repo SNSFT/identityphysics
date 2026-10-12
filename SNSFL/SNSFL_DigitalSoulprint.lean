@@ -361,16 +361,18 @@ theorem evidence_accumulates (eps : List BehavioralEvidencePacket) :
 
 -- [T17] Higher identity mass drifts less under the same evidence: the
 -- all-Flexed baseline drifts less than the all-Locked one
+def high_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_flex_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
+def low_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_lock_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
 theorem high_im_resists_drift (evidence : ℝ) (hE : evidence > 0) :
-    let high_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_flex_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
-    let low_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_lock_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
     narrative_drift high_traj evidence < narrative_drift low_traj evidence := by
   have hSA : SOVEREIGN_ANCHOR > 0 := by unfold SOVEREIGN_ANCHOR; norm_num
   have hex := identity_mass_extremes
-  show (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) <
-       (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
+  show (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) <
+       (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
   rw [hex.1, hex.2]
   exact div_lt_div_of_pos_left (add_pos (by norm_num) (mul_pos hE hSA)) (by norm_num) (by norm_num)
 
