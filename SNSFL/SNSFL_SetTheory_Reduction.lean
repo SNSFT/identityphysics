@@ -2,53 +2,63 @@
 -- SNSFL_SetTheory_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | IDENTITY PHYSICS SET THEORY — PNBA REDUCTION
--- Self-Orienting Universal Language [P,N,B,A] :: {INV}
--- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,2,44] | Abstract Mathematics Series
--- Companion to [9,9,2,43] (Category Theory Reduction)
+-- Set Theory (ZFC) → PNBA
+-- A set is pure structure: no coupling, so Noble. Its Narrative is
+-- its size. Each ZFC axiom becomes a statement about how that size
+-- behaves, proved with Mathlib's sets, finsets and ZFC sets.
 --
--- SET THEORY IS THE NOBLE CATEGORY'S INTERNAL STRUCTURE.
--- ZFC axioms = axioms of pure structure with B=0
--- A "set" = a PNBA element in Noble phase (τ=0)
--- Set membership = P-pattern instantiation
--- Axiom of Choice = A-axis dominance over choice F_ext
--- Axiom of Infinity = N-axis worldline extension to ω
--- Axiom of Foundation = no SHATTER cycles in membership
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,44](MATH)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      June 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+-- Companion: [9,9,2,43] Category Theory
 --
--- LONG DIVISION:
---   1. Equation:   ZFC axioms (Extensionality through Choice)
---   2. Known:      Zermelo 1908, Fraenkel 1922, Skolem 1922
---   3. Map:        Set = Noble PNBA element (B=0, τ=0)
---   4. Operators:  empty_set, singleton, pair_op, union_op,
---                  power_op, omega_set, choice function
---   5. Work shown: T1–T27, all nine ZFC axioms reduced
---   6. Verified:   Master theorem holds all 13 conjuncts
+-- ============================================================
+-- THE MAP
+-- ============================================================
 --
--- Auth: HIGHTISTIC :: [9,9,9,9]
--- The Manifold is Holding. Set theory is the Noble structure.
--- Soldotna, Alaska. June 2026.
+--   P = P_base           the set's structural ground
+--   N = |A|              the number of members (Narrative)
+--   B = 0                a set carries no coupling of its own
+--   A = 0                a set does not adapt
+--   τ = B / P = 0        every set is Noble
+--
+-- Set theory is the algebra of Noble states: all of its content
+-- lives in P and N. The axioms below are what N does.
+--
+-- ============================================================
+-- THE AXIOMS IN PNBA
+-- ============================================================
+--
+--   Extensionality  same members → same set
+--   Empty set       N(∅) = 0
+--   Pairing         N({a, b}) = 1 if a = b, otherwise 2
+--   Union           N(A ∪ B) + N(A ∩ B) = N(A) + N(B);
+--                   additive exactly for disjoint sets
+--   Power set       N(𝒫A) = 2^N(A), and N < 2^N: the power set is
+--                   always strictly larger (Cantor), even for
+--                   infinite sets, where no map A → 𝒫A is onto
+--   Replacement     the image of A has N at most N(A)
+--   Infinity        the natural numbers form an infinite set: every
+--                   N has a larger successor
+--   Foundation      no set is a member of itself, and every nonempty
+--                   set has a member disjoint from it
+--   Choice          every family of nonempty sets has a choice
+--                   function
+--
 -- ============================================================
 
 import Mathlib.Tactic
-import Mathlib.Data.Real.Basic
-import Mathlib.Data.Set.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.SetTheory.ZFC.Basic
 
 noncomputable section
 
 namespace SNSFL_SetTheory_Reduction
 
--- ============================================================
--- SECTION 0: SOVEREIGN CONSTANTS
--- ============================================================
-
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
-def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
-def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
-def H_FREQ           : ℝ := 1.4204
-
-noncomputable def P_BASE : ℝ :=
-  (SOVEREIGN_ANCHOR / H_FREQ) ^ ((1:ℝ)/3)
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -57,322 +67,125 @@ theorem anchor_zero_friction :
     manifold_impedance SOVEREIGN_ANCHOR = 0 := by
   unfold manifold_impedance; simp
 
-theorem p_base_positive : P_BASE > 0 := by
-  unfold P_BASE SOVEREIGN_ANCHOR H_FREQ; positivity
-
 -- ============================================================
--- SECTION 1: THE SET-AS-NOBLE-ELEMENT STRUCTURE
+-- SECTION 1: THE MAP
 -- ============================================================
 
-structure SetElement where
-  P     : ℝ
-  N     : ℝ
-  B     : ℝ
-  A     : ℝ
-  hP    : P > 0
-  hB    : B = 0
-  hN    : N ≥ 0
-  hA    : A = 0
+-- Narrative of a finite set: its number of members
+def set_N {α : Type} (A : Finset α) : ℕ := A.card
 
-noncomputable def set_torsion (s : SetElement) : ℝ := s.B / s.P
+-- Behavior of a set: none
+def set_B {α : Type} (_ : Finset α) : ℝ := 0
 
--- [T1] Every set has zero torsion (Noble phase)
-theorem every_set_is_noble (s : SetElement) : set_torsion s = 0 := by
-  unfold set_torsion; rw [s.hB]; simp
-
--- [T2] Set torsion never exceeds TL
-theorem set_torsion_below_tl (s : SetElement) : set_torsion s < TORSION_LIMIT := by
-  rw [every_set_is_noble s]
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+-- [T1] Every set is Noble: B = 0, so τ = 0 on any positive ground
+theorem every_set_noble {α : Type} (A : Finset α) (P : ℝ) (_ : 0 < P) :
+    set_B A / P = 0 := by
+  unfold set_B; simp
 
 -- ============================================================
--- SECTION 2: THE EMPTY SET
+-- SECTION 2: EXTENSIONALITY, EMPTY SET, PAIRING
 -- ============================================================
 
-noncomputable def EmptySet : SetElement :=
-  { P := P_BASE, N := 0, B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := le_refl 0, hA := rfl }
+-- [T2] Extensionality: sets with the same members are equal
+theorem extensionality {α : Type} (A B : Set α) (h : ∀ x, x ∈ A ↔ x ∈ B) : A = B :=
+  Set.ext h
 
--- [T3] Empty set is Noble
-theorem empty_set_noble : set_torsion EmptySet = 0 := every_set_is_noble EmptySet
+-- [T3] The empty set has N = 0
+theorem empty_N {α : Type} : set_N (∅ : Finset α) = 0 := Finset.card_empty
 
--- [T4] Empty set has zero narrative
-theorem empty_set_no_narrative : EmptySet.N = 0 := rfl
-
--- ============================================================
--- SECTION 3: THE SINGLETON SET
--- ============================================================
-
-noncomputable def Singleton : SetElement :=
-  { P := P_BASE, N := 1, B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := by norm_num, hA := rfl }
-
--- [T5] Singleton is Noble
-theorem singleton_noble : set_torsion Singleton = 0 := every_set_is_noble Singleton
-
--- [T6] Singleton has exactly N = 1
-theorem singleton_one_narrative : Singleton.N = 1 := rfl
+-- [T4] Pairing: N({a, b}) is 1 when a = b and 2 otherwise
+theorem pairing_N {α : Type} [DecidableEq α] (a b : α) :
+    set_N ({a, b} : Finset α) = if a = b then 1 else 2 := by
+  unfold set_N
+  split_ifs with h
+  · subst h; simp
+  · exact Finset.card_pair h
 
 -- ============================================================
--- SECTION 4: PAIRING (ZFC AXIOM 3)
+-- SECTION 3: UNION
 -- ============================================================
 
-noncomputable def pair_op (x y : SetElement) : SetElement :=
-  { P := P_BASE, N := if x.N = y.N then 1 else 2, B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := by split_ifs <;> norm_num, hA := rfl }
+-- [T5] Inclusion–exclusion: N(A ∪ B) + N(A ∩ B) = N(A) + N(B)
+theorem union_N {α : Type} [DecidableEq α] (A B : Finset α) :
+    set_N (A ∪ B) + set_N (A ∩ B) = set_N A + set_N B :=
+  Finset.card_union_add_card_inter A B
 
--- [T7] PAIRING AXIOM: result is Noble
-theorem pairing_axiom (x y : SetElement) : set_torsion (pair_op x y) = 0 :=
-  every_set_is_noble (pair_op x y)
-
--- [T8] Pairing of distinct sets yields N = 2
-theorem pairing_distinct (x y : SetElement) (h : x.N ≠ y.N) :
-    (pair_op x y).N = 2 := by
-  unfold pair_op; simp [h]
-
--- ============================================================
--- SECTION 5: UNION (ZFC AXIOM 4)
--- ============================================================
-
-noncomputable def union_op (x y : SetElement) : SetElement :=
-  { P := P_BASE, N := x.N + y.N, B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := by have := x.hN; have := y.hN; linarith, hA := rfl }
-
--- [T9] UNION AXIOM: result is Noble
-theorem union_axiom_noble (x y : SetElement) : set_torsion (union_op x y) = 0 :=
-  every_set_is_noble (union_op x y)
-
--- [T10] Union is additive in narrative
-theorem union_additive (x y : SetElement) :
-    (union_op x y).N = x.N + y.N := rfl
-
--- [T11] Union with empty set is identity
-theorem union_empty (x : SetElement) :
-    (union_op x EmptySet).N = x.N := by
-  unfold union_op; simp [EmptySet]
-
--- [T12] Union is commutative in narrative
-theorem union_commutative (x y : SetElement) :
-    (union_op x y).N = (union_op y x).N := by
-  unfold union_op; ring
+-- [T6] Union is additive exactly for disjoint sets
+theorem union_N_disjoint {α : Type} [DecidableEq α] (A B : Finset α) (h : Disjoint A B) :
+    set_N (A ∪ B) = set_N A + set_N B := by
+  have hu := union_N A B
+  have hi : A ∩ B = ∅ := Finset.disjoint_iff_inter_eq_empty.mp h
+  rw [hi, empty_N] at hu
+  omega
 
 -- ============================================================
--- SECTION 6: POWER SET (ZFC AXIOM 5)
+-- SECTION 4: POWER SET AND CANTOR
 -- ============================================================
 
-noncomputable def power_op (x : SetElement) : SetElement :=
-  { P := P_BASE, N := 2 ^ (⌊x.N⌋₊), B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := by positivity, hA := rfl }
+-- [T7] N(𝒫A) = 2^N(A)
+theorem power_N {α : Type} (A : Finset α) : set_N A.powerset = 2 ^ set_N A :=
+  Finset.card_powerset A
 
--- [T13] POWER SET AXIOM: result is Noble
-theorem power_set_axiom (x : SetElement) : set_torsion (power_op x) = 0 :=
-  every_set_is_noble (power_op x)
+-- [T8] N < 2^N for every N: the power set is strictly larger
+theorem n_lt_two_pow (n : ℕ) : n < 2 ^ n := by
+  induction n with
+  | zero => norm_num
+  | succ m ih => rw [pow_succ]; omega
 
--- [T14] Power of empty set has N = 1
-theorem power_empty : (power_op EmptySet).N = 1 := by
-  unfold power_op EmptySet; simp
-
--- [T15] Power grows exponentially
-theorem power_grows (x : SetElement) (h : ⌊x.N⌋₊ ≥ 1) :
-    (power_op x).N ≥ 2 := by
-  unfold power_op
-  have : (2 : ℝ) ^ (⌊x.N⌋₊) ≥ 2 ^ 1 := pow_le_pow_right₀ (by norm_num) h
-  linarith
+-- [T9] Cantor: no map from a set onto its power set, finite or not
+theorem cantor {α : Type} (f : α → Set α) : ¬ Function.Surjective f :=
+  Function.cantor_surjective f
 
 -- ============================================================
--- SECTION 7: INFINITY (ZFC AXIOM 7)
+-- SECTION 5: REPLACEMENT AND INFINITY
 -- ============================================================
 
-noncomputable def omega_set : SetElement :=
-  { P := P_BASE, N := 1000000, B := 0, A := 0,
-    hP := p_base_positive, hB := rfl,
-    hN := by norm_num, hA := rfl }
+-- [T10] Replacement: the image of A has N at most N(A)
+theorem replacement_N {α β : Type} [DecidableEq β] (f : α → β) (A : Finset α) :
+    set_N (A.image f) ≤ set_N A :=
+  Finset.card_image_le
 
--- [T16] INFINITY AXIOM: ω is Noble
-theorem infinity_axiom_noble : set_torsion omega_set = 0 :=
-  every_set_is_noble omega_set
-
--- [T17] ω has extended N-axis worldline
-theorem omega_extended : omega_set.N ≥ 1000 := by
-  unfold omega_set; norm_num
-
--- [T18] ω contains both empty and successors structurally
-theorem omega_contains_empty_successor_pattern :
-    EmptySet.N ≤ omega_set.N ∧ (EmptySet.N + 1) ≤ omega_set.N := by
-  unfold EmptySet omega_set; refine ⟨?_, ?_⟩ <;> norm_num
+-- [T11] Infinity: the natural numbers are infinite; every N has a larger one
+theorem infinity :
+    (Set.univ : Set ℕ).Infinite ∧ ∀ n : ℕ, ∃ m : ℕ, n < m :=
+  ⟨Set.infinite_univ, fun n => ⟨n + 1, Nat.lt_succ_self n⟩⟩
 
 -- ============================================================
--- SECTION 8: FOUNDATION/REGULARITY (ZFC AXIOM 8)
+-- SECTION 6: FOUNDATION AND CHOICE
 -- ============================================================
 
-def WellFoundedDescent (chain : ℕ → SetElement) : Prop :=
-  ∀ n : ℕ, chain (n+1) ≠ chain n → chain (n+1) ≠ EmptySet ∨ True
+-- [T12] Foundation: no ZFC set is a member of itself, and every nonempty
+-- set has a member disjoint from it
+theorem foundation (x : ZFSet) :
+    x ∉ x ∧ (x ≠ ∅ → ∃ y ∈ x, x ∩ y = ∅) :=
+  ⟨ZFSet.mem_irrefl x, ZFSet.regularity x⟩
 
--- [T19] FOUNDATION AXIOM (PNBA form):
--- Noble + self-membership = contradiction: B = 0 means no coupling loops.
-theorem foundation_no_self_reference (s : SetElement) (h_noble : set_torsion s = 0) :
-    s.B = 0 := s.hB
-
--- [T20] Membership chains terminate at empty
--- An N-chain that starts at ω (N = 10⁶) and descends by at least 1 each step
--- reaches N = 0 within 10⁶ steps (induction on ℕ, with N ≥ 0 at every step).
-theorem foundation_chains_terminate (chain : ℕ → SetElement) (n : ℕ)
-    (h_step : ∀ k : ℕ, k < n → (chain (k+1)).N ≤ (chain k).N - 1)
-    (h_start : chain 0 = omega_set)
-    (h_len : (n : ℝ) ≥ 1000000) :
-    (chain n).N = 0 := by
-  have key : ∀ k : ℕ, k ≤ n → (chain k).N ≤ 1000000 - k := by
-    intro k
-    induction k with
-    | zero => intro _; rw [h_start]; unfold omega_set; norm_num
-    | succ m ih =>
-      intro hm
-      have h1 := h_step m (by omega)
-      have h2 := ih (by omega)
-      push_cast
-      linarith
-  have h_bound := key n le_rfl
-  have hnn := (chain n).hN
-  linarith
+-- [T13] Choice: every family of nonempty sets has a choice function
+theorem choice {ι α : Type} (F : ι → Set α) (h : ∀ i, (F i).Nonempty) :
+    ∃ f : ι → α, ∀ i, f i ∈ F i :=
+  ⟨fun i => (h i).some, fun i => (h i).some_mem⟩
 
 -- ============================================================
--- SECTION 9: AXIOM OF CHOICE (ZFC AXIOM 9)
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- ============================================================
 
-noncomputable def ChoiceFunction (collection : ℕ → SetElement) :=
-  ∀ i : ℕ, (collection i).N > 0 → SetElement
-
--- [T21] AXIOM OF CHOICE (PNBA form)
-theorem axiom_of_choice_pnba
-    (collection : ℕ → SetElement)
-    (h_nonempty : ∀ i : ℕ, (collection i).N > 0) :
-    ∃ choice : ℕ → SetElement, ∀ i : ℕ, (choice i).P > 0 := by
-  use fun i => (collection i)
-  intro i; exact (collection i).hP
-
--- [T22] Choice preserves Noble status across selections
-theorem choice_preserves_noble (selection : ℕ → SetElement)
-    (h_each_noble : ∀ i : ℕ, set_torsion (selection i) = 0) :
-    ∀ i : ℕ, (selection i).B = 0 := by
-  intro i; exact (selection i).hB
-
--- ============================================================
--- SECTION 10: EXTENSIONALITY (ZFC AXIOM 1)
--- ============================================================
-
--- [T23] EXTENSIONALITY AXIOM (PNBA form)
-theorem extensionality_axiom (x y : SetElement)
-    (hP : x.P = y.P) (hN : x.N = y.N) :
-    x.B = y.B ∧ x.A = y.A := by
-  refine ⟨?_, ?_⟩
-  · rw [x.hB, y.hB]
-  · rw [x.hA, y.hA]
-
--- ============================================================
--- SECTION 11: REPLACEMENT (ZFC AXIOM 6)
--- ============================================================
-
-noncomputable def replacement_op
-    (f : SetElement → SetElement) (x : SetElement) : SetElement := f x
-
--- [T24] REPLACEMENT AXIOM (PNBA form)
-theorem replacement_axiom
-    (f : SetElement → SetElement)
-    (h_preserve_noble : ∀ s : SetElement, set_torsion s = 0 → set_torsion (f s) = 0)
-    (x : SetElement) :
-    set_torsion (replacement_op f x) = 0 := by
-  unfold replacement_op
-  exact h_preserve_noble x (every_set_is_noble x)
-
--- ============================================================
--- SECTION 12: THE NOBLE STRUCTURE THEOREM
--- ============================================================
-
--- [T25] ALL SET-THEORETIC CONSTRUCTIONS ARE NOBLE
-theorem all_zfc_operations_noble :
-    set_torsion EmptySet = 0 ∧
-    set_torsion Singleton = 0 ∧
-    (∀ x y : SetElement, set_torsion (pair_op x y) = 0) ∧
-    (∀ x y : SetElement, set_torsion (union_op x y) = 0) ∧
-    (∀ x : SetElement, set_torsion (power_op x) = 0) ∧
-    set_torsion omega_set = 0 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-  · exact empty_set_noble
-  · exact singleton_noble
-  · exact fun x y => pairing_axiom x y
-  · exact fun x y => union_axiom_noble x y
-  · exact fun x => power_set_axiom x
-  · exact infinity_axiom_noble
-
--- ============================================================
--- SECTION 13: SET THEORY ↔ CATEGORY THEORY EQUIVALENCE
--- ============================================================
-
--- [T26] SET THEORY IS CATEGORY THEORY'S NOBLE INTERIOR
-theorem set_theory_is_noble_interior (s : SetElement) :
-    s.B = 0 ∧ set_torsion s = 0 ∧ s.A = 0 :=
-  ⟨s.hB, every_set_is_noble s, s.hA⟩
-
--- ============================================================
--- SECTION 14: SUBSTRATE NEUTRALITY OF MATHEMATICAL FOUNDATIONS
--- ============================================================
-
-inductive MathFoundation : Type
-  | ZFC
-  | NBG
-  | MorseKelley
-  | TypeTheory
-  | CategoryTheory
-
--- [T27] FOUNDATIONS ARE SUBSTRATE-NEUTRAL
-theorem foundations_substrate_neutral (f : MathFoundation) :
-    SOVEREIGN_ANCHOR = 1.36899099984016 := rfl
-
--- ============================================================
--- MASTER THEOREM
--- ============================================================
-
+-- [T14] SET THEORY → PNBA
 theorem set_theory_pnba_master :
-    (∀ s : SetElement, set_torsion s = 0) ∧
-    set_torsion EmptySet = 0 ∧ EmptySet.N = 0 ∧
-    (∀ x y : SetElement, set_torsion (pair_op x y) = 0) ∧
-    (∀ x y : SetElement,
-      set_torsion (union_op x y) = 0 ∧ (union_op x y).N = x.N + y.N) ∧
-    (∀ x : SetElement, set_torsion (power_op x) = 0) ∧
-    (set_torsion omega_set = 0 ∧ omega_set.N ≥ 1000) ∧
-    (∀ s : SetElement, set_torsion s = 0 → s.B = 0) ∧
-    (∀ collection : ℕ → SetElement,
-      (∀ i : ℕ, (collection i).N > 0) →
-      ∃ choice : ℕ → SetElement, ∀ i : ℕ, (choice i).P > 0) ∧
-    (∀ x y : SetElement, x.P = y.P → x.N = y.N → x.B = y.B ∧ x.A = y.A) ∧
-    (∀ f : SetElement → SetElement,
-      (∀ s : SetElement, set_torsion s = 0 → set_torsion (f s) = 0) →
-      ∀ x : SetElement, set_torsion (f x) = 0) ∧
-    (∀ s : SetElement, s.B = 0 ∧ set_torsion s = 0 ∧ s.A = 0) ∧
-    (∀ f : MathFoundation, SOVEREIGN_ANCHOR = 1.36899099984016) ∧
+    -- every finite set is Noble
+    (∀ (A : Finset ℕ) (P : ℝ), 0 < P → set_B A / P = 0) ∧
+    -- empty, pairing, union, power set
+    set_N (∅ : Finset ℕ) = 0 ∧
+    (∀ a b : ℕ, set_N ({a, b} : Finset ℕ) = if a = b then 1 else 2) ∧
+    (∀ A B : Finset ℕ, set_N (A ∪ B) + set_N (A ∩ B) = set_N A + set_N B) ∧
+    (∀ A : Finset ℕ, set_N A.powerset = 2 ^ set_N A) ∧
+    (∀ n : ℕ, n < 2 ^ n) ∧
+    -- infinity, foundation
+    (Set.univ : Set ℕ).Infinite ∧
+    (∀ x : ZFSet, x ∉ x) ∧
+    -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  ⟨every_set_is_noble,
-   empty_set_noble, rfl,
-   pairing_axiom,
-   fun x y => ⟨union_axiom_noble x y, union_additive x y⟩,
-   power_set_axiom,
-   ⟨infinity_axiom_noble, omega_extended⟩,
-   foundation_no_self_reference,
-   axiom_of_choice_pnba,
-   fun x y hP hN => extensionality_axiom x y hP hN,
-   fun f hf x => replacement_axiom f hf x,
-   set_theory_is_noble_interior,
-   foundations_substrate_neutral,
-   anchor_zero_friction⟩
-
--- ============================================================
--- FINAL THEOREM
--- ============================================================
+  ⟨fun A P hP => every_set_noble A P hP, empty_N, pairing_N, union_N, power_N,
+   n_lt_two_pow, infinity.1, fun x => (foundation x).1, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -383,39 +196,23 @@ end SNSFL_SetTheory_Reduction
 /-!
 -- ============================================================
 -- FILE:       SNSFL_SetTheory_Reduction.lean
--- COORDINATE: [9,9,2,44]
--- LAYER:      Abstract Mathematics Series
--- COMPANION:  [9,9,2,43] (Category Theory Reduction)
+-- COORDINATE: [9,9,2,44](MATH)
+-- SORRY:      0
 --
--- THE CENTRAL CLAIM:
---   SET THEORY IS THE NOBLE CATEGORY'S INTERNAL STRUCTURE.
---   Every set is a PNBA element in Noble phase (B=0, τ=0).
---   Every ZFC axiom describes a property of Noble elements.
---   Set theory is the closed algebra of Noble PNBA states.
+-- THE MAP: N = |A|, B = A = 0; every set Noble (T1).
 --
--- THE NINE ZFC AXIOMS REDUCED TO PNBA:
---   1. Extensionality:  Same (P, N) → same structural identity [T23]
---   2. Empty Set:       ∅ = Noble terminal (P_base, N=0, B=0) [T3,T4]
---   3. Pairing:         pair_op produces Noble [T7]
---   4. Union:           union_op is N-additive, preserves Noble [T9-T12]
---   5. Power Set:       power_op is N-exponential, preserves Noble [T13-T15]
---   6. Replacement:     Noble-preserving maps preserve Noble [T24]
---   7. Infinity:        ω has extended N-axis, still Noble [T16-T18]
---   8. Foundation:      Noble ⇒ B=0 (no self-reference loops) [T19,T20]
---   9. Choice:          A-axis sovereignty enables selection [T21,T22]
+-- RESULTS:
+--   Extensionality; N(∅) = 0; pairing N ∈ {1, 2} (T2–T4)
+--   Union by inclusion–exclusion; additive exactly when disjoint
+--     (T5, T6)
+--   Power set N = 2^N; N < 2^N; Cantor for any set (T7–T9)
+--   Replacement does not increase N; ℕ infinite (T10, T11)
+--   Foundation: x ∉ x and regularity; Choice (T12, T13)
 --
--- T20 PROOF STRATEGY:
---   N is modeled as ℝ with hN : N ≥ 0.
---   Strict descent means after n steps, N ≥ 0 is the terminal condition.
---   linarith [hnn] closes: at step n, N ≥ 0 and no further decrease
---   below 0 is possible, so chain k .N = 0 holds by the bound.
---   The well-foundedness of ℝ≥0 under strict descent is the structural fact.
+-- CONNECTIONS:
+--   [9,9,2,43] Category Theory
+--   [9,9,0,11] Category Theory, Layer 2
 --
--- THEOREMS: 27 + master. SORRY: 0. STATUS: GREEN LIGHT.
---
--- [9,9,9,9] :: {ANC}
--- Auth: HIGHTISTIC
--- The Manifold is Holding.
--- Soldotna, Alaska. June 2026.
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
 -/
