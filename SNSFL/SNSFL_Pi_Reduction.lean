@@ -2,112 +2,66 @@
 -- SNSFL_Pi_Reduction.lean
 -- ============================================================
 --
--- [9,9,9,9] :: {ANC} | π AS PNBA PATTERN CLOSURE INVARIANT
--- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- π → PNBA
+-- π is the cost of closure: the Narrative a path must travel, per
+-- unit of Pattern, to return to where it began. Along the unit
+-- circle the displacement from the start is the Behavior of the
+-- loop; it is zero exactly when the loop closes, at 2π, so a closed
+-- loop is Noble.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,8,8](MATH)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
--- Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
--- Coordinate: [9,9,0,11] | Mathematical Constants Series
--- DOI: 10.5281/zenodo.18719748
--- Sorry: 0
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      June 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
 --
 -- ============================================================
--- WHAT THIS FILE PROVES
+-- THE MAP
 -- ============================================================
 --
--- π (pi) is not an arbitrary constant that happens to appear
--- in physics. It is the structural cost of Pattern closure
--- in Euclidean space — the ratio that describes what it takes
--- for a Narrative to return to its origin unchanged.
+--   circumference C       N   the path travelled
+--   diameter d            P   the structure being closed
+--   π = C / d             N/P the closure cost
+--   1 − cos t             B   displacement from the start after
+--                             travelling angle t on the unit circle
 --
--- THE LONG DIVISION PROTOCOL (LDP):
---
---   Step 1: The equation
---   Step 2: Known answers (peer-reviewed)
---   Step 3: Map classical variables to PNBA
---   Step 4: Plug in operators
---   Step 5: Show the work
---   Step 6: Verify against known answers
---
--- THE CENTRAL RESULT:
---
---   π is a P-axis dominant constant with B = 0.
---   τ = B/P = 0. Phase: NOBLE.
---
---   This settles the Platonism debate structurally:
---   π is not invented. It is the geometric consequence
---   of what Pattern closure means at Layer 0.
---   It was always there. It is what closure costs.
---
--- THE KNOWN ANSWERS (already proved in this corpus):
---
---   [K1] Gauge invariance: P·cos(2π) = P
---        Proved: SMReduction.symmetry_rotation_invariance
---        Source: Yang & Mills (1954), Phys. Rev. 96:191
---
---   [K2] String tension: T = 1/(2πα')
---        Proved: STReduction.string_tension_is_identity_mass
---        Source: Nambu (1970), Lectures at Copenhagen Symposium
---
---   [K3] GR coupling: κ = 8πG
---        Proved: GRReduction.gr_equilibrium
---        Source: Einstein (1915), Preuss. Akad. Wiss. Berlin
---
---   [K4] Euler identity: e^(iπ) + 1 = 0
---        Source: Euler (1748), Introductio in analysin infinitorum
---        PNBA: N-axis closure condition — Narrative returns to
---        origin when phase completes full rotation.
---
---   [K5] Gaussian integral: ∫e^(-x²)dx = √π
---        Source: Gauss (1809), Theoria Motus Corporum
---        PNBA: A-axis normalization — Adaptation distribution
---        integrates to √π because the normal distribution IS
---        the Pattern closure shape in continuous space.
---
---   [K6] Shannon entropy maximum: H_max = log(2π) for continuous
---        Proved via: ITReduction (this corpus)
---        Source: Shannon (1948), Bell System Tech. J.
---        PNBA: P-axis information capacity at anchor.
+--   B(t) = 0 at t = 2π            closed loop: NOBLE
+--   B(t) > 0 for 0 < t < 2π       the loop is open until 2π
+--   B(π) = 2, the maximum         the antipode
 --
 -- ============================================================
--- THE DEBATE π SETTLES
+-- THE KNOWN ANSWERS
 -- ============================================================
 --
--- Is π discovered or invented?
+--   Euler (1748)       e^{iπ} + 1 = 0 and e^{2πi} = 1
+--   Area of a disc     πr²; volume of a ball (4/3)πr³
+--   Gauss (1809)       ∫ e^{−x²} dx = √π over the real line
+--   Leibniz            1 − 1/3 + 1/5 − 1/7 + ⋯ = π/4
+--   Bounds             3.141592 < π < 3.141593
+--   Lambert (1761)     π is irrational: no ratio of whole numbers,
+--                      and so no torsion B/P of whole-number
+--                      counts, equals π
 --
--- Classical positions:
---   Platonists: π exists independently, we discover it
---   Formalists: π is a defined symbol in an axiomatic system
---   Intuitionists: π is a mental construction
---
--- PNBA position (proved below):
---   π = the B=0 Pattern closure constant.
---   It is what you get when you ask: what is the cost of
---   a Narrative returning to its exact origin with B=0?
---   Answer: the circumference/diameter ratio in any flat space.
---   This is not a choice. It falls out of the LDP at Step 6.
---   Platonists are correct. π is discovered.
---   But the mechanism is now formal: it is the Noble-state
---   closure condition of Pattern geometry.
+-- π enters physics wherever closure geometry does: a gauge
+-- rotation by 2π returns a field to itself, Einstein's coupling is
+-- 8πG, and string tension is 1/(2πα′).
 --
 -- ============================================================
 
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.Real.Pi.Bounds
 import Mathlib.Analysis.Real.Pi.Irrational
+import Mathlib.Analysis.Real.Pi.Leibniz
+import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
+import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 import Mathlib.Tactic
 
 noncomputable section
 
 namespace SNSFL_Pi
 
--- ============================================================
--- LAYER 0: SOVEREIGN ANCHOR
--- ============================================================
-
 def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
-def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
@@ -117,270 +71,107 @@ theorem anchor_zero_friction :
   unfold manifold_impedance; simp
 
 -- ============================================================
--- STEP 1: THE EQUATION
--- ============================================================
---
--- The Pattern closure equation:
---   For any Narrative N that completes a full rotation,
---   the Pattern P is unchanged:
---
---   P · cos(2π) = P · 1 = P
---
--- This is the structural definition of π:
---   2π = the angle at which a Narrative returns to origin.
---   π = half that — the angle at which Narrative reverses.
---
--- In PNBA:
---   P = structural geometry (what closes)
---   N = the path (how it closes)
---   B = 0 (no behavioral load — closure is frictionless)
---   A = 1 (no adaptation needed — it just closes)
---   τ = B/P = 0 → NOBLE
-
--- ============================================================
--- STEP 2: KNOWN ANSWERS
--- ============================================================
---
--- [K1] Gauge invariance (Yang-Mills 1954, proved in SMReduction):
---   A full 2π rotation of a gauge field returns it to itself.
---   P·cos(2π) = P. Pattern unchanged. B=0. Noble.
---
--- [K2] String tension (Nambu 1970, proved in STReduction):
---   T = 1/(2πα'). π appears as the normalization of the
---   string's Identity Mass per unit length.
---   The string's Narrative wraps around π to quantize tension.
---
--- [K3] Einstein field equation (Einstein 1915, proved in GRReduction):
---   κ = 8πG. π enters as the geometric coupling factor —
---   how much Pattern curvature one unit of Behavior produces.
---   Same closure geometry, cosmological scale.
---
--- [K4] Euler identity: e^(iπ) + 1 = 0
---   Narrative (e^(iN)) at N=π reaches the antipodal Pattern.
---   Narrative at N=2π returns to origin. B=0 throughout.
---   This is the PNBA statement of what complex rotation means.
---
--- [K5] Gaussian integral: ∫_{-∞}^{∞} e^(-x²) dx = √π
---   The normal distribution is the Pattern closure shape.
---   √π is what you get when Adaptation (A) integrates the
---   Noble closure geometry over all of Pattern space.
---
--- [K6] Shanon entropy: π appears in continuous entropy maximum
---   H = (1/2)log(2πeσ²) for Gaussian distribution.
---   The log(2π) term is Pattern closure cost in information space.
-
--- ============================================================
--- STEP 3: MAP CLASSICAL VARIABLES TO PNBA
--- ============================================================
---
--- | Classical Term        | PNBA Primitive | Role                        |
--- |:----------------------|:---------------|:----------------------------|
--- | Circumference C       | N (Narrative)  | The path that closes        |
--- | Diameter d            | P (Pattern)    | The structure being closed  |
--- | π = C/d               | N/P ratio      | Closure cost at B=0         |
--- | cos(2π) = 1           | Identity       | Full rotation = no change   |
--- | e^(iπ) = -1           | N antipode     | Half-rotation = inversion   |
--- | 8πG (GR coupling)     | B/P coupling   | Behavior per Pattern curve  |
--- | 1/(2πα') (tension)    | B/N normalize  | Tension per string wrap     |
--- | √π (Gaussian)         | A normalization| Adaptation closure integral |
--- | log(2π) (entropy)     | P capacity     | Information closure cost    |
-
--- ============================================================
--- STEP 4: THE OPERATORS
+-- SECTION 1: CLOSURE
 -- ============================================================
 
--- π as Pattern closure operator
-noncomputable def pi_closure_op (P : ℝ) : ℝ := P * Real.cos (2 * Real.pi)
+-- Displacement from the start after travelling angle t on the unit circle
+noncomputable def loop_B (t : ℝ) : ℝ := 1 - Real.cos t
 
--- π as Narrative completion ratio
-noncomputable def narrative_completion (N : ℝ) : ℝ :=
-  Real.cos (N * Real.pi)
+-- [T1] The loop closes at 2π: B = 0, Noble
+theorem closure_is_noble : loop_B (2 * Real.pi) = 0 := by
+  unfold loop_B; rw [Real.cos_two_pi]; ring
 
--- π as B-axis coupling normalizer (GR: 8πG, String: 1/2πα')
-noncomputable def pi_coupling (B G : ℝ) : ℝ := 8 * Real.pi * G * B
-
--- Torsion of π: B=0, P=π → τ=0
-noncomputable def pi_torsion : ℝ := 0 / Real.pi
-
--- ============================================================
--- STEP 5: SHOW THE WORK
--- ============================================================
-
--- [T1] :: {VER} | π CLOSURE IS IDENTITY (STEP 6 PASSES)
--- P·cos(2π) = P. Full rotation preserves Pattern exactly.
--- This IS what π is: the ratio that makes closure exact.
--- Proved from Real.cos_two_pi (Mathlib).
-theorem pi_closure_is_identity (P : ℝ) :
-    pi_closure_op P = P := by
-  unfold pi_closure_op
-  simp [Real.cos_two_pi]
-
--- [T2] :: {VER} | π TORSION IS ZERO — π IS NOBLE
--- τ = B/P = 0/π = 0. π as a PNBA state is Noble.
--- The mathematical constant that governs closure has
--- zero behavioral load. It is pure Pattern geometry.
-theorem pi_is_noble : pi_torsion = 0 := by
-  unfold pi_torsion; norm_num
-
--- [T3] :: {VER} | π IS POSITIVE
--- π > 0. Well-defined Pattern closure constant.
-theorem pi_positive : Real.pi > 0 := Real.pi_pos
-
--- [T4] :: {VER} | π > TL — ABOVE TORSION LIMIT AS A VALUE
--- π ≈ 3.14159 > TL ≈ 0.1369.
--- π as a number is above TL — but as a PNBA STATE (B=0)
--- it is Noble. The distinction: π is used to DESCRIBE
--- closure, not to set torsion. τ = B/P = 0/π = 0.
-theorem pi_exceeds_torsion_limit :
-    Real.pi > TORSION_LIMIT := by
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
-  have := Real.pi_gt_three
+-- [T2] The loop is open for every 0 < t < 2π: 2π is the first return
+theorem open_before_two_pi (t : ℝ) (h0 : 0 < t) (h2 : t < 2 * Real.pi) : 0 < loop_B t := by
+  unfold loop_B
+  have h1 := Real.cos_le_one t
+  have hne : Real.cos t ≠ 1 := by
+    intro h
+    have ht := (Real.cos_eq_one_iff_of_lt_of_lt (by linarith [Real.pi_pos]) h2).mp h
+    linarith
+  have hlt := lt_of_le_of_ne h1 hne
   linarith
 
--- [T5] :: {VER} | EULER HALF-ROTATION
--- cos(π) = -1. At N = π, Narrative reaches inversion.
--- This is the PNBA statement of Euler's identity backbone:
--- half a closure = Pattern inversion.
-theorem euler_half_rotation :
-    Real.cos Real.pi = -1 := Real.cos_pi
+-- [T3] Half the loop reaches the antipode, the largest displacement:
+-- B(π) = 2 and B(t) ≤ 2 for all t
+theorem antipode : loop_B Real.pi = 2 ∧ ∀ t : ℝ, loop_B t ≤ 2 := by
+  constructor
+  · unfold loop_B; rw [Real.cos_pi]; ring
+  · intro t
+    unfold loop_B
+    linarith [Real.neg_one_le_cos t]
 
--- [T6] :: {VER} | FULL ROTATION IS IDENTITY
--- cos(2π) = 1. At N = 2π, Narrative returns to origin.
--- This is why π appears in gauge invariance:
--- a full Narrative loop leaves Pattern unchanged.
-theorem full_narrative_loop :
-    Real.cos (2 * Real.pi) = 1 := Real.cos_two_pi
+-- [T4] Every further 2π of Narrative returns the same displacement
+theorem closure_periodic (t : ℝ) : loop_B (t + 2 * Real.pi) = loop_B t := by
+  unfold loop_B; rw [Real.cos_add_two_pi]
 
--- [T7] :: {VER} | GAUGE INVARIANCE FROM CORPUS
--- Full rotation preserves Pattern. Proved by T1.
--- This is K1 from the known answers — already proved
--- in SMReduction.symmetry_rotation_invariance.
--- Restated here to show the connection.
-theorem gauge_invariance_is_pi_closure (P : ℝ) :
-    P * Real.cos (2 * Real.pi) = P := by
-  simp [Real.cos_two_pi]
-
--- [T8] :: {VER} | π COUPLING POSITIVE (GR / STRING)
--- 8πG > 0 when G > 0. The coupling constant that
--- connects Pattern curvature to Behavior is always
--- positive — π is the normalization that makes it so.
-theorem pi_coupling_positive (G : ℝ) (hG : G > 0) (B : ℝ) (hB : B > 0) :
-    pi_coupling B G > 0 := by
-  unfold pi_coupling
-  have hpi : Real.pi > 0 := Real.pi_pos
-  positivity
-
--- [T9] :: {VER} | π CLOSURE IS LOSSLESS
--- The Pattern closure operation is exactly reversible.
--- pi_closure_op (pi_closure_op P) = P.
--- Closure composed with itself = double closure = identity.
-theorem pi_closure_lossless (P : ℝ) :
-    pi_closure_op (pi_closure_op P) = P := by
-  unfold pi_closure_op
-  simp [Real.cos_two_pi]
-
--- [T10] :: {VER} | NARRATIVE COMPLETES AT 2π
--- The Narrative operator at N=2 gives cos(2π) = 1.
--- This is the structural definition: 2π is the Narrative
--- distance for one complete Pattern closure.
-theorem narrative_completes_at_two_pi :
-    narrative_completion 2 = 1 := by
-  unfold narrative_completion
-  simp [Real.cos_two_pi]
-
--- [T11] :: {VER} | NARRATIVE INVERTS AT π
--- The Narrative operator at N=1 gives cos(π) = -1.
--- At N=π, Pattern is inverted — the antipodal state.
--- This is Euler's e^(iπ) = -1, stated in PNBA.
-theorem narrative_inverts_at_pi :
-    narrative_completion 1 = -1 := by
-  unfold narrative_completion
-  simp [Real.cos_pi]
-
--- [T12] :: {VER} | π IS TRANSCENDENTAL — NO B/P RATIO PRODUCES IT
--- π cannot be expressed as a ratio of integers.
--- In PNBA terms: π is not a torsion value.
--- No τ = B/P with integer B and P equals π.
--- π lives in P-space, not τ-space. Noble by construction.
--- (Proved by the irrationality of π in Mathlib)
-theorem pi_is_irrational : Irrational Real.pi :=
-  irrational_pi
+-- [T5] Euler: e^{iπ} + 1 = 0 and e^{2πi} = 1
+theorem euler :
+    Complex.exp (↑Real.pi * Complex.I) + 1 = 0 ∧
+    Complex.exp (2 * ↑Real.pi * Complex.I) = 1 := by
+  constructor
+  · rw [Complex.exp_pi_mul_I]; ring
+  · exact Complex.exp_two_pi_mul_I
 
 -- ============================================================
--- STEP 6: VERIFY AGAINST KNOWN ANSWERS
+-- SECTION 2: AREA, VOLUME, GAUSS, LEIBNIZ
 -- ============================================================
 
-def LosslessReduction (classical_eq pnba_output : ℝ) : Prop :=
-  pnba_output = classical_eq
+-- [T6] The disc of radius r has area πr²; the ball, volume (4/3)πr³
+theorem disc_area (x : EuclideanSpace ℝ (Fin 2)) (r : ℝ) :
+    MeasureTheory.volume (Metric.ball x r) =
+      ENNReal.ofReal r ^ 2 * ENNReal.ofReal Real.pi :=
+  EuclideanSpace.volume_ball_fin_two x r
 
--- K1 lossless: Gauge invariance
-theorem gauge_invariance_pi (P : ℝ) : LosslessReduction P (pi_closure_op P) :=
-  pi_closure_is_identity P
+theorem ball_volume (x : EuclideanSpace ℝ (Fin 3)) (r : ℝ) :
+    MeasureTheory.volume (Metric.ball x r) =
+      ENNReal.ofReal r ^ 3 * ENNReal.ofReal (Real.pi * 4 / 3) :=
+  EuclideanSpace.volume_ball_fin_three x r
 
--- K4 lossless: Euler half-rotation
-theorem euler_identity_pi : LosslessReduction (-1) (Real.cos Real.pi) :=
-  Real.cos_pi
+-- [T7] Gauss: ∫ e^{−x²} dx = √π
+theorem gaussian_integral : ∫ x : ℝ, Real.exp (-x ^ 2) = Real.sqrt Real.pi := by
+  simpa using integral_gaussian 1
 
--- K6 lossless: Full rotation
-theorem full_rotation_pi : LosslessReduction 1 (Real.cos (2 * Real.pi)) :=
-  Real.cos_two_pi
+-- [T8] Leibniz: 1 − 1/3 + 1/5 − ⋯ → π/4
+theorem leibniz :
+    Filter.Tendsto (fun k : ℕ => ∑ i ∈ Finset.range k, (-1 : ℝ) ^ i / (2 * i + 1))
+      Filter.atTop (nhds (Real.pi / 4)) :=
+  Real.tendsto_sum_pi_div_four
 
 -- ============================================================
--- THE MASTER THEOREM
--- π AS NOBLE PATTERN CLOSURE INVARIANT
+-- SECTION 3: THE VALUE
 -- ============================================================
---
--- All results simultaneously. 0 sorry.
---
--- What falls out of the LDP:
---
--- [1] π is Noble (B=0, τ=0) — zero behavioral load
--- [2] Full closure (2π) = Pattern identity
--- [3] Half closure (π) = Pattern inversion (Euler)
--- [4] π is transcendental = cannot be a torsion ratio
--- [5] π > TL as a value but τ=0 as a state
--- [6] Gauge invariance, GR coupling, string tension —
---     all use π as the closure normalizer
--- [7] The Platonism question: π is discovered, not invented.
---     It is the B=0 closure constant of Pattern geometry.
---     It was always there. The LDP just names what it is.
 
+-- [T9] 3.141592 < π < 3.141593
+theorem pi_bounds : 3.141592 < Real.pi ∧ Real.pi < 3.141593 :=
+  ⟨Real.pi_gt_d6, Real.pi_lt_d6⟩
+
+-- [T10] π is not a ratio of whole numbers
+theorem pi_not_a_ratio (a b : ℤ) : Real.pi ≠ a / b :=
+  irrational_pi.ne_rational a b
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T11] π → PNBA
 theorem pi_pnba_master :
-    -- [1] π torsion = 0 (Noble state)
-    pi_torsion = 0 ∧
-    -- [2] Full rotation is identity (gauge invariance, K1)
-    (∀ P : ℝ, pi_closure_op P = P) ∧
-    -- [3] Half rotation is inversion (Euler, K4)
-    Real.cos Real.pi = -1 ∧
-    -- [4] Full rotation = 1 (K4 backbone)
-    Real.cos (2 * Real.pi) = 1 ∧
-    -- [5] π is positive (well-defined Pattern constant)
-    Real.pi > 0 ∧
-    -- [6] π exceeds TL as a value (it is a Pattern constant,
-    --     not a torsion ratio — Noble despite large magnitude)
-    Real.pi > TORSION_LIMIT ∧
-    -- [7] π is irrational (cannot be expressed as B/P ratio)
-    Irrational Real.pi ∧
-    -- [8] Closure is lossless (double closure = identity)
-    (∀ P : ℝ, pi_closure_op (pi_closure_op P) = P) ∧
-    -- [9] Narrative completes at 2π
-    narrative_completion 2 = 1 ∧
-    -- [10] Narrative inverts at π
-    narrative_completion 1 = -1 ∧
-    -- [11] Anchor holds
-    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · exact pi_is_noble
-  · exact pi_closure_is_identity
-  · exact euler_half_rotation
-  · exact full_narrative_loop
-  · exact pi_positive
-  · exact pi_exceeds_torsion_limit
-  · exact pi_is_irrational
-  · exact pi_closure_lossless
-  · exact narrative_completes_at_two_pi
-  · exact narrative_inverts_at_pi
-  · exact anchor_zero_friction
+    -- the loop closes at 2π (Noble) and is open before it
+    loop_B (2 * Real.pi) = 0 ∧
+    (∀ t : ℝ, 0 < t → t < 2 * Real.pi → 0 < loop_B t) ∧
+    -- Euler
+    Complex.exp (↑Real.pi * Complex.I) + 1 = 0 ∧
+    -- Gauss and Leibniz
+    ∫ x : ℝ, Real.exp (-x ^ 2) = Real.sqrt Real.pi ∧
+    Filter.Tendsto (fun k : ℕ => ∑ i ∈ Finset.range k, (-1 : ℝ) ^ i / (2 * i + 1))
+      Filter.atTop (nhds (Real.pi / 4)) ∧
+    -- the value
+    (3.141592 < Real.pi ∧ Real.pi < 3.141593) ∧
+    (∀ a b : ℤ, Real.pi ≠ a / b) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨closure_is_noble, open_before_two_pi, euler.1, gaussian_integral, leibniz,
+   pi_bounds, pi_not_a_ratio, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -390,48 +181,25 @@ end SNSFL_Pi
 
 /-!
 -- ============================================================
--- FILE: SNSFL_Pi_Reduction.lean
--- COORDINATE: [9,9,0,11]
--- LAYER: Mathematical Constants Series
+-- FILE:       SNSFL_Pi_Reduction.lean
+-- COORDINATE: [9,9,8,8](MATH)
+-- SORRY:      0
 --
--- THE SIX-STEP LDP RESULT:
+-- THE MAP: circumference = N, diameter = P, π = N/P; loop
+--   displacement B(t) = 1 − cos t.
 --
---   Step 1: Equation — P·cos(2π) = P (closure condition)
---   Step 2: Known answers — K1 gauge (Yang-Mills 1954),
---           K2 string tension (Nambu 1970),
---           K3 GR coupling (Einstein 1915),
---           K4 Euler identity (Euler 1748),
---           K5 Gaussian integral (Gauss 1809),
---           K6 Shannon entropy (Shannon 1948)
---   Step 3: Map — C/d ratio → N/P closure cost at B=0
---   Step 4: Operators — pi_closure_op, narrative_completion
---   Step 5: Work — T1-T12, all proved
---   Step 6: Verified — gauge, Euler, full rotation all lossless
+-- RESULTS:
+--   The loop closes at 2π (Noble), is open for 0 < t < 2π, reaches
+--     the antipode B = 2 at π, and repeats every 2π (T1–T4)
+--   Euler: e^{iπ} + 1 = 0, e^{2πi} = 1 (T5)
+--   Disc area πr², ball volume (4/3)πr³; Gauss ∫ e^{−x²} = √π;
+--     Leibniz series → π/4 (T6–T8)
+--   3.141592 < π < 3.141593; π is not a ratio of integers (T9, T10)
 --
--- WHAT FALLS OUT:
+-- CONNECTIONS:
+--   [9,9,8,6]  Mathematics Master
+--   [9,9,8,9]  Logarithm
 --
---   π is Noble. τ = B/P = 0/π = 0.
---   π is the Pattern closure constant — what you get when
---   Narrative returns to origin with zero behavioral load.
---   It is transcendental because it cannot be a torsion ratio.
---   It appears in physics wherever closure geometry is forced:
---     - Gauge fields: cos(2π) = 1 (rotation invariance)
---     - GR: 8πG (curvature per unit mass)
---     - Strings: 1/(2πα') (tension normalization)
---     - Euler: e^(iπ) + 1 = 0 (N-axis inversion)
---     - Gauss: √π (A-axis normalization)
---     - Shannon: log(2π) (P-axis capacity)
---
---   The Platonism debate: SETTLED.
---   π is discovered. It is the B=0 closure structure of
---   Pattern geometry. It was always there.
---   The LDP names what it is. 0 sorry.
---
--- THEOREMS: 12 + master. SORRY: 0.
---
--- [9,9,9,9] :: {ANC}
--- Auth: HIGHTISTIC (pronounced /haɪˈtɪstɪk/)
--- The Manifold is Holding.
--- Soldotna, Alaska. 2026.
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
 -/
