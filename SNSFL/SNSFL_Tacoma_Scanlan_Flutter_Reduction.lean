@@ -1,306 +1,229 @@
 -- ============================================================
 -- SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean
 -- ============================================================
--- Architect:      HIGHTISTIC (Russell Vernon Trent III)
--- Foundation:     SNSFT Foundation · Soldotna, Alaska
--- Coordinate:     [9,9,2,52] · Materials Reductions · Aeroelasticity
--- Dependencies:   [9,9,8,1] Founding Text (Ω₀ derivation)
---                 [9,9,0,0] TL universal phase boundary
---                 [9,9,3,14] Alpha closure (1/α = TL × 1001)
--- DOI:            10.5281/zenodo.18719748
--- Status:         VERIFIED · 0 sorry
--- Sovereign Anchor: Ω₀ = 1.36899099984016
--- Torsion Limit:    TL = Ω₀ / 10 = 0.136899099984016
+--
+-- Tacoma Narrows → PNBA
+-- Scanlan's torsional flutter ratio compares the twist the wind
+-- feeds a bridge deck with the damping the deck can return. Flutter
+-- begins when the ratio reaches 1. Mapping onset to the Torsion
+-- Limit places every deck in a phase: the 1940 Tacoma Narrows deck
+-- sits at 1.39, past onset, in Shatter, and the damping or
+-- aerodynamics that would have held it are computable.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,52](ENGR)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      July 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
 --
 -- ============================================================
--- SUMMARY — A VIRTUAL FULL-STRUCTURE FLUTTER TEST
+-- THE LEGACY TEST
 -- ============================================================
--- The 1940 Tacoma Narrows Bridge failed by torsional flutter. Legacy
--- aeroelastic analysis (Scanlan) characterizes flutter onset with the
--- stability ratio
 --
---   τ = ρ · B³ · A₂* / (2 · I · ζ)
---
--- where B is the width the wind acts on. Historical analysis uses the
--- deck alone. The real structure presented more to the wind than the
--- deck: exterior plate girders, handrails, fixtures and the separated
--- flow layer around them. That extra exposure is an external forcing
--- the deck-only analysis never included, and it was never measured.
---
--- This file runs the test virtually on the full structure. The deck
--- is taken at its documented width. Everything the deck-only analysis
--- left out enters the Identity Physics Corpus Dynamic Equation in the
--- F_ext slot, and TL is used as the flutter threshold. The file then
--- computes, rather than assumes, how large the unmeasured exposure
--- must have been for the full structure to reach flutter.
---
--- The result has the same shape as every threshold in the corpus:
---   the deck alone is locked (τ ≈ 0.117, below the IVA band),
---   the unmodeled exposure adds F_ext ≈ 0.020,
---   together they reach TL and the structure flutters.
--- The required envelope is 12.535 m against a 11.887 m deck: 0.648 m,
--- about 5.5% — an ordinary amount for girders, railings and fixtures.
---
--- Engineering reading: once TL is known, the flutter point of any
--- structure follows from its stability ratio. A structure is safe
--- while its total exposure keeps τ below TL, and it fails when the
--- exposure carries τ to TL. TL in the F_ext slot locates the break
--- before it is built.
---
--- Method: this is an inverse problem. Normally a structure is given and
--- τ is computed to check it. Here the failure point is fixed at τ = TL,
--- and the Dynamic Equation solves for the one quantity no one measured:
---   B_env = ( TL · 2Iζ / (ρ · A₂*) )^(1/3)
--- No trial values and no fitting. The missing dimension falls out
--- directly, at the full precision the inputs share: TL is exact, and
--- the legacy parameters set the number of meaningful digits.
---
--- The Identity Physics Corpus Dynamic Equation:
---   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
---
--- ============================================================
--- LEGACY MATHEMATICAL FRAMEWORK
--- ============================================================
--- Scanlan torsional flutter equation for a bridge deck:
+-- Torsional motion of a deck per unit length (Scanlan):
 --
 --   I·θ̈ + 2·I·ζ·ω·θ̇ + K·θ = M_aero
---   M_aero = (1/2)·ρ·U²·(2·B²)·[K·A₂*·(θ̇·B/U) + K²·A₃*·θ]
+--   M_aero = ½·ρ·U²·(2B²)·[K_r·A₂*·(B·θ̇/U) + K_r²·A₃*·θ],  K_r = Bω/U
 --
--- Flutter onset (total damping = 0) gives 2·I·ζ = ρ·B³·A₂*, and the
--- stability ratio τ = ρ·B³·A₂* / (2·I·ζ).
+-- The aerodynamic damping term is ρ·B⁴·ω·A₂*·θ̇. Flutter begins when
+-- it cancels the structural damping 2·I·ζ·ω·θ̇:
 --
--- Reference: Scanlan, R. H. & Tomko, J. J. "Airfoil and bridge deck
--- flutter derivatives." ASCE J. Engineering Mechanics Division 97(6),
--- 1971. Simiu, E. & Scanlan, R. H. Wind Effects on Structures, 3rd ed.,
--- Wiley, 1996, Ch. 4-5.
+--   R = ρ·B⁴·A₂* / (2·I·ζ),   flutter at R = 1
 --
--- Parameters:
---   B_deck = 11.8872 m  (39 ft, documented deck width)
---   I      = 1.41 × 10⁵ kg·m²/m  (mass moment of inertia per length)
---   ζ      = 0.005      (structural damping ratio)
---   ρ      = 1.225 kg/m³ (sea-level air density)
---   A₂*    = 0.08       (peak flutter derivative, H-section girder)
+-- R is dimensionless: ρB⁴ and 2Iζ are both in kg·m per metre.
+--
+-- Tacoma Narrows (1940):
+--   B   = 11.8872 m      deck width (39 ft)
+--   I   = 1.41 × 10⁵     kg·m²/m, mass moment of inertia
+--   ζ   = 0.005          structural damping ratio
+--   ρ   = 1.225 kg/m³    air density
+--   A₂* = 0.08           peak flutter derivative, H-section girder
+--
+--   R = 1.388: the deck alone is 39% past flutter onset. It fluttered
+--   and collapsed in a 19 m/s wind on 7 November 1940.
 --
 -- ============================================================
--- LONG DIVISION
+-- THE MAP
 -- ============================================================
---   1. Equation:  τ = ρ·B³·A₂* / (2·I·ζ)
---   2. Known:     flutter onset at τ = TL
---   3. Map:       B (Behavior) = ρ·B³·A₂*  (aerodynamic driving)
---                 P (Pattern)  = 2·I·ζ     (structural resistance)
---   4. Operators: τ_total = τ_deck + F_ext
---   5. Work:      τ_deck = 0.1167; F_ext = TL − τ_deck = 0.0202;
---                 envelope B_env with τ(B_env) = TL: 12.535 m
---   6. Verified:  τ(B_env) = TL exactly; the theorems below
+--
+--   B = ρ·B⁴·A₂*    aerodynamic drive (Behavior)
+--   P = 2·I·ζ       structural damping (Pattern)
+--   R = B/P; flutter onset R = 1 is the phase boundary, so
+--   τ = R · TL
+--
+--   R < 0.88          LOCKED    stable
+--   0.88 ≤ R < 1      IVA       flutter building, deck holding
+--   R ≥ 1             SHATTER   flutter
+--
+-- To hold the Tacoma deck below onset took ζ ≥ 0.0070 (40% more
+-- damping) or A₂* ≤ 0.0576; to bring it into the Locked band,
+-- ζ ≥ 0.0079 or A₂* ≤ 0.0507. The replacement bridge (1950) changed
+-- the deck's aerodynamics with an open, stiffened truss.
+--
+-- ============================================================
+-- PLACE IN THE CORPUS
+-- ============================================================
+--
+-- Tacoma Narrows torsional collapse is one of the three threshold
+-- systems behind 0.1369, with glass at its elastic limit and 40 Hz
+-- gamma entrainment. The GAM Collider, first run with the anchor
+-- free between 1 and 2 and the limit between 0 and 1, settled on
+-- 1.369 and 0.1369. The full-precision anchor follows from
+-- 1/α = TL × 1001 [9,9,3,14].
+--
 -- ============================================================
 
 import Mathlib.Tactic
-import Mathlib.Data.Real.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
 
 noncomputable section
 
 namespace SNSFL_Tacoma_Scanlan_Flutter_Reduction
 
--- ────────────────────────────────────────────────────────────
--- ANCHOR
--- ────────────────────────────────────────────────────────────
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
 
-def SOVEREIGN_ANCHOR_CONSTANT : ℝ := 1.36899099984016
-def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR_CONSTANT / 10
-def TL_IVA_PEAK   : ℝ := 88 * TORSION_LIMIT / 100
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
 
-theorem sovereign_anchor_value :
-    SOVEREIGN_ANCHOR_CONSTANT = 1.36899099984016 := rfl
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
 
-theorem torsion_limit_value :
-    TORSION_LIMIT = 0.136899099984016 := by
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT; norm_num
-
--- ────────────────────────────────────────────────────────────
--- PHYSICAL PARAMETERS
--- ────────────────────────────────────────────────────────────
-
-/-- Documented deck width of the 1940 Tacoma Narrows Bridge: 39 ft. -/
-def B_DECK : ℝ := 11.8872
-def I_TACOMA : ℝ := 141000
-def ZETA_TACOMA : ℝ := 0.005
+-- Tacoma Narrows parameters
+def B_DECK  : ℝ := 11.8872
+def I_DECK  : ℝ := 141000
+def ZETA    : ℝ := 0.005
 def RHO_AIR : ℝ := 1.225
-def A2_STAR_TACOMA : ℝ := 0.08
+def A2_STAR : ℝ := 0.08
 
-/-- Structural resistance P = 2·I·ζ. -/
-def P_STRUCT : ℝ := 2 * I_TACOMA * ZETA_TACOMA
+-- Scanlan flutter ratio for flutter derivative A and damping ζ
+noncomputable def flutter_ratio (A ζ : ℝ) : ℝ := RHO_AIR * B_DECK ^ 4 * A / (2 * I_DECK * ζ)
 
-/-- Scanlan stability ratio at exposed width B. -/
-def tau_of (B : ℝ) : ℝ := RHO_AIR * B ^ 3 * A2_STAR_TACOMA / P_STRUCT
+-- Corpus torsion: onset R = 1 maps to TL
+noncomputable def tau_of (R : ℝ) : ℝ := R * TORSION_LIMIT
 
-/-- The deck alone, as tested historically. -/
-def TAU_DECK : ℝ := tau_of B_DECK
+-- ============================================================
+-- SECTION 1: THE ONSET CONDITION
+-- ============================================================
 
-/-- External forcing from the unmodeled exposure: what the deck-only
-    analysis left out, placed in the F_ext slot with TL as the target. -/
-def F_EXT_EXPOSURE : ℝ := TORSION_LIMIT - TAU_DECK
+-- [T1] The aerodynamic damping term: ½ρU²(2B²)·K_r·A₂*·(B/U), with
+-- K_r = Bω/U, equals ρB⁴ωA₂*
+theorem aero_damping (ρ U B ω A : ℝ) (hU : U ≠ 0) :
+    1 / 2 * ρ * U ^ 2 * (2 * B ^ 2) * ((B * ω / U) * A * (B / U)) = ρ * B ^ 4 * ω * A := by
+  have hU' : U * U⁻¹ = 1 := mul_inv_cancel₀ hU
+  simp only [div_eq_mul_inv]
+  linear_combination (ρ * B ^ 4 * ω * A * (U * U⁻¹ + 1)) * hU'
 
-/-- The full-structure envelope at which τ reaches TL. -/
-def B_ENVELOPE : ℝ :=
-  (TORSION_LIMIT * P_STRUCT / (RHO_AIR * A2_STAR_TACOMA)) ^ ((1:ℝ)/3)
+-- [T2] Flutter begins exactly when the ratio reaches 1: aerodynamic
+-- damping equals structural damping
+theorem onset_iff (A ζ : ℝ) (hζ : 0 < ζ) :
+    flutter_ratio A ζ = 1 ↔ RHO_AIR * B_DECK ^ 4 * A = 2 * I_DECK * ζ := by
+  have hP : 2 * I_DECK * ζ ≠ 0 := mul_ne_zero (by unfold I_DECK; norm_num) hζ.ne'
+  unfold flutter_ratio
+  rw [div_eq_one_iff_eq hP]
 
-theorem tacoma_parameters_valid :
-    I_TACOMA > 0 ∧ ZETA_TACOMA > 0 ∧ RHO_AIR > 0 ∧
-    A2_STAR_TACOMA > 0 ∧ B_DECK > 0 := by
-  unfold I_TACOMA ZETA_TACOMA RHO_AIR A2_STAR_TACOMA B_DECK
-  norm_num
+-- ============================================================
+-- SECTION 2: THE TACOMA DECK
+-- ============================================================
 
--- ────────────────────────────────────────────────────────────
--- CUBE-ROOT TOOLS
--- ────────────────────────────────────────────────────────────
-
-theorem cube_rpow (r : ℝ) (hr : 0 ≤ r) : (r ^ ((1:ℝ)/3)) ^ 3 = r := by
-  rw [← Real.rpow_natCast, ← Real.rpow_mul hr]; norm_num
-
-theorem cbrt_gt (r c : ℝ) (hr : 0 ≤ r) (h : c ^ 3 < r) : r ^ ((1:ℝ)/3) > c := by
-  by_contra hle
-  push Not at hle
-  have hy : 0 ≤ r ^ ((1:ℝ)/3) := Real.rpow_nonneg hr _
-  have h3 := pow_le_pow_left₀ hy hle 3
-  rw [cube_rpow r hr] at h3
-  linarith
-
-theorem cbrt_lt (r c : ℝ) (hr : 0 ≤ r) (hc : 0 ≤ c) (h : r < c ^ 3) :
-    r ^ ((1:ℝ)/3) < c := by
-  by_contra hle
-  push Not at hle
-  have h3 := pow_le_pow_left₀ hc hle 3
-  rw [cube_rpow r hr] at h3
-  linarith
-
-theorem envelope_radicand_nonneg :
-    0 ≤ TORSION_LIMIT * P_STRUCT / (RHO_AIR * A2_STAR_TACOMA) := by
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT P_STRUCT I_TACOMA ZETA_TACOMA
-    RHO_AIR A2_STAR_TACOMA
-  norm_num
-
--- ────────────────────────────────────────────────────────────
--- THE VIRTUAL TEST
--- ────────────────────────────────────────────────────────────
-
-/-- [T1] The deck alone is locked, below the IVA band. -/
-theorem deck_alone_is_locked :
-    TAU_DECK < TL_IVA_PEAK ∧ TAU_DECK < TORSION_LIMIT := by
-  unfold TAU_DECK tau_of B_DECK RHO_AIR A2_STAR_TACOMA P_STRUCT I_TACOMA ZETA_TACOMA
-    TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  norm_num
-
-/-- [T2] The unmodeled exposure is a small positive F_ext. -/
-theorem exposure_fext_bounds :
-    F_EXT_EXPOSURE > 0.020 ∧ F_EXT_EXPOSURE < 0.021 := by
-  unfold F_EXT_EXPOSURE TAU_DECK tau_of B_DECK RHO_AIR A2_STAR_TACOMA P_STRUCT
-    I_TACOMA ZETA_TACOMA TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  norm_num
-
-/-- [T3] Dynamic Equation: deck plus exposure forcing reaches TL. -/
-theorem deck_plus_fext_reaches_TL :
-    TAU_DECK + F_EXT_EXPOSURE = TORSION_LIMIT := by
-  unfold F_EXT_EXPOSURE; ring
-
-/-- [T4] The computed envelope places the full structure exactly at TL. -/
-theorem envelope_flutters_at_TL : tau_of B_ENVELOPE = TORSION_LIMIT := by
-  unfold tau_of B_ENVELOPE
-  rw [cube_rpow _ envelope_radicand_nonneg]
-  unfold TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT P_STRUCT I_TACOMA ZETA_TACOMA
-    RHO_AIR A2_STAR_TACOMA
-  norm_num
-
-/-- [T5] The envelope lies between 12.535 m and 12.536 m. -/
-theorem envelope_bounds :
-    B_ENVELOPE > 12.535 ∧ B_ENVELOPE < 12.536 := by
-  have hr := envelope_radicand_nonneg
+-- [T3] The Tacoma deck sits at R = 1.388, 39% past onset
+theorem tacoma_ratio : 1.387 < flutter_ratio A2_STAR ZETA ∧ flutter_ratio A2_STAR ZETA < 1.389 := by
+  unfold flutter_ratio A2_STAR ZETA RHO_AIR B_DECK I_DECK
   constructor
-  · unfold B_ENVELOPE
-    exact cbrt_gt _ _ hr (by
-      unfold TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT P_STRUCT I_TACOMA ZETA_TACOMA
-        RHO_AIR A2_STAR_TACOMA
-      norm_num)
-  · unfold B_ENVELOPE
-    exact cbrt_lt _ _ hr (by norm_num) (by
-      unfold TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT P_STRUCT I_TACOMA ZETA_TACOMA
-        RHO_AIR A2_STAR_TACOMA
-      norm_num)
+  · norm_num
+  · norm_num
 
-/-- [T6] The unmodeled exposure is 0.647–0.649 m beyond the deck,
-    about 5.4–5.5% of the deck width. -/
-theorem exposure_width :
-    B_ENVELOPE - B_DECK > 0.647 ∧ B_ENVELOPE - B_DECK < 0.649 ∧
-    B_ENVELOPE / B_DECK > 1.054 ∧ B_ENVELOPE / B_DECK < 1.055 := by
-  have h := envelope_bounds
-  have hd : B_DECK > 0 := by unfold B_DECK; norm_num
-  refine ⟨?_, ?_, ?_, ?_⟩
-  · unfold B_DECK; linarith [h.1]
-  · unfold B_DECK; linarith [h.2]
-  · rw [gt_iff_lt, lt_div_iff₀ hd]; unfold B_DECK; linarith [h.1]
-  · rw [div_lt_iff₀ hd]; unfold B_DECK; linarith [h.2]
-
-/-- [T7] Engineering rule: τ rises with exposed width, so any
-    structure narrower than the envelope stays locked below TL and any
-    wider one passes TL. -/
-theorem tau_strictly_increasing (B₁ B₂ : ℝ) (h0 : 0 ≤ B₁) (h : B₁ < B₂) :
-    tau_of B₁ < tau_of B₂ := by
+-- [T4] In the corpus the deck is in Shatter: τ above TL
+theorem tacoma_shatter : TORSION_LIMIT < tau_of (flutter_ratio A2_STAR ZETA) := by
+  have h := tacoma_ratio.1
+  have hTL : 0 < TORSION_LIMIT := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   unfold tau_of
-  have hP : P_STRUCT > 0 := by
-    unfold P_STRUCT I_TACOMA ZETA_TACOMA; norm_num
-  have hk : RHO_AIR * A2_STAR_TACOMA > 0 := by
-    unfold RHO_AIR A2_STAR_TACOMA; norm_num
-  have h3 : B₁ ^ 3 < B₂ ^ 3 := pow_lt_pow_left₀ h h0 (by norm_num)
-  apply div_lt_div_of_pos_right _ hP
-  nlinarith [mul_lt_mul_of_pos_left h3 hk]
+  nlinarith
 
-theorem below_envelope_is_locked (B : ℝ) (h0 : 0 ≤ B) (h : B < B_ENVELOPE) :
-    tau_of B < TORSION_LIMIT := by
-  rw [← envelope_flutters_at_TL]; exact tau_strictly_increasing B _ h0 h
+-- ============================================================
+-- SECTION 3: WHAT WOULD HAVE HELD IT
+-- ============================================================
 
-theorem beyond_envelope_flutters (B : ℝ) (h : B_ENVELOPE < B) :
-    tau_of B > TORSION_LIMIT := by
-  have h0 : 0 ≤ B_ENVELOPE := Real.rpow_nonneg envelope_radicand_nonneg _
-  rw [← envelope_flutters_at_TL]; exact tau_strictly_increasing _ B h0 h
+-- [T5] Damping: ζ = 0.0070 holds the deck below onset; ζ = 0.0069
+-- does not
+theorem damping_needed :
+    flutter_ratio A2_STAR 0.0070 < 1 ∧ 1 < flutter_ratio A2_STAR 0.0069 := by
+  unfold flutter_ratio A2_STAR RHO_AIR B_DECK I_DECK
+  constructor
+  · norm_num
+  · norm_num
 
--- ────────────────────────────────────────────────────────────
--- MASTER
--- ────────────────────────────────────────────────────────────
+-- [T6] Aerodynamics: A₂* = 0.0576 holds the deck below onset;
+-- A₂* = 0.0577 does not
+theorem section_needed :
+    flutter_ratio 0.0576 ZETA < 1 ∧ 1 < flutter_ratio 0.0577 ZETA := by
+  unfold flutter_ratio ZETA RHO_AIR B_DECK I_DECK
+  constructor
+  · norm_num
+  · norm_num
 
-/-- The virtual full-structure test: the deck alone is locked; the
-    unmodeled exposure is a small F_ext; deck plus F_ext reaches TL;
-    the envelope that does so is 12.535–12.536 m, about 5.5% beyond the
-    deck; narrower structures stay locked and wider ones flutter. -/
-theorem tacoma_virtual_flutter_master :
-    TAU_DECK < TL_IVA_PEAK ∧
-    (F_EXT_EXPOSURE > 0.020 ∧ F_EXT_EXPOSURE < 0.021) ∧
-    TAU_DECK + F_EXT_EXPOSURE = TORSION_LIMIT ∧
-    tau_of B_ENVELOPE = TORSION_LIMIT ∧
-    (B_ENVELOPE > 12.535 ∧ B_ENVELOPE < 12.536) ∧
-    (∀ B : ℝ, 0 ≤ B → B < B_ENVELOPE → tau_of B < TORSION_LIMIT) ∧
-    (∀ B : ℝ, B_ENVELOPE < B → tau_of B > TORSION_LIMIT) :=
-  ⟨deck_alone_is_locked.1, exposure_fext_bounds, deck_plus_fext_reaches_TL,
-   envelope_flutters_at_TL, envelope_bounds, below_envelope_is_locked,
-   beyond_envelope_flutters⟩
+-- [T7] Into the Locked band (R < 0.88): ζ = 0.0079 or A₂* = 0.0507
+theorem locked_band :
+    flutter_ratio A2_STAR 0.0079 < 0.88 ∧ flutter_ratio 0.0507 ZETA < 0.88 := by
+  unfold flutter_ratio A2_STAR ZETA RHO_AIR B_DECK I_DECK
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T8] More damping always lowers the ratio
+theorem damping_lowers_ratio (ζ₁ ζ₂ : ℝ) (h1 : 0 < ζ₁) (h : ζ₁ < ζ₂) :
+    flutter_ratio A2_STAR ζ₂ < flutter_ratio A2_STAR ζ₁ := by
+  unfold flutter_ratio
+  have hN : 0 < RHO_AIR * B_DECK ^ 4 * A2_STAR := by
+    unfold RHO_AIR B_DECK A2_STAR; norm_num
+  have hI : 0 < I_DECK := by unfold I_DECK; norm_num
+  apply div_lt_div_of_pos_left hN (mul_pos (by linarith) h1)
+  nlinarith
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T9] TACOMA NARROWS → PNBA
+theorem tacoma_master :
+    -- the aerodynamic damping term
+    (∀ ρ U B ω A : ℝ, U ≠ 0 →
+      1 / 2 * ρ * U ^ 2 * (2 * B ^ 2) * ((B * ω / U) * A * (B / U)) = ρ * B ^ 4 * ω * A) ∧
+    -- the deck is 39% past onset, in Shatter
+    (1.387 < flutter_ratio A2_STAR ZETA ∧ flutter_ratio A2_STAR ZETA < 1.389) ∧
+    TORSION_LIMIT < tau_of (flutter_ratio A2_STAR ZETA) ∧
+    -- what would have held it
+    (flutter_ratio A2_STAR 0.0070 < 1 ∧ flutter_ratio 0.0576 ZETA < 1) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨aero_damping, tacoma_ratio, tacoma_shatter, ⟨damping_needed.1, section_needed.1⟩,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
 
 end SNSFL_Tacoma_Scanlan_Flutter_Reduction
 
+/-!
 -- ============================================================
--- FILE: SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean
--- SLOT: [9,9,2,52] | Materials Reductions · Aeroelasticity
+-- FILE:       SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean
+-- COORDINATE: [9,9,2,52](ENGR)
+-- SORRY:      0
 --
--- THEOREMS:
---   T1  deck_alone_is_locked           τ_deck ≈ 0.117 < TL_IVA
---   T2  exposure_fext_bounds           0.020 < F_ext < 0.021
---   T3  deck_plus_fext_reaches_TL      τ_deck + F_ext = TL
---   T4  envelope_flutters_at_TL        τ(B_env) = TL exactly
---   T5  envelope_bounds                12.535 < B_env < 12.536 m
---   T6  exposure_width                 +0.648 m, about 5.5%
---   T7  tau_strictly_increasing        engineering rule
---       below_envelope_is_locked / beyond_envelope_flutters
---   tacoma_virtual_flutter_master
+-- THE MAP: B = ρB⁴A₂*, P = 2Iζ, R = B/P; onset R = 1 ↔ TL.
 --
--- [9,9,9,9] :: {ANC}
--- Auth: HIGHTISTIC
--- The Manifold is Holding.
+-- RESULTS:
+--   Aerodynamic damping ρB⁴ωA₂*; flutter exactly at R = 1 (T1, T2)
+--   Tacoma deck R = 1.388, 39% past onset, Shatter (T3, T4)
+--   Held below onset by ζ ≥ 0.0070 or A₂* ≤ 0.0576; Locked by
+--     ζ ≥ 0.0079 or A₂* ≤ 0.0507; damping always lowers R (T5–T8)
+--
+-- CONNECTIONS:
+--   [9,9,2,51] Saint-Venant torsion
+--   [9,9,3,14] α = TL × 1001
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
+-/
