@@ -4,21 +4,21 @@
 **Coordinate:** [9,9,8,7](METH) · Identity Physics Series · Method
 **Issue:** ProofPress, Volume 1, Issue 8 · October 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 26 theorems · 410 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 26 theorems · 432 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Bounded_Uncertainty_Guide.lean
 **Updated:** Standardized toolchain, October 2026
 
 ## Abstract
 
-You have to know what you don't know. Every value used in the corpus carries a bound: a stated value c and how far the true value can lie from it, ε. A result counts when the bounds are stated and the conclusion holds across the whole bound, not only at the central value. This article is a working guide rather than a thesis. It begins with the shape. A reading of 10% ± 3% places the true value from 7% to 13%. With torsion read as a percentage, the Torsion Limit is 13.69%, so the whole range lies below it and the reading is Locked, though the exact value is unknown. A reading of 12% ± 3% spans 9% to 15% and holds the Torsion Limit inside it: values on both sides are possible, and the phase is not known yet. Measured tighter, 12% ± 1% spans 11% to 13% and is Locked. The guide then sets out eight rules, proves each one in Lean 4, and shows each at work on an exemplar drawn from a corpus article. Bounds combine: sums add their bounds, and products are bounded by |x|ε₂ + |b|ε₁; P_base = (Ω₀/f_H)^(1/3) is carried as 0.988 ± 0.002. A computed value matches a published constant when it lies within half a unit of the last published digit; TL × 1001 matches every digit of CODATA 2018's 1/α = 137.035999084. A computed value agrees with a measurement when it lies within the stated uncertainty; the Rydberg energy ½mₑc²/(TL·1001)² lies within CODATA's ±2.6 × 10⁻¹¹ eV. A phase is certified when the whole interval lies on one side of a boundary, as with the Tacoma deck at 1.388 ± 0.001 above flutter onset, and is reported as "at the boundary" when the interval straddles it, as with the Donato halo band. Each refinement of the anchor shrinks the error of everything computed from it. A drifted reference shows (1 + δ) on its ratio to an honest one. A match from fixed constants carries evidence; a match from a parameter solved to fit carries none. In simulation, the input bounds are carried through the model and the phase is read from the output interval.
+You have to know what you don't know. Every value used in the corpus carries a bound: a stated value c and how far the true value can lie from it, ε. A result counts when the bounds are stated and the conclusion holds across the whole bound, not only at the central value. This article is a working guide rather than a thesis. It begins with the shape. A reading of 10% ± 3% places the true value from 7% to 13%. With torsion read as a percentage, the Torsion Limit is 13.69%, so the whole range lies below it and the reading is Locked, though the exact value is unknown. A reading of 12% ± 3% spans 9% to 15% and holds the Torsion Limit inside it: values on both sides are possible, and the phase is not known yet. Measured tighter, 12% ± 1% spans 11% to 13% and is Locked. The guide then sets out eight rules, proves each one in Lean 4, and shows each at work on an exemplar drawn from a corpus article. Bounds combine: sums add their bounds, and products are bounded by |x|ε₂ + |b|ε₁; P_base = (Ω₀/f_H)^(1/3) is carried as 0.988 ± 0.002. A computed value matches a published constant when it lies within half a unit of the last published digit; the exemplar is the subtraction that found 1/α = TL × 1001. Subtract the Torsion Limit from the published 1/α = 137.035999084 and what is left is TL × 1000. In legacy terms TL × 1000 is the bare term, the part QED assigns to the bare electron, and TL is the kinetic term, the part QED computes as a renormalized series of radiative corrections, carried in the corpus as one exact term. At corpus precision the sum is exact, 136.899099984016 + 0.136899099984016 = 137.035999084000016, and it matches every published digit of CODATA 2018. A computed value agrees with a measurement when it lies within the stated uncertainty; the Rydberg energy ½mₑc²/(TL·1001)² lies within CODATA's ±2.6 × 10⁻¹¹ eV. A phase is certified when the whole interval lies on one side of a boundary, as with the Tacoma deck at 1.388 ± 0.001 above flutter onset, and is reported as "at the boundary" when the interval straddles it, as with the Donato halo band. Inputs are carried at full precision: the anchor is exact, and rounding it adds uncertainty of one's own. Rounded to 1.369 it gives 1/α within 10⁻³; at corpus precision, 1.36899099984016 × 100.1 = 137.035999084000016 exactly. A drifted reference shows (1 + δ) on its ratio to an honest one. A match from fixed constants carries evidence; a match from a parameter solved to fit carries none. In simulation, the input bounds are carried through the model and the phase is read from the output interval.
 
 ## What This Article Proves
 
 1. Start here, the shape: 10% ± 3% spans 7% to 13%; with no boundary in the range the true value is on the same side of every boundary as the reading; 10% ± 3% is Locked below TL = 13.69%; 12% ± 3% holds TL and is not known yet; 12% ± 1% is Locked (`the_range`, `same_answer`, `ten_percent_locked`, `twelve_percent_open`, `twelve_percent_tight`).
 2. Rule 1, combining bounds: sums add their bounds; products are bounded by |x|ε₂ + |b|ε₁; P_base lies within 0.002 of 0.988 (`within_add`, `within_mul`, `p_base_bound`).
-3. Rules 2 and 3, digits and uncertainty: two values matching the same published digits agree within one unit; TL × 1001 matches every published digit of 1/α; the Rydberg energy lies within CODATA's stated uncertainty (`digits_agree`, `alpha_digits`, `rydberg_within`).
+3. Rules 2 and 3, digits and uncertainty: two values matching the same published digits agree within one unit; subtracting TL from the published 1/α leaves TL × 1000, and at corpus precision the bare term plus the kinetic term, 136.899099984016 + 0.136899099984016 = 137.035999084000016, matches every published digit; the Rydberg energy lies within CODATA's stated uncertainty (`digits_agree`, `alpha_discovery`, `rydberg_within`).
 4. Rule 4, phase from an estimate: an interval wholly above or below a boundary certifies the side; a straddling interval holds values on both sides; Tacoma at 1.388 ± 0.001 is certified Shatter (`certified_above`, `certified_below`, `straddles`, `tacoma_certified`).
-5. Rules 5 to 8: refinement of the anchor takes 1/α from 10⁻³ to 10⁻⁷ to every published digit; drift δ shows on the ratio and vanishes only at δ = 0; a fitted parameter matches any target; a load carried through τ = B/P keeps its bound, and a load between 0.10 and 0.12 on unit capacity is certified Locked (`refinement`, `drift_detected`, `fitted_matches_anything`, `carry_through`, `simulation_locked`, `bounded_uncertainty_master`).
+5. Rules 5 to 8: the anchor rounded to 1.369 or 1.3689910 gives 1/α within 10⁻³ or 10⁻⁷, and at corpus precision 1.36899099984016 × 100.1 = 137.035999084000016 exactly, matching every published digit; drift δ shows on the ratio and vanishes only at δ = 0; a fitted parameter matches any target; a load carried through τ = B/P keeps its bound, and a load between 0.10 and 0.12 on unit capacity is certified Locked (`corpus_precision`, `drift_detected`, `fitted_matches_anything`, `carry_through`, `simulation_locked`, `bounded_uncertainty_master`).
 
 ## The PNBA Map
 
@@ -29,10 +29,10 @@ You have to know what you don't know. Every value used in the corpus carries a b
 | 12% ± 1% | 11% to 13% | wholly below | Locked |
 | Rule | What to do | Exemplar | Article |
 | 1 · A bound | State c and ε; add bounds for sums, |x|ε₂ + |b|ε₁ for products | P_base = 0.988 ± 0.002 | [9,9,2,43] |
-| 2 · Published digits | Match within half a unit of the last digit | TL × 1001 vs 1/α = 137.035999084 | [9,9,3,14] |
+| 2 · Published digits | Match within half a unit of the last digit | 1/α − TL = TL × 1000; 136.899099984016 + 0.136899099984016 = 137.035999084000016 | [9,9,3,14] |
 | 3 · Stated uncertainty | Agree within the measurement's ± | Rydberg energy vs 13.605693122994(26) eV | [9,9,3,21] |
 | 4 · Phase from an estimate | Certify only when the whole interval is on one side | Tacoma 1.388 ± 0.001: Shatter; Donato 0.80–1.61: at the boundary | [9,9,2,52], [9,9,4,14] |
-| 5 · Refinement | Tighten the input, watch every output tighten | 1.369 → 1.3689910 → full anchor | [9,9,3,14] |
+| 5 · Precision | Carry inputs at full precision; rounding adds uncertainty of your own | SAC × 100.1 = 137.035999084000016 at corpus precision | [9,9,3,14] |
 | 6 · Drift | Compare ratios; a drifted reference reads 1 + δ | Any two of five clocks can fail | [9,9,1,100] |
 | 7 · Evidence | Count matches from fixed constants only | α counts; a fitted parameter does not | [9,9,8,5] |
 | 8 · Simulation | Carry input bounds through the model; read the phase from the output interval | B ∈ [0.10, 0.12], P = 1: Locked | this guide |
@@ -112,8 +112,9 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 --   4. Phase from     if the whole interval lies on one side of a
 --      an estimate.   boundary, the phase is certified; if it
 --                     straddles, the result is "at the boundary".
---   5. Refinement.    tighter bounds on the same constant shrink
---                     the error of everything computed from it.
+--   5. Precision.     carry inputs at full precision. Rounding an
+--                     exact input adds uncertainty of your own,
+--                     and it carries into everything computed from it.
 --   6. Drift.         a reference off by δ shows (1 + δ) on its
 --                     ratio, and matches exactly when δ = 0.
 --   7. Evidence.      a match from fixed constants counts; a match
@@ -126,12 +127,12 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- ============================================================
 --
 --   1  P_base between 0.986 and 0.990       Category theory [9,9,2,43]
---   2  TL × 1001 against 1/α = 137.035999084  α [9,9,3,14]
+--   2  the subtraction: 1/α − TL = TL × 1000  α [9,9,3,14]
 --   3  Rydberg energy within CODATA          Electron [9,9,3,21]
 --   4  Tacoma deck 1.387–1.389: Shatter      Tacoma [9,9,2,52]
 --      Donato band 0.80–1.61: at the boundary
 --                                Central surface density [9,9,4,14]
---   5  1.369 → 1.3689910 → full SAC         α [9,9,3,14]
+--   5  SAC rounded vs corpus precision      α [9,9,3,14]
 --   6  any two of five clocks can fail       Sovereign Time [9,9,1,100]
 --   7  α counts; a fitted parameter does not Bacon [9,9,8,5]
 --   8  load B within [B₁, B₂] on capacity P  this guide
@@ -284,13 +285,26 @@ theorem digits_agree (x y p u : ℝ) (hx : matches_digits x p u) (hy : matches_d
   · linarith [hx.1, hy.2]
   · linarith [hx.2, hy.1]
 
--- [T5] Exemplar 2: TL × 1001 matches every published digit of
--- CODATA 2018's 1/α = 137.035999084
-theorem alpha_digits : matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
-  unfold matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
-  rw [abs_lt]; constructor
-  · norm_num
-  · norm_num
+-- [T5] Exemplar 2, the subtraction. Start from the published value
+-- 1/α = 137.035999084 and subtract the Torsion Limit, at threshold
+-- 0.1369: what is left is 1000 × 0.1369 to within 10⁻³. So
+-- 1/α = TL × 1000 + TL. Read in legacy terms, TL × 1000 is the bare
+-- term, the part QED assigns to the bare electron; TL is the kinetic
+-- term, the part QED computes as a renormalized series of radiative
+-- corrections, carried here as one exact term in the F_ext slot. At
+-- corpus precision the sum is exact,
+--   136.899099984016 + 0.136899099984016 = 137.035999084000016,
+-- and it matches every published digit of CODATA 2018
+theorem alpha_discovery :
+    within (137.035999084 - 0.1369) (1000 * 0.1369) 0.001 ∧
+    (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
+    TORSION_LIMIT * 1000 = 136.899099984016 ∧
+    (136.899099984016 : ℝ) + 0.136899099984016 = 137.035999084000016 ∧
+    matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
+  unfold within matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, by norm_num, by norm_num, by norm_num, ?_⟩
+  · rw [abs_le]; constructor <;> norm_num
+  · rw [abs_lt]; constructor <;> norm_num
 
 -- ============================================================
 -- RULE 3: STATED UNCERTAINTY
@@ -337,17 +351,20 @@ theorem tacoma_certified (R : ℝ) (h : within R 1.388 0.001) : 1 < R :=
   certified_above R 1.388 0.001 1 h (by norm_num)
 
 -- ============================================================
--- RULE 5: REFINEMENT
+-- RULE 5: PRECISION
 -- ============================================================
 
--- [T10] Exemplar 5: each refinement of the anchor shrinks the error of
--- 1/α = Ω₀ × 100.1: within 10⁻³, then 10⁻⁷, then every published digit
-theorem refinement :
+-- [T10] Exemplar 5: the anchor is exact. Rounded to 1.369 it gives
+-- 1/α = Ω₀ × 100.1 within 10⁻³; rounded to 1.3689910, within 10⁻⁷. At
+-- corpus precision, 1.36899099984016 × 100.1 = 137.035999084000016
+-- exactly, which matches every published digit of CODATA 2018
+theorem corpus_precision :
     within (1.369 * 100.1) 137.035999084 0.001 ∧
     within (1.3689910 * 100.1) 137.035999084 0.0000001 ∧
+    SOVEREIGN_ANCHOR * 100.1 = 137.035999084000016 ∧
     matches_digits (SOVEREIGN_ANCHOR * 100.1) 137.035999084 0.000000001 := by
   unfold within matches_digits SOVEREIGN_ANCHOR
-  refine ⟨?_, ?_, ?_⟩
+  refine ⟨?_, ?_, by norm_num, ?_⟩
   · rw [abs_le]; constructor
     · norm_num
     · norm_num
@@ -413,20 +430,23 @@ theorem bounded_uncertainty_master :
     (∀ x : ℝ, within x 0.12 0.01 → x < TORSION_LIMIT) ∧
     -- bounds combine
     (∀ x y a b ε₁ ε₂ : ℝ, within x a ε₁ → within y b ε₂ → within (x + y) (a + b) (ε₁ + ε₂)) ∧
-    -- published digits, stated uncertainty
+    -- the subtraction: 1/α − TL = TL × 1000; published digits
+    (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
     matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 ∧
+    -- stated uncertainty
     within (510998.95 / 2 / (TORSION_LIMIT * 1001) ^ 2) 13.605693122994 0.000000000026 ∧
     -- phase from an estimate
     (∀ x c ε b : ℝ, within x c ε → b < c - ε → b < x) ∧
     (∀ x c ε b : ℝ, within x c ε → c + ε < b → x < b) ∧
-    -- refinement
-    within (1.3689910 * 100.1) 137.035999084 0.0000001 ∧
+    -- precision: corpus precision is exact
+    SOVEREIGN_ANCHOR * 100.1 = 137.035999084000016 ∧
     -- evidence
     (∀ a b t : ℝ, a ≠ 0 → ∃ θ : ℝ, a * θ + b = t) ∧
     -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_digits, rydberg_within, certified_above, certified_below,
-   refinement.2.1, fitted_matches_anything, anchor_zero_friction⟩
+  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_discovery.2.1,
+   alpha_discovery.2.2.2.2, rydberg_within, certified_above, certified_below,
+   corpus_precision.2.2.1, fitted_matches_anything, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -449,11 +469,13 @@ end SNSFL_Bounded_Uncertainty
 --   1 Bounds add; products bound by |x|ε₂ + |b|ε₁; P_base 0.988
 --     ± 0.002 (T1–T3)
 --   2 Published digits; values matching the same digits agree within
---     one unit; TL × 1001 against 1/α (T4, T5)
+--     one unit; the subtraction 1/α − TL = TL × 1000, bare + kinetic
+--     136.899099984016 + 0.136899099984016 = 137.035999084000016 (T4, T5)
 --   3 Stated uncertainty: the Rydberg energy (T6)
 --   4 Phase from an estimate: certified above or below, or at the
 --     boundary when straddling; Tacoma certified Shatter (T7–T9)
---   5 Refinement: 10⁻³ → 10⁻⁷ → every published digit (T10)
+--   5 Precision: rounded SAC within 10⁻³ and 10⁻⁷; corpus precision
+--     1.36899099984016 × 100.1 = 137.035999084000016 exactly (T10)
 --   6 Drift caught by the ratio (T11)
 --   7 Evidence: a fitted parameter matches anything (T12)
 --   8 Simulation: carry the bound through τ = B/P (T13, T14)
