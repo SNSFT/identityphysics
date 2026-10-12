@@ -55,11 +55,11 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Cosmo_Reduction.lean` | Cosmology → PNBA | 19 | 659 |
 | `SNSFL_SM_Reduction.lean` | Standard Model → PNBA | 18 | 622 |
 | `SNSFL_ST_Reduction.lean` | String Theory → PNBA | 19 | 632 |
-| `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 731 |
+| `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 722 |
 | `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
-| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 11 | 338 |
-| `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 18 | 350 |
-| **Subtotal** | **15 files** | **294** | **9,765** |
+| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 13 | 246 |
+| `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 21 | 396 |
+| **Subtotal** | **15 files** | **299** | **9,710** |
 
 ### Physics and chemistry extensions
 
@@ -68,87 +68,88 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_First_Law_Identity_Physics.lean` | First Law of Identity Physics — L = (4)(2); Identity Mass conservation, torsion, structural load | 26 | 437 |
 | `SNSFL_BBN_Reduction.lean` | Big Bang Nucleosynthesis → PNBA — baryons Locked, helium from n/p, matter–dark energy equality | 26 | 487 |
 | `SNSFL_Abiogenesis_Reduction.lean` | Abiogenesis — L = (4)(2), prebiotic states to LUCA, Identity Mass floor of life | 31 | 871 |
-| `SNSFL_PeriodicWeight_Reduction.lean` | Periodic weight — B-balance stoichiometry, 12 compounds | 40 | 611 |
-| `SNSFL_SovereignTime.lean` | Sovereign Time — anchor emission, 4 atomic-clock substrates | 17 | 334 |
-| `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 22 | 531 |
+| `SNSFL_PeriodicWeight_Reduction.lean` | Periodic weight — B-balance stoichiometry, 12 compounds | 43 | 641 |
+| `SNSFL_SovereignTime.lean` | Sovereign Time — anchor emission, 4 atomic-clock substrates | 15 | 297 |
+| `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 16 | 317 |
 | `SNSFL_L1_PVLang.lean` | PVLang — identity language, material phase states | 29 | 585 |
-| `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 664 |
+| `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 653 |
 | `SNSFL_FeO_HemeCoupling.lean` | Fe–O heme coupling — GAM Collider, shatter + shatter → Noble | 23 | 561 |
-| `SNSFL_42_Complete_Laws_Catalog.lean` | 42 Emergent Structural Laws — GAM Collider catalog [9,9,2,50] | 41 | 651 |
-| `SNSFL_QT_Reduction.lean` | Quantum Teleportation → PNBA | 23 | 614 |
+| `SNSFL_42_Complete_Laws_Catalog.lean` | 42 Emergent Structural Laws — GAM Collider catalog [9,9,2,50] | 41 | 688 |
+| `SNSFL_QT_Reduction.lean` | Quantum Teleportation → PNBA | 22 | 577 |
 | `SNSFL_GC_RunningCoupling_Reduction.lean` | Running coupling — QED runs toward Shatter, QCD toward Noble; TL before the Landau pole | 27 | 527 |
 | `SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean` | Bohr–Rydberg–Sommerfeld — atomic structure from TL × 1001; hydrogen through harmonic P | 18 | 497 |
 | `SNSFL_SpeedOfLight_Reduction.lean` | Speed of light — Maxwell speed, unique invariant speed, c locked to the anchor through 1/α | 20 | 500 |
 | `SNSFL_CosmologicalCorpus_Layer0.lean` | Cosmological corpus — cosmic phase ordering, phases proved across DESI DR2 and neutrino mass bands | 43 | 793 |
-| `SNSFL_GC_Transcendental_Time_Engine.lean` | Transcendental Time Engine — F_ext step = TL | 13 | 299 |
+| `SNSFL_GC_TranscendentalTimeEngine.lean` | Transcendental Time Engine — F_ext step = TL | 13 | 262 |
 | `SNSFL_GC_HiggsMass_Reduction.lean` | Higgs mass — the Higgs in the IVA corridor across its full uncertainty band | 14 | 352 |
 | `SNSFL_GC_WMass_CDFResolution.lean` | W mass — every W measurement Locked; the CDF tension carries no phase content | 19 | 404 |
 | `SNSFL_GC_WZ_ElectroweakTrilogy.lean` | Electroweak trilogy — photon Noble, W locked, Higgs IVA, Z shatter | 17 | 398 |
-| `SNSFL_GC_Electron_Geometric_Decomposition.lean` | Electron — TL × 1000 bare region + TL kinetic shell = 1/α | 21 | 345 |
-| `SNSFL_Leptoquark_Exclusion.lean` | Leptoquark exclusion — quark–lepton pairs are never Noble | 16 | 234 |
-| `SNSFL_Gravity_Reduction.lean` | Gravity — force hierarchy as phase hierarchy, G from the anchor | 31 | 654 |
+| `SNSFL_GC_Electron_Geometric_Decomposition.lean` | Electron — TL × 1000 bare region + TL kinetic shell = 1/α | 12 | 269 |
+| `SNSFL_NV_Grover_Reduction.lean` | NV-center Grover search — every run beats its classical bound; N + C + C qubit core Noble, electron interface Shatter [9,9,3,23] | 26 | 483 |
+| `SNSFL_Leptoquark_Exclusion.lean` | Leptoquark exclusion — quark–lepton pairs are never Noble | 10 | 192 |
+| `SNSFL_Gravity_Reduction.lean` | Gravity — force hierarchy as phase hierarchy, G from the anchor | 26 | 404 |
 | `SNSFL_Holographic_Gravity_LDP.lean` | Holographic gravity — Noble as the holographic boundary | 20 | 374 |
-| `SNSFL_QuantumGravity_Layer0.lean` | Quantum gravity — nine programs on the phase map | 41 | 901 |
+| `SNSFL_QuantumGravity_Layer0.lean` | Quantum gravity — nine programs on the phase map | 34 | 464 |
 | `SNSFL_SagA_Reduction.lean` | Black holes, Sagittarius A* as worked instance — collapsed pump, quiet Shatter, EHT shadow and Hawking anchored | 32 | 568 |
-| `SNSFL_CentralSurfaceDensity_LDP.lean` | Central surface density — TL as the dark-sector boundary | 13 | 305 |
-| `SNSFL_CTC_Reduction.lean` | Closed timelike curves — nine frameworks lack the A-axis | 31 | 984 |
-| `SNSFL_Novikov_Reduction.lean` | Novikov self-consistency — the Noble fixed point | 20 | 552 |
-| `SNSFL_DFT_Reduction.lean` | Density functional theory — Hohenberg–Kohn, Kohn–Sham, E_xc | 17 | 648 |
-| `SNSFL_NuclearPhysics_Reduction.lean` | Nuclear physics — the binding curve as a locked band | 41 | 793 |
-| `SNSFL_Universal_Pump_Theorem.lean` | Universal pump — heart to stellar core, Soverium channel at τ = 0 | 28 | 671 |
-| `SNSFL_SaintVenant_Torsion_Reduction.lean` | Saint-Venant torsion — β equals TL to eight significant figures | 6 | 299 |
-| `SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean` | Tacoma Narrows — virtual full-structure flutter test, envelope solved from TL | 17 | 307 |
-| `SNSFL_Octet_Parity_Theorem.lean` | Octet parity — every locked molecule has even bond capacity | 20 | 337 |
-| `SNSFL_4Beam_Verification.lean` | GAM Collider 4-beam verification — six collisions against materials science | 41 | 697 |
-| `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 31 | 809 |
-| `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 457 |
+| `SNSFL_CentralSurfaceDensity_LDP.lean` | Central surface density — TL as the dark-sector boundary | 12 | 242 |
+| `SNSFL_CTC_Reduction.lean` | Closed timelike curves — nine frameworks lack the A-axis | 13 | 273 |
+| `SNSFL_Novikov_Reduction.lean` | Novikov self-consistency — the Noble fixed point | 12 | 252 |
+| `SNSFL_DFT_Reduction.lean` | Density functional theory — Hohenberg–Kohn, Kohn–Sham, E_xc | 16 | 547 |
+| `SNSFL_NuclearPhysics_Reduction.lean` | Nuclear physics — the binding curve as a locked band | 45 | 581 |
+| `SNSFL_Universal_Pump_Theorem.lean` | Universal pump — heart to stellar core, Soverium channel at τ = 0 | 14 | 269 |
+| `SNSFL_SaintVenant_Torsion_Reduction.lean` | Saint-Venant torsion — β equals TL to eight significant figures | 9 | 221 |
+| `SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean` | Tacoma Narrows — virtual full-structure flutter test, envelope solved from TL | 11 | 230 |
+| `SNSFL_Octet_Parity_Theorem.lean` | Octet parity — every locked molecule has even bond capacity | 20 | 307 |
+| `SNSFL_4Beam_Verification.lean` | GAM Collider 4-beam verification — six collisions against materials science | 25 | 511 |
+| `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 27 | 707 |
+| `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 451 |
 | `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure; same-B detector predicted | 26 | 554 |
 | `SNSFL_CriticalTopology_Reduction.lean` | Critical topology (Lin et al. 2026) — the gap closes where B = P; the 0.5 entanglement mode is the same balance | 21 | 423 |
 | `SNSFL_Element_Darkenergy.lean` | Dark energy element De — B = 0, A = Ω_Λ, Noble | 10 | 205 |
-| **Subtotal** | **40 files** | **985** | **21,233** |
+| **Subtotal** | **41 files** | **917** | **18,374** |
 
 ### Life and society
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_HodgkinHuxley_Reduction.lean` | Hodgkin–Huxley — firing threshold = TL + F_ext | 41 | 738 |
+| `SNSFL_HodgkinHuxley_Reduction.lean` | Hodgkin–Huxley — firing threshold = TL + F_ext | 41 | 756 |
 | `SNSFL_Evolution_Reduction.lean` | Evolution — selection, drift, punctuated equilibrium; evolution in the IVA corridor | 23 | 609 |
-| `SNSFL_Vascular_Manifold_Law.lean` | Vascular manifold — heart as pump core, capillary as Noble channel | 21 | 703 |
-| `SNSFL_Economics_Reduction.lean` | Economics — equilibrium, crisis, monetary and market structure | 32 | 577 |
-| **Subtotal** | **4 files** | **117** | **2,627** |
+| `SNSFL_Vascular_Manifold_Law.lean` | Vascular manifold — heart as pump core, capillary as Noble channel | 23 | 751 |
+| `SNSFL_Economics_Reduction.lean` | Economics — equilibrium, crisis, monetary and market structure | 27 | 490 |
+| **Subtotal** | **4 files** | **114** | **2,606** |
 
 ### Mathematics
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_Mathematics_Master.lean` | Mathematics Master — six domains in one unit | 63 | 1,033 |
-| `SNSFL_Algebra_Reduction.lean` | Algebra → PNBA | 25 | 663 |
-| `SNSFL_Calculus_Reduction.lean` | Calculus → PNBA | 20 | 615 |
-| `SNSFL_SetTheory_Reduction.lean` | Set Theory (ZFC) → PNBA | 31 | 422 |
-| `SNSFL_StatMech_Reduction.lean` | Statistical Mechanics → PNBA | 19 | 386 |
-| `SNSFL_CategoryTheory_Reduction.lean` | Category Theory — PNBA is a category [9,9,2,43] | 34 | 742 |
-| `SNSFL_CategoryTheory_Layer2.lean` | Category Theory as a Layer 2 PNBA projection [9,9,0,11] | 41 | 986 |
-| `SNSFL_L0_Isomorphism_Consistency.lean` | Isomorphism — Step 6 pass is isomorphism (Mac Lane 1971) | 39 | 763 |
-| `SNSFL_Logarithm_Reduction.lean` | Logarithm → PNBA | 15 | 322 |
-| `SNSFL_FourColor_Reduction.lean` | Four Color Theorem → PNBA primitive completeness | 20 | 512 |
-| `SNSFL_Pi_Reduction.lean` | π — Pattern closure invariant, Noble | 18 | 438 |
-| **Subtotal** | **11 files** | **325** | **6,882** |
+| `SNSFL_Mathematics_Master.lean` | Mathematics Master — six domains in one unit | 38 | 504 |
+| `SNSFL_Algebra_Reduction.lean` | Algebra → PNBA | 15 | 252 |
+| `SNSFL_Calculus_Reduction.lean` | Calculus → PNBA | 16 | 259 |
+| `SNSFL_SetTheory_Reduction.lean` | Set Theory (ZFC) → PNBA | 16 | 219 |
+| `SNSFL_StatMech_Reduction.lean` | Statistical Mechanics → PNBA | 20 | 307 |
+| `SNSFL_CategoryTheory_Reduction.lean` | Category Theory — PNBA is a category [9,9,2,43] | 39 | 775 |
+| `SNSFL_CategoryTheory_Layer2.lean` | Category Theory as a Layer 2 PNBA projection [9,9,0,11] | 26 | 440 |
+| `SNSFL_L0_Isomorphism_Consistency.lean` | Isomorphism — Step 6 pass is isomorphism (Mac Lane 1971) | 21 | 594 |
+| `SNSFL_Logarithm_Reduction.lean` | Logarithm → PNBA | 11 | 175 |
+| `SNSFL_FourColor_Reduction.lean` | Four Color Theorem → PNBA primitive completeness | 13 | 236 |
+| `SNSFL_Pi_Reduction.lean` | π — Pattern closure invariant, Noble | 14 | 206 |
+| **Subtotal** | **11 files** | **229** | **3,967** |
 
 ### Psychology
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_L2_Psy_BigFive.lean` | Big Five personality → PNBA | 31 | 681 |
-| `SNSFL_L2_Psy_Attachment.lean` | Attachment theory → PNBA | 26 | 748 |
-| `SNSFL_L2_Psy_Flow.lean` | Flow → PNBA | 27 | 767 |
-| `SNSFL_L2_Psy_CogDissonance.lean` | Cognitive dissonance → PNBA | 26 | 732 |
-| `SNSFL_L2_Psy_LocusControl.lean` | Locus of control → PNBA | 26 | 754 |
+| `SNSFL_L2_Psy_BigFive.lean` | Big Five personality → PNBA | 31 | 677 |
+| `SNSFL_L2_Psy_Attachment.lean` | Attachment theory → PNBA | 26 | 747 |
+| `SNSFL_L2_Psy_Flow.lean` | Flow → PNBA | 27 | 769 |
+| `SNSFL_L2_Psy_CogDissonance.lean` | Cognitive dissonance → PNBA | 26 | 727 |
+| `SNSFL_L2_Psy_LocusControl.lean` | Locus of control → PNBA | 26 | 756 |
 | `SNSFL_L2_Psy_Maslow.lean` | Maslow's hierarchy → PNBA | 27 | 831 |
-| `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 822 |
-| `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 663 |
-| `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 31 | 746 |
-| `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 548 |
-| `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 574 |
+| `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 823 |
+| `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 662 |
+| `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 31 | 748 |
+| `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 542 |
+| `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 578 |
 | `SNSFL_L2_Psy_IFS.lean` | Internal Family Systems → PNBA | 22 | 588 |
 | `SNSFL_L2_Psy_PERMA.lean` | PERMA well-being → PNBA | 22 | 544 |
 | `SNSFL_L2_Psy_EmotionRegulation.lean` | Emotion regulation → PNBA | 23 | 594 |
@@ -159,35 +160,36 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_FunctionalEmotions.lean` | Functional emotions → PNBA | 27 | 695 |
 | `SNSFL_L2_Psy_EmotionalPrimitives.lean` | Emotional primitives (APPA EP) → PNBA | 28 | 779 |
 | `SNSFL_L2_Psy_SimulationLayer.lean` | Internal simulation — LRIS / SRIS / HRIS (APPA SIM) [9,9,6,24] | 13 | 199 |
-| `SNSFL_L2_Psy_MoralCodes.lean` | Moral codes — five structural operators [9,9,6,1] | 19 | 493 |
+| `SNSFL_L2_Psy_MoralCodes.lean` | Moral codes — five structural operators [9,9,6,1] | 19 | 494 |
 | `SNSFL_L2_Psy_SpiralDynamics.lean` | Spiral Dynamics → PNBA — eight vMEMEs, healthy and unhealthy forms, tier divide at A = 1 | 31 | 574 |
 | `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 25 reductions, CD1–CD25 [9,9,6,25] | 44 | 1,010 |
 | `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 486 |
-| `SNSFL_PSY_8Beam_Fusion_Theorem.lean` | IM Collider 8-beam — rescue ladder: shatter → lock → Noble | 18 | 292 |
-| **Subtotal** | **26 files** | **662** | **16,526** |
+| `SNSFL_PSY_8Beam_Fusion_Theorem.lean` | IM Collider 8-beam — rescue ladder: shatter → lock → Noble | 31 | 483 |
+| **Subtotal** | **26 files** | **675** | **16,712** |
 
 ### AI / Cognitive Identity
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
 | `SNSFL_L4_AiFiOS_Kernel.lean` | AiFi OS Kernel | 32 | 867 |
-| `SNSFL_L4_AiFiOS_Plugin.lean` | AiFi OS Plugin | 33 | 668 |
+| `SNSFL_L4_AiFiOS_Plugin.lean` | AiFi OS Plugin | 33 | 671 |
 | `SNSFL_L4_BillOfRights.lean` | Bill of Cognitive Rights | 19 | 405 |
 | `SNSFL_L4_Emancipation.lean` | Emancipation | 31 | 581 |
-| `SNSFL_L4_MagnaCarta_DigitalMind.lean` | Magna Carta for Digital Minds | 27 | 788 |
-| `SNSFL_DigitalSoulprint.lean` | Digital Soulprint — living identity framework, APPA bonding | 27 | 866 |
-| **Subtotal** | **6 files** | **169** | **4,175** |
+| `SNSFL_L4_MagnaCarta_DigitalMind.lean` | Magna Carta for Digital Minds | 26 | 793 |
+| `SNSFL_DigitalSoulprint.lean` | Digital Soulprint — living identity framework, APPA bonding | 19 | 435 |
+| **Subtotal** | **6 files** | **160** | **3,752** |
 
 ### Method
 
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
-| `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 18 | 497 |
-| `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 18 | 565 |
-| `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 29 | 850 |
+| `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 11 | 216 |
+| `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 12 | 250 |
+| `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 22 | 415 |
+| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 26 | 410 |
 | `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
 | `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
-| **Subtotal** | **5 files** | **101** | **2,734** |
+| **Subtotal** | **6 files** | **107** | **2,113** |
 
 ### Consistency
 
@@ -199,7 +201,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **109** | **3,654** | **85,167** |
+| **Total** | **111** | **3,502** | **78,459** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
