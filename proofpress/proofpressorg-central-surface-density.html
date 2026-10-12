@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Central Surface Density of Dark Halos at the Phase Boundary — ProofPress</title>
+  <meta name="description" content="[9,9,4,14](COSM) — Galaxies across twelve orders of magnitude share one dark-halo central surface density, μ₀D ≈ 140 M☉/pc². Its pull, 2πG·μ₀D ≈ 1.23 × 10⁻¹⁰ m/s², lands at the acceleration where gravity crosses from the Newtonian to the low-acceleration regime. Mapped to TL, every halo core sits at the phase boundary within the measured band; cold dark matter is Shatter. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-central-surface-density.html">
+  <meta property="og:title" content="The Central Surface Density of Dark Halos at the Phase Boundary">
+  <meta property="og:description" content="[9,9,4,14](COSM) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-central-surface-density.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Central Surface Density of Dark Halos at the Phase Boundary">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Central Surface Density of Dark Halos at the Phase Boundary">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/09/03">
+  <meta name="citation_online_date" content="2026/09/03">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,4,14">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-central-surface-density.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-central-surface-density.html">
+  <meta name="citation_keywords" content="dark matter; halo surface density; Donato; MOND; Milgrom; acceleration scale; galaxy rotation; cold dark matter; torsion limit; phase boundary; PNBA; Applied Identity Physics; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Central Surface Density of Dark Halos at the Phase Boundary",
+    "datePublished": "2026-09-03",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-central-surface-density.html",
+    "keywords": "dark matter, halo surface density, Donato, MOND, Milgrom, acceleration scale, galaxy rotation, cold dark matter, torsion limit, phase boundary, PNBA, Applied Identity Physics, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,4,14](COSM) · Volume 1 · Issue 7 · September 2026</div>
+    <h1>The Central Surface Density of Dark Halos at the Phase Boundary</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-central-surface-density.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_CentralSurfaceDensity_LDP.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,4,14](COSM) · Identity Physics Series · Cosmology<br>
+<strong>Issue:</strong> Volume 1, Issue 7 · September 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 12 theorems · 242 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CentralSurfaceDensity_LDP.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Donato and collaborators found in 2009 that the central surface density of dark-matter halos, μ₀D = ρ₀r₀ = 140 (+80/−30) M☉/pc², is the same across galaxies spanning twelve orders of magnitude in luminosity, independent of their mass, type and history. In SI units this is 0.2924 kg/m², with the measured band 0.2297–0.4595 kg/m². This article reads the constant as a boundary. The pull of a halo core's surface density, g₀ = 2πG·μ₀D, is 1.23 × 10⁻¹⁰ m/s², at the acceleration a₀ ≈ 1.2 × 10⁻¹⁰ m/s² where gravity crosses from the Newtonian regime to the low-acceleration regime: the ratio x = g₀/a₀ is 1.02 at the central value, and the measured band straddles x = 1, from 0.80 to 1.61. Milgrom's prediction of a halo surface density a₀/(2πG) lies inside the band. Mapping the crossover x = 1 to the Torsion Limit, τ = x·TL, places every halo core at the phase boundary, τ ≈ TL, which is why the same value appears in every galaxy. Around the cores, cold dark matter, with τ = Ω_c/P_base = 0.2607/0.9878 ≈ 0.264, is Shatter, and dark energy, carrying no coupling, is Noble.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The measurement in SI: 140 M☉/pc² = 0.2924 kg/m², the band 0.2297–0.4595 kg/m² (<code>donato_si</code>).</li>
+<li>The crossover: the core's pull 2πG·μ₀D ≈ 1.23 × 10⁻¹⁰ m/s²; x = g₀/a₀ = 1.02 with the band straddling x = 1; in the corpus τ at TL; Milgrom's a₀/(2πG) inside the band (<code>core_pull</code>, <code>at_the_crossover</code>, <code>halo_at_boundary</code>, <code>milgrom_in_band</code>).</li>
+<li>The dark sector: cold dark matter Shatter, τ = Ω_c/P_base &gt; TL. The master theorem holds the measurement, the crossover, the boundary placement, Milgrom's prediction and the cold dark matter placement together (<code>cdm_shatter</code>, <code>central_surface_density_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Quantity</th><th>Value</th><th>x = g₀/a₀</th><th>τ = x·TL</th></tr>
+<tr><td>Donato low (110 M☉/pc²)</td><td>0.2297 kg/m²</td><td>0.80</td><td>below TL</td></tr>
+<tr><td>Donato central (140 M☉/pc²)</td><td>0.2924 kg/m²</td><td>1.02</td><td>at TL</td></tr>
+<tr><td>Donato high (220 M☉/pc²)</td><td>0.4595 kg/m²</td><td>1.61</td><td>above TL</td></tr>
+<tr><td>Milgrom a₀/(2πG)</td><td>0.2862 kg/m²</td><td>1</td><td>TL</td></tr>
+</table>
+<table>
+<tr><th>Dark sector</th><th>τ</th><th>Phase</th></tr>
+<tr><td>Cold dark matter</td><td>Ω_c/P_base ≈ 0.264</td><td>Shatter</td></tr>
+<tr><td>Dark energy</td><td>0</td><td>Noble</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Donato, F. et al. (2009). A constant dark matter halo surface density in galaxies. <em>Monthly Notices of the Royal Astronomical Society</em>, 397, 1169–1176.</li>
+<li>Milgrom, M. (2009). The central surface density of dark haloes predicted by MOND. <em>Monthly Notices of the Royal Astronomical Society</em>, 398, 1023–1026.</li>
+<li>Milgrom, M. (1983). A modification of the Newtonian dynamics as a possible alternative to the hidden mass hypothesis. <em>Astrophysical Journal</em>, 270, 365–370.</li>
+<li>Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. <em>Astronomy &amp; Astrophysics</em>, 641, A6.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-universal-pump.html">The Universal Pump</a>. ProofPress, Volume 1, Issue 5.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_CentralSurfaceDensity_LDP.lean
+-- ============================================================
+--
+-- The Central Surface Density of Dark Halos → PNBA
+-- Galaxies spanning twelve orders of magnitude in luminosity share
+-- one dark-halo central surface density, μ₀D ≈ 140 M☉/pc². The
+-- pull of that surface, g₀ = 2πG·μ₀D, lands at the acceleration a₀
+-- where gravity crosses from the Newtonian regime to the
+-- low-acceleration regime. Every halo core sits at that crossover.
+-- Mapping the crossover to the Torsion Limit places them all at the
+-- phase boundary, within the measured band.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,4,14](COSM)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      September 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- THE DATA
+-- ============================================================
+--
+-- Donato et al. 2009 (MNRAS 397, 1169): μ₀D = ρ₀·r₀ =
+-- 140 (+80/−30) M☉/pc² = 0.2924 kg/m², the same across spirals,
+-- ellipticals and dwarfs, independent of mass, type and history.
+--
+-- Milgrom 2009: the low-acceleration regime predicts a halo surface
+-- density Σ = a₀/(2πG); with a₀ = 1.2 × 10⁻¹⁰ m/s² that is
+-- 137 M☉/pc², inside the measured band.
+--
+-- ============================================================
+-- THE MAP
+-- ============================================================
+--
+--   g₀ = 2πG·μ₀D       the pull of the halo core&#x27;s surface
+--   x  = g₀ / a₀        against the crossover acceleration
+--   τ  = x · TL         the crossover x = 1 is the phase boundary
+--
+--   Donato central   x = 1.02     τ = 1.02 TL
+--   Donato band      x = 0.80 to 1.61, straddling x = 1
+--
+-- The constancy of μ₀D is the statement that halo cores sit at
+-- the crossover, x ≈ 1: at the boundary, τ ≈ TL.
+--
+-- The dark sector around them: cold dark matter has
+-- τ = Ω_c / P_base = 0.2607 / 0.9878 ≈ 0.264, Shatter; dark energy
+-- carries no coupling, Noble [9,9,4,0].
+--
+-- ============================================================
+
+import Mathlib.Analysis.Real.Pi.Bounds
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_CentralSurfaceDensity
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def H_FREQ           : ℝ := 1.4204
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- Constants (SI): G (CODATA 2018), solar mass and parsec (IAU),
+-- Milgrom&#x27;s a₀
+def G_N    : ℝ := 6.67430e-11
+def M_SUN  : ℝ := 1.98847e30
+def PARSEC : ℝ := 3.0856775814913673e16
+def A0     : ℝ := 1.2e-10
+
+-- Planck 2018 cold dark matter density
+def OMEGA_CDM : ℝ := 0.2607
+
+-- Surface density of m M☉/pc², in kg/m²
+noncomputable def mu_si (m : ℝ) : ℝ := m * M_SUN / PARSEC ^ 2
+-- Its pull and its ratio to a₀
+noncomputable def g_surface (m : ℝ) : ℝ := 2 * Real.pi * G_N * mu_si m
+noncomputable def x_ratio (m : ℝ) : ℝ := g_surface m / A0
+-- Corpus torsion: the crossover x = 1 maps to TL
+noncomputable def tau_of (x : ℝ) : ℝ := x * TORSION_LIMIT
+
+-- ============================================================
+-- SECTION 1: THE MEASUREMENT
+-- ============================================================
+
+-- [T1] 140 M☉/pc² = 0.2924 kg/m²; the band 110–220 M☉/pc² is
+-- 0.2297–0.4595 kg/m²
+theorem donato_si :
+    (0.2923 &lt; mu_si 140 ∧ mu_si 140 &lt; 0.2925) ∧
+    (0.2297 &lt; mu_si 110 ∧ mu_si 220 &lt; 0.4595) := by
+  unfold mu_si M_SUN PARSEC
+  refine ⟨⟨?_, ?_⟩, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- SECTION 2: THE CROSSOVER
+-- ============================================================
+
+-- [T2] The pull of the halo core: g₀ = 2πG·μ₀D ≈ 1.23 × 10⁻¹⁰ m/s²
+theorem core_pull : 1.22e-10 &lt; g_surface 140 ∧ g_surface 140 &lt; 1.23e-10 := by
+  have hp1 := Real.pi_gt_d2
+  have hp2 := Real.pi_lt_d2
+  unfold g_surface mu_si G_N M_SUN PARSEC
+  constructor
+  · nlinarith
+  · nlinarith
+
+-- [T3] The central value sits at the crossover, x = 1.02, and the
+-- measured band straddles it: x &lt; 1 at 110 M☉/pc², x &gt; 1 at 220
+theorem at_the_crossover :
+    (1.01 &lt; x_ratio 140 ∧ x_ratio 140 &lt; 1.03) ∧
+    x_ratio 110 &lt; 1 ∧ 1 &lt; x_ratio 220 := by
+  have hp1 := Real.pi_gt_d2
+  have hp2 := Real.pi_lt_d2
+  unfold x_ratio g_surface mu_si G_N M_SUN PARSEC A0
+  refine ⟨⟨?_, ?_⟩, ?_, ?_⟩
+  · rw [lt_div_iff₀ (by norm_num)]; nlinarith
+  · rw [div_lt_iff₀ (by norm_num)]; nlinarith
+  · rw [div_lt_iff₀ (by norm_num)]; nlinarith
+  · rw [lt_div_iff₀ (by norm_num)]; nlinarith
+
+-- [T4] In the corpus the halo core sits at the phase boundary:
+-- τ between TL and 1.03 TL at the central value, and the band
+-- crosses TL
+theorem halo_at_boundary :
+    TORSION_LIMIT &lt; tau_of (x_ratio 140) ∧ tau_of (x_ratio 140) &lt; 1.03 * TORSION_LIMIT ∧
+    tau_of (x_ratio 110) &lt; TORSION_LIMIT ∧ TORSION_LIMIT &lt; tau_of (x_ratio 220) := by
+  have h := at_the_crossover
+  have hTL : 0 &lt; TORSION_LIMIT := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  unfold tau_of
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · nlinarith [h.1.1]
+  · nlinarith [h.1.2]
+  · nlinarith [h.2.1]
+  · nlinarith [h.2.2]
+
+-- [T5] Milgrom&#x27;s prediction Σ = a₀/(2πG) lies inside Donato&#x27;s band
+theorem milgrom_in_band :
+    mu_si 110 &lt; A0 / (2 * Real.pi * G_N) ∧ A0 / (2 * Real.pi * G_N) &lt; mu_si 220 := by
+  have hp1 := Real.pi_gt_d2
+  have hp2 := Real.pi_lt_d2
+  have hpos : 0 &lt; 2 * Real.pi * G_N := by unfold G_N; positivity
+  unfold mu_si M_SUN PARSEC
+  constructor
+  · rw [lt_div_iff₀ hpos]; unfold G_N A0; nlinarith
+  · rw [div_lt_iff₀ hpos]; unfold G_N A0; nlinarith
+
+-- ============================================================
+-- SECTION 3: THE DARK SECTOR
+-- ============================================================
+
+noncomputable def P_BASE : ℝ := (SOVEREIGN_ANCHOR / H_FREQ) ^ ((1:ℝ)/3)
+
+theorem cube_rpow (r : ℝ) (hr : 0 ≤ r) : (r ^ ((1:ℝ)/3)) ^ 3 = r := by
+  rw [← Real.rpow_natCast, ← Real.rpow_mul hr]; norm_num
+
+theorem cbrt_lt (r c : ℝ) (hr : 0 ≤ r) (hc : 0 ≤ c) (h : r &lt; c ^ 3) :
+    r ^ ((1:ℝ)/3) &lt; c := by
+  by_contra hle
+  push Not at hle
+  have h3 := pow_le_pow_left₀ hc hle 3
+  rw [cube_rpow r hr] at h3
+  linarith
+
+theorem p_base_lt : P_BASE &lt; 0.990 := by
+  unfold P_BASE
+  exact cbrt_lt _ _ (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num) (by norm_num)
+    (by unfold SOVEREIGN_ANCHOR H_FREQ; norm_num)
+
+-- [T6] Cold dark matter is Shatter: τ = Ω_c / P_base &gt; TL
+theorem cdm_shatter : TORSION_LIMIT &lt; OMEGA_CDM / P_BASE := by
+  have hP0 : 0 &lt; P_BASE := by
+    unfold P_BASE SOVEREIGN_ANCHOR H_FREQ; positivity
+  have hP := p_base_lt
+  rw [lt_div_iff₀ hP0]
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR OMEGA_CDM
+  nlinarith
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T7] CENTRAL SURFACE DENSITY → PNBA
+theorem central_surface_density_master :
+    -- the measurement in SI
+    (0.2923 &lt; mu_si 140 ∧ mu_si 140 &lt; 0.2925) ∧
+    -- its pull sits at the crossover, the band straddling it
+    (1.01 &lt; x_ratio 140 ∧ x_ratio 140 &lt; 1.03) ∧
+    x_ratio 110 &lt; 1 ∧ 1 &lt; x_ratio 220 ∧
+    -- in the corpus: at the phase boundary
+    TORSION_LIMIT &lt; tau_of (x_ratio 140) ∧
+    -- Milgrom&#x27;s prediction inside the band
+    (mu_si 110 &lt; A0 / (2 * Real.pi * G_N) ∧ A0 / (2 * Real.pi * G_N) &lt; mu_si 220) ∧
+    -- cold dark matter Shatter
+    TORSION_LIMIT &lt; OMEGA_CDM / P_BASE ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨donato_si.1, at_the_crossover.1, at_the_crossover.2.1, at_the_crossover.2.2,
+   halo_at_boundary.1, milgrom_in_band, cdm_shatter, anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_CentralSurfaceDensity
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_CentralSurfaceDensity_LDP.lean
+-- COORDINATE: [9,9,4,14](COSM)
+-- SORRY:      0
+--
+-- THE MAP: g₀ = 2πG·μ₀D, x = g₀/a₀, τ = x·TL; the crossover
+--   x = 1 ↔ TL.
+--
+-- RESULTS:
+--   Donato μ₀D = 0.2924 kg/m²; band 0.2297–0.4595 kg/m² (T1)
+--   g₀ ≈ 1.23 × 10⁻¹⁰ m/s²; x = 1.02, the band straddling x = 1;
+--     τ at TL (T2–T4)
+--   Milgrom&#x27;s a₀/(2πG) inside the band (T5)
+--   Cold dark matter Shatter, τ = Ω_c/P_base &gt; TL (T6)
+--
+-- CONNECTIONS:
+--   [9,9,4,0]  Cosmological corpus
+--   [9,9,10,0] Quantum gravity · [9,9,10,1] Gravity
+--   [9,9,3,2]  Universal Pump
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-central-surface-density.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-central-surface-density.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>

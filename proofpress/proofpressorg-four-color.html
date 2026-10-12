@@ -576,7 +576,7 @@
 
       <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
       <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
     </div>
@@ -708,7 +708,7 @@
 -- ============================================================
 
 import Mathlib.Tactic
-import Mathlib.Combinatorics.SimpleGraph.Coloring
+import Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex
 
 noncomputable section
 
@@ -773,7 +773,7 @@ def k4_axes : Fin 4 → PNBAAxis
 theorem k4_four_colorable : Nonempty ((⊤ : SimpleGraph (Fin 4)).Coloring PNBAAxis) := by
   have hinj : ∀ a b : Fin 4, a ≠ b → k4_axes a ≠ k4_axes b := by decide
   exact ⟨SimpleGraph.Coloring.mk k4_axes
-    (fun {v w} h =&gt; hinj v w (SimpleGraph.top_adj.mp h))⟩
+    (fun {v w} h =&gt; hinj v w (by simpa using h))⟩
 
 -- [T6] The complete graph on n + 1 vertices has no proper coloring
 -- with n colors
@@ -783,7 +783,7 @@ theorem complete_not_colorable (n : ℕ) :
   have hinj : Function.Injective c := by
     intro a b hab
     by_contra hne
-    exact c.valid (SimpleGraph.top_adj.mpr hne) hab
+    exact c.valid (by simpa using hne) hab
   have := Fintype.card_le_of_injective c hinj
   simp at this
 

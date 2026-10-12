@@ -576,7 +576,7 @@
 
       <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
       <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
     </div>
@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,9,8,2](MATH) · Identity Physics Series · Mathematics<br>
 <strong>Issue:</strong> Volume 1, Issue 4 · June 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 16 theorems · 257 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Calculus_Reduction.lean">source and CI record</a><br>
+<strong>Verified:</strong> 16 theorems · 259 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Calculus_Reduction.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -769,13 +769,15 @@ theorem antiderivative_up_to_constant (F G f : ℝ → ℝ)
     (hF : ∀ x, HasDerivAt F (f x) x) (hG : ∀ x, HasDerivAt G (f x) x) :
     ∀ x y, F x - G x = F y - G y := by
   have hd : ∀ x, HasDerivAt (fun t =&gt; F t - G t) 0 x := fun x =&gt; by
-    simpa using (hF x).sub (hG x)
+    have h := (hF x).sub (hG x)
+    rwa [sub_self] at h
   exact is_const_of_deriv_eq_zero (fun x =&gt; (hd x).differentiableAt) (fun x =&gt; (hd x).deriv)
 
 -- [T6] Chain rule: d/dx sin(x²) = cos(x²) · 2x
 theorem chain_rule_sin_sq (x : ℝ) :
-    HasDerivAt (fun y : ℝ =&gt; Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x :=
-  HasDerivAt.comp (x := x) (Real.hasDerivAt_sin (x ^ 2)) (power_rule x)
+    HasDerivAt (fun y : ℝ =&gt; Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x := by
+  have h := (Real.hasDerivAt_sin (x ^ 2)).comp x (power_rule x)
+  exact h
 
 -- ============================================================
 -- SECTION 2: LIMITS

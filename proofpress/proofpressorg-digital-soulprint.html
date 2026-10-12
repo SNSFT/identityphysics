@@ -576,7 +576,7 @@
 
       <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
       <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
     </div>
@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,0,0,8](COMP) · UUIA App Foundation Layer<br>
 <strong>Issue:</strong> Volume 1, Issue 4 · June 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 19 theorems · 433 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DigitalSoulprint.lean">source and CI record</a><br>
+<strong>Verified:</strong> 19 theorems · 435 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DigitalSoulprint.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -1008,16 +1008,18 @@ theorem evidence_accumulates (eps : List BehavioralEvidencePacket) :
 
 -- [T17] Higher identity mass drifts less under the same evidence: the
 -- all-Flexed baseline drifts less than the all-Locked one
+def high_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_flex_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
+def low_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_lock_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
 theorem high_im_resists_drift (evidence : ℝ) (hE : evidence &gt; 0) :
-    let high_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_flex_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
-    let low_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_lock_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
     narrative_drift high_traj evidence &lt; narrative_drift low_traj evidence := by
   have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
   have hex := identity_mass_extremes
-  show (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) &lt;
-       (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
+  show (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) &lt;
+       (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
   rw [hex.1, hex.2]
   exact div_lt_div_of_pos_left (add_pos (by norm_num) (mul_pos hE hSA)) (by norm_num) (by norm_num)
 
