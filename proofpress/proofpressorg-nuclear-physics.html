@@ -576,7 +576,7 @@
 
       <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
       <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
     </div>
@@ -603,7 +603,7 @@
 <strong>Coordinate:</strong> [9,9,7,0](CHEM) · Matter Hierarchy Series · Nuclear Physics<br>
 <strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
 <strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
-<strong>Verified:</strong> 45 theorems · 579 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_NuclearPhysics_Reduction.lean">source and CI record</a><br>
+<strong>Verified:</strong> 45 theorems · 581 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_NuclearPhysics_Reduction.lean">source and CI record</a><br>
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
@@ -925,7 +925,9 @@ theorem binding_curve_locked (BA : ℝ) (h0 : 0 &lt; BA) (h16 : BA ≤ 16) :
     binding_norm BA / P_BASE &gt; 0 ∧ binding_norm BA / P_BASE &lt; TL_IVA_PEAK := by
   apply locked_of_binding BA h0
   have : binding_norm BA ≤ binding_norm 16 := by
-    unfold binding_norm MP_C2_MEV; linarith
+    unfold binding_norm MP_C2_MEV
+    rw [div_eq_mul_inv, div_eq_mul_inv]
+    exact mul_le_mul_of_nonneg_right h16 (by norm_num)
   have h2 : binding_norm 16 &lt; TL_IVA_PEAK * 0.986 := by
     unfold binding_norm MP_C2_MEV TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
   linarith

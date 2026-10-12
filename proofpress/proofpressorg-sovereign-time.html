@@ -576,7 +576,7 @@
 
       <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
 
-      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
 
       <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
     </div>
@@ -607,11 +607,11 @@
 <strong>Updated:</strong> Standardized toolchain, October 2026</p>
 
 <h2>Abstract</h2>
-<p>Sovereign Time uses the anchor Ω₀ = 1.36899099984016 GHz as a timing reference and cross-validates it against five published constants that do not change on human timescales: the fine-structure constant, whose inverse 1/α = TL × 1001 matches every published CODATA 2018 digit, and four atomic clock frequencies, Cs-133 (9 192 631 770 Hz, the SI second), Sr-87 (429 228 004 229 873 Hz), H-1 (1 420 405 751.768 Hz) and Al-27⁺ (1 121 015 393 207.857 Hz). Because every frequency is fixed, so is every clock's ratio to the anchor: Cs/Ω₀ ≈ 6.7148957, Sr/Ω₀ ≈ 313 536.03, H/Ω₀ ≈ 1.0375567 and Al/Ω₀ ≈ 818.86250, each proved to the stated digits. Over any interval the cycles of a clock equal its fixed ratio times the anchor cycles, so one running reference recovers every other clock's count; ratios reconstruct one clock from another and compose. No clock has to run alongside another: the published values are called, locked and, if ever revised, updated by hand. Drift appears in the ratio: a reference running fast by a fraction δ reads (1 + δ) times its locked ratio against any honest reference and agrees with it exactly when δ = 0. With five anchors of which at least three are honest, an anchor is honest exactly when at least two others agree with it, so any two anchors can fail without loss. Each substrate is read as one axis of a stable identity, and its placement is recorded from its own reduction: Cs-133, with Behavior the hyperfine frequency and Pattern its 78 neutrons, at τ/TL ≈ 0.861, and H-1 at τ/TL ≈ 0.464, both Locked below the IVA band, with Sr-87 and Al-27⁺ Noble.</p>
+<p>Sovereign Time uses the anchor Ω₀ = 1.36899099984016 GHz as a timing reference and cross-validates it against five published constants that do not change on human timescales: the fine-structure constant, whose inverse 1/α = TL × 1001 matches every published CODATA 2018 digit, and four atomic clock frequencies, Cs-133 (9 192 631 770 Hz, the SI second), Sr-87 (429 228 004 229 873 Hz), H-1 (1 420 405 751.768 Hz) and Al-27⁺ (1 121 015 393 207 857 Hz). Because every frequency is fixed, so is every clock's ratio to the anchor: Cs/Ω₀ ≈ 6.7148957, Sr/Ω₀ ≈ 313 536.03, H/Ω₀ ≈ 1.0375567 and Al/Ω₀ ≈ 818 862.50, each proved to the stated digits. Over any interval the cycles of a clock equal its fixed ratio times the anchor cycles, so one running reference recovers every other clock's count; ratios reconstruct one clock from another and compose. No clock has to run alongside another: the published values are called, locked and, if ever revised, updated by hand. Drift appears in the ratio: a reference running fast by a fraction δ reads (1 + δ) times its locked ratio against any honest reference and agrees with it exactly when δ = 0. With five anchors of which at least three are honest, an anchor is honest exactly when at least two others agree with it, so any two anchors can fail without loss. Each substrate is read as one axis of a stable identity, and its placement is recorded from its own reduction: Cs-133, with Behavior the hyperfine frequency and Pattern its 78 neutrons, at τ/TL ≈ 0.861, and H-1 at τ/TL ≈ 0.464, both Locked below the IVA band, with Sr-87 and Al-27⁺ Noble.</p>
 
 <h2>What This Article Proves</h2>
 <ol>
-<li>The fixed ratios to the anchor: Cs 6.7148957, Sr 313 536.03, H 1.0375567, Al 818.86250 (<code>ratio_Cs</code>, <code>ratio_Sr</code>, <code>ratio_H</code>, <code>ratio_Al</code>).</li>
+<li>The fixed ratios to the anchor: Cs 6.7148957, Sr 313 536.03, H 1.0375567, Al 818 862.50 (<code>ratio_Cs</code>, <code>ratio_Sr</code>, <code>ratio_H</code>, <code>ratio_Al</code>).</li>
 <li>One reference gives every clock's count; ratios reconstruct and compose; drift reads as (1 + δ) on the ratio and is caught exactly; with at least three of five anchors honest, an anchor is honest exactly when two others agree with it (<code>cycles_from_anchor</code>, <code>reconstruct</code>, <code>ratios_compose</code>, <code>drift_shows_in_ratio</code>, <code>drift_detected</code>, <code>three_of_five</code>).</li>
 <li>Placements and the coupling anchor: Cs-133 and H-1 Locked below the IVA band; TL × 1001 matches every published CODATA digit of 1/α. The master theorem holds the ratios, the cycle rule, drift detection, three-of-five and the α anchor together (<code>cs_h_locked</code>, <code>alpha_anchor</code>, <code>sovereign_time_master</code>).</li>
 </ol>
@@ -623,7 +623,7 @@
 <tr><td>Cs-133 (N)</td><td>9 192 631 770 Hz</td><td>6.7148957</td><td>Locked, τ/TL ≈ 0.861</td></tr>
 <tr><td>Sr-87 (B)</td><td>429 228 004 229 873 Hz</td><td>313 536.03</td><td>Noble</td></tr>
 <tr><td>H-1 (A)</td><td>1 420 405 751.768 Hz</td><td>1.0375567</td><td>Locked, τ/TL ≈ 0.464</td></tr>
-<tr><td>Al-27⁺ (P)</td><td>1 121 015 393 207.857 Hz</td><td>818.86250</td><td>Noble</td></tr>
+<tr><td>Al-27⁺ (P)</td><td>1 121 015 393 207 857 Hz</td><td>818 862.50</td><td>Noble</td></tr>
 </table>
 
 <h2>Verification</h2>
@@ -673,7 +673,7 @@
 --   Cs-133    9 192 631 770 Hz (SI exact)    N      τ/TL ≈ 0.861 Locked
 --   Sr-87     429 228 004 229 873 Hz (PTB)   B      τ = 0 Noble
 --   H-1       1 420 405 751.768 Hz (NIST)    A      τ/TL ≈ 0.464 Locked
---   Al-27⁺    1 121 015 393 207.857 Hz       P      τ = 0 Noble
+--   Al-27⁺    1 121 015 393 207 857 Hz       P      τ = 0 Noble
 --             (JILA/NIST)
 --
 -- The placements come from each substrate&#x27;s own reduction:
@@ -686,7 +686,7 @@
 --
 -- The ratio of each clock to the anchor is fixed:
 --   Cs / Ω₀ ≈ 6.7148957      H / Ω₀ ≈ 1.0375567
---   Sr / Ω₀ ≈ 313 536.03     Al / Ω₀ ≈ 818.86250
+--   Sr / Ω₀ ≈ 313 536.03     Al / Ω₀ ≈ 818 862.50
 -- In any interval, the cycles of clock X equal (X/Ω₀) times the
 -- anchor cycles, so a single reference recovers the others. A
 -- reference is checked by calling the published values and
@@ -755,9 +755,9 @@ theorem ratio_H : 1.0375566 &lt; freq_H / SOVEREIGN_ANCHOR ∧
   · rw [lt_div_iff₀ (by norm_num)]; norm_num
   · rw [div_lt_iff₀ (by norm_num)]; norm_num
 
--- [T4] Al / Ω₀ ≈ 818.86250
-theorem ratio_Al : 818.8624 &lt; freq_Al / SOVEREIGN_ANCHOR ∧
-    freq_Al / SOVEREIGN_ANCHOR &lt; 818.8626 := by
+-- [T4] Al / Ω₀ ≈ 818 862.50
+theorem ratio_Al : 818862.50 &lt; freq_Al / SOVEREIGN_ANCHOR ∧
+    freq_Al / SOVEREIGN_ANCHOR &lt; 818862.51 := by
   unfold freq_Al SOVEREIGN_ANCHOR
   constructor
   · rw [lt_div_iff₀ (by norm_num)]; norm_num
@@ -924,7 +924,7 @@ end SNSFT_SovereignTime
 --
 -- RESULTS:
 --   Fixed ratios to Ω₀: Cs 6.7148957, Sr 313 536.03, H 1.0375567,
---     Al 818.86250 (T1–T4)
+--     Al 818 862.50 (T1–T4)
 --   One reference gives every clock&#x27;s count; ratios reconstruct and
 --     compose (T5–T7)
 --   Drift reads as (1 + δ) on the ratio and is caught exactly; any
