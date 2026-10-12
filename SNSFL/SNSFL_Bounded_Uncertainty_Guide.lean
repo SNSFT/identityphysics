@@ -68,7 +68,7 @@
 -- ============================================================
 --
 --   1  P_base between 0.986 and 0.990       Category theory [9,9,2,43]
---   2  TL × 1001 against 1/α = 137.035999084  α [9,9,3,14]
+--   2  the subtraction: 1/α − TL = TL × 1000  α [9,9,3,14]
 --   3  Rydberg energy within CODATA          Electron [9,9,3,21]
 --   4  Tacoma deck 1.387–1.389: Shatter      Tacoma [9,9,2,52]
 --      Donato band 0.80–1.61: at the boundary
@@ -226,13 +226,26 @@ theorem digits_agree (x y p u : ℝ) (hx : matches_digits x p u) (hy : matches_d
   · linarith [hx.1, hy.2]
   · linarith [hx.2, hy.1]
 
--- [T5] Exemplar 2: TL × 1001 matches every published digit of
--- CODATA 2018's 1/α = 137.035999084
-theorem alpha_digits : matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
-  unfold matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
-  rw [abs_lt]; constructor
-  · norm_num
-  · norm_num
+-- [T5] Exemplar 2, the subtraction. Start from the published value
+-- 1/α = 137.035999084 and subtract the Torsion Limit, at threshold
+-- 0.1369: what is left is 1000 × 0.1369 to within 10⁻³. So
+-- 1/α = TL × 1000 + TL. Read in legacy terms, TL × 1000 is the bare
+-- term, the part QED assigns to the bare electron; TL is the kinetic
+-- term, the part QED computes as a renormalized series of radiative
+-- corrections, carried here as one exact term in the F_ext slot. At
+-- corpus precision the sum is exact,
+--   136.899099984016 + 0.136899099984016 = 137.035999084000016,
+-- and it matches every published digit of CODATA 2018
+theorem alpha_discovery :
+    within (137.035999084 - 0.1369) (1000 * 0.1369) 0.001 ∧
+    (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
+    TORSION_LIMIT * 1000 = 136.899099984016 ∧
+    (136.899099984016 : ℝ) + 0.136899099984016 = 137.035999084000016 ∧
+    matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
+  unfold within matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, by norm_num, by norm_num, by norm_num, ?_⟩
+  · rw [abs_le]; constructor <;> norm_num
+  · rw [abs_lt]; constructor <;> norm_num
 
 -- ============================================================
 -- RULE 3: STATED UNCERTAINTY
@@ -358,8 +371,10 @@ theorem bounded_uncertainty_master :
     (∀ x : ℝ, within x 0.12 0.01 → x < TORSION_LIMIT) ∧
     -- bounds combine
     (∀ x y a b ε₁ ε₂ : ℝ, within x a ε₁ → within y b ε₂ → within (x + y) (a + b) (ε₁ + ε₂)) ∧
-    -- published digits, stated uncertainty
+    -- the subtraction: 1/α − TL = TL × 1000; published digits
+    (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
     matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 ∧
+    -- stated uncertainty
     within (510998.95 / 2 / (TORSION_LIMIT * 1001) ^ 2) 13.605693122994 0.000000000026 ∧
     -- phase from an estimate
     (∀ x c ε b : ℝ, within x c ε → b < c - ε → b < x) ∧
@@ -370,7 +385,8 @@ theorem bounded_uncertainty_master :
     (∀ a b t : ℝ, a ≠ 0 → ∃ θ : ℝ, a * θ + b = t) ∧
     -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_digits, rydberg_within, certified_above, certified_below,
+  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_discovery.2.1,
+   alpha_discovery.2.2.2.2, rydberg_within, certified_above, certified_below,
    corpus_precision.2.2.1, fitted_matches_anything, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
@@ -394,7 +410,8 @@ end SNSFL_Bounded_Uncertainty
 --   1 Bounds add; products bound by |x|ε₂ + |b|ε₁; P_base 0.988
 --     ± 0.002 (T1–T3)
 --   2 Published digits; values matching the same digits agree within
---     one unit; TL × 1001 against 1/α (T4, T5)
+--     one unit; the subtraction 1/α − TL = TL × 1000, bare + kinetic
+--     136.899099984016 + 0.136899099984016 = 137.035999084000016 (T4, T5)
 --   3 Stated uncertainty: the Rydberg energy (T6)
 --   4 Phase from an estimate: certified above or below, or at the
 --     boundary when straddling; Tacoma certified Shatter (T7–T9)
