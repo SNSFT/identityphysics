@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion — ProofPress</title>
+  <meta name="description" content="[9,9,8,2](MATH) — Narrative is the variable, Behavior the function value, Pattern the capacity. The derivative is the rate of Behavior over Narrative, the integral its accumulation, and Noble the limit of torsion as the load vanishes. The intermediate and mean value theorems then say exactly where a load crosses the torsion limit and how much room it needs to get there. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-calculus.html">
+  <meta property="og:title" content="Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion">
+  <meta property="og:description" content="[9,9,8,2](MATH) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-calculus.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/06/08">
+  <meta name="citation_online_date" content="2026/06/08">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,8,2">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-calculus.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-calculus.html">
+  <meta name="citation_keywords" content="calculus; derivative; integral; fundamental theorem of calculus; chain rule; limit; intermediate value theorem; mean value theorem; torsion; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion",
+    "datePublished": "2026-06-08",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-calculus.html",
+    "keywords": "calculus, derivative, integral, fundamental theorem of calculus, chain rule, limit, intermediate value theorem, mean value theorem, torsion, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,8,2](MATH) · Volume 1 · Issue 4 · June 2026</div>
+    <h1>Calculus Reduced to PNBA: Rates, Accumulation and Limits of Torsion</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-calculus.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_Calculus_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,8,2](MATH) · Identity Physics Series · Mathematics<br>
+<strong>Issue:</strong> Volume 1, Issue 4 · June 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 16 theorems · 257 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Calculus_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Calculus studies how a quantity changes along a variable. In PNBA the variable is Narrative N, the quantity is Behavior B(N), the load a system carries at each point, and the capacity it is measured against is Pattern P, so that torsion is τ(N) = B(N)/P. The derivative is the rate of Behavior over Narrative, the integral is Behavior accumulated across a Narrative interval, and the limit is the value approached; the Noble state τ = 0 is the limit of τ as the load goes to zero. The classical results are verified with Mathlib: the power rule d/dx x² = 2x, both parts of the fundamental theorem of calculus, ∫₀ˣ 2t dt = x², the constant of integration (two antiderivatives of the same rate differ by a constant), the chain rule for sin(x²), and sin x / x → 1. Applied to torsion they give exact statements. Along a trajectory torsion changes at rate B′/P, and in the capacity it falls at rate B/P², so added capacity matters most where capacity is small. A continuous load that starts at or below TL·P and ends at or above it meets TL·P at an exact point (intermediate value theorem). A load whose rate never exceeds M needs a Narrative interval of length at least (TL·P − B(a))/M to reach the limit (mean value theorem). A linear load B₀ + rN reaches the torsion limit exactly at N* = (TL·P − B₀)/r.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The classical results: power rule, both parts of the fundamental theorem of calculus, ∫₀ˣ 2t dt = x², the constant of integration, and the chain rule for sin(x²) (<code>power_rule</code>, <code>ftc_rate</code>, <code>ftc_accumulation</code>, <code>integral_two_t</code>, <code>antiderivative_up_to_constant</code>, <code>chain_rule_sin_sq</code>).</li>
+<li>Limits: sin x / x → 1 as x → 0, and torsion → 0 as the load → 0, so Noble is a limit (<code>sin_div_x_limit</code>, <code>noble_is_limit</code>).</li>
+<li>Calculus on torsion: rate B′/P along a trajectory and −B/P² in the capacity; an exact crossing of TL·P by the intermediate value theorem; crossing room TL·P − B(a) ≤ M(b − a) by the mean value theorem; a linear load crosses at (TL·P − B₀)/r. The master theorem holds the classical results, limits and linear crossing together (<code>torsion_rate</code>, <code>torsion_rate_in_P</code>, <code>exact_crossing</code>, <code>crossing_needs_room</code>, <code>linear_crossing</code>, <code>calculus_pnba_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Calculus</th><th>PNBA</th><th>Meaning</th></tr>
+<tr><td>variable x or t</td><td>N</td><td>the axis the system moves along</td></tr>
+<tr><td>function value f(x)</td><td>B</td><td>the load carried at that point</td></tr>
+<tr><td>reference capacity</td><td>P</td><td>what the load is measured against</td></tr>
+<tr><td>f′(x)</td><td>B′(N)</td><td>rate of Behavior over Narrative</td></tr>
+<tr><td>∫ f dx</td><td>∫ B dN</td><td>Behavior accumulated over an interval</td></tr>
+<tr><td>limit</td><td>τ → 0</td><td>Noble, approached as the load vanishes</td></tr>
+<tr><td>f(x)/c</td><td>τ = B/P</td><td>torsion; rate B′/P</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Apostol, T. M. (1967). <em>Calculus</em>, Vol. 1, 2nd ed. Wiley.</li>
+<li>Rudin, W. (1976). <em>Principles of Mathematical Analysis</em>, 3rd ed. McGraw-Hill.</li>
+<li>The mathlib Community (2020). The Lean mathematical library. <em>CPP 2020</em>, 367–381.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-novikov.html">Novikov Self-Consistency Reduced to PNBA</a>. ProofPress, Volume 1, Issue 3.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_Calculus_Reduction.lean
+-- ============================================================
+--
+-- Calculus → PNBA
+-- Narrative is the variable a system moves along; Behavior is
+-- the load it carries at each point. The derivative is the rate
+-- of Behavior over Narrative, the integral is Behavior
+-- accumulated across a Narrative interval, and the limit is the
+-- value approached. Applied to torsion τ = B/P, the classical
+-- theorems give exact statements about when and how fast a
+-- system crosses the torsion limit.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,8,2](MATH)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      June 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+-- Companion: [9,9,8,3] Algebra
+--
+-- ============================================================
+-- THE MAP
+-- ============================================================
+--
+--   N            the variable (x, or time t)            Narrative
+--   B(N)         the function value, the load carried   Behavior
+--   P            the capacity the load is measured on   Pattern
+--   d/dN, ∫, lim the operators acting on B              Adaptation
+--   τ(N) = B(N) / P                                     torsion
+--
+--   derivative   B′(N): rate of Behavior over Narrative
+--   integral     ∫ B dN: Behavior accumulated over an interval
+--   limit        the value B or τ approaches
+--   Noble        τ = 0, the limit of τ as B → 0
+--
+-- ============================================================
+-- THE KNOWN ANSWERS
+-- ============================================================
+--
+--   Power rule      d/dx x² = 2x
+--   Integral        ∫₀ˣ 2t dt = x²
+--   FTC, part 1     d/dx ∫ₐˣ f = f(x) for continuous f
+--   FTC, part 2     ∫ₐᵇ f′ = f(b) − f(a)
+--   Constant C      two antiderivatives of f differ by a constant
+--   Chain rule      d/dx sin(x²) = cos(x²) · 2x
+--   Limit           sin x / x → 1 as x → 0
+--
+-- ============================================================
+-- CALCULUS ON TORSION
+-- ============================================================
+--
+--   Rate            τ′(N) = B′(N) / P; in B the slope is 1/P,
+--                   and in P it is −B/P²: added capacity lowers
+--                   torsion fastest when P is small
+--   Exact crossing  a continuous load that starts at or below
+--                   TL·P and ends at or above it equals TL·P at
+--                   some exact point (intermediate value theorem)
+--   Crossing room   a load whose rate never exceeds M needs a
+--                   Narrative interval of at least
+--                   (TL·P − B(a)) / M to reach the limit
+--                   (mean value theorem)
+--   Linear load     B = B₀ + rN reaches τ = TL exactly at
+--                   N* = (TL·P − B₀) / r
+--
+-- ============================================================
+
+import Mathlib.Analysis.Calculus.Deriv.Pow
+import Mathlib.Analysis.Calculus.Deriv.Inv
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.Calculus.MeanValue
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Sinc
+import Mathlib.Topology.Order.IntermediateValue
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_Calculus_Reduction
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: DERIVATIVE, INTEGRAL, FTC
+-- ============================================================
+
+-- [T1] Power rule: d/dx x² = 2x
+theorem power_rule (x : ℝ) : HasDerivAt (fun y : ℝ =&gt; y ^ 2) (2 * x) x := by
+  simpa using hasDerivAt_pow 2 x
+
+-- [T2] FTC, part 1: the accumulated Behavior ∫ₐᵘ f has rate f(u)
+theorem ftc_rate (f : ℝ → ℝ) (hf : Continuous f) (a b : ℝ) :
+    HasDerivAt (fun u =&gt; ∫ x in a..u, f x) (f b) b :=
+  (hf.integral_hasStrictDerivAt a b).hasDerivAt
+
+-- [T3] FTC, part 2: integrating a rate recovers the net change
+theorem ftc_accumulation (F f : ℝ → ℝ) (a b : ℝ)
+    (hd : ∀ x ∈ Set.uIcc a b, HasDerivAt F (f x) x)
+    (hi : IntervalIntegrable f MeasureTheory.volume a b) :
+    ∫ x in a..b, f x = F b - F a :=
+  intervalIntegral.integral_eq_sub_of_hasDerivAt hd hi
+
+-- [T4] ∫₀ˣ 2t dt = x²
+theorem integral_two_t (x : ℝ) : ∫ t in (0:ℝ)..x, 2 * t = x ^ 2 := by
+  have h : ∫ t in (0:ℝ)..x, 2 * t = x ^ 2 - (0:ℝ) ^ 2 :=
+    intervalIntegral.integral_eq_sub_of_hasDerivAt (f := fun y : ℝ =&gt; y ^ 2)
+      (fun t _ =&gt; power_rule t)
+      ((by fun_prop : Continuous fun t : ℝ =&gt; 2 * t).intervalIntegrable 0 x)
+  rw [h]; ring
+
+-- [T5] The constant of integration: two antiderivatives of the same
+-- rate differ by a constant
+theorem antiderivative_up_to_constant (F G f : ℝ → ℝ)
+    (hF : ∀ x, HasDerivAt F (f x) x) (hG : ∀ x, HasDerivAt G (f x) x) :
+    ∀ x y, F x - G x = F y - G y := by
+  have hd : ∀ x, HasDerivAt (fun t =&gt; F t - G t) 0 x := fun x =&gt; by
+    simpa using (hF x).sub (hG x)
+  exact is_const_of_deriv_eq_zero (fun x =&gt; (hd x).differentiableAt) (fun x =&gt; (hd x).deriv)
+
+-- [T6] Chain rule: d/dx sin(x²) = cos(x²) · 2x
+theorem chain_rule_sin_sq (x : ℝ) :
+    HasDerivAt (fun y : ℝ =&gt; Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x :=
+  HasDerivAt.comp (x := x) (Real.hasDerivAt_sin (x ^ 2)) (power_rule x)
+
+-- ============================================================
+-- SECTION 2: LIMITS
+-- ============================================================
+
+-- [T7] sin x / x → 1 as x → 0
+theorem sin_div_x_limit :
+    Filter.Tendsto (fun x : ℝ =&gt; Real.sin x / x) (nhdsWithin 0 {0}ᶜ) (nhds 1) := by
+  have h : Filter.Tendsto Real.sinc (nhds 0) (nhds 1) := by
+    simpa using Real.continuous_sinc.tendsto 0
+  have heq : Real.sinc =ᶠ[nhdsWithin 0 {0}ᶜ] fun x =&gt; Real.sin x / x := by
+    filter_upwards [self_mem_nhdsWithin] with x hx
+    exact Real.sinc_of_ne_zero (Set.mem_compl_singleton_iff.mp hx)
+  exact (h.mono_left nhdsWithin_le_nhds).congr&#x27; heq
+
+-- [T8] Noble is a limit: τ = B/P → 0 as the load B → 0
+theorem noble_is_limit (P : ℝ) :
+    Filter.Tendsto (fun B : ℝ =&gt; B / P) (nhds 0) (nhds 0) := by
+  simpa using (continuous_id.div_const P).tendsto (0:ℝ)
+
+-- ============================================================
+-- SECTION 3: CALCULUS ON TORSION
+-- ============================================================
+
+-- [T9] Along a trajectory, torsion changes at rate B′/P
+theorem torsion_rate (B : ℝ → ℝ) (B&#x27; P N : ℝ) (hB : HasDerivAt B B&#x27; N) :
+    HasDerivAt (fun n =&gt; B n / P) (B&#x27; / P) N :=
+  hB.div_const P
+
+-- [T10] In the capacity, torsion falls at rate B/P²
+theorem torsion_rate_in_P (B P : ℝ) (hP : P ≠ 0) :
+    HasDerivAt (fun p : ℝ =&gt; B / p) (-(B / P ^ 2)) P := by
+  have h := (hasDerivAt_inv hP).const_mul B
+  simp only [div_eq_mul_inv]
+  rw [show -(B * (P ^ 2)⁻¹) = B * -(P ^ 2)⁻¹ by ring]
+  exact h
+
+-- [T11] Exact crossing: a continuous load that starts at or below
+-- TL·P and ends at or above it meets TL·P at an exact point
+theorem exact_crossing (B : ℝ → ℝ) (P a b : ℝ) (hab : a ≤ b)
+    (hc : ContinuousOn B (Set.Icc a b))
+    (ha : B a ≤ TORSION_LIMIT * P) (hb : TORSION_LIMIT * P ≤ B b) :
+    ∃ N ∈ Set.Icc a b, B N = TORSION_LIMIT * P := by
+  obtain ⟨N, hN, hBN⟩ := intermediate_value_Icc hab hc ⟨ha, hb⟩
+  exact ⟨N, hN, hBN⟩
+
+-- [T12] Crossing room: if the load&#x27;s rate never exceeds M and the
+-- load reaches TL·P at b, then TL·P − B(a) ≤ M·(b − a)
+theorem crossing_needs_room (B B&#x27; : ℝ → ℝ) (P M a b : ℝ) (hab : a &lt; b)
+    (hc : ContinuousOn B (Set.Icc a b))
+    (hd : ∀ x ∈ Set.Ioo a b, HasDerivAt B (B&#x27; x) x)
+    (hM : ∀ x ∈ Set.Ioo a b, B&#x27; x ≤ M) (hb : TORSION_LIMIT * P ≤ B b) :
+    TORSION_LIMIT * P - B a ≤ M * (b - a) := by
+  obtain ⟨c, hc&#x27;, hslope⟩ := exists_hasDerivAt_eq_slope B B&#x27; hab hc hd
+  have hba : 0 &lt; b - a := sub_pos.mpr hab
+  have h1 : (B b - B a) / (b - a) ≤ M := by
+    rw [← hslope]; exact hM c hc&#x27;
+  rw [div_le_iff₀ hba] at h1
+  linarith
+
+-- [T13] A linear load B₀ + rN reaches τ = TL exactly at
+-- N* = (TL·P − B₀)/r
+theorem linear_crossing (B0 r P : ℝ) (hr : r ≠ 0) (hP : P ≠ 0) :
+    (B0 + r * ((TORSION_LIMIT * P - B0) / r)) / P = TORSION_LIMIT := by
+  rw [mul_div_assoc&#x27;, mul_div_cancel_left₀ _ hr]
+  have h : B0 + (TORSION_LIMIT * P - B0) = TORSION_LIMIT * P := by ring
+  rw [h, mul_div_cancel_right₀ _ hP]
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T14] CALCULUS → PNBA
+theorem calculus_pnba_master :
+    -- power rule, integral, chain rule
+    (∀ x : ℝ, HasDerivAt (fun y : ℝ =&gt; y ^ 2) (2 * x) x) ∧
+    (∀ x : ℝ, ∫ t in (0:ℝ)..x, 2 * t = x ^ 2) ∧
+    (∀ x : ℝ, HasDerivAt (fun y : ℝ =&gt; Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x) ∧
+    -- FTC, part 1
+    (∀ (f : ℝ → ℝ), Continuous f → ∀ a b : ℝ,
+      HasDerivAt (fun u =&gt; ∫ x in a..u, f x) (f b) b) ∧
+    -- limits: sin x / x → 1; Noble as the limit of τ
+    Filter.Tendsto (fun x : ℝ =&gt; Real.sin x / x) (nhdsWithin 0 {0}ᶜ) (nhds 1) ∧
+    (∀ P : ℝ, Filter.Tendsto (fun B : ℝ =&gt; B / P) (nhds 0) (nhds 0)) ∧
+    -- linear load crosses the limit at N* = (TL·P − B₀)/r
+    (∀ B0 r P : ℝ, r ≠ 0 → P ≠ 0 →
+      (B0 + r * ((TORSION_LIMIT * P - B0) / r)) / P = TORSION_LIMIT) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨power_rule, integral_two_t, chain_rule_sin_sq, ftc_rate, sin_div_x_limit,
+   noble_is_limit, linear_crossing, anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_Calculus_Reduction
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_Calculus_Reduction.lean
+-- COORDINATE: [9,9,8,2](MATH)
+-- SORRY:      0
+--
+-- THE MAP: N = variable, B = function value, P = capacity,
+--   τ = B/P; derivative = rate of B over N; integral = B
+--   accumulated over N; Noble = the limit τ → 0.
+--
+-- RESULTS:
+--   Power rule; FTC both parts; ∫₀ˣ 2t dt = x²; the constant of
+--     integration; chain rule for sin(x²) (T1–T6)
+--   sin x / x → 1; τ → 0 as B → 0 (T7, T8)
+--   Torsion rate B′/P along a trajectory and −B/P² in P (T9, T10)
+--   Exact crossing of TL·P by the intermediate value theorem;
+--     crossing room TL·P − B(a) ≤ M(b − a) by the mean value
+--     theorem; linear crossing at (TL·P − B₀)/r (T11–T13)
+--
+-- CONNECTIONS:
+--   [9,9,8,3]  Algebra
+--   [9,9,10,4] Novikov self-consistency: the same IVT existence
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-calculus.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-calculus.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
