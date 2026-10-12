@@ -27,7 +27,7 @@
 --   Cs-133    9 192 631 770 Hz (SI exact)    N      τ/TL ≈ 0.861 Locked
 --   Sr-87     429 228 004 229 873 Hz (PTB)   B      τ = 0 Noble
 --   H-1       1 420 405 751.768 Hz (NIST)    A      τ/TL ≈ 0.464 Locked
---   Al-27⁺    1 121 015 393 207.857 Hz       P      τ = 0 Noble
+--   Al-27⁺    1 121 015 393 207 857 Hz       P      τ = 0 Noble
 --             (JILA/NIST)
 --
 -- The placements come from each substrate's own reduction:
@@ -40,7 +40,7 @@
 --
 -- The ratio of each clock to the anchor is fixed:
 --   Cs / Ω₀ ≈ 6.7148957      H / Ω₀ ≈ 1.0375567
---   Sr / Ω₀ ≈ 313 536.03     Al / Ω₀ ≈ 818.86250
+--   Sr / Ω₀ ≈ 313 536.03     Al / Ω₀ ≈ 818 862.50
 -- In any interval, the cycles of clock X equal (X/Ω₀) times the
 -- anchor cycles, so a single reference recovers the others. A
 -- reference is checked by calling the published values and
@@ -109,9 +109,9 @@ theorem ratio_H : 1.0375566 < freq_H / SOVEREIGN_ANCHOR ∧
   · rw [lt_div_iff₀ (by norm_num)]; norm_num
   · rw [div_lt_iff₀ (by norm_num)]; norm_num
 
--- [T4] Al / Ω₀ ≈ 818.86250
-theorem ratio_Al : 818.8624 < freq_Al / SOVEREIGN_ANCHOR ∧
-    freq_Al / SOVEREIGN_ANCHOR < 818.8626 := by
+-- [T4] Al / Ω₀ ≈ 818 862.50
+theorem ratio_Al : 818862.50 < freq_Al / SOVEREIGN_ANCHOR ∧
+    freq_Al / SOVEREIGN_ANCHOR < 818862.51 := by
   unfold freq_Al SOVEREIGN_ANCHOR
   constructor
   · rw [lt_div_iff₀ (by norm_num)]; norm_num
@@ -278,7 +278,7 @@ end SNSFT_SovereignTime
 --
 -- RESULTS:
 --   Fixed ratios to Ω₀: Cs 6.7148957, Sr 313 536.03, H 1.0375567,
---     Al 818.86250 (T1–T4)
+--     Al 818 862.50 (T1–T4)
 --   One reference gives every clock's count; ratios reconstruct and
 --     compose (T5–T7)
 --   Drift reads as (1 + δ) on the ratio and is caught exactly; any
