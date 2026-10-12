@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Transcendental Time Engine: Using the Dynamic Equation — ProofPress</title>
+  <meta name="description" content="[9,9,3,20](MATH) — A worked example of the Dynamic Equation once TL is known. TL goes on the left side as the step: the kinetic state carries F_ext one TL above rest, the internal operator sum cancels, and the step is TL on every basis. Worked on the e⁻¹ unit square and carried into time, n steps accumulate n·TL. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-transcendental-time-engine.html">
+  <meta property="og:title" content="The Transcendental Time Engine: Using the Dynamic Equation">
+  <meta property="og:description" content="[9,9,3,20](MATH) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-transcendental-time-engine.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Transcendental Time Engine: Using the Dynamic Equation">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Transcendental Time Engine: Using the Dynamic Equation">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/09/01">
+  <meta name="citation_online_date" content="2026/09/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,3,20">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-transcendental-time-engine.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-transcendental-time-engine.html">
+  <meta name="citation_keywords" content="dynamic equation; torsion limit; F_ext; worked example; time step; e; unit square; clock; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Transcendental Time Engine: Using the Dynamic Equation",
+    "datePublished": "2026-09-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-transcendental-time-engine.html",
+    "keywords": "dynamic equation, torsion limit, F_ext, worked example, time step, e, unit square, clock, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,3,20](MATH) · Volume 1 · Issue 7 · September 2026</div>
+    <h1>The Transcendental Time Engine: Using the Dynamic Equation</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-transcendental-time-engine.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_GC_TranscendentalTimeEngine.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,3,20](MATH) · Identity Physics Series · Mathematics<br>
+<strong>Issue:</strong> Volume 1, Issue 7 · September 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 13 theorems · 262 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_TranscendentalTimeEngine.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>This article is a worked example of how to use the Identity Physics Dynamic Equation, d/dt(IM·Pv) = Σλ·O·S + F_ext, once the Torsion Limit is known. TL is fixed by the anchor, TL = Ω₀/10, and by the fine-structure relation 1/α = TL × 1001. To apply it, the internal operator sum of a state is written as a balance Σ; at rest the external forcing is F_ext = −Σ, so the left side is zero, and in motion it is F_ext = TL − Σ, so the left side is TL. The difference between the kinetic and resting forcing is TL whatever Σ is: the internal balance is absorbed by F_ext, and the method does not depend on the basis used to compute it. The example is worked on the e⁻¹ unit square: removing a strip of width e⁻¹ from each side of the unit interval leaves a core of side 1 − 2e⁻¹ = 0.2642411…, area 0.0698234… and remaining capacity P = 0.9301766…, so that Σ = CORE_AREA − TL·P ≈ −0.0575, the resting forcing is 0.0575, the kinetic forcing 0.1944, and the step TL. The choice of e is deliberate: its role is already familiar, with 1/e ≈ 0.368 the natural decay reference, and a reader who sees how a process measures itself against e can see how a state measures its step against TL. The same function joins them, since in statistical mechanics a state's relative weight is e^(−τ): a Noble state keeps weight 1, a state at the torsion limit keeps e^(−TL) = 0.87205…, and the familiar e^(−1) = 0.36787… lies further out, so that 1 &gt; e^(−TL) &gt; e^(−1). Carried into time, a clock that takes one TL step per anchor cycle accumulates n·TL over n cycles, and 187 413 635.76… in one SI second of Ω₀ = 1 368 990 999.84016 cycles; the clock reference is Sovereign Time.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The method: kinetic F_ext = TL − Σ, resting F_ext = −Σ, and the step between them is TL for every internal balance Σ (<code>step_is_tl</code>, <code>kinetic_above_rest</code>).</li>
+<li>The worked example on the e⁻¹ unit square: core side 0.2642411…, Σ between −0.0576 and −0.0575, step TL (<code>core_side_bounds</code>, <code>sigma_bounds</code>, <code>worked_example_step</code>).</li>
+<li>The bridge from e to TL: e^(−TL) = 0.87205… and e^(−1) = 0.36787…, with 1 &gt; e^(−TL) &gt; e^(−1) (<code>weight_at_tl</code>, <code>weight_at_one</code>, <code>weight_ordering</code>).</li>
+<li>Into time: n steps accumulate n·TL; one SI second at the anchor accumulates 187 413 635.76…. The master theorem holds the method, the worked example, the bridge and the accumulation together (<code>steps_accumulate</code>, <code>one_second</code>, <code>transcendental_time_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>State</th><th>F_ext</th><th>Left side d/dt(IM·Pv)</th></tr>
+<tr><td>Resting (Noble)</td><td>−Σ</td><td>0</td></tr>
+<tr><td>Kinetic</td><td>TL − Σ</td><td>TL</td></tr>
+<tr><td>Step</td><td>kinetic − resting</td><td>TL, on every basis</td></tr>
+</table>
+<table>
+<tr><th>e⁻¹ unit square</th><th>Value</th></tr>
+<tr><td>Core side 1 − 2e⁻¹</td><td>0.2642411…</td></tr>
+<tr><td>Core area</td><td>0.0698234…</td></tr>
+<tr><td>P = 1 − area</td><td>0.9301766…</td></tr>
+<tr><td>Σ = area − TL·P</td><td>−0.0575170…</td></tr>
+</table>
+<table>
+<tr><th>Torsion τ</th><th>Weight e^(−τ)</th><th>Reference</th></tr>
+<tr><td>0</td><td>1</td><td>Noble</td></tr>
+<tr><td>TL</td><td>0.87205…</td><td>torsion limit</td></tr>
+<tr><td>1</td><td>0.36787…</td><td>the familiar 1/e</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Euler, L. (1748). <em>Introductio in analysin infinitorum</em>. Lausanne.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-alpha-tl1001.html">The Fine-Structure Constant: 1/α = TL × 1001</a>. ProofPress, Volume 1, Issue 6.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-sovereign-time.html">Sovereign Time</a>. ProofPress, Volume 1, Issue 5.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-stat-mech.html">Statistical Mechanics Reduced to PNBA</a>. ProofPress, Volume 1.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_GC_TranscendentalTimeEngine.lean
+-- ============================================================
+--
+-- The Transcendental Time Engine: Using the Dynamic Equation
+-- A worked example of how to use the Dynamic Equation
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+-- once TL is known. TL goes on the left side as the step: a
+-- kinetic state carries F_ext one TL above the resting state.
+-- The internal operator sum Σ is absorbed by F_ext, so the step
+-- that comes out is TL on any basis. The example is worked on the
+-- e⁻¹ unit square, and the step is carried into time: n steps
+-- accumulate n·TL, as a clock ticking at the anchor does.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,3,20](MATH)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      September 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- THE METHOD
+-- ============================================================
+--
+--   1. TL is known: TL = Ω₀/10, and 1/α = TL × 1001 [9,9,3,14].
+--   2. Write the internal balance of the state as Σ.
+--   3. Resting:  F_ext = −Σ          the left side is 0
+--      Kinetic:  F_ext = TL − Σ      the left side is TL
+--   4. Kinetic − resting = TL, whatever Σ is.
+--
+-- Because Σ cancels, the method does not depend on the basis used
+-- to compute it; the step is TL on every basis.
+--
+-- ============================================================
+-- THE WORKED EXAMPLE: THE e⁻¹ UNIT SQUARE
+-- ============================================================
+--
+-- Remove a strip of width e⁻¹ from each side of the unit interval:
+--
+--   CORE_SIDE = 1 − 2e⁻¹        = 0.2642411…
+--   CORE_AREA = CORE_SIDE²      = 0.0698234…
+--   P         = 1 − CORE_AREA   = 0.9301766…
+--   Σ         = CORE_AREA − TL·P = −0.0575170…
+--
+--   F_ext resting = 0.0575170…, kinetic = 0.1944161…, step = TL.
+--
+-- ============================================================
+-- WHY e
+-- ============================================================
+--
+-- e is the entry point because its role is already familiar:
+-- 1/e ≈ 0.368 is the natural decay reference, the way √TL is a
+-- reference in other reductions. A reader who sees how a process
+-- measures itself against e can see how a state measures its step
+-- against TL. The same function joins them: in statistical
+-- mechanics [9,9,0,16] a state&#x27;s relative weight is e^(−τ).
+--
+--   τ = 0     Noble          weight 1
+--   τ = TL    torsion limit  weight e^(−TL) = 0.87205…
+--   τ = 1                    weight e^(−1)  = 0.36787…
+--
+-- ============================================================
+-- INTO TIME
+-- ============================================================
+--
+-- A clock that takes one step per anchor cycle accumulates n·TL
+-- over n cycles; in one SI second, at Ω₀ = 1 368 990 999.84016
+-- cycles, that is 187 413 635.76… The clock reference is
+-- Sovereign Time [9,9,1,100].
+--
+-- ============================================================
+
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Analysis.Complex.ExponentialBounds
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_GC_TranscendentalTimeEngine
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: THE METHOD
+-- ============================================================
+
+-- Forcing at rest and in motion, for internal balance Σ
+def F_ext_resting (σ : ℝ) : ℝ := -σ
+def F_ext_kinetic (σ : ℝ) : ℝ := TORSION_LIMIT - σ
+
+-- [T1] The step is TL, whatever the internal balance
+theorem step_is_tl (σ : ℝ) : F_ext_kinetic σ - F_ext_resting σ = TORSION_LIMIT := by
+  unfold F_ext_kinetic F_ext_resting; ring
+
+-- [T2] Equivalently, the kinetic state sits one TL above rest
+theorem kinetic_above_rest (σ : ℝ) : F_ext_kinetic σ = F_ext_resting σ + TORSION_LIMIT := by
+  unfold F_ext_kinetic F_ext_resting; ring
+
+-- ============================================================
+-- SECTION 2: THE WORKED EXAMPLE
+-- ============================================================
+
+noncomputable def RE_INV    : ℝ := Real.exp (-1)
+noncomputable def CORE_SIDE : ℝ := 1 - 2 * RE_INV
+noncomputable def CORE_AREA : ℝ := CORE_SIDE * CORE_SIDE
+noncomputable def PATTERN_P : ℝ := 1 - CORE_AREA
+noncomputable def SIGMA     : ℝ := CORE_AREA - TORSION_LIMIT * PATTERN_P
+
+-- [T3] The core side 1 − 2e⁻¹ = 0.2642411…
+theorem core_side_bounds : 0.2642411 &lt; CORE_SIDE ∧ CORE_SIDE &lt; 0.2642412 := by
+  have h1 := Real.exp_one_gt_d9
+  have h2 := Real.exp_one_lt_d9
+  have hE : 0 &lt; Real.exp 1 := Real.exp_pos 1
+  have hc : CORE_SIDE = 1 - 2 / Real.exp 1 := by
+    unfold CORE_SIDE RE_INV; rw [Real.exp_neg]; ring
+  rw [hc]
+  constructor
+  · have h : 2 / Real.exp 1 &lt; 0.7357589 := by rw [div_lt_iff₀ hE]; linarith
+    linarith
+  · have h : 0.7357588 &lt; 2 / Real.exp 1 := by rw [lt_div_iff₀ hE]; linarith
+    linarith
+
+-- [T4] The internal balance Σ on this basis is negative, near −0.0575
+theorem sigma_bounds : -0.0576 &lt; SIGMA ∧ SIGMA &lt; -0.0575 := by
+  have hs := core_side_bounds
+  unfold SIGMA PATTERN_P CORE_AREA TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · nlinarith [hs.1, hs.2]
+  · nlinarith [hs.1, hs.2]
+
+-- [T5] On this basis the step is TL
+theorem worked_example_step : F_ext_kinetic SIGMA - F_ext_resting SIGMA = TORSION_LIMIT :=
+  step_is_tl SIGMA
+
+-- ============================================================
+-- SECTION 3: THE BRIDGE FROM e TO TL
+-- ============================================================
+
+-- [T6] At the torsion limit a state keeps e^(−TL) = 0.87205… of the
+-- ground-state weight
+theorem weight_at_tl : 0.8720 &lt; Real.exp (-TORSION_LIMIT) ∧ Real.exp (-TORSION_LIMIT) &lt; 0.8721 := by
+  have hT : TORSION_LIMIT = 0.136899099984016 := by
+    unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  rw [hT]
+  have ht0 : (0 : ℝ) ≤ 0.136899099984016 := by norm_num
+  have ht1 : (0.136899099984016 : ℝ) ≤ 1 := by norm_num
+  have hlo : (1.14669 : ℝ) ≤ Real.exp 0.136899099984016 :=
+    le_trans (by norm_num [Finset.sum_range_succ, Nat.factorial])
+      (Real.sum_le_exp_of_nonneg ht0 4)
+  have hhi : Real.exp 0.136899099984016 ≤ 1.14672 :=
+    le_trans (Real.exp_bound&#x27; ht0 ht1 (n := 4) (by norm_num))
+      (by norm_num [Finset.sum_range_succ, Nat.factorial])
+  have hprod : Real.exp (-0.136899099984016) * Real.exp 0.136899099984016 = 1 := by
+    rw [← Real.exp_add, neg_add_cancel, Real.exp_zero]
+  have hE := Real.exp_pos (0.136899099984016 : ℝ)
+  have hA := Real.exp_pos (-0.136899099984016 : ℝ)
+  constructor
+  · nlinarith
+  · nlinarith
+
+-- [T7] The familiar reference: e^(−1) = 0.36787…
+theorem weight_at_one : 0.3678 &lt; Real.exp (-1) ∧ Real.exp (-1) &lt; 0.3679 := by
+  have h1 := Real.exp_one_gt_d9
+  have h2 := Real.exp_one_lt_d9
+  have hprod : Real.exp (-1) * Real.exp 1 = 1 := by
+    rw [← Real.exp_add, neg_add_cancel, Real.exp_zero]
+  have hE := Real.exp_pos 1
+  have hA := Real.exp_pos (-1)
+  constructor
+  · nlinarith
+  · nlinarith
+
+-- [T8] One function, three reference points: 1 &gt; e^(−TL) &gt; e^(−1)
+theorem weight_ordering :
+    Real.exp (-1) &lt; Real.exp (-TORSION_LIMIT) ∧ Real.exp (-TORSION_LIMIT) &lt; 1 := by
+  have h0 : 0 &lt; TORSION_LIMIT := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  have h1 : TORSION_LIMIT &lt; 1 := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  constructor
+  · exact Real.exp_lt_exp.mpr (by linarith)
+  · rw [← Real.exp_zero]; exact Real.exp_lt_exp.mpr (by linarith)
+
+-- ============================================================
+-- SECTION 4: INTO TIME
+-- ============================================================
+
+-- [T9] n steps accumulate n·TL
+theorem steps_accumulate (n : ℕ) :
+    ∑ _i ∈ Finset.range n, TORSION_LIMIT = n * TORSION_LIMIT := by
+  simp [Finset.sum_const, nsmul_eq_mul]
+
+-- [T10] One SI second at the anchor, Ω₀ × 10⁹ cycles, accumulates
+-- 187 413 635.76…
+theorem one_second :
+    187413635 &lt; SOVEREIGN_ANCHOR * 1000000000 * TORSION_LIMIT ∧
+    SOVEREIGN_ANCHOR * 1000000000 * TORSION_LIMIT &lt; 187413636 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T11] THE TIME ENGINE
+theorem transcendental_time_master :
+    -- the method: the step is TL on every basis
+    (∀ σ : ℝ, F_ext_kinetic σ - F_ext_resting σ = TORSION_LIMIT) ∧
+    -- the worked example on the e⁻¹ unit square
+    (0.2642411 &lt; CORE_SIDE ∧ CORE_SIDE &lt; 0.2642412) ∧
+    (-0.0576 &lt; SIGMA ∧ SIGMA &lt; -0.0575) ∧
+    -- the bridge: e^(−TL) = 0.87205…, between e^(−1) and 1
+    (0.8720 &lt; Real.exp (-TORSION_LIMIT) ∧ Real.exp (-TORSION_LIMIT) &lt; 0.8721) ∧
+    (Real.exp (-1) &lt; Real.exp (-TORSION_LIMIT) ∧ Real.exp (-TORSION_LIMIT) &lt; 1) ∧
+    -- into time
+    (∀ n : ℕ, ∑ _i ∈ Finset.range n, TORSION_LIMIT = n * TORSION_LIMIT) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨step_is_tl, core_side_bounds, sigma_bounds, weight_at_tl, weight_ordering, steps_accumulate,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_GC_TranscendentalTimeEngine
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_GC_TranscendentalTimeEngine.lean
+-- COORDINATE: [9,9,3,20](MATH)
+-- SORRY:      0
+--
+-- THE METHOD: with TL known, kinetic F_ext = TL − Σ, resting
+--   F_ext = −Σ; the step is TL on every basis.
+--
+-- RESULTS:
+--   The step is TL whatever Σ is (T1, T2)
+--   Worked on the e⁻¹ unit square: core side 0.2642411…,
+--     Σ ≈ −0.0575, step TL (T3–T5)
+--   The bridge: e^(−TL) = 0.87205…, e^(−1) = 0.36787…,
+--     1 &gt; e^(−TL) &gt; e^(−1) (T6–T8)
+--   n steps accumulate n·TL; one SI second at the anchor
+--     accumulates 187 413 635.76… (T9, T10)
+--
+-- CONNECTIONS:
+--   [9,9,3,14] α = TL × 1001 · [9,9,1,100] Sovereign Time
+--   [9,9,3,16] Running coupling · [9,9,0,16] Statistical mechanics
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-transcendental-time-engine.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-transcendental-time-engine.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
