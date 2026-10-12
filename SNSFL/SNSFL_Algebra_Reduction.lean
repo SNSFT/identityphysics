@@ -165,11 +165,11 @@ theorem singular_has_kernel (a b c d : ℝ) (h : a * d - b * c = 0) :
       exact ⟨1, 0, Or.inl one_ne_zero, by rw [ha, hb]; ring, by rw [hc, hd]; ring⟩
     · refine ⟨d, -c, ?_, by rw [ha, hb]; ring, by ring⟩
       by_contra hn
-      push_neg at hn
+      push Not at hn
       exact hcd ⟨by linarith [hn.2], hn.1⟩
   · refine ⟨b, -a, ?_, by ring, by linear_combination -h⟩
     by_contra hn
-    push_neg at hn
+    push Not at hn
     exact hab ⟨by linarith [hn.2], hn.1⟩
 
 -- [T10] [2 1; 1 2]: D = 3, the unique solution of 2x + y = 3,
