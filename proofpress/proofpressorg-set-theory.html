@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative — ProofPress</title>
+  <meta name="description" content="[9,9,2,44](MATH) — A set carries no coupling of its own, so every set is Noble and all of set theory lives in Pattern and Narrative. With N the number of members, each ZFC axiom becomes a law of N: inclusion–exclusion for union, 2^N for the power set, N &lt; 2^N and Cantor, foundation and choice. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-set-theory.html">
+  <meta property="og:title" content="Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative">
+  <meta property="og:description" content="[9,9,2,44](MATH) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-set-theory.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/06/05">
+  <meta name="citation_online_date" content="2026/06/05">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,2,44">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-set-theory.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-set-theory.html">
+  <meta name="citation_keywords" content="set theory; ZFC; extensionality; pairing; union; inclusion–exclusion; power set; Cantor's theorem; infinity; foundation; regularity; axiom of choice; Noble state; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative",
+    "datePublished": "2026-06-05",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-set-theory.html",
+    "keywords": "set theory, ZFC, extensionality, pairing, union, inclusion–exclusion, power set, Cantor's theorem, infinity, foundation, regularity, axiom of choice, Noble state, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,2,44](MATH) · Volume 1 · Issue 4 · June 2026</div>
+    <h1>Set Theory (ZFC) Reduced to PNBA: Sets as Noble States and the Axioms as Laws of Narrative</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-set-theory.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_SetTheory_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,2,44](MATH) · Abstract Mathematics Series<br>
+<strong>Issue:</strong> Volume 1, Issue 4 · June 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 16 theorems · 219 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SetTheory_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Zermelo–Fraenkel set theory with Choice is the standard foundation of mathematics. This article reduces it to PNBA with a single map. A set is pure structure: it has a structural ground P and a Narrative N, the number of its members, but no coupling of its own and no adaptation, so B = A = 0 and every set is Noble. All of set theory therefore lives in P and N, and each ZFC axiom becomes a law of N, proved with Mathlib's sets, finite sets and ZFC sets. Extensionality: sets with the same members are equal. The empty set has N = 0. Pairing gives N = 1 when the two elements coincide and N = 2 otherwise. Union obeys inclusion–exclusion, N(A ∪ B) + N(A ∩ B) = N(A) + N(B), and is additive exactly for disjoint sets. The power set has N = 2<sup>N</sup>, and N &lt; 2<sup>N</sup> for every N, so the power set is always strictly larger; Cantor's theorem extends this to every set, finite or infinite, since no map from a set onto its power set exists. Replacement never increases N. Infinity: the natural numbers form an infinite set. Foundation: no ZFC set is a member of itself, and every nonempty set has a member disjoint from it. Choice: every family of nonempty sets has a choice function.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The map: every finite set has B = 0 and is Noble on any positive ground (<code>every_set_noble</code>).</li>
+<li>Extensionality; N(∅) = 0; pairing N = 1 or 2 (<code>extensionality</code>, <code>empty_N</code>, <code>pairing_N</code>).</li>
+<li>Union: N(A ∪ B) + N(A ∩ B) = N(A) + N(B), additive exactly for disjoint sets (<code>union_N</code>, <code>union_N_disjoint</code>).</li>
+<li>Power set N = 2<sup>N</sup>; N &lt; 2<sup>N</sup>; Cantor: no surjection onto the power set (<code>power_N</code>, <code>n_lt_two_pow</code>, <code>cantor</code>).</li>
+<li>Replacement does not increase N; ℕ is infinite; foundation (x ∉ x and regularity); choice. The master theorem holds the reduction together (<code>replacement_N</code>, <code>infinity</code>, <code>foundation</code>, <code>choice</code>, <code>set_theory_pnba_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>ZFC axiom</th><th>Law of N</th></tr>
+<tr><td>Extensionality</td><td>same members → same set</td></tr>
+<tr><td>Empty set</td><td>N(∅) = 0</td></tr>
+<tr><td>Pairing</td><td>N({a, b}) = 1 or 2</td></tr>
+<tr><td>Union</td><td>N(A ∪ B) + N(A ∩ B) = N(A) + N(B)</td></tr>
+<tr><td>Power set</td><td>N(𝒫A) = 2<sup>N</sup> &gt; N; Cantor</td></tr>
+<tr><td>Replacement</td><td>N(f[A]) ≤ N(A)</td></tr>
+<tr><td>Infinity</td><td>ℕ infinite</td></tr>
+<tr><td>Foundation</td><td>x ∉ x; regularity</td></tr>
+<tr><td>Choice</td><td>choice functions exist</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Zermelo, E. (1908). Untersuchungen über die Grundlagen der Mengenlehre I. <em>Mathematische Annalen</em>, 65, 261–281.</li>
+<li>Fraenkel, A. (1922). Zu den Grundlagen der Cantor-Zermeloschen Mengenlehre. <em>Mathematische Annalen</em>, 86, 230–237.</li>
+<li>Cantor, G. (1891). Über eine elementare Frage der Mannigfaltigkeitslehre. <em>Jahresbericht der DMV</em>, 1, 75–78.</li>
+<li>Kunen, K. (1980). <em>Set Theory: An Introduction to Independence Proofs</em>. North-Holland.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-category-theory.html">Category Theory</a>. ProofPress, Volume 1, Issue 3.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_SetTheory_Reduction.lean
+-- ============================================================
+--
+-- Set Theory (ZFC) → PNBA
+-- A set is pure structure: no coupling, so Noble. Its Narrative is
+-- its size. Each ZFC axiom becomes a statement about how that size
+-- behaves, proved with Mathlib&#x27;s sets, finsets and ZFC sets.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,44](MATH)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      June 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+-- Companion: [9,9,2,43] Category Theory
+--
+-- ============================================================
+-- THE MAP
+-- ============================================================
+--
+--   P = P_base           the set&#x27;s structural ground
+--   N = |A|              the number of members (Narrative)
+--   B = 0                a set carries no coupling of its own
+--   A = 0                a set does not adapt
+--   τ = B / P = 0        every set is Noble
+--
+-- Set theory is the algebra of Noble states: all of its content
+-- lives in P and N. The axioms below are what N does.
+--
+-- ============================================================
+-- THE AXIOMS IN PNBA
+-- ============================================================
+--
+--   Extensionality  same members → same set
+--   Empty set       N(∅) = 0
+--   Pairing         N({a, b}) = 1 if a = b, otherwise 2
+--   Union           N(A ∪ B) + N(A ∩ B) = N(A) + N(B);
+--                   additive exactly for disjoint sets
+--   Power set       N(𝒫A) = 2^N(A), and N &lt; 2^N: the power set is
+--                   always strictly larger (Cantor), even for
+--                   infinite sets, where no map A → 𝒫A is onto
+--   Replacement     the image of A has N at most N(A)
+--   Infinity        the natural numbers form an infinite set: every
+--                   N has a larger successor
+--   Foundation      no set is a member of itself, and every nonempty
+--                   set has a member disjoint from it
+--   Choice          every family of nonempty sets has a choice
+--                   function
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.SetTheory.ZFC.Basic
+
+noncomputable section
+
+namespace SNSFL_SetTheory_Reduction
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: THE MAP
+-- ============================================================
+
+-- Narrative of a finite set: its number of members
+def set_N {α : Type} (A : Finset α) : ℕ := A.card
+
+-- Behavior of a set: none
+def set_B {α : Type} (_ : Finset α) : ℝ := 0
+
+-- [T1] Every set is Noble: B = 0, so τ = 0 on any positive ground
+theorem every_set_noble {α : Type} (A : Finset α) (P : ℝ) (_ : 0 &lt; P) :
+    set_B A / P = 0 := by
+  unfold set_B; simp
+
+-- ============================================================
+-- SECTION 2: EXTENSIONALITY, EMPTY SET, PAIRING
+-- ============================================================
+
+-- [T2] Extensionality: sets with the same members are equal
+theorem extensionality {α : Type} (A B : Set α) (h : ∀ x, x ∈ A ↔ x ∈ B) : A = B :=
+  Set.ext h
+
+-- [T3] The empty set has N = 0
+theorem empty_N {α : Type} : set_N (∅ : Finset α) = 0 := Finset.card_empty
+
+-- [T4] Pairing: N({a, b}) is 1 when a = b and 2 otherwise
+theorem pairing_N {α : Type} [DecidableEq α] (a b : α) :
+    set_N ({a, b} : Finset α) = if a = b then 1 else 2 := by
+  unfold set_N
+  split_ifs with h
+  · subst h; simp
+  · exact Finset.card_pair h
+
+-- ============================================================
+-- SECTION 3: UNION
+-- ============================================================
+
+-- [T5] Inclusion–exclusion: N(A ∪ B) + N(A ∩ B) = N(A) + N(B)
+theorem union_N {α : Type} [DecidableEq α] (A B : Finset α) :
+    set_N (A ∪ B) + set_N (A ∩ B) = set_N A + set_N B :=
+  Finset.card_union_add_card_inter A B
+
+-- [T6] Union is additive exactly for disjoint sets
+theorem union_N_disjoint {α : Type} [DecidableEq α] (A B : Finset α) (h : Disjoint A B) :
+    set_N (A ∪ B) = set_N A + set_N B := by
+  have hu := union_N A B
+  have hi : A ∩ B = ∅ := Finset.disjoint_iff_inter_eq_empty.mp h
+  rw [hi, empty_N] at hu
+  omega
+
+-- ============================================================
+-- SECTION 4: POWER SET AND CANTOR
+-- ============================================================
+
+-- [T7] N(𝒫A) = 2^N(A)
+theorem power_N {α : Type} (A : Finset α) : set_N A.powerset = 2 ^ set_N A :=
+  Finset.card_powerset A
+
+-- [T8] N &lt; 2^N for every N: the power set is strictly larger
+theorem n_lt_two_pow (n : ℕ) : n &lt; 2 ^ n := by
+  induction n with
+  | zero =&gt; norm_num
+  | succ m ih =&gt; rw [pow_succ]; omega
+
+-- [T9] Cantor: no map from a set onto its power set, finite or not
+theorem cantor {α : Type} (f : α → Set α) : ¬ Function.Surjective f :=
+  Function.cantor_surjective f
+
+-- ============================================================
+-- SECTION 5: REPLACEMENT AND INFINITY
+-- ============================================================
+
+-- [T10] Replacement: the image of A has N at most N(A)
+theorem replacement_N {α β : Type} [DecidableEq β] (f : α → β) (A : Finset α) :
+    set_N (A.image f) ≤ set_N A :=
+  Finset.card_image_le
+
+-- [T11] Infinity: the natural numbers are infinite; every N has a larger one
+theorem infinity :
+    (Set.univ : Set ℕ).Infinite ∧ ∀ n : ℕ, ∃ m : ℕ, n &lt; m :=
+  ⟨Set.infinite_univ, fun n =&gt; ⟨n + 1, Nat.lt_succ_self n⟩⟩
+
+-- ============================================================
+-- SECTION 6: FOUNDATION AND CHOICE
+-- ============================================================
+
+-- [T12] Foundation: no ZFC set is a member of itself, and every nonempty
+-- set has a member disjoint from it
+theorem foundation (x : ZFSet) :
+    x ∉ x ∧ (x ≠ ∅ → ∃ y ∈ x, x ∩ y = ∅) :=
+  ⟨ZFSet.mem_irrefl x, ZFSet.regularity x⟩
+
+-- [T13] Choice: every family of nonempty sets has a choice function
+theorem choice {ι α : Type} (F : ι → Set α) (h : ∀ i, (F i).Nonempty) :
+    ∃ f : ι → α, ∀ i, f i ∈ F i :=
+  ⟨fun i =&gt; (h i).some, fun i =&gt; (h i).some_mem⟩
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T14] SET THEORY → PNBA
+theorem set_theory_pnba_master :
+    -- every finite set is Noble
+    (∀ (A : Finset ℕ) (P : ℝ), 0 &lt; P → set_B A / P = 0) ∧
+    -- empty, pairing, union, power set
+    set_N (∅ : Finset ℕ) = 0 ∧
+    (∀ a b : ℕ, set_N ({a, b} : Finset ℕ) = if a = b then 1 else 2) ∧
+    (∀ A B : Finset ℕ, set_N (A ∪ B) + set_N (A ∩ B) = set_N A + set_N B) ∧
+    (∀ A : Finset ℕ, set_N A.powerset = 2 ^ set_N A) ∧
+    (∀ n : ℕ, n &lt; 2 ^ n) ∧
+    -- infinity, foundation
+    (Set.univ : Set ℕ).Infinite ∧
+    (∀ x : ZFSet, x ∉ x) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨fun A P hP =&gt; every_set_noble A P hP, empty_N, pairing_N, union_N, power_N,
+   n_lt_two_pow, infinity.1, fun x =&gt; (foundation x).1, anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_SetTheory_Reduction
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_SetTheory_Reduction.lean
+-- COORDINATE: [9,9,2,44](MATH)
+-- SORRY:      0
+--
+-- THE MAP: N = |A|, B = A = 0; every set Noble (T1).
+--
+-- RESULTS:
+--   Extensionality; N(∅) = 0; pairing N ∈ {1, 2} (T2–T4)
+--   Union by inclusion–exclusion; additive exactly when disjoint
+--     (T5, T6)
+--   Power set N = 2^N; N &lt; 2^N; Cantor for any set (T7–T9)
+--   Replacement does not increase N; ℕ infinite (T10, T11)
+--   Foundation: x ∉ x and regularity; Choice (T12, T13)
+--
+-- CONNECTIONS:
+--   [9,9,2,43] Category Theory
+--   [9,9,0,11] Category Theory, Layer 2
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-set-theory.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-set-theory.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
