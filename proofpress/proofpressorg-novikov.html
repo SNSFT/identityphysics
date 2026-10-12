@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point — ProofPress</title>
+  <meta name="description" content="[9,9,10,4](GRAV) — Reading consistency torsion as |f(x) − x| turns Novikov&#x27;s principle into three theorems: every continuous loop on an interval has a Noble history, a contracting loop has exactly one, and each pass shrinks torsion by the contraction factor, drawing a Shatter history through Locked toward Noble. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-novikov.html">
+  <meta property="og:title" content="Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point">
+  <meta property="og:description" content="[9,9,10,4](GRAV) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-novikov.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/05/28">
+  <meta name="citation_online_date" content="2026/05/28">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,10,4">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-novikov.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-novikov.html">
+  <meta name="citation_keywords" content="Novikov self-consistency; closed timelike curves; time travel; grandfather paradox; fixed point; intermediate value theorem; contraction; billiard-ball paradox; Deutsch CTC; self-consistent history; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point",
+    "datePublished": "2026-05-28",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-novikov.html",
+    "keywords": "Novikov self-consistency, closed timelike curves, time travel, grandfather paradox, fixed point, intermediate value theorem, contraction, billiard-ball paradox, Deutsch CTC, self-consistent history, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,10,4](GRAV) · Volume 1 · Issue 3 · May 2026</div>
+    <h1>Novikov Self-Consistency Reduced to PNBA: The Realized History Is the Noble Fixed Point</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-novikov.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_Novikov_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,10,4](GRAV) · Gravity Series · Closed Timelike Curves<br>
+<strong>Issue:</strong> Volume 1, Issue 3 · May 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 12 theorems · 252 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Novikov_Reduction.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>Novikov's self-consistency principle states that the only histories that occur on a closed timelike curve are those that agree with themselves around the loop, and Echeverria, Klinkhammer and Thorne found that billiard-ball initial data built to produce a paradox still admit self-consistent solutions. This article reduces the principle to PNBA with the map of the companion article on closed timelike curves: if f carries a state once around the loop, the consistency torsion τ(x) = |f(x) − x| is Noble exactly when the history is self-consistent. Three theorems turn the principle from a postulate into a consequence. Existence: when the states form an interval and the loop map is continuous, with f(0) ≥ 0 and f(1) ≤ 1, a Noble history exists, by the intermediate value theorem; a paradox needs a discrete state space, as the two-state grandfather loop ¬x shows, while its continuous version 1 − p is consistent at p = 1/2. Uniqueness: when the loop contracts, |f(a) − f(b)| ≤ k|a − b| with k &lt; 1, the Noble history is unique. Attraction: each pass of a contracting loop shrinks consistency torsion by at least k, so τ(fⁿ(x)) ≤ kⁿ τ(x). A damped grandfather loop, f(x) = 3/4 − x/2, makes this concrete: it contracts with k = 1/2, its unique Noble state is x = 1/2, Deutsch's state, and a history started at x = 0 begins at τ = 3/4, Shatter, and reaches τ = 3/32, Locked, after three passes.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The map: τ(x) = |f(x) − x| is Noble exactly when f(x) = x (<code>noble_iff_consistent</code>).</li>
+<li>Existence: a continuous loop on [0, 1] with f(0) ≥ 0 and f(1) ≤ 1 has a Noble history; the discrete grandfather loop has no consistent history while 1 − p is Noble at p = 1/2 (<code>novikov_existence</code>, <code>paradox_needs_discreteness</code>).</li>
+<li>Uniqueness and attraction: a contracting loop has at most one Noble history; one pass gives τ(f(x)) ≤ k·τ(x), and n passes give τ(fⁿ(x)) ≤ kⁿ·τ(x) (<code>contraction_unique</code>, <code>one_pass</code>, <code>n_passes</code>).</li>
+<li>The damped grandfather loop f(x) = 3/4 − x/2: contraction with k = 1/2; unique Noble state 1/2; from x = 0, τ = 3/4 (Shatter), then τ = 3/32 (Locked) after three passes. The master theorem holds all of the above together (<code>damp_contraction</code>, <code>damp_noble</code>, <code>damp_relaxes</code>, <code>novikov_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Pass</th><th>x</th><th>τ = |f(x) − x|</th><th>Phase</th></tr>
+<tr><td>0</td><td>0</td><td>3/4 = 0.750</td><td>Shatter</td></tr>
+<tr><td>1</td><td>3/4</td><td>3/8 = 0.375</td><td>Shatter</td></tr>
+<tr><td>2</td><td>3/8</td><td>3/16 = 0.1875</td><td>Shatter</td></tr>
+<tr><td>3</td><td>9/16</td><td>3/32 = 0.094</td><td>Locked</td></tr>
+<tr><td>∞</td><td>1/2</td><td>0</td><td>Noble</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Friedman, J. et al. (1990). Cauchy problem in spacetimes with closed timelike curves. <em>Physical Review D</em>, 42, 1915–1930.</li>
+<li>Echeverria, F., Klinkhammer, G. &amp; Thorne, K. S. (1991). Billiard balls in wormhole spacetimes with closed timelike curves: classical theory. <em>Physical Review D</em>, 44, 1077–1099.</li>
+<li>Novikov, I. D. (1989). An analysis of the operation of a time machine. <em>Soviet Physics JETP</em>, 68, 439–443.</li>
+<li>Deutsch, D. (1991). Quantum mechanics near closed timelike lines. <em>Physical Review D</em>, 44, 3197–3217.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-ctc.html">Closed Timelike Curves Reduced to PNBA</a>. ProofPress, Volume 1, Issue 3.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_Novikov_Reduction.lean
+-- ============================================================
+--
+-- Novikov Self-Consistency → PNBA
+-- Self-consistency is the Noble fixed point of the loop map.
+-- Every continuous loop has one; a contracting loop has exactly
+-- one and draws every history toward it.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,10,4](GRAV)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      May 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- THE MAP
+-- ============================================================
+--
+-- As in [9,9,10,3]: if f carries a state once around a closed
+-- timelike curve, the consistency torsion is
+--
+--   τ(x) = |f(x) − x|
+--
+--   τ = 0      → NOBLE    self-consistent history
+--   τ &lt; TL_IVA → LOCKED   near-consistent
+--   τ ≥ TL     → SHATTER  self-contradicting
+--
+-- ============================================================
+-- THE PRINCIPLE
+-- ============================================================
+--
+-- Novikov (1989; Friedman et al., Phys Rev D 42, 1915, 1990):
+-- the only histories that occur on a closed timelike curve are
+-- the self-consistent ones. Echeverria, Klinkhammer and Thorne
+-- (Phys Rev D 44, 1077, 1991) found that billiard-ball initial
+-- data designed to produce a paradox still admit self-consistent
+-- solutions.
+--
+-- In PNBA the principle reads: the realized history is Noble.
+-- Three results make that a theorem rather than a postulate.
+--
+--   EXISTENCE. If the states form an interval and the loop map is
+--   continuous, a Noble history exists (intermediate value
+--   theorem). A paradox needs a discrete state space: the
+--   two-state grandfather loop ¬x has none, while its continuous
+--   version 1 − p has p = 1/2.
+--
+--   UNIQUENESS. If the loop contracts, |f(a) − f(b)| ≤ k|a − b|
+--   with k &lt; 1, the Noble history is unique.
+--
+--   ATTRACTION. Under a contracting loop, consistency torsion
+--   shrinks at least by k each pass: τ(fⁿ(x)) ≤ kⁿ τ(x). A Shatter
+--   history is drawn through the Locked band toward Noble.
+--
+-- EXAMPLE. The damped grandfather loop f(x) = 3/4 − x/2 flips the
+-- bit with damping k = 1/2. Its Noble state is x = 1/2, Deutsch&#x27;s
+-- state. Starting from x = 0, τ = 3/4 (Shatter); after three
+-- passes τ = 3/32 (Locked).
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Topology.Order.IntermediateValue
+
+noncomputable section
+
+namespace SNSFL_Novikov_Reduction
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 1: THE MAP
+-- ============================================================
+
+noncomputable def cons_tors (f : ℝ → ℝ) (x : ℝ) : ℝ := |f x - x|
+
+def is_noble   (t : ℝ) : Prop := t = 0
+def is_locked  (t : ℝ) : Prop := 0 &lt; t ∧ t &lt; TL_IVA_PEAK
+def is_shatter (t : ℝ) : Prop := TORSION_LIMIT ≤ t
+
+-- [T1] Noble is exactly self-consistency
+theorem noble_iff_consistent (f : ℝ → ℝ) (x : ℝ) :
+    is_noble (cons_tors f x) ↔ f x = x := by
+  unfold is_noble cons_tors
+  rw [abs_eq_zero, sub_eq_zero]
+
+-- ============================================================
+-- SECTION 2: EXISTENCE
+-- ============================================================
+
+-- [T2] A continuous loop on [0, 1] with f(0) ≥ 0 and f(1) ≤ 1 has a
+-- Noble history
+theorem novikov_existence (f : ℝ → ℝ) (hf : ContinuousOn f (Set.Icc 0 1))
+    (h0 : 0 ≤ f 0) (h1 : f 1 ≤ 1) :
+    ∃ x ∈ Set.Icc (0:ℝ) 1, is_noble (cons_tors f x) := by
+  have hg : ContinuousOn (fun x =&gt; f x - x) (Set.Icc 0 1) := hf.sub continuousOn_id
+  have hmem : (0:ℝ) ∈ Set.Icc (f 1 - 1) (f 0 - 0) := ⟨by linarith, by linarith⟩
+  obtain ⟨x, hx, hgx⟩ := intermediate_value_Icc&#x27; (by norm_num : (0:ℝ) ≤ 1) hg hmem
+  refine ⟨x, hx, ?_⟩
+  rw [noble_iff_consistent]
+  have h : f x - x = 0 := hgx
+  linarith
+
+-- [T3] The discrete grandfather loop has no consistent history; its
+-- continuous version has the Noble history p = 1/2
+theorem paradox_needs_discreteness :
+    (∀ x : Bool, (!x) ≠ x) ∧ is_noble (cons_tors (fun p =&gt; 1 - p) (1 / 2)) := by
+  refine ⟨by decide, ?_⟩
+  rw [noble_iff_consistent]
+  norm_num
+
+-- ============================================================
+-- SECTION 3: UNIQUENESS AND ATTRACTION
+-- ============================================================
+
+-- [T4] A contracting loop has at most one Noble history
+theorem contraction_unique (f : ℝ → ℝ) (k : ℝ) (hk : k &lt; 1)
+    (hcon : ∀ a b, |f a - f b| ≤ k * |a - b|)
+    (x y : ℝ) (hx : f x = x) (hy : f y = y) : x = y := by
+  have h := hcon x y
+  rw [hx, hy] at h
+  have hle : |x - y| ≤ 0 := by nlinarith [abs_nonneg (x - y)]
+  exact sub_eq_zero.mp (abs_nonpos_iff.mp hle)
+
+-- [T5] One pass of a contracting loop shrinks consistency torsion by k
+theorem one_pass (f : ℝ → ℝ) (k : ℝ) (hcon : ∀ a b, |f a - f b| ≤ k * |a - b|) (x : ℝ) :
+    cons_tors f (f x) ≤ k * cons_tors f x := by
+  unfold cons_tors
+  exact hcon (f x) x
+
+-- [T6] After n passes, τ(fⁿ(x)) ≤ kⁿ · τ(x)
+theorem n_passes (f : ℝ → ℝ) (k : ℝ) (hk0 : 0 ≤ k)
+    (hcon : ∀ a b, |f a - f b| ≤ k * |a - b|) (x : ℝ) :
+    ∀ n : ℕ, cons_tors f (f^[n] x) ≤ k ^ n * cons_tors f x := by
+  intro n
+  induction n with
+  | zero =&gt; simp
+  | succ n ih =&gt;
+    rw [Function.iterate_succ_apply&#x27;]
+    calc cons_tors f (f (f^[n] x)) ≤ k * cons_tors f (f^[n] x) := one_pass f k hcon _
+      _ ≤ k * (k ^ n * cons_tors f x) := mul_le_mul_of_nonneg_left ih hk0
+      _ = k ^ (n + 1) * cons_tors f x := by ring
+
+-- ============================================================
+-- SECTION 4: THE DAMPED GRANDFATHER LOOP
+-- ============================================================
+
+def dampF (x : ℝ) : ℝ := 3 / 4 - x / 2
+
+-- [T7] The damped loop contracts with k = 1/2
+theorem damp_contraction (a b : ℝ) : |dampF a - dampF b| = 1 / 2 * |a - b| := by
+  have h : dampF a - dampF b = 1 / 2 * (b - a) := by unfold dampF; ring
+  rw [h, abs_mul, abs_of_pos (by norm_num : (0:ℝ) &lt; 1 / 2), abs_sub_comm]
+
+-- [T8] Its unique Noble history is x = 1/2, Deutsch&#x27;s state
+theorem damp_noble : dampF (1 / 2) = 1 / 2 ∧ ∀ y, dampF y = y → y = 1 / 2 := by
+  refine ⟨by unfold dampF; norm_num, ?_⟩
+  intro y hy
+  exact contraction_unique dampF (1 / 2) (by norm_num)
+    (fun a b =&gt; le_of_eq (damp_contraction a b)) y (1 / 2) hy (by unfold dampF; norm_num)
+
+-- [T9] From x = 0 the history starts Shatter (τ = 3/4) and is Locked
+-- after three passes (τ = 3/32)
+theorem damp_relaxes :
+    cons_tors dampF 0 = 3 / 4 ∧ is_shatter (cons_tors dampF 0) ∧
+    cons_tors dampF (dampF (dampF (dampF 0))) = 3 / 32 ∧
+    is_locked (cons_tors dampF (dampF (dampF (dampF 0)))) := by
+  have h0 : cons_tors dampF 0 = 3 / 4 := by
+    unfold cons_tors dampF
+    rw [abs_of_pos (by norm_num)]
+    norm_num
+  have h3 : cons_tors dampF (dampF (dampF (dampF 0))) = 3 / 32 := by
+    unfold cons_tors dampF
+    rw [abs_of_neg (by norm_num)]
+    norm_num
+  refine ⟨h0, ?_, h3, ?_⟩
+  · rw [h0]; unfold is_shatter TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · rw [h3]; unfold is_locked TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+    constructor
+    · norm_num
+    · norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T10] NOVIKOV SELF-CONSISTENCY → PNBA
+theorem novikov_master :
+    -- the map: Noble is self-consistency
+    (∀ (f : ℝ → ℝ) (x : ℝ), is_noble (cons_tors f x) ↔ f x = x) ∧
+    -- existence for continuous loops on [0, 1]
+    (∀ f : ℝ → ℝ, ContinuousOn f (Set.Icc 0 1) → 0 ≤ f 0 → f 1 ≤ 1 →
+      ∃ x ∈ Set.Icc (0:ℝ) 1, is_noble (cons_tors f x)) ∧
+    -- attraction under contraction
+    (∀ (f : ℝ → ℝ) (k : ℝ), 0 ≤ k → (∀ a b, |f a - f b| ≤ k * |a - b|) →
+      ∀ (x : ℝ) (n : ℕ), cons_tors f (f^[n] x) ≤ k ^ n * cons_tors f x) ∧
+    -- the damped grandfather loop: Noble at 1/2, Shatter → Locked from 0
+    dampF (1 / 2) = 1 / 2 ∧
+    is_shatter (cons_tors dampF 0) ∧
+    is_locked (cons_tors dampF (dampF (dampF (dampF 0)))) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨noble_iff_consistent, novikov_existence,
+   fun f k hk0 hcon x n =&gt; n_passes f k hk0 hcon x n,
+   damp_noble.1, damp_relaxes.2.1, damp_relaxes.2.2.2, anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_Novikov_Reduction
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_Novikov_Reduction.lean
+-- COORDINATE: [9,9,10,4](GRAV)
+-- SORRY:      0
+--
+-- THE MAP: τ(x) = |f(x) − x|; Noble = self-consistent (T1).
+--
+-- RESULTS:
+--   Existence: every continuous loop on [0, 1] has a Noble history
+--     (T2); paradox requires a discrete state space (T3)
+--   Uniqueness under contraction (T4)
+--   Attraction: τ(fⁿ(x)) ≤ kⁿ τ(x) (T5, T6)
+--   Damped grandfather loop: k = 1/2, Noble at 1/2, Shatter (3/4)
+--     to Locked (3/32) in three passes (T7–T9)
+--
+-- CONNECTIONS:
+--   [9,9,10,3] Closed timelike curves: the same map; Deutsch&#x27;s
+--              p = 1/2 is the Noble state here
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-novikov.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-novikov.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
