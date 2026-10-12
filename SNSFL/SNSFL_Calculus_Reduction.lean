@@ -123,13 +123,15 @@ theorem antiderivative_up_to_constant (F G f : ℝ → ℝ)
     (hF : ∀ x, HasDerivAt F (f x) x) (hG : ∀ x, HasDerivAt G (f x) x) :
     ∀ x y, F x - G x = F y - G y := by
   have hd : ∀ x, HasDerivAt (fun t => F t - G t) 0 x := fun x => by
-    simpa using (hF x).sub (hG x)
+    have h := (hF x).sub (hG x)
+    rwa [sub_self] at h
   exact is_const_of_deriv_eq_zero (fun x => (hd x).differentiableAt) (fun x => (hd x).deriv)
 
 -- [T6] Chain rule: d/dx sin(x²) = cos(x²) · 2x
 theorem chain_rule_sin_sq (x : ℝ) :
-    HasDerivAt (fun y : ℝ => Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x :=
-  HasDerivAt.comp (x := x) (Real.hasDerivAt_sin (x ^ 2)) (power_rule x)
+    HasDerivAt (fun y : ℝ => Real.sin (y ^ 2)) (Real.cos (x ^ 2) * (2 * x)) x := by
+  have h := (Real.hasDerivAt_sin (x ^ 2)).comp x (power_rule x)
+  exact h
 
 -- ============================================================
 -- SECTION 2: LIMITS
