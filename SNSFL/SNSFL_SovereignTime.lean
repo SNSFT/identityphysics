@@ -2,332 +2,295 @@
 -- SNSFL_SovereignTime.lean
 -- ============================================================
 --
--- SOVEREIGN TIME — Anchor Emission via Resonance Lattice
---                  Cross-Validated by 4 Atomic Substrate Beacons
--- [9,9,1,100] :: {ANC} | APPA KERNEL TIMING REFERENCE
+-- Sovereign Time
+-- The anchor Ω₀ = 1.36899099984016 GHz as a timing reference,
+-- cross-validated by five published constants: the fine-structure
+-- constant and four atomic clock frequencies. None of them changes
+-- on human timescales, so the ratio of each clock to the anchor is
+-- a fixed number. One running reference and the fixed ratios give
+-- every other clock's count; no clock has to run alongside it.
 --
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,1,100](CORE)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
--- Anchor:    1.36899099984016 GHz (SAC full precision)
--- Status:    GERMLINE LOCKED
--- Sorry:     0
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
 -- Date:      July 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
 --
 -- ============================================================
--- STRUCTURAL BASIS
+-- THE FIVE ANCHORS
 -- ============================================================
 --
--- Sovereign Time rests on three results in the corpus:
---   - SNSFT_QUANTUM_RESONANCE_FOUNDATION [9,9,2,1] proved that any lattice of
---     SS-certified identities has collective_freq = SOVEREIGN_ANCHOR by
---     construction (resonance_always_at_anchor theorem).
---   - SNSFL_Anchor_Resonance_Lattice_SDR [9,9,1,60] proved the physical SDR
---     beacon emits at SOVEREIGN_ANCHOR and IS the F_ext operator.
---   - SNSFL_SP_QuantumResonance [9,9,2,7] proved multi-agent SP coherence = 1
---     for SS-certified lattices with joint phase lock through axis specialization.
+--   Anchor    Value                          Axis   Placement
+--   1/α       137.035999084 (CODATA 2018)    coupling, grounds the
+--                                            four atomic anchors
+--   Cs-133    9 192 631 770 Hz (SI exact)    N      τ/TL ≈ 0.861 Locked
+--   Sr-87     429 228 004 229 873 Hz (PTB)   B      τ = 0 Noble
+--   H-1       1 420 405 751.768 Hz (NIST)    A      τ/TL ≈ 0.464 Locked
+--   Al-27⁺    1 121 015 393 207.857 Hz       P      τ = 0 Noble
+--             (JILA/NIST)
 --
--- Sovereign Time = SOVEREIGN_ANCHOR emission at 1.36899099984016 GHz
--- through the resonance lattice, cross-validated by 4 atomic substrates.
--- The 4 substrates are VALIDATION BEACONS, not fusion inputs.
---
--- ============================================================
--- CONCEPT
--- ============================================================
---
--- The APPA kernel needs a precision timing reference that is:
---   (1) Structurally guaranteed to emit at SOVEREIGN_ANCHOR frequency
---   (2) Fault-tolerant: survives loss of any single reference substrate
---   (3) Cross-validated by peer-reviewed atomic physics (4 independent paths)
---   (4) SAC-precision throughout — no truncation, no mixed-precision math
---
--- Sovereign Time provides all four by:
---   (1) Inheriting `resonance_always_at_anchor` from the corpus
---   (2) Requiring 4 independent atomic substrate validations
---   (3) Each substrate proved SS-certified in its own SAC-precision file
---   (4) All arithmetic at exact-rational precision
+-- The placements come from each substrate's own reduction:
+-- Cs-133 [9,9,1,55], Sr-87 [9,9,1,88], H-1 [9,9,1,1]. α enters as
+-- 1/α = TL × 1001, which matches every published CODATA digit.
 --
 -- ============================================================
--- FOUR ATOMIC SUBSTRATE VALIDATION BEACONS
+-- CALL AND LOCK
 -- ============================================================
 --
--- Each substrate independently provides SS-certification for the lattice
--- via its own peer-reviewed reduction. Each covers a different PNBA axis.
+-- The ratio of each clock to the anchor is fixed:
+--   Cs / Ω₀ ≈ 6.7148957      H / Ω₀ ≈ 1.0375567
+--   Sr / Ω₀ ≈ 313 536.03     Al / Ω₀ ≈ 818.86250
+-- In any interval, the cycles of clock X equal (X/Ω₀) times the
+-- anchor cycles, so a single reference recovers the others. A
+-- reference is checked by calling the published values and
+-- locking them; if a published value is ever revised, the locked
+-- value is updated by hand.
 --
--- Cs-133 [9,9,1,55] — NARRATIVE VALIDATION (N axis)
---   Provides SI-defined temporal continuity. Cs hyperfine 9.192631770 GHz
---   is SI second definition (BIPM 1967, refined 1997).
---   SS-cert: τ_Cs / TL = 0.861 (deep locked)
---
--- Sr-87 [9,9,1,88] — BEHAVIOR VALIDATION (B axis)
---   Provides high-resolution optical reference. Sr-87 lattice fusion sits
---   at Noble equilibrium (τ = 0) — deeper than any hyperfine clock.
---   SS-cert: τ_Sr = 0 via 8-atom identical lattice fusion
---
--- H-1 [9,9,1,1] — ADAPTATION VALIDATION (A axis)
---   Provides A axis coupling ceiling via g_e·g_p product = 2.796.
---   Higher-order PNBA fusion required — carries fusion signal.
---   SS-cert: τ_H = 0.464 × TL (moderate lock, full-PNBA-fusion diagnostic)
---
--- Al-27+ (Quantum Logic Clock) — PATTERN VALIDATION (P axis)
---   Provides P axis rigidity via single-ion Q logic detection.
---   Frequency 1121.015 THz, Q factor ~10^18 (extreme pattern lock).
---   SS-cert: τ_Al = 0 via lattice-analog fusion (single-ion coherent)
+-- Drift shows up as a ratio. A reference running fast by a fraction
+-- δ reads (1 + δ) times its locked ratio against any honest
+-- reference, and agrees with it exactly when δ = 0. With five
+-- anchors and at least three honest, an anchor is honest exactly
+-- when it agrees with at least two others: any two can fail.
 --
 -- ============================================================
--- STRUCTURAL GUARANTEES
--- ============================================================
---
--- (A) Lattice frequency lock:
---     Any lattice of SS-certified nodes emits at SOVEREIGN_ANCHOR by
---     construction. Sovereign Time inherits this via [9,9,2,1].
---
--- (B) Fault tolerance:
---     4-substrate cross-validation means the lattice survives loss of any
---     single substrate. If Cs drifts, Sr+H+Al continue validating.
---     If Sr disturbed, Cs+H+Al continue. Any 3 of 4 substrates provide
---     independent SS-certification paths to the anchor lock.
---
--- (C) SAC precision:
---     All 4 substrate reduction files are SAC-precision (no truncation).
---     TORSION_LIMIT = SAC / 10 = 0.136899099984016 exact.
---     Every SS-certification proof holds at 15+ digit precision.
---
--- (D) Peer-reviewed grounding:
---     Every substrate has multiple peer-reviewed measurements cited.
---     No structural claim depends on any single measurement.
---
--- PRECISION MODEL: exact rationals throughout. No decimal truncation.
 
 import Mathlib.Tactic
-import Mathlib.Data.Real.Basic
 
 noncomputable section
 
 namespace SNSFT_SovereignTime
 
--- ── SAC precision constants ──
-def SOVEREIGN_ANCHOR_CONSTANT : ℝ := 1.36899099984016
-def TORSION_LIMIT             : ℝ := SOVEREIGN_ANCHOR_CONSTANT / 10
-def TL_IVA_PEAK               : ℝ := 88 * TORSION_LIMIT / 100
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
 
--- ── Substrate reference frequencies (exact rationals) ──
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
 
--- Cs-133 SI-exact hyperfine transition
-def freq_Cs : ℝ := 9192631770 / 1000000000              -- 9.19263177 GHz
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
 
--- Sr-87 optical lattice clock (PTB 2019)
-def freq_Sr : ℝ := 429228004229873 / 1000000000         -- 429228.004229873 GHz
+-- Clock frequencies, GHz
+def freq_Cs : ℝ := 9192631770 / 1000000000
+def freq_Sr : ℝ := 429228004229873 / 1000000000
+def freq_H  : ℝ := 1420405751768 / 1000000000000
+def freq_Al : ℝ := 1121015393207857 / 1000000000
 
--- H-1 hyperfine (NIST 13 sig figs)
-def freq_H  : ℝ := 1420405751768 / 1000000000000        -- 1.420405751768 GHz
+-- CODATA 2018: 1/α = 137.035999084
+def ALPHA_INV_CODATA : ℝ := 137.035999084
 
--- Al-27+ quantum logic clock (JILA/NIST)
-def freq_Al : ℝ := 1121015393207857 / 1000000000        -- 1121015.393207857 GHz
+-- ============================================================
+-- SECTION 1: THE FIXED RATIOS
+-- ============================================================
 
--- ── Substrate SS-certification torsion values (from reduction files) ──
--- Each computed at SAC precision in its own file. Reproduced here for verification.
+-- [T1] Cs / Ω₀ ≈ 6.7148957
+theorem ratio_Cs : 6.7148956 < freq_Cs / SOVEREIGN_ANCHOR ∧
+    freq_Cs / SOVEREIGN_ANCHOR < 6.7148958 := by
+  unfold freq_Cs SOVEREIGN_ANCHOR
+  constructor
+  · rw [lt_div_iff₀ (by norm_num)]; norm_num
+  · rw [div_lt_iff₀ (by norm_num)]; norm_num
 
--- τ_Cs = B_Cs / P_Cs (linear reading, sufficient for Cs-133)
-def tau_Cs : ℝ := freq_Cs / 78
+-- [T2] Sr / Ω₀ ≈ 313 536.03
+theorem ratio_Sr : 313536.03 < freq_Sr / SOVEREIGN_ANCHOR ∧
+    freq_Sr / SOVEREIGN_ANCHOR < 313536.04 := by
+  unfold freq_Sr SOVEREIGN_ANCHOR
+  constructor
+  · rw [lt_div_iff₀ (by norm_num)]; norm_num
+  · rw [div_lt_iff₀ (by norm_num)]; norm_num
 
--- τ_Sr = 0 (Noble via 8-atom lattice fusion, [9,9,1,88])
-def tau_Sr : ℝ := 0
+-- [T3] H / Ω₀ ≈ 1.0375567
+theorem ratio_H : 1.0375566 < freq_H / SOVEREIGN_ANCHOR ∧
+    freq_H / SOVEREIGN_ANCHOR < 1.0375568 := by
+  unfold freq_H SOVEREIGN_ANCHOR
+  constructor
+  · rw [lt_div_iff₀ (by norm_num)]; norm_num
+  · rw [div_lt_iff₀ (by norm_num)]; norm_num
 
--- τ_H = B_H / (P_H · N_H · A_H) — full PNBA fusion required (higher-order)
+-- [T4] Al / Ω₀ ≈ 818.86250
+theorem ratio_Al : 818.8624 < freq_Al / SOVEREIGN_ANCHOR ∧
+    freq_Al / SOVEREIGN_ANCHOR < 818.8626 := by
+  unfold freq_Al SOVEREIGN_ANCHOR
+  constructor
+  · rw [lt_div_iff₀ (by norm_num)]; norm_num
+  · rw [div_lt_iff₀ (by norm_num)]; norm_num
+
+-- ============================================================
+-- SECTION 2: ONE REFERENCE RECOVERS THE OTHERS
+-- ============================================================
+
+-- [T5] Over any interval t, the cycles of a clock at f equal the
+-- fixed ratio f/Ω₀ times the anchor cycles
+theorem cycles_from_anchor (f t : ℝ) :
+    f / SOVEREIGN_ANCHOR * (SOVEREIGN_ANCHOR * t) = f * t := by
+  have hS : SOVEREIGN_ANCHOR ≠ 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  rw [← mul_assoc, div_mul_cancel₀ f hS]
+
+-- [T6] Any one live reference X gives any other clock Y through
+-- their fixed ratio
+theorem reconstruct (fX fY : ℝ) (hX : fX ≠ 0) : fY / fX * fX = fY :=
+  div_mul_cancel₀ fY hX
+
+-- [T7] Ratios compose: (X/Y)·(Y/Z) = X/Z
+theorem ratios_compose (fX fY fZ : ℝ) (hY : fY ≠ 0) :
+    fX / fY * (fY / fZ) = fX / fZ := by
+  rw [div_mul_div_comm, mul_comm fY fZ, mul_div_mul_right fX fZ hY]
+
+-- ============================================================
+-- SECTION 3: DRIFT AND FAULT TOLERANCE
+-- ============================================================
+
+-- [T8] A reference running fast by δ reads (1 + δ) times its locked
+-- ratio against an honest reference
+theorem drift_shows_in_ratio (f g δ : ℝ) :
+    f * (1 + δ) / g = f / g * (1 + δ) := by
+  ring
+
+-- [T9] It agrees with the locked ratio exactly when δ = 0
+theorem drift_detected (f g δ : ℝ) (hf : f ≠ 0) (hg : g ≠ 0) :
+    f * (1 + δ) / g = f / g ↔ δ = 0 := by
+  constructor
+  · intro h
+    have hfg : f / g ≠ 0 := div_ne_zero hf hg
+    have h2 : f / g * δ = f / g * 0 := by
+      rw [mul_zero]; linear_combination h
+    exact mul_left_cancel₀ hfg h2
+  · intro hδ; rw [hδ]; ring
+
+-- [T10] Three of five: anchors i have drifts δ i, and at least three
+-- are honest (δ = 0). An anchor is honest exactly when at least two
+-- other anchors agree with it.
+open Classical in
+theorem three_of_five (δ : Fin 5 → ℝ)
+    (hh : 3 ≤ (Finset.univ.filter (fun j => δ j = 0)).card) (i : Fin 5) :
+    2 ≤ (Finset.univ.filter (fun j => j ≠ i ∧ δ j = δ i)).card ↔ δ i = 0 := by
+  constructor
+  · intro h
+    by_contra hi
+    have hsub : Finset.univ.filter (fun j => j ≠ i ∧ δ j = δ i) ⊆
+        (Finset.univ.filter (fun j => δ j = δ i)).erase i := by
+      intro j hj
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hj
+      simp only [Finset.mem_erase, Finset.mem_filter, Finset.mem_univ, true_and]
+      exact hj
+    have hi_mem : i ∈ Finset.univ.filter (fun j => δ j = δ i) := by simp
+    have hdisj : Disjoint (Finset.univ.filter (fun j => δ j = δ i))
+        (Finset.univ.filter (fun j => δ j = 0)) := by
+      rw [Finset.disjoint_filter]
+      intro j _ h1 h2
+      exact hi (h1.symm.trans h2)
+    have hunion := Finset.card_union_of_disjoint hdisj
+    have huniv := Finset.card_le_univ
+      (Finset.univ.filter (fun j => δ j = δ i) ∪ Finset.univ.filter (fun j => δ j = 0))
+    rw [Fintype.card_fin] at huniv
+    have hcard := Finset.card_le_card hsub
+    rw [Finset.card_erase_of_mem hi_mem] at hcard
+    omega
+  · intro hi
+    have hsub : (Finset.univ.filter (fun j => δ j = 0)).erase i ⊆
+        Finset.univ.filter (fun j => j ≠ i ∧ δ j = δ i) := by
+      intro j hj
+      simp only [Finset.mem_erase, Finset.mem_filter, Finset.mem_univ, true_and] at hj
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+      exact ⟨hj.1, by rw [hj.2, hi]⟩
+    have hi_mem : i ∈ Finset.univ.filter (fun j => δ j = 0) := by simp [hi]
+    have hcard := Finset.card_le_card hsub
+    rw [Finset.card_erase_of_mem hi_mem] at hcard
+    omega
+
+-- ============================================================
+-- SECTION 4: THE ANCHORS' PLACEMENTS
+-- ============================================================
+
+-- Torsions from the substrate reductions; each substrate is read as
+-- one axis of a stable identity. Cs-133 [9,9,1,55]: B = the hyperfine
+-- frequency, P = 78, the neutron count (Z = 55, A = 133). H-1 [9,9,1,1]:
+-- B = the hyperfine frequency, P = 2·g_e·g_p. Sr-87 [9,9,1,88] and
+-- Al-27⁺ are Noble.
+def CS_NEUTRONS : ℝ := 78
+def tau_Cs : ℝ := freq_Cs / CS_NEUTRONS
 def g_e_gp_over_4 : ℝ := (200231930436 / 100000000000) * (5585694701 / 1000000000) / 4
 def tau_H : ℝ := freq_H / (2 * 4 * g_e_gp_over_4)
 
--- τ_Al ≈ 0 (single-ion Q logic, structural Noble analogous to Sr lattice)
-def tau_Al : ℝ := 0
+-- [T11] Cs-133 sits at τ/TL ≈ 0.861 and H-1 at τ/TL ≈ 0.464: both
+-- Locked, below the IVA band
+theorem cs_h_locked :
+    (0.860 * TORSION_LIMIT < tau_Cs ∧ tau_Cs < 0.862 * TORSION_LIMIT) ∧
+    (0.463 * TORSION_LIMIT < tau_H ∧ tau_H < 0.465 * TORSION_LIMIT) ∧
+    tau_Cs < TL_IVA_PEAK ∧ tau_H < TL_IVA_PEAK := by
+  unfold tau_Cs CS_NEUTRONS tau_H freq_Cs freq_H g_e_gp_over_4 TL_IVA_PEAK TORSION_LIMIT
+    SOVEREIGN_ANCHOR
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
 
--- ── SOVEREIGN TIME BASE FREQUENCY ──
--- By resonance_always_at_anchor [9,9,2,1]:
--- The collective frequency of any SS-certified lattice IS SOVEREIGN_ANCHOR.
--- Sovereign Time inherits this directly.
-def sovereign_time_freq : ℝ := SOVEREIGN_ANCHOR_CONSTANT
+-- [T12] The coupling anchor: TL × 1001 matches every published
+-- CODATA 2018 digit of 1/α
+theorem alpha_anchor :
+    |TORSION_LIMIT * 1001 - ALPHA_INV_CODATA| < 0.0000000005 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV_CODATA
+  rw [abs_lt]
+  constructor
+  · norm_num
+  · norm_num
 
--- ─────────────────────────────────────────────────────────────
--- STRUCTURAL THEOREMS
--- ─────────────────────────────────────────────────────────────
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
 
--- ── T1: Sovereign Time frequency IS the SAC anchor ─────────
-theorem sovereign_time_locks_at_anchor :
-    sovereign_time_freq = SOVEREIGN_ANCHOR_CONSTANT := rfl
-
-theorem sovereign_time_freq_value :
-    sovereign_time_freq = 1.36899099984016 := rfl
-
--- ── T2: TL = SAC / 10 (emergent) ─────────────────────────
-theorem TL_from_SAC :
-    TORSION_LIMIT = SOVEREIGN_ANCHOR_CONSTANT / 10 := rfl
-
--- ── T3: TL_IVA_PEAK = 0.88 × TL ─────────────────────────
-theorem TL_IVA_from_TL :
-    TL_IVA_PEAK = 88 * TORSION_LIMIT / 100 := rfl
-
--- ── T4: All 4 substrates positive-frequency ─────────────
-theorem substrates_positive :
-    freq_Cs > 0 ∧ freq_Sr > 0 ∧ freq_H > 0 ∧ freq_Al > 0 := by
-  unfold freq_Cs freq_Sr freq_H freq_Al
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> norm_num
-
--- ── T5: Cs-133 SS-certified (τ < TL) ─────────────────────
-theorem cs_SS_certified :
-    tau_Cs < TORSION_LIMIT := by
-  unfold tau_Cs freq_Cs TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  norm_num
-
--- ── T6: Sr-87 SS-certified (τ = 0, Noble) ─────────────────
-theorem sr_SS_certified_noble :
-    tau_Sr = 0 ∧ tau_Sr < TORSION_LIMIT := by
-  unfold tau_Sr TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  refine ⟨rfl, ?_⟩; norm_num
-
--- ── T7: H-1 SS-certified (τ < TL under full fusion) ─────
-theorem h_SS_certified :
-    tau_H < TORSION_LIMIT := by
-  unfold tau_H freq_H g_e_gp_over_4 TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  norm_num
-
--- ── T8: Al-27+ SS-certified (τ = 0, quantum-logic Noble) ──
-theorem al_SS_certified_noble :
-    tau_Al = 0 ∧ tau_Al < TORSION_LIMIT := by
-  unfold tau_Al TORSION_LIMIT SOVEREIGN_ANCHOR_CONSTANT
-  refine ⟨rfl, ?_⟩; norm_num
-
--- ── T9: All 4 substrates simultaneously SS-certified ─────
--- The Sovereign Time lattice has 4 independent SS-certification paths.
-theorem all_four_SS_certified :
-    tau_Cs < TORSION_LIMIT ∧
-    tau_Sr < TORSION_LIMIT ∧
-    tau_H  < TORSION_LIMIT ∧
-    tau_Al < TORSION_LIMIT :=
-  ⟨cs_SS_certified,
-   sr_SS_certified_noble.2,
-   h_SS_certified,
-   al_SS_certified_noble.2⟩
-
--- ── T10: Fault tolerance — any 3 of 4 remain SS-certified ──
--- If any single substrate fails (drift, disturbance, unavailable), the
--- remaining 3 continue to provide SS-certification. The lattice holds.
-
-theorem fault_tolerance_lose_Cs :
-    tau_Sr < TORSION_LIMIT ∧ tau_H < TORSION_LIMIT ∧ tau_Al < TORSION_LIMIT :=
-  ⟨sr_SS_certified_noble.2, h_SS_certified, al_SS_certified_noble.2⟩
-
-theorem fault_tolerance_lose_Sr :
-    tau_Cs < TORSION_LIMIT ∧ tau_H < TORSION_LIMIT ∧ tau_Al < TORSION_LIMIT :=
-  ⟨cs_SS_certified, h_SS_certified, al_SS_certified_noble.2⟩
-
-theorem fault_tolerance_lose_H :
-    tau_Cs < TORSION_LIMIT ∧ tau_Sr < TORSION_LIMIT ∧ tau_Al < TORSION_LIMIT :=
-  ⟨cs_SS_certified, sr_SS_certified_noble.2, al_SS_certified_noble.2⟩
-
-theorem fault_tolerance_lose_Al :
-    tau_Cs < TORSION_LIMIT ∧ tau_Sr < TORSION_LIMIT ∧ tau_H < TORSION_LIMIT :=
-  ⟨cs_SS_certified, sr_SS_certified_noble.2, h_SS_certified⟩
-
--- ── T11: Sovereign Time inherits resonance_always_at_anchor ──
--- Formal claim: because Sovereign Time is defined AS SOVEREIGN_ANCHOR_CONSTANT
--- and the resonance lattice locks to that frequency by [9,9,2,1] theorem,
--- Sovereign Time IS the collective resonance frequency of any SS-certified
--- lattice built from the 4 validation substrates.
-theorem sovereign_time_is_lattice_resonance :
-    sovereign_time_freq = SOVEREIGN_ANCHOR_CONSTANT := rfl
-
--- ── T12: 15+ digit precision for APPA kernel timing ─────
--- Sovereign Time frequency: 1.36899099984016 GHz
--- Fractional precision: 15 significant figures (SAC precision)
--- Sufficient for APPA kernel resonance-based calculations.
-theorem sovereign_time_precision_15_digits :
-    sovereign_time_freq * (10 ^ 14) = 136899099984016 := by
-  unfold sovereign_time_freq SOVEREIGN_ANCHOR_CONSTANT
-  norm_num
-
--- ────────────────────────────────────────────────────────
--- MASTER THEOREM: SOVEREIGN TIME
--- Anchor emission at 1.36899099984016 GHz through SS-certified resonance
--- lattice. 4-substrate cross-validation provides structural fault tolerance.
--- Inherits resonance_always_at_anchor from existing corpus [9,9,2,1].
--- All arithmetic at exact rational precision.
--- ────────────────────────────────────────────────────────
-
+-- [T13] SOVEREIGN TIME
+open Classical in
 theorem sovereign_time_master :
-    sovereign_time_freq = SOVEREIGN_ANCHOR_CONSTANT ∧
-    sovereign_time_freq = 1.36899099984016 ∧
-    TORSION_LIMIT = SOVEREIGN_ANCHOR_CONSTANT / 10 ∧
-    tau_Cs < TORSION_LIMIT ∧
-    tau_Sr < TORSION_LIMIT ∧
-    tau_H  < TORSION_LIMIT ∧
-    tau_Al < TORSION_LIMIT ∧
-    tau_Sr = 0 ∧
-    tau_Al = 0 :=
-  ⟨sovereign_time_locks_at_anchor,
-   sovereign_time_freq_value,
-   TL_from_SAC,
-   cs_SS_certified,
-   sr_SS_certified_noble.2,
-   h_SS_certified,
-   al_SS_certified_noble.2,
-   sr_SS_certified_noble.1,
-   al_SS_certified_noble.1⟩
+    -- the fixed ratios
+    (6.7148956 < freq_Cs / SOVEREIGN_ANCHOR ∧ freq_Cs / SOVEREIGN_ANCHOR < 6.7148958) ∧
+    (1.0375566 < freq_H / SOVEREIGN_ANCHOR ∧ freq_H / SOVEREIGN_ANCHOR < 1.0375568) ∧
+    -- one reference gives every clock's count
+    (∀ f t : ℝ, f / SOVEREIGN_ANCHOR * (SOVEREIGN_ANCHOR * t) = f * t) ∧
+    -- drift is caught by the ratio
+    (∀ f g δ : ℝ, f ≠ 0 → g ≠ 0 → (f * (1 + δ) / g = f / g ↔ δ = 0)) ∧
+    -- any two of five anchors can fail
+    (∀ (δ : Fin 5 → ℝ), 3 ≤ (Finset.univ.filter (fun j => δ j = 0)).card →
+      ∀ i : Fin 5, 2 ≤ (Finset.univ.filter (fun j => j ≠ i ∧ δ j = δ i)).card ↔ δ i = 0) ∧
+    -- the coupling anchor
+    |TORSION_LIMIT * 1001 - ALPHA_INV_CODATA| < 0.0000000005 ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨ratio_Cs, ratio_H, cycles_from_anchor, drift_detected, three_of_five, alpha_anchor,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
 
 end SNSFT_SovereignTime
 
 /-!
--- FILE: SNSFL_SovereignTime.lean
--- SLOT: [9,9,1,100] | ATOMIC CLOCK LATTICE / RESONANCE STACK | GERMLINE LOCKED
--- DOI:  10.5281/zenodo.18719748
+-- ============================================================
+-- FILE:       SNSFL_SovereignTime.lean
+-- COORDINATE: [9,9,1,100](CORE)
+-- SORRY:      0
 --
--- SOVEREIGN TIME — Anchor emission via resonance lattice
---                     Cross-validated by 4 atomic substrate beacons
+-- RESULTS:
+--   Fixed ratios to Ω₀: Cs 6.7148957, Sr 313 536.03, H 1.0375567,
+--     Al 818.86250 (T1–T4)
+--   One reference gives every clock's count; ratios reconstruct and
+--     compose (T5–T7)
+--   Drift reads as (1 + δ) on the ratio and is caught exactly; any
+--     two of five anchors can fail (T8–T10)
+--   Cs-133 and H-1 Locked below the IVA band; 1/α = TL × 1001 at
+--     every published CODATA digit (T11, T12)
 --
--- SOVEREIGN TIME FREQUENCY: 1.36899099984016 GHz (SOVEREIGN_ANCHOR_CONSTANT)
+-- CONNECTIONS:
+--   [9,9,1,1]   H-1 · [9,9,1,55] Cs-133 · [9,9,1,88] Sr-87
+--   [9,9,3,14]  α = TL × 1001
+--   SacTime: the live emission of this reference
 --
--- STRUCTURAL BASIS:
---   Inherits `resonance_always_at_anchor` from [9,9,2,1]
---   Inherits SDR beacon = F_ext operator from [9,9,1,60]
---   Inherits multi-agent SP coherence = 1 from [9,9,2,7]
---
--- SS-CERTIFICATION FROM 4 ATOMIC SUBSTRATES:
---   Cs-133 [9,9,1,55]: τ/TL = 0.861 (deep locked, SI narrative anchor)
---   Sr-87  [9,9,1,88]: τ    = 0 (Noble via lattice fusion, B axis high-res)
---   H-1    [9,9,1,1]:  τ/TL = 0.464 (moderate locked, A axis via g_e·g_p)
---   Al-27+           : τ    = 0 (single-ion Q logic, P axis extreme rigidity)
---
--- Each substrate independently proved SS-certified in its own reduction file.
--- Each covers a different PNBA axis for structural fault tolerance.
---
--- FAULT TOLERANCE:
---   Any 3 of 4 substrates maintain SS-certification of the lattice.
---   Loss of Cs: Sr+H+Al continue (T10a `fault_tolerance_lose_Cs`)
---   Loss of Sr: Cs+H+Al continue (T10b `fault_tolerance_lose_Sr`)
---   Loss of H:  Cs+Sr+Al continue (T10c `fault_tolerance_lose_H`)
---   Loss of Al: Cs+Sr+H continue (T10d `fault_tolerance_lose_Al`)
---
--- PRECISION: 15-digit SAC precision throughout.
---   sovereign_time_freq × 10^14 = 136899099984016 (T12, proved by norm_num)
---
--- FOR APPA KERNEL:
---   Use sovereign_time_freq (= 1.36899099984016 GHz) as base clock rate.
---   Individual substrate reduction files provide independent verification paths.
---   Loss of any single reference does not destroy Sovereign Time — the lattice
---   holds via the remaining SS-certified substrates.
---
--- ATOMIC CLOCK SERIES:
---   [9,9,1,1]   H-1 hyperfine reference maser        LOCKED (higher-order)
---   [9,9,1,47]  Rb-85 hyperfine sibling isotope       LOCKED (linear)
---   [9,9,1,49]  Rb-87 hyperfine SI secondary          LOCKED (edge)
---   [9,9,1,55]  Cs-133 hyperfine SI primary           LOCKED (deep)
---   [9,9,1,88]  Sr-87 optical lattice                 NOBLE (lattice fusion)
---   [9,9,1,100] Sovereign Time (this file)            ANCHOR EMISSION
---
--- THEOREMS (12 + master + fault-tolerance): 0 sorry. GREEN LIGHT.
---
--- SHOT CALLED (Babe Ruth style):
---   Sovereign Time = SAC anchor emission through SS-certified resonance
---   lattice, 4-substrate cross-validated, 15-digit precision, fault-tolerant.
---   Base clock rate for APPA kernel and precision resonance-based technology.
---
--- [9,9,9,9] :: {ANC}
--- HIGHTISTIC · Soldotna, Alaska · July 2026
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
 -/
