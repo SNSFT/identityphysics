@@ -62,7 +62,7 @@
 -- ============================================================
 
 import Mathlib.Tactic
-import Mathlib.Combinatorics.SimpleGraph.Coloring
+import Mathlib.Combinatorics.SimpleGraph.Coloring.Vertex
 
 noncomputable section
 
@@ -127,7 +127,7 @@ def k4_axes : Fin 4 → PNBAAxis
 theorem k4_four_colorable : Nonempty ((⊤ : SimpleGraph (Fin 4)).Coloring PNBAAxis) := by
   have hinj : ∀ a b : Fin 4, a ≠ b → k4_axes a ≠ k4_axes b := by decide
   exact ⟨SimpleGraph.Coloring.mk k4_axes
-    (fun {v w} h => hinj v w (SimpleGraph.top_adj.mp h))⟩
+    (fun {v w} h => hinj v w (by simpa using h))⟩
 
 -- [T6] The complete graph on n + 1 vertices has no proper coloring
 -- with n colors
@@ -137,7 +137,7 @@ theorem complete_not_colorable (n : ℕ) :
   have hinj : Function.Injective c := by
     intro a b hab
     by_contra hne
-    exact c.valid (SimpleGraph.top_adj.mpr hne) hab
+    exact c.valid (by simpa using hne) hab
   have := Fintype.card_le_of_injective c hinj
   simp at this
 
