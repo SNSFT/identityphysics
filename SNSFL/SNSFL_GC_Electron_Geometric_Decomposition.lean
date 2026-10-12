@@ -49,6 +49,22 @@
 --   αc  = 2 187 691.26364(33) m/s
 --
 -- ============================================================
+-- THE HYDROGEN ATOM
+-- ============================================================
+--
+-- From the electron's rest energy m_e c² = 510 998.95000 keV:
+--
+--   Rydberg energy  ½ m_e c² / (TL·1001)²  = 13.6056931230 eV
+--                   CODATA 13.605693122994(26) eV
+--   Levels          Eₙ = −13.6057 eV / n²
+--   Lyman-α         E₂ − E₁ = ¾ × 13.6057 = 10.2043 eV
+--   Fine structure  1/(TL·1001)² = α² = 5.32514 × 10⁻⁵, the scale of
+--                   the line splitting that gives α its name
+--
+-- The running of the coupling with energy is reduced in [9,9,3,16];
+-- the Bohr–Sommerfeld atom in [9,9,3,15].
+--
+-- ============================================================
 
 import Mathlib.Tactic
 
@@ -78,11 +94,18 @@ def RE_UNC     : ℝ := 1.3e-24
 def C_LIGHT    : ℝ := 299792458
 def V1_CODATA  : ℝ := 2187691.26364        -- atomic unit of velocity αc, m/s
 def V1_UNC     : ℝ := 0.00033
+def MC2_EV     : ℝ := 510998.95000         -- electron rest energy, eV
+def RY_CODATA  : ℝ := 13.605693122994      -- Rydberg energy, eV
+def RY_UNC     : ℝ := 0.000000000026
 
 -- The three lengths and the ground-state speed
 noncomputable def bohr_radius     : ℝ := LAMBDA_C * ALPHA_INV
 noncomputable def electron_radius : ℝ := LAMBDA_C / ALPHA_INV
 noncomputable def bohr_velocity   : ℝ := C_LIGHT / ALPHA_INV
+noncomputable def rydberg_energy  : ℝ := MC2_EV / 2 / ALPHA_INV ^ 2
+
+-- Hydrogen level n, in eV
+noncomputable def level (n : ℕ) : ℝ := -rydberg_energy / (n : ℝ) ^ 2
 
 -- ============================================================
 -- SECTION 1: THE SPLIT
@@ -157,10 +180,43 @@ theorem bohr_velocity_codata : |bohr_velocity - V1_CODATA| < V1_UNC := by
   · norm_num
 
 -- ============================================================
+-- SECTION 4: THE HYDROGEN ATOM
+-- ============================================================
+
+-- [T7] The Rydberg energy ½ m_e c² / (TL·1001)² lies within CODATA's
+-- uncertainty of 13.605693122994 eV
+theorem rydberg_codata : |rydberg_energy - RY_CODATA| < RY_UNC := by
+  unfold rydberg_energy ALPHA_INV MC2_EV RY_CODATA RY_UNC TORSION_LIMIT SOVEREIGN_ANCHOR
+  rw [abs_lt]; constructor
+  · norm_num
+  · norm_num
+
+-- [T8] The levels: E₁ = −Ry, E₂ = −Ry/4, and the Lyman-α line
+-- E₂ − E₁ = ¾ Ry = 10.2043 eV
+theorem lyman_alpha :
+    level 1 = -rydberg_energy ∧ level 2 = -rydberg_energy / 4 ∧
+    level 2 - level 1 = 3 / 4 * rydberg_energy ∧
+    10.2042 < 3 / 4 * rydberg_energy ∧ 3 / 4 * rydberg_energy < 10.2043 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold level; push_cast; ring
+  · unfold level; push_cast; ring
+  · unfold level; push_cast; ring
+  · unfold rydberg_energy ALPHA_INV MC2_EV TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  · unfold rydberg_energy ALPHA_INV MC2_EV TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T9] The fine-structure scale α² = 1/(TL·1001)² ≈ 5.32514 × 10⁻⁵
+theorem fine_structure_scale :
+    5.32513e-5 < 1 / ALPHA_INV ^ 2 ∧ 1 / ALPHA_INV ^ 2 < 5.32514e-5 := by
+  unfold ALPHA_INV TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor
+  · norm_num
+  · norm_num
+
+-- ============================================================
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- ============================================================
 
--- [T7] THE ELECTRON FROM TL × 1001
+-- [T10] THE ELECTRON FROM TL × 1001
 theorem electron_master :
     -- the split
     ALPHA_INV = TORSION_LIMIT * 1000 + TORSION_LIMIT ∧
@@ -170,10 +226,13 @@ theorem electron_master :
     |bohr_radius - A0_CODATA| < A0_UNC ∧
     |electron_radius - RE_CODATA| < RE_UNC ∧
     |bohr_velocity - V1_CODATA| < V1_UNC ∧
+    -- the hydrogen atom: Rydberg energy and Lyman-α
+    |rydberg_energy - RY_CODATA| < RY_UNC ∧
+    (10.2042 < 3 / 4 * rydberg_energy ∧ 3 / 4 * rydberg_energy < 10.2043) ∧
     -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
   ⟨split.1, ladder, bohr_radius_codata, electron_radius_codata, bohr_velocity_codata,
-   anchor_zero_friction⟩
+   rydberg_codata, ⟨lyman_alpha.2.2.2.1, lyman_alpha.2.2.2.2⟩, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -195,10 +254,14 @@ end SNSFL_GC_Electron_Geometric_Decomposition
 --     (TL·1001)² ≈ 18 778.865 (T2, T3)
 --   Bohr radius, classical radius and ground-state speed from
 --     TL × 1001, each within CODATA 2018 uncertainty (T4–T6)
+--   Hydrogen: Rydberg energy within CODATA; levels −Ry/n²;
+--     Lyman-α 10.2043 eV; fine-structure scale α² ≈ 5.32514 × 10⁻⁵
+--     (T7–T9)
 --
 -- CONNECTIONS:
 --   [9,9,3,14] α = TL × 1001
 --   [9,9,3,20] Transcendental Time Engine
+--   [9,9,3,15] Bohr–Sommerfeld · [9,9,3,16] Running coupling
 --
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
