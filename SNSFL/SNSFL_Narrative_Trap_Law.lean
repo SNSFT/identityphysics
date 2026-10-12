@@ -150,9 +150,9 @@ theorem signature_preserved (sig : Part → Spec) (s0 : Fin k → Spec) :
       by_cases hj : j = i
       · subst hj
         have hx : sig x = s0 j := hL (j, x) (by simp)
-        simp [Function.update_apply, hx]
+        simp [hx]
       · have hs : sig (ship j) = s0 j := congrFun h j
-        simp [Function.update_apply, hj, hs]
+        simp [hj, hs]
     · intro q hq
       exact hL q (by simp [hq])
 
