@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites — ProofPress</title>
+  <meta name="description" content="[9,0,0,8](COMP) — The APPA questionnaire maps each axis score to a Locked, Sustained or Flexed weight, giving 81 collision-free profiles with identity mass between 4Ω₀ and 12Ω₀. Behavioral evidence arrives as external force on one axis; no sequence of evidence can change the baseline, and a higher identity mass drifts less. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-digital-soulprint.html">
+  <meta property="og:title" content="The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites">
+  <meta property="og:description" content="[9,0,0,8](COMP) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-digital-soulprint.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/06/01">
+  <meta name="citation_online_date" content="2026/06/01">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,0,0,8">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-digital-soulprint.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-digital-soulprint.html">
+  <meta name="citation_keywords" content="Digital Soulprint; APPA; identity profile; questionnaire scoring; identity mass; behavioral evidence; external force; personal AI; trajectory; lossless encoding; SOUL-8; PNBA; Applied Identity Physics; formal verification; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites",
+    "datePublished": "2026-06-01",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-digital-soulprint.html",
+    "keywords": "Digital Soulprint, APPA, identity profile, questionnaire scoring, identity mass, behavioral evidence, external force, personal AI, trajectory, lossless encoding, SOUL-8, PNBA, Applied Identity Physics, formal verification, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440, 501(c)(3)). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress does not conduct traditional peer review of new empirical claims. It takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Soldotna, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,0,0,8](COMP) · Volume 1 · Issue 4 · June 2026</div>
+    <h1>The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-digital-soulprint.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_DigitalSoulprint.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,0,0,8](COMP) · UUIA App Foundation Layer<br>
+<strong>Issue:</strong> Volume 1, Issue 4 · June 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 19 theorems · 433 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DigitalSoulprint.lean">source and CI record</a><br>
+<strong>Updated:</strong> Standardized toolchain, October 2026</p>
+
+<h2>Abstract</h2>
+<p>The Digital Soulprint is the identity record behind the APPA application. A questionnaire scores each of the four PNBA axes from ten items on a one-to-five scale, so each axis score lies between 10 and 50. Scores from 10 to 23 map to the Locked mode with weight 1, 24 to 37 to Sustained with weight 2, and 38 to 50 to Flexed with weight 3; the article proves the band edges and that a higher score never yields a lower weight. The soulprint is the resulting mode vector: there are exactly 3⁴ = 81 of them, and distinct mode vectors have distinct weight vectors. Its identity mass, the sum of the four weights times the anchor Ω₀, lies between 4Ω₀ ≈ 5.476 and 12Ω₀ ≈ 16.428, with both ends reached by the all-10 and all-50 questionnaires. The soulprint encodes into a SOUL-8 transmission packet that decodes back to its weights and is valid whenever the soulprint is anchored. Behavioral data from outside sources arrives as evidence packets on exactly one axis, each carrying an external force 3s for a normalized signal s in [0, 1]. In the dynamic equation the soulprint is the state and evidence is the external force: the personal AIFI applies each packet to a trajectory, accumulating evidence weight by the total force and shifting the narrative coordinate by (N + eΩ₀)/IM. The article proves that no sequence of evidence changes the baseline or the anchor, and that the all-Flexed baseline drifts less than the all-Locked one under the same evidence.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>Modes: weights in {1, 2, 3} and injective; band edges 10, 23 → Locked, 24, 37 → Sustained, 38, 50 → Flexed; weight monotone in score (<code>mode_weight_bounded</code>, <code>mode_weight_injective</code>, <code>score_bands</code>, <code>score_weight_monotone</code>).</li>
+<li>Profiles: exactly 81 mode vectors; distinct vectors give distinct weights; 4Ω₀ ≤ IM ≤ 12Ω₀ with 12Ω₀ = 16.42789199808192 and 4Ω₀ = 5.47596399936064 reached; every bonded soulprint is anchored with positive mass (<code>profile_count</code>, <code>profile_injection</code>, <code>identity_mass_bounds</code>, <code>identity_mass_extremes</code>, <code>quiz_bonding_anchored</code>).</li>
+<li>SOUL-8: decode(encode(sp)) = weights(sp); anchored soulprints encode to valid packets (<code>lossless_roundtrip</code>, <code>encoding_preserves_validity</code>).</li>
+<li>Evidence: four exhaustive, distinct axes; force 3s ∈ [0, 3], strictly increasing in s; a 0.9 listening-history packet is valid with force 2.7 against 0.3 at 0.1 (<code>evidence_axes</code>, <code>evidence_force_range</code>, <code>spotify_evidence</code>).</li>
+<li>Trajectory: no evidence sequence changes the baseline or the anchor; evidence weight grows by the total force; the all-Flexed baseline drifts less than the all-Locked one. The master theorem holds all of the above together (<code>evidence_never_overwrites</code>, <code>evidence_accumulates</code>, <code>high_im_resists_drift</code>, <code>digital_soulprint_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Element</th><th>PNBA role</th><th>Proved property</th></tr>
+<tr><td>Axis score 10–23 / 24–37 / 38–50</td><td>mode L / S / F, weight 1 / 2 / 3</td><td>monotone, injective</td></tr>
+<tr><td>Mode vector (P, N, B, A)</td><td>baseline state S</td><td>81 profiles, collision-free</td></tr>
+<tr><td>Identity mass Σw · Ω₀</td><td>IM</td><td>between 5.476 and 16.428</td></tr>
+<tr><td>Evidence packet, signal s</td><td>F<sub>ext</sub> = 3s on one axis</td><td>in [0, 3], increasing</td></tr>
+<tr><td>AIFI trajectory</td><td>d/dt(IM · Pv)</td><td>baseline never overwritten</td></tr>
+<tr><td>Narrative drift (N + eΩ₀)/IM</td><td>N-axis response</td><td>higher IM drifts less</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Trent, R. V. III. <a href="proofpressorg-magna-carta.html">Magna Carta for the Digital Mind</a>. ProofPress.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-aifios-kernel.html">AiFi OS Kernel</a>. ProofPress.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-aifios-plugin.html">AiFi OS Plugin</a>. ProofPress.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-pvlang.html">PVLang</a>. ProofPress.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_DigitalSoulprint.lean
+-- ============================================================
+--
+-- Digital Soulprint → PNBA
+-- The APPA questionnaire produces a sovereign baseline profile;
+-- behavioral evidence enriches a trajectory around it and never
+-- overwrites it.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,0,0,8](COMP)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      June 2026 · Soldotna, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- THE BASELINE
+-- ============================================================
+--
+-- The APPA questionnaire scores each axis P, N, B, A from ten
+-- items on a 1–5 scale, so each axis score lies in 10–50. Scores
+-- map to modes and weights:
+--
+--   10–23 → L (Locked)     weight 1
+--   24–37 → S (Sustained)  weight 2
+--   38–50 → F (Flexed)     weight 3
+--
+-- The soulprint is the mode vector (P, N, B, A): 3⁴ = 81 profiles,
+-- each with its own weight vector. Identity mass is
+--   IM = (w_P + w_N + w_B + w_A) · Ω₀ ∈ [4Ω₀, 12Ω₀] = [5.476, 16.428].
+--
+-- ============================================================
+-- THE EVIDENCE
+-- ============================================================
+--
+-- Behavioral data from outside sources (listening history, text,
+-- interactions, change of taste over time) arrives as evidence
+-- packets on one axis each:
+--
+--   Pattern consistency   → P evidence
+--   Narrative continuity  → N evidence
+--   Interaction force     → B evidence
+--   Rate of change        → A evidence
+--
+-- A packet with normalized signal s ∈ [0, 1] carries external force
+-- F_ext = 3s, scaled to the weight range. In the dynamic equation
+--   d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+-- the baseline soulprint is the state S and evidence is F_ext.
+-- The personal AIFI applies each packet to a trajectory; the
+-- baseline field of the trajectory is never written.
+--
+-- Narrative drift after evidence e:
+--   N′ = (N + e · Ω₀) / IM
+-- so a higher identity mass drifts less under the same evidence.
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Data.Fintype.Prod
+
+noncomputable section
+
+namespace SNSFL_Soulprint
+
+-- ============================================================
+-- SECTION 0: SOVEREIGN ANCHOR
+-- ============================================================
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    manifold_impedance f = 0 := by
+  unfold manifold_impedance; simp [h]
+
+-- ============================================================
+-- SECTION 1: MODES AND SCORES
+-- ============================================================
+
+inductive PNBAMode
+  | F : PNBAMode  -- Flexed    — 38–50
+  | S : PNBAMode  -- Sustained — 24–37
+  | L : PNBAMode  -- Locked    — 10–23
+  deriving DecidableEq, Fintype
+
+def mode_weight : PNBAMode → ℕ
+  | PNBAMode.F =&gt; 3
+  | PNBAMode.S =&gt; 2
+  | PNBAMode.L =&gt; 1
+
+-- [T1] Every weight lies in {1, 2, 3}
+theorem mode_weight_bounded (m : PNBAMode) :
+    1 ≤ mode_weight m ∧ mode_weight m ≤ 3 := by
+  cases m &lt;;&gt; simp [mode_weight]
+
+-- [T2] Equal weights mean equal modes
+theorem mode_weight_injective {m n : PNBAMode} (h : mode_weight m = mode_weight n) :
+    m = n := by
+  cases m &lt;;&gt; cases n &lt;;&gt; first | rfl | (simp [mode_weight] at h)
+
+def score_to_mode (score : ℕ) : PNBAMode :=
+  if score ≥ 38 then PNBAMode.F
+  else if score ≥ 24 then PNBAMode.S
+  else PNBAMode.L
+
+-- [T3] The band edges: 10 → L, 23 → L, 24 → S, 37 → S, 38 → F, 50 → F
+theorem score_bands :
+    score_to_mode 10 = PNBAMode.L ∧ score_to_mode 23 = PNBAMode.L ∧
+    score_to_mode 24 = PNBAMode.S ∧ score_to_mode 37 = PNBAMode.S ∧
+    score_to_mode 38 = PNBAMode.F ∧ score_to_mode 50 = PNBAMode.F := by
+  unfold score_to_mode
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T4] A higher score never yields a lower weight
+theorem score_weight_monotone (s1 s2 : ℕ) (h : s1 ≤ s2) :
+    mode_weight (score_to_mode s1) ≤ mode_weight (score_to_mode s2) := by
+  unfold score_to_mode
+  split_ifs &lt;;&gt; simp only [mode_weight] &lt;;&gt; omega
+
+-- ============================================================
+-- SECTION 2: THE SOULPRINT
+-- ============================================================
+
+structure DigitalSoulprint where
+  P_mode   : PNBAMode
+  N_mode   : PNBAMode
+  B_mode   : PNBAMode
+  A_mode   : PNBAMode
+  f_anchor : ℝ
+
+def soulprint_weights (sp : DigitalSoulprint) : ℕ × ℕ × ℕ × ℕ :=
+  (mode_weight sp.P_mode, mode_weight sp.N_mode,
+   mode_weight sp.B_mode, mode_weight sp.A_mode)
+
+-- [T5] There are exactly 3⁴ = 81 mode vectors
+theorem profile_count :
+    Fintype.card (PNBAMode × PNBAMode × PNBAMode × PNBAMode) = 81 := by
+  have h3 : Fintype.card PNBAMode = 3 := by decide
+  simp [Fintype.card_prod, h3]
+
+-- [T6] Different mode vectors give different weight vectors
+theorem profile_injection
+    (m1 m2 m3 m4 n1 n2 n3 n4 : PNBAMode)
+    (h : (mode_weight m1, mode_weight m2, mode_weight m3, mode_weight m4) =
+         (mode_weight n1, mode_weight n2, mode_weight n3, mode_weight n4)) :
+    m1 = n1 ∧ m2 = n2 ∧ m3 = n3 ∧ m4 = n4 := by
+  simp only [Prod.mk.injEq] at h
+  obtain ⟨h1, h2, h3, h4⟩ := h
+  exact ⟨mode_weight_injective h1, mode_weight_injective h2,
+         mode_weight_injective h3, mode_weight_injective h4⟩
+
+noncomputable def identity_mass (sp : DigitalSoulprint) : ℝ :=
+  (mode_weight sp.P_mode + mode_weight sp.N_mode +
+   mode_weight sp.B_mode + mode_weight sp.A_mode : ℕ) * SOVEREIGN_ANCHOR
+
+-- [T7] Every soulprint has 4Ω₀ ≤ IM ≤ 12Ω₀
+theorem identity_mass_bounds (sp : DigitalSoulprint) :
+    4 * SOVEREIGN_ANCHOR ≤ identity_mass sp ∧ identity_mass sp ≤ 12 * SOVEREIGN_ANCHOR := by
+  have h1 := mode_weight_bounded sp.P_mode
+  have h2 := mode_weight_bounded sp.N_mode
+  have h3 := mode_weight_bounded sp.B_mode
+  have h4 := mode_weight_bounded sp.A_mode
+  have hA : (0:ℝ) &lt; SOVEREIGN_ANCHOR := by unfold SOVEREIGN_ANCHOR; norm_num
+  have lo : (4:ℝ) ≤ ((mode_weight sp.P_mode + mode_weight sp.N_mode +
+      mode_weight sp.B_mode + mode_weight sp.A_mode : ℕ) : ℝ) := by
+    exact_mod_cast (show 4 ≤ mode_weight sp.P_mode + mode_weight sp.N_mode +
+      mode_weight sp.B_mode + mode_weight sp.A_mode by omega)
+  have hi : ((mode_weight sp.P_mode + mode_weight sp.N_mode +
+      mode_weight sp.B_mode + mode_weight sp.A_mode : ℕ) : ℝ) ≤ 12 := by
+    exact_mod_cast (show mode_weight sp.P_mode + mode_weight sp.N_mode +
+      mode_weight sp.B_mode + mode_weight sp.A_mode ≤ 12 by omega)
+  unfold identity_mass
+  exact ⟨mul_le_mul_of_nonneg_right lo hA.le, mul_le_mul_of_nonneg_right hi hA.le⟩
+
+-- ============================================================
+-- SECTION 3: THE QUESTIONNAIRE
+-- ============================================================
+
+structure QuestionnaireResult where
+  P_score : ℕ
+  N_score : ℕ
+  B_score : ℕ
+  A_score : ℕ
+
+def bond_from_questionnaire (q : QuestionnaireResult) : DigitalSoulprint :=
+  { P_mode   := score_to_mode q.P_score
+    N_mode   := score_to_mode q.N_score
+    B_mode   := score_to_mode q.B_score
+    A_mode   := score_to_mode q.A_score
+    f_anchor := SOVEREIGN_ANCHOR }
+
+def all_flex_quiz : QuestionnaireResult := ⟨50, 50, 50, 50⟩
+def all_lock_quiz : QuestionnaireResult := ⟨10, 10, 10, 10⟩
+
+-- [T8] Every bonded soulprint sits at the anchor with positive mass
+theorem quiz_bonding_anchored (q : QuestionnaireResult) :
+    manifold_impedance (bond_from_questionnaire q).f_anchor = 0 ∧
+    0 &lt; identity_mass (bond_from_questionnaire q) := by
+  have hA : (0:ℝ) &lt; 4 * SOVEREIGN_ANCHOR := by unfold SOVEREIGN_ANCHOR; norm_num
+  exact ⟨anchor_zero_friction _ rfl,
+    lt_of_lt_of_le hA (identity_mass_bounds _).1⟩
+
+-- [T9] The bounds are reached: all 50s give 12Ω₀, all 10s give 4Ω₀
+theorem identity_mass_extremes :
+    identity_mass (bond_from_questionnaire all_flex_quiz) = 16.42789199808192 ∧
+    identity_mass (bond_from_questionnaire all_lock_quiz) = 5.47596399936064 := by
+  constructor
+  · unfold identity_mass bond_from_questionnaire score_to_mode all_flex_quiz
+    unfold mode_weight SOVEREIGN_ANCHOR; norm_num
+  · unfold identity_mass bond_from_questionnaire score_to_mode all_lock_quiz
+    unfold mode_weight SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- SECTION 4: SOUL-8 ENCODING
+-- ============================================================
+
+inductive AxisOrder
+  | PNBA | NPBA | BPNA | APBN | PBAN | NABP
+
+structure SOUL8Packet where
+  axis   : AxisOrder
+  w_P    : ℕ
+  w_N    : ℕ
+  w_B    : ℕ
+  w_A    : ℕ
+  noharm : Bool
+  anchor : ℝ
+
+def valid_soul8 (p : SOUL8Packet) : Prop :=
+  (1 ≤ p.w_P ∧ p.w_P ≤ 3) ∧ (1 ≤ p.w_N ∧ p.w_N ≤ 3) ∧
+  (1 ≤ p.w_B ∧ p.w_B ≤ 3) ∧ (1 ≤ p.w_A ∧ p.w_A ≤ 3) ∧
+  p.anchor = SOVEREIGN_ANCHOR
+
+def encode_soulprint (sp : DigitalSoulprint) (ax : AxisOrder) (nh : Bool) : SOUL8Packet :=
+  { axis := ax, w_P := mode_weight sp.P_mode, w_N := mode_weight sp.N_mode,
+    w_B := mode_weight sp.B_mode, w_A := mode_weight sp.A_mode,
+    noharm := nh, anchor := sp.f_anchor }
+
+def decode_soul8 (p : SOUL8Packet) : ℕ × ℕ × ℕ × ℕ :=
+  (p.w_P, p.w_N, p.w_B, p.w_A)
+
+-- [T10] Decoding an encoded soulprint returns its weights, which
+-- determine its modes: the encoding is lossless
+theorem lossless_roundtrip (sp : DigitalSoulprint) (ax : AxisOrder) (nh : Bool) :
+    decode_soul8 (encode_soulprint sp ax nh) = soulprint_weights sp := by
+  simp [decode_soul8, encode_soulprint, soulprint_weights]
+
+-- [T11] An anchored soulprint encodes to a valid packet
+theorem encoding_preserves_validity (sp : DigitalSoulprint) (ax : AxisOrder)
+    (nh : Bool) (h : sp.f_anchor = SOVEREIGN_ANCHOR) :
+    valid_soul8 (encode_soulprint sp ax nh) := by
+  unfold valid_soul8 encode_soulprint
+  exact ⟨mode_weight_bounded sp.P_mode, mode_weight_bounded sp.N_mode,
+         mode_weight_bounded sp.B_mode, mode_weight_bounded sp.A_mode, h⟩
+
+-- ============================================================
+-- SECTION 5: BEHAVIORAL EVIDENCE
+-- ============================================================
+
+inductive EvidenceAxis
+  | P_evidence | N_evidence | B_evidence | A_evidence
+  deriving DecidableEq
+
+structure BehavioralEvidencePacket where
+  source      : String
+  axis        : EvidenceAxis
+  norm_signal : ℝ
+  f_ext       : ℝ
+  anchor      : ℝ
+
+-- External force of a normalized signal, scaled to the weight range
+def evidence_force (s : ℝ) : ℝ := 3 * s
+
+def mk_evidence (src : String) (ax : EvidenceAxis) (s : ℝ) : BehavioralEvidencePacket :=
+  { source := src, axis := ax, norm_signal := s, f_ext := evidence_force s,
+    anchor := SOVEREIGN_ANCHOR }
+
+def valid_evidence (ep : BehavioralEvidencePacket) : Prop :=
+  0 ≤ ep.norm_signal ∧ ep.norm_signal ≤ 1 ∧ ep.anchor = SOVEREIGN_ANCHOR
+
+-- [T12] The four evidence axes are exhaustive and distinct
+theorem evidence_axes :
+    (∀ a : EvidenceAxis, a = .P_evidence ∨ a = .N_evidence ∨ a = .B_evidence ∨
+      a = .A_evidence) ∧
+    EvidenceAxis.P_evidence ≠ EvidenceAxis.N_evidence ∧
+    EvidenceAxis.B_evidence ≠ EvidenceAxis.A_evidence := by
+  refine ⟨?_, by decide, by decide⟩
+  intro a
+  cases a &lt;;&gt; simp
+
+-- [T13] A valid packet carries force in [0, 3], and stronger signal
+-- carries strictly more force
+theorem evidence_force_range (s t : ℝ) (h0 : 0 ≤ s) (h1 : s ≤ 1) (hst : s &lt; t) :
+    0 ≤ evidence_force s ∧ evidence_force s ≤ 3 ∧ evidence_force s &lt; evidence_force t := by
+  unfold evidence_force
+  refine ⟨by linarith, by linarith, by linarith⟩
+
+-- [T14] Listening history: a 0.9 genre-lock packet is valid and carries
+-- force 2.7, more than a 0.1 packet (0.3)
+theorem spotify_evidence :
+    valid_evidence (mk_evidence &quot;spotify&quot; .P_evidence 0.9) ∧
+    (mk_evidence &quot;spotify&quot; .P_evidence 0.9).f_ext = 2.7 ∧
+    (mk_evidence &quot;spotify&quot; .P_evidence 0.1).f_ext = 0.3 := by
+  unfold valid_evidence mk_evidence evidence_force
+  refine ⟨⟨by norm_num, by norm_num, rfl⟩, by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 6: THE TRAJECTORY
+-- ============================================================
+
+structure AIFITrajectory where
+  baseline        : DigitalSoulprint
+  evidence_weight : ℝ
+  trajectory_N    : ℝ
+  f_anchor        : ℝ
+
+noncomputable def narrative_drift (traj : AIFITrajectory) (e : ℝ) : ℝ :=
+  (traj.trajectory_N + e * SOVEREIGN_ANCHOR) / identity_mass traj.baseline
+
+-- Applying one evidence packet: weight accumulates, N drifts
+noncomputable def apply_evidence (traj : AIFITrajectory) (ep : BehavioralEvidencePacket) :
+    AIFITrajectory :=
+  { baseline        := traj.baseline
+    evidence_weight := traj.evidence_weight + ep.f_ext
+    trajectory_N    := narrative_drift traj ep.f_ext
+    f_anchor        := traj.f_anchor }
+
+-- [T15] No sequence of evidence changes the baseline or the anchor
+theorem evidence_never_overwrites (eps : List BehavioralEvidencePacket) :
+    ∀ traj : AIFITrajectory,
+      (eps.foldl apply_evidence traj).baseline = traj.baseline ∧
+      (eps.foldl apply_evidence traj).f_anchor = traj.f_anchor := by
+  induction eps with
+  | nil =&gt; intro traj; exact ⟨rfl, rfl⟩
+  | cons e es ih =&gt;
+    intro traj
+    exact ih (apply_evidence traj e)
+
+-- [T16] Evidence weight accumulates: after a sequence it has grown by
+-- the total force
+theorem evidence_accumulates (eps : List BehavioralEvidencePacket) :
+    ∀ traj : AIFITrajectory,
+      (eps.foldl apply_evidence traj).evidence_weight =
+        traj.evidence_weight + (eps.map (fun e =&gt; e.f_ext)).sum := by
+  induction eps with
+  | nil =&gt; intro traj; simp
+  | cons e es ih =&gt;
+    intro traj
+    rw [List.foldl_cons, ih (apply_evidence traj e)]
+    simp [apply_evidence, add_assoc]
+
+-- [T17] Higher identity mass drifts less under the same evidence: the
+-- all-Flexed baseline drifts less than the all-Locked one
+theorem high_im_resists_drift (evidence : ℝ) (hE : evidence &gt; 0) :
+    let high_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_flex_quiz,
+      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    let low_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_lock_quiz,
+      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
+    narrative_drift high_traj evidence &lt; narrative_drift low_traj evidence := by
+  have hSA : SOVEREIGN_ANCHOR &gt; 0 := by unfold SOVEREIGN_ANCHOR; norm_num
+  have hex := identity_mass_extremes
+  show (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) &lt;
+       (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
+  rw [hex.1, hex.2]
+  exact div_lt_div_of_pos_left (add_pos (by norm_num) (mul_pos hE hSA)) (by norm_num) (by norm_num)
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T18] DIGITAL SOULPRINT → PNBA
+theorem digital_soulprint_master (sp : DigitalSoulprint) (ax : AxisOrder) (nh : Bool)
+    (h_anchor : sp.f_anchor = SOVEREIGN_ANCHOR) :
+    -- the anchor holds
+    manifold_impedance sp.f_anchor = 0 ∧
+    -- 81 profiles, mass in [4Ω₀, 12Ω₀], both ends reached
+    Fintype.card (PNBAMode × PNBAMode × PNBAMode × PNBAMode) = 81 ∧
+    4 * SOVEREIGN_ANCHOR ≤ identity_mass sp ∧ identity_mass sp ≤ 12 * SOVEREIGN_ANCHOR ∧
+    identity_mass (bond_from_questionnaire all_flex_quiz) = 16.42789199808192 ∧
+    identity_mass (bond_from_questionnaire all_lock_quiz) = 5.47596399936064 ∧
+    -- lossless, valid encoding
+    decode_soul8 (encode_soulprint sp ax nh) = soulprint_weights sp ∧
+    valid_soul8 (encode_soulprint sp ax nh) ∧
+    -- evidence never overwrites the baseline
+    (∀ (eps : List BehavioralEvidencePacket) (traj : AIFITrajectory),
+      (eps.foldl apply_evidence traj).baseline = traj.baseline) :=
+  ⟨anchor_zero_friction sp.f_anchor h_anchor, profile_count,
+   (identity_mass_bounds sp).1, (identity_mass_bounds sp).2,
+   identity_mass_extremes.1, identity_mass_extremes.2,
+   lossless_roundtrip sp ax nh, encoding_preserves_validity sp ax nh h_anchor,
+   fun eps traj =&gt; (evidence_never_overwrites eps traj).1⟩
+
+end SNSFL_Soulprint
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_DigitalSoulprint.lean
+-- COORDINATE: [9,0,0,8](COMP)
+-- SORRY:      0
+--
+-- RESULTS:
+--   Modes and scores: weights in {1, 2, 3}, injective; band edges
+--     10/23 → L, 24/37 → S, 38/50 → F; monotone (T1–T4)
+--   81 profiles, collision-free; IM ∈ [4Ω₀, 12Ω₀], both ends
+--     reached (T5–T9)
+--   SOUL-8 encoding lossless and valid (T10, T11)
+--   Evidence: four exhaustive axes; force 3s ∈ [0, 3], strictly
+--     increasing; listening-history example (T12–T14)
+--   Trajectory: no evidence sequence changes the baseline or the
+--     anchor; weight accumulates by total force; higher IM drifts
+--     less (T15–T17)
+--
+-- CONNECTIONS:
+--   [9,9,0,0]  Constitutional layer
+--   [9,9,0,10] Information Theory → PNBA
+--   [9,0,2,0]  PVLang
+--   [9,9,1,2]  AiFi OS Kernel
+--   [9,9,1,3]  AiFi OS Plugin
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
+-- ============================================================
+-/
+</code></pre>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Soldotna, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-digital-soulprint.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-digital-soulprint.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
