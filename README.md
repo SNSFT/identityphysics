@@ -148,6 +148,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_SDT.lean` | Self-Determination Theory → PNBA | 26 | 823 |
 | `SNSFL_L2_Psy_TerrorMgmt.lean` | Terror Management Theory → PNBA | 27 | 662 |
 | `SNSFL_L2_Psy_RegulationReaction.lean` | Regulation vs Reaction → PNBA | 31 | 748 |
+| `SNSFL_L2_Psy_RegulationReaction_TL.lean` | Regulation vs Reaction on the TL ruler [9,9,6,10.8] — four bands; Regulation (I) and Reaction (L) more than 2 TL apart | 20 | 377 |
 | `SNSFL_L2_Psy_Integral.lean` | Integral (AQAL) → PNBA | 21 | 542 |
 | `SNSFL_L2_Psy_Polyvagal.lean` | Polyvagal theory → PNBA | 22 | 578 |
 | `SNSFL_L2_Psy_IFS.lean` | Internal Family Systems → PNBA | 22 | 588 |
@@ -165,7 +166,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_L2_Psy_Consistency_Capstone.lean` | Psychology Capstone — 25 reductions, CD1–CD25 [9,9,6,25] | 44 | 1,010 |
 | `SNSFL_PSY_Taxonomy_Master.lean` | PNBA phase taxonomy — master theorem | 26 | 486 |
 | `SNSFL_PSY_8Beam_Fusion_Theorem.lean` | IM Collider 8-beam — rescue ladder: shatter → lock → Noble | 31 | 483 |
-| **Subtotal** | **26 files** | **675** | **16,712** |
+| **Subtotal** | **27 files** | **695** | **17,089** |
 
 ### AI / Cognitive Identity
 
@@ -186,10 +187,10 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 11 | 216 |
 | `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 12 | 250 |
 | `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 22 | 415 |
-| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 26 | 433 |
+| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 35 | 545 |
 | `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
 | `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
-| **Subtotal** | **6 files** | **107** | **2,136** |
+| **Subtotal** | **6 files** | **116** | **2,248** |
 
 ### Consistency
 
@@ -201,7 +202,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **111** | **3,501** | **78,516** |
+| **Total** | **112** | **3,530** | **79,005** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
