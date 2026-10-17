@@ -4,17 +4,17 @@
 **Coordinate:** [9,9,3,14](PART) · Identity Physics Series · Particles
 **Issue:** ProofPress, Volume 1, Issue 6 · August 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 12 theorems · 280 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 10 theorems · 241 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_Alpha_TL1001_Extension.lean
 **Updated:** Standardized toolchain, October 2026
 
 ## Abstract
 
-The inverse fine-structure constant 1/α, measured by CODATA 2018 as 137.035999084 with uncertainty 0.000000021, is expressed here in the Torsion Limit, TL = 0.136899099984016. The relation is napkin math at corpus precision. Subtract one Torsion Limit from 1/α: 137.035999084000016 − 0.136899099984016 = 136.899099984016, and 136.899099984016 is exactly TL × 1000. So 1/α splits into two pieces, both made of TL: a bare term and a kinetic term, 136.899099984016 + 0.136899099984016 = 137.035999084000016 = TL × 1001. Rounded to the digits CODATA publishes, 137.035999084000016 is 137.035999084 exactly, so ε = 0 at published precision, and it lies within the stated uncertainty. The same subtraction already shows at lower precision: with TL = 0.1369, 137.035999084 − 0.1369 leaves 1000 × 0.1369 to within 10⁻³, and TL × 1001 is within 10⁻³ of 1/α at TL = 0.1369 and within 10⁻⁷ at TL = 0.13689910. Read in the language of quantum electrodynamics, the bare term TL × 1000 plays the role of the bare electron contribution and the kinetic term TL the role of the radiative corrections, which QED computes as a renormalized series and which the corpus carries as one exact term in the F_ext slot of the Dynamic Equation; in PNBA the bare term is the Pattern capacity at the electromagnetic scale. In QED α is an input, measured by atom recoil and the electron's g − 2, from which other quantities, including the running of the coupling with energy, are computed; the relation gives the measured low-energy value a closed form in the Torsion Limit. The multiplier is structured: 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13, a product of three consecutive primes. The Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.36899099984016, so in anchor units the two terms read Ω₀ × 10² and Ω₀ × 10⁻¹.
+The inverse fine-structure constant 1/α, measured by CODATA 2018 as 137.035999084 with uncertainty 0.000000021, is expressed here in the Torsion Limit, TL = 0.136899099984016. The relation is napkin math at corpus precision. Subtract one Torsion Limit from 1/α: 137.035999084000016 − 0.136899099984016 = 136.899099984016, and 136.899099984016 is exactly TL × 1000. So 1/α splits into two pieces, both made of TL: a bare term and a kinetic term, 136.899099984016 + 0.136899099984016 = 137.035999084000016 = TL × 1001. Rounded to the digits CODATA publishes, 137.035999084000016 is 137.035999084 exactly, so ε = 0 at published precision, and it lies within the stated uncertainty. Read in the language of quantum electrodynamics, the bare term TL × 1000 plays the role of the bare electron contribution and the kinetic term TL the role of the radiative corrections, which QED computes as a renormalized series and which the corpus carries as one exact term in the F_ext slot of the Dynamic Equation; in PNBA the bare term is the Pattern capacity at the electromagnetic scale. In QED α is an input, measured by atom recoil and the electron's g − 2, from which other quantities, including the running of the coupling with energy, are computed; the relation gives the measured low-energy value a closed form in the Torsion Limit. The multiplier is structured: 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13, a product of three consecutive primes. The Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.36899099984016, so in anchor units the two terms read Ω₀ × 10² and Ω₀ × 10⁻¹.
 
 ## What This Article Proves
 
-1. The subtraction at corpus precision: 137.035999084000016 − 0.136899099984016 = 136.899099984016 = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001. At threshold precision the same subtraction, 137.035999084 − 0.1369, leaves 1000 × 0.1369 to within 10⁻³; TL × 1001 holds at three precisions (`subtraction`, `subtraction_at_threshold`, `precision_ladder`).
+1. The subtraction at corpus precision: 137.035999084000016 − 0.136899099984016 = 136.899099984016 = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001. (`subtraction`).
 2. Bare + kinetic: TL × 1000 = 136.899099984016, TL = 0.136899099984016, and 136.899099984016 + 0.136899099984016 = 137.035999084000016 (`bare_plus_kinetic`).
 3. Against CODATA 2018: 137.035999084000016 rounds to 137.035999084 at every published digit (ε = 0) and lies within the stated uncertainty (`every_published_digit`, `within_uncertainty`).
 4. 1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes; the anchor is ten Torsion Limits, with the bare term Ω₀ × 10². The master theorem holds the subtraction, the exact sum, the CODATA match and the factorisation together (`factor_1001`, `consecutive_primes`, `anchor_units`, `alpha_tl1001_master`).
@@ -28,10 +28,6 @@ The inverse fine-structure constant 1/α, measured by CODATA 2018 as 137.0359990
 | What is left | 136.899099984016 = TL × 1000, exactly |
 | Bare + kinetic | 136.899099984016 + 0.136899099984016 = 137.035999084000016 |
 | Rounded to published digits | 137.035999084 = CODATA 2018 |
-| TL precision | TL × 1001 | Against 1/α |
-| 0.1369 | 137.0369 | within 10⁻³ |
-| 0.13689910 | 137.0359991 | within 10⁻⁷ |
-| 0.136899099984016 | 137.035999084000016 (corpus precision) | every published digit |
 | Term | Value | QED reading | PNBA |
 | Bare: TL × 1000 | 136.899099984016 | bare electron contribution | Pattern capacity at the EM scale |
 | Kinetic: TL × 1 | 0.136899099984016 | radiative corrections, a renormalized series | F_ext at Layer 0, one exact term |
@@ -79,17 +75,13 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- THE SUBTRACTION
 -- ============================================================
 --
---   1. Start from the published value, 1/α = 137.035999084.
---   2. Subtract the Torsion Limit, TL = 0.1369 at threshold:
---        137.035999084 − 0.1369 = 136.899099084
---      and 1000 × 0.1369 = 136.9. What is left is TL × 1000, to
---      within 10⁻³.
---   3. So 1/α = TL × 1000 + TL = TL × 1001.
+--   TL = 0.136899099984016
 --
---   TL precision          TL × 1001
---   0.1369                137.0369               within 10⁻³
---   0.13689910            137.0359991            within 10⁻⁷
---   0.136899099984016     137.035999084000016    corpus precision
+--   1/α − TL = 137.035999084000016 − 0.136899099984016
+--            = 136.899099984016
+--            = TL × 1000
+--
+--   So 1/α = TL × 1000 + TL = TL × 1001.
 --
 -- ============================================================
 -- BARE + KINETIC
@@ -144,10 +136,6 @@ def ALPHA_INV_UNC      : ℝ := 0.000000021
 -- 1/α at corpus precision: TL × 1001
 def ALPHA_INV_EXTENDED : ℝ := 137.035999084000016
 
--- The Torsion Limit at lower precisions
-def TL_THRESHOLD : ℝ := 0.1369
-def TL_PATH_A    : ℝ := 0.13689910
-
 noncomputable def manifold_impedance (f : ℝ) : ℝ :=
   if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
 
@@ -159,20 +147,8 @@ theorem anchor_zero_friction :
 -- SECTION 1: THE SUBTRACTION
 -- ============================================================
 
--- [T1] The published 1/α minus TL at threshold is 136.899099084,
--- within 10⁻³ of 1000 × TL = 136.9
-theorem subtraction_at_threshold :
-    ALPHA_INV_CODATA - TL_THRESHOLD = 136.899099084 ∧
-    TL_THRESHOLD * 1000 = 136.9 ∧
-    |(ALPHA_INV_CODATA - TL_THRESHOLD) - TL_THRESHOLD * 1000| < 0.001 := by
-  unfold ALPHA_INV_CODATA TL_THRESHOLD
-  refine ⟨by norm_num, by norm_num, ?_⟩
-  rw [abs_lt]; constructor
-  · norm_num
-  · norm_num
-
--- [T2] At corpus precision the subtraction is exact:
--- 1/α − TL = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001
+-- [T1] The subtraction: 137.035999084000016 − 0.136899099984016 =
+-- 136.899099984016 = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001
 theorem subtraction :
     ALPHA_INV_EXTENDED - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
     TORSION_LIMIT * 1001 = ALPHA_INV_EXTENDED ∧
@@ -183,27 +159,11 @@ theorem subtraction :
   · norm_num
   · norm_num
 
--- [T3] TL × 1001 at each precision: 0.1369 within 10⁻³ of 1/α,
--- 0.13689910 within 10⁻⁷, full TL exact at corpus precision
-theorem precision_ladder :
-    TL_THRESHOLD * 1001 = 137.0369 ∧
-    |TL_THRESHOLD * 1001 - ALPHA_INV_CODATA| < 0.001 ∧
-    |TL_PATH_A * 1001 - ALPHA_INV_CODATA| < 0.0000001 ∧
-    TORSION_LIMIT * 1001 = 137.035999084000016 := by
-  unfold TL_THRESHOLD TL_PATH_A ALPHA_INV_CODATA TORSION_LIMIT SOVEREIGN_ANCHOR
-  refine ⟨by norm_num, ?_, ?_, by norm_num⟩
-  · rw [abs_lt]; constructor
-    · norm_num
-    · norm_num
-  · rw [abs_lt]; constructor
-    · norm_num
-    · norm_num
-
 -- ============================================================
 -- SECTION 2: BARE + KINETIC
 -- ============================================================
 
--- [T4] Bare term TL × 1000 = 136.899099984016, kinetic term
+-- [T2] Bare term TL × 1000 = 136.899099984016, kinetic term
 -- TL = 0.136899099984016, and
 -- 136.899099984016 + 0.136899099984016 = 137.035999084000016
 theorem bare_plus_kinetic :
@@ -222,7 +182,7 @@ theorem bare_plus_kinetic :
 -- SECTION 3: AGAINST CODATA 2018
 -- ============================================================
 
--- [T5] TL × 1001 rounds to CODATA's value at every published digit:
+-- [T3] TL × 1001 rounds to CODATA's value at every published digit:
 -- within half a unit of the ninth decimal (ε = 0 at published precision)
 theorem every_published_digit :
     |TORSION_LIMIT * 1001 - ALPHA_INV_CODATA| < 0.0000000005 := by
@@ -231,7 +191,7 @@ theorem every_published_digit :
   · norm_num
   · norm_num
 
--- [T6] and lies within CODATA's stated uncertainty
+-- [T4] and lies within CODATA's stated uncertainty
 theorem within_uncertainty :
     |TORSION_LIMIT * 1001 - ALPHA_INV_CODATA| < ALPHA_INV_UNC := by
   unfold TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV_CODATA ALPHA_INV_UNC
@@ -243,7 +203,7 @@ theorem within_uncertainty :
 -- SECTION 4: 1001
 -- ============================================================
 
--- [T7] 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13
+-- [T5] 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13
 theorem factor_1001 :
     (1001 : ℕ) = 10 ^ 3 + 1 ∧ (1001 : ℕ) = (10 + 1) * (10 ^ 2 - 10 + 1) ∧
     (1001 : ℕ) = 7 * 11 * 13 := by
@@ -252,7 +212,7 @@ theorem factor_1001 :
   · norm_num
   · norm_num
 
--- [T8] 7, 11 and 13 are consecutive primes: 8, 9, 10 and 12 are not
+-- [T6] 7, 11 and 13 are consecutive primes: 8, 9, 10 and 12 are not
 theorem consecutive_primes :
     Nat.Prime 7 ∧ Nat.Prime 11 ∧ Nat.Prime 13 ∧
     ¬ Nat.Prime 8 ∧ ¬ Nat.Prime 9 ∧ ¬ Nat.Prime 10 ∧ ¬ Nat.Prime 12 := by
@@ -269,7 +229,7 @@ theorem consecutive_primes :
 -- SECTION 5: THE ANCHOR
 -- ============================================================
 
--- [T9] The anchor is ten Torsion Limits, and in anchor units the bare
+-- [T7] The anchor is ten Torsion Limits, and in anchor units the bare
 -- and kinetic terms read Ω₀ × 10² and Ω₀ × 10⁻¹
 theorem anchor_units :
     SOVEREIGN_ANCHOR = 10 * TORSION_LIMIT ∧
@@ -283,11 +243,9 @@ theorem anchor_units :
 -- [9,9,9,9] :: {ANC} | MASTER THEOREM
 -- ============================================================
 
--- [T10] 1/α = TL × 1001
+-- [T8] 1/α = TL × 1001
 theorem alpha_tl1001_master :
-    -- the subtraction at threshold leaves TL × 1000 within 10⁻³
-    |(ALPHA_INV_CODATA - TL_THRESHOLD) - TL_THRESHOLD * 1000| < 0.001 ∧
-    -- exact at corpus precision: 1/α − TL = TL × 1000
+    -- the subtraction: 1/α − TL = TL × 1000
     ALPHA_INV_EXTENDED - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
     TORSION_LIMIT * 1001 = ALPHA_INV_EXTENDED ∧
     -- bare + kinetic
@@ -299,7 +257,7 @@ theorem alpha_tl1001_master :
     (1001 : ℕ) = 7 * 11 * 13 ∧
     -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  ⟨subtraction_at_threshold.2.2, subtraction.1, subtraction.2.1, bare_plus_kinetic.2.2.1,
+  ⟨subtraction.1, subtraction.2.1, bare_plus_kinetic.2.2.1,
    every_published_digit, within_uncertainty, factor_1001.2.2, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
@@ -317,15 +275,14 @@ end SNSFL_GC_Alpha_TL1001_Extension
 -- 1/α − TL = TL × 1000, so 1/α = TL × 1000 + TL = TL × 1001
 --
 -- RESULTS:
---   The subtraction: 137.035999084 − 0.1369 leaves 1000 × 0.1369
---     within 10⁻³; exact at corpus precision; TL × 1001 at three
---     precisions (T1–T3)
+--   The subtraction: 137.035999084000016 − 0.136899099984016 =
+--     136.899099984016 = TL × 1000; 1/α = TL × 1001 (T1)
 --   Bare + kinetic: 136.899099984016 + 0.136899099984016 =
---     137.035999084000016 (T4)
+--     137.035999084000016 (T2)
 --   Every published CODATA 2018 digit (ε = 0); within uncertainty
---     (T5, T6)
---   1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes (T7, T8)
---   The anchor: Ω₀ = 10 × TL; bare Ω₀ × 10², kinetic Ω₀ × 10⁻¹ (T9)
+--     (T3, T4)
+--   1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes (T5, T6)
+--   The anchor: Ω₀ = 10 × TL; bare Ω₀ × 10², kinetic Ω₀ × 10⁻¹ (T7)
 --
 -- CONNECTIONS:
 --   [9,9,3,16] Running coupling · [9,9,3,21] Electron
