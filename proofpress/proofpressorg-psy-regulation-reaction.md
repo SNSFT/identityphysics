@@ -4,7 +4,7 @@
 **Coordinate:** [9,9,6,10](PSYC) · Psychology series
 **Issue:** ProofPress, Volume 1, Issue 1 · March 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 31 theorems · 746 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 31 theorems · 748 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_RegulationReaction.lean
 **Updated:** Standardized toolchain, October 2026
 
@@ -240,12 +240,14 @@ theorem no_score_is_both_PF_and_PL (score : ℕ) :
 -- LEMMA: A PL SCORE IS BELOW 24
 lemma band_L_lt (a : ℕ) (h : score_to_band a = PNBAMode.L) : a < 24 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 <;> first | omega | cases h
+  split_ifs at h
+  omega
 
 -- LEMMA: A PF SCORE IS AT LEAST 38
 lemma band_F_ge (b : ℕ) (h : score_to_band b = PNBAMode.F) : b ≥ 38 := by
   unfold score_to_band PF_FLOOR PS_FLOOR at h
-  split_ifs at h with h1 h2 <;> first | omega | cases h
+  split_ifs at h
+  omega
 
 -- THEOREM 8b: PF AND PL ARE SEPARATED BY THE WHOLE PS BAND
 -- Two separate gears. Any PL score sits at least 15 points below any PF score,
