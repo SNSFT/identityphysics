@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Review Process — ProofPress</title>
-  <meta name="description" content="ProofPress's honest description of its review model: fidelity review of the reduction against its cited peer-reviewed source, plus machine verification in Lean 4 (and, where claimed, Coq/Rocq) under a zero-sorry constraint — not double-blind peer review of new empirical claims.">
+  <meta name="description" content="How ProofPress reviews a submission: a Lean 4 CI Green, 0 Sorry, 0 Free Parameter Fidelity Review — machine verification in Lean 4 (and, where claimed, Coq/Rocq), triaxial AI fidelity review against the cited peer-reviewed sources, and sign-off by two editors.">
   <link rel="canonical" href="https://proofpress.org/proofpressorg-review-process.html">
   <meta property="og:title" content="Review Process — ProofPress">
-  <meta property="og:description" content="ProofPress's honest description of its review model: fidelity review of the reduction against its cited peer-reviewed source, plus machine verification in Lean 4 (and, where claimed, Coq/Rocq) under a zero-sorry constraint — not double-blind peer review of new empirical claims.">
+  <meta property="og:description" content="How ProofPress reviews a submission: a Lean 4 CI Green, 0 Sorry, 0 Free Parameter Fidelity Review — machine verification in Lean 4 (and, where claimed, Coq/Rocq), triaxial AI fidelity review against the cited peer-reviewed sources, and sign-off by two editors.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://proofpress.org/proofpressorg-review-process.html">
   <meta property="og:site_name" content="ProofPress">
@@ -457,22 +457,22 @@
   </div>
 
 <div class="prose">
-<p>ProofPress<span class="tm">™</span>'s review model differs from a conventional research journal's, and this page describes that difference plainly rather than describing it in conventional-journal language that would misrepresent what actually happens.</p>
-<h2>Why Review Works Differently Here</h2>
-<p>A conventional double-blind peer review process exists to evaluate whether a <em>new</em> empirical claim is sound — that is its purpose, and it is well suited to that purpose. ProofPress<span class="tm">™</span> does not publish new empirical claims. It publishes reductions of results that have <em>already</em> passed that exact evaluation, in their original peer-reviewed venue. Applying double-blind review a second time to the same already-settled empirical question would not be an additional check on the science — it would be redundant with, or worse, would imply the original peer-reviewed venue's evaluation needs supplementing, which is not ProofPress's position and not what its process does.</p>
+<p>Every ProofPress<span class="tm">™</span> submission receives a Lean 4 CI Green, 0 Sorry, 0 Free Parameter Fidelity Review. This page sets out what the review checks, its three layers, and the requirements for publishing a new result that falls out of a reduction.</p>
+<h2>What the Review Checks</h2>
+<p>A ProofPress<span class="tm">™</span> article starts from results published in peer-reviewed venues and takes them as its inputs, exactly as published. The review checks the reduction built on those inputs: that every value, relation and premise is carried over faithfully from its cited source, that every step of the derivation compiles, and that no parameter is fitted. Results that follow from the reduction are published, including new results that fall out of a complete reduction, under the requirements set out in <a href="#emergent">Results That Emerge From a Reduction</a>.</p>
 <h2>The Three Review Layers</h2>
 <ol class="step-list">
 <li><strong>Formal verification (machine).</strong> The submission's Lean 4 (and, where claimed, Coq/Rocq) source is compiled on the journal's pinned toolchain under a strict zero-unproved-obligation constraint: 0 sorry and 0 custom axioms. This check is deterministic, publicly reproducible by anyone with the toolchain, and leaves a permanent, inspectable compilation log. A single unresolved obligation disqualifies the submission from publication.</li>
 <li><strong>Triaxial fidelity review (AI-assisted).</strong> Three independent frontier AI systems — currently Claude (Anthropic), Grok (xAI) and Gemini (Google), the systems the journal has validated for this review — each review the reduction against its cited peer-reviewed source material and against the CI-green file, confirming that the PNBA<span class="tm">™</span> mapping and the derivation steps do not drop, alter, or overstate anything from the source. Three independent systems are used so that no single model's tendencies decide the outcome.</li>
 <li><strong>Editorial review and sign-off (human, two people).</strong> The Founding Editor reviews the submission for translation fidelity against its cited sources — the same kind of check a second translator performs on a certified translation — and reviews the findings of the triaxial review. The Verification Editor independently confirms that the compilation passed on the pinned toolchain with 0 sorry and 0 custom axioms, that the file's coordinate and metadata match the article page, and that the triaxial review was completed without unresolved fidelity findings. A submission is published only when both editors sign off.</li>
 </ol>
-<h2>Why Machine Verification Is Not a Lesser Standard</h2>
-<p>Human peer review is valuable but fallible, non-reproducible on demand, and — unless a journal publishes its reviews — un-auditable after the fact. Lean 4 compilation at 0 sorry is checked by a deterministic kernel, is reproducible by anyone who runs the same source through the same toolchain, and produces a permanent, inspectable record of the check having occurred. Where the fidelity-review layers above catch transcription and translation errors, the machine-verification layer catches any unsound logical step, any smuggled premise, or any gap in the reduction — the compiler simply does not compile if one exists.</p>
-<h2>What This Process Does Not Do</h2>
+<h2>What Machine Verification Adds</h2>
+<p>Lean 4 compilation at 0 sorry is checked by a deterministic kernel, is reproducible by anyone who runs the same source through the same toolchain, and produces a permanent, inspectable record of the check having occurred. Where the fidelity-review layers above catch transcription and translation errors, the machine-verification layer catches any unsound logical step, any smuggled premise, or any gap in the reduction — the compiler simply does not compile if one exists.</p>
+<h2>Publication Requirements</h2>
 <ul>
-<li>It does not re-evaluate whether the original peer-reviewed empirical result is correct.</li>
-<li>It does not accept novel claims that are asserted rather than derived. A new result is accepted only when it falls out of a complete reduction of peer-reviewed sources, as described below.</li>
-<li>It does not publish a submission with any unresolved sorry, regardless of fidelity-review outcome.</li>
+<li>Peer-reviewed inputs are used exactly as published, each cited to its source.</li>
+<li>Every result is derived. A new result is published when it falls out of a complete reduction of peer-reviewed sources, as described below.</li>
+<li>Every file compiles with 0 sorry, 0 custom axioms and 0 free parameters before publication.</li>
 </ul>
 <h2>How Every Claim Is Classified</h2>
 <p>Every claim in a submission is classified by the Bacon Verification test, formally verified in the corpus file <code>SNSFL_Bacon_Verification.lean</code> [9,9,8,5]. The test asks two questions in order, and every claim lands in exactly one of three states:</p>
@@ -482,8 +482,8 @@
 <li><strong>Formally verified.</strong> The claim is internally consistent, its premises are stated, and it is grounded in the empirical record through a documented route: a complete reduction of peer-reviewed sources that compiles with 0 sorry, 0 custom axioms and 0 free parameters. Only formally verified claims are published as results.</li>
 </ol>
 <p>The test is the same for every author and every claim. A claim moves from hypothesis to formally verified only by completing its documented route, never by assertion, reputation or agreement. The Lean file proves that the three states are exhaustive and exclusive: every claim is exactly one of them.</p>
-<h2>Results That Emerge From a Reduction</h2>
-<p>Sometimes a complete reduction of peer-reviewed material produces a result the source did not state: an inconsistency resolved, a constant recovered, a relation made exact. Such a result is not new data. It is what the reduction equals once every step is carried out, in the same way that 1 + 1 equals 2 whether or not anyone had written it down. ProofPress<span class="tm">™</span> publishes these results, because they are often the most valuable thing a reduction yields, and because an independent researcher who does the work correctly deserves a clear and timestamped record of it.</p>
+<h2 id="emergent">Results That Emerge From a Reduction</h2>
+<p>Sometimes a complete reduction of peer-reviewed material produces a result the source did not state: an inconsistency resolved, a constant recovered, a relation made exact. Such a result is a new result of the reduction: it is what the reduction equals once every step is carried out, in the same way that 1 + 1 equals 2 whether or not anyone had written it down. ProofPress<span class="tm">™</span> publishes these results, because they are often the most valuable thing a reduction yields, and because an independent researcher who does the work correctly deserves a clear and timestamped record of it.</p>
 <p>A submission containing an emergent result is considered when all of the following hold:</p>
 <ol class="step-list">
 <li><strong>Every input is peer-reviewed.</strong> Each value, relation and premise the reduction uses is cited to its peer-reviewed source.</li>
@@ -492,7 +492,7 @@
 <li><strong>The result is labelled as emergent.</strong> The article states plainly which result is new, the exact step it follows from, and how it can be tested against observation.</li>
 </ol>
 <p>Acceptance of an emergent result is at the discretion of the editorial board. The board accepts it when it is satisfied that the result follows from the reduction as written, and declines it when it is not. Every decision is made on the work itself, never on the author's credentials, affiliation, funding or prior publication record, and an author whose emergent result is declined receives the specific step or condition that was not met, so the work can be corrected and resubmitted.</p>
-<div class="callout"><strong>In one sentence:</strong> ProofPress<span class="tm">™</span> checks that a reduction is faithful to its source and that its logic is machine-sound — it does not check, and does not need to check, whether the source's original science was correct, because that question was already and separately settled by peer review before the reduction was ever written.</div>
+<div class="callout"><strong>In one sentence:</strong> ProofPress<span class="tm">™</span> builds on peer-reviewed results exactly as published, checks that each reduction is faithful to its sources and machine-sound at 0 sorry and 0 free parameters, and publishes what follows from it, including new results that fall out of a complete reduction.</div>
 </div>
 </main>
 
