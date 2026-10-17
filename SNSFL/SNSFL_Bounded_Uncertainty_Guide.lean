@@ -73,7 +73,7 @@
 --   4  Tacoma deck 1.387–1.389: Shatter      Tacoma [9,9,2,52]
 --      Donato band 0.80–1.61: at the boundary
 --                                Central surface density [9,9,4,14]
---   5  SAC rounded vs corpus precision      α [9,9,3,14]
+--   5  TL rounded vs corpus precision       α [9,9,3,14]
 --   6  any two of five clocks can fail       Sovereign Time [9,9,1,100]
 --   7  α counts; a fitted parameter does not Bacon [9,9,8,5]
 --   8  load B within [B₁, B₂] on capacity P  this guide
@@ -295,16 +295,17 @@ theorem tacoma_certified (R : ℝ) (h : within R 1.388 0.001) : 1 < R :=
 -- RULE 5: PRECISION
 -- ============================================================
 
--- [T10] Exemplar 5: the anchor is exact. Rounded to 1.369 it gives
--- 1/α = Ω₀ × 100.1 within 10⁻³; rounded to 1.3689910, within 10⁻⁷. At
--- corpus precision, 1.36899099984016 × 100.1 = 137.035999084000016
--- exactly, which matches every published digit of CODATA 2018
+-- [T10] Exemplar 5: the Torsion Limit is exact. Rounded to 0.1369 it
+-- gives 1/α = TL × 1001 within 10⁻³; rounded to 0.13689910, within
+-- 10⁻⁷. At corpus precision, 0.136899099984016 × 1001 =
+-- 137.035999084000016 exactly, which matches every published digit of
+-- CODATA 2018
 theorem corpus_precision :
-    within (1.369 * 100.1) 137.035999084 0.001 ∧
-    within (1.3689910 * 100.1) 137.035999084 0.0000001 ∧
-    SOVEREIGN_ANCHOR * 100.1 = 137.035999084000016 ∧
-    matches_digits (SOVEREIGN_ANCHOR * 100.1) 137.035999084 0.000000001 := by
-  unfold within matches_digits SOVEREIGN_ANCHOR
+    within (0.1369 * 1001) 137.035999084 0.001 ∧
+    within (0.13689910 * 1001) 137.035999084 0.0000001 ∧
+    TORSION_LIMIT * 1001 = 137.035999084000016 ∧
+    matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
+  unfold within matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
   refine ⟨?_, ?_, by norm_num, ?_⟩
   · rw [abs_le]; constructor
     · norm_num
@@ -380,7 +381,7 @@ theorem bounded_uncertainty_master :
     (∀ x c ε b : ℝ, within x c ε → b < c - ε → b < x) ∧
     (∀ x c ε b : ℝ, within x c ε → c + ε < b → x < b) ∧
     -- precision: corpus precision is exact
-    SOVEREIGN_ANCHOR * 100.1 = 137.035999084000016 ∧
+    TORSION_LIMIT * 1001 = 137.035999084000016 ∧
     -- evidence
     (∀ a b t : ℝ, a ≠ 0 → ∃ θ : ℝ, a * θ + b = t) ∧
     -- anchor
@@ -415,8 +416,8 @@ end SNSFL_Bounded_Uncertainty
 --   3 Stated uncertainty: the Rydberg energy (T6)
 --   4 Phase from an estimate: certified above or below, or at the
 --     boundary when straddling; Tacoma certified Shatter (T7–T9)
---   5 Precision: rounded SAC within 10⁻³ and 10⁻⁷; corpus precision
---     1.36899099984016 × 100.1 = 137.035999084000016 exactly (T10)
+--   5 Precision: TL rounded within 10⁻³ and 10⁻⁷; corpus precision
+--     0.136899099984016 × 1001 = 137.035999084000016 exactly (T10)
 --   6 Drift caught by the ratio (T11)
 --   7 Evidence: a fitted parameter matches anything (T12)
 --   8 Simulation: carry the bound through τ = B/P (T13, T14)
