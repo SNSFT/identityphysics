@@ -10,23 +10,24 @@
 
 ## Abstract
 
-The inverse fine-structure constant 1/α, measured by CODATA 2018 as 137.035999084 with uncertainty 0.000000021, is expressed here in the Torsion Limit. The relation comes from one subtraction. Start from the published value and subtract the Torsion Limit at its threshold precision, 0.1369: 137.035999084 − 0.1369 = 136.899099084, and 1000 × 0.1369 = 136.9, so what is left is the Torsion Limit times 1000 to within 10⁻³. Hence 1/α = TL × 1000 + TL = TL × 1001. Carried through precision, TL = 0.1369 gives TL × 1001 within 10⁻³ of 1/α, TL = 0.13689910 within 10⁻⁷, and the full TL = 0.136899099984016 gives the exact sum of a bare term and a kinetic term, 136.899099984016 + 0.136899099984016 = 137.035999084000016, the corpus-precision value of 1/α. It rounds to CODATA's value at every published digit, so ε = 0 at published precision, and lies within the stated uncertainty. Read in the language of quantum electrodynamics, the bare term TL × 1000 plays the role of the bare electron contribution and the kinetic term TL the role of the radiative corrections, which QED computes as a renormalized series and which the corpus carries as one exact term in the F_ext slot of the Dynamic Equation; in PNBA the bare term is the Pattern capacity at the electromagnetic scale. In QED α is an input, measured by atom recoil and the electron's g − 2, from which other quantities, including the running of the coupling with energy, are computed; the relation gives the measured low-energy value a closed form in the Torsion Limit. The multiplier is structured: 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13, a product of three consecutive primes. The Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.36899099984016, so in anchor units the two terms read Ω₀ × 10² and Ω₀ × 10⁻¹.
+The inverse fine-structure constant 1/α, measured by CODATA 2018 as 137.035999084 with uncertainty 0.000000021, is expressed here in the Torsion Limit, TL = 0.136899099984016. The relation is napkin math at corpus precision. Subtract one Torsion Limit from 1/α: 137.035999084000016 − 0.136899099984016 = 136.899099984016, and 136.899099984016 is exactly TL × 1000. So 1/α splits into two pieces, both made of TL: a bare term and a kinetic term, 136.899099984016 + 0.136899099984016 = 137.035999084000016 = TL × 1001. Rounded to the digits CODATA publishes, 137.035999084000016 is 137.035999084 exactly, so ε = 0 at published precision, and it lies within the stated uncertainty. The same subtraction already shows at lower precision: with TL = 0.1369, 137.035999084 − 0.1369 leaves 1000 × 0.1369 to within 10⁻³, and TL × 1001 is within 10⁻³ of 1/α at TL = 0.1369 and within 10⁻⁷ at TL = 0.13689910. Read in the language of quantum electrodynamics, the bare term TL × 1000 plays the role of the bare electron contribution and the kinetic term TL the role of the radiative corrections, which QED computes as a renormalized series and which the corpus carries as one exact term in the F_ext slot of the Dynamic Equation; in PNBA the bare term is the Pattern capacity at the electromagnetic scale. In QED α is an input, measured by atom recoil and the electron's g − 2, from which other quantities, including the running of the coupling with energy, are computed; the relation gives the measured low-energy value a closed form in the Torsion Limit. The multiplier is structured: 1001 = 10³ + 1 = (10 + 1)(10² − 10 + 1) = 7 × 11 × 13, a product of three consecutive primes. The Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.36899099984016, so in anchor units the two terms read Ω₀ × 10² and Ω₀ × 10⁻¹.
 
 ## What This Article Proves
 
-1. The subtraction: 137.035999084 − 0.1369 = 136.899099084, within 10⁻³ of 1000 × 0.1369; exact at corpus precision, 1/α − TL = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001; TL × 1001 at three precisions (`subtraction_at_threshold`, `subtraction`, `precision_ladder`).
+1. The subtraction at corpus precision: 137.035999084000016 − 0.136899099984016 = 136.899099984016 = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001. At threshold precision the same subtraction, 137.035999084 − 0.1369, leaves 1000 × 0.1369 to within 10⁻³; TL × 1001 holds at three precisions (`subtraction`, `subtraction_at_threshold`, `precision_ladder`).
 2. Bare + kinetic: TL × 1000 = 136.899099984016, TL = 0.136899099984016, and 136.899099984016 + 0.136899099984016 = 137.035999084000016 (`bare_plus_kinetic`).
-3. Against CODATA 2018: TL × 1001 rounds to 137.035999084 at every published digit (ε = 0) and lies within the stated uncertainty (`every_published_digit`, `within_uncertainty`).
+3. Against CODATA 2018: 137.035999084000016 rounds to 137.035999084 at every published digit (ε = 0) and lies within the stated uncertainty (`every_published_digit`, `within_uncertainty`).
 4. 1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes; the anchor is ten Torsion Limits, with the bare term Ω₀ × 10². The master theorem holds the subtraction, the exact sum, the CODATA match and the factorisation together (`factor_1001`, `consecutive_primes`, `anchor_units`, `alpha_tl1001_master`).
 
 ## The PNBA Map
 
-| Step | Value |
+| Napkin math, corpus precision | Value |
 | --- | --- |
-| Published 1/α | 137.035999084 |
-| Subtract TL (0.1369) | 136.899099084 |
-| 1000 × TL | 136.9: within 10⁻³ |
-| So | 1/α = TL × 1000 + TL = TL × 1001 |
+| 1/α | 137.035999084000016 |
+| Subtract one TL | 137.035999084000016 − 0.136899099984016 = 136.899099984016 |
+| What is left | 136.899099984016 = TL × 1000, exactly |
+| Bare + kinetic | 136.899099984016 + 0.136899099984016 = 137.035999084000016 |
+| Rounded to published digits | 137.035999084 = CODATA 2018 |
 | TL precision | TL × 1001 | Against 1/α |
 | 0.1369 | 137.0369 | within 10⁻³ |
 | 0.13689910 | 137.0359991 | within 10⁻⁷ |
