@@ -57,9 +57,9 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_ST_Reduction.lean` | String Theory → PNBA | 19 | 632 |
 | `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 722 |
 | `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
-| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 13 | 246 |
+| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 12 | 280 |
 | `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 21 | 396 |
-| **Subtotal** | **15 files** | **299** | **9,710** |
+| **Subtotal** | **15 files** | **298** | **9,744** |
 
 ### Physics and chemistry extensions
 
@@ -186,10 +186,10 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 11 | 216 |
 | `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 12 | 250 |
 | `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 22 | 415 |
-| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 26 | 432 |
+| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 26 | 433 |
 | `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
 | `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
-| **Subtotal** | **6 files** | **107** | **2,135** |
+| **Subtotal** | **6 files** | **107** | **2,136** |
 
 ### Consistency
 
@@ -201,7 +201,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **111** | **3,502** | **78,481** |
+| **Total** | **111** | **3,501** | **78,516** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
@@ -363,10 +363,10 @@ The subtraction is the discovery: the remainder after one TL is not a new consta
 
 ### The napkin math
 
-Start from the anchor:
+Start from the Torsion Limit:
 
 ```
-TL  = Ω₀ / 10             = 0.136899099984016
+TL                        = 0.136899099984016
 ```
 
 Take the measured value of the inverse fine-structure constant and subtract one Torsion Limit:
@@ -413,22 +413,25 @@ F_ext is the coupling load. It is not a perturbation of the bare term; it is its
 
 | Form | Expression |
 | :--- | :--- |
+| Subtraction discovery | 1/α − TL = TL × 1000 |
+| Bare + kinetic | 1/α = TL × 1000 + TL |
 | Compact | 1/α = TL × 1001 |
-| Subtraction discovery | 1/α = TL × 1000 + TL |
-| Bare + kinetic in Ω₀ | 1/α = Ω₀ × 100 + Ω₀ / 10 |
-| Compact in Ω₀ | 1/α = Ω₀ × 100.1 |
+
+For reference, the Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.36899099984016, so in anchor units the same two terms read Ω₀ × 10² (bare) + Ω₀ × 10⁻¹ (kinetic).
 
 ### What the Lean file proves
 
 | Theorem | Statement |
 | :--- | :--- |
-| `alpha_minus_tl_equals_tl_times_1000` | 1/α − TL = TL × 1000 |
-| `alpha_inv_equals_tl_times_1001` | 1/α = TL × 1001 |
-| `alpha_bare_plus_fext` | 1/α = TL × 1000 + TL × 1 |
-| `bare_term_value` | TL × 1000 = 136.899099984016 |
-| `all_forms_equivalent` | all four forms above are equal |
-| `fext_closes_where_qed_perturbation_cannot` | bare + one F_ext term = 1/α exactly |
-| `alpha_tl1001_master` | all of the above, plus Step 6 lossless and Z = 0 at the anchor |
+| `subtraction_at_threshold` | 137.035999084 − 0.1369 = 136.899099084, within 10⁻³ of 1000 × 0.1369 |
+| `subtraction` | 1/α − TL = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001 |
+| `precision_ladder` | TL × 1001 within 10⁻³ at 0.1369, within 10⁻⁷ at 0.13689910, exact at full TL |
+| `bare_plus_kinetic` | 136.899099984016 + 0.136899099984016 = 137.035999084000016 |
+| `every_published_digit` | TL × 1001 rounds to CODATA 2018 at every published digit (Δ = 0) |
+| `within_uncertainty` | TL × 1001 lies within CODATA's stated uncertainty |
+| `factor_1001` · `consecutive_primes` | 1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes |
+| `anchor_units` | Ω₀ = 10 × TL; the bare term is Ω₀ × 10² |
+| `alpha_tl1001_master` | all of the above together, with Z = 0 at the anchor |
 
 Every identity is exact decimal arithmetic, checked by `norm_num`. 0 sorry · 0 axioms.
 
