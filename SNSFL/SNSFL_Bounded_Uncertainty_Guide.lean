@@ -73,8 +73,10 @@
 --   4  Tacoma deck 1.387–1.389: Shatter      Tacoma [9,9,2,52]
 --      Donato band 0.80–1.61: at the boundary
 --                                Central surface density [9,9,4,14]
+--      APPA single read, net ± 8 notches     APPA
+--        against the Shatter step at 10 notches = 1 TL
 --   5  TL rounded vs corpus precision       α [9,9,3,14]
---   6  any two of five clocks can fail       Sovereign Time [9,9,1,100]
+--   6  a drifted clock, caught or hidden    Sovereign Time [9,9,1,100]
 --   7  α counts; a fitted parameter does not Bacon [9,9,8,5]
 --   8  load B within [B₁, B₂] on capacity P  this guide
 --
@@ -226,26 +228,23 @@ theorem digits_agree (x y p u : ℝ) (hx : matches_digits x p u) (hy : matches_d
   · linarith [hx.1, hy.2]
   · linarith [hx.2, hy.1]
 
--- [T5] Exemplar 2, the subtraction. Start from the published value
--- 1/α = 137.035999084 and subtract the Torsion Limit, at threshold
--- 0.1369: what is left is 1000 × 0.1369 to within 10⁻³. So
--- 1/α = TL × 1000 + TL. Read in legacy terms, TL × 1000 is the bare
--- term, the part QED assigns to the bare electron; TL is the kinetic
--- term, the part QED computes as a renormalized series of radiative
--- corrections, carried here as one exact term in the F_ext slot. At
--- corpus precision the sum is exact,
+-- [T5] Exemplar 2, the subtraction. At corpus precision, subtract the
+-- Torsion Limit from 1/α: 137.035999084000016 − 0.136899099984016 =
+-- 136.899099984016, which is TL × 1000. So 1/α = TL × 1000 + TL. Read in
+-- legacy terms, TL × 1000 is the bare term, the part QED assigns to the
+-- bare electron; TL is the kinetic term, the part QED computes as a
+-- renormalized series of radiative corrections, carried here as one
+-- exact term in the F_ext slot. The sum is exact,
 --   136.899099984016 + 0.136899099984016 = 137.035999084000016,
 -- and it matches every published digit of CODATA 2018
 theorem alpha_discovery :
-    within (137.035999084 - 0.1369) (1000 * 0.1369) 0.001 ∧
     (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 ∧
     TORSION_LIMIT * 1000 = 136.899099984016 ∧
     (136.899099984016 : ℝ) + 0.136899099984016 = 137.035999084000016 ∧
     matches_digits (TORSION_LIMIT * 1001) 137.035999084 0.000000001 := by
-  unfold within matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
-  refine ⟨?_, by norm_num, by norm_num, by norm_num, ?_⟩
-  · rw [abs_le]; constructor <;> norm_num
-  · rw [abs_lt]; constructor <;> norm_num
+  unfold matches_digits TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨by norm_num, by norm_num, by norm_num, ?_⟩
+  rw [abs_lt]; constructor <;> norm_num
 
 -- ============================================================
 -- RULE 3: STATED UNCERTAINTY
@@ -291,6 +290,57 @@ theorem straddles (c ε b : ℝ) (h1 : c - ε < b) (h2 : b < c + ε) :
 theorem tacoma_certified (R : ℝ) (h : within R 1.388 0.001) : 1 < R :=
   certified_above R 1.388 0.001 1 h (by norm_num)
 
+-- Exemplar 4, APPA. APPA reads each axis at rest and again activated;
+-- the activated read minus the rest read is the F_ext step, and the
+-- net load ΔB − ΔP is counted in notches of TL/10. A step of 10
+-- notches is one TL: the Shatter step. One read carries a retest
+-- range of ± 8 notches.
+
+-- [T9a] Ten notches is the Torsion Limit: n notches reach TL exactly
+-- when n ≥ 10
+theorem notch_scale (n : ℝ) : TORSION_LIMIT ≤ n * (TORSION_LIMIT / 10) ↔ 10 ≤ n := by
+  have hT : 0 < TORSION_LIMIT / 10 := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  have key : n * (TORSION_LIMIT / 10) - TORSION_LIMIT = (TORSION_LIMIT / 10) * (n - 10) := by ring
+  constructor
+  · intro h
+    by_contra hn
+    push Not at hn
+    have : (TORSION_LIMIT / 10) * (n - 10) < 0 := mul_neg_of_pos_of_neg hT (by linarith)
+    linarith
+  · intro h
+    have : 0 ≤ (TORSION_LIMIT / 10) * (n - 10) := mul_nonneg hT.le (by linarith)
+    linarith
+
+-- [T9b] The ± 8 range: four answer sums, each with retest σ = 2, give
+-- ΔB − ΔP a spread of √(4 · 2²) = 4, and 1.96 × 4 = 7.84 ≤ 8
+theorem retest_range : Real.sqrt (4 * 2 ^ 2) = 4 ∧ (1.96 : ℝ) * 4 ≤ 8 := by
+  constructor
+  · rw [show (4 * 2 ^ 2 : ℝ) = 4 ^ 2 by norm_num]
+    exact Real.sqrt_sq (by norm_num)
+  · norm_num
+
+-- [T9c] One read at net 18 or more is certified Shatter: the whole
+-- range is at 10 notches or above
+theorem appa_certified_shatter (x net : ℝ) (h : within x net 8) (hn : 18 ≤ net) : 10 ≤ x := by
+  unfold within at h
+  rw [abs_le] at h
+  linarith [h.1]
+
+-- [T9d] One read at net 2 to 9 cannot rule out Shatter: the reading
+-- is below 10, and its range reaches 10
+theorem appa_cannot_rule_out (net : ℝ) (h1 : 2 ≤ net) (h2 : net < 10) :
+    net < 10 ∧ within (net + 8) net 8 ∧ 10 ≤ net + 8 := by
+  refine ⟨h2, ?_, by linarith⟩
+  unfold within
+  exact le_of_eq (by rw [show net + 8 - net = 8 by ring, abs_of_nonneg (by norm_num : (0:ℝ) ≤ 8)])
+
+-- [T9e] One read at net 1 or below is clear of Shatter: the whole range
+-- is below 10
+theorem appa_clear_of_shatter (x net : ℝ) (h : within x net 8) (hn : net ≤ 1) : x < 10 := by
+  unfold within at h
+  rw [abs_le] at h
+  linarith [h.2]
+
 -- ============================================================
 -- RULE 5: PRECISION
 -- ============================================================
@@ -321,8 +371,19 @@ theorem corpus_precision :
 -- RULE 6: DRIFT
 -- ============================================================
 
--- [T11] Exemplar 6: a reference off by δ reads (1 + δ) on its ratio to
--- an honest one, and matches exactly when δ = 0
+-- Exemplar 6, Sovereign Time [9,9,1,100]. Time is kept from one
+-- running reference, the anchor Ω₀ = 1.36899099984016 GHz, and checked
+-- against five published anchors that do not change on human
+-- timescales: 1/α and four atomic clocks, Cs-133 (9 192 631 770 Hz,
+-- the SI second), Sr-87, H-1 and Al-27⁺. Each clock's ratio to the
+-- anchor is a fixed number: Cs/Ω₀ = 6.7148957, H/Ω₀ = 1.0375567,
+-- Sr/Ω₀ = 313 536.03, Al/Ω₀ = 818 862.50. A clock that drifts fast by
+-- a fraction δ reads its ratio times (1 + δ). With five anchors and
+-- at least three honest, any two can fail: the honest ones are the
+-- ones that agree (three_of_five, [9,9,1,100]).
+
+-- [T11] A reference off by δ reads (1 + δ) on its ratio to an honest
+-- one, and matches exactly when δ = 0
 theorem drift_detected (f g δ : ℝ) (hf : f ≠ 0) (hg : g ≠ 0) :
     f * (1 + δ) / g = f / g ↔ δ = 0 := by
   constructor
@@ -332,6 +393,45 @@ theorem drift_detected (f g δ : ℝ) (hf : f ≠ 0) (hg : g ≠ 0) :
       rw [mul_zero]; linear_combination h
     exact mul_left_cancel₀ hfg h2
   · intro hδ; rw [hδ]; ring
+
+-- [T11a] A drift is caught only when it is bigger than what you don't
+-- know: if the honest ratio is known within u, a reading drifted by δ
+-- falls outside the band once |δ| · x exceeds 2u
+theorem drift_visible (x r u δ : ℝ) (hx : within x r u) (hpos : 0 < x)
+    (hd : 2 * u < |δ| * x) : ¬ within (x * (1 + δ)) r u := by
+  unfold within at *
+  intro hy
+  rw [abs_le] at hx hy
+  have e : x * (1 + δ) - r = (x - r) + x * δ := by ring
+  rw [e] at hy
+  have h2 : |x * δ| ≤ 2 * u := by
+    rw [abs_le]; constructor
+    · linarith [hx.2, hy.1]
+    · linarith [hx.1, hy.2]
+  have h3 : |x * δ| = |δ| * x := by rw [abs_mul, abs_of_pos hpos, mul_comm]
+  linarith
+
+-- The Cs-133 ratio, Cs / Ω₀, in GHz
+noncomputable def CS_RATIO : ℝ := 9.19263177 / 1.36899099984016
+
+-- [T11b] Cs / Ω₀ is known within 10⁻⁷ of 6.7148957
+theorem cs_ratio : within CS_RATIO 6.7148957 0.0000001 := by
+  unfold within CS_RATIO
+  rw [abs_le]; constructor <;> norm_num
+
+-- [T11c] A Cs clock drifted by 10⁻⁷ is caught: its ratio leaves the band
+theorem cs_drift_caught : ¬ within (CS_RATIO * (1 + 0.0000001)) 6.7148957 0.0000001 := by
+  have hpos : 0 < CS_RATIO := by unfold CS_RATIO; norm_num
+  refine drift_visible CS_RATIO 6.7148957 0.0000001 0.0000001 cs_ratio hpos ?_
+  rw [abs_of_pos (by norm_num : (0:ℝ) < 0.0000001)]
+  unfold CS_RATIO; norm_num
+
+-- [T11d] A Cs clock drifted by 10⁻⁸ is hidden at seven decimals: its
+-- ratio stays inside the band. Catching it takes the ratio to more
+-- digits
+theorem cs_drift_hidden : within (CS_RATIO * (1 + 0.00000001)) 6.7148957 0.0000001 := by
+  unfold within CS_RATIO
+  rw [abs_le]; constructor <;> norm_num
 
 -- ============================================================
 -- RULE 7: EVIDENCE
@@ -380,15 +480,21 @@ theorem bounded_uncertainty_master :
     -- phase from an estimate
     (∀ x c ε b : ℝ, within x c ε → b < c - ε → b < x) ∧
     (∀ x c ε b : ℝ, within x c ε → c + ε < b → x < b) ∧
+    -- APPA: net 2 to 9 cannot rule out the Shatter step at 10 notches
+    (∀ net : ℝ, 2 ≤ net → net < 10 → net < 10 ∧ within (net + 8) net 8 ∧ 10 ≤ net + 8) ∧
     -- precision: corpus precision is exact
     TORSION_LIMIT * 1001 = 137.035999084000016 ∧
+    -- drift: a Cs clock off by 10⁻⁷ is caught, off by 10⁻⁸ is hidden
+    ¬ within (CS_RATIO * (1 + 0.0000001)) 6.7148957 0.0000001 ∧
+    within (CS_RATIO * (1 + 0.00000001)) 6.7148957 0.0000001 ∧
     -- evidence
     (∀ a b t : ℝ, a ≠ 0 → ∃ θ : ℝ, a * θ + b = t) ∧
     -- anchor
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
-  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_discovery.2.1,
-   alpha_discovery.2.2.2.2, rydberg_within, certified_above, certified_below,
-   corpus_precision.2.2.1, fitted_matches_anything, anchor_zero_friction⟩
+  ⟨ten_percent_locked, twelve_percent_tight, within_add, alpha_discovery.1,
+   alpha_discovery.2.2.2, rydberg_within, certified_above, certified_below,
+   appa_cannot_rule_out, corpus_precision.2.2.1, cs_drift_caught, cs_drift_hidden,
+   fitted_matches_anything, anchor_zero_friction⟩
 
 theorem the_manifold_is_holding :
     manifold_impedance SOVEREIGN_ANCHOR = 0 :=
@@ -415,10 +521,13 @@ end SNSFL_Bounded_Uncertainty
 --     136.899099984016 + 0.136899099984016 = 137.035999084000016 (T4, T5)
 --   3 Stated uncertainty: the Rydberg energy (T6)
 --   4 Phase from an estimate: certified above or below, or at the
---     boundary when straddling; Tacoma certified Shatter (T7–T9)
+--     boundary when straddling; Tacoma certified Shatter; APPA one read
+--     at ± 8 notches: certified Shatter at 18+, cannot rule out Shatter
+--     at 2 to 9, clear at 1 or below (T7–T9e)
 --   5 Precision: TL rounded within 10⁻³ and 10⁻⁷; corpus precision
 --     0.136899099984016 × 1001 = 137.035999084000016 exactly (T10)
---   6 Drift caught by the ratio (T11)
+--   6 Drift: shows as (1 + δ) on the ratio; caught only when bigger
+--     than the ratio's bound: Cs off by 10⁻⁷ caught, 10⁻⁸ hidden (T11–T11d)
 --   7 Evidence: a fitted parameter matches anything (T12)
 --   8 Simulation: carry the bound through τ = B/P (T13, T14)
 --
