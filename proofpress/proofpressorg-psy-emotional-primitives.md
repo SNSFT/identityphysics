@@ -1,4 +1,4 @@
-# The Ten Emotional Primitives Reduced to PNBA: The APPA Measurement Layer, Its Four Clusters, and Valence as the Narrative Axis
+# The Ten Emotional Primitives Reduced to PNBA: The APPA (Adaptive Predictive Pattern Assistant) Measurement Layer, Its Four Clusters, and Valence as the Narrative Axis
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,23](PSYC) · Psychology series

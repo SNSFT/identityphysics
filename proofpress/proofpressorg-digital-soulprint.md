@@ -1,10 +1,10 @@
-# The Digital Soulprint: A Sovereign APPA Baseline That Behavioral Evidence Enriches but Never Overwrites
+# The Digital Soulprint: A Sovereign APPA (Adaptive Predictive Pattern Assistant) Baseline That Behavioral Evidence Enriches but Never Overwrites
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,0,0,8](COMP) · UUIA App Foundation Layer
 **Issue:** ProofPress, Volume 1, Issue 4 · June 2026
 **DOI:** 10.5281/zenodo.18719748
-**Verified:** 19 theorems · 433 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Verified:** 19 theorems · 435 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DigitalSoulprint.lean
 **Updated:** Standardized toolchain, October 2026
 
@@ -413,16 +413,18 @@ theorem evidence_accumulates (eps : List BehavioralEvidencePacket) :
 
 -- [T17] Higher identity mass drifts less under the same evidence: the
 -- all-Flexed baseline drifts less than the all-Locked one
+def high_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_flex_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
+def low_traj : AIFITrajectory :=
+  ⟨bond_from_questionnaire all_lock_quiz, 0, 1, SOVEREIGN_ANCHOR⟩
+
 theorem high_im_resists_drift (evidence : ℝ) (hE : evidence > 0) :
-    let high_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_flex_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
-    let low_traj : AIFITrajectory := { baseline := bond_from_questionnaire all_lock_quiz,
-      evidence_weight := 0, trajectory_N := 1.0, f_anchor := SOVEREIGN_ANCHOR }
     narrative_drift high_traj evidence < narrative_drift low_traj evidence := by
   have hSA : SOVEREIGN_ANCHOR > 0 := by unfold SOVEREIGN_ANCHOR; norm_num
   have hex := identity_mass_extremes
-  show (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) <
-       (1.0 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
+  show (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_flex_quiz) <
+       (1 + evidence * SOVEREIGN_ANCHOR) / identity_mass (bond_from_questionnaire all_lock_quiz)
   rw [hex.1, hex.2]
   exact div_lt_div_of_pos_left (add_pos (by norm_num) (mul_pos hE hSA)) (by norm_num) (by norm_num)
 
