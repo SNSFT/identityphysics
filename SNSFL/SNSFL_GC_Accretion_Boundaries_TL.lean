@@ -15,7 +15,7 @@
 -- at 1 AU, and proves the GAM Collider identities behind merging
 -- and reorganization.
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,3,XX](COSM)
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,3,25](COSM)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
@@ -70,6 +70,7 @@
 --
 -- ============================================================
 
+import Mathlib.Analysis.Real.Pi.Bounds
 import Mathlib.Tactic
 
 noncomputable section
@@ -516,7 +517,7 @@ end SNSFL_GC_Accretion_Boundaries_TL
 /-!
 -- ============================================================
 -- FILE:       SNSFL_GC_Accretion_Boundaries_TL.lean
--- COORDINATE: [9,9,3,XX](COSM)
+-- COORDINATE: [9,9,3,25](COSM)
 -- SORRY:      0
 --
 -- τ = TL × (critical ÷ measured) · Hill 2√3 · Roche d_R · v_cr
@@ -540,7 +541,7 @@ end SNSFL_GC_Accretion_Boundaries_TL
 -- CONNECTIONS:
 --   [9,9,2,3.8] 8-Beam Fusion Theorem (2-beam mode)
 --   [9,9,10,1] Gravity Reduction · [9,9,0,4.7] QM Reduction
---   [9,9,3,XX] Galaxy Toomre TL · [9,9,3,21] Electron Geometry
+--   [9,9,3,24] Galaxy Toomre TL · [9,9,3,21] Electron Geometry
 --   [9,9,3,22] String-Breaking
 --
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
