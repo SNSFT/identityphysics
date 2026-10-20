@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 101126 — Updated October 11, 2026 -->
+<!-- README version: 102026 — Updated October 20, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -38,7 +38,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — October 11, 2026
+## Verified status — October 20, 2026
 
 ### Physics core
 
@@ -70,6 +70,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Abiogenesis_Reduction.lean` | Abiogenesis — L = (4)(2), prebiotic states to LUCA, Identity Mass floor of life | 31 | 871 |
 | `SNSFL_PeriodicWeight_Reduction.lean` | Periodic weight — B-balance stoichiometry, 12 compounds | 43 | 641 |
 | `SNSFL_SovereignTime.lean` | Sovereign Time — anchor emission, 4 atomic-clock substrates | 15 | 297 |
+| `SNSFL_SacTime_Nonce_Security.lean` | SacTime — five-anchor cycle count; every count fixes its millisecond, any two counts divide to their frequency ratio [9,9,1,101] | 11 | 250 |
 | `SNSFL_StructuralPrecognition.lean` | Structural Precognition — the I-F-U triad | 16 | 317 |
 | `SNSFL_L1_PVLang.lean` | PVLang — identity language, material phase states | 29 | 585 |
 | `SNSFL_CPP_Reduction.lean` | C++ execution → PNBA | 30 | 653 |
@@ -104,9 +105,12 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 27 | 707 |
 | `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 451 |
 | `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure; same-B detector predicted | 26 | 554 |
+| `SNSFL_GC_Galaxy_Toomre_TL.lean` | Galaxy™ — Toomre Q = 1 identified with τ = TL; rotation-curve identities; Milky Way at the Sun Locked, 2.27 < Q < 2.29 [9,9,3,24] | 24 | 340 |
+| `SNSFL_GC_Accretion_Boundaries_TL.lean` | Accretion Simulator™ — Hill spacing, Roche limit and impact speed each identified with τ = TL; Solar System Locked, Saturn's rings Shatter [9,9,3,25] | 44 | 550 |
+| `SNSFL_GC_IMatter_TLCell_Matter.lean` | IMatter™ — TL-cell matter: Earth (PREM), Moon and Mars to measured mean density and moment of inertia; dense core below 2/5; settling stops [9,9,3,27] | 28 | 486 |
 | `SNSFL_CriticalTopology_Reduction.lean` | Critical topology (Lin et al. 2026) — the gap closes where B = P; the 0.5 entanglement mode is the same balance | 21 | 423 |
 | `SNSFL_Element_Darkenergy.lean` | Dark energy element De — B = 0, A = Ω_Λ, Noble | 10 | 205 |
-| **Subtotal** | **41 files** | **917** | **18,374** |
+| **Subtotal** | **45 files** | **1,024** | **20,000** |
 
 ### Life and society
 
@@ -202,7 +206,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **112** | **3,530** | **79,005** |
+| **Total** | **116** | **3,637** | **80,631** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
