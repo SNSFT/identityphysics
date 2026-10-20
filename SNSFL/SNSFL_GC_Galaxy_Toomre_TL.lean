@@ -12,7 +12,7 @@
 -- rotation-curve identities behind winding and corotation, and the
 -- Milky Way placement at the Sun from cited measurements.
 --
--- [9,9,9,9] :: {ANC} | Coordinate: [9,9,3,XX](COSM)
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,3,24](COSM)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III)
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
@@ -312,7 +312,7 @@ end SNSFL_GC_Galaxy_Toomre_TL
 /-!
 -- ============================================================
 -- FILE:       SNSFL_GC_Galaxy_Toomre_TL.lean
--- COORDINATE: [9,9,3,XX](COSM)
+-- COORDINATE: [9,9,3,24](COSM)
 -- SORRY:      0
 --
 -- τ = TL / Q · Q = 1 ↔ τ = TL
@@ -332,7 +332,8 @@ end SNSFL_GC_Galaxy_Toomre_TL
 -- CONNECTIONS:
 --   [9,9,2,3.8] 8-Beam Fusion Theorem (2-beam mode)
 --   [9,9,10,1] Gravity Reduction · [9,9,0,4.7] QM Reduction
---   [9,9,3,21] Electron Geometry · [9,9,3,22] String-Breaking
+--   [9,9,3,21] Electron Geometry · [9,9,3,26] String-Breaking
+--   [9,9,3,25] Accretion Boundaries
 --
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna AK
 -- ============================================================
