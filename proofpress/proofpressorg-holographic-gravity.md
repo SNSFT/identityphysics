@@ -23,7 +23,7 @@
 -- By bridging practical observation with automated deduction,  
 -- the text establishes a systematic framework for publishing  
 -- high-confidence logical propositions. Published by the SNSFT  
--- Foundation (EIN 42-2038440, 501(c)(3)). It publishes  
+-- Foundation (EIN 42-2038440). It publishes  
 -- systematic, lossless reductions of existing, human-peer-  
 -- reviewed empirical science into machine-verified formal  
 -- logic.  
