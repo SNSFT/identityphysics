@@ -1,0 +1,54 @@
+name: Traffic snapshot
+
+# Saves GitHub traffic (views, clones, referrers, paths, repo stats) once a day
+# to traffic.json on the `traffic` branch, so history outlasts GitHub's 14-day window.
+# The data branch keeps snapshot commits out of main and out of CI ([skip ci]).
+
+on:
+  schedule:
+    - cron: "17 9 * * *"   # 09:17 UTC daily (01:17 Alaska time)
+  workflow_dispatch:         # run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: traffic-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Switch to the traffic data branch
+        run: |
+          cp .github/scripts/traffic_snapshot.py "$RUNNER_TEMP/traffic_snapshot.py"
+          if git ls-remote --exit-code --heads origin traffic >/dev/null; then
+            git fetch origin traffic
+            git checkout traffic
+          else
+            git checkout --orphan traffic
+            git rm -rf --quiet .
+          fi
+
+      - name: Collect today's snapshot
+        env:
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: python3 "$RUNNER_TEMP/traffic_snapshot.py"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add traffic.json
+          if git diff --cached --quiet; then
+            echo "No change."
+          else
+            git commit --quiet -m "traffic snapshot $(date -u +%F) [skip ci]"
+            git push origin traffic
+          fi
