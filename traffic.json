@@ -2,6 +2,58 @@
  "schema": 1,
  "repo": "SNSFT/identityphysics",
  "views": {
+  "2026-09-29": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-09-30": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-01": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-02": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-03": {
+   "count": 1668,
+   "uniques": 1
+  },
+  "2026-10-04": {
+   "count": 1895,
+   "uniques": 2
+  },
+  "2026-10-05": {
+   "count": 791,
+   "uniques": 1
+  },
+  "2026-10-06": {
+   "count": 42,
+   "uniques": 1
+  },
+  "2026-10-07": {
+   "count": 63,
+   "uniques": 3
+  },
+  "2026-10-08": {
+   "count": 8,
+   "uniques": 1
+  },
+  "2026-10-09": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-10": {
+   "count": 4,
+   "uniques": 1
+  },
+  "2026-10-11": {
+   "count": 1636,
+   "uniques": 1
+  },
   "2026-10-12": {
    "count": 867,
    "uniques": 1
@@ -60,6 +112,58 @@
   }
  },
  "clones": {
+  "2026-09-29": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-09-30": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-01": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-02": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-03": {
+   "count": 596,
+   "uniques": 221
+  },
+  "2026-10-04": {
+   "count": 706,
+   "uniques": 241
+  },
+  "2026-10-05": {
+   "count": 447,
+   "uniques": 176
+  },
+  "2026-10-06": {
+   "count": 133,
+   "uniques": 77
+  },
+  "2026-10-07": {
+   "count": 6,
+   "uniques": 5
+  },
+  "2026-10-08": {
+   "count": 1,
+   "uniques": 1
+  },
+  "2026-10-09": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-10": {
+   "count": 4,
+   "uniques": 4
+  },
+  "2026-10-11": {
+   "count": 1045,
+   "uniques": 272
+  },
   "2026-10-12": {
    "count": 1128,
    "uniques": 255
@@ -118,6 +222,210 @@
   }
  },
  "referrers": {
+  "2026-10-14": [
+   {
+    "referrer": "github.com",
+    "count": 37,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-15": [
+   {
+    "referrer": "github.com",
+    "count": 39,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-16": [
+   {
+    "referrer": "github.com",
+    "count": 39,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-17": [
+   {
+    "referrer": "github.com",
+    "count": 39,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-18": [
+   {
+    "referrer": "github.com",
+    "count": 40,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-19": [
+   {
+    "referrer": "github.com",
+    "count": 38,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-20": [
+   {
+    "referrer": "github.com",
+    "count": 38,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-21": [
+   {
+    "referrer": "github.com",
+    "count": 28,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-22": [
+   {
+    "referrer": "github.com",
+    "count": 26,
+    "uniques": null
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-23": [
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "github.com",
+    "count": 17,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-24": [
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "github.com",
+    "count": 14,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
+  "2026-10-25": [
+   {
+    "referrer": "proofpress.org",
+    "count": 22,
+    "uniques": null
+   },
+   {
+    "referrer": "github.com",
+    "count": 14,
+    "uniques": null
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 4,
+    "uniques": null
+   }
+  ],
   "2026-10-26": [
    {
     "referrer": "proofpress.org",
@@ -137,6 +445,570 @@
   ]
  },
  "paths": {
+  "2026-10-14": [
+   {
+    "path": "/actions",
+    "count": 2487,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1855,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 643,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 271,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 171,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 121,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 117,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/agents",
+    "count": 85,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 81,
+    "uniques": null
+   }
+  ],
+  "2026-10-15": [
+   {
+    "path": "/actions",
+    "count": 2490,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1855,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 648,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 272,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 171,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 121,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 117,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/agents",
+    "count": 85,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 81,
+    "uniques": null
+   }
+  ],
+  "2026-10-16": [
+   {
+    "path": "/actions",
+    "count": 2491,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1855,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 649,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 273,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 171,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 121,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 117,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/agents",
+    "count": 85,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 81,
+    "uniques": null
+   }
+  ],
+  "2026-10-17": [
+   {
+    "path": "/actions",
+    "count": 2492,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1855,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 649,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 273,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 171,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 121,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 117,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/agents",
+    "count": 85,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 81,
+    "uniques": null
+   }
+  ],
+  "2026-10-18": [
+   {
+    "path": "/actions",
+    "count": 2493,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1855,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 650,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 275,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 171,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 122,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 117,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/agents",
+    "count": 85,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 81,
+    "uniques": null
+   }
+  ],
+  "2026-10-19": [
+   {
+    "path": "/actions",
+    "count": 1819,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 1330,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 547,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 228,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 178,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 122,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 87,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 86,
+    "uniques": null
+   }
+  ],
+  "2026-10-20": [
+   {
+    "path": "/actions",
+    "count": 1058,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 666,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 454,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 179,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 149,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 122,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 86,
+    "uniques": null
+   },
+   {
+    "path": "/new/main",
+    "count": 23,
+    "uniques": null
+   }
+  ],
+  "2026-10-21": [
+   {
+    "path": "/actions",
+    "count": 782,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 473,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 397,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 181,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 115,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 89,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 84,
+    "uniques": null
+   }
+  ],
+  "2026-10-22": [
+   {
+    "path": "/actions",
+    "count": 774,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 466,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 390,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 183,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 114,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 90,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 84,
+    "uniques": null
+   }
+  ],
+  "2026-10-23": [
+   {
+    "path": "/actions",
+    "count": 769,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 466,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 377,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 184,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 111,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 90,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 84,
+    "uniques": null
+   }
+  ],
+  "2026-10-24": [
+   {
+    "path": "/actions",
+    "count": 770,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 466,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 376,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 184,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 109,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 90,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 84,
+    "uniques": null
+   }
+  ],
+  "2026-10-25": [
+   {
+    "path": "/actions",
+    "count": 770,
+    "uniques": null
+   },
+   {
+    "path": "/projects",
+    "count": 466,
+    "uniques": null
+   },
+   {
+    "path": "/",
+    "count": 376,
+    "uniques": null
+   },
+   {
+    "path": "/upload",
+    "count": 184,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/SNSFL",
+    "count": 109,
+    "uniques": null
+   },
+   {
+    "path": "/tree/main/proofpress",
+    "count": 94,
+    "uniques": null
+   },
+   {
+    "path": "/upload/main/SNSFL",
+    "count": 90,
+    "uniques": null
+   },
+   {
+    "path": "/discussions",
+    "count": 84,
+    "uniques": null
+   }
+  ],
   "2026-10-26": [
    {
     "path": "/SNSFT/identityphysics/actions",
@@ -297,6 +1169,17 @@
    "commits": 3,
    "files": 3,
    "lean_files": 0
+  }
+ },
+ "sources": {
+  "repohistory": {
+   "from": "2026-09-29",
+   "imported_days": {
+    "clones": 13,
+    "views": 13,
+    "paths": 12,
+    "referrers": 12
+   }
   }
  }
 }
