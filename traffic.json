@@ -1,0 +1,214 @@
+{
+ "schema": 1,
+ "repo": "SNSFT/identityphysics",
+ "views": {
+  "2026-10-12": {
+   "count": 867,
+   "uniques": 1
+  },
+  "2026-10-13": {
+   "count": 14,
+   "uniques": 1
+  },
+  "2026-10-14": {
+   "count": 9,
+   "uniques": 1
+  },
+  "2026-10-15": {
+   "count": 4,
+   "uniques": 1
+  },
+  "2026-10-16": {
+   "count": 9,
+   "uniques": 2
+  },
+  "2026-10-17": {
+   "count": 90,
+   "uniques": 1
+  },
+  "2026-10-18": {
+   "count": 10,
+   "uniques": 2
+  },
+  "2026-10-19": {
+   "count": 32,
+   "uniques": 1
+  },
+  "2026-10-20": {
+   "count": 16,
+   "uniques": 1
+  },
+  "2026-10-21": {
+   "count": 3,
+   "uniques": 1
+  },
+  "2026-10-22": {
+   "count": 1,
+   "uniques": 1
+  },
+  "2026-10-23": {
+   "count": 0,
+   "uniques": 0
+  },
+  "2026-10-24": {
+   "count": 6,
+   "uniques": 2
+  },
+  "2026-10-25": {
+   "count": 2,
+   "uniques": 1
+  }
+ },
+ "clones": {
+  "2026-10-12": {
+   "count": 1128,
+   "uniques": 255
+  },
+  "2026-10-13": {
+   "count": 358,
+   "uniques": 66
+  },
+  "2026-10-14": {
+   "count": 134,
+   "uniques": 5
+  },
+  "2026-10-15": {
+   "count": 1,
+   "uniques": 1
+  },
+  "2026-10-16": {
+   "count": 116,
+   "uniques": 2
+  },
+  "2026-10-17": {
+   "count": 88,
+   "uniques": 27
+  },
+  "2026-10-18": {
+   "count": 106,
+   "uniques": 48
+  },
+  "2026-10-19": {
+   "count": 76,
+   "uniques": 35
+  },
+  "2026-10-20": {
+   "count": 32,
+   "uniques": 14
+  },
+  "2026-10-21": {
+   "count": 33,
+   "uniques": 14
+  },
+  "2026-10-22": {
+   "count": 12,
+   "uniques": 7
+  },
+  "2026-10-23": {
+   "count": 1,
+   "uniques": 1
+  },
+  "2026-10-24": {
+   "count": 2,
+   "uniques": 2
+  },
+  "2026-10-25": {
+   "count": 2,
+   "uniques": 2
+  }
+ },
+ "referrers": {
+  "2026-10-26": [
+   {
+    "referrer": "proofpress.org",
+    "count": 16,
+    "uniques": 1
+   },
+   {
+    "referrer": "github.com",
+    "count": 9,
+    "uniques": 2
+   },
+   {
+    "referrer": "l.facebook.com",
+    "count": 1,
+    "uniques": 1
+   }
+  ]
+ },
+ "paths": {
+  "2026-10-26": [
+   {
+    "path": "/SNSFT/identityphysics/actions",
+    "title": "/actions",
+    "count": 284,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/projects",
+    "title": "/projects",
+    "count": 169,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics",
+    "title": "Overview",
+    "count": 159,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload",
+    "title": "/upload",
+    "count": 88,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
+    "title": "/tree/main/SNSFL",
+    "count": 50,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload/main/SNSFL",
+    "title": "/upload/main/SNSFL",
+    "count": 44,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload/main/proofpress",
+    "title": "/upload/main/proofpress",
+    "count": 41,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/proofpress",
+    "title": "/tree/main/proofpress",
+    "count": 32,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/pulse",
+    "title": "/pulse",
+    "count": 10,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/discussions",
+    "title": "/discussions",
+    "count": 10,
+    "uniques": 1
+   }
+  ]
+ },
+ "repo_stats": {
+  "2026-10-26": {
+   "stars": 0,
+   "forks": 0,
+   "watchers": 0,
+   "open_issues": 0,
+   "size_kb": 10820,
+   "commits_24h": 2
+  }
+ },
+ "updated": "2026-10-26T22:03:48Z"
+}
