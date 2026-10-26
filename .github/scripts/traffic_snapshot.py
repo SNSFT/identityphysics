@@ -5,7 +5,7 @@ Reads the GitHub traffic API (14-day window) and merges it into traffic.json,
 so history accumulates past GitHub's 14-day limit. Standard library only.
 
 Environment:
-  TRAFFIC_TOKEN  fine-grained token with Administration: Read on the repo
+  TRAFFIC_TOKEN  fine-grained token with Administration: Read and Actions: Read on the repo
   REPO           owner/name, e.g. SNSFT/identityphysics
   API            optional API base (default https://api.github.com)
   OUT            optional output path (default traffic.json)
@@ -18,7 +18,7 @@ TOKEN = os.environ.get("TRAFFIC_TOKEN", "")
 OUT = os.environ.get("OUT", "traffic.json")
 
 
-def get(path):
+def get(path, soft=False):
     req = urllib.request.Request(API + path, headers={
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
@@ -30,6 +30,9 @@ def get(path):
             return json.load(r)
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", "replace")[:300]
+        if soft:
+            print(f"skipped {path}: GitHub API {e.code}")
+            return None
         sys.exit(f"GitHub API {e.code} on {path}: {body}")
 
 
@@ -46,7 +49,7 @@ def main():
     data = load()
     data.setdefault("schema", 1)
     data["repo"] = REPO
-    for k in ("views", "clones", "referrers", "paths", "repo_stats"):
+    for k in ("views", "clones", "referrers", "paths", "repo_stats", "ci_runs", "pushes"):
         data.setdefault(k, {})
 
     # Daily views and clones: GitHub revises recent days, so the newest read wins.
@@ -76,8 +79,39 @@ def main():
         "commits_24h": len(commits) if isinstance(commits, list) else 0,
     }
 
+    # Own activity, to separate outside fetching from the repo's own work:
+    #   ci_runs: workflow runs started that day (each run checks out the repo, which GitHub counts as a clone)
+    #   pushes:  commits that day and how many .lean files they added or changed
+    # Days already recorded are kept; the two most recent days are refreshed.
+    utcnow = datetime.datetime.now(datetime.timezone.utc).date()
+    for back in range(14):
+        day = (utcnow - datetime.timedelta(days=back)).isoformat()
+        if back > 1 and day in data["ci_runs"] and day in data["pushes"]:
+            continue
+        runs = get(f"/repos/{REPO}/actions/runs?created={day}&per_page=1", soft=True)
+        if runs is not None:
+            data["ci_runs"][day] = runs.get("total_count", 0)
+        nxt = (utcnow - datetime.timedelta(days=back - 1)).isoformat()
+        commits, page = [], 1
+        while True:
+            batch = get(f"/repos/{REPO}/commits?since={day}T00:00:00Z&until={nxt}T00:00:00Z&per_page=100&page={page}", soft=True)
+            if not batch:
+                break
+            commits += batch
+            if len(batch) < 100:
+                break
+            page += 1
+        lean = files = 0
+        for cm in commits:
+            detail = get(f"/repos/{REPO}/commits/{cm['sha']}", soft=True) or {}
+            for f in detail.get("files", []):
+                files += 1
+                if f.get("filename", "").endswith(".lean") and f.get("status") in ("added", "modified", "renamed"):
+                    lean += 1
+        data["pushes"][day] = {"commits": len(commits), "files": files, "lean_files": lean}
+
     data["updated"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    for k in ("views", "clones", "referrers", "paths", "repo_stats"):
+    for k in ("views", "clones", "referrers", "paths", "repo_stats", "ci_runs", "pushes"):
         data[k] = dict(sorted(data[k].items()))
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=1, ensure_ascii=False)
