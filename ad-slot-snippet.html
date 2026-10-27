@@ -1,0 +1,40 @@
+<!-- ===== ProofPress ad block · paste once per article, right after the Abstract section ===== -->
+<!-- 1. In <head> of every article page, once (replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID): -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<!-- 2. The styles (put in the page <style> block, or a shared stylesheet): -->
+<style>
+  .pp-ad { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 1.8rem 0; max-width: 72ch; }
+  .pp-ad-top { padding: .5rem .9rem; border-bottom: 1px solid var(--border); font-family: "JetBrains Mono", "Fira Code", monospace; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+  .pp-ad-body { padding: .9rem; min-height: 120px; }
+  .pp-ad-house { display: none; }
+  .pp-ad-house p { color: var(--text-muted); font-size: .92rem; margin: .3rem 0 .7rem; }
+  .pp-ad-house .t { color: var(--text); font-weight: 600; }
+  .pp-ad-house a.cta { display: inline-block; background: var(--accent); color: #04121a; font-weight: 700; font-size: .85rem; padding: .4rem .8rem; border-radius: 6px; }
+  /* If Google has no ad to show, swap to the house card */
+  .pp-ad:has(ins[data-ad-status="unfilled"]) .pp-ad-top { color: var(--accent); }
+  .pp-ad:has(ins[data-ad-status="unfilled"]) .pp-ad-top span.s { display: none; }
+  .pp-ad:not(:has(ins[data-ad-status="unfilled"])) .pp-ad-top span.h { display: none; }
+  .pp-ad:has(ins[data-ad-status="unfilled"]) ins { display: none !important; }
+  .pp-ad:has(ins[data-ad-status="unfilled"]) .pp-ad-house { display: block; }
+</style>
+
+<!-- 3. The block itself (replace the client and slot IDs): -->
+<aside class="pp-ad" aria-label="Sponsored links">
+  <div class="pp-ad-top"><span class="s">Sponsored links</span><span class="h">From the TL Suite</span></div>
+  <div class="pp-ad-body">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="0000000000"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <div class="pp-ad-house">
+      <div class="t">IMatter™ · build a planet from TL-cells and smash it live</div>
+      <p>Free, in the browser, works offline.</p>
+      <a class="cta" href="https://uuia.app/imatter">Launch IMatter →</a>
+    </div>
+  </div>
+</aside>
+<!-- ===== end ad block ===== -->
