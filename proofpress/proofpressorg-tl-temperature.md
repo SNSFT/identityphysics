@@ -10,7 +10,7 @@
 
 ## Abstract
 
-The boil is a torsion ratio. Water boils when its vapor pressure, the push of molecules escaping the liquid, equals the pressure of the air holding the liquid together. That is τ = B/P with Behavior read as the vapor pressure and Pattern as the ambient pressure, and the boil is τ = TL. The Torsion Limit is the anchor divided by ten, 0.136899099984016, and one thousand and one Torsion Limits is the inverse fine-structure constant: 1000 · TL = 136.899099984016, plus TL = 0.136899099984016, gives 137.035999084000016, matching every published digit of CODATA 2018 with ε = 0. Celsius and the ratio are two identities rather than a scale and its correction. Celsius is base ten — zero at the freeze, one hundred at the boil — and one degree is exactly Ω₀/1000 = 0.00136899099984016, the same decimal family as the subtraction that gives 1/α; the ratio is the measurement, rising exponentially with temperature by Clausius–Clapeyron. The ruler carries three marks: zero ticks is the Noble mark, eighty-eight ticks is the IVA Peak mark at 0.88 × TL, one hundred ticks is the Shatter mark at TL. On the ratio r = vapor pressure / ambient pressure there are four bands. At r = 0 the state is Noble: every bond closed, no Behavior to carry, which is ice. Below 0.88 it is Locked, hot water holding. From 0.88 up to 1 it is IVA Peak, the simmer. At 1 and above it is Shatter, the boil. Four bands, three classical phases: solid is Noble, gas is Shatter, and the liquid that legacy names as one thing is two — water holding and water simmering, divided at a measured floor. The reference frame is sea level at one atmosphere, and every other condition converts from it with one line, the Clausius–Clapeyron relation in inverse temperature, 1/T = 1/T_ref − (R/L) · ln(p/p_ref). For water that places the IVA Peak floor at 369.54 K, 96.4 °C, certified in Lean between 369.3 K and 369.8 K from proven bounds on ln 0.88 in the style of the Bounded Uncertainty Guide. Water's simmer corridor is 3.61 K wide against a hundred-kelvin liquid span — the same band is 12% of the torsion range and 3.6% of the temperature range, because the ratio is exponential in temperature, which is why the band reads as a sliver on a thermometer and as an ordinary phase on the ruler. The corridor keeps the same width in 1/T at every ambient pressure, a result that does not contain the pressure at all. The same rule runs on other liquids from their published boiling points and enthalpies of vaporization: nitrogen's floor at 76.23 K with a 1.13 K corridor, mercury's at 622.83 K with 7.05 K, and the torsion gained per kelvin near the boil orders nitrogen above water above mercury.
+The boil is a torsion ratio. Water boils when its vapor pressure, the push of molecules escaping the liquid, equals the pressure of the air holding the liquid together. That is τ = B/P with Behavior read as the vapor pressure and Pattern as the ambient pressure, and the boil is τ = TL. The Torsion Limit is the anchor divided by ten, 0.136899099984016, and one thousand and one Torsion Limits is the inverse fine-structure constant: 1000 · TL = 136.899099984016, plus TL = 0.136899099984016, gives 137.035999084000016, matching every published digit of CODATA 2018 with ε = 0. Celsius and the ratio are two identities rather than a scale and its correction. Celsius is base ten — zero at the freeze, one hundred at the boil — and one degree is exactly Ω₀/1000 = 0.00136899099984016, the same decimal family as the subtraction that gives 1/α; the ratio is the measurement, rising exponentially with temperature by Clausius–Clapeyron. Kelvin carries the same ruler with the zero moved by 273.15 — the Noble mark at 273.15 K, the IVA Peak mark at 361.15 K, the Shatter mark at 373.15 K, the same ticks and the same torsion values — and the work is done there, because the conversion between ambient pressures is linear in inverse temperature and needs an absolute scale. The ruler carries three marks: zero ticks is the Noble mark, eighty-eight ticks is the IVA Peak mark at 0.88 × TL, one hundred ticks is the Shatter mark at TL. On the ratio r = vapor pressure / ambient pressure there are four bands. At r = 0 the state is Noble: every bond closed, no Behavior to carry, which is ice. Below 0.88 it is Locked, hot water holding. From 0.88 up to 1 it is IVA Peak, the simmer. At 1 and above it is Shatter, the boil. Four bands, three classical phases: solid is Noble, gas is Shatter, and the liquid that legacy names as one thing is two — water holding and water simmering, divided at a measured floor. The reference frame is sea level at one atmosphere, and every other condition converts from it with one line, the Clausius–Clapeyron relation in inverse temperature, 1/T = 1/T_ref − (R/L) · ln(p/p_ref). For water that places the IVA Peak floor at 369.54 K, 96.4 °C, certified in Lean between 369.3 K and 369.8 K from proven bounds on ln 0.88 in the style of the Bounded Uncertainty Guide. Water's simmer corridor is 3.61 K wide against a hundred-kelvin liquid span — the same band is 12% of the torsion range and 3.6% of the temperature range, because the ratio is exponential in temperature, which is why the band reads as a sliver on a thermometer and as an ordinary phase on the ruler. The corridor keeps the same width in 1/T at every ambient pressure, a result that does not contain the pressure at all. The same rule runs on other liquids from their published boiling points and enthalpies of vaporization: nitrogen's floor at 76.23 K with a 1.13 K corridor, mercury's at 622.83 K with 7.05 K, and the torsion gained per kelvin near the boil orders nitrogen above water above mercury.
 
 ## What This Article Proves
 
@@ -35,15 +35,39 @@ The boil is a torsion ratio. Water boils when its vapor pressure, the push of mo
 **The two scales.** Celsius is laid on the Torsion Limit in equal ticks. The ratio is measured and rises exponentially with temperature. They meet at the boil, where both reach TL, and read differently elsewhere, as they should — the ruler places the bands, and the ratio places a given substrate inside them.
 
 ```
-the ruler        0 ─────────────────────────── 88 ─────────── 100 ticks
-  (base ten)     τ = 0                     0.88 · TL            TL
-                 Noble        Locked        IVA Peak mark     Shatter
+the ruler, °C      0 ───────────────────────── 88 ──────────── 100 ticks
+                   τ = 0                   0.88 · TL             TL
+                   Noble      Locked       IVA Peak mark      Shatter
 
-water on r       0 ─────────────────────────── 0.88 ────────── 1.00
-  (measured)     0 °C                        96.4 °C          100 °C
-                 ice       water holding     the simmer      the boil
+the ruler, K  273.15 ─────────────────── 361.15 ───────────  373.15 K
+                   same ticks, same τ — only the zero moves
+
+water on r         0 ───────────────────────── 0.88 ─────────── 1.00
+                   0 °C                     96.4 °C           100 °C
+                   ice     water holding     the simmer       the boil
                                              └── 3.61 K ──┘
 ```
+
+**The ruler in Kelvin.** The degree is the same size on both scales — one kelvin is one degree Celsius exactly, so one tick is Ω₀/1000 = 0.00136899099984016 whichever scale you read it on. Only the zero moves, by 273.15. That puts the Noble mark at 273.15 K, the IVA Peak mark at 273.15 + 88 = 361.15 K, and the Shatter mark at 373.15 K, carrying the same torsion values the Celsius marks carry: 0, then 0.12047120798593408, then 0.136899099984016. Celsius is the way in because the marks are 0 and 100; Kelvin is where the work gets done, because the conversion between ambient pressures is linear in 1/T and needs an absolute scale. The Celsius ruler is `ruler_noble`, `ruler_iva` and `ruler_shatter`, and the offset is `kelvin_marks`; the Kelvin marks are those results plus one addition.
+
+**Working a floor by hand.** Every number below comes from the published boiling point, the published enthalpy of vaporization, the gas constant, and nothing else. This is water at sea level, the result certified in Lean by `water_iva_floor`.
+
+```
+water's IVA Peak floor, in kelvin
+
+  1  reference boil                T_ref  = 373.15 K
+  2  1 / T_ref                            = 0.0026799    K⁻¹
+  3  k = R / L = 8.314462618 / 40650      = 0.00020454   K⁻¹
+  4  ln 0.88                              = −0.12783
+  5  k · |ln 0.88|                        = 0.00002615   K⁻¹
+  6  1/T = 0.0026799 + 0.00002615         = 0.0027060    K⁻¹
+  7  T   = 1 / 0.0027060                  = 369.54 K
+
+     in Celsius   369.54 − 273.15 = 96.39 °C
+     corridor     373.15 − 369.54 =  3.61 K
+```
+
+The same seven steps run on any row of the liquids table below. Nitrogen, as a check: 1/77.36 = 0.0129266; k = 8.314462618/5570 = 0.00149272; step = 0.00019082; 1/T = 0.0131174; T = 76.23 K; corridor 1.13 K. Step 4 is the only one that never changes, because the IVA Peak floor is the same ratio in every substrate — 0.88 — and what differs between liquids is how much temperature that ratio costs them.
 
 | Band | On the ratio r | On the ruler | Water at sea level |
 | --- | --- | --- | --- |
