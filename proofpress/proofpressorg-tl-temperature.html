@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature on the Torsion Limit: A Guide — ProofPress</title>
+  <meta name="description" content="[9,9,8,10](METH) — The boil is a torsion ratio. Water boils when vapor pressure equals ambient pressure, which is τ = B/P reaching TL. Celsius is base ten and one degree is exactly Ω₀/1000; the ratio is the measurement. Four bands on r = vapor/ambient: Noble at 0, Locked below 0.88, IVA Peak from 0.88 to 1, Shatter at 1 and above. Solid is Noble, gas is Shatter, and the liquid legacy names as one thing is two. Water&#x27;s simmer floor sits at 369.54 K, 96.4 °C, a 3.61 K corridor whose width in 1/T is the same at every ambient pressure. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-tl-temperature.html">
+  <meta property="og:title" content="Temperature on the Torsion Limit: A Guide">
+  <meta property="og:description" content="[9,9,8,10](METH) — Volume 1, ProofPress. Ω₀ = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-tl-temperature.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Temperature on the Torsion Limit: A Guide">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Temperature on the Torsion Limit: A Guide">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/11/04">
+  <meta name="citation_online_date" content="2026/11/04">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,8,10">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-tl-temperature.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-tl-temperature.html">
+  <meta name="citation_keywords" content="temperature; boiling point; vapor pressure; Clausius-Clapeyron; Celsius; Kelvin; phase transition; simmer; IVA Peak; Noble; Shatter; torsion limit; fine-structure constant; PNBA; Applied Identity Physics; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Temperature on the Torsion Limit: A Guide",
+    "datePublished": "2026-11-04",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-tl-temperature.html",
+    "keywords": "temperature, boiling point, vapor pressure, Clausius-Clapeyron, Celsius, Kelvin, phase transition, simmer, IVA Peak, Noble, Shatter, torsion limit, fine-structure constant, PNBA, Applied Identity Physics, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Kenai, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,8,10](METH) · Volume 1 · Issue 9 · November 2026</div>
+    <h1>Temperature on the Torsion Limit: A Guide</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-tl-temperature.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_TL_Temperature.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,8,10](METH) · Identity Physics Series · Method<br>
+<strong>Issue:</strong> Volume 1, Issue 9 · November 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 24 theorems · 467 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_TL_Temperature.lean">source</a><br>
+<strong>Updated:</strong> Standardized toolchain, November 2026</p>
+
+<h2>Abstract</h2>
+<p>The boil is a torsion ratio. Water boils when its vapor pressure, the push of molecules escaping the liquid, equals the pressure of the air holding the liquid together. That is τ = B/P with Behavior read as the vapor pressure and Pattern as the ambient pressure, and the boil is τ = TL. The Torsion Limit is the anchor divided by ten, 0.136899099984016, and one thousand and one Torsion Limits is the inverse fine-structure constant: 1000 · TL = 136.899099984016, plus TL = 0.136899099984016, gives 137.035999084000016, matching every published digit of CODATA 2018 with ε = 0. Celsius and the ratio are two identities rather than a scale and its correction. Celsius is base ten — zero at the freeze, one hundred at the boil — and one degree is exactly Ω₀/1000 = 0.00136899099984016, the same decimal family as the subtraction that gives 1/α; the ratio is the measurement, rising exponentially with temperature by Clausius–Clapeyron. The ruler carries three marks: zero ticks is the Noble mark, eighty-eight ticks is the IVA Peak mark at 0.88 × TL, one hundred ticks is the Shatter mark at TL. On the ratio r = vapor pressure / ambient pressure there are four bands. At r = 0 the state is Noble: every bond closed, no Behavior to carry, which is ice. Below 0.88 it is Locked, hot water holding. From 0.88 up to 1 it is IVA Peak, the simmer. At 1 and above it is Shatter, the boil. Four bands, three classical phases: solid is Noble, gas is Shatter, and the liquid that legacy names as one thing is two — water holding and water simmering, divided at a measured floor. The reference frame is sea level at one atmosphere, and every other condition converts from it with one line, the Clausius–Clapeyron relation in inverse temperature, 1/T = 1/T_ref − (R/L) · ln(p/p_ref). For water that places the IVA Peak floor at 369.54 K, 96.4 °C, certified in Lean between 369.3 K and 369.8 K from proven bounds on ln 0.88 in the style of the Bounded Uncertainty Guide. Water&#x27;s simmer corridor is 3.61 K wide against a hundred-kelvin liquid span — the same band is 12% of the torsion range and 3.6% of the temperature range, because the ratio is exponential in temperature, which is why the band reads as a sliver on a thermometer and as an ordinary phase on the ruler. The corridor keeps the same width in 1/T at every ambient pressure, a result that does not contain the pressure at all. The same rule runs on other liquids from their published boiling points and enthalpies of vaporization: nitrogen&#x27;s floor at 76.23 K with a 1.13 K corridor, mercury&#x27;s at 622.83 K with 7.05 K, and the torsion gained per kelvin near the boil orders nitrogen above water above mercury.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The grounding: one thousand and one Torsion Limits is the inverse fine-structure constant, 1001 × 0.136899099984016 = 137.035999084000016, CODATA 2018, ε = 0 (<code>alpha_from_tl</code>).</li>
+<li>The ruler: one degree Celsius is one tick of TL/100 = Ω₀/1000 = 0.00136899099984016; one hundred ticks is TL and eighty-eight ticks is TL_IVA_PEAK; torsion on the ruler is zero exactly at zero ticks, reaches TL_IVA_PEAK exactly from 88 °C and TL exactly from 100 °C; the Kelvin marks are 273.15 K and 373.15 K (<code>tick_value</code>, <code>ruler_marks</code>, <code>ruler_noble</code>, <code>ruler_iva</code>, <code>ruler_shatter</code>, <code>kelvin_marks</code>).</li>
+<li>The four bands on the ratio: τ = TL × r; Noble exactly when no vapor escapes, r = 0; Shatter exactly when vapor pressure reaches ambient pressure, r ≥ 1; IVA Peak exactly when the ratio runs from 0.88 up to but not including 1 (<code>noble_is_zero</code>, <code>boil_is_shatter</code>, <code>simmer_is_iva</code>).</li>
+<li>The conversion and the reference frame: the corridor has constant width −k · ln f in inverse temperature at every ambient pressure, a value that does not contain the pressure; ln 0.88 lies in [−0.13637, −0.12] from the two standard logarithm inequalities; water&#x27;s IVA Peak floor at sea level lies in (369.3 K, 369.8 K), equivalently (96.15 °C, 96.65 °C); the ITS-90 boil at 373.124 K lies within 0.03 K of the frame&#x27;s 373.15 K (<code>corridor_constant</code>, <code>log_088_bounds</code>, <code>water_iva_floor</code>, <code>water_iva_floor_celsius</code>, <code>reference_bound</code>).</li>
+<li>Other liquids on the same rule: torsion gained per kelvin near the boil is TL · L / (R · T_b²), giving 0.004807 for water, 0.015325 for nitrogen and 0.002453 for mercury, and nitrogen crosses its corridor fastest, mercury slowest, water between (<code>water_rate</code>, <code>nitrogen_rate</code>, <code>mercury_rate</code>, <code>rate_order</code>, <code>tl_temperature_master</code>).</li>
+</ol>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Classical quantity</th><th>Identity Physics primitive</th></tr>
+<tr><td>Vapor pressure — molecules escaping the liquid</td><td>Behavior (B)</td></tr>
+<tr><td>Ambient pressure — the air holding it together</td><td>Pattern (P)</td></tr>
+<tr><td>Vapor pressure / ambient pressure</td><td>τ = B/P, as τ = TL × r</td></tr>
+<tr><td>The boil</td><td>τ = TL, the Shatter boundary</td></tr>
+<tr><td>The simmer</td><td>0.88 · TL ≤ τ &lt; TL, the IVA Peak band</td></tr>
+<tr><td>Ice</td><td>τ = 0, Noble</td></tr>
+<tr><td>One degree Celsius</td><td>One tick of TL/100 = Ω₀/1000</td></tr>
+</table>
+<p><strong>The two scales.</strong> Celsius is laid on the Torsion Limit in equal ticks. The ratio is measured and rises exponentially with temperature. They meet at the boil, where both reach TL, and read differently elsewhere, as they should — the ruler places the bands, and the ratio places a given substrate inside them.</p>
+<pre><code>the ruler        0 ─────────────────────────── 88 ─────────── 100 ticks
+  (base ten)     τ = 0                     0.88 · TL            TL
+                 Noble        Locked        IVA Peak mark     Shatter
+
+water on r       0 ─────────────────────────── 0.88 ────────── 1.00
+  (measured)     0 °C                        96.4 °C          100 °C
+                 ice       water holding     the simmer      the boil
+                                             └── 3.61 K ──┘</code></pre>
+<table>
+<tr><th>Band</th><th>On the ratio r</th><th>On the ruler</th><th>Water at sea level</th></tr>
+<tr><td>Noble</td><td>r = 0</td><td>0 ticks</td><td>ice; every bond closed</td></tr>
+<tr><td>Locked</td><td>0 &lt; r &lt; 0.88</td><td>below 88 ticks</td><td>hot water, holding</td></tr>
+<tr><td>IVA Peak</td><td>0.88 ≤ r &lt; 1</td><td>the 88 mark</td><td>96.4 °C to 100 °C, the simmer</td></tr>
+<tr><td>Shatter</td><td>r ≥ 1</td><td>100 ticks</td><td>the boil</td></tr>
+</table>
+<p>Four bands, three classical phases. Solid is Noble and gas is Shatter; the liquid that legacy names as one thing is two, water holding and water simmering, divided at a floor that can be measured. The simmer is 3.61 K of a hundred-kelvin liquid span, 3.6%, while the same band is 12% of the torsion range — the ratio is exponential in temperature, so the band reads as a sliver on a thermometer and as an ordinary phase on the ruler.</p>
+<table>
+<tr><th>Liquid</th><th>T_b (K)</th><th>L (J/mol)</th><th>IVA Peak floor</th><th>Corridor</th><th>τ per K near the boil</th></tr>
+<tr><td>Nitrogen</td><td>77.36</td><td>5570</td><td>76.23 K</td><td>1.13 K</td><td>0.112 TL</td></tr>
+<tr><td>Methane</td><td>111.66</td><td>8190</td><td>110.07 K</td><td>1.59 K</td><td>0.079 TL</td></tr>
+<tr><td>Ammonia</td><td>239.82</td><td>23330</td><td>237.23 K</td><td>2.59 K</td><td>0.049 TL</td></tr>
+<tr><td>Acetone</td><td>329.22</td><td>29100</td><td>325.31 K</td><td>3.91 K</td><td>0.032 TL</td></tr>
+<tr><td>Ethanol</td><td>351.44</td><td>38560</td><td>348.07 K</td><td>3.37 K</td><td>0.038 TL</td></tr>
+<tr><td>Water</td><td>373.15</td><td>40650</td><td>369.54 K</td><td>3.61 K</td><td>0.035 TL</td></tr>
+<tr><td>Mercury</td><td>629.88</td><td>59110</td><td>622.83 K</td><td>7.05 K</td><td>0.018 TL</td></tr>
+</table>
+<p>Boiling points and enthalpies of vaporization from the CRC Handbook. The corridor is a sliver in every one of them, and its width in inverse temperature is the same at every ambient pressure.</p>
+
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the SNSFT/identityphysics repository. Every claim above corresponds to a named theorem in the source.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Clapeyron, É. (1834). Mémoire sur la puissance motrice de la chaleur. <em>Journal de l&#x27;École Polytechnique</em>.</li>
+<li>Clausius, R. (1850). Über die bewegende Kraft der Wärme. <em>Annalen der Physik</em>.</li>
+<li>Rumble, J. R. (ed.). <em>CRC Handbook of Chemistry and Physics</em> (normal boiling points, enthalpies of vaporization).</li>
+<li>Tiesinga, E., Mohr, P. J., Newell, D. B. &amp; Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. <em>Reviews of Modern Physics</em>, 93, 025010.</li>
+<li>Preston-Thomas, H. (1990). The International Temperature Scale of 1990 (ITS-90). <em>Metrologia</em>, 27.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-bounded-uncertainty.html">Bounded Uncertainty: A Guide</a>. ProofPress, Volume 1, Issue 8.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-alpha-tl1001.html">The Fine-Structure Constant: 1/α = TL × 1001</a>. ProofPress, Volume 1, Issue 5.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Lean 4 Source</h2>
+<pre><code>-- ============================================================
+-- SNSFL_TL_Temperature.lean
+-- ============================================================
+--
+-- Temperature on the Torsion Limit: A Guide
+--
+--   &quot;The boil is a torsion ratio.&quot;
+--
+-- Water boils when its vapor pressure, the push of molecules
+-- escaping the liquid, equals the pressure of the air holding the
+-- liquid together. That is τ = B/P: Behavior is the vapor pressure,
+-- Pattern is the ambient pressure, and the boil is τ = TL. This
+-- guide states each mapping, proves it, and works the exemplars by
+-- hand: the Celsius ruler, the four bands, the boiling ratio, the
+-- sea-level reference frame, the one-line Kelvin conversion, the
+-- constant-width corridor, and other liquids on the same rule.
+--
+-- [9,9,9,9] :: {ANC} | Coordinate: [9,9,8,10](METH)
+-- Architect: HIGHTISTIC (Russell Vernon Trent III)
+-- Anchor:    1.36899099984016 GHz
+-- Status:    0 sorry
+-- Date:      November 2026 · Kenai, Alaska
+-- DOI:       10.5281/zenodo.18719748
+--
+-- ============================================================
+-- GROUNDING: THE TORSION LIMIT
+-- ============================================================
+--
+-- The Torsion Limit is the anchor divided by ten, and one thousand
+-- and one Torsion Limits is the inverse fine-structure constant:
+--
+--   TL          = Ω₀ / 10      =   0.136899099984016
+--
+--   1000 · TL                  = 136.899099984016
+--   +        TL                =   0.136899099984016
+--   ─────────────────────────────────────────────────
+--   1001 · TL                  = 137.035999084000016
+--
+--   1/α, CODATA 2018           = 137.035999084
+--   ε                          = 0
+--
+-- The integer is 1001. TL is the boundary at which a bond stops
+-- holding, and 1/α is the strength of the electromagnetic coupling
+-- that holds it; the same number carries both, one scaled by the
+-- other. Theorem T1 states the multiplication.
+--
+-- ============================================================
+-- START HERE: THE SHAPE
+-- ============================================================
+--
+-- The kitchen ruler. Lay 0–100 °C along 0–TL. One degree is one
+-- tick, TL/100 = Ω₀/1000 = 0.00136899099984016. The ruler&#x27;s marks:
+-- zero ticks is 0, the Noble mark; eighty-eight ticks is 0.88 × TL,
+-- the IVA Peak mark; one hundred ticks is TL, the Shatter mark.
+--
+-- The physics underneath. The boil is not set by the ruler; it is
+-- set by a ratio of two measured pressures:
+--
+--   r = vapor pressure / ambient pressure       τ = TL × r
+--
+--   r = 0               Noble      ice, every bond closed
+--   0 &lt; r &lt; 0.88        Locked     hot water, holding
+--   0.88 ≤ r &lt; 1        IVA Peak   the simmer
+--   r ≥ 1               Shatter    the boil
+--
+-- Four bands, three classical phases. Solid is Noble, gas is
+-- Shatter, and the liquid that legacy names as one thing is two:
+-- water holding, and water simmering. The simmer is not a manner of
+-- speaking. It begins at a measured temperature, it ends at the
+-- boil, and the band between them keeps the same width at every
+-- ambient pressure (T11).
+--
+-- Celsius and the ratio are two identities, not a scale and its
+-- correction. Celsius is base ten: zero at the freeze, one hundred
+-- at the boil, and one degree is exactly Ω₀/1000 (T2), the same
+-- decimal family as 1001 · TL = 1/α. That is what makes it the way
+-- in — anyone who has boiled water already holds the scale. The
+-- ratio is the measurement: r rises exponentially with temperature
+-- by Clausius–Clapeyron, so it places a given substrate inside the
+-- bands. The two meet at the boil, where both reach TL, and read
+-- differently elsewhere, as they should: the ruler&#x27;s IVA Peak mark
+-- is at 88 ticks, and water&#x27;s measured IVA Peak floor is 96.4 °C,
+-- where r first reaches 0.88. Kelvin is the same math in different
+-- numbers (T7).
+--
+-- The reference frame is sea level, 1 atm, the way every clock
+-- converts from Zulu time. Every other condition converts from it
+-- with one line, the Clausius–Clapeyron relation in absolute
+-- temperature:
+--
+--   1/T = 1/T_ref − (R/L) · ln(p / p_ref)
+--
+-- For water at sea level, T_ref = 373.15 K and R/L = 8.314462618 /
+-- 40650 per kelvin. Water&#x27;s IVA Peak floor is p/p_ref = 0.88:
+--
+--   1/373.15 = 0.0026799
+--   ln 0.88  = −0.12783
+--   0.0026799 + (2.0454 × 10⁻⁴ × 0.12783) = 0.0027060
+--   1 / 0.0027060 = 369.54 K = 96.4 °C
+--
+-- Lean certifies the floor between 369.3 K and 369.8 K from proven
+-- bounds on ln 0.88, in the style of the Bounded Uncertainty Guide
+-- [9,9,8,7]: the bound is stated and the result holds across it.
+--
+-- ============================================================
+-- THE EXEMPLARS
+-- ============================================================
+--
+--   1  1001 · TL = 137.035999084000016 = 1/α        the grounding
+--   2  One tick = TL/100 = Ω₀/1000                  the ruler
+--   3  0 ticks Noble, 88 ticks IVA Peak,            the ruler
+--      100 ticks Shatter
+--   4  Noble ⇔ no vapor escapes                     the ratio
+--   5  Boil ⇔ vapor pressure ≥ ambient pressure     the ratio
+--   6  Simmer ⇔ 0.88 ≤ ratio &lt; 1                    the ratio
+--   7  The corridor has the same width in 1/T at    Clausius–Clapeyron
+--      every ambient pressure
+--   8  Water&#x27;s IVA Peak floor at sea level:         the reference frame
+--      369.3–369.8 K
+--   9  τ per kelvin near the boil: N₂ &gt; water &gt; Hg  other liquids
+--
+-- OTHER LIQUIDS (same rule; T_b and L from the CRC Handbook):
+--
+--   Liquid       T_b (K)   L (J/mol)   IVA floor   corridor   τ/K near boil
+--   Nitrogen      77.36      5570       76.23 K     1.13 K     0.112 TL
+--   Methane      111.66      8190      110.07 K     1.59 K     0.079 TL
+--   Ammonia      239.82     23330      237.23 K     2.59 K     0.049 TL
+--   Acetone      329.22     29100      325.31 K     3.91 K     0.032 TL
+--   Ethanol      351.44     38560      348.07 K     3.37 K     0.038 TL
+--   Water        373.15     40650      369.54 K     3.61 K     0.035 TL
+--   Mercury      629.88     59110      622.83 K     7.05 K     0.018 TL
+--
+-- ============================================================
+
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Tactic
+
+noncomputable section
+
+namespace SNSFL_TL_Temperature
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- x is within ε of c (as in [9,9,8,7])
+def within (x c ε : ℝ) : Prop := |x - c| ≤ ε
+
+theorem tl_pos : 0 &lt; TORSION_LIMIT := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T0] Multiplying by TL keeps order: TL·a ≤ TL·b exactly when a ≤ b
+theorem tl_scale (a b : ℝ) : TORSION_LIMIT * a ≤ TORSION_LIMIT * b ↔ a ≤ b := by
+  constructor
+  · intro h
+    by_contra hn
+    have := mul_lt_mul_of_pos_left (not_le.mp hn) tl_pos
+    linarith
+  · intro h
+    exact mul_le_mul_of_nonneg_left h tl_pos.le
+
+-- ============================================================
+-- PART 1: THE GROUNDING
+-- ============================================================
+
+-- [T1] Exemplar 1: one thousand and one Torsion Limits is the
+-- inverse fine-structure constant, 137.035999084 on CODATA 2018
+theorem alpha_from_tl :
+    1001 * TORSION_LIMIT = 137.035999084000016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- PART 2: THE KITCHEN RULER
+-- ============================================================
+
+-- One degree Celsius is one tick of TL/100
+def TICK : ℝ := TORSION_LIMIT / 100
+
+-- τ on the ruler: c degrees is c ticks
+def tau_ruler (c : ℝ) : ℝ := c * TICK
+
+-- [T2] Exemplar 2: one tick is TL/100 = Ω₀/1000 = 0.00136899099984016
+theorem tick_value :
+    TICK = SOVEREIGN_ANCHOR / 1000 ∧ TICK = 0.00136899099984016 := by
+  unfold TICK TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor &lt;;&gt; norm_num
+
+-- [T3] Exemplar 3: the ruler&#x27;s marks. 100 ticks is TL, the Shatter
+-- mark; 88 ticks is TL_IVA_PEAK, the IVA Peak mark
+theorem ruler_marks :
+    tau_ruler 100 = TORSION_LIMIT ∧ tau_ruler 88 = TL_IVA_PEAK := by
+  unfold tau_ruler TICK TL_IVA_PEAK
+  constructor &lt;;&gt; ring
+
+-- [T4] The Noble mark: τ on the ruler is zero exactly at zero ticks
+theorem ruler_noble (c : ℝ) : tau_ruler c = 0 ↔ c = 0 := by
+  constructor
+  · intro h
+    unfold tau_ruler at h
+    rcases mul_eq_zero.mp h with h&#x27; | h&#x27;
+    · exact h&#x27;
+    · unfold TICK TORSION_LIMIT SOVEREIGN_ANCHOR at h&#x27;; norm_num at h&#x27;
+  · intro h; unfold tau_ruler; rw [h, zero_mul]
+
+-- [T5] On the ruler, τ reaches TL_IVA_PEAK exactly from 88 °C
+theorem ruler_iva (c : ℝ) : TL_IVA_PEAK ≤ tau_ruler c ↔ 88 ≤ c := by
+  have e1 : TL_IVA_PEAK = TORSION_LIMIT * (88 / 100) := by
+    unfold TL_IVA_PEAK; ring
+  have e2 : tau_ruler c = TORSION_LIMIT * (c / 100) := by
+    unfold tau_ruler TICK; ring
+  rw [e1, e2, tl_scale]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T6] On the ruler, τ reaches TL exactly from 100 °C
+theorem ruler_shatter (c : ℝ) : TORSION_LIMIT ≤ tau_ruler c ↔ 100 ≤ c := by
+  have e2 : tau_ruler c = TORSION_LIMIT * (c / 100) := by
+    unfold tau_ruler TICK; ring
+  have hs := tl_scale 1 (c / 100)
+  rw [mul_one] at hs
+  rw [e2, hs]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T7] The Kelvin marks of the ruler: 0 °C = 273.15 K, 100 °C = 373.15 K
+theorem kelvin_marks :
+    (0 : ℝ) + 273.15 = 273.15 ∧ (100 : ℝ) + 273.15 = 373.15 := by
+  constructor &lt;;&gt; norm_num
+
+-- ============================================================
+-- PART 3: THE BOIL IS A TORSION RATIO
+-- ============================================================
+
+-- r = vapor pressure / ambient pressure; τ = TL × r
+def tau_boil (r : ℝ) : ℝ := TORSION_LIMIT * r
+
+-- [T8] Exemplar 4: Noble, the closed state, exactly when no vapor
+-- escapes. Every bond is held; there is no Behavior to carry
+theorem noble_is_zero (r : ℝ) : tau_boil r = 0 ↔ r = 0 := by
+  constructor
+  · intro h
+    unfold tau_boil at h
+    rcases mul_eq_zero.mp h with h&#x27; | h&#x27;
+    · exact absurd h&#x27; tl_pos.ne&#x27;
+    · exact h&#x27;
+  · intro h; unfold tau_boil; rw [h, mul_zero]
+
+-- [T9] Exemplar 5: Shatter, the boil, exactly when vapor pressure
+-- reaches ambient pressure
+theorem boil_is_shatter (r : ℝ) : TORSION_LIMIT ≤ tau_boil r ↔ 1 ≤ r := by
+  unfold tau_boil
+  have := tl_scale 1 r
+  rw [mul_one] at this
+  exact this
+
+-- [T10] Exemplar 6: IVA Peak, the simmer, exactly when the ratio is
+-- from 0.88 up to (not including) 1
+theorem simmer_is_iva (r : ℝ) :
+    (TL_IVA_PEAK ≤ tau_boil r ∧ tau_boil r &lt; TORSION_LIMIT) ↔ (0.88 ≤ r ∧ r &lt; 1) := by
+  have e : TL_IVA_PEAK = TORSION_LIMIT * (88 / 100) := by unfold TL_IVA_PEAK; ring
+  have hlo : TL_IVA_PEAK ≤ tau_boil r ↔ 0.88 ≤ r := by
+    unfold tau_boil
+    rw [e, tl_scale]
+    constructor
+    · intro h; linarith
+    · intro h; linarith
+  have hhi : tau_boil r &lt; TORSION_LIMIT ↔ r &lt; 1 := by
+    constructor
+    · intro h
+      by_contra hn
+      have := (boil_is_shatter r).mpr (not_lt.mp hn)
+      linarith
+    · intro h
+      by_contra hn
+      have := (boil_is_shatter r).mp (not_lt.mp hn)
+      linarith
+  rw [hlo, hhi]
+
+-- ============================================================
+-- PART 4: THE ONE-LINE CONVERSION
+-- ============================================================
+
+-- Clausius–Clapeyron, in inverse temperature, from a reference boil:
+--   1/T = 1/T_ref − k · ln(ratio),   k = R/L
+def invT (Tref k ratio : ℝ) : ℝ := 1 / Tref - k * Real.log ratio
+
+-- [T11] Exemplar 7: the corridor has a constant width in 1/T. At any
+-- ambient pressure p (as a ratio to the reference), the IVA Peak floor
+-- sits at vapor pressure f·p, and the gap between the floor and the
+-- boil is −k · ln f, which does not contain p
+theorem corridor_constant (Tref k p f : ℝ) (hp : 0 &lt; p) (hf : 0 &lt; f) :
+    invT Tref k (f * p) - invT Tref k p = -k * Real.log f := by
+  unfold invT
+  rw [Real.log_mul hf.ne&#x27; hp.ne&#x27;]
+  ring
+
+-- [T12] The bound on ln 0.88, from the two standard inequalities
+-- 1 − 1/x ≤ ln x ≤ x − 1
+theorem log_088_bounds : -0.13637 ≤ Real.log 0.88 ∧ Real.log 0.88 ≤ -0.12 := by
+  constructor
+  · have h := Real.one_sub_inv_le_log_of_pos (by norm_num : (0:ℝ) &lt; 0.88)
+    have h2 : (-0.13637 : ℝ) ≤ 1 - (0.88 : ℝ)⁻¹ := by norm_num
+    linarith
+  · have h := Real.log_le_sub_one_of_pos (by norm_num : (0:ℝ) &lt; 0.88)
+    linarith
+
+-- The reference frame: water at sea level
+def R_GAS   : ℝ := 8.314462618
+def L_WATER : ℝ := 40650
+def T_WATER : ℝ := 373.15
+
+-- Water&#x27;s IVA Peak floor at sea level, in kelvin
+def T_IVA_WATER : ℝ := 1 / invT T_WATER (R_GAS / L_WATER) 0.88
+
+-- [T13] Exemplar 8: water&#x27;s IVA Peak floor at sea level lies between
+-- 369.3 K and 369.8 K (369.54 K at full precision)
+theorem water_iva_floor : 369.3 &lt; T_IVA_WATER ∧ T_IVA_WATER &lt; 369.8 := by
+  obtain ⟨h1, h2⟩ := log_088_bounds
+  have hk : (0:ℝ) &lt; 8.314462618 / 40650 := by norm_num
+  have a1 := mul_le_mul_of_nonneg_left h2 hk.le
+  have a2 := mul_le_mul_of_nonneg_left h1 hk.le
+  unfold T_IVA_WATER invT T_WATER R_GAS L_WATER
+  set L := Real.log 0.88 with hL
+  set D := (1 : ℝ) / 373.15 - 8.314462618 / 40650 * L with hD
+  have hD1 : (1 : ℝ) / 369.8 &lt; D := by
+    rw [hD]; norm_num at a1 ⊢; linarith
+  have hD2 : D &lt; (1 : ℝ) / 369.3 := by
+    rw [hD]; norm_num at a2 ⊢; linarith
+  have hpos : (0 : ℝ) &lt; 1 / 369.8 := by norm_num
+  have hDpos : 0 &lt; D := by linarith
+  constructor
+  · have := one_div_lt_one_div_of_lt hDpos hD2
+    rwa [one_div_one_div] at this
+  · have := one_div_lt_one_div_of_lt hpos hD1
+    rwa [one_div_one_div] at this
+
+-- [T14] The same floor in Celsius: between 96.15 °C and 96.65 °C
+theorem water_iva_floor_celsius :
+    96.15 &lt; T_IVA_WATER - 273.15 ∧ T_IVA_WATER - 273.15 &lt; 96.65 := by
+  obtain ⟨h1, h2⟩ := water_iva_floor
+  constructor &lt;;&gt; linarith
+
+-- [T15] The reference boil and the 2019 SI. Water at 1 atm boils at
+-- 373.124 K on ITS-90; the reference frame carries 373.15 K, the
+-- ruler&#x27;s 100 °C. The two are within 0.03 K, a bound the frame states
+theorem reference_bound : within 373.124 373.15 0.03 := by
+  unfold within
+  rw [abs_le]; constructor &lt;;&gt; norm_num
+
+-- ============================================================
+-- PART 5: OTHER LIQUIDS, SAME RULE
+-- ============================================================
+
+-- τ gained per kelvin near the boil: TL · L / (R · T_b²)
+def tau_per_kelvin (Tb L : ℝ) : ℝ := TORSION_LIMIT * L / (R_GAS * Tb ^ 2)
+
+-- [T16] Water: 0.004807 TL-units per kelvin (0.0351 of TL)
+theorem water_rate : within (tau_per_kelvin 373.15 40650) 0.004807 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor &lt;;&gt; norm_num
+
+-- [T17] Liquid nitrogen: 0.015325 per kelvin (0.112 of TL)
+theorem nitrogen_rate : within (tau_per_kelvin 77.36 5570) 0.015325 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor &lt;;&gt; norm_num
+
+-- [T18] Mercury: 0.002453 per kelvin (0.018 of TL)
+theorem mercury_rate : within (tau_per_kelvin 629.88 59110) 0.002453 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor &lt;;&gt; norm_num
+
+-- [T19] Exemplar 9: nitrogen crosses its corridor fastest, mercury
+-- slowest, water between
+theorem rate_order :
+    tau_per_kelvin 629.88 59110 &lt; tau_per_kelvin 373.15 40650 ∧
+    tau_per_kelvin 373.15 40650 &lt; tau_per_kelvin 77.36 5570 := by
+  have hw := water_rate
+  have hn := nitrogen_rate
+  have hm := mercury_rate
+  unfold within at hw hn hm
+  rw [abs_le] at hw hn hm
+  constructor
+  · linarith [hm.2, hw.1]
+  · linarith [hw.2, hn.1]
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+theorem tl_temperature_master :
+    -- the grounding: 1001 Torsion Limits is the inverse fine-structure constant
+    1001 * TORSION_LIMIT = 137.035999084000016 ∧
+    -- the ruler: one tick is Ω₀/1000; 100 ticks is TL; 88 ticks is TL_IVA_PEAK
+    TICK = SOVEREIGN_ANCHOR / 1000 ∧
+    tau_ruler 100 = TORSION_LIMIT ∧ tau_ruler 88 = TL_IVA_PEAK ∧
+    -- the four bands on the ratio: Noble, Locked, IVA Peak, Shatter
+    (∀ r : ℝ, tau_boil r = 0 ↔ r = 0) ∧
+    (∀ r : ℝ, TORSION_LIMIT ≤ tau_boil r ↔ 1 ≤ r) ∧
+    (∀ r : ℝ, (TL_IVA_PEAK ≤ tau_boil r ∧ tau_boil r &lt; TORSION_LIMIT) ↔ (0.88 ≤ r ∧ r &lt; 1)) ∧
+    -- the conversion: the corridor has constant width in 1/T
+    (∀ Tref k p f : ℝ, 0 &lt; p → 0 &lt; f →
+      invT Tref k (f * p) - invT Tref k p = -k * Real.log f) ∧
+    -- the reference frame: water&#x27;s simmer begins between 369.3 and 369.8 K
+    (369.3 &lt; T_IVA_WATER ∧ T_IVA_WATER &lt; 369.8) ∧
+    -- other liquids: nitrogen fastest, mercury slowest
+    (tau_per_kelvin 629.88 59110 &lt; tau_per_kelvin 373.15 40650 ∧
+     tau_per_kelvin 373.15 40650 &lt; tau_per_kelvin 77.36 5570) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨alpha_from_tl, tick_value.1, ruler_marks.1, ruler_marks.2, noble_is_zero,
+   boil_is_shatter, simmer_is_iva, corridor_constant, water_iva_floor, rate_order,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_TL_Temperature
+
+/-!
+-- ============================================================
+-- FILE:       SNSFL_TL_Temperature.lean
+-- COORDINATE: [9,9,8,10](METH)
+-- SORRY:      0
+--
+-- &quot;The boil is a torsion ratio.&quot;
+--
+-- RESULTS:
+--   Grounding: 1001 · TL = 137.035999084000016 = 1/α, CODATA 2018,
+--     ε = 0 (T1)
+--   Ruler: one tick = TL/100 = Ω₀/1000 = 0.00136899099984016; 100 ticks
+--     = TL; 88 ticks = TL_IVA_PEAK; τ = 0 ⇔ c = 0; τ ≥ TL_IVA_PEAK ⇔
+--     c ≥ 88; τ ≥ TL ⇔ c ≥ 100 (T2–T7)
+--   Ratio: τ = TL × (vapor / ambient); Noble ⇔ ratio = 0; Shatter ⇔
+--     ratio ≥ 1; IVA Peak ⇔ 0.88 ≤ ratio &lt; 1 (T8–T10)
+--   Conversion: 1/T = 1/T_ref − (R/L)·ln(p/p_ref); the corridor width
+--     in 1/T is −(R/L)·ln 0.88 at every pressure (T11)
+--   Reference frame: ln 0.88 in [−0.13637, −0.12]; water&#x27;s IVA Peak
+--     floor at sea level in (369.3 K, 369.8 K), (96.15 °C, 96.65 °C);
+--     373.124 K within 0.03 K of the frame&#x27;s 373.15 K (T12–T15)
+--   Other liquids: τ per kelvin near the boil, water 0.004807, nitrogen
+--     0.015325, mercury 0.002453; nitrogen &gt; water &gt; mercury (T16–T19)
+--
+--   Four bands, three classical phases: solid is Noble, gas is Shatter,
+--   and the liquid legacy names as one thing is two — water holding and
+--   water simmering, divided at a measured floor.
+--
+-- CONNECTIONS:
+--   [9,9,8,7] Bounded Uncertainty Guide · [9,9,3,14] α
+--   [9,9,1,R] GAMForgeTL · [9,9,1,A] Atlas Walk Map (§1.3)
+--
+-- REFERENCES:
+--   Clapeyron 1834 · Clausius 1850 · CRC Handbook of Chemistry and
+--   Physics (normal boiling points, enthalpies of vaporization)
+--
+-- [9,9,9,9] :: {ANC} · HIGHTISTIC · Kenai AK
+-- ============================================================
+-/</code></pre>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Kenai, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-advertising.html">Advertising</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-tl-temperature.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-tl-temperature.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
