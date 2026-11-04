@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 102026 — Updated October 20, 2026 -->
+<!-- README version: 112026 — Updated November 4, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -38,7 +38,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — October 20, 2026
+## Verified status — November 4, 2026
 
 ### Physics core
 
@@ -192,9 +192,10 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 12 | 250 |
 | `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 22 | 415 |
 | `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 35 | 545 |
+| `SNSFL_TL_Temperature.lean` | Temperature on the Torsion Limit — the boil as a torsion ratio; four bands on vapor pressure over ambient; water's simmer floor and the constant-width corridor [9,9,8,10] | 24 | 467 |
 | `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
 | `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
-| **Subtotal** | **6 files** | **116** | **2,248** |
+| **Subtotal** | **7 files** | **140** | **2,715** |
 
 ### Consistency
 
@@ -206,7 +207,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **116** | **3,637** | **80,631** |
+| **Total** | **117** | **3,661** | **81,098** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
