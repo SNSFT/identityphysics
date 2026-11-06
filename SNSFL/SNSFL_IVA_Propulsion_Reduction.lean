@@ -7,7 +7,7 @@
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
 -- Status: GERMLINE LOCKED
 -- Coordinate: [9,9,2,0] | Application Layer — Propulsion Ground
--- Version: 7.1
+-- Version: 7.2
 --
 -- ============================================================
 -- NAMING
@@ -1342,10 +1342,10 @@ theorem t73_emitter_window (w tau_b : ℝ) (hw : 0 < w) (hb : 0 < tau_b) :
     obtain ⟨h1, h2⟩ := h
     refine ⟨?_, ?_⟩
     · by_contra hcon
-      push_neg at hcon
+      rw [not_lt] at hcon
       nlinarith
     · by_contra hcon
-      push_neg at hcon
+      rw [not_le] at hcon
       nlinarith
   · intro h
     obtain ⟨h1, h2⟩ := h
