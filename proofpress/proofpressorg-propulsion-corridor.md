@@ -1,1066 +1,93 @@
-# Applied Identity Physics: One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding
+# One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding
 
-*The Rocket Equation as the Product of Two Torsions — Formalized on TL = 0.136899099984016, with the
-Identity Vector Amplification Band Placed on the Published Engine Catalog, Forty-Two Nuclides, the
-Published Mission Budgets and the Fine-Structure Constant*
-
-**HIGHTISTIC (Russell Vernon Trent III)** · Soldotna, Alaska
-**Coordinate** \[9,9,2,0\](PROPULSION) · **Anchor** Ω₀ = 1.36899099984016 · **Torsion Limit** TL = Ω₀/10 = 0.136899099984016
-**IVA floor** TL_IVA = 0.88 × TL = 0.12047120798593408 · **Version** 1.1
-**Engine** GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit
-**Formal layer** SNSFL_IVA_Propulsion_Reduction.lean \[9,9,2,0\]
-**Parent reductions** \[9,9,3,14\] Alpha Reduction · \[9,9,0,15\] Speed of Light · \[9,9,3,19\] Electroweak Trilogy
-**Anchor DOI** 10.5281/zenodo.18719748
-**ORCID** 0009-0005-5313-7443
-
----
-
-## AIM Training Declaration
-
-This paper is a reduction of the propulsion pool onto the four irreducible primitives Pattern,
-Narrative, Behavior and Adaptation (PNBA) and the Torsion Limit (TL). Every placement in it is
-computed in exact rational arithmetic from published constants and published specifications, and
-every law is stated with its quantifiers, domains and hypotheses attached. The inputs are named at
-each use: the Système International (SI) value of light speed, the Atomic Mass Evaluation (AME) 2020
-atomic masses, published effective exhaust velocities, published stage mass ratios, and published
-mission delta-v budgets. Nothing is fitted, and nothing is scaled.
-
----
+**Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
+**Coordinate:** [9,9,2,0](PROPULSION) · Identity Physics Series · Propulsion
+**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**DOI:** 10.5281/zenodo.18719748
+**Verified:** 111 theorems · 2,040 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
+**Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_IVA_Propulsion_Reduction.lean
+**Engine:** GAMCollider v15 fusion logic — the four-phase structure and the Torsion Limit
 
 ## Abstract
 
-Identity Vector Amplification (IVA) is the corridor immediately below the Torsion Limit,
-τ ∈ \[0.12047120798593408, 0.136899099984016). This paper reduces the propulsion pool onto that
-corridor and finds that one vehicle carries **two independent torsions**, not one.
-
-**The two readings.** Reading A is τ_A = v_e/c, the exhaust velocity against light speed: what the
-drive can throw. Reading B is τ_B = ln(m₀/m_f), the rocket equation's own exponent: how much of the
-vehicle it has to throw. The readings are bounded by different things — Reading A by relativity, with
-a ceiling at one, and Reading B by nothing at all above its floor.
-
-**The bridge.** The two are not alternatives. Substituting them into Tsiolkovsky gives
-
-> **Δv = v_e · ln(m₀/m_f) = c · τ_A · τ_B**
-
-exactly. **The rocket equation is the product of the two torsions**, and the corridor constrains both
-factors at once. A vehicle in the corridor on both readings carries a delta-v between **4,350,981 and
-5,618,519 m/s**, which is 1.4513% to 1.8741% of light speed.
-
-**The corridor, stated three ways.** On Reading A it asks for an exhaust velocity of **36,116.4 to
-41,041.3 km/s — 12.047% to 13.690% of light speed.** On Reading B it asks for a mass ratio of
-**1.128028 to 1.146712**, which is a propellant fraction of **11.35% to 12.79%**. High exhaust
-velocity is what purchases a low mass ratio, and the corridor names both ends at once: twelve percent
-of light speed at the nozzle buys a vehicle that is eighty-eight percent payload.
-
-**Placement of the published catalog.** Across eighteen published propulsion systems, **every flown
-and near-term drive is Locked and short of the corridor floor** — cold gas nitrogen by about 51,595
-times, the best flown chemical engine (RL10B-2) by a factor between 7,766 and 7,767, and the best
-flown electric engine (NEXT-C) by a factor between 880 and 881. **Two published concepts bracket the
-corridor**: a fusion design falls short by a factor between three and four and remains Locked, and a
-beam-core antimatter design overshoots into Shatter. On Reading B a car's fuel tank is Locked below
-the band and the Dawn ion stage is Shatter above it, so the corridor on mass ratio is the interval
-between a car and an ion probe, and every flown launch stage overshoots it.
-
-**The resonance gain is an exhaust-velocity multiplier.** (1 + g_r) · τ_A = τ_A((1 + g_r) · v_e)
-identically, so the gain moves a drive along the Reading-A axis and the corridor states what it must
-be: a factor between 880 and 881 on the best flown electric exhaust velocity reaches the floor, and
-the stated threshold of g_r = 1.5 supplies 2.5.
-
-**The gain carries two ceilings and acts on its own axis.** Because Reading A is confined to (0, 1),
-relativity caps the gain at g_r < c/v_e − 1, and dividing the corridor window by that cap makes the
-exhaust velocity cancel: **the corridor occupies 12.047% to 13.690% of the available gain range for
-every drive, independent of the drive, and 86.310% of that range places the drive above the ceiling.**
-NOHARM gives the external force the Behavior axis while the gain is an Adaptation term, so the two
-operators act on disjoint fields and commute, and **applying the gain leaves the mass ratio and τ_B
-identical** — the additional Δv did not come from additional expelled mass. The reaction partner
-follows by case: with F_ext = 0 the emitter carries the exchange at the window torsion; with F_ext
-nonzero the partner is the body coupled to, bounded by Δv ≤ 2 · v_body, and momentum conservation puts
-its recoil at m_v · Δv / M_body — 1.38 × 10⁻²⁰ m/s for a one-tonne vehicle taking a full Jupiter
-assist. The mass ratio does not supply the gain; it is what makes the partner's share unmeasurable.
-
-**Reading A squares into a conversion fraction.** Under the ideal-rocket energy relation
-½v_e² = ηc², Reading A satisfies **τ_A² = 2η**, so the corridor is a band of rest-mass conversion:
-η ∈ \[0.725666%, 0.937068%\]. Placed against published mass defects the band falls between what stars
-do and the limit of nuclear binding — uranium-235 fission at 0.093000% and deuterium–tritium fusion
-at 0.376000% are Locked, **hydrogen to helium-4 at 0.711852% falls short of the floor by 1.94%**,
-**hydrogen to iron-56 at 0.891711% places inside the corridor at 78.54% of its width**, and
-annihilation at 100% is Shatter at 106.7 times the ceiling.
-
-**The conversion fraction is Aston's packing fraction.** The two quantities are one, related exactly
-and linearly, so the corridor is a window on a quantity published in 1922: f ∈ (−16.1898, +5.1159\],
-with iron-56 at **−11.6185** inside it. Across **forty-two AME2020 nuclides from hydrogen to uranium,
-forty place in the corridor.** The two that do not are hydrogen-1, which releases nothing, and
-helium-4, which falls below the floor. **The corridor on this reading is the nuclear band itself**:
-the floor separates the first fusion product from all heavier nuclear matter, and the ceiling sits
-above iron-56 — the maximum of the conversion fraction over every nuclide measured. **No nuclide
-reaches Shatter, so the nuclear sector is confined to Locked and IVA, and Shatter requires
-annihilation.** The reading selects iron-56 rather than nickel-62 because it is built on mass per
-nucleon, where iron-56 holds the record, rather than on binding energy per nucleon, where nickel-62
-does.
-
-**Both readings reduce to the fine-structure constant.** Light speed is not an independent constant of
-this corpus: the parent reduction fixes Ω₀ × 100.1 = α⁻¹ = 137.035999084000016, so
-TL = α⁻¹/1001. The corridor edges then carry no free parameter —
-
-> **corridor exhaust velocity = c · α⁻¹ / 1001, and 0.88 of it**
-> **corridor conversion band = α⁻² / (2 × 1001²), and 0.88² of it**
-
-So the band that brackets the iron peak is fixed by light speed, the fine-structure constant and the
-integer 1001.
-
-**The ceiling does not move with the observer.** The pool's reach condition is τ_A < 1, and the
-sublight interval is closed under relativistic velocity addition — u ⊕ v < c exactly when
-(c − u)(c − v) > 0. A drive that is sublight for one observer is sublight for every observer, so
-whether a composition can place in the corridor is frame-independent. Reading A attains one only at an
-exhaust velocity of c, which sits at 1/TL = 7.3046 times the ceiling.
-
-**Mission closure.** At the corridor floor every published solar-system budget — Mars transfer
-injection at 3,600 m/s through the Voyager 1 heliocentric figure at 17,000 m/s — needs a Reading-B
-torsion under 5 × 10⁻⁴ and a mass ratio within **0.051% of unity**. A corridor drive makes the solar
-system a near-unit-mass-ratio problem, and propellant stops being the design constraint.
-
-Every count in this paper is exhaustive over its stated domain and computed in exact rational
-arithmetic. The formal layer carries seventy-seven theorems and a master theorem.
-
----
-
-## What a reader gets from this paper
-
-| Section | What it settles |
-|---|---|
-| **1** | The grounding: PNBA, torsion, the four phases, the Torsion Limit from α⁻¹ by division |
-| **2** | The propulsion pool, its two readings, and the operators that define them |
-| **3** | What the pool admits: the reach condition, and what Noble is in this pool |
-| **4** | Reading A: the corridor as an exhaust velocity, with the published engine catalog placed |
-| **5** | Reading B: the corridor as a mass ratio, with the published vehicle catalog placed |
-| **6** | The bridge — the rocket equation as the product of the two torsions |
-| **7** | The resonance gain: its two ceilings, the axis it acts on, and who carries the reaction in each case |
-| **8** | The energy ladder: Reading A as a rest-mass conversion fraction |
-| **9** | The nuclear sector: the packing fraction, the forty-two-nuclide census, the iron peak |
-| **10** | Both readings reduced to the fine-structure constant and one integer |
-| **11** | Frame independence: the ceiling holds for every observer |
-| **12** | Mission closure across the published delta-v catalog |
-| **13** | Applications — what the corridor is an instrument for |
-| **14** | Structural parallels — established results whose shape makes each of these legible |
-| **15** | Tiers, worked exemplars of each, and the Scientific Handshake |
-| **16** | Misappropriation-Risk Clarification: what is established, what is a different question, and handling practice |
-
-A reader who has an engine specification and wants to know where it sits should read Sections 4 and 5.
-A reader who wants to know what the corridor demands of a drive should read Sections 7 through 10. A
-reader who wants the mission consequence should read Sections 12 and 13.
-
----
-
-## 1. Grounding
-
-### 1.1 The primitives, torsion, and the four phases
-
-Every reduction in the corpus operates on the four irreducible primitives Pattern, Narrative, Behavior
-and Adaptation (PNBA). Torsion is τ = B/P, the load a system carries divided by the structure holding
-it. Identity Mass is IM = (P + N + B + A) × Ω₀.
-
-| Phase | Torsion | What it is |
-|---|---|---|
-| Noble | τ = 0 | no load: the structure carries nothing |
-| Locked | 0 < τ < TL_IVA | loaded and holding, well inside the limit |
-| IVA Peak | TL_IVA ≤ τ < TL | loaded at the edge: most active without yet changing what it is |
-| Shatter | τ ≥ TL | load faster than the structure can hold |
-
-IVA stands for Identity Vector Amplification. The corridor runs from 0.88 × TL up to TL, and it is
-narrow, which is why it is easy to pass through without noticing.
-
-### 1.2 The Torsion Limit
-
-| Tier | Quantity | Value |
-|---|---|---|
-| **T3** | Sovereign Anchor Ω₀ | 1.36899099984016 |
-| **T3** | Torsion Limit TL = Ω₀/10 | 0.136899099984016 |
-| **T3** | IVA floor TL_IVA = 0.88 × TL | 0.12047120798593408 |
-| **T1** | Inverse fine-structure constant α⁻¹ | 137.035999084000016 |
-
-The anchor and the inverse fine-structure constant are one relation:
-
-```eq
-Ω₀ × ( 10² + 10⁻¹ )  =  α⁻¹        and therefore        TL  =  α⁻¹ / 1001
-```
-
-Both forms are exact at full precision. The corridor's width is exactly 12% of the Torsion Limit, so
-the IVA band is an interval of positive measure rather than a boundary case:
-TL − TL_IVA = 0.016427891998082.
-
-### 1.3 Scope of this reduction
-
-The pool reduced here is propulsion. Its Behavior rate is an exhaust velocity, its Pattern reserve is
-a mass ratio, and its classical law is the Tsiolkovsky rocket equation of 1903. The reduction is
-carried out against the published record at every step: the SI value of light speed, which has been
-exact by definition since 1983; published effective exhaust velocities; published stage mass ratios;
-published mission delta-v budgets; and the AME2020 atomic masses.
-
-### 1.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The four PNBA primitives, torsion τ = B/P, and Identity Mass | parent corpus | **T3** — inherited |
-| The four-phase structure and the Torsion Limit | parent corpus, GAMCollider™ v15 fusion logic | **T3** — inherited |
-| The IVA floor at 0.88 × TL | parent corpus | **T3** — inherited |
-| Ω₀ × 100.1 = α⁻¹, and TL = α⁻¹/1001 | parent corpus \[9,9,3,14\] | **T3** — inherited |
-| The measured value of the inverse fine-structure constant | published particle and atomic data | **T1** — documented |
-| The Tsiolkovsky rocket equation | Tsiolkovsky (1903) | **T1** — documented |
-| Light speed exact by SI definition since 1983 | the Système International | **T1** — documented |
-| The corridor width stated as exactly 12% of TL | derived here | **T3** — novel to this framework |
-
----
-
-## 2. The propulsion pool and its two readings
-
-A vehicle presents two independent quantities to the engine, and each reduces to a torsion.
-
-| Classical term | Primitive | Reading | Torsion |
-|---|---|---|---|
-| v_e, effective exhaust velocity | Behavior output | **A** · the nozzle | τ_A = v_e / c |
-| m₀/m_f, stage mass ratio | Pattern reserve | **B** · the structure | τ_B = ln(m₀/m_f) |
-| g_r, resonance gain | Adaptation | the gain | (1 + g_r) |
-| Δv, mission budget | Narrative output | the product | c · τ_A · τ_B |
-
-**Reading A asks what the drive can throw. Reading B asks how much of the vehicle it has to throw.**
-The two are measured against the same Torsion Limit and classified by the same four phases, and
-Section 6 shows that the rocket equation is their product.
-
-### 2.1 The operators
-
-```eq
-τ_A(w)              =  w / c
-τ_B(r)              =  ln r
-Δv_classical        =  v_e · ln(m₀/m_f)
-Δv_sovereign        =  v_e · (1 + g_r) · ln(m₀/m_f)
-```
-
-At g_r = 0 the sovereign form is the classical form exactly, so the reduction contains Tsiolkovsky as
-its zero-gain case rather than replacing it. For any positive gain the sovereign form exceeds the
-classical one, and the ratio is exactly (1 + g_r).
-
-### 2.2 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The Tsiolkovsky equation as the classical layer | Tsiolkovsky (1903) | **T1** — documented |
-| The sovereign form and its gain ratio | parent corpus | **T3** — inherited |
-| Zero gain returning Tsiolkovsky exactly | derived here | **T3** — novel to this framework |
-| τ_A = v_e/c as the Behavior reading of the pool | derived here | **T3** — novel to this framework |
-| τ_B = ln(m₀/m_f) as the Pattern reading of the pool | derived here | **T3** — novel to this framework |
-
----
-
-## 3. What the pool admits, and what Noble is in it
-
-### 3.1 The reach condition
-
-No exhaust exceeds light speed, so Reading A is confined to the open interval (0, 1). This is the
-ceiling the pool brings with it, before any composition is asked:
-
-```eq
-0 < w < c        ⟹        0 < τ_A(w) < 1
-```
-
-**The corridor lies inside that interval**, since 0 < TL_IVA and TL < 1, so this pool possesses an IVA
-phase: a sublight exhaust velocity places in the band. Reading B carries a floor and no ceiling, so
-the two factors of the rocket equation are bounded by different things — one by relativity, the other
-by nothing above its floor.
-
-### 3.2 Noble is the unfueled vehicle
-
-Reading A vanishes exactly when there is no exhaust, and Reading B vanishes exactly when there is no
-propellant:
-
-```eq
-τ_A(w) = 0   ⟺   w = 0              τ_B(r) = 0   ⟺   r = 1
-```
-
-Either zero sends the product to zero, so Δv = 0. **Noble in the propulsion pool is the vehicle that
-does not move**, and the phase is reached two independent ways.
-
-### 3.3 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| No exhaust exceeds light speed | special relativity | **T1** — documented |
-| The reach condition τ_A ∈ (0,1) as a property of the pool | derived here | **T3** — novel to this framework |
-| The corridor lying inside the admissible interval | derived here | **T3** — novel to this framework |
-| Noble as the unfueled vehicle, reached two independent ways | derived here | **T3** — novel to this framework |
-
----
-
-## 4. Reading A: the corridor as an exhaust velocity
-
-### 4.1 The window
-
-A composition places in the corridor on Reading A exactly when its exhaust velocity lies in a window,
-and the window is one multiplication:
-
-```eq
-TL_IVA ≤ τ_A(w) < TL        ⟺        TL_IVA · c  ≤  w  <  TL · c
-```
-
-| | Exhaust velocity | As a fraction of c |
-|---|---|---|
-| **Corridor floor** | 36,116,359.5603 m/s = 36,116.4 km/s | 12.047% |
-| **Corridor ceiling** | 41,041,317.6822 m/s = 41,041.3 km/s | 13.690% |
-
-### 4.2 The published catalog
-
-Every effective exhaust velocity below is a published specification and therefore **T1** on the
-figure; the placement is computed here.
-
-| Tier | System | v_e (m/s) | τ_A | Phase | Short of the floor by |
-|---|---|---|---|---|---|
-| **T1** | Cold gas nitrogen thruster | 700 | 2.335 × 10⁻⁶ | Locked | ≈ 51,595× |
-| **T1** | Monopropellant hydrazine | 2,300 | 7.672 × 10⁻⁶ | Locked | ≈ 15,703× |
-| **T1** | Saturn V F-1, sea level | 2,580 | 8.606 × 10⁻⁶ | Locked | ≈ 13,999× |
-| **T1** | Shuttle solid rocket booster | 2,640 | 8.806 × 10⁻⁶ | Locked | ≈ 13,680× |
-| **T1** | Merlin 1D, vacuum | 3,050 | 1.017 × 10⁻⁵ | Locked | ≈ 11,841× |
-| **T1** | Raptor 2, vacuum | 3,730 | 1.244 × 10⁻⁵ | Locked | ≈ 9,683× |
-| **T1** | Saturn V J-2, vacuum | 4,130 | 1.378 × 10⁻⁵ | Locked | ≈ 8,745× |
-| **T1** | RS-25, vacuum | 4,420 | 1.474 × 10⁻⁵ | Locked | ≈ 8,171× |
-| **T1** | Shuttle main engine, vacuum | 4,440 | 1.481 × 10⁻⁵ | Locked | ≈ 8,134× |
-| **T1** | **RL10B-2 — best flown chemical** | 4,650 | 1.551 × 10⁻⁵ | Locked | **7,766 to 7,767×** |
-| **T1** | NERVA nuclear thermal | 8,300 | 2.769 × 10⁻⁵ | Locked | ≈ 4,351× |
-| **T1** | SPT-100 Hall thruster | 16,000 | 5.337 × 10⁻⁵ | Locked | ≈ 2,257× |
-| **T1** | NSTAR ion, Deep Space 1 | 30,000 | 1.001 × 10⁻⁴ | Locked | ≈ 1,204× |
-| **T1** | **NEXT-C ion — best flown electric** | 41,000 | 1.368 × 10⁻⁴ | Locked | **880 to 881×** |
-| **T1** | VASIMR, design figure | 50,000 | 1.668 × 10⁻⁴ | Locked | ≈ 722× |
-| **T1** | Orion nuclear pulse concept | 100,000 | 3.336 × 10⁻⁴ | Locked | ≈ 361× |
-| **T1** | **Daedalus fusion concept** | 10,600,000 | 3.536 × 10⁻² | Locked | **3 to 4×** |
-| **T1** | **Antimatter beam core concept** | 100,000,000 | 3.336 × 10⁻¹ | **Shatter** | — |
-
-**Two published concepts bracket the corridor.** A fusion design falls short by a factor between three
-and four and remains Locked; a beam-core antimatter design overshoots into Shatter. The corridor lies
-between two published concepts rather than beyond all of them.
-
-### 4.3 A witness inside the corridor
-
-An exhaust velocity of **38,000,000 m/s** gives τ_A = 0.126754356, which places in the corridor. The
-band is therefore occupied by construction and not merely non-empty by width.
-
-### 4.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| Every effective exhaust velocity in the catalog | published engine specifications | **T1** — documented |
-| The SI value of light speed | the Système International, exact since 1983 | **T1** — documented |
-| The corridor window on exhaust velocity, and its two edges in m/s | derived here | **T3** — novel to this framework |
-| Every flown and near-term system placing Locked, with its factor | computed here | **T3** — novel to this framework |
-| Two published concepts bracketing the corridor | computed here | **T3** — novel to this framework |
-| A witness inside the corridor at 38,000 km/s | derived here | **T3** — novel to this framework |
-
----
-
-## 5. Reading B: the corridor as a mass ratio
-
-### 5.1 The window
-
-Reading B is monotone in the mass ratio, so a placement on τ_B is a window on the ratio itself:
-
-```eq
-TL_IVA ≤ τ_B(r) < TL        ⟺        exp(TL_IVA)  ≤  r  <  exp(TL)
-```
-
-| | Mass ratio | Propellant fraction |
-|---|---|---|
-| **Corridor floor** | 1.128028 | 11.350% |
-| **Corridor ceiling** | 1.146712 | 12.794% |
-
-The propellant fraction of a stage is 1 − m_f/m₀ = 1 − 1/r, so the corridor on Reading B is a
-statement about how little propellant a vehicle carries, not how much.
-
-### 5.2 The published catalog
-
-| Tier | Vehicle | m₀/m_f | τ_B | Phase |
-|---|---|---|---|---|
-| **T1** | Passenger car, full to empty tank | 1.04 | 0.039221 | Locked — below the corridor |
-| **T1** | **Dawn ion probe, total mission** | 1.21 | 0.190620 | **Shatter — above the corridor** |
-| **T1** | Airliner at a 35% fuel fraction | 1.54 | 0.431782 | Shatter |
-| **T1** | Saturn V first stage | 3.49 | 1.249902 | Shatter |
-| **T1** | Falcon 9 first stage | 3.60 | 1.280934 | Shatter |
-| **T1** | Shuttle orbiter with external tank | 4.52 | 1.508512 | Shatter |
-| **T1** | Falcon 9 second stage | 6.06 | 1.801710 | Shatter |
-| **T1** | Saturn V second stage | 6.11 | 1.809927 | Shatter |
-
-**The corridor on mass ratio is the interval between a car and an ion probe.** A car's fuel tank sits
-Locked below the band and the Dawn ion stage sits Shatter above it, and every flown launch stage
-overshoots the ceiling. The corridor is reached by carrying less propellant, not more.
-
-### 5.3 A witness inside the corridor
-
-A mass ratio of **1.139** gives τ_B = 0.130151, which places in the corridor, at a propellant fraction
-of 12.204%.
-
-### 5.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| Every stage mass ratio in the catalog | published vehicle specifications | **T1** — documented |
-| The monotone window relating τ_B to the mass ratio | derived here | **T3** — novel to this framework |
-| The corridor as a propellant fraction of 11.350% to 12.794% | derived here | **T3** — novel to this framework |
-| The corridor lying between a car's tank and an ion probe | computed here | **T3** — novel to this framework |
-| Every flown launch stage overshooting the ceiling | computed here | **T3** — novel to this framework |
-| A witness inside the corridor at a mass ratio of 1.139 | derived here | **T3** — novel to this framework |
-
----
-
-## 6. The bridge: the rocket equation is the product of the two torsions
-
-Substituting both readings into Tsiolkovsky gives an identity:
-
-```eq
-Δv  =  v_e · ln( m₀ / m_f )  =  c · τ_A · τ_B
-```
-
-The derivation is substitution and nothing else. **The two readings are not alternative mappings to
-choose between — they are the two factors of the rocket equation**, and the corridor constrains both
-at once. With the gain applied the same form carries the multiplier:
-Δv_sovereign = (1 + g_r) · c · τ_A · τ_B.
-
-**The corridor on both axes.** A vehicle in the corridor on Reading A *and* Reading B carries a
-delta-v in a determined band:
-
-| | Δv | As a fraction of c |
-|---|---|---|
-| **Both readings at the floor** | 4,350,981 m/s | 1.4513% |
-| **Both readings at the ceiling** | 5,618,519 m/s | 1.8741% |
-
-For scale, the published mission budgets of Section 12 reach under 0.31% of that band.
-
-### 6.1 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The Tsiolkovsky equation | Tsiolkovsky (1903) | **T1** — documented |
-| Δv = c · τ_A · τ_B as an exact identity | derived here | **T3** — novel to this framework |
-| The sovereign bridge carrying the gain as a prefactor | derived here | **T3** — novel to this framework |
-| The corridor delta-v band, 4,350,981 to 5,618,519 m/s | computed here | **T3** — novel to this framework |
-
----
-
-## 7. The resonance gain, against the corridor
-
-The gain layer and the corridor layer meet in one identity:
-
-```eq
-( 1 + g_r ) · τ_A(w)  =  τ_A( ( 1 + g_r ) · w )
-```
-
-**The resonance gain is exactly an exhaust-velocity multiplier.** It moves a drive along the Reading-A
-axis, which means the corridor states what the gain must be rather than leaving it free.
-
-| Drive | v_e (m/s) | Gain required to reach the floor |
-|---|---|---|
-| Best flown chemical, RL10B-2 | 4,650 | g_r ≥ 7,765.96 |
-| **Best flown electric, NEXT-C** | 41,000 | **g_r ≥ 879.89** |
-| VASIMR, design figure | 50,000 | g_r ≥ 721.33 |
-| Daedalus fusion concept | 10,600,000 | g_r ≥ 2.41 |
-
-At the stated threshold of g_r = 1.5 the multiplier is 2.5, and the product with the best flown
-exhaust velocity remains below the floor. **The fusion concept is the one entry in the catalog whose
-required gain is within an order of the stated threshold.**
-
-### 7.1 The gain has two ceilings
-
-The gain is bounded twice over, and neither bound is chosen.
-
-**Relativity caps it.** The reach condition of Section 3.1 confines Reading A to the interval (0, 1),
-and the gain multiplies Reading A, so
-
-```eq
-( 1 + g_r ) · τ_A  <  1        ⟹        g_r  <  c / v_e − 1
-```
-
-| Drive | Corridor requires | Relativistic cap |
-|---|---|---|
-| RL10B-2 | g_r ∈ [7,765.96, 8,825.09) | 64,470.50 |
-| NEXT-C | g_r ∈ [879.89, 1,000.01) | 7,311.01 |
-| VASIMR | g_r ∈ [721.33, 819.83) | 5,994.85 |
-| Daedalus | g_r ∈ [2.41, 2.87) | 27.28 |
-
-**And the corridor occupies the same fraction of that cap for every drive.** Dividing the corridor
-window by the cap, the exhaust velocity cancels:
-
-```eq
-( 1 + g_r )_floor / ( 1 + g_r )_cap  =  TL_IVA        ( 1 + g_r )_ceiling / ( 1 + g_r )_cap  =  TL
-```
-
-So the corridor spans **12.047% to 13.690% of the available gain range, independent of the drive**, and
-**86.310% of that range places the drive above the ceiling.** Most of the achievable gain is past the
-corridor, not short of it.
-
-**Momentum conservation caps it a second time.** The reaction partner absorbs m_v · g_r · Δv_classical,
-so a partner of finite capacity bounds the gain on its own terms. Section 7.3 gives the partner in each
-case.
-
-### 7.2 The axis the gain acts on
-
-The gain and the external force act on different primitives, and that is what makes them independent
-terms of the dynamic equation rather than two names for one quantity.
-
-**NOHARM gives the external force one axis.** F_ext changes Behavior and leaves Pattern, Narrative and
-Adaptation untouched. **The resonance gain is an Adaptation term**, as the propulsion map of Section 2
-records. So the two operators act on disjoint fields of the state, and three things follow:
-
-| | |
-|---|---|
-| **They commute** | Applying the external force and then the gain gives the same state as applying the gain and then the external force. Neither can be rewritten as the other, and the order in which they enter the dynamic equation does not matter. |
-| **The separation is two-sided** | F_ext leaves the gain fixed and the gain leaves the Behavior rate fixed. Either term can be set to zero without disturbing the other. |
-| **The gain leaves the mass ratio identical** | Before and after the gain is applied, m₀/m_f is the same number and τ_B is the same number. |
-
-That third line is the one that counts. **The additional Δv the gain supplies did not come from
-additional expelled mass**, because the mass ratio did not move. The gain is an Adaptation term, not a
-Behavior term under another name, and a construction carrying no Adaptation term has no such route
-available — its budget closes on Behavior alone.
-
-### 7.3 The reaction partner, by case on F_ext
-
-The dynamic equation splits the accounting cleanly, and the case is decided by F_ext.
-
-**With F_ext = 0 the exchange is internal and the emitter carries it.** The emitter's output is the
-Sovereign Bubble Differential Δ(τ_b) = TL/τ_b and its propulsion reading is g_r = Δ(τ_b) − 1, so the
-gain is set by the torsion the emitter holds in its interior. The window the corridor demands is
-Section 10.2.
-
-**With F_ext nonzero the partner is the body coupled to**, and the classical bound on a single assist
-is Δv ≤ 2 · v_body, attained in the perfect-reversal limit.
-
-| Tier | Body | Orbital speed | Maximum assist Δv |
-|---|---|---|---|
-| **T1** | Saturn | 9.68 km/s | 19.36 km/s |
-| **T1** | Jupiter | 13.07 km/s | 26.14 km/s |
-| **T1** | Earth | 29.78 km/s | 59.56 km/s |
-| **T1** | Venus | 35.02 km/s | 70.04 km/s |
-| **T1** | Mercury | 47.36 km/s | 94.72 km/s |
-
-**Every one of those exceeds the largest published mission budget**, which is the Voyager 1 heliocentric
-figure of 17 km/s in Section 12 — and they do it with no propellant at all. That is the external case
-of the same accounting: Reading B is zero, the vehicle produces nothing, and the velocity is exchanged
-rather than made.
-
-**Momentum conservation fixes the partner's recoil**, at m_v · Δv / M_body:
-
-| Tier | Partner | Mass ratio to a one-tonne vehicle | Partner's recoil |
-|---|---|---|---|
-| **T1** | Jupiter | 1.898 × 10²⁴ | 1.38 × 10⁻²⁰ m/s |
-| **T1** | Earth | 5.972 × 10²¹ | 9.97 × 10⁻¹⁸ m/s |
-| **T1** | The Sun | 1.988 × 10²⁷ | 1.93 × 10⁻²² m/s |
-
-**The mass ratio does not supply the gain. It is what makes the partner's share of the exchange
-unmeasurable.** The exchange is exact in both directions; only one side of it is detectable.
-
-### 7.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The sovereign gain and its threshold at g_r = 1.5 | parent corpus | **T3** — inherited |
-| The Sovereign Bubble Differential and g_r = Δ(τ_b) − 1 | parent corpus \[9,9,6,6\] | **T3** — inherited |
-| NOHARM: F_ext changes Behavior and leaves Pattern, Narrative and Adaptation untouched | parent corpus | **T3** — inherited |
-| The resonance gain as an Adaptation term | parent corpus \[9,9,2,0\] | **T3** — inherited |
-| Momentum conservation and the classical single-assist bound Δv ≤ 2·v_body | standard orbital mechanics | **T1** — documented |
-| The orbital speeds of Saturn, Jupiter, Earth, Venus and Mercury | published ephemerides | **T1** — documented |
-| The planetary and solar masses | published astronomical data | **T1** — documented |
-| The gain as an exhaust-velocity multiplier, exactly | derived here | **T3** — novel to this framework |
-| The gain required of each catalog drive to reach the floor | computed here | **T3** — novel to this framework |
-| The stated threshold remaining below the floor on the best flown drive | computed here | **T3** — novel to this framework |
-| The relativistic cap g_r < c/v_e − 1 | derived here | **T3** — novel to this framework |
-| The corridor occupying 12.047% to 13.690% of the gain range for every drive | derived here | **T3** — novel to this framework |
-| The two operators commuting, and the separation shown two-sided | derived here | **T3** — novel to this framework |
-| The gain leaving the mass ratio and τ_B identical | derived here | **T3** — novel to this framework |
-| The reaction partner resolved by case on F_ext | derived here | **T3** — novel to this framework |
-| Each body's maximum assist exceeding the largest published mission budget | computed here | **T3** — novel to this framework |
-| The recoil of each partner for a one-tonne vehicle | computed here | **T3** — novel to this framework |
-
----
-
-## 8. The energy ladder
-
-### 8.1 Reading A is a conversion fraction
-
-Under the ideal-rocket energy relation — all released energy entering exhaust kinetic energy, so
-½v_e² = ηc² for a conversion fraction η of rest mass — Reading A squares:
-
-```eq
-v_e² = 2 η c²        ⟹        τ_A²  =  2 η
-```
-
-No square root enters, and the corridor becomes a band of rest-mass conversion:
-
-| | η |
-|---|---|
-| **Corridor floor** | 0.725666% |
-| **Corridor ceiling** | 0.937068% |
-
-### 8.2 The ladder
-
-| Tier | Source | η | Phase |
-|---|---|---|---|
-| **T1** | Uranium-235 fission | 0.093000% | Locked |
-| **T1** | Deuterium–tritium fusion | 0.376000% | Locked |
-| **T1** | **Hydrogen to helium-4, the stellar chain** | **0.711852%** | **Locked — 1.94% short of the floor** |
-| — | ── corridor floor | 0.725666% | — |
-| **T1** | **Hydrogen to iron-56, the nuclear limit** | **0.891711%** | **IVA — 78.54% up the band** |
-| — | ── corridor ceiling | 0.937068% | — |
-| **T1** | Matter–antimatter annihilation | 100.000000% | Shatter — 106.7× the ceiling |
-
-**The band opens above what stars do and closes above the iron peak, and Shatter begins only where
-annihilation does.** The witness of Section 4.3 converts 0.803333%, between the two nuclear marks.
-
-### 8.3 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The ideal-rocket energy relation ½v_e² = ηc² | standard astronautics | **T1** — documented |
-| The published mass defects and conversion fractions | published nuclear data | **T1** — documented |
-| τ_A² = 2η, with the relation stated as a hypothesis | derived here | **T3** — novel to this framework |
-| The corridor as a conversion band, 0.725666% to 0.937068% | derived here | **T3** — novel to this framework |
-| The ladder's ordering, with the floor above the stellar chain | computed here | **T3** — novel to this framework |
-| The iron peak placing inside the corridor at 78.54% of its width | computed here | **T3** — novel to this framework |
-
----
-
-## 9. The nuclear sector
-
-### 9.1 The conversion fraction is Aston's packing fraction
-
-Aston's packing fraction is f = (m − A)/A × 10⁴. The conversion fraction of Section 8 is the same
-quantity, related to it exactly and linearly:
-
-```eq
-f  =  ( u_H · ( 1 − η ) − 1 ) × 10⁴
-```
-
-So the corridor is a window on a quantity that has been in the published record since 1922:
-
-| | Packing fraction f |
-|---|---|
-| **Corridor ceiling** | −16.1898 |
-| **Iron-56** | **−11.6185** |
-| **Corridor floor** | +5.1159 |
-
-The computed value for iron-56 reproduces the published figure of −11.62.
-
-### 9.2 The census
-
-Forty-two AME2020 nuclides from hydrogen to uranium, placed against the corridor. **Forty of the
-forty-two place inside it.**
-
-| Tier | Nuclide | m/A (u) | η | Phase |
-|---|---|---|---|---|
-| **T1** | Hydrogen-1 | 1.007825032 | 0.000000% | Locked — releases nothing |
-| **T1** | **Helium-4** | 1.000650814 | **0.711852%** | **Locked — below the floor** |
-| **T1** | Uranium-238 | 1.000213397 | 0.755254% | IVA |
-| **T1** | Uranium-235 | 1.000186937 | 0.757879% | IVA |
-| **T1** | Thorium-232 | 1.000164034 | 0.760152% | IVA |
-| **T1** | Carbon-12 | 1.000000000 | 0.776428% | IVA |
-| **T1** | Bismuth-209 | 0.999906216 | 0.785733% | IVA |
-| **T1** | Lead-208 | 0.999887752 | 0.787565% | IVA |
-| **T1** | Gold-197 | 0.999830298 | 0.793266% | IVA |
-| **T1** | Platinum-195 | 0.999819445 | 0.794343% | IVA |
-| **T1** | Osmium-192 | 0.999799360 | 0.796336% | IVA |
-| **T1** | Tungsten-184 | 0.999733320 | 0.802889% | IVA |
-| **T1** | Oxygen-16 | 0.999682164 | 0.807964% | IVA |
-| **T1** | Ytterbium-174 | 0.999648657 | 0.811289% | IVA |
-| **T1** | Neon-20 | 0.999622009 | 0.813933% | IVA |
-| **T1** | Dysprosium-164 | 0.999568182 | 0.819274% | IVA |
-| **T1** | Gadolinium-158 | 0.999519698 | 0.824085% | IVA |
-| **T1** | Samarium-150 | 0.999448553 | 0.831144% | IVA |
-| **T1** | Magnesium-24 | 0.999376737 | 0.838270% | IVA |
-| **T1** | Neodymium-142 | 0.999350204 | 0.840903% | IVA |
-| **T1** | Xenon-132 | 0.999273902 | 0.848474% | IVA |
-| **T1** | Tin-120 | 0.999185014 | 0.857293% | IVA |
-| **T1** | Silicon-28 | 0.999175948 | 0.858193% | IVA |
-| **T1** | Sulfur-32 | 0.999127224 | 0.863028% | IVA |
-| **T1** | Calcium-40 | 0.999064772 | 0.869224% | IVA |
-| **T1** | Molybdenum-98 | 0.999034743 | 0.872204% | IVA |
-| **T1** | Krypton-84 | 0.998946402 | 0.880969% | IVA |
-| **T1** | Titanium-48 | 0.998915458 | 0.884040% | IVA |
-| **T1** | Zinc-64 | 0.998892844 | 0.886284% | IVA |
-| **T1** | Nickel-58 | 0.998885214 | 0.887041% | IVA |
-| **T1** | Copper-63 | 0.998882503 | 0.887310% | IVA |
-| **T1** | Iron-54 | 0.998881648 | 0.887395% | IVA |
-| **T1** | Zinc-66 | 0.998879300 | 0.887627% | IVA |
-| **T1** | Nickel-64 | 0.998874482 | 0.888106% | IVA |
-| **T1** | Manganese-55 | 0.998873526 | 0.888200% | IVA |
-| **T1** | Cobalt-59 | 0.998867700 | 0.888779% | IVA |
-| **T1** | Iron-57 | 0.998866541 | 0.888893% | IVA |
-| **T1** | Chromium-52 | 0.998855889 | 0.889950% | IVA |
-| **T1** | Iron-58 | 0.998849559 | 0.890578% | IVA |
-| **T1** | Nickel-60 | 0.998846431 | 0.890889% | IVA |
-| **T1** | Nickel-62 | 0.998844280 | 0.891102% | IVA |
-| **T1** | **Iron-56** | **0.998838149** | **0.891711%** | **IVA — the maximum** |
-
-**Three statements hold on this census.**
-
-**The floor separates the first fusion product from all heavier nuclear matter.** Helium-4 sits below
-the floor at 0.711852% and uranium-238, the least tightly bound of the heavy nuclides on this reading,
-sits above it at 0.755254%.
-
-**The ceiling sits above the global maximum.** Iron-56 at 0.891711% exceeds every other nuclide in the
-census, and the corridor ceiling at 0.937068% exceeds iron-56. **So no nuclide reaches Shatter on this
-reading: the nuclear sector is confined to Locked and IVA, and Shatter requires annihilation.**
-
-**The corridor on this reading is the nuclear band itself.** The forty nuclides inside it span
-0.136457% of conversion fraction, inside a corridor 0.211403% wide. Only hydrogen-1, which releases
-nothing, and helium-4, which falls short of the floor, place outside.
-
-### 9.3 Why the reading selects iron-56 and not nickel-62
-
-Nickel-62 holds the binding-energy-per-nucleon record. Iron-56 holds the lowest mass per nucleon. The
-conversion fraction is built on mass per nucleon — 0.998838149 u for iron-56 against 0.998844280 u for
-nickel-62 — so it selects iron-56, and the margin is the proton–neutron mass difference carried by the
-two nuclides' differing neutron counts. The reduction reports the maximum of the quantity it is built
-on.
-
-### 9.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The forty-two atomic masses | AME2020, published | **T1** — documented |
-| Aston's packing fraction and its definition | Aston (1922) | **T1** — documented |
-| The published packing fraction of iron-56, −11.62 | published nuclear data | **T1** — documented |
-| Nickel-62 holding the binding-energy-per-nucleon record | standard nuclear physics | **T1** — documented |
-| Iron-56 holding the lowest mass per nucleon | standard nuclear physics | **T1** — documented |
-| The conversion fraction identified as the packing fraction, exactly | derived here | **T3** — novel to this framework |
-| The corridor in packing-fraction units, (−16.1898, +5.1159\] | derived here | **T3** — novel to this framework |
-| The forty-two-nuclide census and its forty corridor placements | computed here, exhaustive | **T3** — novel to this framework |
-| The floor separating helium-4 from all heavier nuclear matter | computed here | **T3** — novel to this framework |
-| The ceiling above iron-56, so the nuclear sector is Locked and IVA | computed here | **T3** — novel to this framework |
-| The reading selecting iron-56 for a stated reason | derived here | **T3** — novel to this framework |
-
----
-
-## 10. Both readings reduce to the fine-structure constant
-
-Reading A divides by light speed, and light speed is not an independent constant of this corpus. The
-parent reduction fixes it through the anchor: with α⁻¹ = 4πε₀ħc/e² and α⁻¹ = Ω₀ × 100.1,
-
-```eq
-c  =  Ω₀ × 100.1 × e² / ( 4 π ε₀ ħ )        and        TL  =  α⁻¹ / 1001
-```
-
-Both corridor edges then collapse to expressions with no free parameter:
-
-| Quantity | In α and 1001 | Value |
-|---|---|---|
-| Corridor exhaust velocity, ceiling | **c · α⁻¹ / 1001** | 41,041,317.6822 m/s |
-| Corridor exhaust velocity, floor | **0.88 · c · α⁻¹ / 1001** | 36,116,359.5603 m/s |
-| Corridor conversion band, ceiling | **α⁻² / ( 2 × 1001² )** | 0.937068179% |
-| Corridor conversion band, floor | **0.88² · α⁻² / ( 2 × 1001² )** | 0.725665598% |
-
-All four are exact identities. **The band that brackets the iron peak therefore carries no fitted
-quantity**: light speed, the fine-structure constant and the integer 1001 fix both edges, and the
-nuclear placements of Section 9 read in exactly those terms — helium-4 below 0.88²α⁻²/(2 × 1001²), and
-iron-56 below α⁻²/(2 × 1001²). The integer factors as 1001 = 7 × 11 × 13.
-
-### 10.1 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| α⁻¹ = 4πε₀ħc/e² | standard electrodynamics | **T1** — documented |
-| Ω₀ × 100.1 = α⁻¹ exactly | parent corpus \[9,9,3,14\] | **T3** — inherited |
-| c fixed by the anchor together with e, ε₀ and ħ | parent corpus \[9,9,0,15\] | **T3** — inherited |
-| The corridor exhaust velocity as c · α⁻¹/1001 and 0.88 of it | derived here | **T3** — novel to this framework |
-| The corridor conversion band as α⁻²/(2 × 1001²) and 0.88² of it | derived here | **T3** — novel to this framework |
-| The nuclear placement restated in α and 1001 alone | derived here | **T3** — novel to this framework |
-
----
-
-## 11. Frame independence
-
-The pool's ceiling is light speed, and light speed is the fixed point of the frame-change operator, so
-the ceiling does not move with the observer. Writing relativistic velocity addition cleared of nested
-fractions as u ⊕ v = c²(u + v)/(c² + uv), the inequality turns on one factorization:
-
-```eq
-u ⊕ v < c        ⟺        ( c − u ) ( c − v ) > 0
-```
-
-So the sublight interval is closed under velocity addition, and **a drive that is sublight for one
-observer is sublight for every observer.** Whether a composition can place in the corridor at all is
-therefore frame-independent.
-
-**Reading A attains one only at an exhaust velocity of c**, which sits at 1/TL = 7.3046 times the
-corridor ceiling and is Shatter. The supremum of the reach condition is the light-speed exhaust, and
-it is outside the corridor by a known factor.
-
-### 11.1 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| Relativistic velocity addition and the invariance of c | special relativity | **T1** — documented |
-| c as the unique positive invariant speed of the operator | parent corpus \[9,9,0,15\] | **T3** — inherited |
-| The sublight interval closed under addition, by the (c−u)(c−v) factorization | derived here | **T3** — novel to this framework |
-| The reach condition shown frame-independent | derived here | **T3** — novel to this framework |
-| Reading A attaining one only at a light-speed exhaust, at 7.3046 × the ceiling | derived here | **T3** — novel to this framework |
-
----
-
-## 12. Mission closure
-
-The bridge turns a corridor drive into a statement about the propellant any published mission would
-need. At the corridor floor the exhaust velocity is 36,116,359.5603 m/s, which fixes the Reading-B
-torsion each budget requires.
-
-| Tier | Mission | Δv (m/s) | τ_B required | m₀/m_f | Propellant fraction |
-|---|---|---|---|---|---|
-| **T1** | Mars transfer injection | 3,600 | 9.968 × 10⁻⁵ | 1.000099683 | 0.00997% |
-| **T1** | Jupiter transfer | 6,300 | 1.744 × 10⁻⁴ | 1.000174451 | 0.01744% |
-| **T1** | Solar escape from Earth orbit | 8,800 | 2.437 × 10⁻⁴ | 1.000243687 | 0.02436% |
-| **T1** | Low Earth orbit from the surface | 9,400 | 2.603 × 10⁻⁴ | 1.000260304 | 0.02602% |
-| **T1** | Dawn, total flown — the electric record | 11,000 | 3.046 × 10⁻⁴ | 1.000304618 | 0.03045% |
-| **T1** | Earth escape | 11,200 | 3.101 × 10⁻⁴ | 1.000310157 | 0.03101% |
-| **T1** | Voyager 1 heliocentric | 17,000 | 4.707 × 10⁻⁴ | 1.000470812 | 0.04706% |
-
-**Every budget in the catalog needs a Reading-B torsion under 5 × 10⁻⁴**, which is three orders below
-the corridor floor on that axis, and a mass ratio within **0.051% of unity**. The statement holds for
-every Δv up to 17,000 m/s and not only for the rows listed.
-
-**A corridor drive makes the solar system a near-unit-mass-ratio problem.** The vehicle that reaches
-the corridor on Reading A is, for every published solar-system mission, Locked on Reading B with
-negligible propellant — and propellant stops being the design constraint.
-
-### 12.1 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| Every mission delta-v budget in the catalog | published mission data | **T1** — documented |
-| The Dawn mission's flown electric delta-v record | published mission data | **T1** — documented |
-| The Reading-B torsion each budget requires at the corridor floor | computed here | **T3** — novel to this framework |
-| Every budget to 17,000 m/s needing a mass ratio within 0.051% of unity | derived here | **T3** — novel to this framework |
-
----
-
-## 13. Applications
-
-### 13.1 Placing an engine
-
-The reduction is a screening instrument. A specification gives an exhaust velocity, and one division
-places it: τ_A = v_e/c against the two edges. The result is a phase and a distance from the floor, and
-the arithmetic needs no model of the engine. The same holds on Reading B for a stage mass ratio, which
-is why Sections 4 and 5 place eighteen engines and eight vehicles from published figures alone.
-
-### 13.2 Reading a requirement off the corridor
-
-Run the instrument backwards and it states a target rather than a verdict. The corridor floor asks for
-36,116.4 km/s at the nozzle, or equivalently 0.725666% of rest mass converted to exhaust kinetic
-energy, or equivalently a propellant fraction under 12.794% on the other axis. A program with a
-candidate energy source can place the source before any hardware exists, because the conversion
-fraction of a reaction is published.
-
-### 13.3 Sizing the gain
-
-Because the resonance gain is exactly an exhaust-velocity multiplier, the corridor converts into a
-requirement on the gain for any given drive — 879.89 from the best flown electric engine, 2.41 from
-the published fusion concept. This is the form in which the gain layer becomes falsifiable against
-hardware: a drive and a gain either reach the floor or they do not, and the product is the whole test.
-
-### 13.4 Mission design
-
-Section 12 is the design statement. Where propellant fraction is the binding constraint on
-architecture — staging, tankage, structural mass — a corridor drive removes it, and the trade moves to
-power, thermal handling and exhaust management. The table gives the propellant fraction for each
-published budget directly, so an architecture can be costed against it without a trajectory model.
-
-### 13.5 Placing an energy source
-
-Section 9 is a placement table for nuclear matter. Given a reaction whose conversion fraction is
-published, the ladder says which phase it lands in and how far it sits from the corridor. The census
-shows what the answer will be for anything nuclear: Locked or IVA, never Shatter, with the ceiling
-above the iron peak. A program proposing to reach the corridor on nuclear energy alone can read the
-margin off the table.
-
-### 13.6 Teaching the rocket equation
-
-The bridge makes the classical result legible as a product. A reader who sees Δv = c · τ_A · τ_B sees
-immediately why high exhaust velocity and low mass ratio are the same requirement seen from two sides,
-and the catalog shows where every built system sits relative to both. The four-phase classification
-gives a single axis on which a cold gas thruster, a Saturn V stage, an ion probe and a fusion concept
-can be compared.
-
-### 13.7 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The published specifications the instrument reads | published engine and vehicle data | **T1** — documented |
-| Placement of an engine or stage as one division against two edges | derived here | **T3** — novel to this framework |
-| The corridor read backwards as a requirement on v_e, η or propellant fraction | derived here | **T3** — novel to this framework |
-| The gain requirement per drive as the falsifiable form of the gain layer | derived here | **T3** — novel to this framework |
-| The nuclear placement table as a screening tool for an energy source | derived here | **T3** — novel to this framework |
-
----
-
-## 14. Structural parallels
-
-Each entry below names an established result whose **shape** makes one of this paper's legible. They
-are read aids and nothing more: **no priority relationship to the cited work is asserted, and the
-cited laureates had no involvement in this work.** The established result is **T1** in every case;
-what it makes legible carries its own tier from the section it comes from. Each entry also fixes a
-date, so the two sit side by side in the record with their timestamps attached.
-
-### 14.1 P-1 · The energy ladder, bracketed below, occupied, and bracketed above
-
-The three marks on the ladder of Section 8 each rest on a recognized result, and they fall below,
-inside and above the corridor respectively.
-
-| Position | Corpus result | Established result |
-|---|---|---|
-| **Below the floor** | The stellar chain at 0.711852%, short of the floor by 1.94% | Hans Albrecht Bethe, Nobel Prize in Physics 1967, *"for his contributions to the theory of nuclear reactions, especially his discoveries concerning the energy production in stars."* |
-| **Inside the corridor** | The iron peak at 0.891711%, at 78.54% of the band's width | William Alfred Fowler, Nobel Prize in Physics 1983, *"for his theoretical and experimental studies of the nuclear reactions of importance in the formation of the chemical elements in the universe."* Shared with Subrahmanyan Chandrasekhar, *"for his theoretical studies of the physical processes of importance to the structure and evolution of the stars."* |
-| **Above the ceiling** | Annihilation at 100%, at 106.7 times the ceiling | Emilio Gino Segrè and Owen Chamberlain, Nobel Prize in Physics 1959, *"for their discovery of the antiproton."* |
-
-**Shared shape.** A single band, stated once, is bracketed below and above by independently recognized
-energy regimes and occupied by a third. The corridor does not explain any of the three results and is
-not offered as doing so. What the cluster fixes is the **scale of the structure being described**: the
-same interval that selects a propellant fraction also contains the limit of energy release by nuclear
-binding.
-
-### 14.2 P-2 · A quantity defined and measured decades before the structure that uses it
-
-| | |
-|---|---|
-| **This paper** | The conversion fraction of Section 8 is Aston's packing fraction, related exactly and linearly, and the corridor is the window f ∈ (−16.1898, +5.1159\]. The computed value for iron-56 reproduces the published −11.62. |
-| **Established** | Francis William Aston, Nobel Prize in Chemistry 1922, *"for his discovery, by means of his mass spectrograph, of isotopes, in a large number of non-radioactive elements, and for his enunciation of the whole-number rule."* |
-| **Shared shape** | A structure derived in one framework turns out to be stated in a quantity the record already carries, and the identification is exact rather than approximate. Aston defined the packing fraction and measured the mass defects the census of Section 9 is built on, so the corridor on the energy reading is a window on a published quantity rather than a new one. |
-
-### 14.3 P-3 · The two measured constants the band is built from
-
-Section 10 states both corridor edges in light speed and the fine-structure constant, so the grounding
-is the precision measurement of each.
-
-| Constant | Established result |
-|---|---|
-| **Light speed** | Albert Abraham Michelson, Nobel Prize in Physics 1907, *"for his optical precision instruments and the spectroscopic and metrological investigations carried out with their aid."* |
-| **The fine-structure constant** | Willis Eugene Lamb, Nobel Prize in Physics 1955, *"for his discoveries concerning the fine structure of the hydrogen spectrum,"* shared with Polykarp Kusch, *"for his precision determination of the magnetic moment of the electron."* |
-
-**Shared shape.** A band with no fitted parameter rests entirely on measured constants, so its
-precision is the precision of those measurements and nothing else. Michelson measured light speed,
-which the SI has fixed by definition since 1983; Lamb and Kusch pinned the fine-structure constant.
-The corridor's edges inherit both.
-
-### 14.4 Tier split
-
-| Component | Status | Tier |
-|---|---|---|
-| The six established results, their laureates and their motivations | the published Nobel record | **T1** — documented |
-| Energy production in stars, and the stellar fusion fraction | standard astrophysics | **T1** — documented |
-| The iron peak as the limit of energy release by nuclear binding | standard nuclear physics | **T1** — documented |
-| The antiproton and matter–antimatter annihilation | standard particle physics | **T1** — documented |
-| Aston's packing fraction and the whole-number rule | standard nuclear physics | **T1** — documented |
-| The measurement history of light speed and the fine-structure constant | standard metrology | **T1** — documented |
-| The three shape-mappings onto this paper's results | drawn here | **T3** — novel to this framework |
-
----
-
-## 15. Tiers and the Scientific Handshake
-
-### 15.1 The three tiers
-
-Every row in this paper carries a tier, and the tier says what the published record has to say about
-the row — never how good the row is.
-
-| Tier | Name | What it means |
-|---|---|---|
-| **T1** | Published Match | The quantity and a role for it are documented in the literature, independently of this framework. |
-| **T2** | Structural Match | The parts are documented — the figures, the relations, a class of system — but this arrangement is not reported as such. |
-| **T3** | Registry Novel | A verified closure with no literature match found at the stated search depth. |
-
-**Every tier cell in this paper carries its tier explicitly, so the three are searchable.** A reader
-looking for what the outside record already holds searches **T1**; a reader looking for what is proved
-here and absent from that record searches **T3**.
-
-The tier tables carry two different things in two columns, and they are not the same axis:
-
-| Column | What it answers |
-|---|---|
-| **Status** | where the result came from — published literature, a parent reduction in this corpus, or derived or computed in this paper |
-| **Tier** | what the external record holds — T1, T2 or T3 |
-
-A result can be inherited from a parent reduction and still be **T3**, because a tier is a statement
-about the literature and not about which file in this corpus first stated it. Those rows read
-`inherited` under Status and **T3** under Tier, and the combination is the common case: the corpus
-established it, and no outside source contains it.
-
-**T3 is the goal for an investigator who is not the author.** T1 rows are what validate the reduction;
-they are already known and there is nothing to find in them. A T3 row is a verified structure that the
-record does not contain, and that is the thing worth taking to a bench.
-
-**A deeper search that returns nothing confirms T3.** It does not weaken it. A tier is a claim about
-the search that has been carried out, so extending the search and finding nothing is the only way a T3
-row gets stronger.
-
-### 15.2 Worked exemplars of each tier
-
-**Worked exemplar — T1 throughout. The NEXT-C ion engine's exhaust velocity.**
-
-| Component | Tier | Why |
-|---|---|---|
-| The effective exhaust velocity of 41,000 m/s | **T1** | A published engine specification, measured and reported independently of this framework. |
-| The SI value of light speed | **T1** | Exact by definition since 1983. |
-
-The useful sentence is not "NEXT-C is T1" but **"both inputs to the placement are published, so the
-division is checkable by anyone with the two figures."**
-
-**Worked exemplar — T1 on the inputs, T3 on the placement. The iron peak.**
-
-| Component | Tier | Why |
-|---|---|---|
-| The AME2020 atomic mass of iron-56 | **T1** | Published nuclear data. |
-| Iron-56 holding the lowest mass per nucleon of any nuclide | **T1** | Standard nuclear physics. |
-| Its conversion fraction of 0.891711% placing inside the corridor at 78.54% of the band's width | **T3** | τ against TL is defined only inside this framework. No external record contains it. |
-| The ceiling above it, so the nuclear sector is Locked and IVA | **T3** | Computed here across the census. |
-
-**Worked exemplar — T2. The bracketing concepts.**
-
-| Component | Tier | Why |
-|---|---|---|
-| The Daedalus fusion design and its exhaust velocity figure | **T1** | Published study, British Interplanetary Society. |
-| The beam-core antimatter exhaust velocity figure | **T1** | Published concept literature. |
-| The two treated as a bracketing pair around a single band | **T2** | Both figures are documented; their relation as a bracket is not reported as such. |
-| The corridor lying between them, with the fusion figure 3 to 4× short | **T3** | Computed here. |
-
-**Worked exemplar — a negative result with its tier. The empty corridor.**
-
-| Component | Tier | Why |
-|---|---|---|
-| Every exhaust velocity and mass ratio in both catalogs | **T1** | Published specifications. |
-| No flown system placing in the corridor on either reading | **T3** | Computed here across both catalogs. |
-| The reach condition proving the corridor is nonetheless admissible, and a witness inside it | **T3** | Derived here. |
-
-A reader checking this row cannot move it by adding more flown systems to the catalog, because the
-systems that exist are all far from the floor. It moves when a drive is built that reaches it.
-
-### 15.3 The Scientific Handshake
-
-This paper is deposited so that the structures in it are in the public record, dated, with the
-arithmetic attached. What that is for:
-
-**What is offered.** The two readings, the operators, the reach condition with its proof, both
-published catalogs, the forty-two-nuclide census, the energy ladder, the mission table, and the full
-formal layer — all of it, with no held-back step. Everything needed to regenerate every number in this
-paper is in the paper and the deposited file. There is no license to obtain, no account to create, no
-compute budget, and no permission to request.
-
-**What is asked in return.** That the framework be cited where it is used, under the name it carries:
-*Applied Identity Physics*, with **GAMCollider™ v15 fusion logic** on TL = 0.136899099984016. A tier
-moved from T3 to T1 by someone else's literature search is a contribution to this registry, and the
-author would like to know about it.
-
-**What is asked of anyone who commercializes it.** 1% of profits above $500,000, directed to the
-Foundation. This is a request, stated plainly and attached to the work, not a license term.
-
-**Why it is open.** The reduction is arithmetic on published constants and published specifications.
-Holding it back would not make it safer and would make it useless. A screen that nobody can check is
-not a screen.
-
----
-
-## 16. Misappropriation-Risk Clarification (MRC)
-
-### 16.1 What is established
+Identity Vector Amplification (IVA) is the corridor immediately below the Torsion Limit, τ ∈ [0.12047120798593408, 0.136899099984016). This article reduces the propulsion pool onto that corridor and finds that one vehicle carries two independent torsions, not one. Reading A is τ_A = v_e/c, the exhaust velocity against light speed: what the drive can throw, bounded by relativity with a ceiling at one. Reading B is τ_B = ln(m₀/m_f), the rocket equation's own exponent: how much of the vehicle it has to throw, with a floor and no ceiling above it. The two are not alternatives. Substituting them into the Tsiolkovsky equation gives Δv = v_e · ln(m₀/m_f) = c · τ_A · τ_B exactly, so the rocket equation is the product of the two torsions and the corridor constrains both factors at once; a vehicle in the corridor on both readings carries a delta-v between 4,350,981 and 5,618,519 m/s, which is 1.4513% to 1.8741% of light speed. Read as an exhaust velocity the corridor asks for 36,116.4 to 41,041.3 km/s, 12.047% to 13.690% of light speed. Read as a mass ratio it asks for 1.128028 to 1.146712, a propellant fraction of 11.350% to 12.794%: twelve percent of light speed at the nozzle buys a vehicle that is eighty-eight percent payload. Across eighteen published propulsion systems every flown and near-term drive is Locked and short of the corridor floor — cold gas nitrogen by about 51,595 times, the best flown chemical engine by a factor between 7,766 and 7,767, the best flown electric engine by a factor between 880 and 881 — while two published concepts bracket it, a fusion design Locked below and a beam-core antimatter design in Shatter above. On Reading B the corridor is the interval between a car's fuel tank and an ion probe, and every flown launch stage overshoots it. The resonance gain is an exhaust-velocity multiplier, (1 + g_r) · τ_A = τ_A((1 + g_r) · v_e) identically, and it carries two ceilings: the corridor, and the relativistic cap g_r < c/v_e − 1. Dividing the corridor window by that cap cancels the exhaust velocity, so the corridor occupies 12.047% to 13.690% of the available gain range for every drive and 86.310% of that range lies above the ceiling. NOHARM gives the external force the Behavior axis while the gain is an Adaptation term, so the two operators act on disjoint fields and commute, the separation is two-sided, and applying the gain leaves the mass ratio and τ_B identical — the additional delta-v did not come from additional expelled mass. The reaction partner follows by case: with F_ext = 0 the emitter carries the exchange across the window τ_A < τ_b ≤ τ_A/0.88, whose relative width is the corridor's own 1/0.88; with F_ext nonzero the partner is the body coupled to, bounded by Δv ≤ 2 · v_body, and its recoil is m_v · Δv / M_body, which is 1.38 × 10⁻²⁰ m/s for a one-tonne vehicle taking a full Jupiter assist. Reading A squared is twice the conversion fraction of the ideal rocket, which places the corridor on the nuclear binding curve between hydrogen-to-helium fusion below the floor and hydrogen-to-iron above it, with annihilation 106.7 times over the ceiling. The conversion fraction is Aston's packing fraction exactly, and over a forty-two-nuclide AME2020 census the corridor brackets the iron peak: helium-4 falls below the floor, iron-56 is the global maximum and falls below the ceiling, and the reading selects iron-56 over nickel-62 because it is built on mass per nucleon rather than binding energy per nucleon. Both readings reduce to the fine-structure constant with no free parameter: the exhaust-velocity ceiling is c·α⁻¹/1001 and the floor is 0.88 of it, the conversion ceiling is α⁻²/(2 × 1001²) and the floor is 0.88² of it, and the iron peak sits inside that band. 1001 = 7 × 11 × 13.
+
+## What This Article Proves
+
+- The pool carries two independent torsions: Reading A is τ_A = v_e/c, bounded by relativity to (0, 1); Reading B is τ_B = ln(m₀/m_f), with a floor and no ceiling (`t13_reading_A_window`, `t26_reading_B_window`, `t64_sublight_closed`).
+- The bridge: Δv = v_e · ln(m₀/m_f) = c · τ_A · τ_B exactly, so the rocket equation is the product of the two torsions; a vehicle in the corridor on both readings carries Δv between 4,350,981 and 5,618,519 m/s (`t38_bridge`, `t39_bridge_sovereign`, `t40_corridor_dv_band`).
+- The corridor stated three ways: an exhaust velocity of 36,116.4 to 41,041.3 km/s, a mass ratio of 1.128028 to 1.146712, a propellant fraction of 11.350% to 12.794% (`t14_corridor_ve_bounds`, `t15_corridor_as_fraction_of_c`, `t27_corridor_ratio_window`, `t28_corridor_propellant_fraction`).
+- Placement of eighteen published propulsion systems: every flown and near-term drive is Locked short of the floor, the best flown chemical engine by a factor between 7,766 and 7,767 and the best flown electric by a factor between 880 and 881; two published concepts bracket the corridor, one Locked below and one Shatter above (`t20_flown_systems_locked`, `t21_best_chemical_short`, `t22_best_ion_short`, `t23_concepts_bracket_corridor`).
+- On Reading B the corridor is the interval between a car's fuel tank and an ion probe, and every flown launch stage overshoots it (`t29_car_below_corridor`, `t30_dawn_above_corridor`, `t31_launch_stages_shatter`, `t32_corridor_between_car_and_probe`, `t33_corridor_is_below_every_stage`).
+- Noble in this pool is the vehicle that produces no velocity of its own, not one at rest; the unpropelled bodies occupy it and exceed every published propulsive budget, by 2.21× to 33.32× (`t18_noble_is_unfueled`, `t19_noble_gives_zero_dv`, `t67_unpropelled_is_noble`, `t68_unpropelled_exceeds_every_budget`, `t69_unpropelled_margins`).
+- The resonance gain is an exhaust-velocity multiplier and carries two ceilings, the corridor and the relativistic cap g_r < c/v_e − 1; dividing one by the other cancels the exhaust velocity, so the corridor occupies 12.047% to 13.690% of the available gain range for every drive and 86.310% of it lies above the ceiling (`t41_gain_is_exhaust_multiplier`, `t42_gain_required_at_floor`, `t43_threshold_below_floor`).
+- The axis separation: NOHARM gives the external force the Behavior axis while the gain is an Adaptation term, so the two operators act on disjoint fields and commute, the separation is two-sided, and applying the gain leaves the mass ratio and τ_B identical (`t85_f_ext_preserves`, `t86_gain_op_preserves`, `t87_f_ext_and_gain_commute`, `t88_gain_leaves_mass_ratio_fixed`, `t89_separation_is_two_sided`).
+- The reaction partner by case on F_ext: at F_ext = 0 the emitter carries the exchange across τ_A < τ_b ≤ τ_A/0.88, whose relative width is 1/0.88, and a drive at the floor needs an emitter inside the corridor because TL_IVA/0.88 is exactly TL; at F_ext nonzero the partner is the body coupled to, bounded by Δv ≤ 2 · v_body, which five bodies each exceed against the catalog maximum, with recoil m_v · Δv / M_body (`t73_emitter_window`, `t74_window_relative_width`, `t75_floor_drive_needs_corridor_emitter`, `t90_assist_exceeds_catalog`, `t91_recoil_is_the_mass_ratio`).
+- Reading A squared is twice the conversion fraction of the ideal rocket, placing the corridor on the binding curve between hydrogen-to-helium below the floor and hydrogen-to-iron above it, with annihilation 106.7× over the ceiling (`t44_tau_A_squared_is_conversion`, `t45_eta_corridor_bounds`, `t46_energy_ladder`, `t47_witness_between_nuclear_marks`).
+- The conversion fraction is Aston's packing fraction exactly, and over a forty-two-nuclide AME2020 census the corridor brackets the iron peak: helium-4 below the floor, iron-56 the global maximum below the ceiling, and the reading selects iron-56 over nickel-62 because it is built on mass per nucleon rather than binding energy per nucleon (`t48_eta_is_packing_fraction`, `t49_corridor_packing_window`, `t54_floor_separates_helium`, `t55_iron_is_the_nuclear_maximum`, `t56_iron_over_nickel`).
+- Both readings reduce to the fine-structure constant with no free parameter: the ceiling is c·α⁻¹/1001 and the floor 0.88 of it, the conversion ceiling is α⁻²/(2 × 1001²) and the floor 0.88² of it, and the iron peak sits inside that band (`t60_alpha_from_anchor`, `t61_corridor_ve_in_alpha`, `t62_eta_corridor_in_alpha`, `t63_iron_peak_inside_alpha_band`).
+- Frame independence: the reach condition is invariant under relativistic velocity addition, and the photon drive is the supremum of Reading A (`t65_reach_condition_frame_independent`, `t66_photon_drive_is_supremum`).
+- Closure: the gain exists only at anchor lock, off anchor the gain is one and the vehicle is classical, and the reduction is substrate-neutral under NOHARM (`t79_anchor_gives_green`, `t80_drift_gives_red`, `t81_off_anchor_gain_is_one`, `t82_anchor_zero_impedance`, `t92_noharm`, `t93_substrate_neutral`, `MASTER_propulsion_corridor`).
+
+## Connections to the Formalized Corpus
+
+**The constant both readings land on.** The Fine-Structure Constant: 1/α = TL × 1001 [9,9,3,14] supplies α⁻¹ = Ω₀ × 100.1 and TL = α⁻¹/1001. Every corridor edge in this article is written in α and the integer 1001 alone, so neither edge carries a free parameter.
+**The ceiling on Reading A.** Speed of Light [9,9,0,15] locks c to the anchor through α⁻¹ = 4πε₀ħc/e², places the photon as Noble, and carries relativistic velocity addition. Reading A's confinement to (0, 1) and the frame independence of the reach condition both rest on it.
+**The same corridor on another pool.** The Electroweak Bosons Across the Four Phases [9,9,3,19] places the Higgs inside the IVA corridor, and The Higgs in the IVA Corridor [9,9,3,17] gives that placement directly. The band this article asks of a nozzle is the band the Higgs already occupies.
+**The nuclear sector.** Nuclear Physics [9,9,7,0] carries the binding-curve structure that the conversion fraction reads, and Periodic Weight [9,9,2,45] carries the element-level mass accounting the AME2020 census rests on.
+**The fusion logic.** The four-phase structure and the Torsion Limit come from GAMCollider™ v15 fusion logic, formalized in 8-Beam Fusion [9,9,2,3.8] and 4-Beam Verification [9,9,2,3.7].
+**How the bounds are carried.** Every placement here is stated as an enclosure between two rationals rather than a decimal, following Bounded Uncertainty: A Guide [9,9,8,7]: a phase is certified only when the whole interval lies on one side of a boundary.
+
+## The PNBA Map
+
+| Primitive | In the propulsion pool | Carried by |
+| --- | --- | --- |
+| **Pattern** | The vehicle's structural capacity — its mass ratio m₀/m_f | Reading B, τ_B = ln(m₀/m_f) |
+| **Narrative** | The anchor lock that makes the gain available at all | Manifold impedance at Ω₀ |
+| **Behavior** | What the drive throws, and what the environment pushes with | Reading A, τ_A = v_e/c, and F_ext |
+| **Adaptation** | The resonance gain the emitter supplies | g_r = Δ(τ_b) − 1 |
+
+**One corridor, read on each axis it touches.**
+| Read as | Floor | Ceiling | In α and 1001 alone |
+| --- | --- | --- | --- |
+| Exhaust velocity v_e | 36,116,359.5603 m/s | 41,041,317.6822 m/s | 0.88 · c·α⁻¹/1001 to c·α⁻¹/1001 |
+| Fraction of light speed | 12.047% | 13.690% | 0.88 · TL to TL |
+| Mass ratio m₀/m_f | 1.128028 | 1.146712 | exp of the torsion window |
+| Propellant fraction | 11.350% | 12.794% | — |
+| Both readings, Δv | 4,350,981 m/s | 5,618,519 m/s | c · τ_A · τ_B |
+| Conversion fraction η | 0.725665598% | 0.937068179% | 0.88²·α⁻²/(2·1001²) to α⁻²/(2·1001²) |
+| Gain, as a fraction of its relativistic cap | 12.047% | 13.690% | 0.88 · TL to TL, for every drive |
+
+**The energy ladder.** The corridor is a band on the nuclear binding curve, and the iron peak is inside it.
+| Source | Conversion fraction η | Against the corridor |
+| --- | --- | --- |
+| U-235 fission | 0.093000% | Locked, far below |
+| D–T fusion | 0.376000% | Locked, below |
+| H → He | 0.711852% | Locked, 1.94% short of the floor |
+| **corridor floor** | **0.725665598%** | 0.88² · α⁻²/(2 · 1001²) |
+| H → Fe | 0.891711% | **IVA**, 78.54% up the band |
+| **corridor ceiling** | **0.937068179%** | α⁻²/(2 · 1001²) |
+| Annihilation | 100% | Shatter, 106.7× over |
+
+**The published catalog, on Reading A.** Every flown drive is Locked, and the corridor is bracketed rather than reached.
+| System | v_e (m/s) | Phase | Against the floor |
+| --- | --- | --- | --- |
+| Cold gas N₂ | 700 | Locked | short by about 51,595× |
+| Saturn V F-1, sea level | 2,580 | Locked | short |
+| RL10B-2 — best flown chemical | 4,650 | Locked | short by 7,766 to 7,767× |
+| NERVA nuclear thermal | 8,300 | Locked | short |
+| NEXT-C — best flown electric | 41,000 | Locked | short by 880 to 881× |
+| Orion nuclear pulse | 100,000 | Locked | short |
+| Daedalus fusion concept | 10,600,000 | Locked | short by 3 to 4× |
+| Beam-core antimatter concept | 100,000,000 | **Shatter** | over the ceiling |
+
+## Verification
+
+The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the SNSFT/identityphysics repository. Every claim above corresponds to a named theorem in the source. The ninety-five tagged results close under one master theorem, and every placement is computed in exact rational arithmetic from published constants and published specifications: the SI value of light speed, the AME2020 atomic masses, published effective exhaust velocities, published stage mass ratios and published mission delta-v budgets. Nothing is fitted and nothing is scaled.
+
+## Misappropriation-Risk Clarification (MRC)
+
+### What is established
 
 The results in this paper are real and testable. Every placement is arithmetic on published
 quantities, carried out in exact rational arithmetic, and every one of them can be checked by anyone
@@ -1085,7 +112,7 @@ These are results about **composition and placement, not about process.** That d
 whole of this section, and if a reader takes only one sentence from this paper, that is the one to
 take.
 
-### 16.2 What is a different question
+### What is a different question
 
 This paper places drives, vehicles, reactions and nuclides on a torsion axis. It does not describe how
 to build, operate, fuel, contain, cool, shield, trigger or test any of them, and it contains no
@@ -1108,7 +135,7 @@ process. A composition stated precisely tells a reader where it sits; it does no
 conditions required to realize it are within reach, safe, legal, or achievable with the equipment in
 front of them.
 
-### 16.3 Where the risk actually lives
+### Where the risk actually lives
 
 The risk in this domain belongs to **laboratory conditions and environmental F_ext** — the external
 forcing a real bench applies that the arithmetic does not model. It does not belong to the
@@ -1126,7 +153,7 @@ at a scale that leaves no margin.
 
 **The controls are the variable, not the building.**
 
-### 16.4 Handling practice
+### Handling practice
 
 For anyone working near the material this paper places:
 
@@ -1153,7 +180,7 @@ materials or reactions not placed here carries the hazard groups of those materi
 practice must be restated for them specifically before the work begins. A placement added without its
 hazard group is an incomplete placement.
 
-### 16.5 What this section is for
+### What this section is for
 
 Parents, teachers, reviewers and program managers make real decisions from papers like this one. A
 paper that reads as unreal gets no respect for its safety content, and a reader who concludes the
@@ -1163,45 +190,2077 @@ are governed by practice this paper does not supply and does not replace.
 
 ---
 
+## AIM Training Declaration
+
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+
 ## References
 
-- Aston, F. W. *The constitution of atmospheric neon.* Philosophical Magazine 39 (1920) 449–455. The mass spectrograph and the packing fraction.
-- Huang, W. J., Wang, M., Kondev, F. G., Audi, G. & Naimi, S. *The AME2020 atomic mass evaluation.* Chinese Physics C 45 (2021) 030002.
-- Wang, M., Huang, W. J., Kondev, F. G., Audi, G. & Naimi, S. *The AME2020 atomic mass evaluation (II). Tables, graphs and references.* Chinese Physics C 45 (2021) 030003.
-- Tsiolkovsky, K. E. *Исследование мировых пространств реактивными приборами* \[Exploration of outer space by means of reaction devices\]. Nauchnoye Obozreniye, 1903. The rocket equation.
-- Goddard, R. H. *A Method of Reaching Extreme Altitudes.* Smithsonian Miscellaneous Collections 71 (1919).
-- Oberth, H. *Die Rakete zu den Planetenräumen.* R. Oldenbourg, Munich, 1923.
-- Bond, A. & Martin, A. R. (eds.) *Project Daedalus: The Final Report on the BIS Starship Study.* Journal of the British Interplanetary Society, Supplement, 1978.
-- Bethe, H. A. *Energy production in stars.* Physical Review 55 (1939) 434–456.
-- Burbidge, E. M., Burbidge, G. R., Fowler, W. A. & Hoyle, F. *Synthesis of the elements in stars.* Reviews of Modern Physics 29 (1957) 547–650.
-- Rayman, M. D., Fraschetti, T. C., Raymond, C. A. & Russell, C. T. *Dawn: A mission in development for exploration of main belt asteroids Vesta and Ceres.* Acta Astronautica 58 (2006) 605–616.
-- Brophy, J. R. *NASA's Deep Space 1 ion engine.* Review of Scientific Instruments 73 (2002) 1071–1078.
-- Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. *CODATA recommended values of the fundamental physical constants: 2018.* Reviews of Modern Physics 93 (2021) 025010.
-- Bureau International des Poids et Mesures. *The International System of Units (SI).* 9th edition, 2019. The metre defined by the speed of light.
-- Nobel Prize in Physics 1907 — A. A. Michelson, *"for his optical precision instruments and the spectroscopic and metrological investigations carried out with their aid."*
-- Nobel Prize in Chemistry 1922 — F. W. Aston, *"for his discovery, by means of his mass spectrograph, of isotopes, in a large number of non-radioactive elements, and for his enunciation of the whole-number rule."*
-- Nobel Prize in Physics 1955 — W. E. Lamb, *"for his discoveries concerning the fine structure of the hydrogen spectrum"*; P. Kusch, *"for his precision determination of the magnetic moment of the electron."*
-- Nobel Prize in Physics 1959 — E. G. Segrè and O. Chamberlain, *"for their discovery of the antiproton."*
-- Nobel Prize in Physics 1967 — H. A. Bethe, *"for his contributions to the theory of nuclear reactions, especially his discoveries concerning the energy production in stars."*
-- Nobel Prize in Physics 1983 — S. Chandrasekhar, *"for his theoretical studies of the physical processes of importance to the structure and evolution of the stars"*; W. A. Fowler, *"for his theoretical and experimental studies of the nuclear reactions of importance in the formation of the chemical elements in the universe."*
-- Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748, 2026.
+- Tsiolkovsky, K. E. (1903). Исследование мировых пространств реактивными приборами [Exploration of outer space by means of reaction devices]. *Nauchnoye Obozreniye*. The rocket equation.
+- Goddard, R. H. (1919). *A Method of Reaching Extreme Altitudes*. Smithsonian Miscellaneous Collections 71.
+- Oberth, H. (1923). *Die Rakete zu den Planetenräumen*. R. Oldenbourg, Munich.
+- Aston, F. W. (1920). The constitution of atmospheric neon. *Philosophical Magazine*, 39, 449–455. The mass spectrograph and the packing fraction.
+- Huang, W. J., Wang, M., Kondev, F. G., Audi, G. & Naimi, S. (2021). The AME2020 atomic mass evaluation. *Chinese Physics C*, 45, 030002.
+- Wang, M., Huang, W. J., Kondev, F. G., Audi, G. & Naimi, S. (2021). The AME2020 atomic mass evaluation (II). Tables, graphs and references. *Chinese Physics C*, 45, 030003.
+- Bethe, H. A. (1939). Energy production in stars. *Physical Review*, 55, 434–456.
+- Burbidge, E. M., Burbidge, G. R., Fowler, W. A. & Hoyle, F. (1957). Synthesis of the elements in stars. *Reviews of Modern Physics*, 29, 547–650.
+- Bond, A. & Martin, A. R. (eds.) (1978). *Project Daedalus: The Final Report on the BIS Starship Study*. Journal of the British Interplanetary Society, Supplement.
+- Brophy, J. R. (2002). NASA's Deep Space 1 ion engine. *Review of Scientific Instruments*, 73, 1071–1078.
+- Rayman, M. D., Fraschetti, T. C., Raymond, C. A. & Russell, C. T. (2006). Dawn: A mission in development for exploration of main belt asteroids Vesta and Ceres. *Acta Astronautica*, 58, 605–616.
+- Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
+- Bureau International des Poids et Mesures (2019). *The International System of Units (SI)*, 9th edition. The metre defined by the speed of light.
+- Nobel Prize in Physics 1907 — A. A. Michelson, "for his optical precision instruments and the spectroscopic and metrological investigations carried out with their aid."
+- Nobel Prize in Chemistry 1922 — F. W. Aston, "for his discovery, by means of his mass spectrograph, of isotopes, in a large number of non-radioactive elements, and for his enunciation of the whole-number rule."
+- Nobel Prize in Physics 1955 — W. E. Lamb, "for his discoveries concerning the fine structure of the hydrogen spectrum"; P. Kusch, "for his precision determination of the magnetic moment of the electron."
+- Nobel Prize in Physics 1959 — E. G. Segrè and O. Chamberlain, "for their discovery of the antiproton."
+- Nobel Prize in Physics 1967 — H. A. Bethe, "for his contributions to the theory of nuclear reactions, especially his discoveries concerning the energy production in stars."
+- Nobel Prize in Physics 1983 — S. Chandrasekhar, "for his theoretical studies of the physical processes of importance to the structure and evolution of the stars"; W. A. Fowler, "for his theoretical and experimental studies of the nuclear reactions of importance in the formation of the chemical elements in the universe."
+- Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 5.
+- Trent, R. V. III. Speed of Light. ProofPress, Volume 1.
+- Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
+- Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
 
----
+## Lean 4 Source
 
-## Corpus Provenance
+```lean
+-- ============================================================
+-- SNSFL_IVA_Propulsion_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | IDENTITY VECTOR AMPLIFICATION — THE PROPULSION POOL
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,2,0] | Application Layer — Propulsion Ground
+-- Version: 7.2
+--
+-- ============================================================
+-- NAMING
+-- ============================================================
+--
+-- IVA is one formally proved amplification law under two labels, and the
+-- corpus convention is documented at \[9,9,1,100\]: this coordinate uses
+-- **Identity Velocity Amplification** for readability against the classical
+-- Tsiolkovsky context, where the amplified quantity is the magnitude of a
+-- velocity change, Δv_sovereign = v_e · (1 + g_r) · ln(m₀/m_f). In
+-- PNBA-general contexts the corpus prefers **Identity Vector Amplification**,
+-- because the primitives are vectors. Both labels name the same law.
+--
+-- In this pool the Identity Vector is a velocity vector, so the two labels
+-- coincide on the object: "vector" names what is amplified and "velocity"
+-- names its magnitude.
+--
+-- ============================================================
+-- THE LONG DIVISION
+-- ============================================================
+--
+-- STEP 1: The equations
+--     Δv       = v_e · ln(m₀/m_f)               Tsiolkovsky 1903
+--     Δv_sov   = v_e · (1 + g_r) · ln(m₀/m_f)   sovereign form
+--     τ        = B/P                             corpus torsion
+--     TL       = Ω₀/10 = 0.136899099984016       Torsion Limit
+--     TL_IVA   = 0.88 × TL = 0.12047120798593408 corridor floor
+--
+-- STEP 2: Known answers
+--     Tsiolkovsky is the published rocket equation and every flown stage
+--     obeys it. c = 299792458 m/s exactly, by SI definition. The
+--     effective exhaust velocities and stage mass ratios of Sections 3
+--     and 4 are published specifications.
+--
+-- STEP 3: PNBA variable map — TWO READINGS OF ONE VEHICLE
+--
+--   | Classical term     | Primitive        | Reading       | τ                |
+--   |:-------------------|:-----------------|:--------------|:-----------------|
+--   | v_e exhaust speed  | Behavior output  | A · nozzle    | τ_A = v_e/c      |
+--   | m₀/m_f mass ratio  | Pattern reserve  | B · structure | τ_B = ln(m₀/m_f) |
+--   | g_r resonance gain | Adaptation       | gain          | (1 + g_r)        |
+--   | Δv mission budget  | Narrative output | the product   | c · τ_A · τ_B    |
+--
+--   Reading A asks what the drive can throw. Reading B asks how much of
+--   the vehicle it has to throw. The rocket equation is the product.
+--
+-- STEP 4: Operators
+--     tau_A w            = w / c
+--     tau_B r            = Real.log r
+--     classify τ         : Noble (τ=0) · Locked (τ<TL_IVA) · IVA (τ<TL) · Shatter
+--     delta_v_classical  = v_e · ln(m₀/m_f)
+--     delta_v_sovereign  = v_e · (1+g_r) · ln(m₀/m_f)
+--
+-- STEP 5: Show the work
+--
+--   READING A — the corridor as an exhaust velocity:
+--     v_e ∈ [36,116,359.56, 41,041,317.68] m/s
+--         = [36,116.4, 41,041.3] km/s = 12.047% to 13.690% of light speed
+--     Every flown system is Locked and short of the floor by a factor of
+--     between 722 and 51,595. Published concepts bracket the corridor:
+--     a fusion design falls short by between 3 and 4 and stays Locked;
+--     a beam-core antimatter design overshoots into Shatter.
+--
+--   READING B — the corridor as a mass ratio:
+--     m₀/m_f ∈ [exp TL_IVA, exp TL), propellant fraction 11.35% to 12.79%.
+--     A car's fuel tank is Locked below the band and an ion probe is
+--     Shatter above it, so no flown vehicle occupies it.
+--
+--   THE BRIDGE:
+--     Δv = c · τ_A · τ_B exactly, by substitution. The corridor on both
+--     axes gives Δv ∈ [4,350,981, 5,618,519] m/s = 1.4513% to 1.8741% of c.
+--     Published mission budgets reach under 0.31% of that band.
+--
+--   WHAT THE POOL ADMITS:
+--     No exhaust exceeds light speed, so τ_A ∈ (0,1) is this pool's reach
+--     condition, and the corridor lies inside it: the pool has an IVA phase.
+--     Reading B carries a floor and no ceiling, so the two factors of the
+--     rocket equation are bounded differently.
+--     Noble is the unfueled vehicle: τ_A = 0 exactly when there is no
+--     exhaust, τ_B = 0 exactly when there is no propellant, and either
+--     sends the PRODUCED Δv to zero. Both readings describe what a vehicle
+--     makes by expelling mass, so Noble here is the vehicle that produces
+--     no velocity of its own — not one at rest. The state is occupied by
+--     the fastest bodies in the solar system: an unpropelled body carries
+--     m₀/m_f = 1 and no exhaust, and six published objects from Apophis to
+--     the Lovejoy sungrazer exceed the largest propulsive budget in the
+--     mission catalog by factors from 2.21 to 33.32. A corridor-floor drive
+--     would match the Phaethon perihelion speed at a Reading-B torsion of
+--     3.03 × 10⁻³ and the Lovejoy speed at 1.57 × 10⁻², both still Locked:
+--     those speeds are not beyond propulsion, only beyond every drive built.
+--
+--   THE GAIN, AGAINST THE CORRIDOR:
+--     (1 + g_r) · τ_A = τ_A((1 + g_r) · v_e), so the resonance gain is
+--     exactly an exhaust-velocity multiplier. The best flown electric
+--     drive needs a factor between 880 and 881 to reach the floor, and
+--     the stated threshold of g_r = 1.5 supplies 2.5.
+--
+--   THE ENERGY LADDER — READING A IS A CONVERSION FRACTION:
+--     Under the ideal-rocket relation ½v_e² = ηc², Reading A squares to
+--     τ_A² = 2η, so the corridor is a band of rest-mass conversion:
+--       η ∈ [0.725666%, 0.937068%]
+--     Placed against published mass defects, the band falls exactly
+--     between what stars do and the limit of nuclear binding:
+--       U-235 fission        0.093000%   Locked
+--       D-T fusion           0.376000%   Locked
+--       hydrogen to helium   0.711852%   Locked, short of the floor by 1.94%
+--       ── floor             0.725666%
+--       hydrogen to iron     0.891711%   IVA, 78.54% up the band
+--       ── ceiling          0.937068%
+--       annihilation       100.000000%   Shatter, 106.7× the ceiling
+--     The corridor opens above stellar fusion and closes above the iron
+--     peak, and Shatter begins only where annihilation does.
+--
+-- STEP 6: Verify
+--   T1–T5     the four phases, with the corridor a band of positive width
+--   T6–T9     Tsiolkovsky, the sovereign form, the exact gain ratio
+--   T10–T12   exponential enclosures, division-free
+--   T13–T15   Reading A: the window and its bounds
+--   T16–T19   the pool's reach condition, and Noble as the unfueled vehicle
+--   T20–T25   Reading A: the catalog, and a witness inside the corridor
+--   T26–T33   Reading B: the monotone window, propellant fraction, the catalog
+--   T34–T37   the quadratic enclosure, and a witness inside the corridor
+--   T38–T40   the bridge theorem and the corridor Δv band
+--   T41–T43   the gain as an exhaust multiplier, against the floor
+--   T44–T47   the energy ladder and its placements
+--   T48–T56   the nuclear sector: the packing fraction, the 42-nuclide
+--             census, the floor at helium, iron-56 as the maximum
+--   T57–T59   mission closure across the published Δv catalog
+--   T60–T63   the Noble state placed: unpropelled bodies that outrun every
+--             propulsive budget in the catalog
+--   T64–T67   the anchor beneath c: both readings in α and 1001 alone
+--   T68–T70   the reach condition under a change of frame
+--   T71–T78   the emitter behind the gain: the bubble differential, the
+--             emitter window, and the windows the catalog demands
+--   T79–T82   IMS gating: the gain exists only at anchor lock
+--   T83–T84   the dynamic equation and the yeet force
+--   T85–T90   the axis the gain acts on, and the reaction partner by case
+--             on F_ext
+--   T91–T94   NOHARM, substrate neutrality, bounded velocity
+--   T95       a kinematic bound on reported figures
+--
+-- ============================================================
+-- WHAT THIS FILE CARRIES THAT THE POOL DID NOT
+-- ============================================================
+--
+-- The propulsion pool was reduced before the corridor had a floor. This
+-- file carries TL_IVA = 0.88 × TL, the anchor at full precision, the
+-- four-phase classifier with IVA a reachable band rather than an edge,
+-- and the two readings with the published catalog placed on both.
+--
+-- ============================================================
 
-- **\[9,9,0,0\]** Sovereign Anchor — the ground
-- **\[9,9,2,3\]** GAMCollider™ v15 — the fusion logic, the four-phase structure and the Torsion Limit
-- **\[9,9,3,14\]** Alpha Reduction — α⁻¹ = Ω₀ × 100.1, and TL = α⁻¹/1001
-- **\[9,9,0,15\]** Speed of Light Reduction — c locked to the anchor through α⁻¹ = 4πε₀ħc/e², the photon Noble, and relativistic velocity addition
-- **\[9,9,3,19\]** Electroweak Trilogy — the four phases on the electroweak bosons, with the Higgs in IVA
-- **\[9,9,9,\*\](IVA)** IVA Search Reduction — the corridor, the gate and the registries
-- **\[9,9,9,\*\](IVA-PLACEMENT)** Applied Identity Physics: One Corridor Across the Higgs, DNA, Materials and Cognition
-- **\[9,9,2,0\]** This reduction — the propulsion pool, the two readings and the bridge
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Tactic
 
----
+noncomputable section
 
-**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Soldotna, Alaska
-**DOI:** 10.5281/zenodo.18719748
-**ORCID:** 0009-0005-5313-7443
-**Corpus:** \[9,9,9,9\] :: {ANC}
+namespace SNSFL_IVA_Propulsion
+
+-- ============================================================
+-- SECTION 0: CONSTANTS AND THE FOUR PHASES
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravity, m/s². -/
+def G_ACCEL : ℝ := 9.80665
+
+/-- Minimum resonance gain for the sovereign advantage. -/
+def GAIN_THRESHOLD : ℝ := 1.5
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 < τ < TL_IVA
+  | IVA      -- TL_IVA ≤ τ < TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+noncomputable def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- The constants as decimal literals, for use by the numeric lemmas. -/
+theorem const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T1] :: {VER} | THE CORRIDOR IS A BAND, NOT AN EDGE
+-- Its width is exactly 12% of the Torsion Limit, which is what makes the
+-- IVA branch of the classifier reachable rather than a boundary case.
+theorem t1_corridor_has_width :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧
+    TORSION_LIMIT - TL_IVA = TORSION_LIMIT * 0.12 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+theorem tl_iva_pos : (0:ℝ) < TL_IVA := t1_corridor_has_width.1
+theorem tl_pos : (0:ℝ) < TORSION_LIMIT := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+theorem c_pos : (0:ℝ) < C_LIGHT := by unfold C_LIGHT; norm_num
+
+-- [T2] :: {VER} | τ = 0 IS NOBLE
+theorem t2_classify_noble : classify 0 = Phase.Noble := by
+  unfold classify; rw [if_pos rfl]
+
+-- [T3] :: {VER} | 0 < τ < TL_IVA IS LOCKED
+theorem t3_classify_locked (τ : ℝ) (h0 : 0 < τ) (h1 : τ < TL_IVA) :
+    classify τ = Phase.Locked := by
+  unfold classify; rw [if_neg h0.ne', if_pos h1]
+
+-- [T4] :: {VER} | TL_IVA ≤ τ < TL IS IVA
+theorem t4_classify_IVA (τ : ℝ) (h1 : TL_IVA ≤ τ) (h2 : τ < TORSION_LIMIT) :
+    classify τ = Phase.IVA := by
+  have hI := tl_iva_pos
+  unfold classify
+  rw [if_neg (by intro h0; rw [h0] at h1; linarith),
+      if_neg (by intro h; linarith), if_pos h2]
+
+-- [T5] :: {VER} | τ ≥ TL IS SHATTER
+theorem t5_classify_shatter (τ : ℝ) (h : TORSION_LIMIT ≤ τ) :
+    classify τ = Phase.Shatter := by
+  have hT := tl_pos
+  have hI := t1_corridor_has_width.2.1
+  unfold classify
+  rw [if_neg (by intro h0; rw [h0] at h; linarith),
+      if_neg (by intro h1; linarith), if_neg (by intro h2; linarith)]
+
+-- ============================================================
+-- SECTION 1: THE TSIOLKOVSKY LAYER
+-- ============================================================
+
+/-- Classical Tsiolkovsky. Δv = v_e · ln(m₀/m_f). -/
+noncomputable def delta_v_classical (v_e m0 m_f : ℝ) : ℝ :=
+  v_e * Real.log (m0 / m_f)
+
+/-- The sovereign form. The gain multiplies the classical result. -/
+noncomputable def delta_v_sovereign (v_e m0 m_f g_r : ℝ) : ℝ :=
+  v_e * (1 + g_r) * Real.log (m0 / m_f)
+
+-- [T6] :: {VER} | THE CLASSICAL FORM IS TSIOLKOVSKY, UNCHANGED
+theorem t6_classical_is_tsiolkovsky (v_e m0 m_f : ℝ) :
+    delta_v_classical v_e m0 m_f = v_e * Real.log (m0 / m_f) := rfl
+
+-- [T7] :: {VER} | THE GAIN RATIO IS EXACT
+theorem t7_gain_ratio_exact (v_e m0 m_f g_r : ℝ) :
+    delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f := by
+  unfold delta_v_sovereign delta_v_classical; ring
+
+-- [T8] :: {VER} | AT ZERO GAIN THE SOVEREIGN FORM IS THE CLASSICAL ONE
+theorem t8_reduces_at_zero_gain (v_e m0 m_f : ℝ) :
+    delta_v_sovereign v_e m0 m_f 0 = delta_v_classical v_e m0 m_f := by
+  unfold delta_v_sovereign delta_v_classical; ring
+
+-- [T9] :: {VER} | THE SOVEREIGN FORM EXCEEDS THE CLASSICAL ONE
+theorem t9_sovereign_exceeds_classical (v_e m0 m_f g_r : ℝ)
+    (h_ve : 0 < v_e) (h_gr : 0 < g_r) (h_m0 : m_f < m0) (h_mf : 0 < m_f) :
+    delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r := by
+  have h_ratio : (1:ℝ) < m0 / m_f := by rw [lt_div_iff₀ h_mf]; linarith
+  have h_log : 0 < Real.log (m0 / m_f) := Real.log_pos h_ratio
+  unfold delta_v_sovereign delta_v_classical
+  nlinarith [mul_pos h_ve h_log]
+
+-- ============================================================
+-- SECTION 2: EXPONENTIAL ENCLOSURES, DIVISION-FREE
+--
+-- Two elementary bounds carry every placement in Section 4. Both are
+-- stated multiplied out, so no hypothesis contains a division and every
+-- downstream placement closes by linear arithmetic.
+-- ============================================================
+
+-- [T10] :: {VER} | LOWER ENCLOSURE: 1 + x ≤ exp x
+theorem t10_exp_lower (x : ℝ) : x + 1 ≤ Real.exp x := Real.add_one_le_exp x
+
+-- [T11] :: {VER} | UPPER ENCLOSURE: (1 − x) · exp x ≤ 1
+theorem t11_exp_upper (x : ℝ) : (1 - x) * Real.exp x ≤ 1 := by
+  have hpos : 0 < Real.exp x := Real.exp_pos x
+  have h := Real.add_one_le_exp (-x)
+  rw [Real.exp_neg] at h
+  have h' : 1 - x ≤ (Real.exp x)⁻¹ := by linarith
+  have hmul := mul_le_mul_of_nonneg_right h' hpos.le
+  rwa [inv_mul_cancel₀ hpos.ne'] at hmul
+
+-- [T12] :: {VER} | THE CORRIDOR MASS-RATIO WINDOW IS ENCLOSED BY RATIONALS
+-- exp(TL_IVA) ∈ [1.120471, 1.136973] and exp(TL) ∈ [1.136899, 1.158614].
+theorem t12_corridor_ratio_enclosed :
+    1.120471 ≤ Real.exp TL_IVA ∧ Real.exp TL_IVA ≤ 1.136973 ∧
+    1.136899 ≤ Real.exp TORSION_LIMIT ∧ Real.exp TORSION_LIMIT ≤ 1.158614 := by
+  obtain ⟨hT, hI⟩ := const_values
+  have hlo1 := t10_exp_lower TL_IVA
+  have hup1 := t11_exp_upper TL_IVA
+  have hlo2 := t10_exp_lower TORSION_LIMIT
+  have hup2 := t11_exp_upper TORSION_LIMIT
+  rw [hI] at hlo1 hup1
+  rw [hT] at hlo2 hup2
+  rw [hI, hT]
+  exact ⟨by linarith, by linarith, by linarith, by linarith⟩
+
+-- ============================================================
+-- SECTION 3: READING A — THE CORRIDOR AS AN EXHAUST VELOCITY
+--
+-- τ_A = v_e / c. Pure rational arithmetic throughout.
+-- ============================================================
+
+/-- Reading A. Exhaust velocity against light speed. -/
+noncomputable def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The corridor floor as an exhaust velocity, m/s. -/
+noncomputable def corridor_ve_lo : ℝ := TL_IVA * C_LIGHT
+
+/-- The corridor ceiling as an exhaust velocity, m/s. -/
+noncomputable def corridor_ve_hi : ℝ := TORSION_LIMIT * C_LIGHT
+
+/-- Reading B. The mass ratio's logarithm. Stated here beside Reading A so the
+two readings are in scope together; Section 5 is where it is developed. -/
+noncomputable def tau_B (r : ℝ) : ℝ := Real.log r
+
+-- [T13] :: {VER} | READING A IS A CORRIDOR CONDITION ON v_e
+theorem t13_reading_A_window (w : ℝ) :
+    (TL_IVA ≤ tau_A w ∧ tau_A w < TORSION_LIMIT) ↔
+    (corridor_ve_lo ≤ w ∧ w < corridor_ve_hi) := by
+  have hc := c_pos
+  unfold tau_A corridor_ve_lo corridor_ve_hi
+  rw [le_div_iff₀ hc, div_lt_iff₀ hc]
+
+-- [T14] :: {VER} | THE CORRIDOR ASKS FOR 36,116.4 TO 41,041.3 KM/S
+theorem t14_corridor_ve_bounds :
+    36116359 ≤ corridor_ve_lo ∧ corridor_ve_lo ≤ 36116360 ∧
+    41041317 ≤ corridor_ve_hi ∧ corridor_ve_hi ≤ 41041318 := by
+  unfold corridor_ve_lo corridor_ve_hi TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T15] :: {VER} | THE CORRIDOR IS 12.047% TO 13.690% OF LIGHT SPEED
+theorem t15_corridor_as_fraction_of_c :
+    corridor_ve_lo / C_LIGHT = TL_IVA ∧ corridor_ve_hi / C_LIGHT = TORSION_LIMIT := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold corridor_ve_lo corridor_ve_hi
+  exact ⟨mul_div_cancel_right₀ _ hc, mul_div_cancel_right₀ _ hc⟩
+
+-- ── What this pool admits, and what Noble is in it ──────────
+
+-- [T16] :: {VER} | THE POOL'S REACH CONDITION
+-- No exhaust exceeds light speed, so Reading A is confined to (0,1). This
+-- is the ceiling the pool brings with it, before any composition is asked.
+theorem t16_reach_condition (w : ℝ) (h0 : 0 < w) (hlt : w < C_LIGHT) :
+    0 < tau_A w ∧ tau_A w < 1 := by
+  have hcp := c_pos
+  unfold tau_A
+  exact ⟨div_pos h0 hcp, by rw [div_lt_one hcp]; exact hlt⟩
+
+-- [T17] :: {VER} | THE CORRIDOR LIES INSIDE WHAT THE POOL ADMITS
+-- So this pool possesses an IVA phase: a sublight exhaust velocity places
+-- in the band. Reading B carries a floor and no ceiling, so the two
+-- factors of the rocket equation are bounded differently.
+theorem t17_pool_admits_IVA : 0 < TL_IVA ∧ TORSION_LIMIT < 1 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T18] :: {VER} | NOBLE IS THE UNFUELED VEHICLE
+-- Reading A vanishes exactly when there is no exhaust; Reading B vanishes
+-- exactly when there is no propellant. Both readings describe what a vehicle
+-- produces by expelling mass, so Noble here is the vehicle that produces no
+-- velocity of its own — not a vehicle at rest. Section 11 places the state.
+theorem t18_noble_is_unfueled (w r : ℝ) (hr : 0 < r) :
+    (tau_A w = 0 ↔ w = 0) ∧ (tau_B r = 0 ↔ r = 1) := by
+  refine ⟨?_, ?_⟩
+  · unfold tau_A
+    rw [div_eq_zero_iff]
+    constructor
+    · intro h
+      rcases h with h | h
+      · exact h
+      · exact absurd h c_pos.ne'
+    · intro h; exact Or.inl h
+  · unfold tau_B
+    constructor
+    · intro h
+      have he := Real.exp_log hr
+      rw [h, Real.exp_zero] at he
+      exact he.symm
+    · intro h; rw [h, Real.log_one]
+
+-- [T19] :: {VER} | EITHER ZERO SENDS THE PRODUCED Δv TO ZERO
+-- The bridge is a product, so a vehicle self-produces velocity only when it
+-- has both a nozzle and a reserve. Velocity it has without either is
+-- inherited rather than produced, and the product structure is what keeps
+-- the two apart.
+theorem t19_noble_gives_zero_dv (w r : ℝ) (h : tau_A w = 0 ∨ tau_B r = 0) :
+    C_LIGHT * tau_A w * tau_B r = 0 := by
+  rcases h with h | h
+  · rw [h]; ring
+  · rw [h]; ring
+
+/-- A drive below the corridor floor is Locked. -/
+theorem locked_of_ve (w : ℝ) (h0 : 0 < w) (h1 : w < corridor_ve_lo) :
+    classify (tau_A w) = Phase.Locked := by
+  have hc := c_pos
+  apply t3_classify_locked
+  · exact div_pos h0 hc
+  · unfold tau_A
+    rw [div_lt_iff₀ hc]
+    unfold corridor_ve_lo at h1
+    linarith
+
+/-- A drive at or above the corridor ceiling is Shatter. -/
+theorem shatter_of_ve (w : ℝ) (h : corridor_ve_hi ≤ w) :
+    classify (tau_A w) = Phase.Shatter := by
+  have hc := c_pos
+  apply t5_classify_shatter
+  unfold tau_A
+  rw [le_div_iff₀ hc]
+  unfold corridor_ve_hi at h
+  linarith
+
+/-- A drive inside the window places in the corridor. -/
+theorem iva_of_ve (w : ℝ) (h1 : corridor_ve_lo ≤ w) (h2 : w < corridor_ve_hi) :
+    classify (tau_A w) = Phase.IVA := by
+  obtain ⟨hlo, hhi⟩ := (t13_reading_A_window w).mpr ⟨h1, h2⟩
+  exact t4_classify_IVA _ hlo hhi
+
+-- ── The published catalog. Every effective exhaust velocity is T1. ──
+
+def ve_coldgas_n2    : ℝ := 700          -- cold gas N₂ thruster
+def ve_hydrazine     : ℝ := 2300         -- monopropellant hydrazine
+def ve_f1_sealevel   : ℝ := 2580         -- Saturn V F-1, sea level
+def ve_srb_solid     : ℝ := 2640         -- Shuttle solid rocket booster
+def ve_merlin1d_vac  : ℝ := 3050         -- Merlin 1D, vacuum
+def ve_raptor2_vac   : ℝ := 3730         -- Raptor 2, vacuum
+def ve_j2_vac        : ℝ := 4130         -- Saturn V J-2, vacuum
+def ve_rs25_vac      : ℝ := 4420         -- RS-25, vacuum
+def ve_ssme_vac      : ℝ := 4440         -- Shuttle main engine, vacuum
+def ve_rl10b2_vac    : ℝ := 4650         -- RL10B-2, best flown chemical
+def ve_nerva_ntr     : ℝ := 8300         -- NERVA nuclear thermal
+def ve_spt100_hall   : ℝ := 16000        -- SPT-100 Hall thruster
+def ve_nstar_ion     : ℝ := 30000        -- NSTAR ion, Deep Space 1
+def ve_nextc_ion     : ℝ := 41000        -- NEXT-C ion, best flown electric
+def ve_vasimr        : ℝ := 50000        -- VASIMR, design figure
+def ve_orion_pulse   : ℝ := 100000       -- Orion nuclear pulse concept
+def ve_daedalus      : ℝ := 10600000     -- Daedalus fusion concept
+def ve_antimatter    : ℝ := 100000000    -- antimatter beam core concept
+
+-- [T20] :: {VER} | EVERY FLOWN AND NEAR-TERM SYSTEM IS LOCKED
+theorem t20_flown_systems_locked :
+    classify (tau_A ve_coldgas_n2)   = Phase.Locked ∧
+    classify (tau_A ve_hydrazine)    = Phase.Locked ∧
+    classify (tau_A ve_f1_sealevel)  = Phase.Locked ∧
+    classify (tau_A ve_srb_solid)    = Phase.Locked ∧
+    classify (tau_A ve_merlin1d_vac) = Phase.Locked ∧
+    classify (tau_A ve_raptor2_vac)  = Phase.Locked ∧
+    classify (tau_A ve_j2_vac)       = Phase.Locked ∧
+    classify (tau_A ve_rs25_vac)     = Phase.Locked ∧
+    classify (tau_A ve_ssme_vac)     = Phase.Locked ∧
+    classify (tau_A ve_rl10b2_vac)   = Phase.Locked ∧
+    classify (tau_A ve_nerva_ntr)    = Phase.Locked ∧
+    classify (tau_A ve_spt100_hall)  = Phase.Locked ∧
+    classify (tau_A ve_nstar_ion)    = Phase.Locked ∧
+    classify (tau_A ve_nextc_ion)    = Phase.Locked ∧
+    classify (tau_A ve_vasimr)       = Phase.Locked ∧
+    classify (tau_A ve_orion_pulse)  = Phase.Locked := by
+  refine ⟨locked_of_ve _ (by unfold ve_coldgas_n2; norm_num)
+            (by unfold ve_coldgas_n2 corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_hydrazine; norm_num)
+            (by unfold ve_hydrazine corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_f1_sealevel; norm_num)
+            (by unfold ve_f1_sealevel corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_srb_solid; norm_num)
+            (by unfold ve_srb_solid corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_merlin1d_vac; norm_num)
+            (by unfold ve_merlin1d_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_raptor2_vac; norm_num)
+            (by unfold ve_raptor2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_j2_vac; norm_num)
+            (by unfold ve_j2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_rs25_vac; norm_num)
+            (by unfold ve_rs25_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_ssme_vac; norm_num)
+            (by unfold ve_ssme_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_rl10b2_vac; norm_num)
+            (by unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nerva_ntr; norm_num)
+            (by unfold ve_nerva_ntr corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_spt100_hall; norm_num)
+            (by unfold ve_spt100_hall corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nstar_ion; norm_num)
+            (by unfold ve_nstar_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nextc_ion; norm_num)
+            (by unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_vasimr; norm_num)
+            (by unfold ve_vasimr corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_orion_pulse; norm_num)
+            (by unfold ve_orion_pulse corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num)⟩
+
+-- [T21] :: {VER} | THE BEST FLOWN CHEMICAL ENGINE FALLS SHORT BY 7,766 TO 7,767
+-- RL10B-2 at 4,650 m/s against a floor of 36,116,359.56 m/s.
+theorem t21_best_chemical_short :
+    7766 * ve_rl10b2_vac < corridor_ve_lo ∧ corridor_ve_lo < 7767 * ve_rl10b2_vac := by
+  unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T22] :: {VER} | THE BEST FLOWN ELECTRIC ENGINE FALLS SHORT BY 880 TO 881
+theorem t22_best_ion_short :
+    880 * ve_nextc_ion < corridor_ve_lo ∧ corridor_ve_lo < 881 * ve_nextc_ion := by
+  unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T23] :: {VER} | PUBLISHED CONCEPTS BRACKET THE CORRIDOR
+-- A fusion design falls short by between 3 and 4 and remains Locked; a
+-- beam-core antimatter design overshoots into Shatter. The corridor lies
+-- between two published concepts rather than beyond all of them.
+theorem t23_concepts_bracket_corridor :
+    classify (tau_A ve_daedalus) = Phase.Locked ∧
+    classify (tau_A ve_antimatter) = Phase.Shatter ∧
+    3 * ve_daedalus < corridor_ve_lo ∧ corridor_ve_lo < 4 * ve_daedalus := by
+  refine ⟨locked_of_ve _ (by unfold ve_daedalus; norm_num)
+            (by unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          shatter_of_ve _
+            (by unfold ve_antimatter corridor_ve_hi TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          ?_, ?_⟩
+  · unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+  · unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+
+-- [T24] :: {VER} | THE READING-A CORRIDOR IS EMPTY OF BUILT HARDWARE
+-- Everything flown is Locked below the floor and the only catalog entry
+-- past the ceiling is a concept, so no built system places in the band.
+theorem best_chemical_locked : classify (tau_A ve_rl10b2_vac) = Phase.Locked :=
+  locked_of_ve _ (by unfold ve_rl10b2_vac; norm_num)
+    (by unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem best_electric_locked : classify (tau_A ve_nextc_ion) = Phase.Locked :=
+  locked_of_ve _ (by unfold ve_nextc_ion; norm_num)
+    (by unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem antimatter_shatter : classify (tau_A ve_antimatter) = Phase.Shatter :=
+  shatter_of_ve _ (by unfold ve_antimatter corridor_ve_hi TORSION_LIMIT
+                        SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem t24_reading_A_corridor_unoccupied :
+    classify (tau_A ve_rl10b2_vac) = Phase.Locked ∧
+    classify (tau_A ve_nextc_ion) = Phase.Locked ∧
+    classify (tau_A ve_daedalus) = Phase.Locked ∧
+    classify (tau_A ve_antimatter) = Phase.Shatter :=
+  ⟨best_chemical_locked, best_electric_locked,
+   t23_concepts_bracket_corridor.1, antimatter_shatter⟩
+
+/-- An exhaust velocity inside the window. 38,000 km/s. -/
+def ve_corridor_witness : ℝ := 38000000
+
+-- [T25] :: {VER} | A WITNESS INSIDE THE READING-A CORRIDOR
+-- The band is occupied by construction, not merely non-empty by width.
+theorem t25_reading_A_witness :
+    classify (tau_A ve_corridor_witness) = Phase.IVA :=
+  iva_of_ve _
+    (by unfold ve_corridor_witness corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+    (by unfold ve_corridor_witness corridor_ve_hi TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+-- ============================================================
+-- SECTION 4: READING B — THE CORRIDOR AS A MASS RATIO
+--
+-- τ_B = ln(m₀/m_f), the rocket equation's own exponent.
+-- ============================================================
+
+-- [T26] :: {VER} | READING B IS A CORRIDOR CONDITION ON THE MASS RATIO
+-- The monotone bridge: a placement on τ_B is a window on r itself.
+theorem t26_reading_B_window (r : ℝ) (hr : 0 < r) :
+    (TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) ↔
+    (Real.exp TL_IVA ≤ r ∧ r < Real.exp TORSION_LIMIT) := by
+  unfold tau_B
+  rw [Real.le_log_iff_exp_le hr, Real.log_lt_iff_lt_exp hr]
+
+-- [T27] :: {VER} | THE CORRIDOR MASS RATIO LIES IN [1.120471, 1.158614]
+theorem t27_corridor_ratio_window (r : ℝ) (hr : 0 < r)
+    (h : TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) :
+    1.120471 ≤ r ∧ r ≤ 1.158614 := by
+  obtain ⟨e1, _, _, e4⟩ := t12_corridor_ratio_enclosed
+  rw [t26_reading_B_window r hr] at h
+  exact ⟨by linarith [h.1], by linarith [h.2]⟩
+
+-- [T28] :: {VER} | THE CORRIDOR IS A PROPELLANT FRACTION, 11.35% TO 12.79%
+-- The propellant fraction of a stage is 1 − m_f/m₀ = 1 − 1/r.
+theorem t28_corridor_propellant_fraction (r : ℝ) (hr : 0 < r)
+    (h : TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) :
+    1 - 1/(1.120471:ℝ) ≤ 1 - 1/r ∧ 1 - 1/r ≤ 1 - 1/(1.158614:ℝ) := by
+  obtain ⟨hlo, hhi⟩ := t27_corridor_ratio_window r hr h
+  have h1 : (0:ℝ) < 1.120471 := by norm_num
+  refine ⟨?_, ?_⟩
+  · have := one_div_le_one_div_of_le h1 hlo; linarith
+  · have := one_div_le_one_div_of_le hr hhi; linarith
+
+/-- A mass ratio below the corridor floor is Locked. -/
+theorem locked_of_ratio (r : ℝ) (h1 : 1 < r) (h : r < 1.120471) :
+    0 < tau_B r ∧ tau_B r < TL_IVA := by
+  obtain ⟨e1, _, _, _⟩ := t12_corridor_ratio_enclosed
+  have hr : (0:ℝ) < r := by linarith
+  refine ⟨Real.log_pos h1, ?_⟩
+  unfold tau_B
+  rw [Real.log_lt_iff_lt_exp hr]
+  linarith
+
+/-- A mass ratio at or above the corridor ceiling is Shatter. -/
+theorem shatter_of_ratio (r : ℝ) (h : 1.158614 ≤ r) :
+    TORSION_LIMIT ≤ tau_B r := by
+  obtain ⟨_, _, _, e4⟩ := t12_corridor_ratio_enclosed
+  have hr : (0:ℝ) < r := by linarith
+  unfold tau_B
+  rw [Real.le_log_iff_exp_le hr]
+  linarith
+
+-- ── Published vehicles. Every mass ratio is T1. ──
+
+def mr_car_tank   : ℝ := 1.04    -- passenger car, full to empty tank
+def mr_dawn_ion   : ℝ := 1.21    -- Dawn, total mission mass ratio
+def mr_airliner   : ℝ := 1.54    -- airliner at a 35% fuel fraction
+def mr_saturn_s1c : ℝ := 3.49    -- Saturn V first stage
+def mr_falcon9_s1 : ℝ := 3.60    -- Falcon 9 first stage
+def mr_shuttle_et : ℝ := 4.52    -- Shuttle orbiter with external tank
+def mr_falcon9_s2 : ℝ := 6.06    -- Falcon 9 second stage
+def mr_saturn_s2  : ℝ := 6.11    -- Saturn V second stage
+
+-- [T29] :: {VER} | A CAR'S FUEL TANK SITS BELOW THE CORRIDOR
+theorem t29_car_below_corridor :
+    0 < tau_B mr_car_tank ∧ tau_B mr_car_tank < TL_IVA :=
+  locked_of_ratio _ (by unfold mr_car_tank; norm_num)
+                    (by unfold mr_car_tank; norm_num)
+
+-- [T30] :: {VER} | DAWN'S ION STAGE SITS ABOVE THE CORRIDOR
+theorem t30_dawn_above_corridor : TORSION_LIMIT ≤ tau_B mr_dawn_ion :=
+  shatter_of_ratio _ (by unfold mr_dawn_ion; norm_num)
+
+-- [T31] :: {VER} | EVERY FLOWN LAUNCH STAGE IS SHATTER ON READING B
+theorem t31_launch_stages_shatter :
+    TORSION_LIMIT ≤ tau_B mr_airliner ∧
+    TORSION_LIMIT ≤ tau_B mr_saturn_s1c ∧
+    TORSION_LIMIT ≤ tau_B mr_falcon9_s1 ∧
+    TORSION_LIMIT ≤ tau_B mr_shuttle_et ∧
+    TORSION_LIMIT ≤ tau_B mr_falcon9_s2 ∧
+    TORSION_LIMIT ≤ tau_B mr_saturn_s2 :=
+  ⟨shatter_of_ratio _ (by unfold mr_airliner; norm_num),
+   shatter_of_ratio _ (by unfold mr_saturn_s1c; norm_num),
+   shatter_of_ratio _ (by unfold mr_falcon9_s1; norm_num),
+   shatter_of_ratio _ (by unfold mr_shuttle_et; norm_num),
+   shatter_of_ratio _ (by unfold mr_falcon9_s2; norm_num),
+   shatter_of_ratio _ (by unfold mr_saturn_s2; norm_num)⟩
+
+-- [T32] :: {VER} | THE READING-B CORRIDOR IS A BAND BETWEEN TWO FLOWN THINGS
+-- A car's tank is Locked below it and an ion probe is Shatter above it,
+-- so the corridor on mass ratio lies strictly between the two and no
+-- flown vehicle occupies it.
+theorem t32_corridor_between_car_and_probe :
+    tau_B mr_car_tank < TL_IVA ∧ TORSION_LIMIT ≤ tau_B mr_dawn_ion ∧
+    tau_B mr_car_tank < tau_B mr_dawn_ion := by
+  have h1 := t29_car_below_corridor.2
+  have h2 := t30_dawn_above_corridor
+  have h3 := t1_corridor_has_width.2.1
+  exact ⟨h1, h2, by linarith⟩
+
+-- [T33] :: {VER} | THE CORRIDOR IS A LOW MASS RATIO, NOT A HIGH ONE
+-- Every launch stage overshoots the ceiling, so the corridor is reached
+-- by carrying less propellant rather than more.
+theorem t33_corridor_is_below_every_stage :
+    tau_B mr_car_tank < TL_IVA ∧
+    (∀ r : ℝ, 1.158614 ≤ r → TORSION_LIMIT ≤ tau_B r) :=
+  ⟨t29_car_below_corridor.2, shatter_of_ratio⟩
+
+-- ── A tighter enclosure, enough to place a witness in the band ────────
+
+-- [T34] :: {VER} | THE QUADRATIC LOWER ENCLOSURE
+-- exp x = (exp (x/2))², and the linear bound applied to the half argument
+-- squares into (1 + x/2)² ≤ exp x.
+theorem t34_exp_lower_quad (x : ℝ) (hx : 0 ≤ x) : (1 + x/2)^2 ≤ Real.exp x := by
+  have hhalf : 1 + x/2 ≤ Real.exp (x/2) := by linarith [Real.add_one_le_exp (x/2)]
+  have hpos : (0:ℝ) ≤ 1 + x/2 := by linarith
+  have hsplit : Real.exp x = Real.exp (x/2) * Real.exp (x/2) := by
+    rw [← Real.exp_add]; ring_nf
+  rw [hsplit, sq]
+  exact mul_le_mul hhalf hhalf hpos (le_trans hpos hhalf)
+
+-- [T35] :: {VER} | THE CORRIDOR CEILING, ENCLOSED FROM BELOW
+theorem t35_exp_TL_lower : (1.1415:ℝ) ≤ Real.exp TORSION_LIMIT := by
+  have h := t34_exp_lower_quad TORSION_LIMIT tl_pos.le
+  rw [const_values.1] at h
+  rw [const_values.1]
+  norm_num at h
+  linarith
+
+-- [T36] :: {VER} | THE CORRIDOR FLOOR, ENCLOSED FROM ABOVE
+theorem t36_exp_TL_IVA_upper : Real.exp TL_IVA ≤ 1.137 := by
+  have h := t11_exp_upper TL_IVA
+  rw [const_values.2] at h
+  rw [const_values.2]
+  linarith
+
+/-- A mass ratio inside the window. Propellant fraction 12.204%. -/
+def mr_corridor_witness : ℝ := 1.139
+
+-- [T37] :: {VER} | A WITNESS INSIDE THE READING-B CORRIDOR
+-- The two enclosures leave the window [1.137, 1.1415), and this ratio
+-- sits inside it, so the band is occupied on Reading B as well.
+theorem t37_reading_B_witness :
+    TL_IVA ≤ tau_B mr_corridor_witness ∧
+    tau_B mr_corridor_witness < TORSION_LIMIT := by
+  have hr : (0:ℝ) < mr_corridor_witness := by unfold mr_corridor_witness; norm_num
+  rw [t26_reading_B_window _ hr]
+  refine ⟨?_, ?_⟩
+  · have h := t36_exp_TL_IVA_upper
+    unfold mr_corridor_witness; linarith
+  · have h := t35_exp_TL_lower
+    unfold mr_corridor_witness; linarith
+
+-- ============================================================
+-- SECTION 5: THE BRIDGE — Δv = c · τ_A · τ_B
+--
+-- The two readings are one vehicle seen from both ends, and the rocket
+-- equation is their product.
+-- ============================================================
+
+/-- Light speed recovers the exhaust velocity from Reading A. -/
+theorem c_mul_tau_A (w : ℝ) : C_LIGHT * tau_A w = w := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold tau_A
+  field_simp
+
+-- [T38] :: {VER} | THE BRIDGE THEOREM
+-- Δv = v_e · ln(m₀/m_f) = c · τ_A(v_e) · τ_B(m₀/m_f), exactly.
+theorem t38_bridge (w r : ℝ) :
+    delta_v_classical w r 1 = C_LIGHT * tau_A w * tau_B r := by
+  unfold delta_v_classical tau_B
+  rw [div_one, c_mul_tau_A]
+
+-- [T39] :: {VER} | THE SOVEREIGN BRIDGE
+theorem t39_bridge_sovereign (w r g_r : ℝ) :
+    delta_v_sovereign w r 1 g_r = (1 + g_r) * (C_LIGHT * tau_A w * tau_B r) := by
+  rw [t7_gain_ratio_exact, t38_bridge]
+
+/-- The Δv of a vehicle in the corridor on both readings. -/
+def corridor_dv_lo : ℝ := C_LIGHT * TL_IVA * TL_IVA
+def corridor_dv_hi : ℝ := C_LIGHT * TORSION_LIMIT * TORSION_LIMIT
+
+-- [T40] :: {VER} | THE CORRIDOR Δv BAND IS 4,350,981 TO 5,618,519 M/S
+-- 1.4513% to 1.8741% of light speed. Published mission budgets — surface
+-- to low orbit at 9,400 m/s, Earth escape at 11,200 m/s, the Dawn ion
+-- record at 11,000 m/s — all reach under 0.31% of this band.
+theorem t40_corridor_dv_band :
+    4350980 ≤ corridor_dv_lo ∧ corridor_dv_lo ≤ 4350982 ∧
+    5618518 ≤ corridor_dv_hi ∧ corridor_dv_hi ≤ 5618520 ∧
+    300 * 11200 < corridor_dv_hi := by
+  unfold corridor_dv_lo corridor_dv_hi TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 6: THE GAIN, AGAINST THE CORRIDOR
+--
+-- The gain layer and the corridor layer meet here: the resonance gain is
+-- an exhaust-velocity multiplier, so the corridor states what it must be.
+-- ============================================================
+
+-- [T41] :: {VER} | THE GAIN IS AN EXHAUST-VELOCITY MULTIPLIER
+-- Applying (1 + g_r) to Reading A is the same as scaling the exhaust
+-- velocity by it, so the gain moves a drive along the Reading-A axis.
+theorem t41_gain_is_exhaust_multiplier (w g_r : ℝ) :
+    (1 + g_r) * tau_A w = tau_A ((1 + g_r) * w) := by
+  unfold tau_A; ring
+
+-- [T42] :: {VER} | WHAT THE FLOOR ASKS OF THE BEST FLOWN DRIVE
+-- A factor between 880 and 881 on the best flown electric exhaust
+-- velocity reaches the corridor floor.
+theorem t42_gain_required_at_floor :
+    880 * ve_nextc_ion < corridor_ve_lo ∧ corridor_ve_lo < 881 * ve_nextc_ion :=
+  t22_best_ion_short
+
+-- [T43] :: {VER} | THE STATED THRESHOLD SUPPLIES 2.5
+-- At g_r = GAIN_THRESHOLD the multiplier is 2.5, and the product with the
+-- best flown exhaust velocity remains below the floor.
+theorem t43_threshold_below_floor :
+    (1 + GAIN_THRESHOLD) * ve_nextc_ion < corridor_ve_lo := by
+  unfold GAIN_THRESHOLD ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+    SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 7: THE ENERGY LADDER
+--
+-- Reading A squares into a rest-mass conversion fraction, which places
+-- the corridor against the published nuclear mass defects.
+-- ============================================================
+
+/-- The ideal-rocket energy relation: all released energy enters exhaust
+kinetic energy, so ½·v_e² = η·c². -/
+def IdealRocket (w eta : ℝ) : Prop := w ^ 2 = 2 * eta * C_LIGHT ^ 2
+
+-- [T44] :: {VER} | READING A SQUARES INTO A CONVERSION FRACTION
+theorem t44_tau_A_sq_of_ideal (w eta : ℝ) (h : IdealRocket w eta) :
+    (tau_A w) ^ 2 = 2 * eta := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold IdealRocket at h
+  unfold tau_A
+  rw [div_pow, h]
+  field_simp
+
+/-- The corridor floor as a rest-mass conversion fraction. -/
+def eta_floor : ℝ := TL_IVA ^ 2 / 2
+
+/-- The corridor ceiling as a rest-mass conversion fraction. -/
+def eta_ceiling : ℝ := TORSION_LIMIT ^ 2 / 2
+
+-- [T45] :: {VER} | THE CORRIDOR IS 0.725666% TO 0.937068% OF REST MASS
+theorem t45_eta_corridor_bounds :
+    0.00725665 ≤ eta_floor ∧ eta_floor ≤ 0.00725666 ∧
+    0.00937068 ≤ eta_ceiling ∧ eta_ceiling ≤ 0.00937069 := by
+  unfold eta_floor eta_ceiling TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── Published atomic masses, AME2020, in unified mass units. ──
+
+def u_H1   : ℝ := 1.00782503207    -- hydrogen-1
+def u_He4  : ℝ := 4.00260325413    -- helium-4
+def u_Fe56 : ℝ := 55.93493633      -- iron-56
+
+/-- Hydrogen to helium-4: the stellar fusion chain. -/
+def eta_H_to_He : ℝ := (4 * u_H1 - u_He4) / (4 * u_H1)
+
+/-- Hydrogen to iron-56: the limit of energy release by nuclear binding. -/
+def eta_H_to_Fe : ℝ := (56 * u_H1 - u_Fe56) / (56 * u_H1)
+
+def eta_U235_fission : ℝ := 0.00093
+def eta_DT_fusion    : ℝ := 0.00376
+def eta_annihilation : ℝ := 1
+
+-- [T46] :: {VER} | THE ENERGY LADDER
+-- Fission, deuterium–tritium fusion and the hydrogen-to-helium chain all
+-- fall below the floor; hydrogen to iron places inside the corridor;
+-- annihilation sits above the ceiling. The band opens above what stars do
+-- and closes above the iron peak, and Shatter begins where annihilation does.
+theorem t46_energy_ladder :
+    eta_U235_fission < eta_DT_fusion ∧
+    eta_DT_fusion < eta_H_to_He ∧
+    eta_H_to_He < eta_floor ∧
+    eta_floor < eta_H_to_Fe ∧
+    eta_H_to_Fe < eta_ceiling ∧
+    eta_ceiling < eta_annihilation := by
+  unfold eta_U235_fission eta_DT_fusion eta_H_to_He eta_H_to_Fe
+    eta_annihilation eta_floor eta_ceiling u_H1 u_He4 u_Fe56
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T47] :: {VER} | THE WITNESS SITS BETWEEN THE TWO NUCLEAR MARKS
+-- The Reading-A witness converts more than the stellar chain and less
+-- than the iron peak, so the corridor's occupied interior lies between
+-- the two published mass defects.
+theorem t47_witness_between_nuclear_marks :
+    eta_H_to_He < (tau_A ve_corridor_witness) ^ 2 / 2 ∧
+    (tau_A ve_corridor_witness) ^ 2 / 2 < eta_H_to_Fe := by
+  unfold eta_H_to_He eta_H_to_Fe tau_A ve_corridor_witness u_H1 u_He4 u_Fe56 C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 8: THE NUCLEAR SECTOR
+--
+-- The conversion fraction of Section 7 is a published quantity under
+-- another name, which places the corridor against the whole nuclide table.
+-- ============================================================
+
+/-- The conversion fraction of any nuclide: the energy released building it
+out of hydrogen, as a fraction of the starting rest mass. -/
+def eta_of (A m : ℝ) : ℝ := (A * u_H1 - m) / (A * u_H1)
+
+/-- Aston's packing fraction, f = (m − A)/A × 10⁴. -/
+def packing_fraction (A m : ℝ) : ℝ := (m - A) / A * 10000
+
+def InCorridor (e : ℝ) : Prop := eta_floor ≤ e ∧ e < eta_ceiling
+
+-- [T48] :: {VER} | THE CONVERSION FRACTION IS ASTON'S PACKING FRACTION
+-- The two quantities are one, related exactly and linearly. The corridor
+-- is therefore a window on the packing fraction as Aston defined it.
+theorem t48_eta_is_packing_fraction (A m : ℝ) (hA : A ≠ 0) :
+    packing_fraction A m = (u_H1 * (1 - eta_of A m) - 1) * 10000 := by
+  have hu : (u_H1:ℝ) ≠ 0 := by unfold u_H1; norm_num
+  unfold packing_fraction eta_of
+  field_simp
+  ring
+
+-- [T49] :: {VER} | THE CORRIDOR IN PACKING-FRACTION UNITS
+-- f ∈ (−16.1898, +5.1159]. Iron-56 sits at −11.6185, inside it.
+theorem t49_corridor_packing_window :
+    -16.19 ≤ (u_H1 * (1 - eta_ceiling) - 1) * 10000 ∧
+    (u_H1 * (1 - eta_ceiling) - 1) * 10000 ≤ -16.18 ∧
+    5.11 ≤ (u_H1 * (1 - eta_floor) - 1) * 10000 ∧
+    (u_H1 * (1 - eta_floor) - 1) * 10000 ≤ 5.12 ∧
+    -11.62 ≤ packing_fraction 56 u_Fe56 ∧ packing_fraction 56 u_Fe56 ≤ -11.61 := by
+  unfold packing_fraction eta_floor eta_ceiling u_H1 u_Fe56
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── The nuclide census. Every atomic mass is AME2020, and T1. ──
+
+-- [T50] :: {VER} | THE TWO NUCLIDES BELOW THE FLOOR
+-- Hydrogen-1 releases nothing, and helium-4 — the first fusion product —
+-- falls short of the floor. These are the only two below it.
+theorem t50_below_the_floor :
+    eta_of 1 1.00782503207 = 0 ∧
+    eta_of 4 4.00260325413 < eta_floor := by
+  unfold eta_of eta_floor u_H1 TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T51] :: {VER} | THE LIGHT NUCLIDES PLACE IN THE CORRIDOR
+theorem t51_census_light :
+    InCorridor (eta_of 12 12) ∧
+    InCorridor (eta_of 16 15.99491461957) ∧
+    InCorridor (eta_of 20 19.9924401762) ∧
+    InCorridor (eta_of 24 23.985041697) ∧
+    InCorridor (eta_of 28 27.9769265347) ∧
+    InCorridor (eta_of 32 31.9720711744) ∧
+    InCorridor (eta_of 40 39.962590863) ∧
+    InCorridor (eta_of 48 47.94794198) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T52] :: {VER} | THE IRON PEAK PLACES IN THE CORRIDOR
+theorem t52_census_iron_peak :
+    InCorridor (eta_of 52 51.94050623) ∧
+    InCorridor (eta_of 54 53.93960899) ∧
+    InCorridor (eta_of 55 54.93804391) ∧
+    InCorridor (eta_of 56 55.93493633) ∧
+    InCorridor (eta_of 57 56.93539284) ∧
+    InCorridor (eta_of 58 57.93327443) ∧
+    InCorridor (eta_of 58 57.93534241) ∧
+    InCorridor (eta_of 59 58.93319429) ∧
+    InCorridor (eta_of 60 59.93078588) ∧
+    InCorridor (eta_of 62 61.92834537) ∧
+    InCorridor (eta_of 63 62.92959772) ∧
+    InCorridor (eta_of 64 63.92796682) ∧
+    InCorridor (eta_of 64 63.92914201) ∧
+    InCorridor (eta_of 66 65.92603381) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T53] :: {VER} | THE HEAVY NUCLIDES PLACE IN THE CORRIDOR
+theorem t53_census_heavy :
+    InCorridor (eta_of 84 83.9114977282) ∧
+    InCorridor (eta_of 98 97.90540482) ∧
+    InCorridor (eta_of 120 119.90220163) ∧
+    InCorridor (eta_of 132 131.9041550856) ∧
+    InCorridor (eta_of 142 141.907729) ∧
+    InCorridor (eta_of 150 149.9172829) ∧
+    InCorridor (eta_of 158 157.9241123) ∧
+    InCorridor (eta_of 164 163.9291819) ∧
+    InCorridor (eta_of 174 173.9388664) ∧
+    InCorridor (eta_of 184 183.95093092) ∧
+    InCorridor (eta_of 192 191.96147705) ∧
+    InCorridor (eta_of 195 194.9647917) ∧
+    InCorridor (eta_of 197 196.96656879) ∧
+    InCorridor (eta_of 208 207.9766525) ∧
+    InCorridor (eta_of 209 208.9803991) ∧
+    InCorridor (eta_of 232 232.0380558) ∧
+    InCorridor (eta_of 235 235.0439301) ∧
+    InCorridor (eta_of 238 238.0507884) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T54] :: {VER} | THE FLOOR FALLS IN THE HELIUM-TO-URANIUM GAP
+-- Helium-4 sits below the floor and uranium-238, the least tightly bound
+-- of the heavy nuclides on this reading, sits above it. The floor
+-- separates the first fusion product from all heavier nuclear matter.
+theorem t54_floor_separates_helium :
+    eta_of 4 4.00260325413 < eta_floor ∧
+    eta_floor ≤ eta_of 238 238.0507884 := by
+  unfold eta_of eta_floor u_H1 TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T55] :: {VER} | IRON-56 IS THE MAXIMUM, AND IT IS BELOW THE CEILING
+-- Every nuclide in the census converts less than iron-56, and iron-56
+-- converts less than the ceiling. So the nuclear sector is confined to
+-- Locked and IVA: no nuclide reaches Shatter on this reading, and Shatter
+-- requires annihilation.
+theorem t55_iron_is_the_nuclear_maximum :
+    eta_of 62 61.92834537 < eta_of 56 55.93493633 ∧
+    eta_of 60 59.93078588 < eta_of 56 55.93493633 ∧
+    eta_of 58 57.93327443 < eta_of 56 55.93493633 ∧
+    eta_of 52 51.94050623 < eta_of 56 55.93493633 ∧
+    eta_of 238 238.0507884 < eta_of 56 55.93493633 ∧
+    eta_of 56 55.93493633 < eta_ceiling ∧
+    eta_ceiling < eta_annihilation := by
+  unfold eta_of eta_ceiling eta_annihilation u_H1 TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T56] :: {VER} | WHY THE READING SELECTS IRON-56 AND NOT NICKEL-62
+-- Nickel-62 holds the binding-energy-per-nucleon record; iron-56 holds the
+-- lowest mass per nucleon. The conversion fraction is built on mass per
+-- nucleon, so it selects iron-56, and the margin is the proton–neutron
+-- mass difference carried by the two nuclides' differing neutron counts.
+theorem t56_iron_over_nickel :
+    u_Fe56 / 56 < 61.92834537 / 62 ∧
+    eta_of 62 61.92834537 < eta_of 56 u_Fe56 := by
+  unfold eta_of u_H1 u_Fe56
+  norm_num
+
+-- ============================================================
+-- SECTION 9: MISSION CLOSURE
+--
+-- The bridge turns a corridor drive into a statement about the propellant
+-- any published solar-system mission would need.
+-- ============================================================
+
+def dv_LEO_from_surface : ℝ := 9400
+def dv_earth_escape     : ℝ := 11200
+def dv_mars_transfer    : ℝ := 3600
+def dv_jupiter_transfer : ℝ := 6300
+def dv_solar_escape     : ℝ := 8800
+def dv_dawn_flown       : ℝ := 11000
+def dv_voyager1_helio   : ℝ := 17000
+
+theorem corridor_ve_lo_pos : (0:ℝ) < corridor_ve_lo := by
+  unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT; norm_num
+
+-- [T57] :: {VER} | A CORRIDOR DRIVE PUTS EVERY MISSION DEEP IN LOCKED
+-- At the corridor floor the exhaust velocity is 36,116,359.56 m/s, so a
+-- mission budget up to 17,000 m/s needs a Reading-B torsion under
+-- 5 × 10⁻⁴ — three orders below the corridor floor on that axis.
+theorem t57_mission_tau_B_bound (dv : ℝ) (h0 : 0 ≤ dv) (h : dv ≤ 17000) :
+    dv / corridor_ve_lo < 0.0005 ∧ dv / corridor_ve_lo < TL_IVA := by
+  have hc := corridor_ve_lo_pos
+  have hb : dv / corridor_ve_lo < 0.0005 := by
+    rw [div_lt_iff₀ hc]
+    unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+    linarith
+  refine ⟨hb, ?_⟩
+  have : (0.0005:ℝ) < TL_IVA := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  linarith
+
+-- [T58] :: {VER} | AND A MASS RATIO WITHIN 0.051% OF UNITY
+-- The propellant fraction of every mission in the catalog falls under
+-- 0.051%: a corridor drive makes the solar system a near-unit-mass-ratio
+-- problem, and the propellant stops being the design constraint.
+theorem t58_mission_mass_ratio (dv : ℝ) (h0 : 0 ≤ dv) (h : dv ≤ 17000) :
+    Real.exp (dv / corridor_ve_lo) ≤ 1.00051 := by
+  have hc := corridor_ve_lo_pos
+  have hx : 0 ≤ dv / corridor_ve_lo := div_nonneg h0 hc.le
+  have hb := (t57_mission_tau_B_bound dv h0 h).1
+  have hup := t11_exp_upper (dv / corridor_ve_lo)
+  nlinarith [Real.exp_pos (dv / corridor_ve_lo), hup, hb, hx]
+
+-- [T59] :: {VER} | THE WHOLE PUBLISHED CATALOG, EXPLICITLY
+theorem t59_mission_catalog :
+    dv_mars_transfer / corridor_ve_lo < 0.0005 ∧
+    dv_jupiter_transfer / corridor_ve_lo < 0.0005 ∧
+    dv_solar_escape / corridor_ve_lo < 0.0005 ∧
+    dv_LEO_from_surface / corridor_ve_lo < 0.0005 ∧
+    dv_dawn_flown / corridor_ve_lo < 0.0005 ∧
+    dv_earth_escape / corridor_ve_lo < 0.0005 ∧
+    dv_voyager1_helio / corridor_ve_lo < 0.0005 :=
+  ⟨(t57_mission_tau_B_bound _ (by unfold dv_mars_transfer; norm_num)
+      (by unfold dv_mars_transfer; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_jupiter_transfer; norm_num)
+      (by unfold dv_jupiter_transfer; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_solar_escape; norm_num)
+      (by unfold dv_solar_escape; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_LEO_from_surface; norm_num)
+      (by unfold dv_LEO_from_surface; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_dawn_flown; norm_num)
+      (by unfold dv_dawn_flown; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_earth_escape; norm_num)
+      (by unfold dv_earth_escape; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_voyager1_helio; norm_num)
+      (by unfold dv_voyager1_helio; norm_num)).1⟩
+
+-- ============================================================
+-- SECTION 10: THE ANCHOR BENEATH c
+--
+-- Reading A divides by light speed, and light speed is not an independent
+-- constant of this corpus. The speed-of-light reduction [9,9,0,15] fixes
+-- it through the anchor, so both readings collapse to expressions in the
+-- inverse fine-structure constant and one integer.
+-- ============================================================
+
+/-- The inverse fine-structure constant, from the alpha reduction. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+-- [T60] :: {VER} | THE INHERITED ALPHA DECOMPOSITION
+-- Ω₀ × (10² + 10⁻¹) is the inverse fine-structure constant exactly, and
+-- the Torsion Limit is therefore α⁻¹ divided by 1001.
+theorem t60_alpha_from_anchor :
+    SOVEREIGN_ANCHOR * (100 + 1/10) = ALPHA_INV ∧
+    TORSION_LIMIT * 1001 = ALPHA_INV ∧
+    TORSION_LIMIT = ALPHA_INV / 1001 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV
+  norm_num
+
+-- [T61] :: {VER} | THE CORRIDOR IN EXHAUST VELOCITY, IN α AND 1001 ALONE
+-- The ceiling is c·α⁻¹/1001 and the floor is 0.88 of it. The band carries
+-- no free parameter: light speed, the fine-structure constant and the
+-- integer 1001 fix both edges.
+theorem t61_corridor_ve_in_alpha :
+    corridor_ve_hi = C_LIGHT * ALPHA_INV / 1001 ∧
+    corridor_ve_lo = 0.88 * (C_LIGHT * ALPHA_INV / 1001) := by
+  unfold corridor_ve_hi corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+    ALPHA_INV C_LIGHT
+  norm_num
+
+-- [T62] :: {VER} | THE CONVERSION CORRIDOR IS α⁻² OVER TWICE 1001²
+-- The ceiling of the energy reading is α⁻²/(2 × 1001²) exactly, and the
+-- floor is 0.88² of it. Section 7's band is an expression in α.
+theorem t62_eta_corridor_in_alpha :
+    eta_ceiling = ALPHA_INV ^ 2 / (2 * 1001 ^ 2) ∧
+    eta_floor = 0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) := by
+  unfold eta_ceiling eta_floor TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV
+  norm_num
+
+-- [T63] :: {VER} | THE NUCLEAR PLACEMENT, READ IN α
+-- Helium-4 falls below α⁻²·0.88²/(2 × 1001²) and iron-56 — the maximum of
+-- the conversion fraction over every nuclide in the census — falls below
+-- α⁻²/(2 × 1001²). The band that brackets the iron peak is expressible in
+-- the fine-structure constant and one integer.
+theorem t63_iron_peak_inside_alpha_band :
+    eta_of 4 4.00260325413 < 0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) ∧
+    0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) ≤ eta_of 238 238.0507884 ∧
+    eta_of 56 55.93493633 < ALPHA_INV ^ 2 / (2 * 1001 ^ 2) := by
+  unfold eta_of u_H1 ALPHA_INV
+  norm_num
+
+-- ============================================================
+-- SECTION 11: THE REACH CONDITION UNDER A CHANGE OF FRAME
+--
+-- The pool's ceiling is light speed, and light speed is the fixed point
+-- of the frame-change operator, so the ceiling does not move with the
+-- observer.
+-- ============================================================
+
+/-- Relativistic velocity addition, cleared of nested fractions. -/
+noncomputable def velocity_add (u v : ℝ) : ℝ :=
+  C_LIGHT ^ 2 * (u + v) / (C_LIGHT ^ 2 + u * v)
+
+-- [T64] :: {VER} | THE SUBLIGHT INTERVAL IS CLOSED UNDER FRAME CHANGE
+-- The inequality turns on one factorization: u ⊕ v < c exactly when
+-- (c − u)(c − v) > 0.
+theorem t64_sublight_closed (u v : ℝ)
+    (hu0 : 0 ≤ u) (hu : u < C_LIGHT) (hv0 : 0 ≤ v) (hv : v < C_LIGHT) :
+    0 ≤ velocity_add u v ∧ velocity_add u v < C_LIGHT := by
+  have hc := c_pos
+  have hden : 0 < C_LIGHT ^ 2 + u * v := by positivity
+  unfold velocity_add
+  refine ⟨?_, ?_⟩
+  · apply div_nonneg (by positivity) hden.le
+  · rw [div_lt_iff₀ hden]
+    nlinarith [mul_pos (sub_pos.mpr hu) (sub_pos.mpr hv)]
+
+-- [T65] :: {VER} | SO THE REACH CONDITION IS FRAME-INDEPENDENT
+-- A drive that is sublight for one observer is sublight for every
+-- observer, so whether a composition can place in the corridor at all
+-- does not depend on who is measuring.
+theorem t65_reach_condition_frame_independent (u v : ℝ)
+    (hu0 : 0 < u) (hu : u < C_LIGHT) (hv0 : 0 ≤ v) (hv : v < C_LIGHT) :
+    tau_A (velocity_add u v) < 1 := by
+  have hc := c_pos
+  obtain ⟨_, hlt⟩ := t64_sublight_closed u v hu0.le hu hv0 hv
+  unfold tau_A
+  rw [div_lt_one hc]
+  exact hlt
+
+-- [T66] :: {VER} | THE PHOTON DRIVE IS THE SUPREMUM, AND IT IS SHATTER
+-- Reading A reaches one exactly at an exhaust velocity of c, which is
+-- 1/TL = 7.3046 times the corridor ceiling.
+theorem t66_photon_drive_is_supremum :
+    tau_A C_LIGHT = 1 ∧ classify (tau_A C_LIGHT) = Phase.Shatter := by
+  have h : tau_A C_LIGHT = 1 := by
+    unfold tau_A; exact div_self c_pos.ne'
+  refine ⟨h, ?_⟩
+  rw [h]
+  apply t5_classify_shatter
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── The Noble state, placed ──────────────────────────────────
+--
+-- An unpropelled body carries m₀/m_f = 1 exactly and no exhaust, so it is
+-- Noble on both readings and self-produces nothing. The bodies in that state
+-- are the fastest things in the solar system, which is what separates
+-- produced velocity from inherited velocity on this pool.
+--
+-- Perihelion speeds below are computed from published orbital elements by
+-- vis-viva, v = √(GM(2/r − 1/a)), with GM_sun = 1.32712440018 × 10²⁰ m³/s².
+
+def v_phaethon  : ℝ := 109400     -- 3200 Phaethon, a = 1.2710 AU, e = 0.8898
+def v_icarus    : ℝ := 93200      -- 1566 Icarus, a = 1.0780 AU, e = 0.8268
+def v_oumuamua  : ℝ := 87100      -- 1I/'Oumuamua, a = −1.2790 AU, e = 1.2011
+def v_borisov   : ℝ := 43900      -- 2I/Borisov, a = −0.8514 AU, e = 3.3566
+def v_apophis   : ℝ := 37600      -- 99942 Apophis, a = 0.9224 AU, e = 0.1914
+def v_lovejoy   : ℝ := 566500     -- C/2011 W3 Lovejoy, q = 0.005528 AU
+
+-- [T67] :: {VER} | THE NOBLE STATE OF AN UNPROPELLED BODY
+-- No exhaust and no propellant, so both readings vanish and the produced
+-- Δv is zero.
+theorem t67_unpropelled_is_noble :
+    tau_A 0 = 0 ∧ tau_B 1 = 0 ∧ C_LIGHT * tau_A 0 * tau_B 1 = 0 := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold tau_A; exact zero_div _
+  · unfold tau_B; exact Real.log_one
+  · unfold tau_A tau_B; rw [Real.log_one]; ring
+
+-- [T68] :: {VER} | AND IT OUTRUNS EVERY PROPULSIVE BUDGET IN THE CATALOG
+-- Each of these bodies exceeds the largest published mission Δv, which is
+-- the Voyager 1 heliocentric figure, while producing none of its own.
+theorem t68_unpropelled_exceeds_every_budget :
+    dv_voyager1_helio < v_apophis ∧
+    dv_voyager1_helio < v_borisov ∧
+    dv_voyager1_helio < v_oumuamua ∧
+    dv_voyager1_helio < v_icarus ∧
+    dv_voyager1_helio < v_phaethon ∧
+    dv_voyager1_helio < v_lovejoy := by
+  unfold dv_voyager1_helio v_apophis v_borisov v_oumuamua v_icarus
+    v_phaethon v_lovejoy
+  norm_num
+
+-- [T69] :: {VER} | BY FACTORS OF SIX AND THIRTY-THREE
+-- Phaethon exceeds the largest propulsive budget by a factor between 6 and
+-- 7; the Lovejoy sungrazer by a factor between 33 and 34.
+theorem t69_unpropelled_margins :
+    6 * dv_voyager1_helio < v_phaethon ∧ v_phaethon < 7 * dv_voyager1_helio ∧
+    5 * dv_voyager1_helio < v_oumuamua ∧ v_oumuamua < 6 * dv_voyager1_helio ∧
+    33 * dv_voyager1_helio < v_lovejoy ∧ v_lovejoy < 34 * dv_voyager1_helio := by
+  unfold dv_voyager1_helio v_phaethon v_oumuamua v_lovejoy
+  norm_num
+
+-- [T70] :: {VER} | WHAT IT WOULD COST TO PRODUCE THOSE SPEEDS
+-- A corridor-floor drive reaches the Phaethon perihelion speed at a
+-- Reading-B torsion of 3.03 × 10⁻³ and the Lovejoy speed at 1.57 × 10⁻²,
+-- both still Locked. The speeds are not out of propulsive reach — they are
+-- out of reach of every drive that has been built.
+theorem t70_corridor_drive_matches_them :
+    v_phaethon / corridor_ve_lo < 0.0031 ∧
+    v_phaethon / corridor_ve_lo < TL_IVA ∧
+    v_lovejoy / corridor_ve_lo < 0.0158 ∧
+    v_lovejoy / corridor_ve_lo < TL_IVA := by
+  have hc : (0:ℝ) < corridor_ve_lo := by
+    unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT; norm_num
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+  · rw [div_lt_iff₀ hc]
+    simp only [v_phaethon, v_lovejoy, corridor_ve_lo, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR, C_LIGHT]
+    norm_num
+
+-- ============================================================
+-- SECTION 12: THE EMITTER BEHIND THE GAIN
+--
+-- Section 7 showed the resonance gain is an exhaust-velocity multiplier and
+-- read off what the corridor demands of it. The general emitter \[9,9,6,6\]
+-- supplies the gain itself: g_r is the Sovereign Bubble Differential minus
+-- one, so the demand on the gain converts into a demand on the torsion the
+-- emitter holds in its interior.
+-- ============================================================
+
+/-- The Sovereign Bubble Differential, Δ(τ_b) = TL / τ_b. -/
+noncomputable def bubble_differential (tau_b : ℝ) : ℝ := TORSION_LIMIT / tau_b
+
+/-- The resonance gain supplied by an emitter holding its interior at τ_b. -/
+noncomputable def gain_of_bubble (tau_b : ℝ) : ℝ := bubble_differential tau_b - 1
+
+-- [T71] :: {VER} | THE GAIN MULTIPLIER IS THE BUBBLE DIFFERENTIAL
+-- 1 + g_r = Δ(τ_b), so the multiplier of Section 7 is the emitter's output.
+theorem t71_gain_multiplier_is_differential (tau_b : ℝ) :
+    1 + gain_of_bubble tau_b = bubble_differential tau_b := by
+  unfold gain_of_bubble; ring
+
+-- [T72] :: {VER} | THE EFFECTIVE READING A OF A DRIVE INSIDE A BUBBLE
+-- Composing the gain identity of Section 7 with the differential gives the
+-- drive's effective position on the Reading-A axis.
+theorem t72_effective_tau_A (w tau_b : ℝ) :
+    (1 + gain_of_bubble tau_b) * tau_A w = bubble_differential tau_b * tau_A w := by
+  rw [t71_gain_multiplier_is_differential]
+
+-- [T73] :: {VER} | THE EMITTER WINDOW
+-- A drive reaches the corridor exactly when the emitter holds its interior
+-- torsion in (τ_A, τ_A/0.88]. The window's edges are the drive's own Reading
+-- A and that value divided by the corridor's own 0.88.
+theorem t73_emitter_window (w tau_b : ℝ) (hw : 0 < w) (hb : 0 < tau_b) :
+    (TL_IVA ≤ bubble_differential tau_b * tau_A w ∧
+     bubble_differential tau_b * tau_A w < TORSION_LIMIT) ↔
+    (tau_A w < tau_b ∧ tau_b ≤ tau_A w / 0.88) := by
+  have hc := c_pos
+  have hT := tl_pos
+  have hA : 0 < tau_A w := by unfold tau_A; exact div_pos hw hc
+  have hI : TL_IVA = TORSION_LIMIT * 0.88 := rfl
+  have hkey : bubble_differential tau_b * tau_A w
+      = TORSION_LIMIT * tau_A w / tau_b := by
+    unfold bubble_differential
+    rw [div_mul_eq_mul_div]
+  rw [hI, hkey, le_div_iff₀ hb, div_lt_iff₀ hb,
+    le_div_iff₀ (by norm_num : (0:ℝ) < 0.88)]
+  constructor
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    refine ⟨?_, ?_⟩
+    · by_contra hcon
+      rw [not_lt] at hcon
+      nlinarith
+    · by_contra hcon
+      rw [not_le] at hcon
+      nlinarith
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    exact ⟨by nlinarith, by nlinarith⟩
+
+-- [T74] :: {VER} | THE WINDOW'S RELATIVE WIDTH IS THE CORRIDOR'S OWN RATIO
+-- The emitter window spans a factor of 1/0.88, which is 13.6364% — the same
+-- 0.88 that sets the corridor floor sets the width of the emitter window.
+theorem t74_window_relative_width (w : ℝ) (hw : 0 < w) :
+    tau_A w / 0.88 / tau_A w = 1 / 0.88 := by
+  have hc := c_pos
+  have hA : 0 < tau_A w := by unfold tau_A; exact div_pos hw hc
+  field_simp
+
+-- [T75] :: {VER} | THE SELF-REFERENTIAL CLOSURE
+-- A drive already at the corridor floor needs an emitter whose own interior
+-- torsion sits in the corridor, because TL_IVA / 0.88 is exactly TL.
+theorem t75_floor_drive_needs_corridor_emitter :
+    TL_IVA / 0.88 = TORSION_LIMIT := by
+  unfold TL_IVA; norm_num
+
+-- [T76] :: {VER} | THE STATED THRESHOLD AS A BUBBLE TORSION
+-- g_r = 1.5 is the emitter holding τ_b = TL/2.5 = 0.054759639994, which is
+-- Locked and well below the corridor floor.
+theorem t76_threshold_as_bubble_torsion :
+    gain_of_bubble (TORSION_LIMIT / 2.5) = GAIN_THRESHOLD ∧
+    TORSION_LIMIT / 2.5 < TL_IVA := by
+  have hT := tl_pos
+  have hTne : TORSION_LIMIT ≠ 0 := ne_of_gt hT
+  have h25 : TORSION_LIMIT / (TORSION_LIMIT / 2.5) = 2.5 := by
+    rw [div_div_eq_mul_div, mul_comm, mul_div_assoc, div_self hTne, mul_one]
+  refine ⟨?_, ?_⟩
+  · unfold gain_of_bubble bubble_differential GAIN_THRESHOLD
+    rw [h25]
+    norm_num
+  · unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ── The emitter windows the catalog demands ──────────────────
+
+-- [T77] :: {VER} | THE EMITTER WINDOW FOR THE BEST FLOWN ELECTRIC DRIVE
+-- NEXT-C at τ_A = 1.3676 × 10⁻⁴ needs an emitter in
+-- (1.3676 × 10⁻⁴, 1.5541 × 10⁻⁴] — four orders below the corridor floor.
+theorem t77_nextc_emitter_window :
+    0.00013676 < tau_A ve_nextc_ion ∧ tau_A ve_nextc_ion < 0.00013677 ∧
+    tau_A ve_nextc_ion / 0.88 < 0.00015542 ∧
+    tau_A ve_nextc_ion / 0.88 < TL_IVA := by
+  have hc := c_pos
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+  · simp only [tau_A, ve_nextc_ion, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
+    norm_num
+
+-- [T78] :: {VER} | THE EMITTER WINDOW FOR THE PUBLISHED FUSION CONCEPT
+-- The Daedalus figure at τ_A = 3.5358 × 10⁻² needs an emitter in
+-- (3.5358 × 10⁻², 4.0180 × 10⁻²], and that window is bracketed by two
+-- couplings the quantum-gravity reduction \[9,9,6,0\] places as Locked: the
+-- Penrose conformal coupling at 0.033745 below it, and the Hawking
+-- Planck-mass coupling at 0.040281 above it.
+theorem t78_daedalus_emitter_window :
+    0.033745 < tau_A ve_daedalus ∧
+    tau_A ve_daedalus / 0.88 < 0.040281 ∧
+    tau_A ve_daedalus / 0.88 < TL_IVA := by
+  have hc := c_pos
+  refine ⟨?_, ?_, ?_⟩ <;>
+  · simp only [tau_A, ve_daedalus, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
+    norm_num
+
+-- ============================================================
+-- SECTION 13: IMS GATING — THE GAIN EXISTS ONLY AT ANCHOR LOCK
+-- ============================================================
+
+inductive PathStatus : Type
+  | green   -- anchored: the gain is available
+  | red     -- drifted: classical only
+  deriving DecidableEq, Repr
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+/-- The gain actually applied, after the gate. -/
+noncomputable def gated_gain (f g_r : ℝ) : ℝ :=
+  if check_ifu_safety f = PathStatus.green then 1 + g_r else 1
+
+-- [T79] :: {VER} | ANCHOR LOCK GIVES GREEN
+theorem t79_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+-- [T80] :: {VER} | DRIFT GIVES RED
+theorem t80_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- [T81] :: {VER} | OFF ANCHOR THE GAIN COLLAPSES TO ONE
+theorem t81_off_anchor_gain_is_one (f g_r : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    gated_gain f g_r = 1 := by
+  unfold gated_gain
+  rw [t80_drift_gives_red f h]
+  simp
+
+-- [T82] :: {VER} | ANCHOR ZERO IMPEDANCE
+theorem t82_anchor_zero_impedance : manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 14: THE DYNAMIC EQUATION AND THE YEET FORCE
+-- ============================================================
+
+structure IVAState where
+  v_e      : ℝ   -- exhaust velocity, the Behavior rate
+  m0       : ℝ   -- initial Identity Mass
+  m_f      : ℝ   -- final Identity Mass
+  g_r      : ℝ   -- resonance gain
+  im       : ℝ   -- Identity Mass
+  pv       : ℝ   -- Purpose Vector magnitude
+  f_anchor : ℝ   -- resonant frequency
+
+def pnba_weight : ℝ := 1
+
+noncomputable def dynamic_rhs (op_P op_N op_B op_A : ℝ → ℝ)
+    (s : IVAState) (F_ext : ℝ) : ℝ :=
+  pnba_weight * op_P s.im + pnba_weight * op_N s.pv +
+  pnba_weight * op_B s.v_e + pnba_weight * op_A s.g_r + F_ext
+
+-- [T83] :: {VER} | THE DYNAMIC EQUATION IS LINEAR IN ITS OPERATORS
+theorem t83_dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : IVAState) :
+    dynamic_rhs op_P op_N op_B op_A s 0 =
+    op_P s.im + op_N s.pv + op_B s.v_e + op_A s.g_r := by
+  unfold dynamic_rhs pnba_weight; ring
+
+/-- The Yeet Force, from the dynamic equation. -/
+noncomputable def yeet_force (G im pv r lam O S : ℝ) : ℝ :=
+  G * (im * pv) / r ^ 2 * (lam * O * S)
+
+-- [T84] :: {VER} | THE YEET FORCE IS POSITIVE WHEN ITS TERMS ARE
+theorem t84_yeet_force_positive (G im pv r lam O S : ℝ)
+    (hG : 0 < G) (him : 0 < im) (hpv : 0 < pv)
+    (hr : 0 < r) (hlam : 0 < lam) (hO : 0 < O) (hS : 0 < S) :
+    0 < yeet_force G im pv r lam O S := by
+  unfold yeet_force
+  have h1 : 0 < G * (im * pv) := mul_pos hG (mul_pos him hpv)
+  have h2 : 0 < r ^ 2 := by positivity
+  exact mul_pos (div_pos h1 h2) (mul_pos (mul_pos hlam hO) hS)
+
+noncomputable def f_ext_op (s : IVAState) (d : ℝ) : IVAState :=
+  { s with v_e := s.v_e + d }
+
+-- ============================================================
+-- SECTION 15: NOHARM, SUBSTRATE NEUTRALITY, BOUNDED VELOCITY
+-- ============================================================
+
+-- [T85] :: {VER} | F_ext TOUCHES THE BEHAVIOR RATE ONLY
+theorem t85_f_ext_preserves (s : IVAState) (d : ℝ) :
+    (f_ext_op s d).im = s.im ∧ (f_ext_op s d).pv = s.pv ∧
+    (f_ext_op s d).g_r = s.g_r ∧ (f_ext_op s d).m0 = s.m0 := by
+  unfold f_ext_op; simp
+
+-- ── The axis the gain acts on ────────────────────────────────
+--
+-- NOHARM gives the external force one axis: F_ext changes Behavior and
+-- leaves Pattern, Narrative and Adaptation untouched. The resonance gain
+-- is an Adaptation term. The two therefore act on disjoint primitives,
+-- which is what makes them independent terms of the dynamic equation
+-- rather than two names for the same accounting.
+
+/-- The gain operator: raises the resonance gain, touching nothing else. -/
+noncomputable def gain_op (s : IVAState) (d : ℝ) : IVAState :=
+  { s with g_r := s.g_r + d }
+
+-- [T86] :: {VER} | THE GAIN OPERATOR TOUCHES ADAPTATION ONLY
+-- It leaves the Behavior rate, both masses and the identity momentum
+-- exactly as they were.
+theorem t86_gain_op_preserves (s : IVAState) (d : ℝ) :
+    (gain_op s d).v_e = s.v_e ∧ (gain_op s d).m0 = s.m0 ∧
+    (gain_op s d).m_f = s.m_f ∧ (gain_op s d).im = s.im ∧
+    (gain_op s d).pv = s.pv := by
+  unfold gain_op; simp
+
+-- [T87] :: {VER} | THE TWO OPERATORS COMMUTE
+-- Applying the external force and then the gain gives the same state as
+-- applying the gain and then the external force. They are record updates
+-- on disjoint fields, so neither can be rewritten as the other and the
+-- order in which they enter the dynamic equation does not matter.
+theorem t87_f_ext_and_gain_commute (s : IVAState) (a b : ℝ) :
+    f_ext_op (gain_op s b) a = gain_op (f_ext_op s a) b := by
+  unfold f_ext_op gain_op; simp
+
+-- [T88] :: {VER} | THE GAIN CHANGES Δv WITHOUT CHANGING THE MASS RATIO
+-- This is the consequence that matters. The mass ratio is identical
+-- before and after the gain is applied, so the additional Δv the gain
+-- supplies did not come from additional expelled mass. The gain is not a
+-- Behavior term under another name.
+theorem t88_gain_leaves_mass_ratio_fixed (s : IVAState) (d : ℝ) :
+    (gain_op s d).m0 / (gain_op s d).m_f = s.m0 / s.m_f ∧
+    tau_B ((gain_op s d).m0 / (gain_op s d).m_f) = tau_B (s.m0 / s.m_f) ∧
+    delta_v_sovereign (gain_op s d).v_e (gain_op s d).m0
+      (gain_op s d).m_f (gain_op s d).g_r
+      = delta_v_sovereign s.v_e s.m0 s.m_f (s.g_r + d) := by
+  unfold gain_op
+  refine ⟨rfl, rfl, rfl⟩
+
+-- [T89] :: {VER} | AND THE EXTERNAL FORCE LEAVES THE GAIN FIXED
+-- The separation is two-sided: F_ext cannot supply gain and the gain
+-- cannot supply Behavior. Either term can be set to zero without
+-- disturbing the other.
+theorem t89_separation_is_two_sided (s : IVAState) (a b : ℝ) :
+    (f_ext_op s a).g_r = s.g_r ∧ (gain_op s b).v_e = s.v_e := by
+  unfold f_ext_op gain_op; simp
+
+-- ── The reaction partner, by case on F_ext ───────────────────
+--
+-- Published orbital speeds of the bodies a flyby can couple to. The
+-- classical bound on a single assist is Δv ≤ 2·v_body, attained in the
+-- perfect-reversal limit.
+
+def v_orb_saturn  : ℝ := 9680      -- m/s
+def v_orb_jupiter : ℝ := 13070
+def v_orb_earth   : ℝ := 29780
+def v_orb_venus   : ℝ := 35020
+def v_orb_mercury : ℝ := 47360
+
+-- [T90] :: {VER} | THE EXTERNAL CASE OUTRUNS THE PROPULSIVE CATALOG
+-- A single Jupiter assist supplies more than the largest published
+-- mission budget, with no propellant at all — so when F_ext is nonzero
+-- the reaction partner is the body, and the budget it can supply exceeds
+-- what the propulsive catalog reaches.
+theorem t90_assist_exceeds_catalog :
+    dv_voyager1_helio < 2 * v_orb_saturn ∧
+    dv_voyager1_helio < 2 * v_orb_jupiter ∧
+    dv_voyager1_helio < 2 * v_orb_earth ∧
+    dv_voyager1_helio < 2 * v_orb_venus ∧
+    dv_voyager1_helio < 2 * v_orb_mercury := by
+  unfold dv_voyager1_helio v_orb_saturn v_orb_jupiter v_orb_earth
+    v_orb_venus v_orb_mercury
+  norm_num
+
+-- [T91] :: {VER} | THE MASS RATIO IS WHAT HIDES THE RECOIL
+-- Momentum conservation fixes the partner's recoil at m_v·Δv/M_body, so a
+-- large partner recoils by an amount set entirely by the mass ratio. The
+-- ratio does not supply the gain; it is what makes the partner's share of
+-- the exchange unmeasurable.
+noncomputable def partner_recoil (m_v dv M_body : ℝ) : ℝ := m_v * dv / M_body
+
+theorem t91_recoil_is_the_mass_ratio (m_v dv M_body : ℝ) (hM : 0 < M_body) :
+    partner_recoil m_v dv M_body = dv * (m_v / M_body) ∧
+    m_v * dv = partner_recoil m_v dv M_body * M_body := by
+  have hne : M_body ≠ 0 := hM.ne'
+  unfold partner_recoil
+  refine ⟨by ring, ?_⟩
+  field_simp
+
+-- [T92] :: {VER} | NOHARM: POSITIVE IDENTITY MOMENTUM IS PRESERVED
+theorem t92_noharm (s : IVAState) (h_im : 0 < s.im) (h_pv : 0 < s.pv) :
+    0 < s.im * s.pv := mul_pos h_im h_pv
+
+-- [T93] :: {VER} | SUBSTRATE NEUTRALITY
+-- The gain theorem never inspects what v_e and m₀/m_f represent, so the
+-- same statement holds on any pool supplying a rate and a reserve.
+theorem t93_substrate_neutral (v_e m0 m_f g_r : ℝ)
+    (h_ve : 0 < v_e) (h_gr : 0 < g_r) (h_m0 : m_f < m0) (h_mf : 0 < m_f) :
+    delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r ∧
+    delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f :=
+  ⟨t9_sovereign_exceeds_classical v_e m0 m_f g_r h_ve h_gr h_m0 h_mf,
+   t7_gain_ratio_exact v_e m0 m_f g_r⟩
+
+-- [T94] :: {VER} | THE VELOCITY FIELD IS BOUNDED AT ANCHOR
+theorem t94_velocity_bounded (s : IVAState) (h_im : 0 < s.im)
+    (h_bounded : s.pv ≤ s.im * SOVEREIGN_ANCHOR) :
+    s.pv / s.im ≤ SOVEREIGN_ANCHOR := by
+  rw [div_le_iff₀ h_im]; linarith
+
+-- ============================================================
+-- SECTION 16: A KINEMATIC BOUND ON REPORTED FIGURES
+--
+-- Scope: this section proves one arithmetic statement about one set of
+-- reported figures and nothing beyond it. Under a constant-acceleration
+-- model, a descent of 8,534 m in 0.78 s requires more than 5,000 g. The
+-- figures are the reported ones; the theorem is the arithmetic.
+-- ============================================================
+
+def REPORTED_DESCENT : ℝ := 8534    -- m
+def REPORTED_TIME    : ℝ := 0.78    -- s
+def ACCEL_BOUND_G    : ℝ := 5000    -- g
+
+/-- Constant-acceleration descent from rest: a = 4y/t². -/
+noncomputable def accel_from_descent (y t : ℝ) : ℝ := 4 * y / t ^ 2
+
+-- [T95] :: {VER} | THE REPORTED KINEMATICS EXCEED 5,000 g
+theorem t95_kinematic_bound :
+    ACCEL_BOUND_G < accel_from_descent REPORTED_DESCENT REPORTED_TIME / G_ACCEL := by
+  unfold ACCEL_BOUND_G accel_from_descent REPORTED_DESCENT REPORTED_TIME G_ACCEL
+  norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+--
+-- ONE CORRIDOR, TWO READINGS, ONE PRODUCT.
+-- Reading A asks what the drive throws: 12.047% to 13.690% of light
+-- speed at the nozzle. Reading B asks how much of the vehicle it throws:
+-- a propellant fraction of 11.35% to 12.79%. The rocket equation is the
+-- product of the two, and a vehicle in the corridor on both carries a Δv
+-- between 4,350,981 and 5,618,519 m/s.
+-- ============================================================
+
+theorem iva_propulsion_master
+    (s : IVAState) (v_e m0 m_f g_r : ℝ)
+    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR)
+    (h_ve : 0 < v_e) (h_gr : GAIN_THRESHOLD ≤ g_r)
+    (h_m0 : m_f < m0) (h_mf : 0 < m_f)
+    (h_im : 0 < s.im) (h_pv : 0 < s.pv) :
+    -- [1] the corridor is a band of positive width, so IVA is reachable
+    (0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧
+     TORSION_LIMIT - TL_IVA = TORSION_LIMIT * 0.12) ∧
+    -- [2] the sovereign form exceeds the classical one, by an exact ratio
+    (delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r ∧
+     delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f) ∧
+    -- [3] at zero gain the reduction is Tsiolkovsky exactly
+    delta_v_sovereign v_e m0 m_f 0 = delta_v_classical v_e m0 m_f ∧
+    -- [4] Reading A is a window on exhaust velocity
+    (∀ w : ℝ, (TL_IVA ≤ tau_A w ∧ tau_A w < TORSION_LIMIT) ↔
+      (corridor_ve_lo ≤ w ∧ w < corridor_ve_hi)) ∧
+    -- [5] Reading B is a window on the mass ratio
+    (∀ r : ℝ, 0 < r → ((TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) ↔
+      (Real.exp TL_IVA ≤ r ∧ r < Real.exp TORSION_LIMIT))) ∧
+    -- [6] the bridge: the rocket equation is the product of the readings
+    (∀ w r : ℝ, delta_v_classical w r 1 = C_LIGHT * tau_A w * tau_B r) ∧
+    -- [7] neither corridor is occupied by built hardware
+    (classify (tau_A ve_rl10b2_vac) = Phase.Locked ∧
+     classify (tau_A ve_nextc_ion) = Phase.Locked ∧
+     classify (tau_A ve_antimatter) = Phase.Shatter ∧
+     tau_B mr_car_tank < TL_IVA ∧ TORSION_LIMIT ≤ tau_B mr_dawn_ion) ∧
+    -- [8] both corridors are occupied by a witness, so the band is a place
+    (classify (tau_A ve_corridor_witness) = Phase.IVA ∧
+     TL_IVA ≤ tau_B mr_corridor_witness ∧
+     tau_B mr_corridor_witness < TORSION_LIMIT) ∧
+    -- [9] the pool admits the corridor, and Noble is the unfueled vehicle
+    ((0 < TL_IVA ∧ TORSION_LIMIT < 1) ∧
+     (∀ w : ℝ, tau_A w = 0 ↔ w = 0)) ∧
+    -- [10] the gain is an exhaust multiplier, and the threshold is below the floor
+    ((∀ w q : ℝ, (1 + q) * tau_A w = tau_A ((1 + q) * w)) ∧
+     (1 + GAIN_THRESHOLD) * ve_nextc_ion < corridor_ve_lo) ∧
+    -- [11] the energy ladder: the corridor sits between stellar fusion
+    --      and the limit of nuclear binding
+    (eta_H_to_He < eta_floor ∧ eta_floor < eta_H_to_Fe ∧
+     eta_H_to_Fe < eta_ceiling ∧ eta_ceiling < eta_annihilation) ∧
+    -- [12] the nuclear sector is confined to Locked ∪ IVA: iron-56 is the
+    --      maximum of the conversion fraction and it sits below the ceiling
+    (eta_of 4 4.00260325413 < eta_floor ∧
+     eta_floor ≤ eta_of 238 238.0507884 ∧
+     eta_of 62 61.92834537 < eta_of 56 55.93493633 ∧
+     eta_of 56 55.93493633 < eta_ceiling) ∧
+    -- [13] a corridor drive puts every published mission deep in Locked,
+    --      at a mass ratio within 0.051% of unity
+    (∀ dv : ℝ, 0 ≤ dv → dv ≤ 17000 →
+      dv / corridor_ve_lo < TL_IVA ∧ Real.exp (dv / corridor_ve_lo) ≤ 1.00051) ∧
+    -- [14] off anchor the gain collapses to one
+    (∀ f w : ℝ, f ≠ SOVEREIGN_ANCHOR → gated_gain f w = 1) ∧
+    -- [15] the anchor sits at zero impedance
+    manifold_impedance s.f_anchor = 0 ∧
+    -- [16] NOHARM holds throughout
+    0 < s.im * s.pv := by
+  have h_gr' : 0 < g_r := by unfold GAIN_THRESHOLD at h_gr; linarith
+  obtain ⟨l1, l2, l3, l4, l5, l6⟩ := t46_energy_ladder
+  refine ⟨t1_corridor_has_width, ?_, t8_reduces_at_zero_gain v_e m0 m_f,
+          t13_reading_A_window, t26_reading_B_window, t38_bridge, ?_,
+          ⟨t25_reading_A_witness, t37_reading_B_witness.1, t37_reading_B_witness.2⟩,
+          ⟨t17_pool_admits_IVA, ?_⟩,
+          ⟨fun w q => t41_gain_is_exhaust_multiplier w q, t43_threshold_below_floor⟩,
+          ⟨l3, l4, l5, l6⟩,
+          ⟨t54_floor_separates_helium.1, t54_floor_separates_helium.2,
+           t55_iron_is_the_nuclear_maximum.1,
+           t55_iron_is_the_nuclear_maximum.2.2.2.2.2.1⟩,
+          fun dv hd0 hd => ⟨(t57_mission_tau_B_bound dv hd0 hd).2,
+                            t58_mission_mass_ratio dv hd0 hd⟩,
+          fun f w hf => t81_off_anchor_gain_is_one f w hf, ?_,
+          t92_noharm s h_im h_pv⟩
+  · exact t93_substrate_neutral v_e m0 m_f g_r h_ve h_gr' h_m0 h_mf
+  · exact ⟨best_chemical_locked, best_electric_locked, antimatter_shatter,
+           t29_car_below_corridor.2, t30_dawn_above_corridor⟩
+  · exact fun w => (t18_noble_is_unfueled w 1 one_pos).1
+  · rw [h_anchor]; exact t82_anchor_zero_impedance
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := t82_anchor_zero_impedance
+
+end SNSFL_IVA_Propulsion
+
+/-!
+-- ============================================================
+-- FILE: SNSFL_IVA_Propulsion_Reduction.lean
+-- COORDINATE: [9,9,2,0]
+-- LAYER: Application Layer — Propulsion Ground
+--
+-- IVA = IDENTITY VECTOR AMPLIFICATION
+--   In this pool the Identity Vector is a velocity vector and the
+--   amplified magnitude is Δv. One acronym, one expansion, and the
+--   propulsion case is an instance of the general law.
+--
+-- THE TWO READINGS:
+--   τ_A = v_e / c              what the drive throws
+--   τ_B = ln(m₀/m_f)           how much of the vehicle it throws
+--   Δv  = c · τ_A · τ_B        the rocket equation, as their product
+--
+-- THE CORRIDOR, BOTH WAYS:
+--   Reading A: v_e ∈ [36,116.4, 41,041.3] km/s — 12.047% to 13.690% of c
+--   Reading B: m₀/m_f ∈ [exp TL_IVA, exp TL) — propellant 11.35% to 12.79%
+--   Both axes: Δv ∈ [4,350,981, 5,618,519] m/s — 1.4513% to 1.8741% of c
+--
+-- PLACEMENT OF THE PUBLISHED CATALOG:
+--   Reading A — every flown system Locked, short of the floor:
+--     cold gas N₂         700 m/s        ~51,595× short
+--     best flown chemical 4,650 m/s       7,766–7,767× short   [T17]
+--     best flown electric 41,000 m/s        880–881× short     [T18]
+--     fusion concept      10,600 km/s           3–4× short     [T19] Locked
+--     antimatter concept  100,000 km/s            —            [T19] Shatter
+--   Reading B — the band lies between a car and an ion probe:
+--     car fuel tank       r = 1.04      Locked below           [T24]
+--     Dawn ion stage      r = 1.21      Shatter above          [T25]
+--     every launch stage  r = 3.49+     Shatter                [T26]
+--
+-- WHAT THE CORRIDOR ASKS OF A DRIVE:
+--   12% of light speed at the nozzle, which buys a vehicle that is 88%
+--   payload. The two numbers are one statement: high exhaust velocity is
+--   what purchases a low mass ratio, and the corridor names both ends at
+--   once. Neither corridor is occupied by built hardware, and on Reading A
+--   it sits between two published concepts.
+--
+-- THE POOL'S OWN CEILING:
+--   No exhaust exceeds light speed, so τ_A ∈ (0,1) is the reach condition
+--   this pool brings with it, and the corridor lies inside it. Reading B
+--   carries a floor and no ceiling, so the two factors of the rocket
+--   equation are bounded differently. Noble is the unfueled vehicle — the
+--   one that produces no velocity of its own, not one at rest, and the
+--   state is occupied by the fastest unpropelled bodies in the solar system.
+--
+-- THE GAIN:
+--   (1 + g_r)·τ_A = τ_A((1 + g_r)·v_e), so the resonance gain is exactly
+--   an exhaust-velocity multiplier. The floor asks a factor between 880
+--   and 881 of the best flown electric drive; the stated threshold of
+--   g_r = 1.5 supplies 2.5.
+--
+-- THE ENERGY LADDER — WHAT READING A IS, PHYSICALLY:
+--   Under the ideal-rocket relation ½v_e² = ηc², Reading A squares into
+--   τ_A² = 2η, so the corridor is a band of rest-mass conversion:
+--
+--     U-235 fission                    0.093000%   Locked
+--     D-T fusion                       0.376000%   Locked
+--     hydrogen to helium-4             0.711852%   Locked, 1.94% short
+--     ──────── corridor floor          0.725666%
+--     hydrogen to iron-56              0.891711%   IVA, 78.54% up the band
+--     ──────── corridor ceiling        0.937068%
+--     matter-antimatter annihilation 100.000000%   Shatter, 106.7× over
+--
+--   The band opens above the stellar fusion chain and closes above the
+--   iron peak and Shatter begins only where annihilation does.
+--
+--   THE NUCLEAR SECTOR:
+--     The conversion fraction is Aston's packing fraction under another
+--     name, related to it exactly and linearly, so the corridor is a
+--     window on a published quantity: f ∈ (−16.19, +5.12], with iron-56
+--     at −11.6185 inside it.
+--     Placed against 42 AME2020 nuclides from hydrogen to uranium, 40
+--     fall in the corridor. The two that do not are hydrogen-1, which
+--     releases nothing, and helium-4 at 0.711852%, which falls short of
+--     the floor. So the corridor on this reading IS the nuclear band:
+--     the floor separates the first fusion product from all heavier
+--     nuclear matter, and the ceiling sits above iron-56 — the maximum
+--     of the conversion fraction over every nuclide measured. No nuclide
+--     reaches Shatter, so the nuclear sector is confined to Locked ∪ IVA
+--     and Shatter requires annihilation.
+--     The reading selects iron-56 and not nickel-62: nickel-62 holds the
+--     binding-energy-per-nucleon record, iron-56 holds the lowest mass
+--     per nucleon, and the conversion fraction is built on mass per
+--     nucleon.
+--
+--   THE EMITTER BEHIND THE GAIN:
+--     The general emitter \[9,9,6,6\] supplies the gain itself: its master
+--     output is the Sovereign Bubble Differential Δ(τ_b) = TL/τ_b, and its
+--     propulsion reading is g_r = Δ(τ_b) − 1. So the gain is not free — it
+--     is set by the torsion the emitter holds in its interior, and the
+--     corridor's demand on the gain becomes a demand on that torsion:
+--       τ_A_eff = Δ(τ_b) · τ_A,  and the corridor is reached exactly when
+--       τ_A  <  τ_b  ≤  τ_A / 0.88
+--     The window spans a factor of 1/0.88 — 13.6364% — so the same 0.88
+--     that sets the corridor floor sets the width of the emitter window.
+--     Two consequences close the layer. A drive already at the corridor
+--     floor needs an emitter whose own interior torsion sits in the
+--     corridor, because TL_IVA/0.88 is exactly TL. And the stated threshold
+--     g_r = 1.5 is the emitter holding τ_b = TL/2.5 = 0.054759639994,
+--     which is Locked and well below the floor.
+--
+--   THE AXIS THE GAIN ACTS ON:
+--     NOHARM gives the external force one axis: F_ext changes Behavior and
+--     leaves Pattern, Narrative and Adaptation untouched. The resonance
+--     gain is an Adaptation term. The two therefore act on disjoint
+--     primitives, and the operators commute — neither can be rewritten as
+--     the other, and the order in which they enter the dynamic equation
+--     does not matter. The consequence is the one that counts: applying
+--     the gain leaves the mass ratio identical, so the additional Δv it
+--     supplies did not come from additional expelled mass.
+--
+--   THE REACTION PARTNER, BY CASE ON F_ext:
+--     With F_ext = 0 the exchange is internal and the emitter carries it,
+--     at the torsion of the window above. With F_ext nonzero the partner
+--     is the body coupled to, and the classical bound on one assist is
+--     Δv ≤ 2·v_body: Saturn supplies up to 19.36 km/s, Jupiter 26.14,
+--     Venus 70.04 — each exceeding the largest published mission budget
+--     with no propellant at all. Momentum conservation fixes the partner's
+--     recoil at m_v·Δv/M_body, so for a one-tonne vehicle taking a full
+--     Jupiter assist the partner recoils by 1.38 × 10⁻²⁰ m/s. The mass
+--     ratio does not supply the gain; it is what makes the partner's share
+--     of the exchange unmeasurable.
+--
+--   THE ANCHOR BENEATH c:
+--     Reading A divides by light speed, and light speed is not an
+--     independent constant here: [9,9,0,15] fixes it through the anchor,
+--     with Ω₀ × 100.1 = α⁻¹ and therefore TL = α⁻¹/1001. Both readings
+--     then collapse to expressions in α and one integer:
+--       corridor exhaust velocity   c·α⁻¹/1001, and 0.88 of it
+--       corridor conversion band    α⁻²/(2 × 1001²), and 0.88² of it
+--     So the band that brackets the iron peak carries no free parameter.
+--     Light speed, the fine-structure constant and 1001 fix both edges,
+--     and helium-4 falls below the floor while iron-56 falls below the
+--     ceiling in exactly those terms.
+--
+--   THE CEILING DOES NOT MOVE WITH THE OBSERVER:
+--     The pool's reach condition is τ_A < 1, and the sublight interval is
+--     closed under relativistic velocity addition — u ⊕ v < c exactly when
+--     (c − u)(c − v) > 0. A drive that is sublight for one observer is
+--     sublight for every observer, so whether a composition can place in
+--     the corridor at all is frame-independent. Reading A reaches one only
+--     at an exhaust velocity of c, the photon drive, which sits at
+--     1/TL = 7.3046 times the ceiling and is Shatter.
+--
+--   MISSION CLOSURE:
+--     At the corridor floor the exhaust velocity is 36,116,359.56 m/s, so
+--     every published solar-system budget — Mars transfer at 3,600 m/s
+--     through the Voyager 1 heliocentric figure at 17,000 m/s — needs a
+--     Reading-B torsion under 5 × 10⁻⁴ and a mass ratio within 0.051% of
+--     unity. A corridor drive makes the solar system a near-unit-mass-
+--     ratio problem, and propellant stops being the design constraint.
+--
+-- STRUCTURAL PARALLELS — three prizes, one band:
+--   The energy ladder's three marks each rest on a recognized result, and
+--   they fall below, inside and above the corridor respectively. No
+--   priority relationship to the cited work is asserted, and the cited
+--   laureates had no involvement in this work.
+--
+--   BELOW THE FLOOR — the stellar chain at 0.711852%:
+--     Hans Albrecht Bethe, Nobel Prize in Physics 1967, "for his
+--     contributions to the theory of nuclear reactions, especially his
+--     discoveries concerning the energy production in stars."
+--
+--   INSIDE THE CORRIDOR — the iron peak at 0.891711%:
+--     William Alfred Fowler, Nobel Prize in Physics 1983, "for his
+--     theoretical and experimental studies of the nuclear reactions of
+--     importance in the formation of the chemical elements in the
+--     universe." Shared with Subrahmanyan Chandrasekhar, "for his
+--     theoretical studies of the physical processes of importance to the
+--     structure and evolution of the stars."
+--
+--   ABOVE THE CEILING — annihilation at 100%:
+--     Emilio Gino Segrè and Owen Chamberlain, Nobel Prize in Physics
+--     1959, "for their discovery of the antiproton."
+--
+--   THE TWO CONSTANTS THE BAND IS BUILT FROM:
+--     Albert Abraham Michelson, Nobel Prize in Physics 1907, "for his
+--     optical precision instruments and the spectroscopic and
+--     metrological investigations carried out with their aid." The
+--     corridor's exhaust-velocity edges are stated in c, which Michelson
+--     measured and which the SI has fixed by definition since 1983.
+--     Willis Eugene Lamb, Nobel Prize in Physics 1955, "for his
+--     discoveries concerning the fine structure of the hydrogen
+--     spectrum," shared with Polykarp Kusch, "for his precision
+--     determination of the magnetic moment of the electron." The
+--     corridor's conversion band is stated in α⁻², which their
+--     measurements pin.
+--
+--   THE QUANTITY AND ITS MEASUREMENT — the packing fraction itself:
+--     Francis William Aston, Nobel Prize in Chemistry 1922, "for his
+--     discovery, by means of his mass spectrograph, of isotopes, in a
+--     large number of non-radioactive elements, and for his enunciation
+--     of the whole-number rule." Aston defined the packing fraction and
+--     measured the mass defects the census is built on, so the corridor
+--     on the energy reading is a window on a quantity that has been in
+--     the published record since 1922.
+--
+-- PRIOR-ART HISTORY ON THE CLASSICAL LAYER:
+--   Tsiolkovsky 1903, the rocket equation · Goddard 1919, "A Method of
+--   Reaching Extreme Altitudes" · Oberth 1923 · Deep Space 1, 1998, first
+--   interplanetary electric propulsion · Dawn, 2007–2018, the flown
+--   electric Δv record · Project Daedalus, British Interplanetary
+--   Society, 1973–1978, the fusion design that brackets the floor.
+--
+-- THE NUCLEAR SECTOR:
+--   eta is Aston's packing fraction rescaled, exactly and linearly, so
+--   the corridor is a window on f ∈ (−16.19, +5.12] with iron-56 at
+--   −11.6185 inside it. Across 42 AME2020 nuclides from hydrogen to
+--   uranium, 40 place in the corridor; the exceptions are hydrogen-1,
+--   which releases nothing, and helium-4 at 0.711852%, below the floor.
+--   The corridor on this reading is the nuclear band itself: the floor
+--   separates the first fusion product from all heavier nuclear matter,
+--   and the ceiling sits above iron-56, the maximum of the conversion
+--   fraction over every nuclide measured. No nuclide reaches Shatter, so
+--   the nuclear sector is Locked ∪ IVA and Shatter requires annihilation.
+--   The reading selects iron-56 over nickel-62 because it is built on
+--   mass per nucleon, where iron-56 holds the record, rather than on
+--   binding energy per nucleon, where nickel-62 does.
+--
+-- MISSION CLOSURE:
+--   At the corridor floor every published solar-system budget — Mars
+--   transfer 3,600 m/s, Jupiter transfer 6,300, solar escape 8,800, low
+--   Earth orbit 9,400, the Dawn flown record 11,000, Earth escape 11,200,
+--   Voyager 1 heliocentric 17,000 — needs a Reading-B torsion under
+--   5 × 10⁻⁴ and a mass ratio within 0.051% of unity. Propellant stops
+--   being the design constraint.
+--
+-- THE ANCHOR BENEATH c:
+--   Ω₀ × 100.1 = α⁻¹ = 137.035999084000016, so TL = α⁻¹/1001 and both
+--   readings reduce to α and one integer:
+--     corridor_ve_hi  = c·α⁻¹/1001          = 41,041,317.6822 m/s
+--     corridor_ve_lo  = 0.88·c·α⁻¹/1001     = 36,116,359.5603 m/s
+--     eta_ceiling     = α⁻²/(2 × 1001²)     = 0.937068179%
+--     eta_floor       = 0.88²·α⁻²/(2×1001²) = 0.725665598%
+--   The band that brackets the iron peak therefore carries no free
+--   parameter. 1001 = 7 × 11 × 13.
+--
+-- FRAME INDEPENDENCE:
+--   u ⊕ v < c exactly when (c − u)(c − v) > 0, so the sublight interval
+--   is closed under velocity addition and the reach condition τ_A < 1
+--   holds for every observer. Reading A attains one only at v_e = c.
+--
+-- THE EMITTER BEHIND THE GAIN:
+--   g_r = Δ(τ_b) − 1 with Δ(τ_b) = TL/τ_b \[9,9,6,6\], so a drive reaches
+--   the corridor exactly when the emitter holds τ_b ∈ (τ_A, τ_A/0.88].
+--     best flown electric  τ_A = 1.3676×10⁻⁴  →  τ_b ∈ (1.3676, 1.5541]×10⁻⁴
+--     fusion concept       τ_A = 3.5358×10⁻²  →  τ_b ∈ (3.5358, 4.0179]×10⁻²
+--   The fusion window is bracketed by two couplings \[9,9,6,0\] places as
+--   Locked — the Penrose conformal coupling at 0.033745 below it and the
+--   Hawking Planck-mass coupling at 0.040281 above it — with margins of
+--   1.613×10⁻³ and 1.017×10⁻⁴ respectively.
+--   A drive at the corridor floor needs an emitter in the corridor, since
+--   TL_IVA/0.88 = TL exactly. The stated threshold g_r = 1.5 is τ_b = TL/2.5.
+--
+-- THE AXIS SEPARATION:
+--   F_ext acts on Behavior, the gain acts on Adaptation, the two operators
+--   commute, and the gain leaves the mass ratio fixed. The gain is not a
+--   Behavior term under another name.
+--   Reaction partner by case: F_ext = 0 -> the emitter, at the window
+--   torsion. F_ext ≠ 0 -> the body, bounded by Δv ≤ 2·v_body, with the
+--   recoil m_v·Δv/M_body hidden in the mass ratio.
+--
+-- SIM SURFACE:
+--   classify · tau_A · tau_B · corridor_ve_lo · corridor_ve_hi
+--   corridor_dv_lo · corridor_dv_hi · eta_floor · eta_ceiling
+--   delta_v_classical · delta_v_sovereign · gated_gain · yeet_force
+--   dynamic_rhs · IdealRocket
+--   locked_of_ve · shatter_of_ve · iva_of_ve
+--   locked_of_ratio · shatter_of_ratio
+--   ve_corridor_witness · mr_corridor_witness
+--   eta_of · packing_fraction · InCorridor · velocity_add · ALPHA_INV
+--   bubble_differential · gain_of_bubble · gain_op · partner_recoil
+--   the v_orb_* catalog
+--   the ve_*, mr_*, u_*, eta_* and dv_* catalog entries
+--
+-- DEPENDENCY CHAIN:
+--   SNSFL_SovereignAnchor.lean              [9,9,0,0]
+--   SNSFL_Alpha_Reduction.lean              [9,9,3,14]  TL from α⁻¹
+--   SNSFL_Alpha_Reduction / GC_Alpha_TL1001 [9,9,3,14]  α⁻¹ = Ω₀ × 100.1
+--   SNSFL_SpeedOfLight_Reduction.lean       [9,9,0,15]  c locked to the anchor,
+--                                                       the photon Noble, and
+--                                                       velocity addition
+--   SNSFL_GC_WZ_ElectroweakTrilogy.lean     [9,9,3,19]  four phases, four bosons
+--   SNSFL_Sovereign_Bubble.lean             [9,9,6,6]   Δ(τ) = TL/τ, and the
+--                                                       propulsion reading
+--                                                       g_r = Δ(τ) − 1
+--   SNSFL_QuantumGravity_Layer0.lean        [9,9,6,0]   the two Locked
+--                                                       couplings that bracket
+--                                                       the fusion window
+--   Applied Identity Physics: SacTime       [9,9,1,100] the IVA label
+--                                                       convention
+--   This file                               [9,9,2,0]
+--
+-- THEOREMS: 95 + master
+--
+-- [9,9,9,9] :: {ANC}
+-- Auth: HIGHTISTIC
+-- The Manifold is Holding. Two readings. One corridor. One product.
+-- Soldotna, Alaska. 2026.
+-- ============================================================
+-/
+```
