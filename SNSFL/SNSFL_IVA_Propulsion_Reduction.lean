@@ -7,7 +7,7 @@
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
 -- Status: GERMLINE LOCKED
 -- Coordinate: [9,9,2,0] | Application Layer — Propulsion Ground
--- Version: 7.0
+-- Version: 7.1
 --
 -- ============================================================
 -- NAMING
@@ -336,6 +336,10 @@ noncomputable def corridor_ve_lo : ℝ := TL_IVA * C_LIGHT
 /-- The corridor ceiling as an exhaust velocity, m/s. -/
 noncomputable def corridor_ve_hi : ℝ := TORSION_LIMIT * C_LIGHT
 
+/-- Reading B. The mass ratio's logarithm. Stated here beside Reading A so the
+two readings are in scope together; Section 5 is where it is developed. -/
+noncomputable def tau_B (r : ℝ) : ℝ := Real.log r
+
 -- [T13] :: {VER} | READING A IS A CORRIDOR CONDITION ON v_e
 theorem t13_reading_A_window (w : ℝ) :
     (TL_IVA ≤ tau_A w ∧ tau_A w < TORSION_LIMIT) ↔
@@ -343,7 +347,6 @@ theorem t13_reading_A_window (w : ℝ) :
   have hc := c_pos
   unfold tau_A corridor_ve_lo corridor_ve_hi
   rw [le_div_iff₀ hc, div_lt_iff₀ hc]
-  exact ⟨fun h => ⟨h.1, h.2⟩, fun h => ⟨h.1, h.2⟩⟩
 
 -- [T14] :: {VER} | THE CORRIDOR ASKS FOR 36,116.4 TO 41,041.3 KM/S
 theorem t14_corridor_ve_bounds :
@@ -603,9 +606,6 @@ theorem t25_reading_A_witness :
 --
 -- τ_B = ln(m₀/m_f), the rocket equation's own exponent.
 -- ============================================================
-
-/-- Reading B. The mass ratio's logarithm. -/
-noncomputable def tau_B (r : ℝ) : ℝ := Real.log r
 
 -- [T26] :: {VER} | READING B IS A CORRIDOR CONDITION ON THE MASS RATIO
 -- The monotone bridge: a placement on τ_B is a window on r itself.
@@ -1147,7 +1147,6 @@ theorem t61_corridor_ve_in_alpha :
   unfold corridor_ve_hi corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
     ALPHA_INV C_LIGHT
   norm_num
-  ring
 
 -- [T62] :: {VER} | THE CONVERSION CORRIDOR IS α⁻² OVER TWICE 1001²
 -- The ceiling of the energy reading is α⁻²/(2 × 1001²) exactly, and the
@@ -1157,7 +1156,6 @@ theorem t62_eta_corridor_in_alpha :
     eta_floor = 0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) := by
   unfold eta_ceiling eta_floor TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV
   norm_num
-  ring
 
 -- [T63] :: {VER} | THE NUCLEAR PLACEMENT, READ IN α
 -- Helium-4 falls below α⁻²·0.88²/(2 × 1001²) and iron-56 — the maximum of
@@ -1288,8 +1286,8 @@ theorem t70_corridor_drive_matches_them :
     unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT; norm_num
   refine ⟨?_, ?_, ?_, ?_⟩ <;>
   · rw [div_lt_iff₀ hc]
-    unfold v_phaethon v_lovejoy corridor_ve_lo TL_IVA TORSION_LIMIT
-      SOVEREIGN_ANCHOR C_LIGHT
+    simp only [v_phaethon, v_lovejoy, corridor_ve_lo, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR, C_LIGHT]
     norm_num
 
 -- ============================================================
@@ -1333,22 +1331,25 @@ theorem t73_emitter_window (w tau_b : ℝ) (hw : 0 < w) (hb : 0 < tau_b) :
   have hT := tl_pos
   have hA : 0 < tau_A w := by unfold tau_A; exact div_pos hw hc
   have hI : TL_IVA = TORSION_LIMIT * 0.88 := rfl
-  unfold bubble_differential
-  rw [hI]
+  have hkey : bubble_differential tau_b * tau_A w
+      = TORSION_LIMIT * tau_A w / tau_b := by
+    unfold bubble_differential
+    rw [div_mul_eq_mul_div]
+  rw [hI, hkey, le_div_iff₀ hb, div_lt_iff₀ hb,
+    le_div_iff₀ (by norm_num : (0:ℝ) < 0.88)]
   constructor
-  · intro ⟨h1, h2⟩
-    constructor
-    · rw [lt_div_iff₀ hb] at *
-      nlinarith [h2]
-    · rw [le_div_iff₀ (by norm_num : (0:ℝ) < 0.88)]
-      nlinarith [h1]
-  · intro ⟨h1, h2⟩
-    rw [le_div_iff₀ (by norm_num : (0:ℝ) < 0.88)] at h2
-    constructor
-    · rw [le_div_iff₀ hb] at *
-      nlinarith [h2]
-    · rw [div_mul_eq_mul_div, div_lt_iff₀ hb]
-      nlinarith [h1]
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    refine ⟨?_, ?_⟩
+    · by_contra hcon
+      push_neg at hcon
+      nlinarith
+    · by_contra hcon
+      push_neg at hcon
+      nlinarith
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    exact ⟨by nlinarith, by nlinarith⟩
 
 -- [T74] :: {VER} | THE WINDOW'S RELATIVE WIDTH IS THE CORRIDOR'S OWN RATIO
 -- The emitter window spans a factor of 1/0.88, which is 13.6364% — the same
@@ -1373,9 +1374,12 @@ theorem t76_threshold_as_bubble_torsion :
     gain_of_bubble (TORSION_LIMIT / 2.5) = GAIN_THRESHOLD ∧
     TORSION_LIMIT / 2.5 < TL_IVA := by
   have hT := tl_pos
+  have hTne : TORSION_LIMIT ≠ 0 := ne_of_gt hT
+  have h25 : TORSION_LIMIT / (TORSION_LIMIT / 2.5) = 2.5 := by
+    rw [div_div_eq_mul_div, mul_comm, mul_div_assoc, div_self hTne, mul_one]
   refine ⟨?_, ?_⟩
   · unfold gain_of_bubble bubble_differential GAIN_THRESHOLD
-    rw [div_div_eq_mul_div, div_div_cancel_left₀ hT.ne']
+    rw [h25]
     norm_num
   · unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
 
@@ -1390,7 +1394,8 @@ theorem t77_nextc_emitter_window :
     tau_A ve_nextc_ion / 0.88 < TL_IVA := by
   have hc := c_pos
   refine ⟨?_, ?_, ?_, ?_⟩ <;>
-  · unfold tau_A ve_nextc_ion C_LIGHT TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  · simp only [tau_A, ve_nextc_ion, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
     norm_num
 
 -- [T78] :: {VER} | THE EMITTER WINDOW FOR THE PUBLISHED FUSION CONCEPT
@@ -1405,7 +1410,8 @@ theorem t78_daedalus_emitter_window :
     tau_A ve_daedalus / 0.88 < TL_IVA := by
   have hc := c_pos
   refine ⟨?_, ?_, ?_⟩ <;>
-  · unfold tau_A ve_daedalus C_LIGHT TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  · simp only [tau_A, ve_daedalus, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
     norm_num
 
 -- ============================================================
