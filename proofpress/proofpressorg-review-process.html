@@ -460,6 +460,7 @@
 <p>Every ProofPress<span class="tm">™</span> submission receives a Lean 4 CI Green, 0 Sorry, 0 Free Parameter Fidelity Review. This page sets out what the review checks, its three layers, and the requirements for publishing a new result that falls out of a reduction.</p>
 <h2>What the Review Checks</h2>
 <p>A ProofPress<span class="tm">™</span> article starts from results published in peer-reviewed venues and takes them as its inputs, exactly as published. The review checks the reduction built on those inputs: that every value, relation and premise is carried over faithfully from its cited source, that every step of the derivation compiles, and that no parameter is fitted. Results that follow from the reduction are published, including new results that fall out of a complete reduction, under the requirements set out in <a href="#emergent">Results That Emerge From a Reduction</a>.</p>
+<p>The review also checks the submission's Misappropriation-Risk Clarification (MRC) class and, where a section is required, that the section is correctly scoped: that the result is stated plainly rather than hedged, that the open questions are placed in the process and the laboratory conditions rather than in the mathematics, and that handling practice is supplied in place of enumerated hazard routes. The selector and the template are published on <a href="proofpressorg-mrc-template.html">The MRC Template</a>.</p>
 <h2>The Three Review Layers</h2>
 <ol class="step-list">
 <li><strong>Formal verification (machine).</strong> The submission's Lean 4 (and, where claimed, Coq/Rocq) source is compiled on the journal's pinned toolchain under a strict zero-unproved-obligation constraint: 0 sorry and 0 custom axioms. This check is deterministic, publicly reproducible by anyone with the toolchain, and leaves a permanent, inspectable compilation log. A single unresolved obligation disqualifies the submission from publication.</li>
@@ -469,6 +470,7 @@
 <h2>What Machine Verification Adds</h2>
 <p>Lean 4 compilation at 0 sorry is checked by a deterministic kernel, is reproducible by anyone who runs the same source through the same toolchain, and produces a permanent, inspectable record of the check having occurred. Where the fidelity-review layers above catch transcription and translation errors, the machine-verification layer catches any unsound logical step, any smuggled premise, or any gap in the reduction — the compiler simply does not compile if one exists.</p>
 <h2>Publication Requirements</h2>
+<p>A submission in the MRC1, MRC2 or MRC3 class is not eligible for publication without its Misappropriation-Risk Clarification section. This requirement stands on the same footing as the 0-sorry constraint: a draft may be submitted for editorial feedback without it, and publication requires it. The MRC class is recorded in the front matter of every article, including those in the MRC0 class.</p>
 <ul>
 <li>Peer-reviewed inputs are used exactly as published, each cited to its source.</li>
 <li>Every result is derived. A new result is published when it falls out of a complete reduction of peer-reviewed sources, as described below.</li>
@@ -509,6 +511,7 @@
       <a href="proofpressorg-review-process.html">Review Process</a>
       <a href="proofpressorg-publication-ethics.html">Ethics</a>
       <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-mrc-template.html">MRC Template</a>
       <a href="proofpressorg-advertising.html">Advertising</a>
       <a href="proofpressorg-contact.html">Contact</a>
       <a href="proofpressorg-archive.html">Archive</a>
