@@ -7,7 +7,7 @@
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
 -- Status: GERMLINE LOCKED
 -- Coordinate: [9,9,0,17](GRAV) | Physics Ground — Gravitation
--- Version: 1.2
+-- Version: 1.3
 --
 -- ============================================================
 -- STANDALONE
@@ -330,10 +330,17 @@ theorem t19_cap_equals_horizon (t g : ℝ) (ht : 0 < t) (hg : -1 < g) :
   constructor
   · intro h; rw [h]; norm_num
   · intro h
+    have hne : ((1 + g) * t) ^ 2 ≠ 0 := hsq.ne'
     have h2 : ((1 + g) * t) ^ 2 = 1 := by
-      field_simp at h
-      linarith [h]
-    have h3 : ((1 + g) * t - 1) * ((1 + g) * t + 1) = 0 := by nlinarith
+      have hmul : ((1 + g) * t) ^ 2 * (1 / ((1 + g) * t) ^ 2)
+          = ((1 + g) * t) ^ 2 * 1 := by rw [h]
+      rw [mul_one, mul_one_div, div_self hne] at hmul
+      exact hmul.symm
+    have h3 : ((1 + g) * t - 1) * ((1 + g) * t + 1) = 0 :=
+      calc ((1 + g) * t - 1) * ((1 + g) * t + 1)
+          = ((1 + g) * t) ^ 2 - 1 := by ring
+        _ = 1 - 1 := by rw [h2]
+        _ = 0 := by ring
     rcases mul_eq_zero.mp h3 with h4 | h4
     · linarith
     · linarith
@@ -774,8 +781,8 @@ theorem t66_flown_outside_corridor :
     matched_ratio TL_IVA < matched_ratio (tau_A ve_rl10b2) ∧
     matched_ratio TL_IVA < matched_ratio (tau_A ve_nextc) ∧
     matched_ratio TL_IVA < matched_ratio (tau_A ve_daedalus) := by
-  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT]
-    ve_cold_gas ve_rl10b2 ve_nextc ve_daedalus
+  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT,
+    ve_cold_gas, ve_rl10b2, ve_nextc, ve_daedalus]
   refine ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
 
 -- [T67] :: {VER} | ORDINARY MOTION IS DEEP IN LOCKED ON THE SAME AXIS
