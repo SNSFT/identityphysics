@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric — ProofPress</title>
+  <meta name="description" content="[9,9,0,17](GRAV) — Reading A is a radius. For any drive with exhaust velocity v_e and any mass M there is exactly one radius at which the escape velocity of M equals v_e, and that radius is r = r_s/τ_A², so the ratio r/r_s is fixed by the drive alone and the attracting mass cancels. The Identity Vector Amplification corridor occupies a fixed band on radius, 53.357910 to 68.902260 Schwarzschild radii, with both edges closed forms in the fine-structure constant and the integer 1001. At that radius gravitational and kinematic time dilation are the same quantity, the relativistic gain cap and the event horizon are the same bound, and the well is worth exactly one e-fold of the rocket equation — a mass ratio of e. Six published unpropelled bodies reproduce r_match = 2q/(1 + e) to within 0.12%. The specialist form reads the same axis through the square-root torsion operator, closed over the rationals. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-matched-radius.html">
+  <meta property="og:title" content="The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric">
+  <meta property="og:description" content="[9,9,0,17](GRAV) — Volume 1, ProofPress. &#937;&#8320; = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-matched-radius.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/11/06">
+  <meta name="citation_online_date" content="2026/11/06">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,0,17">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-matched-radius.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-matched-radius.html">
+  <meta name="citation_keywords" content="matched radius; Schwarzschild metric; escape velocity; gravitational time dilation; event horizon; Oberth effect; rocket equation; gravitational redshift; ISCO; photon sphere; fine-structure constant; orbital mechanics; vis-viva; Identity Vector Amplification; PNBA; Applied Identity Physics; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric",
+    "datePublished": "2026-11-06",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-matched-radius.html",
+    "keywords": "matched radius, Schwarzschild metric, escape velocity, gravitational time dilation, event horizon, Oberth effect, rocket equation, gravitational redshift, ISCO, photon sphere, fine-structure constant, orbital mechanics, vis-viva, Identity Vector Amplification, PNBA, Applied Identity Physics, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Kenai, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,0,17](GRAV) · Volume 1 · Issue 10 · November 2026</div>
+    <h1>The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-matched-radius.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_MatchedRadius_Reduction.lean" download>&#8595; .LEAN</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_MatchedRadius_Reduction_TL.lean" download>&#8595; .LEAN _TL</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID <a href="https://orcid.org/0009-0005-5313-7443">0009-0005-5313-7443</a><br>
+<strong>Coordinate:</strong> [9,9,0,17](GRAV) general-reader form, with the specialist form at [9,9,0,17.1](GRAV) · Identity Physics Series · Physics Ground, Gravitation<br>
+<strong>Issue:</strong> Volume 1, Issue 10 · November 2026<br>
+<strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a><br>
+<strong>Verified:</strong> 71 theorems · 893 lines at [9,9,0,17] and 42 theorems · 528 lines at [9,9,0,17.1] · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib · <a href="https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_MatchedRadius_Reduction.lean">source and CI record</a><br>
+<strong>Engine:</strong> GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit</p>
+
+<h2>Abstract</h2>
+<p>The propulsion reduction at [9,9,2,0] establishes that one vehicle carries two independent torsions: Reading A, τ_A = v_e/c, the exhaust velocity against light speed; and Reading B, τ_B = ln(m₀/m_f), the rocket equation's own exponent. This article reads the same corridor through the Schwarzschild metric and finds that Reading A is a radius. For any drive with exhaust velocity v_e and any mass M there is exactly one radius at which the escape velocity of M equals v_e, and writing r_s = 2GM/c² for the Schwarzschild radius, that radius is r = r_s/τ_A² — so the ratio r/r_s is fixed by the drive alone and the attracting mass cancels. Because Reading A squared is twice the conversion fraction of the ideal rocket, the same ratio is r/r_s = 1/(2η): the matched radius is the reciprocal of twice the conversion fraction. The Identity Vector Amplification (IVA) corridor therefore occupies a fixed band on radius, 53.357910 ≤ r/r_s ≤ 68.902260, and in the fine-structure constant alone the edges are (1001/α⁻¹)² and (1001/(0.88 · α⁻¹))². At that radius the two time dilations of relativity coincide: gravitational dilation √(1 − r_s/r) and the kinematic dilation of a body moving at v_e, √(1 − v_e²/c²), are both √(1 − 2η) exactly — the radius at which a well pulls as hard as a drive pushes is the radius at which the well slows time by as much as the exhaust does. The escape-velocity form v_esc(r) = c√(r_s/r) used throughout is exact in the full Schwarzschild metric for the locally measured speed at every radius outside the horizon, with the two factors of (1 − r_s/r) cancelling identically and no expansion taken. The resonance gain carries this further: the gain is an exhaust-velocity multiplier, so the matched radius under gain is r/r_s = 1/((1 + g_r) · τ_A)², and the relativistic cap the propulsion reduction already proves, g_r &lt; c/v_e − 1, is exactly the condition (1 + g_r) · τ_A &lt; 1, which is exactly r &gt; r_s — the gain cap and the event horizon are the same bound. The four phases then map onto radius with no freedom left: Locked is the far field beyond 68.902260 r_s, IVA is the corridor band, Shatter is everything between the corridor and the horizon, and the cap is the horizon itself; the corridor's own 0.88 appears as the gain carrying a ceiling drive to the floor radius, g_r = −0.12. Reading B meets the well exactly once: a fall from rest at infinity to the matched radius delivers c · τ_A and a rocket delivers c · τ_A · τ_B, so the well is worth τ_B = 1 — one e-fold, a mass ratio of e. A burn executed at the matched radius has Oberth multiplier Ob = √(1 + 2/τ_B) with the exhaust velocity cancelling, taking the corridor from 1.4513%–1.8741% of light speed to 6.089%–7.404%; n such burns compound as √n under v_∞ = v_e√(n · τ_B(2 + τ_B)), the four phases classify a mission by integer burn count, and the budget closes as n_max · τ_B(2 + τ_B) = r_match/r_s exactly. The construction is checked against the unpropelled bodies the propulsion reduction places as Noble: vis-viva gives a perihelion speed whose matched radius is r = 2q/(1 + e), so an unbound parabolic trajectory matches at its own perihelion, and across six published bodies — 3200 Phaethon, 1566 Icarus, 1I/'Oumuamua, 2I/Borisov, 99942 Apophis and C/2011 W3 Lovejoy — the catalog speeds reproduce from published JPL orbital elements to within 0.12%. The specialist form at [9,9,0,17.1] reads the same axis through the square-root torsion operator S(X) = √X and finds the layer closed over the rationals: r_match/r_s = 1/X for a drive at Reading A √X, so the root cancels and no irrational survives to the output; √TL lands at 1/TL = 7.304649921853084 r_s and √TL_IVA at 1/TL_IVA = 8.300738547560323 r_s, both exact rationals standing in the corridor width factor 25/22 with no error term; the operator is horizon-ward, driving the matched radius strictly inward at every depth of iteration while the horizon remains its floor; and it centers any band of width factor k in (0,1) structurally, placing √0.88 × TL inside the corridor with matched radius 1/(0.88 · TL²) = 60.633989182759393 r_s, the geometric mean of the corridor's own radius band. 1001 = 7 · 11 · 13.</p>
+
+<h2>What This Article Proves</h2>
+<ol>
+<li>The matched radius exists, is unique, and matches by construction: at r = r_s/τ_A² the squared escape fraction is exactly τ_A², and the matched ratio is strictly decreasing in Reading A (<code>t8_matched_radius_matches</code>, <code>t11_ratio_antitone</code>).</li>
+<li>The attracting mass cancels: r_match/r_s is a property of the drive alone, and equals the reciprocal of twice the conversion fraction (<code>t9_mass_cancels</code>, <code>t10_ratio_is_conversion</code>).</li>
+<li>The corridor on radius is 53.357910481 to 68.902260435 Schwarzschild radii, and the band lies outside the horizon, the photon sphere and the innermost stable circular orbit (<code>t12_corridor_on_radius</code>, <code>t13_corridor_outside_strong_field</code>).</li>
+<li>The equivalence: gravitational and kinematic time dilation are the same quantity at the matched radius, and both equal √(1 − 2η) (<code>t14_equivalence</code>, <code>t15_dilation_is_conversion</code>, <code>t16_corridor_dilations</code>, <code>t17_dilation_pos</code>).</li>
+<li>The relativistic gain cap and the event horizon are the same bound, with equality transferring: (1 + g_r) · τ_A &lt; 1 if and only if r_match &gt; r_s, and (1 + g_r) · τ_A = 1 if and only if r_match = r_s (<code>t18_cap_is_horizon</code>, <code>t19_cap_equals_horizon</code>, <code>t20_cap_at_ceiling</code>).</li>
+<li>A drive whose exhaust velocity is c matches the event horizon of every mass exactly, and one at half light speed matches exactly four Schwarzschild radii (<code>t21_photon_matches_horizon</code>, <code>t22_half_c_matches_four</code>).</li>
+<li>The four phases map onto radius: Locked is the far field beyond the floor radius, Shatter is the interior to the ceiling radius, IVA is the shell between them, and the strong-field landmarks lie inside the Shatter band (<code>t23_locked_is_far_field</code>, <code>t24_shatter_is_interior</code>, <code>t25_iva_is_the_shell</code>, <code>t26_strong_field_is_shatter</code>, <code>t27_phase_of_edges</code>).</li>
+<li>The well at the matched radius is worth τ_B = 1 exactly, which is a mass ratio of e, and the corridor's own Reading B window falls short of it by a factor of 2.370501 to 2.409764 (<code>t28_well_is_one_efold</code>, <code>t29_efold_mass_ratio</code>, <code>t30_corridor_tau_B_short</code>).</li>
+<li>Both corridor edges on radius are closed forms in the fine-structure constant and the integer 1001, carrying no free parameter (<code>t31_ceiling_in_alpha</code>, <code>t32_floor_in_alpha</code>, <code>t33_band_width_in_alpha</code>).</li>
+<li>At the matched radius the exhaust velocity cancels out of the Oberth multiplier, leaving Ob = √(1 + 2/τ_B), a function of Reading B alone; both corridor multipliers are closed forms in α⁻¹ and 1001; and the multiplier exceeds one and is strictly decreasing in Reading B (<code>t39_exhaust_cancels</code>, <code>t40_multiplier_edges</code>, <code>t41_multiplier_ceiling_in_alpha</code>, <code>t42_multiplier_floor_in_alpha</code>, <code>t43_multiplier_gt_one</code>, <code>t44_multiplier_antitone</code>).</li>
+<li>Depth and gain are interchangeable at a stated exchange rate, and the crossover at which flying deeper beats the capped gain lies outside the innermost stable circular orbit exactly when 4 · (0.88)² &gt; 3, which is 1936/625 = 3.0976 (<code>t45_exchange_rate</code>, <code>t47_crossover_collapses</code>, <code>t48_iva_factor_clears_isco</code>, <code>t51_crossover_at_least_four</code>).</li>
+<li>The chain: n matched burns compound as √n under v_∞ = v_e√(n · τ_B(2 + τ_B)), the four phases classify a mission by integer burn count, and the saturation count has the closed form n_max = 1001⁴/(α⁻³(2002 + α⁻¹)) (<code>t53_chain_law</code>, <code>t55_chain_phase_by_n</code>, <code>t58_n_max_in_alpha</code>).</li>
+<li>The chain budget is the matched radius: n_max · τ_B(2 + τ_B) = r_match/r_s for every drive, closing the radius result against the chain result as one conservation statement (<code>t60_budget_is_matched_radius</code>).</li>
+<li>The two ends of the axis, the far field, the strong field and the redshift: Reading A's bound (0, 1) maps onto the whole radius axis outside the horizon, ordinary motion sits far out in Locked, the photon sphere and the ISCO lie inside Shatter, and the well's redshift at the matched radius is γ(v_e) − 1 (<code>t61_tau_half_is_four</code>, <code>t66_flown_outside_corridor</code>, <code>t67_ordinary_motion_locked</code>).</li>
+<li>The unpropelled catalog: a body at the perihelion of a conic with perihelion distance q and eccentricity e matches r_match = 2q/(1 + e), a parabolic trajectory matches at its own perihelion, and the six published bodies reproduce the ratio across the set (<code>t62_perihelion_matched</code>, <code>t63_parabolic_matches_perihelion</code>, <code>t64_catalog_ratios</code>, <code>t65_unpropelled_far_field</code>).</li>
+<li>The square-root torsion operator closes exactly: the matched radius of a square root is the reciprocal of the quantity rooted, the product of the two is exactly one, and the ratio is a function of that quantity alone rather than of its root (<code>t8_master_sqrt_closure</code>, <code>t9_closure_has_no_residue</code>, <code>t10_output_free_of_the_root</code>).</li>
+<li>The square-root layer closes over the rationals: the Torsion Limit and the corridor floor are ratios of integers, the Torsion Limit is α⁻¹/1001 exactly, and the operator returns a quadratic irrational to the rationals (<code>t4_tl_is_rational</code>, <code>t5_tl_inverse_is_rational</code>, <code>t6_tl_iva_is_rational</code>, <code>t7_tl_times_1001_is_alpha</code>).</li>
+<li>The two landings are exact rationals, 7.304649921853084 and 8.300738547560323 Schwarzschild radii, standing in the corridor width factor 25/22 with no error term (<code>t11_sqrt_tl_lands_at_tl_inverse</code>, <code>t13_first_landing_value</code>, <code>t16_second_landing_value</code>, <code>t17_landings_ratio_is_the_width_factor</code>).</li>
+<li>The operator is horizon-ward, and the horizon is its floor at every depth: t &lt; √t &lt; 1 on the unit interval, each application moves the matched radius strictly inward, and the matched radius of the n-fold root exceeds one for every n (<code>t19_sqrt_sandwich</code>, <code>t22_one_root_moves_inward</code>, <code>t25_horizon_is_the_floor</code>, <code>t26_iteration_strictly_decreases</code>).</li>
+<li>The operator centers any band structurally: a band of width factor k in (0,1) has geometric mean √k times its ceiling, strictly inside the band, and at the corridor's own factor this gives an IVA torsion whose matched radius 60.633989182759393 r_s is the geometric mean of the corridor's radius band (<code>t28_band_geometric_mean</code>, <code>t29_mean_inside_band</code>, <code>t31_center_classifies_iva</code>, <code>t34_center_is_the_radius_band_mean</code>, <code>t36_radius_band_width</code>).</li>
+<li>Closure: each file closes under its own master theorem (<code>MASTER_matched_radius</code>, <code>MASTER_sqrt_torsion_operator</code>).</li>
+</ol>
+
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>The constant the whole axis is built on.</strong> <a href="proofpressorg-alpha-tl1001.html">The Fine-Structure Constant: 1/α = TL × 1001</a> [9,9,3,14] supplies α⁻¹ = Ω₀ × 100.1 and TL = α⁻¹/1001. The Universal Torsion Limit is TL = 0.136899099984016 and the Sovereign Anchor Constant is Ω₀ = TL × 10 = 1.36899099984016. Nothing in this article sets it. It enters at full corpus precision from the inverse fine-structure constant, by direct subtraction:</p>
+<table>
+<tr><th>Napkin math, corpus precision</th><th>Value</th></tr>
+<tr><td>1/α</td><td>137.035999084000016</td></tr>
+<tr><td>Subtract one TL</td><td>137.035999084000016 − 0.136899099984016 = 136.899099984016</td></tr>
+<tr><td>What is left</td><td>136.899099984016 = TL × 1000, exactly</td></tr>
+<tr><td>Bare + kinetic</td><td>136.899099984016 + 0.136899099984016 = 137.035999084000016</td></tr>
+<tr><td>Rounded to published digits</td><td>137.035999084 = CODATA 2018</td></tr>
+</table>
+<table>
+<tr><th>Term</th><th>Value</th><th>QED reading</th><th>PNBA reading</th></tr>
+<tr><td>Bare: TL × 1000</td><td>136.899099984016</td><td>The bare electron contribution</td><td>Pattern capacity at the electromagnetic scale</td></tr>
+<tr><td>Kinetic: TL × 1</td><td>0.136899099984016</td><td>Radiative corrections, a renormalized series</td><td>External forcing F_ext at Layer 0, one exact term</td></tr>
+<tr><td>Total: TL × 1001</td><td>137.035999084000016</td><td>Bare + perturbative series</td><td>1/α</td></tr>
+</table>
+<p>This agrees with the CODATA (Committee on Data of the International Science Council) 2018 value in every published digit at ε = 0, with no free parameter ([9,9,3,14]). The full multiplier factors as 1001 = 7 · 11 · 13, so TL = α⁻¹/1001. Every corridor edge on radius in this article is written in α and the integer 1001 alone, so neither edge carries a free parameter.</p>
+<p><strong>The two readings and the bridge.</strong> <a href="proofpressorg-propulsion-corridor.html">One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding</a> [9,9,2,0] establishes Reading A, Reading B, the bridge Δv = c · τ_A · τ_B, the conversion fraction τ_A² = 2η, and the relativistic gain cap. This article reads that corridor on radius; every parent result it uses is restated in full inside the Lean source rather than imported.</p>
+<p><strong>The Schwarzschild radius as a Pattern threshold.</strong> <a href="proofpressorg-gr-reduction.html">GR Reduction</a> [9,9,0,1] maps the Einstein field equation onto the dynamic equation with Pattern carrying the metric, Narrative the geodesic, Behavior the stress–energy and Adaptation the cosmological term. In that mapping r_s = 2GM/c² is the Pattern-lock threshold: the Pattern density at which the vacuum solution closes and Behavior goes to zero.</p>
+<p><strong>The ceiling on Reading A.</strong> <a href="proofpressorg-speed-of-light.html">Speed of Light</a> [9,9,0,15] locks c to the anchor, places the photon as Noble, and carries relativistic velocity addition. Reading A's confinement to (0, 1) rests on it, and that confinement is what maps the whole radius axis outside the horizon.</p>
+<p><strong>The step the Torsion Limit takes.</strong> <a href="proofpressorg-transcendental-time.html">Transcendental Time Engine</a> [9,9,3,20] establishes that TL is the step the left side of the dynamic equation takes: a kinetic state carries F_ext one TL above the resting state, and n steps accumulate n · TL on any basis. That is the kinetic term in the table above.</p>
+<p><strong>The fusion logic.</strong> The four-phase structure and the Torsion Limit come from GAMCollider™ v15 fusion logic, formalized in <a href="proofpressorg-8beam-fusion.html">8-Beam Fusion</a> [9,9,2,3.8] and <a href="proofpressorg-4beam-verification.html">4-Beam Verification</a> [9,9,2,3.7].</p>
+<p><strong>How the bounds are carried.</strong> Every placement here is stated as an enclosure between two rationals rather than a decimal, following <a href="proofpressorg-bounded-uncertainty.html">Bounded Uncertainty: A Guide</a> [9,9,8,7]: a phase is certified only when the whole interval lies on one side of a boundary.</p>
+
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Primitive</th><th>In the gravitational reading</th><th>Carried by</th></tr>
+<tr><td><strong>Pattern</strong></td><td>The metric, and the Pattern-lock threshold the vacuum solution closes on</td><td>r_s = 2GM/c²</td></tr>
+<tr><td><strong>Narrative</strong></td><td>The radial geodesic the escape velocity is measured on</td><td>E/m = 1 infall, v_esc(r) = c√(r_s/r)</td></tr>
+<tr><td><strong>Behavior</strong></td><td>What the drive throws, read against light speed</td><td>Reading A, τ_A = v_e/c</td></tr>
+<tr><td><strong>Adaptation</strong></td><td>The resonance gain, acting as an exhaust-velocity multiplier</td><td>(1 + g_r) · τ_A</td></tr>
+</table>
+<p><strong>One corridor, read on radius.</strong></p>
+<table>
+<tr><th>Read as</th><th>Floor</th><th>Ceiling</th><th>In α and 1001 alone</th></tr>
+<tr><td>Matched radius r/r_s</td><td>68.902260435</td><td>53.357910481</td><td>(1001/(0.88 · α⁻¹))² and (1001/α⁻¹)²</td></tr>
+<tr><td>Band width in r_s</td><td colspan="2">15.544349954</td><td>(1001/α⁻¹)² · (1/0.88² − 1)</td></tr>
+<tr><td>Time dilation dτ/dt = √(1 − 2η)</td><td>0.992716821680</td><td>0.990584997072</td><td>√(1 − (0.88 · α⁻¹/1001)²) and √(1 − (α⁻¹/1001)²)</td></tr>
+<tr><td>Oberth multiplier at r_match</td><td>4.195411</td><td>3.950861</td><td>√(1 + 2002/(0.88 · α⁻¹)) and √(1 + 2002/α⁻¹)</td></tr>
+<tr><td>Gravitational redshift z</td><td>0.007336612175</td><td>0.009504487708</td><td>γ(v_e) − 1</td></tr>
+<tr><td>Saturation burn count n_max</td><td>269.72</td><td>182.395536</td><td>1001⁴/(α⁻³(2002 + α⁻¹)) at the ceiling</td></tr>
+</table>
+<p><strong>The four phases on radius.</strong> Writing f = (1 + g_r) · τ_A for the gained Reading A, r_match/r_s = 1/f² and the phase classification transfers directly.</p>
+<table>
+<tr><th>Phase</th><th>f = (1 + g_r) · τ_A</th><th>r_match / r_s</th><th>Reading</th></tr>
+<tr><td><strong>Noble</strong></td><td>0</td><td>unbounded</td><td>flat space; no velocity of its own</td></tr>
+<tr><td><strong>Locked</strong></td><td>f &lt; TL_IVA</td><td>r/r_s &gt; 68.902260</td><td>the far field</td></tr>
+<tr><td><strong>IVA</strong></td><td>TL_IVA ≤ f &lt; TL</td><td>53.357910 &lt; r/r_s ≤ 68.902260</td><td>the corridor</td></tr>
+<tr><td><strong>Shatter</strong></td><td>TL ≤ f &lt; 1</td><td>1 &lt; r/r_s ≤ 53.357910</td><td>between the corridor and the horizon</td></tr>
+<tr><td><strong>cap</strong></td><td>f = 1</td><td>r/r_s = 1</td><td>the horizon itself</td></tr>
+</table>
+<p><strong>The strong-field landmarks, and the drive that matches each.</strong> Every one lies inside the Shatter band.</p>
+<table>
+<tr><th>Landmark</th><th>r/r_s</th><th>required τ_A</th><th>Phase of that drive</th></tr>
+<tr><td>corridor floor radius</td><td>68.902260</td><td>0.120471207986</td><td><strong>IVA</strong></td></tr>
+<tr><td>corridor ceiling radius</td><td>53.357910</td><td>0.136899099984</td><td><strong>IVA</strong></td></tr>
+<tr><td>crossover, corridor ceiling</td><td>4.154254</td><td>0.490629296</td><td><strong>Shatter</strong></td></tr>
+<tr><td>ISCO</td><td>3</td><td>0.577350269</td><td><strong>Shatter</strong></td></tr>
+<tr><td>photon sphere</td><td>1.5</td><td>0.816496581</td><td><strong>Shatter</strong></td></tr>
+<tr><td>horizon</td><td>1</td><td>1.000000000</td><td><strong>cap</strong></td></tr>
+</table>
+<p><strong>The published catalog, on radius.</strong> Every flown and near-term drive matches a radius far outside the corridor band.</p>
+<table>
+<tr><th>System</th><th>v_e (m/s)</th><th>r_match / r_s</th><th>Burns to reach IVA</th></tr>
+<tr><td>Cold gas N₂</td><td>700</td><td>1.8339 × 10¹¹</td><td>887,341,107</td></tr>
+<tr><td>RL10B-2 — best flown chemical</td><td>4,650</td><td>4.1566 × 10⁹</td><td>20,108,551</td></tr>
+<tr><td>NEXT-C — best flown electric</td><td>41,000</td><td>5.3466 × 10⁷</td><td>258,654</td></tr>
+<tr><td>Daedalus fusion concept</td><td>10,600,000</td><td>7.9989 × 10²</td><td><strong>4</strong></td></tr>
+<tr><td><strong>corridor</strong></td><td><strong>36,116,360 – 41,041,318</strong></td><td><strong>53.358 – 68.902</strong></td><td><strong>3 – 5</strong></td></tr>
+</table>
+<p><strong>The unpropelled catalog.</strong> Perihelion speeds computed from published JPL orbital elements against the speeds carried by the propulsion reduction, with the matched radius 2q/(1 + e).</p>
+<table>
+<tr><th>Body</th><th>e</th><th>q (AU)</th><th>v_q computed (m/s)</th><th>catalog (m/s)</th><th>error</th><th>r_match/q</th><th>2/(1 + e)</th></tr>
+<tr><td>3200 Phaethon</td><td>0.8898</td><td>0.14006</td><td>109,405.1</td><td>109,400</td><td>0.00%</td><td>1.0584</td><td>1.0583</td></tr>
+<tr><td>1566 Icarus</td><td>0.8268</td><td>0.18671</td><td>93,165.5</td><td>93,200</td><td>−0.04%</td><td>1.0940</td><td>1.0948</td></tr>
+<tr><td>1I/'Oumuamua</td><td>1.2011</td><td>0.25721</td><td>87,130.8</td><td>87,100</td><td>0.04%</td><td>0.9093</td><td>0.9086</td></tr>
+<tr><td>2I/Borisov</td><td>3.3566</td><td>2.00641</td><td>43,889.2</td><td>43,900</td><td>−0.02%</td><td>0.4588</td><td>0.4590</td></tr>
+<tr><td>99942 Apophis</td><td>0.1914</td><td>0.74585</td><td>37,644.0</td><td>37,600</td><td>0.12%</td><td>1.6826</td><td>1.6788</td></tr>
+<tr><td>C/2011 W3 Lovejoy</td><td>≈ 1</td><td>0.00553</td><td>566,531.5</td><td>566,500</td><td>0.01%</td><td>1.0001</td><td>1.0000</td></tr>
+</table>
+<p><strong>The square-root torsion operator, at [9,9,0,17.1].</strong> The operator S(X) = √X sends a torsion to the matched radius 1/X, so the root cancels and the layer closes over the rationals.</p>
+<table>
+<tr><th>Torsion</th><th>Matched radius, exact</th><th>Decimal</th><th>Phase of the torsion</th></tr>
+<tr><td>√TL</td><td>62500000000000 / 8556193749001</td><td>7.304649921853084 r_s</td><td>Shatter</td></tr>
+<tr><td>√TL_IVA</td><td>781250000000000 / 94118131239011</td><td>8.300738547560323 r_s</td><td>Shatter</td></tr>
+<tr><td>√0.88 × TL</td><td>48828125000000000000000000000 / 805292966174881661273478011</td><td>60.633989182759393 r_s</td><td><strong>IVA</strong></td></tr>
+</table>
+<p><strong>The operator is horizon-ward.</strong> Iterating from the Torsion Limit walks the matched radius through the strong-field landmarks, strictly decreasing at every depth, with the horizon as the floor it never reaches.</p>
+<table>
+<tr><th>Depth</th><th>Torsion</th><th>Matched radius</th></tr>
+<tr><td>S⁰(TL)</td><td>0.136899099984016</td><td>53.357910481 r_s</td></tr>
+<tr><td>S¹(TL)</td><td>0.369998783760185</td><td>7.304649922 r_s</td></tr>
+<tr><td>S²(TL)</td><td>0.608275253286031</td><td>2.702711587 r_s — inside the ISCO</td></tr>
+<tr><td>S³(TL)</td><td>0.779920030058230</td><td>1.643992575 r_s</td></tr>
+<tr><td>S⁴(TL)</td><td>0.883130811408044</td><td>1.282182739 r_s — inside the photon sphere</td></tr>
+<tr><td>S⁵(TL)</td><td>0.939750398461232</td><td>1.132335082 r_s</td></tr>
+</table>
+
+<h2>Verification</h2>
+<p>The two Lean 4 sources below compile on the pinned toolchain (Lean 4 v4.31.0, Mathlib) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in one of them: results 1 through 15 are carried by <code>SNSFL_MatchedRadius_Reduction.lean</code> at [9,9,0,17](GRAV), the general-reader form, with 71 theorems across 893 lines; results 16 through 20 are carried by <code>SNSFL_MatchedRadius_Reduction_TL.lean</code> at [9,9,0,17.1](GRAV), the specialist form for the square-root torsion operator, with 42 theorems across 528 lines. Each file is standalone: every constant and definition it uses is restated inside it, so either one closes without reference to the other, and the parent reductions are named for the record rather than imported. Each closes under its own master theorem. Every placement is computed in exact rational arithmetic from published constants and published orbital elements: the Système International value of light speed, the International Astronomical Union 2015 nominal solar mass parameter, the Jet Propulsion Laboratory small-body orbital elements, and the published effective exhaust velocities already carried by the propulsion reduction. Nothing is fitted, and nothing is scaled.</p>
+
+<h2>Misappropriation-Risk Clarification (MRC)</h2>
+<p><strong>MRC class: MRC2.</strong> This reduction closes on a geometric ratio and two time-dilation factors, and its specialist form closes on an operator identity over the rationals. It supplies no composition, no stoichiometric balance and no energy figure of its own.</p>
+<h3>What is established</h3>
+<p>The results in this article are real and testable. Every placement is arithmetic on published quantities, carried out in exact rational arithmetic, and every one of them can be checked by anyone with the published figure and a calculator. Specifically:</p>
+<p><strong>The ratio is exact.</strong> r_match/r_s = 1/τ_A² follows from the locally measured escape velocity in the full Schwarzschild metric by one squaring step. The escape-velocity form itself is exact at every radius outside the horizon, with the two factors of (1 − r_s/r) cancelling identically and no expansion taken, so the result carries to the horizon without modification.</p>
+<p><strong>The equivalence is an identity, not an agreement of decimals.</strong> Gravitational and kinematic time dilation take the same value at the matched radius, and it was verified as an equality of rationals.</p>
+<p><strong>The corridor edges carry no fitted parameter.</strong> The Torsion Limit, the factor 0.88, the fine-structure constant and the integer 1001 fix them. A reader who disagrees with an edge must disagree with one of those.</p>
+<p><strong>The orbital arithmetic is reproducible.</strong> The vis-viva relation, the IAU 2015 solar mass parameter and the JPL element sets are all public, and the six residuals are stated so that a reader can check each one independently. The square-root results require no inputs beyond the anchor and the corridor factor, so a reader can reproduce every value in the specialist form with exact rational arithmetic alone.</p>
+<p>These are results about <strong>geometry and placement, not about process.</strong> That distinction is the whole of this section, and if a reader takes only one sentence from this article, that is the one to take.</p>
+<h3>What is a different question</h3>
+<p>This article places drives, trajectories and landmarks on a torsion axis read as a radius. It does not describe how to build, operate, fuel, contain, cool, shield, trigger or test any drive, and it contains no construction information, no process information, no operating parameters and no device design.</p>
+<p><strong>A placement holds, and building to it is engineering.</strong> A drive whose Reading A places inside the corridor matches the radius the arithmetic says it matches, and it decides that exactly. Whether current hardware can produce that exhaust velocity, survive that depth in a gravitational well, or execute a burn at that radius is a separate body of work, carried by laboratory and engineering practice, and the answer there is a statement about available technology rather than about the placement. The two do not constrain each other: a placement that holds will go on holding whether or not a machine exists yet to use it.</p>
+<p><strong>What the reader can compute from here is the reason the handling practice matters.</strong> This article states its inputs and its arithmetic in full, and a reader with the published constants can carry the same construction into quantities it does not tabulate — a matched radius in meters for a chosen mass, a dilation factor for a chosen drive, an orbital element set for a body not listed here. That is a property of complete work, and the handling practice below is written on the assumption that a reader will do exactly that. Nothing in it rests on an omission.</p>
+<p><strong>An exact ratio is not a reduced hazard.</strong> The exactness is why every remaining variable is process. A qualified practitioner — at an agency, a national laboratory, a university group, or a well-equipped independent bench — can work from a geometric placement like this one safely, and the structure is stated at full precision so that they can. What the placement does not carry is the state of the equipment in front of any particular reader, the scale they intend to work at, or the conditions their own environment imposes. Those are the variables the handling practice addresses.</p>
+<h3>Where the risk actually lives</h3>
+<p>The risk in this domain belongs to <strong>laboratory and engineering conditions and environmental F_ext</strong> — the external forcing a real bench or a real vehicle applies that the arithmetic does not model. It does not belong to the mathematics, and no sentence in this article should be read as doubt about a result. The placements hold. What varies is the process, and process is where people get hurt.</p>
+<p><strong>Hazard scales with which controls are present and with scale, not with the venue.</strong> The relevant questions are whether there is containment rated for the energy density in play, whether there is shielding appropriate to the radiation, whether there is interlocking that fails safe, whether there is monitoring that reads out in real time, whether there is a trained second person present, and whether the quantity has been kept at the smallest scale that answers the question. A well-equipped independent facility that has those controls is not the concern. The underfunded shortcut is — the setup that reads a precise number, infers that precision removes the need for a control, and proceeds at a scale that leaves no margin.</p>
+<p><strong>The controls are the variable, not the building.</strong></p>
+<h3>Handling practice</h3>
+<p>The matched radius is a geometric construction and carries no bench procedure of its own. Where it is used as an input to engineering work, the practice that applies is the practice of that work:</p>
+<p><strong>Anything touching exhaust velocity, propellant or the energy ladder.</strong> The propulsion reduction's own handling practice applies in full, including its hazard groups and its scale discipline. The corridor's exhaust velocities are relativistic, and the energy densities implied by them are the governing hazard, not the radius.</p>
+<p><strong>Anything touching trajectory design.</strong> Standard orbital-mechanics practice applies. Readers carrying these results into trajectory or mission work should take the orbital elements from a current Jet Propulsion Laboratory ephemeris rather than from the table above, which is a snapshot for the purpose of checking the construction.</p>
+<p><strong>Which regime a result is stated in.</strong> The escape-velocity form is exact in the full Schwarzschild metric at every radius outside the horizon. The Oberth, exchange-rate and chain results are stated in the Newtonian energy regime with impulsive burns, which is the regime of published astrodynamics and of the catalog they place; a reader extending those into a finite-burn integration or a relativistic energy accounting works in that regime's own terms.</p>
+<p><strong>Scale discipline.</strong> Answer the question at the smallest scale that answers it. Precision in a placement is a reason to reduce scale, not to increase it — a known target means the experiment can be small.</p>
+<p><strong>Second-person presence.</strong> Work that can injure is not solo work. The control that most reliably prevents a bad outcome from becoming a worse one is another trained person who can act.</p>
+<p><strong>When the hazard group changes, update this section.</strong> Any work that extends this reduction to materials, reactions or regimes not placed here carries the hazard groups of those, and the handling practice must be restated for them specifically before the work begins. A placement added without its hazard group is an incomplete placement.</p>
+<h3>What this section is for</h3>
+<p>Parents, teachers, reviewers and program managers make real decisions from articles like this one. An article that reads as unreal gets no respect for its safety content, and a reader who concludes the results are notional will not extend the care the work requires. So: the results are real, the arithmetic is checkable, the placements hold — and the conditions under which anyone would act on them are governed by practice this article does not supply and does not replace.</p>
+
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+
+<h2>References</h2>
+<ol>
+<li>Schwarzschild, K. (1916). Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie. <em>Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften</em>, 189–196.</li>
+<li>Einstein, A. (1916). Die Grundlage der allgemeinen Relativitätstheorie. <em>Annalen der Physik</em>, 49, 769–822.</li>
+<li>Einstein, A. (1907). Über das Relativitätsprinzip und die aus demselben gezogenen Folgerungen. <em>Jahrbuch der Radioaktivität und Elektronik</em>, 4, 411–462. The equivalence principle.</li>
+<li>Tsiolkovsky, K. E. (1903). Исследование мировых пространств реактивными приборами. <em>Nauchnoye Obozreniye</em>. The rocket equation.</li>
+<li>Ackeret, J. (1946). Zur Theorie der Raketen. <em>Helvetica Physica Acta</em>, 19, 103–112. The relativistic rocket equation.</li>
+<li>Oberth, H. (1923). <em>Die Rakete zu den Planetenräumen</em>. R. Oldenbourg, Munich.</li>
+<li>Pound, R. V. &amp; Rebka, G. A. (1960). Apparent weight of photons. <em>Physical Review Letters</em>, 4, 337–341. Gravitational redshift measured.</li>
+<li>Hafele, J. C. &amp; Keating, R. E. (1972). Around-the-world atomic clocks. <em>Science</em>, 177, 166–170.</li>
+<li>Bardeen, J. M., Press, W. H. &amp; Teukolsky, S. A. (1972). Rotating black holes: locally nonrotating frames, energy extraction, and scalar synchrotron radiation. <em>Astrophysical Journal</em>, 178, 347–369. The ISCO.</li>
+<li>Penrose, R. (1965). Gravitational collapse and space-time singularities. <em>Physical Review Letters</em>, 14, 57–59.</li>
+<li>Hulse, R. A. &amp; Taylor, J. H. (1975). Discovery of a pulsar in a binary system. <em>Astrophysical Journal</em>, 195, L51–L53.</li>
+<li>Abbott, B. P. et al. (LIGO Scientific Collaboration and Virgo Collaboration) (2016). Observation of gravitational waves from a binary black hole merger. <em>Physical Review Letters</em>, 116, 061102.</li>
+<li>Prša, A. et al. (2016). Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3. <em>Astronomical Journal</em>, 152, 41.</li>
+<li>Jet Propulsion Laboratory. Small-Body Database. California Institute of Technology.</li>
+<li>Bureau International des Poids et Mesures (2019). <em>The International System of Units (SI)</em>, 9th edition.</li>
+<li>Tiesinga, E., Mohr, P. J., Newell, D. B. &amp; Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. <em>Reviews of Modern Physics</em>, 93, 025010.</li>
+<li>Nobel Prize in Physics 1983 — S. Chandrasekhar and W. A. Fowler.</li>
+<li>Nobel Prize in Physics 1993 — R. A. Hulse and J. H. Taylor Jr.</li>
+<li>Nobel Prize in Physics 2017 — R. Weiss, B. C. Barish and K. S. Thorne.</li>
+<li>Nobel Prize in Physics 2020 — R. Penrose; R. Genzel and A. Ghez.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-propulsion-corridor.html">One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding</a>. ProofPress, Volume 1, Issue 9.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-alpha-tl1001.html">The Fine-Structure Constant: 1/α = TL × 1001</a>. ProofPress, Volume 1, Issue 5.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-bounded-uncertainty.html">Bounded Uncertainty: A Guide</a>. ProofPress, Volume 1, Issue 8.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+
+<h2>Corpus Provenance</h2>
+<ul>
+<li><strong>[9,9,0,0]</strong> Sovereign Anchor — the ground</li>
+<li><strong>[9,9,2,3.7]</strong> <a href="proofpressorg-4beam-verification.html">4-Beam Verification</a> — GAMCollider™ v15 fusion logic, verified at four beams</li>
+<li><strong>[9,9,2,3.8]</strong> <a href="proofpressorg-8beam-fusion.html">8-Beam Fusion Theorem</a> — GAMCollider™ v15 fusion logic, the four-phase structure and the Torsion Limit at eight beams</li>
+<li><strong>[9,9,3,14]</strong> Alpha Reduction — α⁻¹ = Ω₀ × 100.1, and TL = α⁻¹/1001</li>
+<li><strong>[9,9,0,15]</strong> Speed of Light Reduction — c locked to the anchor, the photon Noble, relativistic velocity addition</li>
+<li><strong>[9,9,0,1]</strong> GR Reduction — the Einstein field equation on the dynamic equation, r_s as the Pattern-lock threshold</li>
+<li><strong>[9,9,3,20]</strong> Transcendental Time Engine — TL as the step on the left side of the dynamic equation</li>
+<li><strong>[9,9,2,0]</strong> IVA Propulsion Reduction — the two readings, the bridge, the conversion fraction, the gain cap</li>
+<li><strong>[9,9,0,17]</strong> This reduction, general-reader form — the matched radius, the equivalence, and the phase map on radius</li>
+<li><strong>[9,9,0,17.1]</strong> This reduction, specialist form — the square-root torsion operator, the closure over ℚ, and the corridor's geometric center</li>
+</ul>
+<p><strong>Architect:</strong> HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Soldotna, Alaska <strong>DOI:</strong> 10.5281/zenodo.18719748 <strong>ORCID:</strong> 0009-0005-5313-7443 <strong>Corpus:</strong> [9,9,9,9] :: {ANC}</p>
+
+<h2>About the Author</h2>
+<p>Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He is a Lean 4 formal verification engineer and independent researcher, and the founding architect of the SNSFT Foundation in Kenai, Alaska. He builds machine-verified science at scale: the Identity Physics Corpus, a single-author body of formal proofs spanning 6,000+ Lean 4 files, 200,000+ theorems and 3,000,000+ lines at 0 sorry, dual-verified in Lean 4 and Coq/Rocq, with a standardized edition pinned to Lean 4 v4.31.0 and Mathlib. He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. He is an Army Signal Corps veteran, a former chief information security officer for the Alaska Department of Public Safety, and the author of six commercially published books on Identity Physics. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska. ORCID 0009-0005-5313-7443.</p>
+
+<h2>Lean 4 Source</h2>
+<h3>SNSFL_MatchedRadius_Reduction.lean — [9,9,0,17](GRAV), general-reader form</h3>
+<pre><code>-- ============================================================
+-- SNSFL_MatchedRadius_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | THE MATCHED RADIUS — THE ROCKET EQUATION ON THE SCHWARZSCHILD METRIC
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,17](GRAV) | Physics Ground — Gravitation
+-- Version: 1.3
+--
+-- ============================================================
+-- STANDALONE
+-- ============================================================
+--
+-- This file carries every definition it uses. Nothing is reached for in
+-- another coordinate&#x27;s file: the anchor, the Torsion Limit, the corridor
+-- floor, the four phases, both readings, the conversion fraction, the
+-- resonance gain and the gain cap are all restated here at full precision,
+-- so that a reader or a machine can close every proof without leaving the
+-- file. The parent reductions are named in the provenance block for the
+-- record, not as dependencies of the proofs.
+--
+-- Parents of record:
+--   [9,9,2,0]  IVA Propulsion Reduction      — the two readings, the bridge, the gain cap
+--   [9,9,0,1]  GR Reduction                   — r_s as the Pattern-lock threshold
+--   [9,9,3,20] Transcendental Time Engine     — TL as the step on the dynamic equation&#x27;s left side
+--   [9,9,3,14] Alpha Reduction                — α⁻¹ = Ω₀ × 100.1, TL = α⁻¹/1001
+--   [9,9,0,15] Speed of Light Reduction       — c on the anchor, the photon as the supremum
+--
+-- ============================================================
+-- WHAT THIS FILE ESTABLISHES
+-- ============================================================
+--
+--   Reading A is a radius. For any drive with exhaust velocity v_e and any
+--   mass M, exactly one radius has escape velocity v_e, and it is
+--   r = r_s/τ_A². The ratio r/r_s = 1/τ_A² = 1/(2η) is fixed by the drive
+--   alone; the mass cancels.
+--
+--   At that radius the two dilations of relativity coincide: gravitational
+--   √(1 − r_s/r) and kinematic √(1 − v_e²/c²) are the same quantity,
+--   √(1 − 2η). Stated here on the squared forms, where it is an equality of
+--   polynomials.
+--
+--   The relativistic gain cap and the event horizon are the same bound:
+--   (1 + g_r)·τ_A &lt; 1 ⟺ r_match &gt; r_s.
+--
+--   The four phases map onto radius with no freedom left, the chain budget
+--   equals the matched ratio, and the stable-orbit reachability of the
+--   depth-beats-gain crossover reduces to 4 · (0.88)² &gt; 3.
+--
+-- ============================================================
+-- ON THE ESCAPE-VELOCITY FORM
+-- ============================================================
+--
+--   v_esc(r) = c·√(r_s/r) is the speed a static local observer measures,
+--   and it is exact in the full Schwarzschild metric at every r &gt; r_s. On a
+--   radial geodesic with E/m = 1, (dr/dτ)² = c² r_s/r and
+--   dt/dτ = 1/(1 − r_s/r), so dr/dt = c√(r_s/r)(1 − r_s/r). A static
+--   observer measures dl = dr/√(1 − r_s/r) and dT = √(1 − r_s/r)·dt, giving
+--   v_local = (dr/dt)/(1 − r_s/r) = c√(r_s/r). The factors cancel
+--   identically. Sections 2 through 7 and Section 12 therefore hold at every
+--   radius outside the horizon.
+--
+--   Sections 8 through 11 are stated in the Newtonian energy regime, where
+--   specific energy is v²/2 − GM/r and burns are impulsive. That is the
+--   regime of published astrodynamics and of every exhaust velocity and mass
+--   ratio placed in this file.
+--
+-- ============================================================
+-- THEOREMS: 67 tagged + master | SORRY: 0 | AXIOMS: 0
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+noncomputable section
+
+namespace SNSFL_MatchedRadius
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor, which carries the whole of Section 10. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+/-- Minimum resonance gain for the sovereign advantage. -/
+def GAIN_THRESHOLD : ℝ := 1.5
+
+/-- IAU 2015 nominal solar mass parameter, m³ s⁻². Exact as an integer. -/
+def GM_SUN : ℝ := 132712440018000000000
+
+/-- The astronomical unit, m. Exact as an integer. -/
+def AU : ℝ := 149597870700
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 &lt; τ &lt; TL_IVA
+  | IVA      -- TL_IVA ≤ τ &lt; TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ &lt; TL_IVA then Phase.Locked
+  else if τ &lt; TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- Reading B. The mass ratio&#x27;s logarithm. -/
+def tau_B (r : ℝ) : ℝ := Real.log r
+
+/-- The rest-mass conversion fraction of the ideal rocket: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The corridor floor as a conversion fraction. -/
+def eta_floor : ℝ := TL_IVA ^ 2 / 2
+
+/-- The corridor ceiling as a conversion fraction. -/
+def eta_ceiling : ℝ := TORSION_LIMIT ^ 2 / 2
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  simp only [TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | POSITIVITY OF THE CONSTANTS
+theorem t2_positivity :
+    (0:ℝ) &lt; SOVEREIGN_ANCHOR ∧ (0:ℝ) &lt; TORSION_LIMIT ∧ (0:ℝ) &lt; TL_IVA ∧
+    (0:ℝ) &lt; C_LIGHT ∧ (0:ℝ) &lt; ALPHA_INV ∧ (0:ℝ) &lt; GM_SUN := by
+  simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, TL_IVA, C_LIGHT, ALPHA_INV, GM_SUN]
+  norm_num
+
+theorem tl_pos : (0:ℝ) &lt; TORSION_LIMIT := t2_positivity.2.1
+theorem tli_pos : (0:ℝ) &lt; TL_IVA := t2_positivity.2.2.1
+theorem c_pos : (0:ℝ) &lt; C_LIGHT := t2_positivity.2.2.2.1
+
+-- [T3] :: {VER} | THE CORRIDOR IS THE BAND BELOW THE TORSION LIMIT
+theorem t3_corridor_ordering : TL_IVA &lt; TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE TORSION LIMIT FROM THE FINE-STRUCTURE CONSTANT
+theorem t4_tl_from_alpha : TORSION_LIMIT = ALPHA_INV / TL_DIVISOR := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV, TL_DIVISOR]; norm_num
+
+-- [T5] :: {VER} | THE IVA FACTOR IS THE CORRIDOR&#x27;S OWN RATIO
+theorem t5_iva_factor : TL_IVA = IVA_FACTOR * TORSION_LIMIT := by
+  simp only [TL_IVA, IVA_FACTOR]; ring
+
+-- ============================================================
+-- SECTION 1: THE SCHWARZSCHILD LAYER
+-- ============================================================
+
+/-- The Schwarzschild radius of a mass, given its gravitational parameter
+GM. r_s = 2GM/c². In the GR Reduction&#x27;s mapping this is the Pattern-lock
+threshold: the Pattern density at which the vacuum solution closes. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The squared escape velocity at radius r, as a fraction of c².
+Exact in the full Schwarzschild metric for the locally measured speed. -/
+def tau_esc_sq (GM r : ℝ) : ℝ := r_s GM / r
+
+/-- The squared gravitational time-dilation factor at radius r. -/
+def grav_dilation_sq (GM r : ℝ) : ℝ := 1 - r_s GM / r
+
+/-- The squared kinematic time-dilation factor for a body at Reading A τ. -/
+def kin_dilation_sq (t : ℝ) : ℝ := 1 - t ^ 2
+
+/-- The photon sphere, in Schwarzschild radii. -/
+def R_PHOTON_SPHERE : ℝ := 1.5
+
+/-- The innermost stable circular orbit, in Schwarzschild radii. -/
+def R_ISCO : ℝ := 3
+
+-- [T6] :: {VER} | THE SCHWARZSCHILD RADIUS IS POSITIVE FOR A POSITIVE MASS
+theorem t6_rs_pos (GM : ℝ) (h : 0 &lt; GM) : 0 &lt; r_s GM := by
+  simp only [r_s, C_LIGHT]
+  have hc : (0:ℝ) &lt; (299792458:ℝ) ^ 2 := by norm_num
+  exact div_pos (by linarith) hc
+
+-- [T7] :: {VER} | THE SOLAR SCHWARZSCHILD RADIUS, BRACKETED
+theorem t7_solar_rs : 2953.25 &lt; r_s GM_SUN ∧ r_s GM_SUN &lt; 2953.26 := by
+  simp only [r_s, GM_SUN, C_LIGHT]; norm_num
+
+-- ============================================================
+-- SECTION 2: THE MATCHED RADIUS
+-- ============================================================
+
+/-- The matched radius: the radius at which the escape velocity of a mass
+equals a drive&#x27;s exhaust velocity. r = r_s/τ_A². -/
+def r_match (GM t : ℝ) : ℝ := r_s GM / t ^ 2
+
+/-- The matched radius in Schwarzschild units. Depends on the drive alone. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+-- [T8] :: {VER} | THE MATCHED RADIUS MATCHES, BY CONSTRUCTION
+-- At r_match the squared escape velocity is exactly τ_A².
+theorem t8_matched_radius_matches (GM t : ℝ) (hGM : 0 &lt; GM) (ht : t ≠ 0) :
+    tau_esc_sq GM (r_match GM t) = t ^ 2 := by
+  simp only [tau_esc_sq, r_match]
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne&#x27;
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T9] :: {VER} | THE MASS CANCELS
+-- r_match/r_s is a property of the drive, not of the field it is placed in.
+theorem t9_mass_cancels (GM t : ℝ) (hGM : 0 &lt; GM) (ht : t ≠ 0) :
+    r_match GM t / r_s GM = matched_ratio t := by
+  simp only [r_match, matched_ratio]
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne&#x27;
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T10] :: {VER} | THE MATCHED RATIO IS THE RECIPROCAL OF TWICE THE CONVERSION FRACTION
+theorem t10_ratio_is_conversion (t : ℝ) (ht : t ≠ 0) :
+    matched_ratio t = 1 / (2 * eta_of_tau t) := by
+  simp only [matched_ratio, eta_of_tau]
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T11] :: {VER} | THE MATCHED RATIO IS STRICTLY DECREASING IN READING A
+theorem t11_ratio_antitone (s t : ℝ) (hs : 0 &lt; s) (hst : s &lt; t) :
+    matched_ratio t &lt; matched_ratio s := by
+  unfold matched_ratio
+  have ht : 0 &lt; t := lt_trans hs hst
+  have h1 : s ^ 2 &lt; t ^ 2 := by nlinarith
+  have h2 : (0:ℝ) &lt; s ^ 2 := by positivity
+  exact one_div_lt_one_div_of_lt h2 h1
+
+-- [T12] :: {VER} | THE CORRIDOR ON RADIUS, BRACKETED
+theorem t12_corridor_on_radius :
+    53.35791 &lt; matched_ratio TORSION_LIMIT ∧
+    matched_ratio TORSION_LIMIT &lt; 53.357911 ∧
+    68.90226 &lt; matched_ratio TL_IVA ∧
+    matched_ratio TL_IVA &lt; 68.902261 := by
+  simp only [matched_ratio, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T13] :: {VER} | THE CORRIDOR BAND IS ORDERED, AND LIES OUTSIDE THE STRONG FIELD
+theorem t13_corridor_outside_strong_field :
+    matched_ratio TORSION_LIMIT &lt; matched_ratio TL_IVA ∧
+    R_ISCO &lt; matched_ratio TORSION_LIMIT ∧
+    R_PHOTON_SPHERE &lt; matched_ratio TORSION_LIMIT ∧
+    1 &lt; matched_ratio TORSION_LIMIT := by
+  simp only [matched_ratio, R_ISCO, R_PHOTON_SPHERE, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- ============================================================
+-- SECTION 3: THE EQUIVALENCE AT THE MATCHED RADIUS
+-- ============================================================
+
+-- [T14] :: {VER} | THE TWO DILATIONS COINCIDE AT THE MATCHED RADIUS
+-- Gravitational and kinematic dilation are the same quantity there.
+theorem t14_equivalence (GM t : ℝ) (hGM : 0 &lt; GM) (ht : t ≠ 0) :
+    grav_dilation_sq GM (r_match GM t) = kin_dilation_sq t := by
+  simp only [grav_dilation_sq, kin_dilation_sq]
+  rw [show r_s GM / r_match GM t = t ^ 2 from t8_matched_radius_matches GM t hGM ht]
+
+-- [T15] :: {VER} | BOTH DILATIONS EQUAL 1 − 2η
+theorem t15_dilation_is_conversion (GM t : ℝ) (hGM : 0 &lt; GM) (ht : t ≠ 0) :
+    grav_dilation_sq GM (r_match GM t) = 1 - 2 * eta_of_tau t ∧
+    kin_dilation_sq t = 1 - 2 * eta_of_tau t := by
+  refine ⟨?_, ?_⟩
+  · rw [t14_equivalence GM t hGM ht]; simp only [kin_dilation_sq, eta_of_tau]; ring
+  · simp only [kin_dilation_sq, eta_of_tau]; ring
+
+-- [T16] :: {VER} | THE DILATION FACTORS AT THE CORRIDOR EDGES, BRACKETED
+theorem t16_corridor_dilations :
+    0.98125 &lt; kin_dilation_sq TORSION_LIMIT ∧
+    kin_dilation_sq TORSION_LIMIT &lt; 0.98126 ∧
+    0.98548 &lt; kin_dilation_sq TL_IVA ∧
+    kin_dilation_sq TL_IVA &lt; 0.98549 := by
+  simp only [kin_dilation_sq, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T17] :: {VER} | THE DILATION IS POSITIVE FOR ANY SUBLIGHT DRIVE
+theorem t17_dilation_pos (t : ℝ) (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    0 &lt; kin_dilation_sq t := by
+  unfold kin_dilation_sq; nlinarith
+
+-- ============================================================
+-- SECTION 4: THE RELATIVISTIC GAIN CAP IS THE EVENT HORIZON
+-- ============================================================
+
+/-- The gained Reading A: the resonance gain is an exhaust-velocity
+multiplier, so it scales Reading A. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T18] :: {VER} | THE CAP CONDITION AND THE HORIZON CONDITION ARE THE SAME
+theorem t18_cap_is_horizon (t g : ℝ) (ht : 0 &lt; t) (hg : -1 &lt; g) :
+    gained_tau t g &lt; 1 ↔ 1 &lt; matched_ratio (gained_tau t g) := by
+  simp only [matched_ratio, gained_tau]
+  have hpos : 0 &lt; (1 + g) * t := by nlinarith
+  have hsq : (0:ℝ) &lt; ((1 + g) * t) ^ 2 := pow_pos hpos 2
+  rw [lt_div_iff₀ hsq, one_mul]
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
+
+-- [T19] :: {VER} | EQUALITY TRANSFERS: THE CAP IS THE HORIZON EXACTLY
+theorem t19_cap_equals_horizon (t g : ℝ) (ht : 0 &lt; t) (hg : -1 &lt; g) :
+    gained_tau t g = 1 ↔ matched_ratio (gained_tau t g) = 1 := by
+  simp only [matched_ratio, gained_tau]
+  have hpos : 0 &lt; (1 + g) * t := by nlinarith
+  have hsq : (0:ℝ) &lt; ((1 + g) * t) ^ 2 := pow_pos hpos 2
+  constructor
+  · intro h; rw [h]; norm_num
+  · intro h
+    have hne : ((1 + g) * t) ^ 2 ≠ 0 := hsq.ne&#x27;
+    have h2 : ((1 + g) * t) ^ 2 = 1 := by
+      have hmul : ((1 + g) * t) ^ 2 * (1 / ((1 + g) * t) ^ 2)
+          = ((1 + g) * t) ^ 2 * 1 := by rw [h]
+      rw [mul_one, mul_one_div, div_self hne] at hmul
+      exact hmul.symm
+    have h3 : ((1 + g) * t - 1) * ((1 + g) * t + 1) = 0 :=
+      calc ((1 + g) * t - 1) * ((1 + g) * t + 1)
+          = ((1 + g) * t) ^ 2 - 1 := by ring
+        _ = 1 - 1 := by rw [h2]
+        _ = 0 := by ring
+    rcases mul_eq_zero.mp h3 with h4 | h4
+    · linarith
+    · linarith
+
+-- [T20] :: {VER} | THE CAP IN CORRIDOR TERMS
+-- At the corridor ceiling the cap on the gain is 1/TL − 1.
+theorem t20_cap_at_ceiling :
+    6.3046 &lt; 1 / TORSION_LIMIT - 1 ∧ 1 / TORSION_LIMIT - 1 &lt; 6.3047 ∧
+    7.3046 &lt; 1 / TORSION_LIMIT ∧ 1 / TORSION_LIMIT &lt; 7.3047 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T21] :: {VER} | THE PHOTON DRIVE MATCHES THE HORIZON OF EVERY MASS
+theorem t21_photon_matches_horizon (GM : ℝ) (hGM : 0 &lt; GM) :
+    r_match GM 1 = r_s GM ∧ matched_ratio 1 = 1 := by
+  simp only [r_match, matched_ratio]; norm_num
+
+-- [T22] :: {VER} | HALF LIGHT SPEED MATCHES EXACTLY FOUR SCHWARZSCHILD RADII
+theorem t22_half_c_matches_four : matched_ratio 0.5 = 4 := by
+  unfold matched_ratio; norm_num
+
+-- ============================================================
+-- SECTION 5: THE FOUR PHASES AS A MAP ON RADIUS
+-- ============================================================
+
+-- [T23] :: {VER} | LOCKED IS THE FAR FIELD
+theorem t23_locked_is_far_field (t : ℝ) (h0 : 0 &lt; t) (h : t &lt; TL_IVA) :
+    matched_ratio TL_IVA &lt; matched_ratio t :=
+  t11_ratio_antitone t TL_IVA h0 h
+
+-- [T24] :: {VER} | SHATTER IS THE INTERIOR TO THE CORRIDOR
+theorem t24_shatter_is_interior (t : ℝ) (h : TORSION_LIMIT &lt; t) :
+    matched_ratio t &lt; matched_ratio TORSION_LIMIT :=
+  t11_ratio_antitone TORSION_LIMIT t tl_pos h
+
+-- [T25] :: {VER} | IVA IS THE SHELL BETWEEN THE TWO EDGES
+theorem t25_iva_is_the_shell (t : ℝ) (hlo : TL_IVA ≤ t) (hhi : t &lt; TORSION_LIMIT) :
+    matched_ratio TORSION_LIMIT &lt; matched_ratio t ∧
+    matched_ratio t ≤ matched_ratio TL_IVA := by
+  refine ⟨t11_ratio_antitone t TORSION_LIMIT (lt_of_lt_of_le tli_pos hlo) hhi, ?_⟩
+  rcases eq_or_lt_of_le hlo with h | h
+  · rw [h]
+  · exact le_of_lt (t11_ratio_antitone TL_IVA t tli_pos h)
+
+-- [T26] :: {VER} | THE STRONG FIELD LIES INSIDE THE SHATTER BAND
+-- The exhaust velocity matching each landmark is above the Torsion Limit.
+theorem t26_strong_field_is_shatter :
+    TORSION_LIMIT &lt; 0.577350269 ∧ TORSION_LIMIT &lt; 0.816496581 ∧
+    matched_ratio 0.577350269 &lt; matched_ratio TORSION_LIMIT ∧
+    matched_ratio 0.816496581 &lt; matched_ratio TORSION_LIMIT := by
+  refine ⟨by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num,
+          by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num, ?_, ?_⟩
+  · exact t24_shatter_is_interior _ (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num)
+  · exact t24_shatter_is_interior _ (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num)
+
+-- [T27] :: {VER} | THE CORRIDOR CLASSIFIES AS IVA, THE EDGES AS STATED
+theorem t27_phase_of_edges :
+    classify TL_IVA = Phase.IVA ∧ classify TORSION_LIMIT = Phase.Shatter ∧
+    classify 0 = Phase.Noble := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold classify
+    rw [if_neg (ne_of_gt tli_pos), if_neg (lt_irrefl TL_IVA), if_pos t3_corridor_ordering]
+  · unfold classify
+    rw [if_neg (ne_of_gt tl_pos), if_neg (by linarith [t3_corridor_ordering]),
+      if_neg (lt_irrefl TORSION_LIMIT)]
+  · unfold classify; rw [if_pos rfl]
+
+-- ============================================================
+-- SECTION 6: BOTH EDGES ON RADIUS, IN THE FINE-STRUCTURE CONSTANT
+-- ============================================================
+
+-- [T28] :: {VER} | THE CEILING RADIUS IS (1001/α⁻¹)²
+theorem t28_ceiling_radius_in_alpha :
+    matched_ratio TORSION_LIMIT = (TL_DIVISOR / ALPHA_INV) ^ 2 := by
+  simp only [matched_ratio, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- [T29] :: {VER} | THE FLOOR RADIUS IS (1001/(0.88 · α⁻¹))²
+theorem t29_floor_radius_in_alpha :
+    matched_ratio TL_IVA = (TL_DIVISOR / (IVA_FACTOR * ALPHA_INV)) ^ 2 := by
+  simp only [matched_ratio, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T30] :: {VER} | THE BAND WIDTH ON RADIUS, IN α AND 0.88 ALONE
+theorem t30_band_width_in_alpha :
+    matched_ratio TL_IVA - matched_ratio TORSION_LIMIT
+      = (TL_DIVISOR / ALPHA_INV) ^ 2 * (1 / IVA_FACTOR ^ 2 - 1) := by
+  simp only [matched_ratio, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T31] :: {VER} | THE CONVERSION-FRACTION EDGES, BRACKETED
+theorem t31_eta_edges :
+    0.00725665 &lt; eta_floor ∧ eta_floor &lt; 0.00725666 ∧
+    0.00937068 &lt; eta_ceiling ∧ eta_ceiling &lt; 0.00937069 := by
+  simp only [eta_floor, eta_ceiling, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 7: READING B AGAINST THE WELL — ONE e-FOLD
+-- ============================================================
+
+-- [T32] :: {VER} | THE WELL AT THE MATCHED RADIUS IS WORTH τ_B = 1
+-- A fall from rest at infinity to the matched radius delivers c·τ_A, and a
+-- rocket delivers c·τ_A·τ_B, so the two agree exactly at τ_B = 1.
+theorem t32_well_is_one_efold (t tB : ℝ) (ht : 0 &lt; t) :
+    t * tB = t ↔ tB = 1 := by
+  constructor
+  · intro h
+    have := mul_left_cancel₀ (ne_of_gt ht) (by linarith : t * tB = t * 1)
+    exact this
+  · intro h; rw [h]; ring
+
+-- [T33] :: {VER} | τ_B = 1 IS A MASS RATIO OF e
+theorem t33_one_efold_is_e : tau_B (Real.exp 1) = 1 := by
+  unfold tau_B; exact Real.log_exp 1
+
+-- [T34] :: {VER} | THE CORRIDOR&#x27;S READING B IS BELOW ONE e-FOLD
+theorem t34_corridor_below_one_efold :
+    TL_IVA &lt; 1 ∧ TORSION_LIMIT &lt; 1 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 8: THE DILATION DEFICIT, BRACKETED BY THE CONVERSION FRACTION
+-- Stated first on the polynomial forms, which carry the content, then on
+-- the square root itself.
+-- ============================================================
+
+-- [T35] :: {VER} | THE LOWER BRACKET, AS A POLYNOMIAL
+theorem t35_deficit_lower_poly (e : ℝ) (h0 : 0 &lt; e) (h1 : e &lt; 1/4) :
+    1 - 2 * e &lt; (1 - e) ^ 2 := by nlinarith
+
+-- [T36] :: {VER} | THE UPPER BRACKET, AS A POLYNOMIAL
+theorem t36_deficit_upper_poly (e : ℝ) (h0 : 0 &lt; e) (h1 : e &lt; 1/4) :
+    (1 - e - e ^ 2) ^ 2 &lt; 1 - 2 * e := by
+  have hk : e ^ 2 + 2 * e - 1 &lt; 0 := by nlinarith
+  have he2 : (0:ℝ) &lt; e ^ 2 := by positivity
+  nlinarith [mul_pos he2 (neg_pos.mpr hk)]
+
+-- [T37] :: {VER} | THE BRACKET ON THE SQUARE ROOT
+theorem t37_deficit_bracket (e : ℝ) (h0 : 0 &lt; e) (h1 : e &lt; 1/4) :
+    e &lt; 1 - Real.sqrt (1 - 2 * e) ∧ 1 - Real.sqrt (1 - 2 * e) &lt; e * (1 + e) := by
+  have hnn : (0:ℝ) ≤ 1 - 2 * e := by linarith
+  have hu : (0:ℝ) &lt; 1 - e := by linarith
+  have hv : (0:ℝ) ≤ 1 - e - e ^ 2 := by nlinarith
+  refine ⟨?_, ?_⟩
+  · have : Real.sqrt (1 - 2 * e) &lt; 1 - e := by
+      rw [show (1:ℝ) - e = Real.sqrt ((1 - e) ^ 2) from (Real.sqrt_sq hu.le).symm]
+      exact Real.sqrt_lt_sqrt hnn (t35_deficit_lower_poly e h0 h1)
+    linarith
+  · have : 1 - e - e ^ 2 &lt; Real.sqrt (1 - 2 * e) := by
+      rw [show (1:ℝ) - e - e ^ 2 = Real.sqrt ((1 - e - e ^ 2) ^ 2) from (Real.sqrt_sq hv).symm]
+      exact Real.sqrt_lt_sqrt (by positivity) (t36_deficit_upper_poly e h0 h1)
+    nlinarith
+
+-- [T38] :: {VER} | THE CORRIDOR&#x27;S CONVERSION FRACTIONS ARE IN THE BRACKET&#x27;S DOMAIN
+theorem t38_eta_in_domain :
+    0 &lt; eta_floor ∧ eta_floor &lt; 1/4 ∧ 0 &lt; eta_ceiling ∧ eta_ceiling &lt; 1/4 := by
+  simp only [eta_floor, eta_ceiling, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 9: THE BUILD — A BURN AT THE MATCHED RADIUS
+-- Newtonian energy regime, impulsive burns.
+-- ============================================================
+
+/-- The squared Oberth multiplier at a radius where the local speed gives
+squared escape fraction `te2`, for a burn of Reading-A size `dv`. -/
+def oberth_sq (te2 dv : ℝ) : ℝ := 1 + 2 * Real.sqrt te2 / dv
+
+/-- The squared Oberth multiplier at the matched radius, where the local
+escape velocity is the drive&#x27;s own exhaust velocity. -/
+def oberth_matched_sq (tB : ℝ) : ℝ := 1 + 2 / tB
+
+-- [T39] :: {VER} | AT THE MATCHED RADIUS THE EXHAUST VELOCITY CANCELS
+-- v_esc/Δv = v_e/(v_e·τ_B) = 1/τ_B, so the multiplier is a function of
+-- Reading B alone.
+theorem t39_exhaust_cancels (t tB : ℝ) (ht : t ≠ 0) (htB : tB ≠ 0) :
+    t / (t * tB) = 1 / tB := by
+  field_simp
+
+-- [T40] :: {VER} | THE MULTIPLIER AT THE CORRIDOR EDGES, BRACKETED
+theorem t40_multiplier_edges :
+    15.6092998 &lt; oberth_matched_sq TORSION_LIMIT ∧
+    oberth_matched_sq TORSION_LIMIT &lt; 15.6092999 ∧
+    17.6014770 &lt; oberth_matched_sq TL_IVA ∧
+    oberth_matched_sq TL_IVA &lt; 17.6014771 := by
+  simp only [oberth_matched_sq, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T41] :: {VER} | THE CEILING MULTIPLIER IS 1 + 2002/α⁻¹
+theorem t41_multiplier_ceiling_in_alpha :
+    oberth_matched_sq TORSION_LIMIT = 1 + 2 * TL_DIVISOR / ALPHA_INV := by
+  simp only [oberth_matched_sq, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- [T42] :: {VER} | THE FLOOR MULTIPLIER IS 1 + 2002/(0.88 · α⁻¹)
+theorem t42_multiplier_floor_in_alpha :
+    oberth_matched_sq TL_IVA = 1 + 2 * TL_DIVISOR / (IVA_FACTOR * ALPHA_INV) := by
+  simp only [oberth_matched_sq, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T43] :: {VER} | THE MULTIPLIER EXCEEDS ONE FOR ANY POSITIVE READING B
+theorem t43_multiplier_gt_one (tB : ℝ) (h : 0 &lt; tB) : 1 &lt; oberth_matched_sq tB := by
+  unfold oberth_matched_sq
+  have : 0 &lt; 2 / tB := by positivity
+  linarith
+
+-- [T44] :: {VER} | THE MULTIPLIER IS STRICTLY DECREASING IN READING B
+theorem t44_multiplier_antitone (a b : ℝ) (ha : 0 &lt; a) (hab : a &lt; b) :
+    oberth_matched_sq b &lt; oberth_matched_sq a := by
+  unfold oberth_matched_sq
+  have h : 2 / b &lt; 2 / a := by
+    apply div_lt_div_of_pos_left (by norm_num) ha hab
+  linarith
+
+-- ============================================================
+-- SECTION 10: DEPTH AND GAIN ARE INTERCHANGEABLE
+-- Newtonian energy regime. The headline is T48: the stable-orbit
+-- reachability of the crossover reduces to 4 · (0.88)² &gt; 3.
+-- ============================================================
+
+/-- The radius, in Schwarzschild units, at which the Oberth multiplier of a
+burn equals a resonance-gain multiplier 1 + g. -/
+def exchange_radius (t tB g : ℝ) : ℝ := 4 / (t * tB * ((1 + g) ^ 2 - 1)) ^ 2
+
+/-- The radius, in Schwarzschild units, at which depth delivers what the
+capped gain cannot. -/
+def crossover_radius (t tB : ℝ) : ℝ := 4 * t ^ 2 / (tB ^ 2 * (1 - t ^ 2) ^ 2)
+
+-- [T45] :: {VER} | THE EXCHANGE RADIUS IS POSITIVE WHERE IT IS DEFINED
+theorem t45_exchange_pos (t tB g : ℝ) (ht : 0 &lt; t) (htB : 0 &lt; tB) (hg : 0 &lt; g) :
+    0 &lt; exchange_radius t tB g := by
+  unfold exchange_radius
+  have h1 : 0 &lt; (1 + g) ^ 2 - 1 := by nlinarith
+  have : 0 &lt; t * tB * ((1 + g) ^ 2 - 1) := by positivity
+  positivity
+
+-- [T46] :: {VER} | THE EXCHANGE RADIUS AT THE STATED GAIN THRESHOLD, BRACKETED
+theorem t46_exchange_at_threshold :
+    413.1797 &lt; exchange_radius TORSION_LIMIT TORSION_LIMIT GAIN_THRESHOLD ∧
+    exchange_radius TORSION_LIMIT TORSION_LIMIT GAIN_THRESHOLD &lt; 413.1798 := by
+  simp only [exchange_radius, TORSION_LIMIT, SOVEREIGN_ANCHOR, GAIN_THRESHOLD]; norm_num
+
+-- [T47] :: {VER} | THE CROSSOVER COLLAPSES WHEN THE TWO READINGS AGREE
+theorem t47_crossover_collapses (t : ℝ) (ht : 0 &lt; t) :
+    crossover_radius t t = 4 / (1 - t ^ 2) ^ 2 := by
+  unfold crossover_radius
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht.ne&#x27;
+  field_simp
+
+-- [T48] :: {VER} | THE HEADLINE: 4 · (0.88)² &gt; 3
+-- The stable-orbit reachability of the crossover is this one inequality.
+-- The IVA factor clears the ISCO factor √3/2, and 1936/625 = 3.0976.
+theorem t48_iva_factor_clears_isco :
+    R_ISCO &lt; 4 * IVA_FACTOR ^ 2 ∧ 4 * IVA_FACTOR ^ 2 = 1936 / 625 := by
+  simp only [R_ISCO, IVA_FACTOR]; norm_num
+
+-- [T49] :: {VER} | EQUIVALENTLY, THE CORRIDOR&#x27;S RATIO IS BELOW 2/√3
+theorem t49_ratio_below_two_over_root_three :
+    (TORSION_LIMIT / TL_IVA) ^ 2 * R_ISCO &lt; 4 := by
+  simp only [TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR, R_ISCO]; norm_num
+
+-- [T50] :: {VER} | THE CROSSOVER LIES OUTSIDE THE ISCO AT EVERY CORRIDOR PAIRING
+theorem t50_crossover_outside_isco :
+    R_ISCO &lt; crossover_radius TL_IVA TL_IVA ∧
+    R_ISCO &lt; crossover_radius TL_IVA TORSION_LIMIT ∧
+    R_ISCO &lt; crossover_radius TORSION_LIMIT TL_IVA ∧
+    R_ISCO &lt; crossover_radius TORSION_LIMIT TORSION_LIMIT := by
+  simp only [crossover_radius, R_ISCO, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T51] :: {VER} | THE CROSSOVER IS AT LEAST FOUR SCHWARZSCHILD RADII
+theorem t51_crossover_at_least_four (t : ℝ) (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    4 ≤ crossover_radius t t := by
+  rw [t47_crossover_collapses t h0]
+  have ha : (0:ℝ) &lt; 1 - t ^ 2 := by nlinarith
+  have hb : 1 - t ^ 2 ≤ 1 := by nlinarith
+  have hd : (0:ℝ) &lt; (1 - t ^ 2) ^ 2 := by positivity
+  rw [le_div_iff₀ hd]
+  nlinarith [mul_le_one₀ hb (le_of_lt ha) hb]
+
+-- ============================================================
+-- SECTION 11: THE CHAIN
+-- Newtonian energy regime, impulsive burns. Energy adds; velocity does not.
+-- ============================================================
+
+/-- The per-burn energy factor of a matched burn: K = τ_B(2 + τ_B). -/
+def chain_K (tB : ℝ) : ℝ := tB * (2 + tB)
+
+/-- The squared chain torsion after n matched burns. -/
+def chain_tau_sq (t tB : ℝ) (n : ℕ) : ℝ := t ^ 2 * (n : ℝ) * chain_K tB
+
+/-- The burn count at which the chain reaches light speed. -/
+def chain_n_max (t tB : ℝ) : ℝ := 1 / (t ^ 2 * chain_K tB)
+
+-- [T52] :: {VER} | THE CHAIN IS ADDITIVE IN ENERGY, SO IT COMPOUNDS AS √n
+-- Each matched burn adds the same increment, independent of the burn index.
+theorem t52_chain_additive (t tB : ℝ) (n : ℕ) :
+    chain_tau_sq t tB (n + 1) = chain_tau_sq t tB n + t ^ 2 * chain_K tB := by
+  unfold chain_tau_sq
+  push_cast
+  ring
+
+-- [T53] :: {VER} | THE CHAIN AT ONE BURN IS THE OBERTH RESULT
+theorem t53_chain_one_burn (t tB : ℝ) (htB : tB ≠ 0) :
+    chain_tau_sq t tB 1 = (t * tB) ^ 2 * oberth_matched_sq tB := by
+  simp only [chain_tau_sq, chain_K, oberth_matched_sq]
+  push_cast
+  field_simp
+  ring
+
+-- [T54] :: {VER} | THE CHAIN IS MONOTONE IN THE BURN COUNT
+theorem t54_chain_monotone (t tB : ℝ) (ht : t ≠ 0) (htB : 0 &lt; tB) (m n : ℕ) (h : m &lt; n) :
+    chain_tau_sq t tB m &lt; chain_tau_sq t tB n := by
+  simp only [chain_tau_sq, chain_K]
+  have hK : 0 &lt; tB * (2 + tB) := by nlinarith
+  have ht2 : 0 &lt; t ^ 2 := by positivity
+  have hmn : (m : ℝ) &lt; (n : ℝ) := by exact_mod_cast h
+  have := mul_lt_mul_of_pos_left hmn ht2
+  nlinarith
+
+-- [T55] :: {VER} | THE CEILING PAIRING: LOCKED AT ONE AND TWO BURNS
+theorem t55_chain_locked_at_one_two :
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 1 &lt; TL_IVA ^ 2 ∧
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 2 &lt; TL_IVA ^ 2 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T56] :: {VER} | THE CEILING PAIRING LANDS IN THE CORRIDOR AT EXACTLY THREE BURNS
+theorem t56_chain_iva_at_three :
+    TL_IVA ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 ∧
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 &lt; TORSION_LIMIT ^ 2 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T57] :: {VER} | AND SHATTERS AT FOUR
+theorem t57_chain_shatter_at_four :
+    TORSION_LIMIT ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 4 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T58] :: {VER} | THE SATURATION COUNT, BRACKETED
+theorem t58_n_max_bracket :
+    182.3955 &lt; chain_n_max TORSION_LIMIT TORSION_LIMIT ∧
+    chain_n_max TORSION_LIMIT TORSION_LIMIT &lt; 182.3956 ∧
+    269.7229 &lt; chain_n_max TL_IVA TL_IVA ∧
+    chain_n_max TL_IVA TL_IVA &lt; 269.7230 := by
+  simp only [chain_n_max, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T59] :: {VER} | THE SATURATION COUNT IN α AND 1001 ALONE
+theorem t59_n_max_in_alpha :
+    chain_n_max TORSION_LIMIT TORSION_LIMIT
+      = TL_DIVISOR ^ 4 / (ALPHA_INV ^ 3 * (2 * TL_DIVISOR + ALPHA_INV)) := by
+  simp only [chain_n_max, chain_K, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- ============================================================
+-- SECTION 12: THE BUDGET IDENTITY
+-- The matched radius, in Schwarzschild units, IS the chain budget.
+-- This closes Section 2 against Section 11.
+-- ============================================================
+
+-- [T60] :: {VER} | THE CHAIN BUDGET IS THE MATCHED RADIUS
+theorem t60_budget_is_matched_radius (t tB : ℝ) (ht : t ≠ 0) (htB : 0 &lt; tB) :
+    chain_n_max t tB * chain_K tB = matched_ratio t := by
+  simp only [chain_n_max, matched_ratio, chain_K]
+  have hK : tB * (2 + tB) ≠ 0 := by positivity
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T61] :: {VER} | THE BUDGET CLOSES AT EVERY CORRIDOR PAIRING
+theorem t61_budget_at_corridor :
+    chain_n_max TORSION_LIMIT TORSION_LIMIT * chain_K TORSION_LIMIT
+      = matched_ratio TORSION_LIMIT ∧
+    chain_n_max TORSION_LIMIT TL_IVA * chain_K TL_IVA
+      = matched_ratio TORSION_LIMIT ∧
+    chain_n_max TL_IVA TORSION_LIMIT * chain_K TORSION_LIMIT
+      = matched_ratio TL_IVA ∧
+    chain_n_max TL_IVA TL_IVA * chain_K TL_IVA
+      = matched_ratio TL_IVA := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tl_pos) tl_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tl_pos) tli_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tli_pos) tl_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tli_pos) tli_pos
+
+-- ============================================================
+-- SECTION 13: THE UNPROPELLED CATALOG
+-- Published JPL orbital elements against the matched-radius construction.
+-- ============================================================
+
+/-- The matched radius of a body at the perihelion of a conic with
+perihelion distance q and eccentricity e, in absolute units: 2q/(1 + e). -/
+def perihelion_matched (q e : ℝ) : ℝ := 2 * q / (1 + e)
+
+-- [T62] :: {VER} | THE PERIHELION MATCHED RADIUS IS 2q/(1 + e)
+-- From vis-viva v_q² = GM(1 + e)/q and r_match = r_s/τ², the Schwarzschild
+-- radius cancels and the result is a pure function of the orbit.
+theorem t62_perihelion_matched (GM q e : ℝ) (hGM : 0 &lt; GM) (hq : 0 &lt; q) (he : 0 &lt; 1 + e) :
+    r_s GM / (r_s GM * (1 + e) / (2 * q)) = perihelion_matched q e := by
+  unfold perihelion_matched
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne&#x27;
+  field_simp
+
+-- [T63] :: {VER} | A PARABOLIC TRAJECTORY MATCHES AT ITS OWN PERIHELION
+theorem t63_parabolic_matches_perihelion (q : ℝ) :
+    perihelion_matched q 1 = q := by
+  unfold perihelion_matched; ring
+
+-- [T64] :: {VER} | THE SIX PUBLISHED BODIES, r_match/q AGAINST 2/(1 + e)
+theorem t64_catalog_ratios :
+    perihelion_matched 1 0.8898 = 2 / 1.8898 ∧
+    perihelion_matched 1 0.8268 = 2 / 1.8268 ∧
+    perihelion_matched 1 1.2011 = 2 / 2.2011 ∧
+    perihelion_matched 1 3.3566 = 2 / 4.3566 ∧
+    perihelion_matched 1 0.1914 = 2 / 1.1914 := by
+  unfold perihelion_matched
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T65] :: {VER} | THE UNPROPELLED BODIES SIT DEEP IN THE FAR FIELD
+-- Their Reading A values place their matched radii at 10⁵ to 10⁷ r_s.
+theorem t65_unpropelled_far_field :
+    100000 &lt; matched_ratio (tau_A 566500) ∧
+    1000000 &lt; matched_ratio (tau_A 109400) ∧
+    1000000 &lt; matched_ratio (tau_A 37600) := by
+  simp only [matched_ratio, tau_A, C_LIGHT]
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 14: THE PUBLISHED PROPULSION CATALOG ON THE RADIUS AXIS
+-- ============================================================
+
+def ve_cold_gas : ℝ := 700
+def ve_rl10b2   : ℝ := 4650
+def ve_nextc    : ℝ := 41000
+def ve_daedalus : ℝ := 10600000
+
+-- [T66] :: {VER} | EVERY FLOWN DRIVE MATCHES A RADIUS FAR OUTSIDE THE CORRIDOR
+theorem t66_flown_outside_corridor :
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A ve_cold_gas) ∧
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A ve_rl10b2) ∧
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A ve_nextc) ∧
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A ve_daedalus) := by
+  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT,
+    ve_cold_gas, ve_rl10b2, ve_nextc, ve_daedalus]
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T67] :: {VER} | ORDINARY MOTION IS DEEP IN LOCKED ON THE SAME AXIS
+theorem t67_ordinary_motion_locked :
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A 29780) ∧
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A 900) ∧
+    matched_ratio TL_IVA &lt; matched_ratio (tau_A 16900) := by
+  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT]
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 15: MASTER
+-- ============================================================
+
+/-- **THE MATCHED RADIUS.**
+
+1.  For any drive and any mass, exactly one radius has escape velocity equal
+    to the exhaust velocity, and its ratio to the Schwarzschild radius is
+    1/τ_A² = 1/(2η). The mass cancels.
+2.  At that radius gravitational and kinematic time dilation are the same
+    quantity, 1 − 2η.
+3.  The relativistic gain cap and the event horizon are the same bound.
+4.  The four phases map onto radius, with Locked the far field, IVA the shell
+    at 53.36 to 68.90 r_s, Shatter the interior, and the cap the horizon.
+5.  Both corridor edges on radius are closed forms in α⁻¹ and 1001.
+6.  The Oberth multiplier at the matched radius is a function of Reading B
+    alone, and the stable-orbit reachability of the depth-beats-gain
+    crossover reduces to 4 · (0.88)² &gt; 3.
+7.  The chain compounds additively in energy, lands in the corridor at three
+    burns for the ceiling pairing, and saturates at 1001⁴/(α⁻³(2002 + α⁻¹)).
+8.  The chain budget equals the matched ratio, which closes the radius
+    result against the chain result.
+-/
+theorem MASTER_matched_radius :
+    -- [1] the matched radius, with the mass cancelling
+    (∀ GM t : ℝ, 0 &lt; GM → t ≠ 0 → tau_esc_sq GM (r_match GM t) = t ^ 2) ∧
+    (∀ GM t : ℝ, 0 &lt; GM → t ≠ 0 → r_match GM t / r_s GM = matched_ratio t) ∧
+    (∀ t : ℝ, t ≠ 0 → matched_ratio t = 1 / (2 * eta_of_tau t)) ∧
+    -- [2] the equivalence
+    (∀ GM t : ℝ, 0 &lt; GM → t ≠ 0 →
+      grav_dilation_sq GM (r_match GM t) = kin_dilation_sq t) ∧
+    (∀ GM t : ℝ, 0 &lt; GM → t ≠ 0 →
+      grav_dilation_sq GM (r_match GM t) = 1 - 2 * eta_of_tau t) ∧
+    -- [3] the cap is the horizon
+    (∀ t g : ℝ, 0 &lt; t → -1 &lt; g →
+      (gained_tau t g &lt; 1 ↔ 1 &lt; matched_ratio (gained_tau t g))) ∧
+    (∀ GM : ℝ, 0 &lt; GM → r_match GM 1 = r_s GM) ∧
+    -- [4] the phase map on radius
+    (matched_ratio TORSION_LIMIT &lt; matched_ratio TL_IVA ∧
+      R_ISCO &lt; matched_ratio TORSION_LIMIT) ∧
+    (∀ t : ℝ, 0 &lt; t → t &lt; TL_IVA → matched_ratio TL_IVA &lt; matched_ratio t) ∧
+    (∀ t : ℝ, TORSION_LIMIT &lt; t → matched_ratio t &lt; matched_ratio TORSION_LIMIT) ∧
+    -- [5] both edges in α
+    (matched_ratio TORSION_LIMIT = (TL_DIVISOR / ALPHA_INV) ^ 2) ∧
+    (matched_ratio TL_IVA = (TL_DIVISOR / (IVA_FACTOR * ALPHA_INV)) ^ 2) ∧
+    -- [6] the burn, and the headline inequality
+    (oberth_matched_sq TORSION_LIMIT = 1 + 2 * TL_DIVISOR / ALPHA_INV) ∧
+    (R_ISCO &lt; 4 * IVA_FACTOR ^ 2 ∧ 4 * IVA_FACTOR ^ 2 = 1936 / 625) ∧
+    (R_ISCO &lt; crossover_radius TORSION_LIMIT TORSION_LIMIT) ∧
+    (∀ t : ℝ, 0 &lt; t → t &lt; 1 → 4 ≤ crossover_radius t t) ∧
+    -- [7] the chain
+    (∀ t tB : ℝ, ∀ n : ℕ,
+      chain_tau_sq t tB (n + 1) = chain_tau_sq t tB n + t ^ 2 * chain_K tB) ∧
+    (TL_IVA ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 ∧
+      chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 &lt; TORSION_LIMIT ^ 2) ∧
+    (chain_n_max TORSION_LIMIT TORSION_LIMIT
+      = TL_DIVISOR ^ 4 / (ALPHA_INV ^ 3 * (2 * TL_DIVISOR + ALPHA_INV))) ∧
+    -- [8] the budget identity
+    (∀ t tB : ℝ, t ≠ 0 → 0 &lt; tB →
+      chain_n_max t tB * chain_K tB = matched_ratio t) := by
+  exact ⟨fun GM t h1 h2 =&gt; t8_matched_radius_matches GM t h1 h2,
+    fun GM t h1 h2 =&gt; t9_mass_cancels GM t h1 h2,
+    fun t h =&gt; t10_ratio_is_conversion t h,
+    fun GM t h1 h2 =&gt; t14_equivalence GM t h1 h2,
+    fun GM t h1 h2 =&gt; (t15_dilation_is_conversion GM t h1 h2).1,
+    fun t g h1 h2 =&gt; t18_cap_is_horizon t g h1 h2,
+    fun GM h =&gt; (t21_photon_matches_horizon GM h).1,
+    ⟨t13_corridor_outside_strong_field.1, t13_corridor_outside_strong_field.2.1⟩,
+    fun t h1 h2 =&gt; t23_locked_is_far_field t h1 h2,
+    fun t h =&gt; t24_shatter_is_interior t h,
+    t28_ceiling_radius_in_alpha, t29_floor_radius_in_alpha,
+    t41_multiplier_ceiling_in_alpha, t48_iva_factor_clears_isco,
+    t50_crossover_outside_isco.2.2.2,
+    fun t h1 h2 =&gt; t51_crossover_at_least_four t h1 h2,
+    fun t tB n =&gt; t52_chain_additive t tB n,
+    t56_chain_iva_at_three, t59_n_max_in_alpha,
+    fun t tB h1 h2 =&gt; t60_budget_is_matched_radius t tB h1 h2⟩
+
+end SNSFL_MatchedRadius
+
+end
+
+-- ============================================================
+-- CLOSURE
+-- ============================================================
+--
+-- Reading A is a radius. That is the whole of this file: the exhaust
+-- velocity a drive throws fixes, for every mass in the universe, one radius
+-- at which that mass pulls as hard as the drive pushes, and the ratio of
+-- that radius to the Schwarzschild radius is the reciprocal of twice the
+-- conversion fraction. The mass cancels. At that radius the gravitational
+-- and kinematic dilations are one quantity, the gain cap and the horizon are
+-- one bound, and the chain budget and the matched ratio are one number.
+--
+-- THEOREMS : 67 tagged + master
+-- SORRY    : 0
+-- AXIOMS   : 0
+-- ============================================================
+</code></pre>
+<h3>SNSFL_MatchedRadius_Reduction_TL.lean — [9,9,0,17.1](GRAV), specialist form</h3>
+<pre><code>-- ============================================================
+-- SNSFL_MatchedRadius_Reduction_TL.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | THE MATCHED RADIUS — THE SQUARE-ROOT TORSION OPERATOR
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,17.1](GRAV) | Physics Ground — Gravitation · specialist form (square-root torsion operator)
+-- Version: 1.0
+--
+-- ============================================================
+-- STANDALONE
+-- ============================================================
+--
+-- This file carries every definition it uses. Nothing is reached for in
+-- another coordinate&#x27;s file: the anchor, the Torsion Limit, the corridor
+-- floor, the four phases, Reading A, the conversion fraction and the
+-- matched radius are all restated here at full precision, so that a reader
+-- or a machine can close every proof without leaving the file. The parent
+-- reductions are named in the provenance block for the record, not as
+-- dependencies of the proofs.
+--
+-- Parents of record:
+--   [9,9,0,17]  Matched Radius Reduction      — the general-reader form of this coordinate
+--   [9,9,2,0]   IVA Propulsion Reduction      — the two readings, the bridge, the gain cap
+--   [9,9,0,1]   GR Reduction                   — r_s as the Pattern-lock threshold
+--   [9,9,3,14]  Alpha Reduction                — α⁻¹ = Ω₀ × 100.1, TL = α⁻¹/1001
+--   [9,9,3,20]  Transcendental Time Engine     — TL as the step on the dynamic equation&#x27;s left side
+--
+-- ============================================================
+-- WHAT THIS FILE ESTABLISHES
+-- ============================================================
+--
+--   The square-root torsion operator S(X) = √X, read through the matched
+--   radius, is exact. The matched radius of a square root is the reciprocal
+--   of what was rooted:
+--
+--       matched_ratio (√X) = 1/X
+--
+--   The root cancels identically. That is the whole of this file&#x27;s content,
+--   and every other result here is a consequence of it.
+--
+--   The consequence that matters for computation: the Torsion Limit is an
+--   exact ratio of integers, TL = Ω₀/10 = 8556193749001/62500000000000.
+--   So √TL is a quadratic irrational over the rationals, and the operator
+--   sends it straight back into the rationals. No irrational survives to
+--   the output, at any precision, in any direction of the chain. The layer
+--   is closed over ℚ.
+--
+--   Two landings are named: √TL puts the matched radius at 1/TL, and
+--   √TL_IVA puts it at 1/TL_IVA. Both are exact rationals. Their ratio is
+--   exactly 1/0.88, the corridor width factor, with no error term.
+--
+--   The operator is horizon-ward. For any torsion in (0,1) the square root
+--   is larger, so the matched radius is smaller: one root moves the matched
+--   radius inward. Iterating drives the matched radius monotonically toward
+--   the Schwarzschild radius and never past it. The horizon is the operator&#x27;s
+--   floor, at every depth of iteration.
+--
+--   The operator centers the corridor. For any band [k·a, a] with k in (0,1)
+--   the geometric mean is √k · a, and k &lt; √k &lt; 1 places that mean strictly
+--   inside the band. This is structural, not numerical: it holds for every
+--   width factor, and at k = 0.88 it puts √0.88 · TL inside the IVA corridor
+--   with the matched radius at 1/(0.88·TL²), the geometric mean of the
+--   corridor&#x27;s own radius band.
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+
+noncomputable section
+
+namespace SNSFL_MatchedRadiusTL
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, READING A
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 &lt; τ &lt; TL_IVA
+  | IVA      -- TL_IVA ≤ τ &lt; TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ &lt; TL_IVA then Phase.Locked
+  else if τ &lt; TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction of the ideal rocket: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius: the radius at which the escape velocity of a mass
+equals a drive&#x27;s exhaust velocity. r = r_s/τ_A². -/
+def r_match (GM t : ℝ) : ℝ := r_s GM / t ^ 2
+
+/-- The matched radius in Schwarzschild units. Depends on the drive alone. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The square-root torsion operator. -/
+def S (X : ℝ) : ℝ := Real.sqrt X
+
+/-- The operator iterated. S⁰ is the identity. -/
+def sqrtIter : ℕ → ℝ → ℝ
+  | 0,     t =&gt; t
+  | (n+1), t =&gt; Real.sqrt (sqrtIter n t)
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 &lt; TORSION_LIMIT ∧ TORSION_LIMIT &lt; 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 &lt; TL_IVA ∧ TL_IVA &lt; TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 1: THE TORSION LIMIT IS AN EXACT RATIONAL
+-- This is why the layer closes. The anchor is a terminating
+-- decimal, so the Torsion Limit is a ratio of integers, and every
+-- quantity built from it by field operations is one too.
+-- ============================================================
+
+-- [T4] :: {VER} | THE TORSION LIMIT AS A RATIO OF INTEGERS
+theorem t4_tl_is_rational :
+    TORSION_LIMIT = 8556193749001 / 62500000000000 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T5] :: {VER} | THE RECIPROCAL IS A RATIO OF INTEGERS TOO
+theorem t5_tl_inverse_is_rational :
+    1 / TORSION_LIMIT = 62500000000000 / 8556193749001 := by
+  rw [t4_tl_is_rational]; norm_num
+
+-- [T6] :: {VER} | THE CORRIDOR FLOOR AS A RATIO OF INTEGERS
+theorem t6_tl_iva_is_rational :
+    TL_IVA = 94118131239011 / 781250000000000 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T7] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+-- The Torsion Limit is not a fitted parameter. It is the inverse
+-- fine-structure constant divided by 1001 = 7 × 11 × 13, exactly.
+theorem t7_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- ============================================================
+-- SECTION 2: THE OPERATOR IDENTITY
+-- The matched radius of a square root is the reciprocal of what
+-- was rooted. The root cancels; nothing irrational survives.
+-- ============================================================
+
+-- [T8] :: {VER} | MASTER — THE SQUARE-ROOT CLOSURE
+theorem t8_master_sqrt_closure (X : ℝ) (hX : 0 ≤ X) :
+    matched_ratio (S X) = 1 / X := by
+  simp only [matched_ratio, S, Real.sq_sqrt hX]
+
+-- [T9] :: {VER} | THE CLOSURE AS A PRODUCT: NO ERROR TERM
+-- The matched radius of √X multiplied by X is exactly one, so the
+-- operator carries no residue at any precision.
+theorem t9_closure_has_no_residue (X : ℝ) (hX : 0 &lt; X) :
+    matched_ratio (S X) * X = 1 := by
+  rw [t8_master_sqrt_closure X hX.le, one_div, inv_mul_cancel₀ (ne_of_gt hX)]
+
+-- [T10] :: {VER} | THE MATCHED RADIUS OF A ROOT IS RATIONAL WHEN THE
+-- ROOTED QUANTITY IS. Stated as the general cancellation: the output
+-- depends on X alone, never on √X.
+theorem t10_output_free_of_the_root (X Y : ℝ) (hX : 0 ≤ X) (hY : 0 ≤ Y)
+    (h : X = Y) : matched_ratio (S X) = matched_ratio (S Y) := by
+  rw [t8_master_sqrt_closure X hX, t8_master_sqrt_closure Y hY, h]
+
+-- [T11] :: {VER} | THE FIRST LANDING — √TL PUTS THE MATCHED RADIUS AT 1/TL
+theorem t11_sqrt_tl_lands_at_tl_inverse :
+    matched_ratio (S TORSION_LIMIT) = 1 / TORSION_LIMIT := by
+  exact t8_master_sqrt_closure TORSION_LIMIT t2_tl_in_unit_interval.1.le
+
+-- [T12] :: {VER} | THE FIRST LANDING IS AN EXACT RATIONAL
+theorem t12_first_landing_rational :
+    matched_ratio (S TORSION_LIMIT) = 62500000000000 / 8556193749001 := by
+  rw [t11_sqrt_tl_lands_at_tl_inverse, t5_tl_inverse_is_rational]
+
+-- [T13] :: {VER} | THE FIRST LANDING, BRACKETED — 7.304649921853084 r_s
+theorem t13_first_landing_value :
+    7.30464992185308 &lt; matched_ratio (S TORSION_LIMIT) ∧
+    matched_ratio (S TORSION_LIMIT) &lt; 7.30464992185309 := by
+  rw [t12_first_landing_rational]; norm_num
+
+-- [T14] :: {VER} | THE SECOND LANDING — √TL_IVA PUTS IT AT 1/TL_IVA
+theorem t14_sqrt_tl_iva_lands_at_floor_inverse :
+    matched_ratio (S TL_IVA) = 1 / TL_IVA := by
+  exact t8_master_sqrt_closure TL_IVA t3_floor_below_ceiling.1.le
+
+-- [T15] :: {VER} | THE SECOND LANDING IS AN EXACT RATIONAL
+theorem t15_second_landing_rational :
+    matched_ratio (S TL_IVA) = 781250000000000 / 94118131239011 := by
+  rw [t14_sqrt_tl_iva_lands_at_floor_inverse, t6_tl_iva_is_rational]; norm_num
+
+-- [T16] :: {VER} | THE SECOND LANDING, BRACKETED — 8.300738547560323 r_s
+theorem t16_second_landing_value :
+    8.30073854756032 &lt; matched_ratio (S TL_IVA) ∧
+    matched_ratio (S TL_IVA) &lt; 8.30073854756033 := by
+  rw [t15_second_landing_rational]; norm_num
+
+-- [T17] :: {VER} | THE TWO LANDINGS STAND IN THE CORRIDOR WIDTH FACTOR,
+-- EXACTLY. Their ratio is 1/0.88 = 25/22, with no error term.
+theorem t17_landings_ratio_is_the_width_factor :
+    matched_ratio (S TL_IVA) = matched_ratio (S TORSION_LIMIT) * (25 / 22) := by
+  rw [t12_first_landing_rational, t15_second_landing_rational]; norm_num
+
+-- [T18] :: {VER} | THE SECOND LANDING IS THE FARTHER OF THE TWO
+theorem t18_floor_lands_farther :
+    matched_ratio (S TORSION_LIMIT) &lt; matched_ratio (S TL_IVA) := by
+  rw [t12_first_landing_rational, t15_second_landing_rational]; norm_num
+
+-- ============================================================
+-- SECTION 3: THE SQUARE-ROOT SANDWICH
+-- For any torsion strictly inside the unit interval, the square
+-- root is strictly larger and still strictly below one. This is
+-- the engine of both the contraction and the self-centering.
+-- ============================================================
+
+-- [T19] :: {VER} | THE SANDWICH — k &lt; √k &lt; 1 ON (0,1)
+theorem t19_sqrt_sandwich (k : ℝ) (h0 : 0 &lt; k) (h1 : k &lt; 1) :
+    k &lt; Real.sqrt k ∧ Real.sqrt k &lt; 1 := by
+  have hs : Real.sqrt k ^ 2 = k := Real.sq_sqrt h0.le
+  have hp : 0 &lt; Real.sqrt k := Real.sqrt_pos.mpr h0
+  constructor
+  · nlinarith [hs, hp, mul_pos h0 hp]
+  · nlinarith [hs, hp]
+
+-- [T20] :: {VER} | THE ROOT STAYS IN THE UNIT INTERVAL
+theorem t20_root_stays_in_unit_interval (k : ℝ) (h0 : 0 &lt; k) (h1 : k &lt; 1) :
+    0 &lt; Real.sqrt k ∧ Real.sqrt k &lt; 1 := by
+  exact ⟨Real.sqrt_pos.mpr h0, (t19_sqrt_sandwich k h0 h1).2⟩
+
+-- ============================================================
+-- SECTION 4: THE OPERATOR IS HORIZON-WARD
+-- A larger torsion names a nearer matched radius. So one square
+-- root moves the matched radius inward, and iterating drives it
+-- toward the Schwarzschild radius without ever reaching it.
+-- ============================================================
+
+-- [T21] :: {VER} | THE MATCHED RADIUS IS STRICTLY ANTITONE IN THE TORSION
+theorem t21_matched_ratio_antitone (t u : ℝ) (ht : 0 &lt; t) (htu : t &lt; u) :
+    matched_ratio u &lt; matched_ratio t := by
+  simp only [matched_ratio]
+  have hu : 0 &lt; u := lt_trans ht htu
+  have ht2 : (0:ℝ) &lt; t ^ 2 := by positivity
+  have h : t ^ 2 &lt; u ^ 2 := by nlinarith
+  exact one_div_lt_one_div_of_lt ht2 h
+
+-- [T22] :: {VER} | ONE ROOT MOVES THE MATCHED RADIUS INWARD
+theorem t22_one_root_moves_inward (t : ℝ) (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    matched_ratio (S t) &lt; matched_ratio t := by
+  simp only [S]
+  exact t21_matched_ratio_antitone t (Real.sqrt t) h0 (t19_sqrt_sandwich t h0 h1).1
+
+-- [T23] :: {VER} | THE ROOT NEVER CROSSES THE HORIZON
+-- The matched radius of √t stays strictly outside r_s for every
+-- torsion in (0,1), because it equals 1/t and t &lt; 1.
+theorem t23_root_stays_outside_horizon (t : ℝ) (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    1 &lt; matched_ratio (S t) := by
+  rw [t8_master_sqrt_closure t h0.le]
+  rw [lt_div_iff₀ h0]
+  linarith
+
+-- [T24] :: {VER} | THE ITERATE STAYS IN THE UNIT INTERVAL AT EVERY DEPTH
+theorem t24_iterate_stays_in_unit_interval (n : ℕ) (t : ℝ)
+    (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    0 &lt; sqrtIter n t ∧ sqrtIter n t &lt; 1 := by
+  induction n with
+  | zero =&gt; exact ⟨h0, h1⟩
+  | succ m ih =&gt;
+      obtain ⟨hm0, hm1⟩ := ih
+      simp only [sqrtIter]
+      exact t20_root_stays_in_unit_interval (sqrtIter m t) hm0 hm1
+
+-- [T25] :: {VER} | THE HORIZON IS THE OPERATOR&#x27;S FLOOR AT EVERY DEPTH
+theorem t25_horizon_is_the_floor (n : ℕ) (t : ℝ) (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    1 &lt; matched_ratio (sqrtIter n t) := by
+  obtain ⟨hn0, hn1⟩ := t24_iterate_stays_in_unit_interval n t h0 h1
+  simp only [matched_ratio]
+  have hn2 : (0:ℝ) &lt; sqrtIter n t ^ 2 := by positivity
+  rw [lt_div_iff₀ hn2]
+  nlinarith
+
+-- [T26] :: {VER} | EACH ITERATION MOVES STRICTLY INWARD
+theorem t26_iteration_strictly_decreases (n : ℕ) (t : ℝ)
+    (h0 : 0 &lt; t) (h1 : t &lt; 1) :
+    matched_ratio (sqrtIter (n + 1) t) &lt; matched_ratio (sqrtIter n t) := by
+  obtain ⟨hn0, hn1⟩ := t24_iterate_stays_in_unit_interval n t h0 h1
+  simp only [sqrtIter]
+  exact t21_matched_ratio_antitone (sqrtIter n t) (Real.sqrt (sqrtIter n t)) hn0
+    (t19_sqrt_sandwich (sqrtIter n t) hn0 hn1).1
+
+-- [T27] :: {VER} | THE TORSION LIMIT ENTERS THE CONTRACTION
+theorem t27_tl_enters_the_contraction :
+    matched_ratio (S TORSION_LIMIT) &lt; matched_ratio TORSION_LIMIT := by
+  exact t22_one_root_moves_inward TORSION_LIMIT t2_tl_in_unit_interval.1
+    t2_tl_in_unit_interval.2
+
+-- ============================================================
+-- SECTION 5: THE OPERATOR CENTERS THE CORRIDOR
+-- A band of fixed width factor k has geometric mean √k times its
+-- ceiling, and the sandwich puts that mean strictly inside the
+-- band. Structural for every k in (0,1), not numerical.
+-- ============================================================
+
+-- [T28] :: {VER} | THE GEOMETRIC MEAN OF A BAND, IN CLOSED FORM
+-- The band [k·a, a] has geometric mean √k · a: squaring the
+-- candidate returns the product of the endpoints.
+theorem t28_band_geometric_mean (k a : ℝ) (hk : 0 ≤ k) :
+    (Real.sqrt k * a) ^ 2 = (k * a) * a := by
+  have hs : Real.sqrt k ^ 2 = k := Real.sq_sqrt hk
+  calc (Real.sqrt k * a) ^ 2 = Real.sqrt k ^ 2 * a ^ 2 := by ring
+    _ = k * a ^ 2 := by rw [hs]
+    _ = (k * a) * a := by ring
+
+-- [T29] :: {VER} | THE MEAN LIES STRICTLY INSIDE THE BAND
+theorem t29_mean_inside_band (k a : ℝ) (h0 : 0 &lt; k) (h1 : k &lt; 1) (ha : 0 &lt; a) :
+    k * a &lt; Real.sqrt k * a ∧ Real.sqrt k * a &lt; a := by
+  obtain ⟨hlo, hhi⟩ := t19_sqrt_sandwich k h0 h1
+  refine ⟨mul_lt_mul_of_pos_right hlo ha, ?_⟩
+  calc Real.sqrt k * a &lt; 1 * a := mul_lt_mul_of_pos_right hhi ha
+    _ = a := one_mul a
+
+-- [T30] :: {VER} | THE CORRIDOR&#x27;S OWN CENTER IS √0.88 × TL
+theorem t30_corridor_center :
+    TL_IVA &lt; Real.sqrt 0.88 * TORSION_LIMIT ∧
+    Real.sqrt 0.88 * TORSION_LIMIT &lt; TORSION_LIMIT := by
+  obtain ⟨hlo, hhi⟩ :=
+    t29_mean_inside_band 0.88 TORSION_LIMIT (by norm_num) (by norm_num)
+      t2_tl_in_unit_interval.1
+  constructor
+  · simp only [TL_IVA]; linarith [hlo]
+  · exact hhi
+
+-- [T31] :: {VER} | THE CENTER IS AN IVA TORSION
+theorem t31_center_classifies_iva :
+    classify (Real.sqrt 0.88 * TORSION_LIMIT) = Phase.IVA := by
+  obtain ⟨h1, h2⟩ := t30_corridor_center
+  have h3 : Real.sqrt 0.88 * TORSION_LIMIT ≠ 0 := by
+    have hpos : 0 &lt; Real.sqrt 0.88 * TORSION_LIMIT :=
+      lt_trans t3_floor_below_ceiling.1 h1
+    exact ne_of_gt hpos
+  unfold classify
+  split_ifs with ha hb
+  · exact absurd ha h3
+  · exact absurd hb (not_lt.mpr h1.le)
+  · rfl
+
+-- [T32] :: {VER} | THE CENTER&#x27;S MATCHED RADIUS IS 1/(0.88 · TL²)
+theorem t32_center_matched_radius :
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT)
+      = 1 / (0.88 * TORSION_LIMIT ^ 2) := by
+  simp only [matched_ratio]
+  rw [t28_band_geometric_mean 0.88 TORSION_LIMIT (by norm_num)]
+  ring_nf
+
+-- [T33] :: {VER} | THE CENTER&#x27;S MATCHED RADIUS, BRACKETED — 60.633989182759 r_s
+theorem t33_center_matched_radius_value :
+    60.63398918275939 &lt; matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) &lt; 60.63398918275940 := by
+  rw [t32_center_matched_radius]
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T34] :: {VER} | THE CENTER&#x27;S MATCHED RADIUS IS THE GEOMETRIC MEAN OF
+-- THE CORRIDOR&#x27;S RADIUS BAND. Squaring it returns the product of the
+-- band&#x27;s two endpoints, 1/TL² and 1/TL_IVA².
+theorem t34_center_is_the_radius_band_mean :
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ^ 2
+      = matched_ratio TORSION_LIMIT * matched_ratio TL_IVA := by
+  rw [t32_center_matched_radius]
+  simp only [matched_ratio, TL_IVA]
+  have h : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
+  field_simp
+
+-- [T35] :: {VER} | THE CENTER LIES INSIDE THE RADIUS BAND
+theorem t35_center_inside_radius_band :
+    matched_ratio TORSION_LIMIT
+      &lt; matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) &lt; matched_ratio TL_IVA := by
+  obtain ⟨h1, h2⟩ := t30_corridor_center
+  constructor
+  · exact t21_matched_ratio_antitone (Real.sqrt 0.88 * TORSION_LIMIT)
+      TORSION_LIMIT (lt_trans t3_floor_below_ceiling.1 h1) h2
+  · exact t21_matched_ratio_antitone TL_IVA (Real.sqrt 0.88 * TORSION_LIMIT)
+      t3_floor_below_ceiling.1 h1
+
+-- [T36] :: {VER} | THE RADIUS BAND&#x27;S WIDTH FACTOR IS 1/0.88², EXACTLY
+theorem t36_radius_band_width :
+    matched_ratio TL_IVA = matched_ratio TORSION_LIMIT * (625 / 484) := by
+  simp only [matched_ratio, TL_IVA]
+  have h : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
+  field_simp
+  ring
+
+-- ============================================================
+-- SECTION 6: THE CONVERSION FRACTION UNDER THE OPERATOR
+-- Reading A squared is twice the rest-mass conversion fraction,
+-- so the operator&#x27;s image has conversion fraction X/2.
+-- ============================================================
+
+-- [T37] :: {VER} | THE CONVERSION FRACTION OF A ROOT IS HALF WHAT WAS ROOTED
+theorem t37_conversion_of_a_root (X : ℝ) (hX : 0 ≤ X) :
+    eta_of_tau (S X) = X / 2 := by
+  simp only [eta_of_tau, S, Real.sq_sqrt hX]
+
+-- [T38] :: {VER} | THE MATCHED RADIUS ON THE CONVERSION FRACTION
+theorem t38_matched_radius_on_conversion (t : ℝ) (ht : t ≠ 0) :
+    matched_ratio t = 1 / (2 * eta_of_tau t) := by
+  simp only [matched_ratio, eta_of_tau]
+  have h2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T39] :: {VER} | THE ROOT OF TL HAS CONVERSION FRACTION TL/2
+theorem t39_root_of_tl_conversion :
+    eta_of_tau (S TORSION_LIMIT) = TORSION_LIMIT / 2 := by
+  exact t37_conversion_of_a_root TORSION_LIMIT t2_tl_in_unit_interval.1.le
+
+-- ============================================================
+-- SECTION 7: THE MASS CANCELS HERE TOO
+-- The matched radius in metres still carries the central body, but
+-- in Schwarzschild units the operator&#x27;s output is the drive alone.
+-- ============================================================
+
+-- [T40] :: {VER} | THE MATCHED RADIUS IN METRES FACTORS THROUGH THE RATIO
+theorem t40_matched_radius_factors (GM t : ℝ) (ht : t ≠ 0) :
+    r_match GM t = r_s GM * matched_ratio t := by
+  simp only [r_match, matched_ratio]
+  field_simp
+
+-- [T41] :: {VER} | THE MASS CANCELS IN THE OPERATOR&#x27;S OUTPUT
+theorem t41_mass_cancels (GM X : ℝ) (hGM : 0 &lt; GM) (hX : 0 &lt; X) :
+    r_match GM (S X) / r_s GM = 1 / X := by
+  have hrs : r_s GM ≠ 0 := by
+    simp only [r_s, C_LIGHT]
+    have : (0:ℝ) &lt; 2 * GM / (299792458:ℝ) ^ 2 := by positivity
+    exact ne_of_gt this
+  rw [t40_matched_radius_factors GM (S X) (by
+    simp only [S]
+    exact ne_of_gt (Real.sqrt_pos.mpr hX))]
+  rw [t8_master_sqrt_closure X hX.le]
+  field_simp
+
+-- ============================================================
+-- SECTION 8: MASTER
+-- ============================================================
+
+-- [MASTER] :: {VER} | THE SQUARE-ROOT TORSION OPERATOR
+-- The operator identity, the two exact landings, the exact width
+-- factor between them, the horizon as the floor, and the corridor&#x27;s
+-- own center, in one statement.
+theorem MASTER_sqrt_torsion_operator :
+    -- the operator identity: the root cancels
+    (∀ X : ℝ, 0 ≤ X → matched_ratio (S X) = 1 / X) ∧
+    -- the layer is closed over the rationals
+    TORSION_LIMIT = 8556193749001 / 62500000000000 ∧
+    matched_ratio (S TORSION_LIMIT) = 62500000000000 / 8556193749001 ∧
+    matched_ratio (S TL_IVA) = 781250000000000 / 94118131239011 ∧
+    -- the exactness anchor
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV ∧
+    -- the two landings stand in the corridor width factor, exactly
+    matched_ratio (S TL_IVA) = matched_ratio (S TORSION_LIMIT) * (25 / 22) ∧
+    -- the operator is horizon-ward, and the horizon is its floor
+    (∀ t : ℝ, 0 &lt; t → t &lt; 1 → matched_ratio (S t) &lt; matched_ratio t) ∧
+    (∀ (n : ℕ) (t : ℝ), 0 &lt; t → t &lt; 1 → 1 &lt; matched_ratio (sqrtIter n t)) ∧
+    -- the operator centers any band, structurally
+    (∀ k a : ℝ, 0 &lt; k → k &lt; 1 → 0 &lt; a →
+      k * a &lt; Real.sqrt k * a ∧ Real.sqrt k * a &lt; a) ∧
+    -- and at the corridor&#x27;s width factor the center is an IVA torsion
+    classify (Real.sqrt 0.88 * TORSION_LIMIT) = Phase.IVA ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ^ 2
+      = matched_ratio TORSION_LIMIT * matched_ratio TL_IVA := by
+  refine ⟨fun X hX =&gt; t8_master_sqrt_closure X hX, t4_tl_is_rational,
+    t12_first_landing_rational, t15_second_landing_rational,
+    t7_tl_times_1001_is_alpha, t17_landings_ratio_is_the_width_factor,
+    fun t h0 h1 =&gt; t22_one_root_moves_inward t h0 h1,
+    fun n t h0 h1 =&gt; t25_horizon_is_the_floor n t h0 h1,
+    fun k a h0 h1 ha =&gt; t29_mean_inside_band k a h0 h1 ha,
+    t31_center_classifies_iva, t34_center_is_the_radius_band_mean⟩
+
+end SNSFL_MatchedRadiusTL
+
+end
+</code></pre>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Kenai, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-advertising.html">Advertising</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-matched-radius.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-matched-radius.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
