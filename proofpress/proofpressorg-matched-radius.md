@@ -4,7 +4,7 @@
 
 **Coordinate:** [9,9,0,17](GRAV) general-reader form, with the specialist form at [9,9,0,17.1](GRAV) · Identity Physics Series · Physics Ground, Gravitation
 
-**Issue:** Volume 1, Issue 10 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
 
 **DOI:** 10.5281/zenodo.18719748
 
