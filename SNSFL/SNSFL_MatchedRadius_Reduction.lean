@@ -7,7 +7,7 @@
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
 -- Status: GERMLINE LOCKED
 -- Coordinate: [9,9,0,17](GRAV) | Physics Ground — Gravitation
--- Version: 1.0
+-- Version: 1.1
 --
 -- ============================================================
 -- STANDALONE
@@ -71,9 +71,10 @@
 -- THEOREMS: 67 tagged + master | SORRY: 0 | AXIOMS: 0
 -- ============================================================
 
-import Mathlib.Analysis.SpecialFunctions.Log.Basic
-import Mathlib.Analysis.SpecialFunctions.Pow.NNRpow
 import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
 
 noncomputable section
 
