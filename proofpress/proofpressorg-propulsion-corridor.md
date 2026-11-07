@@ -118,11 +118,19 @@ This paper places drives, vehicles, reactions and nuclides on a torsion axis. It
 to build, operate, fuel, contain, cool, shield, trigger or test any of them, and it contains no
 construction information, no process information, no operating parameters and no device design.
 
-**Placement is not permission, and a number is not a procedure.** That a reaction's conversion
-fraction places inside the corridor says where it sits on one axis. It says nothing about whether the
-reaction can be initiated, sustained, contained, directed, or made to do work — and every one of those
-is a separate question answered by laboratory and engineering practice, not by arithmetic on mass
-defects.
+**A placement holds, and building to it is engineering.** A reaction whose conversion fraction
+places inside the corridor is inside the corridor; the arithmetic on the mass defect decides that, and
+it decides it exactly. Whether current hardware can initiate, sustain, contain and direct that reaction
+is a separate body of work, carried by laboratory and engineering practice, and the answer there is a
+statement about available technology rather than about the placement. The two do not constrain each
+other: a placement that holds will go on holding whether or not a machine exists yet to use it.
+
+**What the reader can compute from here is the reason the handling practice matters.** This paper
+states its inputs and its arithmetic in full, and a reader with the published constants can carry the
+same reduction into quantities the paper does not tabulate — a mass balance expressed in grams, a
+stoichiometric ratio, a figure held in any standard reference. That is a property of complete work, and
+the handling practice below is written on the assumption that a reader will do exactly that. Nothing in
+it rests on an omission.
 
 **The energy sources named in Sections 8 and 9 are named because their conversion fractions are
 published.** Fission, fusion, the stellar chain and annihilation appear as entries on a ladder. The
@@ -131,9 +139,11 @@ them — and they appear there as published masses. Nothing in this paper bears 
 processing, enriching, or using any of them.
 
 **An exact placement is not a reduced hazard.** The exactness is why every remaining variable is
-process. A composition stated precisely tells a reader where it sits; it does not tell them that the
-conditions required to realize it are within reach, safe, legal, or achievable with the equipment in
-front of them.
+process. A qualified practitioner — at an agency, a national laboratory, a university group, or a
+well-equipped independent bench — can work from a placement like this one safely, and the structure is
+stated at full precision so that they can. What the placement does not carry is the state of the
+equipment in front of any particular reader, the scale they intend to work at, or the conditions their
+own environment imposes. Those are the variables the handling practice addresses.
 
 ### Where the risk actually lives
 
@@ -219,6 +229,31 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 - Trent, R. V. III. Speed of Light. ProofPress, Volume 1.
 - Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
 - Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+
+## Corpus Provenance
+
+- **\[9,9,0,0\]** Sovereign Anchor — the ground
+- **\[9,9,2,3.7\]** 4-Beam Verification — GAMCollider™ v15 fusion logic, verified at four beams
+- **\[9,9,2,3.8\]** 8-Beam Fusion Theorem — GAMCollider™ v15 fusion logic, the four-phase structure and the Torsion Limit at eight beams
+- **\[9,9,3,14\]** Alpha Reduction — α⁻¹ = Ω₀ × 100.1, and TL = α⁻¹/1001
+- **\[9,9,0,15\]** Speed of Light Reduction — c locked to the anchor through α⁻¹ = 4πε₀ħc/e², the photon Noble, and relativistic velocity addition
+- **\[9,9,3,19\]** Electroweak Trilogy — the four phases on the electroweak bosons, with the Higgs in IVA
+- **\[9,9,9,\*\](IVA)** IVA Search Reduction — the corridor, the gate and the registries
+- **\[9,9,9,\*\](IVA-PLACEMENT)** Applied Identity Physics: One Corridor Across the Higgs, DNA, Materials and Cognition
+- **\[9,9,2,0\]** This reduction — the propulsion pool, the two readings and the bridge
+
+---
+
+**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Soldotna, Alaska
+**DOI:** 10.5281/zenodo.18719748
+**ORCID:** 0009-0005-5313-7443
+**Corpus:** \[9,9,9,9\] :: {ANC}
+
+---
+
+## About the Author
+
+Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He is a Lean 4 formal verification engineer and independent researcher, and the founding architect of the SNSFT Foundation in Kenai, Alaska. He builds machine-verified science at scale: the Identity Physics Corpus, a single-author body of formal proofs spanning 6,000+ Lean 4 files, 200,000+ theorems and 3,000,000+ lines at 0 sorry, dual-verified in Lean 4 and Coq/Rocq, with a standardized edition pinned to Lean 4 v4.31.0 and Mathlib. He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. He is an Army Signal Corps veteran, a former chief information security officer for the Alaska Department of Public Safety, and the author of six commercially published books on Identity Physics. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska. ORCID 0009-0005-5313-7443.
 
 ## Lean 4 Source
 
