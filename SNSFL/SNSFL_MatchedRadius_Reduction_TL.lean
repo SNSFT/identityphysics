@@ -362,10 +362,9 @@ theorem t28_band_geometric_mean (k a : ℝ) (hk : 0 ≤ k) :
 theorem t29_mean_inside_band (k a : ℝ) (h0 : 0 < k) (h1 : k < 1) (ha : 0 < a) :
     k * a < Real.sqrt k * a ∧ Real.sqrt k * a < a := by
   obtain ⟨hlo, hhi⟩ := t19_sqrt_sandwich k h0 h1
-  constructor
-  · exact (mul_lt_mul_right ha).mpr hlo
-  · calc Real.sqrt k * a < 1 * a := (mul_lt_mul_right ha).mpr hhi
-      _ = a := one_mul a
+  refine ⟨mul_lt_mul_of_pos_right hlo ha, ?_⟩
+  calc Real.sqrt k * a < 1 * a := mul_lt_mul_of_pos_right hhi ha
+    _ = a := one_mul a
 
 -- [T30] :: {VER} | THE CORRIDOR'S OWN CENTER IS √0.88 × TL
 theorem t30_corridor_center :
@@ -387,11 +386,10 @@ theorem t31_center_classifies_iva :
       lt_trans t3_floor_below_ceiling.1 h1
     exact ne_of_gt hpos
   unfold classify
-  split_ifs with ha hb hc
+  split_ifs with ha hb
   · exact absurd ha h3
   · exact absurd hb (not_lt.mpr h1.le)
   · rfl
-  · exact absurd h2 hc
 
 -- [T32] :: {VER} | THE CENTER'S MATCHED RADIUS IS 1/(0.88 · TL²)
 theorem t32_center_matched_radius :
@@ -419,7 +417,6 @@ theorem t34_center_is_the_radius_band_mean :
   simp only [matched_ratio, TL_IVA]
   have h : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
   field_simp
-  ring
 
 -- [T35] :: {VER} | THE CENTER LIES INSIDE THE RADIUS BAND
 theorem t35_center_inside_radius_band :
