@@ -859,6 +859,259 @@ theorem t67_extremal_photon_matches_horizon :
   · simp only [rn_outer]; norm_num
   · simp only [rn_inner]; norm_num
 
+
+-- ============================================================
+-- SECTION 12b: THE STRUCTURE OF THE CHARGED PAIR
+-- The two roots are not independent. They partition the
+-- uncharged matched radius, they bracket both horizons, and the
+-- factor that separates them also moves the availability
+-- criterion.
+-- ============================================================
+
+/-- The outer Reissner–Nordström horizon, in Schwarzschild radii. -/
+def rn_horizon_outer (q : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2)) / 2
+
+/-- The inner Reissner–Nordström horizon, in Schwarzschild radii. -/
+def rn_horizon_inner (q : ℝ) : ℝ := (1 - Real.sqrt (1 - 4 * q ^ 2)) / 2
+
+-- [T68] :: {VER} | THE CHARGE FACTOR IS AT LEAST ONE HALF
+theorem t68_rn_factor_ge_half (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) : 1/2 ≤ rn_factor q t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have hp : 0 ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_nonneg _
+  simp only [rn_factor]
+  linarith
+
+-- [T69] :: {VER} | THE PAIR PARTITIONS THE UNCHARGED MATCHED RADIUS
+-- Charge does not change the total. r₊ + r₋ is the Schwarzschild
+-- matched ratio at every charge.
+theorem t69_pair_partitions (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t + rn_inner q t = matched_ratio t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner, matched_ratio]
+  field_simp
+
+-- [T70] :: {VER} | THE PRODUCT OF THE PAIR
+theorem t70_pair_product (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_outer q t * rn_inner q t = q ^ 2 * matched_ratio t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner, matched_ratio]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  field_simp
+  linear_combination hs
+
+-- [T71] :: {VER} | THE INNER ROOT RATIONALIZES
+-- r₋ = 2q²/(1 + √(1 − 4q²τ²)), which removes the cancelling
+-- difference and exposes the inner root as a ratio in q².
+theorem t71_inner_rationalized (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t = 2 * q ^ 2 / (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_inner]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  have hsn : 0 ≤ s := Real.sqrt_nonneg _
+  have h1s : (0:ℝ) < 1 + s := by linarith
+  rw [div_eq_div_iff (by positivity) (ne_of_gt h1s)]
+  linear_combination hs
+
+-- [T72] :: {VER} | THE INNER HORIZON RATIONALIZES THE SAME WAY
+-- The inner horizon is the inner root's own form at τ_A = 1.
+theorem t72_inner_horizon_rationalized (q : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2) :
+    rn_horizon_inner q = 2 * q ^ 2 / (1 + Real.sqrt (1 - 4 * q ^ 2)) := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hs : Real.sqrt (1 - 4 * q ^ 2) ^ 2 = 1 - 4 * q ^ 2 := Real.sq_sqrt hd
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have h1s : (0:ℝ) < 1 + Real.sqrt (1 - 4 * q ^ 2) := by linarith
+  simp only [rn_horizon_inner]
+  rw [div_eq_div_iff (by norm_num) (ne_of_gt h1s)]
+  linear_combination hs
+
+-- [T73] :: {VER} | THE INNER ROOT LIES INSIDE THE INNER HORIZON
+theorem t73_inner_root_inside_inner_horizon (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t < rn_horizon_inner q := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0.le hq ht0 ht1
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hlt : 1 - 4 * q ^ 2 < 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have hsq : Real.sqrt (1 - 4 * q ^ 2) < Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
+    Real.sqrt_lt_sqrt hdh hlt
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have hq2 : (0:ℝ) < 2 * q ^ 2 := by positivity
+  rw [t71_inner_rationalized q t hq0.le hq ht0 ht1,
+      t72_inner_horizon_rationalized q hq0.le hq]
+  apply div_lt_div_of_pos_left hq2 (by linarith) (by linarith)
+
+-- [T74] :: {VER} | THE OUTER HORIZON LIES INSIDE THE OUTER ROOT
+theorem t74_outer_horizon_inside_outer_root (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_horizon_outer q < rn_outer q t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hle : 1 - 4 * q ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have hsq : Real.sqrt (1 - 4 * q ^ 2) ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
+    Real.sqrt_le_sqrt hle
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have ht2' : t ^ 2 < 1 := by nlinarith
+  simp only [rn_horizon_outer, rn_outer]
+  rw [div_lt_div_iff₀ (by norm_num) (by positivity)]
+  nlinarith [hsq, hsn, ht2, ht2']
+
+-- [T75] :: {VER} | THE PAIR BRACKETS BOTH HORIZONS
+-- r₋ < r_H⁻ ≤ r_H⁺ < r₊ : exactly one root is a place a vehicle
+-- can occupy, and the ordering is strict at both ends.
+theorem t75_pair_brackets_both_horizons (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t < rn_horizon_inner q ∧
+    rn_horizon_inner q ≤ rn_horizon_outer q ∧
+    rn_horizon_outer q < rn_outer q t := by
+  refine ⟨t73_inner_root_inside_inner_horizon q t hq0 hq ht0 ht1, ?_,
+    t74_outer_horizon_inside_outer_root q t hq0.le hq ht0 ht1⟩
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  simp only [rn_horizon_inner, rn_horizon_outer]
+  linarith
+
+-- [T76] :: {VER} | THE CHARGE-FOR-SHIFT IDENTITY
+-- F(1 − F) = q²τ_A² exactly, so the charge that produces a given
+-- shift is fixed and the shift that a given charge produces is too.
+theorem t76_charge_for_shift (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q t * (1 - rn_factor q t) = q ^ 2 * t ^ 2 := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  simp only [rn_factor]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  linear_combination -hs / 4
+
+-- [T77] :: {VER} | THE EXTREMAL FACTOR IS THE MINIMUM OVER THE CHARGE RANGE
+-- So the inward shift is saturated at the extremal charge: a larger
+-- shift would require q above one half, which is no longer a horizon.
+theorem t77_extremal_factor_is_minimum (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor (1/2) t ≤ rn_factor q t := by
+  have hdh : 0 ≤ 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 := by nlinarith
+  have hle : 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have hsq : Real.sqrt (1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2)
+      ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_le_sqrt hle
+  simp only [rn_factor]
+  linarith
+
+-- [T78] :: {VER} | THE CHARGED COMPACTNESS CRITERION
+-- Availability at a charged body is the uncharged criterion with the
+-- threshold divided by the charge factor.
+theorem t78_charged_criterion (rs R q t : ℝ) (hR : 0 < R) (ht : 0 < t)
+    (hF : 0 < rn_factor q t) :
+    R < rs * rn_outer q t ↔ t ^ 2 / rn_factor q t < compactness rs R := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  simp only [compactness]
+  rw [t61_rn_outer_factored q t ht]
+  simp only [matched_ratio]
+  rw [div_lt_div_iff₀ hF hR, lt_div_iff₀ hR]
+  constructor
+  · intro h; nlinarith [h]
+  · intro h; nlinarith [h]
+
+-- [T79] :: {VER} | CHARGE TIGHTENS AVAILABILITY
+-- The charged threshold is never below the uncharged one, because the
+-- factor is never above one.
+theorem t79_charge_tightens_availability (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) (hFle : rn_factor q t ≤ 1) :
+    t ^ 2 ≤ t ^ 2 / rn_factor q t := by
+  have hF : (0:ℝ) < rn_factor q t := by
+    have := t68_rn_factor_ge_half q t hq0 hq ht0 ht1
+    linarith
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  rw [le_div_iff₀ hF]
+  nlinarith [ht2, hFle]
+
+
+-- ============================================================
+-- SECTION 12c: WHAT THE PAIR IS, AND THE CRITERION WITHOUT A METRIC
+-- The charge factor is a partition fraction rather than a
+-- correction, the discriminant bound is the partition identity
+-- read twice, and the availability criterion can be stated with
+-- no metric at all.
+-- ============================================================
+
+-- [T80] :: {VER} | THE FACTOR IS THE OUTER ROOT'S SHARE, AND 1 − F THE INNER'S
+-- r₊ = F · matched_ratio and r₋ = (1 − F) · matched_ratio, so the two
+-- shares sum to one and F is a partition fraction, not a correction.
+theorem t80_factor_is_a_partition_share (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t = rn_factor q t * matched_ratio t ∧
+    rn_inner q t = (1 - rn_factor q t) * matched_ratio t := by
+  have houter : rn_outer q t = rn_factor q t * matched_ratio t := by
+    rw [t61_rn_outer_factored q t ht]; ring
+  refine ⟨houter, ?_⟩
+  have hsum := t69_pair_partitions q t ht
+  have : rn_inner q t = matched_ratio t - rn_outer q t := by linarith
+  rw [this, houter]; ring
+
+-- [T81] :: {VER} | THE INNER ROOT IS q² OVER THE FACTOR
+-- So the pair is exactly { F/τ_A² , q²/F }, whose product is q²/τ_A².
+theorem t81_inner_is_q_sq_over_factor (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t = q ^ 2 / rn_factor q t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  have hF : (0:ℝ) < rn_factor q t := by
+    have := t68_rn_factor_ge_half q t hq0 hq ht0 ht1
+    linarith
+  have hid := t76_charge_for_shift q t hq0 hq ht0 ht1
+  rw [(t80_factor_is_a_partition_share q t ht0).2]
+  simp only [matched_ratio]
+  rw [eq_div_iff (ne_of_gt hF)]
+  field_simp
+  linear_combination hid
+
+-- [T82] :: {VER} | THE PARTITION IDENTITY CONTAINS THE DISCRIMINANT BOUND
+-- F(1 − F) ≤ ¼ for any real F, so T76 forces q²τ_A² ≤ ¼ — which is the
+-- discriminant condition of T58, reached from the partition instead.
+theorem t82_partition_gives_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q t * (1 - rn_factor q t) ≤ 1/4 ∧ q ^ 2 * t ^ 2 ≤ 1/4 := by
+  have hid := t76_charge_for_shift q t hq0 hq ht0 ht1
+  have hsq : (0:ℝ) ≤ (rn_factor q t - 1/2) ^ 2 := sq_nonneg _
+  constructor
+  · nlinarith [hsq]
+  · rw [← hid]; nlinarith [hsq]
+
+-- [T83] :: {VER} | THE CRITERION WITHOUT A METRIC
+-- Availability needs only the matched radius, not the metric that
+-- produced it: a body admits the maneuver exactly when its compactness
+-- exceeds the Schwarzschild radius over the matched radius.
+theorem t83_criterion_metric_free (rs R rmatch : ℝ) (hrs : 0 < rs) (hR : 0 < R)
+    (hrm : 0 < rmatch) :
+    R < rmatch ↔ rs / rmatch < compactness rs R := by
+  simp only [compactness]
+  rw [div_lt_div_iff₀ hrm hR]
+  constructor
+  · intro h; nlinarith [hrs, h]
+  · intro h; nlinarith [hrs, h]
+
+-- [T84] :: {VER} | THE METRIC-FREE CRITERION RECOVERS THE SCHWARZSCHILD FORM
+-- With r_match = r_s · matched_ratio, the threshold r_s/r_match is τ_A².
+theorem t84_metric_free_recovers_tau_sq (rs t : ℝ) (hrs : rs ≠ 0) (ht : t ≠ 0) :
+    rs / (rs * matched_ratio t) = t ^ 2 := by
+  simp only [matched_ratio]
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T85] :: {VER} | THE LOCAL ESCAPE SPEED AT A MATCHED RADIUS CARRIES NO METRIC
+-- Whatever f produced the level set, the locally measured escape fraction at
+-- its solution is Reading A itself. Everything downstream of that radius —
+-- the burn, the multiplier, the saving — therefore carries no metric data.
+theorem t85_escape_at_matched_is_reading_a (f : ℝ → ℝ) (t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level f t r) : Real.sqrt (1 - f r) = t := by
+  simp only [matched_level] at h
+  rw [h]
+  have : (1:ℝ) - (1 - t ^ 2) = t ^ 2 := by ring
+  rw [this, Real.sqrt_sq ht]
+
 -- ============================================================
 -- SECTION 13: MASTER
 -- ============================================================
@@ -935,7 +1188,7 @@ end
 -- linear, Reissner–Nordström is where it is a pair, and charge moves the
 -- reachable root inward by at most the dilation deficit, halved.
 --
--- THEOREMS : 69 tagged + master
+-- THEOREMS : 87 tagged + master
 -- SORRY    : 0
 -- AXIOMS   : 0
 -- ============================================================
