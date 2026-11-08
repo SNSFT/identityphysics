@@ -902,7 +902,7 @@ theorem t70_pair_product (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
   set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
   have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
   field_simp
-  linear_combination -2 * hs
+  linear_combination -hs
 
 -- [T71] :: {VER} | THE INNER ROOT RATIONALIZES
 -- r₋ = 2q²/(1 + √(1 − 4q²τ²)), which removes the cancelling
@@ -918,7 +918,7 @@ theorem t71_inner_rationalized (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
   have hsn : 0 ≤ s := Real.sqrt_nonneg _
   have h1s : (0:ℝ) < 1 + s := by linarith
   rw [div_eq_div_iff (by positivity) (ne_of_gt h1s)]
-  linear_combination -2 * hs
+  linear_combination -hs
 
 -- [T72] :: {VER} | THE INNER HORIZON RATIONALIZES THE SAME WAY
 -- The inner horizon is the inner root's own form at τ_A = 1.
@@ -930,7 +930,7 @@ theorem t72_inner_horizon_rationalized (q : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2
   have h1s : (0:ℝ) < 1 + Real.sqrt (1 - 4 * q ^ 2) := by linarith
   simp only [rn_horizon_inner]
   rw [div_eq_div_iff (by norm_num) (ne_of_gt h1s)]
-  linear_combination -2 * hs
+  linear_combination -hs
 
 -- [T73] :: {VER} | THE INNER ROOT LIES INSIDE THE INNER HORIZON
 theorem t73_inner_root_inside_inner_horizon (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
