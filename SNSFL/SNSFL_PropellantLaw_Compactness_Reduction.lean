@@ -336,8 +336,10 @@ theorem t20_exponent_bracket (x : ℝ) (hx : 0 < x) :
   have hlt := t9_lt_rad x
   constructor
   · rw [t19_decay_form x]
-    rw [div_lt_div_iff_of_neg_left (by norm_num : (-1:ℝ) < 0) hx hs]
-    linarith [t8_rad_pos x]
+    have h1 : 1 / (x + rad x) < 1 / x :=
+      one_div_lt_one_div_of_lt hx (by linarith [t8_rad_pos x])
+    rw [neg_div, neg_div]
+    linarith
   · linarith
 
 -- [T21] :: {VER} | THE SAVING IS BRACKETED BY e · exp(−1/x) AND e
@@ -347,7 +349,7 @@ theorem t21_saving_bracket (x : ℝ) (hx : 0 < x) :
   obtain ⟨hlo, _⟩ := t20_exponent_bracket x hx
   constructor
   · rw [t15_saving_factored x]
-    exact (mul_lt_mul_left (Real.exp_pos 1)).mpr (Real.exp_lt_exp.mpr hlo)
+    exact mul_lt_mul_of_pos_left (Real.exp_lt_exp.mpr hlo) (Real.exp_pos 1)
   · exact t17_saving_lt_e x
 
 -- [T22] :: {VER} | THE EXPONENT IS STRICTLY INCREASING
@@ -386,11 +388,12 @@ theorem t25_bound_is_e_to_the_well :
     Real.exp well_tau_B = Real.exp 1 := by
   simp only [well_tau_B]
 
--- [T26] :: {VER} | THE WELL'S MASS RATIO IS e
-theorem t26_well_mass_ratio :
-    Real.exp well_tau_B = Real.exp 1 ∧ well_tau_B = 1 := by
+-- [T26] :: {VER} | THE SAVING IS BOUNDED BY THE WELL'S OWN MASS RATIO
+-- The ceiling on the saving is exp of the well's Reading B, which is e.
+theorem t26_bounded_by_well_mass_ratio (x : ℝ) :
+    saving x < Real.exp well_tau_B := by
   simp only [well_tau_B]
-  exact ⟨rfl, rfl⟩
+  exact t17_saving_lt_e x
 
 -- ============================================================
 -- SECTION 5: THE SMALL-BURN END
@@ -613,15 +616,20 @@ theorem t48_gain_tightens (t g₁ g₂ : ℝ) (ht : 0 < t) (h0 : 0 ≤ g₁) (h 
     gained_tau t g₁ ^ 2 < gained_tau t g₂ ^ 2 := by
   simp only [gained_tau]
   have ht2 : (0:ℝ) < t ^ 2 := by positivity
-  nlinarith [ht2, h, h0]
+  have h1 : (0:ℝ) < 1 + g₁ := by linarith
+  have hsq : (1 + g₁) ^ 2 < (1 + g₂) ^ 2 := by nlinarith
+  calc ((1 + g₁) * t) ^ 2 = (1 + g₁) ^ 2 * t ^ 2 := by ring
+    _ < (1 + g₂) ^ 2 * t ^ 2 := mul_lt_mul_of_pos_right hsq ht2
+    _ = ((1 + g₂) * t) ^ 2 := by ring
 
 -- [T49] :: {VER} | AT THE CAP ONLY A HORIZON QUALIFIES
 -- Reading A at its supremum requires compactness above one, which only the
 -- horizon itself reaches.
 theorem t49_cap_requires_horizon (rs R : ℝ) (hR : 0 < R) :
-    R < rs / (1:ℝ) ^ 2 ↔ (1:ℝ) < compactness rs R := by
-  have h : (1:ℝ) ≠ 0 := one_ne_zero
-  exact t32_master_criterion rs R 1 hR h
+    R < rs ↔ (1:ℝ) < compactness rs R := by
+  have h := t32_master_criterion rs R 1 hR one_ne_zero
+  norm_num at h
+  exact h
 
 -- [T50] :: {VER} | THE GAIN CAP AND THE CORRIDOR CEILING
 theorem t50_gain_at_ceiling (g : ℝ) :
@@ -663,15 +671,19 @@ theorem t52_level_set_on_eta (f : ℝ → ℝ) (t r : ℝ) :
 theorem t53_schwarzschild_instance (rs t r : ℝ) (hr : r ≠ 0) (ht : t ≠ 0) :
     matched_level (f_schwarzschild rs) t r ↔ r = rs / t ^ 2 := by
   simp only [matched_level, f_schwarzschild]
-  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have ht2' : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
   constructor
   · intro h
     have h1 : rs / r = t ^ 2 := by linarith
-    field_simp at h1 ⊢
+    rw [div_eq_iff hr] at h1
+    rw [eq_div_iff ht2']
     linarith [h1]
   · intro h
     subst h
-    have hne : rs / t ^ 2 ≠ 0 := hr
+    have hrs : rs ≠ 0 := by
+      intro h0
+      rw [h0, zero_div] at hr
+      exact hr rfl
     field_simp
 
 -- [T54] :: {VER} | THE SCHWARZSCHILD LEVEL SET IS THE MATCHED RATIO
@@ -728,7 +740,10 @@ theorem t57_rn_quadratic (rs rQ t r : ℝ) (hr : r ≠ 0) :
 theorem t58_rn_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
     (ht0 : 0 < t) (ht1 : t < 1) :
     0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
-  nlinarith [sq_nonneg q, sq_nonneg t, mul_nonneg hq0 ht0.le]
+  have hq2 : q ^ 2 ≤ 1 / 4 := by nlinarith
+  have ht2 : t ^ 2 ≤ 1 := by nlinarith
+  have hqn : (0:ℝ) ≤ 4 * q ^ 2 := by positivity
+  nlinarith [hq2, ht2, hqn]
 
 -- [T59] :: {VER} | THE TWO ROOTS SOLVE THE QUADRATIC
 theorem t59_rn_roots_solve (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
@@ -800,33 +815,43 @@ theorem t65_max_shift_is_half_the_deficit (t : ℝ) :
   rw [t64_rn_factor_extremal t]
   ring
 
--- [T66] :: {VER} | THE EXTREMAL FACTOR AT THE CORRIDOR EDGES, BRACKETED
-theorem t66_extremal_factor_values :
-    0.995292498535 < rn_factor (1/2) TORSION_LIMIT ∧
-    rn_factor (1/2) TORSION_LIMIT < 0.995292498536 ∧
-    0.996358410839 < rn_factor (1/2) TL_IVA ∧
-    rn_factor (1/2) TL_IVA < 0.996358410841 := by
-  have hc : Real.sqrt (1 - TORSION_LIMIT ^ 2) ^ 2 = 1 - TORSION_LIMIT ^ 2 := by
-    apply Real.sq_sqrt
+-- [T66] :: {VER} | THE EXTREMAL FACTOR IS PINNED EXACTLY BY THE LEVEL VALUE
+-- Twice the extremal factor less one is the dilation factor itself, so its
+-- square is the level value 1 − τ_A², exactly and with no decimal.
+theorem t66_extremal_factor_exact (t : ℝ) (h : t ^ 2 ≤ 1) :
+    (2 * rn_factor (1/2) t - 1) ^ 2 = 1 - t ^ 2 := by
+  rw [t64_rn_factor_extremal t]
+  have hs : Real.sqrt (1 - t ^ 2) ^ 2 = 1 - t ^ 2 := Real.sq_sqrt (by linarith)
+  have hr : 2 * ((1 + Real.sqrt (1 - t ^ 2)) / 2) - 1 = Real.sqrt (1 - t ^ 2) := by
+    ring
+  rw [hr, hs]
+
+-- [T66b] :: {VER} | THE EXTREMAL FACTOR AT THE CORRIDOR EDGES, AS EXACT RATIONALS
+theorem t66b_extremal_factor_corridor :
+    (2 * rn_factor (1/2) TORSION_LIMIT - 1) ^ 2 =
+      3833041548529556212611501999 / 3906250000000000000000000000 ∧
+    (2 * rn_factor (1/2) TL_IVA - 1) ^ 2 =
+      601493339872076301725991741879 / 610351562500000000000000000000 := by
+  have hc : TORSION_LIMIT ^ 2 ≤ 1 := by
     simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
-  have hcp : 0 < Real.sqrt (1 - TORSION_LIMIT ^ 2) := by
-    apply Real.sqrt_pos.mpr
+  have hf : TL_IVA ^ 2 ≤ 1 := by
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  constructor
+  · rw [t66_extremal_factor_exact TORSION_LIMIT hc]
     simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
-  have hf : Real.sqrt (1 - TL_IVA ^ 2) ^ 2 = 1 - TL_IVA ^ 2 := by
-    apply Real.sq_sqrt
+  · rw [t66_extremal_factor_exact TL_IVA hf]
     simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
-  have hfp : 0 < Real.sqrt (1 - TL_IVA ^ 2) := by
-    apply Real.sqrt_pos.mpr
-    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
-  have hcv : TORSION_LIMIT ^ 2 = 73208451470443787388498001 / 3906250000000000000000000000 :=
-    t35_corridor_thresholds.1
-  have hfv : TL_IVA ^ 2 = 8858222627923698274008258121 / 610351562500000000000000000000 :=
-    t35_corridor_thresholds.2
-  rw [hcv] at hc hcp
-  rw [hfv] at hf hfp
-  simp only [rn_factor]
-  norm_num at hc hf ⊢
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> nlinarith [hc, hcp, hf, hfp]
+
+-- [T66c] :: {VER} | THE FACTOR IS BELOW ONE AT ANY NONZERO CHARGE
+-- Charge always moves the reachable root inward, never outward.
+theorem t66c_extremal_factor_lt_one (t : ℝ) (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor (1/2) t < 1 := by
+  rw [t64_rn_factor_extremal t]
+  have hpos : (0:ℝ) < 1 - t ^ 2 := by nlinarith
+  have hs : Real.sqrt (1 - t ^ 2) ^ 2 = 1 - t ^ 2 := Real.sq_sqrt hpos.le
+  have hp : 0 < Real.sqrt (1 - t ^ 2) := Real.sqrt_pos.mpr hpos
+  have h1 : Real.sqrt (1 - t ^ 2) < 1 := by nlinarith [hs, hp]
+  linarith
 
 -- [T67] :: {VER} | AT THE EXTREMAL CHARGE READING A'S SUPREMUM MATCHES THE HORIZON
 -- τ_A = 1 and q = 1/2 merge the pair at r = r_s/2, the extremal horizon.
@@ -912,7 +937,7 @@ end
 -- linear, Reissner–Nordström is where it is a pair, and charge moves the
 -- reachable root inward by at most the dilation deficit, halved.
 --
--- THEOREMS : 67 tagged + master
+-- THEOREMS : 69 tagged + master
 -- SORRY    : 0
 -- AXIOMS   : 0
 -- ============================================================
