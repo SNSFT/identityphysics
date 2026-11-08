@@ -778,7 +778,6 @@ theorem t61_rn_outer_factored (q t : ℝ) (ht : 0 < t) :
   simp only [rn_outer, matched_ratio, rn_factor]
   have ht2 : (0:ℝ) < t ^ 2 := by positivity
   field_simp
-  ring
 
 -- [T62] :: {VER} | THE FACTOR IS ONE AT ZERO CHARGE
 theorem t62_rn_factor_uncharged : rn_factor 0 1 = 1 := by
