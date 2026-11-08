@@ -890,6 +890,7 @@ theorem t69_pair_partitions (q t : ℝ) (ht : 0 < t) :
   have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
   simp only [rn_outer, rn_inner, matched_ratio]
   field_simp
+  ring
 
 -- [T70] :: {VER} | THE PRODUCT OF THE PAIR
 theorem t70_pair_product (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
@@ -901,7 +902,7 @@ theorem t70_pair_product (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
   set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
   have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
   field_simp
-  linear_combination hs
+  linear_combination -2 * hs
 
 -- [T71] :: {VER} | THE INNER ROOT RATIONALIZES
 -- r₋ = 2q²/(1 + √(1 − 4q²τ²)), which removes the cancelling
@@ -917,7 +918,7 @@ theorem t71_inner_rationalized (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
   have hsn : 0 ≤ s := Real.sqrt_nonneg _
   have h1s : (0:ℝ) < 1 + s := by linarith
   rw [div_eq_div_iff (by positivity) (ne_of_gt h1s)]
-  linear_combination hs
+  linear_combination -2 * hs
 
 -- [T72] :: {VER} | THE INNER HORIZON RATIONALIZES THE SAME WAY
 -- The inner horizon is the inner root's own form at τ_A = 1.
@@ -929,7 +930,7 @@ theorem t72_inner_horizon_rationalized (q : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2
   have h1s : (0:ℝ) < 1 + Real.sqrt (1 - 4 * q ^ 2) := by linarith
   simp only [rn_horizon_inner]
   rw [div_eq_div_iff (by norm_num) (ne_of_gt h1s)]
-  linear_combination hs
+  linear_combination -2 * hs
 
 -- [T73] :: {VER} | THE INNER ROOT LIES INSIDE THE INNER HORIZON
 theorem t73_inner_root_inside_inner_horizon (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
@@ -937,7 +938,10 @@ theorem t73_inner_root_inside_inner_horizon (q t : ℝ) (hq0 : 0 < q) (hq : q �
     rn_inner q t < rn_horizon_inner q := by
   have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0.le hq ht0 ht1
   have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
-  have hlt : 1 - 4 * q ^ 2 < 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have hqsq : (0:ℝ) < q ^ 2 := pow_pos hq0 2
+  have htsq : t ^ 2 < 1 := by nlinarith
+  have hlt : 1 - 4 * q ^ 2 < 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_pos hqsq (sub_pos.mpr htsq)]
   have hsq : Real.sqrt (1 - 4 * q ^ 2) < Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
     Real.sqrt_lt_sqrt hdh hlt
   have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
@@ -952,7 +956,9 @@ theorem t74_outer_horizon_inside_outer_root (q t : ℝ) (hq0 : 0 ≤ q) (hq : q 
     rn_horizon_outer q < rn_outer q t := by
   have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
   have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
-  have hle : 1 - 4 * q ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have htsq : t ^ 2 < 1 := by nlinarith
+  have hle : 1 - 4 * q ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_nonneg (sq_nonneg q) (sub_nonneg.mpr htsq.le)]
   have hsq : Real.sqrt (1 - 4 * q ^ 2) ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
     Real.sqrt_le_sqrt hle
   have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
@@ -996,7 +1002,9 @@ theorem t77_extremal_factor_is_minimum (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1
     (ht0 : 0 < t) (ht1 : t < 1) :
     rn_factor (1/2) t ≤ rn_factor q t := by
   have hdh : 0 ≤ 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 := by nlinarith
-  have hle : 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by nlinarith
+  have hq4 : (0:ℝ) ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hle : 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_nonneg (sq_nonneg t) hq4]
   have hsq : Real.sqrt (1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2)
       ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_le_sqrt hle
   simp only [rn_factor]
@@ -1012,10 +1020,10 @@ theorem t78_charged_criterion (rs R q t : ℝ) (hR : 0 < R) (ht : 0 < t)
   simp only [compactness]
   rw [t61_rn_outer_factored q t ht]
   simp only [matched_ratio]
-  rw [div_lt_div_iff₀ hF hR, lt_div_iff₀ hR]
-  constructor
-  · intro h; nlinarith [h]
-  · intro h; nlinarith [h]
+  rw [div_lt_div_iff₀ hF hR]
+  have key : rs * (1 / t ^ 2 * rn_factor q t) = rs * rn_factor q t / t ^ 2 := by
+    ring
+  rw [key, lt_div_iff₀ ht2, mul_comm R (t ^ 2)]
 
 -- [T79] :: {VER} | CHARGE TIGHTENS AVAILABILITY
 -- The charged threshold is never below the uncharged one, because the
