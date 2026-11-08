@@ -264,6 +264,7 @@ theorem t15_schwarzschild_instance (rs t r : ℝ) (hr : r ≠ 0) (ht : t ≠ 0) 
       rw [h0, zero_div] at hr
       exact hr rfl
     field_simp
+    ring
 
 -- [T16] :: {INV} | THE SCHWARZSCHILD MATCHED RADIUS IS THE MATCHED RATIO
 theorem t16_schwarzschild_is_matched_ratio (t : ℝ) (ht : t ≠ 0) :
@@ -332,9 +333,10 @@ theorem t20_rn_pair_partitions (q t : ℝ) (ht : 0 < t) :
 -- [T21] :: {INV} | THE PARTITION FRACTION IS AT MOST ONE
 theorem t21_rn_factor_le_one (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
     (ht0 : 0 < t) (ht1 : t < 1) : rn_factor q t ≤ 1 := by
+  have harg : (1:ℝ) - 4 * q ^ 2 * t ^ 2 ≤ 1 := by nlinarith [sq_nonneg (q * t)]
   have hle : Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) ≤ 1 := by
-    rw [show (1:ℝ) = Real.sqrt 1 by simp]
-    exact Real.sqrt_le_sqrt (by nlinarith [sq_nonneg q, sq_nonneg t])
+    calc Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) ≤ Real.sqrt 1 := Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
   simp only [rn_factor]
   linarith
 
@@ -486,6 +488,7 @@ theorem t33_equatorial_spin_blind (t atil : ℝ) (ht : t ≠ 0) :
   rw [h, Real.sqrt_one]
   have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
   field_simp
+  norm_num
 
 -- [T34] :: {INV} | THE EQUATORIAL RESULT HOLDS FOR EVERY SPIN AT ONCE
 theorem t34_equatorial_all_spins (t : ℝ) (ht : t ≠ 0) :
@@ -580,10 +583,12 @@ theorem t43_polar_le_equatorial (t atil cs : ℝ) (ht : 0 < t)
     (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
     kerr_outer t atil cs ≤ matched_ratio t := by
   have ht2 : (0:ℝ) < 2 * t ^ 2 := by positivity
-  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
-    rw [show (1:ℝ) = Real.sqrt 1 by simp]
-    apply Real.sqrt_le_sqrt
+  have harg : (1:ℝ) - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 ≤ 1 := by
     nlinarith [sq_nonneg (t ^ 2 * atil * cs)]
+  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
+    calc Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ Real.sqrt 1 :=
+          Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
   have ht2' : (0:ℝ) < t ^ 2 := by positivity
   simp only [kerr_outer, matched_ratio]
   rw [div_le_div_iff₀ ht2 ht2']
@@ -593,10 +598,12 @@ theorem t43_polar_le_equatorial (t atil cs : ℝ) (ht : 0 < t)
 theorem t44_kerr_factor_le_one (t atil cs : ℝ)
     (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
     kerr_factor t atil cs ≤ 1 := by
-  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
-    rw [show (1:ℝ) = Real.sqrt 1 by simp]
-    apply Real.sqrt_le_sqrt
+  have harg : (1:ℝ) - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 ≤ 1 := by
     nlinarith [sq_nonneg (t ^ 2 * atil * cs)]
+  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
+    calc Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ Real.sqrt 1 :=
+          Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
   simp only [kerr_factor]
   linarith
 
@@ -673,12 +680,11 @@ theorem t52_kn_effective_charge (q t atil cs : ℝ)
 theorem t53_weighting_asymmetry (q t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
     (ha : atil ≠ 0) (hc : cs ^ 2 = 1) (hq : q = atil) :
     t ^ 2 * atil ^ 2 * cs ^ 2 < q ^ 2 := by
-  subst hq
-  rw [hc, mul_one]
+  rw [hq, hc, mul_one]
   have ha2 : (0:ℝ) < atil ^ 2 :=
     lt_of_le_of_ne (sq_nonneg atil) (Ne.symm (pow_ne_zero 2 ha))
   have htl : t ^ 2 < 1 := by nlinarith
-  nlinarith [ha2, htl]
+  nlinarith [mul_pos ha2 (sub_pos.mpr htl)]
 
 -- [T54] :: {MASTER} | THE MATCHED DISCRIMINANT CLEARS ITS BOUND BY THE RATIO
 -- Over the physical range the quantity bounded by 1/4 is at most τ_A²/4,
@@ -689,8 +695,10 @@ theorem t54_discriminant_margin (q t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
     (q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2) * t ^ 2 ≤ t ^ 2 / 4 := by
   have ht2 : (0:ℝ) < t ^ 2 := by positivity
   have htl : t ^ 2 < 1 := by nlinarith
+  have hts : t ^ 2 * cs ^ 2 ≤ 1 := by
+    nlinarith [mul_nonneg (sq_nonneg cs) (sub_nonneg.mpr htl.le)]
   have h1 : t ^ 2 * atil ^ 2 * cs ^ 2 ≤ atil ^ 2 := by
-    nlinarith [sq_nonneg atil, sq_nonneg cs, ht2, htl]
+    nlinarith [mul_nonneg (sq_nonneg atil) (sub_nonneg.mpr hts)]
   have h2 : q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2 ≤ 1/4 := by linarith
   nlinarith [h2, ht2]
 
