@@ -157,6 +157,10 @@
   "2026-11-06": {
    "count": 56,
    "uniques": 1
+  },
+  "2026-11-07": {
+   "count": 70,
+   "uniques": 1
   }
  },
  "clones": {
@@ -315,6 +319,10 @@
   "2026-11-06": {
    "count": 29,
    "uniques": 9
+  },
+  "2026-11-07": {
+   "count": 131,
+   "uniques": 42
   }
  },
  "referrers": {
@@ -690,6 +698,18 @@
    {
     "referrer": "l.facebook.com",
     "count": 1,
+    "uniques": 1
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 1,
+    "uniques": 1
+   }
+  ],
+  "2026-11-08": [
+   {
+    "referrer": "github.com",
+    "count": 36,
     "uniques": 1
    },
    {
@@ -2069,6 +2089,68 @@
     "count": 10,
     "uniques": 1
    }
+  ],
+  "2026-11-08": [
+   {
+    "path": "/SNSFT/identityphysics",
+    "title": "Overview",
+    "count": 89,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/actions",
+    "title": "/actions",
+    "count": 83,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/projects",
+    "title": "/projects",
+    "count": 58,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
+    "title": "/tree/main/SNSFL",
+    "count": 51,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_8Beam_Fusion_Theorem.lean",
+    "title": "/blob/main/SNSFL/SNSFL_8Beam_Fusion_Theorem.lean",
+    "count": 17,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload",
+    "title": "/upload",
+    "count": 16,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/traffic",
+    "title": "/tree/traffic",
+    "count": 13,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/proofpress",
+    "title": "/tree/main/proofpress",
+    "count": 12,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/actions/workflows/traffic.yml",
+    "title": "/actions/workflows/traffic.yml",
+    "count": 11,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/pulse",
+    "title": "/pulse",
+    "count": 10,
+    "uniques": 2
+   }
   ]
  },
  "repo_stats": {
@@ -2175,9 +2257,17 @@
    "open_issues": 0,
    "size_kb": 5168,
    "commits_24h": 15
+  },
+  "2026-11-08": {
+   "stars": 0,
+   "forks": 0,
+   "watchers": 0,
+   "open_issues": 0,
+   "size_kb": 5408,
+   "commits_24h": 8
   }
  },
- "updated": "2026-11-07T15:39:20Z",
+ "updated": "2026-11-08T15:57:24Z",
  "ci_runs": {
   "2026-10-13": 0,
   "2026-10-14": 0,
@@ -2204,7 +2294,8 @@
   "2026-11-04": 8,
   "2026-11-05": 4,
   "2026-11-06": 10,
-  "2026-11-07": 13
+  "2026-11-07": 14,
+  "2026-11-08": 8
  },
  "pushes": {
   "2026-10-13": {
@@ -2333,8 +2424,13 @@
    "lean_files": 3
   },
   "2026-11-07": {
-   "commits": 9,
-   "files": 15,
+   "commits": 10,
+   "files": 16,
+   "lean_files": 7
+  },
+  "2026-11-08": {
+   "commits": 7,
+   "files": 10,
    "lean_files": 6
   }
  },
