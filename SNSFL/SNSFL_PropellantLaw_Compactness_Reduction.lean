@@ -748,28 +748,28 @@ theorem t58_rn_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
 -- [T59] :: {VER} | THE TWO ROOTS SOLVE THE QUADRATIC
 theorem t59_rn_roots_solve (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
     (ht0 : 0 < t) (ht1 : t < 1) :
-    t ^ 2 * rn_outer q t ^ 2 - 1 * rn_outer q t + q ^ 2 = 0 ∧
-    t ^ 2 * rn_inner q t ^ 2 - 1 * rn_inner q t + q ^ 2 = 0 := by
+    t ^ 2 * rn_outer q t ^ 2 - rn_outer q t + q ^ 2 = 0 ∧
+    t ^ 2 * rn_inner q t ^ 2 - rn_inner q t + q ^ 2 = 0 := by
   have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
-  have hs : Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 :=
-    Real.sq_sqrt hd
-  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
   constructor
-  · simp only [rn_outer]; field_simp; nlinarith [hs]
-  · simp only [rn_inner]; field_simp; nlinarith [hs]
+  · field_simp
+    linear_combination hs
+  · field_simp
+    linear_combination hs
 
 -- [T60] :: {VER} | THE UNCHARGED LIMIT RECOVERS THE PARENT RESULT
 theorem t60_rn_uncharged_limit (t : ℝ) (ht : 0 < t) :
     rn_outer 0 t = matched_ratio t ∧ rn_inner 0 t = 0 := by
-  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
   constructor
   · simp only [rn_outer, matched_ratio]
     norm_num
-    rw [Real.sqrt_one]
     field_simp
   · simp only [rn_inner]
-    norm_num
-    rw [Real.sqrt_one]
     norm_num
 
 -- [T61] :: {VER} | THE OUTER ROOT IS THE SCHWARZSCHILD RADIUS TIMES THE FACTOR
@@ -784,8 +784,6 @@ theorem t61_rn_outer_factored (q t : ℝ) (ht : 0 < t) :
 theorem t62_rn_factor_uncharged : rn_factor 0 1 = 1 := by
   simp only [rn_factor]
   norm_num
-  rw [Real.sqrt_one]
-  norm_num
 
 -- [T63] :: {VER} | THE FACTOR DECREASES IN THE CHARGE
 theorem t63_rn_factor_antitone (q₁ q₂ t : ℝ) (h0 : 0 ≤ q₁) (h : q₁ < q₂)
@@ -796,8 +794,9 @@ theorem t63_rn_factor_antitone (q₁ q₂ t : ℝ) (h0 : 0 ≤ q₁) (h : q₁ <
   have hd2 : 0 ≤ 1 - 4 * q₂ ^ 2 * t ^ 2 :=
     t58_rn_discriminant q₂ t (by linarith) hq2 ht0 ht1
   have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have hqsq : q₁ ^ 2 < q₂ ^ 2 := by nlinarith
   have hlt : 1 - 4 * q₂ ^ 2 * t ^ 2 < 1 - 4 * q₁ ^ 2 * t ^ 2 := by
-    nlinarith [ht2, h, h0]
+    nlinarith [hqsq, ht2]
   simp only [rn_factor]
   have := Real.sqrt_lt_sqrt hd2 hlt
   linarith
@@ -806,8 +805,8 @@ theorem t63_rn_factor_antitone (q₁ q₂ t : ℝ) (h0 : 0 ≤ q₁) (h : q₁ <
 theorem t64_rn_factor_extremal (t : ℝ) :
     rn_factor (1/2) t = (1 + Real.sqrt (1 - t ^ 2)) / 2 := by
   simp only [rn_factor]
-  congr 2
-  ring
+  have harg : (1:ℝ) - 4 * (1/2) ^ 2 * t ^ 2 = 1 - t ^ 2 := by ring
+  rw [harg]
 
 -- [T65] :: {VER} | THE MAXIMUM INWARD SHIFT IS THE DILATION DEFICIT, HALVED
 theorem t65_max_shift_is_half_the_deficit (t : ℝ) :
