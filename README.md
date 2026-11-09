@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 112026 — Updated November 4, 2026 -->
+<!-- README version: 112026 — Updated November 9, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -38,7 +38,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — November 4, 2026
+## Verified status — November 9, 2026
 
 ### Physics core
 
@@ -57,9 +57,9 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_ST_Reduction.lean` | String Theory → PNBA | 19 | 632 |
 | `SNSFL_Fluid_Reduction.lean` | Fluid Dynamics → PNBA | 20 | 722 |
 | `SNSFL_Void_Manifold.lean` | Void Manifold | 23 | 660 |
-| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 12 | 280 |
+| `SNSFL_GC_Alpha_TL1001_Extension.lean` | Fine-structure constant — 1/α = TL (Torsion Limit) × 1001 · [9,9,3,14] | 10 | 241 |
 | `SNSFL_SR_Reduction.lean` | Special Relativity → PNBA | 21 | 396 |
-| **Subtotal** | **15 files** | **298** | **9,744** |
+| **Subtotal** | **15 files** | **296** | **9,705** |
 
 ### Physics and chemistry extensions
 
@@ -105,12 +105,18 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_8Beam_Fusion_Theorem.lean` | GAM Collider 8-beam fusion — 28 pairwise couplings | 27 | 707 |
 | `SNSFL_DarkMatter_Element.lean` | Dark matter element Dm — B = Ω_dm, shatter at ≈ 2 × TL | 23 | 451 |
 | `SNSFL_DarkMatter_Detection_Theorem.lean` | Dark matter detection — EM detectors return null by structure; same-B detector predicted | 26 | 554 |
-| `SNSFL_GC_Galaxy_Toomre_TL.lean` | Galaxy™ — Toomre Q = 1 identified with τ = TL; rotation-curve identities; Milky Way at the Sun Locked, 2.27 < Q < 2.29 [9,9,3,24] | 24 | 340 |
+| `SNSFL_GC_Galaxy_Toomre_TL.lean` | Galaxy™ — Toomre Q = 1 identified with τ = TL; rotation-curve identities; Milky Way at the Sun Locked, 2.27 < Q < 2.29 [9,9,3,24] | 24 | 341 |
 | `SNSFL_GC_Accretion_Boundaries_TL.lean` | Accretion Simulator™ — Hill spacing, Roche limit and impact speed each identified with τ = TL; Solar System Locked, Saturn's rings Shatter [9,9,3,25] | 44 | 550 |
 | `SNSFL_GC_IMatter_TLCell_Matter.lean` | IMatter™ — TL-cell matter: Earth (PREM), Moon and Mars to measured mean density and moment of inertia; dense core below 2/5; settling stops [9,9,3,27] | 28 | 486 |
 | `SNSFL_CriticalTopology_Reduction.lean` | Critical topology (Lin et al. 2026) — the gap closes where B = P; the 0.5 entanglement mode is the same balance | 21 | 423 |
 | `SNSFL_Element_Darkenergy.lean` | Dark energy element De — B = 0, A = Ω_Λ, Noble | 10 | 205 |
-| **Subtotal** | **45 files** | **1,024** | **20,000** |
+| `SNSFL_IVA_Propulsion_Reduction.lean` | IVA propulsion corridor — the two readings, the bridge Δv = c · τ_A · τ_B, the conversion fraction τ_A² = 2η, the relativistic gain cap [9,9,2,0] | 111 | 2,041 |
+| `SNSFL_MatchedRadius_Reduction.lean` | Matched radius — r_match = r_s/τ_A² with the attracting mass canceling; the well worth one e-fold [9,9,0,17] | 71 | 894 |
+| `SNSFL_MatchedRadius_Reduction_TL.lean` | Matched radius, specialist form — the square-root torsion operator S X = √X, closure over ℚ, the two landings and their ratio 25/22 [9,9,0,17.1] | 42 | 529 |
+| `SNSFL_PropellantLaw_Compactness_Reduction.lean` | Propellant law at the matched radius — τ_surface = √C, the saving bounded by e, the compactness criterion, the Reissner–Nordström pair [9,9,0,18] | 88 | 1,203 |
+| `SNSFL_MatchedSurface_Rotation_Reduction.lean` | Matched surface under rotation — the level set g_tt = τ_A² − 1, spin as an effective charge, charge outweighing spin by the matched ratio [9,9,0,19] | 71 | 919 |
+| `SNSFL_BurnDepth_ThrustFloor_Reduction.lean` | Burn depth and the thrust floor — depth in matched-radius units, the saving bounded by e^u, the engine each body prescribes [9,9,0,20] | 71 | 916 |
+| **Subtotal** | **51 files** | **1,478** | **26,503** |
 
 ### Life and society
 
@@ -137,7 +143,9 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Logarithm_Reduction.lean` | Logarithm → PNBA | 11 | 175 |
 | `SNSFL_FourColor_Reduction.lean` | Four Color Theorem → PNBA primitive completeness | 13 | 236 |
 | `SNSFL_Pi_Reduction.lean` | π — Pattern closure invariant, Noble | 14 | 206 |
-| **Subtotal** | **11 files** | **229** | **3,967** |
+| `SNSFL_TwoReadings_Substrate_Reduction.lean` | Two readings across substrates — Reading B as an e-fold count, the square-root operator as a constitutive relation, the corridor in a dielectric [9,9,8,11] | 73 | 911 |
+| `SNSFL_GeometricBase_EnergyLadder_Reduction.lean` | Geometric base — b₀ = 1/√TL, the energy ladder stepping by 1/TL, the nuclear band in one rung [9,9,8,12] | 73 | 861 |
+| **Subtotal** | **13 files** | **375** | **5,739** |
 
 ### Psychology
 
@@ -191,11 +199,11 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_PremiseValidation.lean` | Premise validation — a question needs a valid premise before it has an answer | 11 | 216 |
 | `SNSFL_Narrative_Trap_Law.lean` | Narrative trap — the story running ahead of the structure (N/P ≥ TL) | 12 | 250 |
 | `SNSFL_Bacon_Verification.lean` | Bacon verification — malformed, hypothesis, or formally verified | 22 | 415 |
-| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 35 | 545 |
-| `SNSFL_TL_Temperature.lean` | Temperature on the Torsion Limit — the boil as a torsion ratio; four bands on vapor pressure over ambient; water's simmer floor and the constant-width corridor [9,9,8,10] | 24 | 467 |
+| `SNSFL_Bounded_Uncertainty_Guide.lean` | Bounded uncertainty — know what you don't know: eight rules with exemplars [9,9,8,7] | 35 | 542 |
+| `SNSFL_TL_Temperature.lean` | Temperature on the Torsion Limit — the boil as a torsion ratio; four bands on vapor pressure over ambient; water's simmer floor and the constant-width corridor [9,9,8,10] | 24 | 468 |
 | `SNSFL_Duodecimal_PNBA_Coordinates.lean` | Duodecimal PNBA coordinates — base 12 = 4 primitives × 3 modes [9,0,3,0] | 21 | 460 |
 | `SNSFL_Duodecimal_CoordExtension.lean` | Coordinate extension — character digit, domain tags, shared base addresses [9,0,3,1] | 15 | 362 |
-| **Subtotal** | **7 files** | **140** | **2,715** |
+| **Subtotal** | **7 files** | **140** | **2,713** |
 
 ### Consistency
 
@@ -207,7 +215,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **117** | **3,661** | **81,098** |
+| **Total** | **125** | **4,259** | **89,332** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
@@ -429,15 +437,15 @@ For reference, the Sovereign Anchor is ten Torsion Limits, Ω₀ = 10 × TL = 1.
 
 | Theorem | Statement |
 | :--- | :--- |
-| `subtraction_at_threshold` | 137.035999084 − 0.1369 = 136.899099084, within 10⁻³ of 1000 × 0.1369 |
+| `anchor_zero_friction` | manifold impedance is 0 at the anchor — zero friction at Ω₀ |
 | `subtraction` | 1/α − TL = TL × 1000, so 1/α = TL × 1001 and TL = (1/α)/1001 |
-| `precision_ladder` | TL × 1001 within 10⁻³ at 0.1369, within 10⁻⁷ at 0.13689910, exact at full TL |
 | `bare_plus_kinetic` | 136.899099984016 + 0.136899099984016 = 137.035999084000016 |
 | `every_published_digit` | TL × 1001 rounds to CODATA 2018 at every published digit (Δ = 0) |
 | `within_uncertainty` | TL × 1001 lies within CODATA's stated uncertainty |
 | `factor_1001` · `consecutive_primes` | 1001 = 10³ + 1 = 7 × 11 × 13, three consecutive primes |
 | `anchor_units` | Ω₀ = 10 × TL; the bare term is Ω₀ × 10² |
 | `alpha_tl1001_master` | all of the above together, with Z = 0 at the anchor |
+| `the_manifold_is_holding` | the anchor carries zero impedance |
 
 Every identity is exact decimal arithmetic, checked by `norm_num`. 0 sorry · 0 axioms.
 
@@ -553,6 +561,11 @@ SNSFL/                   ← all verified Lean files
 | **Applied Identity Physics: Structural PDA** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21829688.svg)](https://doi.org/10.5281/zenodo.21829688) |
 | **Applied Identity Physics: Safe Foods — Thermodynamic Efficiency and Metabolic Scaffolding** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18719748.svg)](https://doi.org/10.5281/zenodo.18719748) |
 | **Applied Identity Physics: Elimination Interrupt Under Unreliable Environmental Gate** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21829768.svg)](https://doi.org/10.5281/zenodo.21829768) |
+| **Applied Identity Physics: The Propellant Law at the Matched Radius and the Compactness Criterion** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24046267.svg)](https://doi.org/10.5281/zenodo.24046267) |
+| **Applied Identity Physics: The Matched Surface Under Rotation, and Spin as an Effective Charge** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24062567.svg)](https://doi.org/10.5281/zenodo.24062567) |
+| **Applied Identity Physics: Burn Depth in Matched-Radius Units, the Thrust Floor, and the Engine Each Body Prescribes** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24067782.svg)](https://doi.org/10.5281/zenodo.24067782) |
+| **Applied Identity Physics: The Two Readings Across Substrates** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24073396.svg)](https://doi.org/10.5281/zenodo.24073396) |
+| **Applied Identity Physics: The Geometric Base — b₀ = 1/√TL, the Energy Ladder, and the Nuclear Band in One Rung** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24087896.svg)](https://doi.org/10.5281/zenodo.24087896) |
 | **OSF Preprint** | Live | [![DOI](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD) |
 | **SSRN — Teen-Level Walkthrough (SNSFT Foundation)** | ✅ DISTRIBUTED | [![SSRN](https://img.shields.io/badge/SSRN-6353438-brightgreen)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6353438) |
 | **SSRN — Noble Materials Map · 810+ Pairs · GAM Collider** | ✅ DISTRIBUTED | [![SSRN](https://img.shields.io/badge/SSRN-6457358-brightgreen)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6457358) |
