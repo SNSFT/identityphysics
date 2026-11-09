@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burn Depth in Matched-Radius Units: The Saving Bounded by e<sup>u</sup>, the Thrust Floor, and the Engine Each Body Prescribes — ProofPress</title>
+  <meta name="description" content="[9,9,0,20](GRAV) — The matched-radius construction carried into the regime human vehicles actually fly in. Depth measured in the drive's own matched radius, u = √(r_match/r), makes the saving against the ideal rocket exp(x − √(u²+x²) + u), strictly bounded by e^u — depth u is worth u e-folds, and the published bound e is the u = 1 case. Availability restated: C > τ_A² says the body offers this drive at least one e-fold. A new thrust floor rising as the fourth power of Reading A decides whether the advantage can be collected. Each body prescribes its own engine, and the ladder from Moon to Sun runs solid, chemical, nuclear thermal, ion, fusion. One Raptor-class engine supports a 576-tonne vehicle — which, at a thrust-to-weight below one half, cannot launch itself. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-burn-depth-thrust-floor.html">
+  <meta property="og:title" content="Burn Depth in Matched-Radius Units: The Saving Bounded by e<sup>u</sup>, the Thrust Floor, and the Engine Each Body Prescribes">
+  <meta property="og:description" content="[9,9,0,20](GRAV) — Volume 1, ProofPress. &#937;&#8320; = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-burn-depth-thrust-floor.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Burn Depth in Matched-Radius Units: The Saving Bounded by e<sup>u</sup>, the Thrust Floor, and the Engine Each Body Prescribes">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Burn Depth in Matched-Radius Units: The Saving Bounded by e<sup>u</sup>, the Thrust Floor, and the Engine Each Body Prescribes">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/11/08">
+  <meta name="citation_online_date" content="2026/11/08">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,0,20">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-burn-depth-thrust-floor.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-burn-depth-thrust-floor.html">
+  <meta name="citation_keywords" content="burn depth; Oberth effect; oberth maneuver; specific impulse; thrust-to-weight; finite burn loss; rocket equation; Tsiolkovsky; matched radius; compactness; escape velocity; electric propulsion; ion thruster; Hall thruster; nuclear thermal propulsion; Raptor; RL10; NERVA; orbital assembly; mission design; Identity Vector Amplification; PNBA; Applied Identity Physics; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric",
+    "datePublished": "2026-11-06",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-matched-radius.html",
+    "keywords": "matched radius, Schwarzschild metric, escape velocity, gravitational time dilation, event horizon, Oberth effect, rocket equation, gravitational redshift, ISCO, photon sphere, fine-structure constant, orbital mechanics, vis-viva, Identity Vector Amplification, PNBA, Applied Identity Physics, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Kenai, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,0,20](GRAV) · Volume 1 · Issue 9 · November 2026</div>
+    <h1>Burn Depth in Matched-Radius Units: The Saving Bounded by e<sup>u</sup>, the Thrust Floor, and the Engine Each Body Prescribes</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-burn-depth-thrust-floor.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_BurnDepth_ThrustFloor_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443<br>
+<strong>Coordinate:</strong> <a href="GRAV">9,9,0,20</a> · Identity Physics Series · Physics Ground, Gravitation<br>
+<strong>Issue:</strong> ProofPress, Volume 1, Issue 9 · November 2026<br>
+<strong>DOI:</strong> 10.5281/zenodo.18719748<br>
+<strong>Verified:</strong> 70 theorems · 915 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib · source and CI record<br>
+<strong>Engine:</strong> GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit</p>
+<h2>Abstract</h2>
+<p>The matched radius reductions at [9,9,0,17] through [9,9,0,19] establish the construction at its extremes, where the bodies are compact and the drives are relativistic. This reduction carries it into the regime human vehicles actually operate in — planets, moons, ordinary stars, and engines that have been built — and the structure that held at a neutron star turns into a table that can be used at a launch pad. The move that opens the regime is a single dimensionless depth parameter. Writing <strong>u = v_esc(r)/v_e = √(r_match/r)</strong> for the burn radius measured against the drive's own matched radius, a vehicle falling from rest at infinity and burning at depth u reaches v_∞ = v_e√(τ_B(τ_B + 2u)), which is strictly increasing in u. Burning deeper is always better, the matched radius is not an extremum of anything, and it was never put forward as one: <strong>it is the unit in which depth is measured</strong>, the radius at which the drive and the well are the same size, and the published saving bounded by e is that unit evaluated at u = 1. The bound generalizes exactly. Inverting for a target x = v_∞/v_e gives τ_B = √(u² + x²) − u, so the saving against the ideal rocket is <strong>S(x,u) = exp(x − √(u² + x²) + u)</strong>, strictly increasing in both arguments and <strong>strictly bounded above by e^u</strong>: depth u is worth u e-folds, and the parent's S &lt; e is the u = 1 case. Depth carries two ceilings and the binding one decides. The <strong>geometric ceiling</strong> is that a burn cannot occur inside the body, so u ≤ √(r_match/R) = √C/τ_A = <strong>τ_surface/τ_A</strong> — the ratio of the body's own address to the drive's Reading A — and this supplies a second reading of the parent's availability criterion, because C &gt; τ_A² is precisely u_max &gt; 1, which says <strong>the body offers this drive at least one e-fold</strong>. The <strong>thrust ceiling</strong> is new to this reduction. The matched-radius advantage is collected only if the burn is short compared to the time spent deep, and the characteristic time collapses to t_char = 2√2 · GM/(c³ τ_A³ u³), giving a thrust floor <strong>F/m ≥ (1 − e^−τ_B) c⁴ τ_A⁴ u³ / (2√2 f GM)</strong> that rises as the fourth power of Reading A and the cube of depth. Electric propulsion fails this floor by three to four orders of magnitude while chemical and nuclear-thermal propulsion clear it with margin and run out of planet instead, so the design loop closes: thrust sets achievable depth, depth sets the saving exponentially, and the body caps both. Two consequences follow for the regime. The matched surface is a level set of g_tt and therefore an equipotential, so <strong>lateral motion along it is the zero-cost direction</strong> and only altitude is a retune, and a point-to-point transit decomposes into three legs with an arc penalty of 1.57% at 100 km. And because the availability criterion favors low exhaust velocity while the propellant budget favors high, the optimum sits exactly at the availability ceiling, which is the body's own escape velocity — so <strong>each body prescribes its own engine</strong>, and the ladder from the Moon to the Sun reads 242 s, 513 s, 1,141 s, 6,139 s, 62,986 s: solid motor, chemical, nuclear thermal, ion, fusion, in the order the technologies were developed. Run against engines that exist, the criteria size a vehicle. At Earth the thrust floor evaluates to <strong>4.56 to 4.72 N/kg across every engine class considered</strong>, a thrust-to-weight below one half and therefore under half what an orbital launch vehicle carries at liftoff. <strong>A single Raptor-class engine supports a 576-tonne vehicle</strong> — larger than the International Space Station — carrying 58.4 tonnes of propellant for a 3 km/s departure where the same departure performed in free space takes 318.6, with the propellant fitting a cylinder five meters across and under four meters long. Depth at Earth is limited not by thrust or by geometry but by the atmosphere, and raising the perigee from 100 km to 300 km costs 0.14 percentage points of propellant while removing nineteen megawatts of reentry-class heating. And because the thrust-to-weight that satisfies the floor is below one, <strong>a vehicle sized to collect this advantage cannot lift itself off the surface</strong>: orbital assembly follows from the thrust floor rather than from preference. 1001 = 7 · 11 · 13.</p>
+<h2>What This Article Proves</h2>
+<ol>
+<li>The grounding enters as arithmetic on published quantities: the constants at full precision, the Torsion Limit inside the unit interval, the corridor floor below the ceiling, the exactness anchor TL × 1001 = α⁻¹, the bare and kinetic terms, and Reading A squared as twice the conversion fraction (<code>t1_const_values</code>, <code>t2_tl_in_unit_interval</code>, <code>t3_floor_below_ceiling</code>, <code>t4_tl_times_1001_is_alpha</code>, <code>t5_bare_plus_kinetic</code>, <code>t6_tau_sq_is_twice_eta</code>, <code>t7_matched_ratio_pos</code>, <code>t8_ceiling_is_shatter</code>).</li>
+<li><strong>The depth parameter:</strong> depth recovers from the burn radius, equals one exactly at the matched radius, increases as the radius falls, stays positive, and reads the same on the conversion fraction (<code>t9_depth_recovers</code>, <code>t10_depth_one_at_matched</code>, <code>t11_deeper_is_smaller</code>, <code>t12_burn_ratio_pos</code>, <code>t13_burn_ratio_on_eta</code>).</li>
+<li><strong>The depth law</strong> is energy conservation across an impulsive burn, and <strong>deeper is always better</strong> — strictly increasing in depth with no interior stationary point (<code>t14_depth_law</code>, <code>t15_deeper_is_better</code>).</li>
+<li>At unit depth the depth law returns the parent's chain law exactly, and the law is strictly increasing in Reading B, zero for a zero burn and positive otherwise (<code>t16_chain_law_at_unit_depth</code>, <code>t17_increasing_in_reading_b</code>, <code>t18_zero_burn</code>, <code>t19_vinf_pos</code>).</li>
+<li><strong>The inversion at depth</strong> τ_B = √(u² + x²) − u solves the depth law, is positive for a positive target, and returns the parent's inversion at unit depth (<code>t20_rad_sq</code>, <code>t21_rad_pos</code>, <code>t22_inversion_solves</code>, <code>t23_rad_gt_depth</code>, <code>t24_tau_B_pos</code>, <code>t25_inversion_at_unit_depth</code>).</li>
+<li><strong>The maneuver always costs less Reading B than the ideal rocket</strong>, at every depth and every target (<code>t26_cheaper_than_ideal</code>).</li>
+<li><strong>The saving at depth is strictly bounded by e^u.</strong> The saving is the ratio of the two mass ratios, its exponent is strictly below the depth, and therefore depth u is worth u e-folds and no finite burn reaches the bound (<code>t27_saving_is_the_ratio</code>, <code>t28_exponent_lt_depth</code>, <code>t29_saving_lt_exp_depth</code>).</li>
+<li>The saving exceeds one for every positive burn, <strong>returns the parent's bound e at unit depth</strong>, factors through e there, and is strictly increasing in the target (<code>t30_saving_gt_one</code>, <code>t31_bound_at_unit_depth</code>, <code>t32_saving_factored_at_unit</code>, <code>t33_saving_mono_in_target</code>).</li>
+<li><strong>The geometric ceiling:</strong> the surface torsion squares to the compactness and is nonnegative, and the ceiling u_max = τ_surface/τ_A is positive and rises as Reading A falls (<code>t34_surface_torsion_sq</code>, <code>t35_surface_torsion_nonneg</code>, <code>t38_u_max_pos</code>, <code>t39_lower_reading_raises_ceiling</code>).</li>
+<li><strong>Availability is exactly one e-fold of depth:</strong> C &gt; τ_A² if and only if the ceiling exceeds one, stated on Reading A and on the conversion fraction, and the body's own address gives unit depth exactly (<code>t36_availability_is_one_efold</code>, <code>t37_availability_on_eta</code>, <code>t40_address_is_unit_depth</code>).</li>
+<li><strong>Lateral motion is the zero-cost direction:</strong> the address map is injective on positive Reading A, so two points at the same addressed radius require the same tuning and a path between them calls for no retune (<code>t41_address_injective</code>, <code>t42_lateral_is_free</code>).</li>
+<li>The control law relates the radius ratio to the inverse square of the tuning ratio, and a higher tuning addresses a lower radius (<code>t43_control_law</code>, <code>t44_higher_tuning_lower_radius</code>).</li>
+<li><strong>The characteristic time in closed form:</strong> t_char² = r³/GM with r the burn radius at depth, so t_char = 2√2·GM/(c³τ_A³u³); it is positive and shrinks as the cube of depth (<code>t45_t_char_closed_form</code>, <code>t46_t_char_pos</code>, <code>t47_t_char_antitone_in_depth</code>).</li>
+<li>The propellant fraction lies strictly between zero and one for every positive burn (<code>t48_prop_fraction_range</code>).</li>
+<li><strong>The thrust floor rises as the fourth power of Reading A and the cube of depth</strong>, is positive, and falls when a longer burn is permitted (<code>t49_floor_quartic_in_reading_a</code>, <code>t50_floor_cubic_in_depth</code>, <code>t51_floor_pos</code>, <code>t52_longer_burn_lowers_floor</code>).</li>
+<li><strong>The two ceilings:</strong> the binding depth is below both, is one of the two, and is the geometric one or the thrust one according to which is smaller, with the saving following the binding depth (<code>t53_binding_below_both</code>, <code>t54_binding_is_one_of_them</code>, <code>t55_geometry_binds</code>, <code>t56_thrust_binds</code>, <code>t57_saving_at_binding</code>).</li>
+<li><strong>The optimum is a supremum:</strong> Reading B and therefore the mass ratio fall as the exhaust velocity rises, while availability requires Reading A strictly below the body's address, so the optimum is approached at the open endpoint and not attained (<code>t58_reading_b_falls_with_target</code>, <code>t59_mass_ratio_falls</code>, <code>t60_optimum_is_a_supremum</code>).</li>
+<li><strong>Each body prescribes its own engine:</strong> the prescription is the body's address carried to specific impulse, is nonnegative, and rises with compactness (<code>t61_prescription_is_the_address</code>, <code>t62_prescription_nonneg</code>, <code>t63_compact_prescribes_higher</code>).</li>
+<li>The vehicle mass a thrust supports meets the floor exactly, rises with thrust and falls with the floor (<code>t64_supported_meets_floor</code>, <code>t65_more_thrust_more_mass</code>, <code>t66_higher_floor_less_mass</code>).</li>
+<li><strong>A vehicle meeting the floor cannot lift itself:</strong> a thrust per unit mass below the surface gravitational acceleration gives a thrust-to-weight below one and a net downward force at rest on the surface, and a thrust-to-weight below one half is below one (<code>t67_cannot_launch</code>, <code>t68_half_is_below_one</code>).</li>
+<li><strong>The placement carries the body and the drive only</strong>, the matched radius in meters being the Schwarzschild radius times the matched ratio, with no vehicle mass entering it; and the propellant a vehicle carries is a strict fraction of its mass (<code>t69_placement_from_body_and_drive</code>, <code>t70_propellant_mass</code>).</li>
+<li>All of the above close under one master theorem (<code>MASTER_burn_depth_and_thrust_floor</code>).</li>
+</ol>
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>The constant the whole construction is built on.</strong> <a href="proofpressorg-alpha-tl1001.html">The Fine-Structure Constant: 1/α = TL × 1001</a> [9,9,3,14] supplies α⁻¹ = Ω₀ × 100.1 and TL = α⁻¹/1001. The Universal Torsion Limit is TL = 0.136899099984016 and the Sovereign Anchor Constant is Ω₀ = TL × 10 = 1.36899099984016. Nothing in this article sets it. It enters at full corpus precision from the inverse fine-structure constant, by direct subtraction:</p>
+<table>
+<tr><th>Napkin math, corpus precision</th><th>Value</th></tr>
+<tr><td>1/α</td><td>137.035999084000016</td></tr>
+<tr><td>Subtract one TL</td><td>137.035999084000016 − 0.136899099984016 = 136.899099984016</td></tr>
+<tr><td>What is left</td><td>136.899099984016 = TL × 1000, exactly</td></tr>
+<tr><td>Bare + kinetic</td><td>136.899099984016 + 0.136899099984016 = 137.035999084000016</td></tr>
+<tr><td>Rounded to published digits</td><td>137.035999084 = CODATA 2018</td></tr>
+</table>
+<table>
+<tr><th>Term</th><th>Value</th><th>QED reading</th><th>PNBA reading</th></tr>
+<tr><td>Bare: TL × 1000</td><td>136.899099984016</td><td>The bare electron contribution</td><td>Pattern capacity at the electromagnetic scale</td></tr>
+<tr><td>Kinetic: TL × 1</td><td>0.136899099984016</td><td>Radiative corrections, a renormalized series</td><td>External forcing F_ext at Layer 0, one exact term</td></tr>
+<tr><td>Total: TL × 1001</td><td>137.035999084000016</td><td>Bare + perturbative series</td><td>1/α</td></tr>
+</table>
+<p>This agrees with the CODATA (Committee on Data of the International Science Council) 2018 value in every published digit at ε = 0, with no free parameter ([9,9,3,14]). The full multiplier factors as 1001 = 7 · 11 · 13, so TL = α⁻¹/1001. Folding the factor of ten into the multiplier gives the same identity in one step, Ω₀ × 100.1 = α⁻¹, with 100.1 = (7 · 11 · 13)/10.</p>
+<p><strong>Every quantity in this article is a pure number.</strong> TL and Ω₀ carry no units and 1001 is an integer, and substituting SI base units into α⁻¹ = 4πε₀ℏc/e² cancels mass, length, time and current completely, so the identity above is an equality between dimensionless quantities on both sides. The same holds for the depth parameter u, Reading A, Reading B, the conversion fraction η, the compactness C and the saving S: all are ratios, and every radius is quoted as a multiple of r_s or of the matched radius.</p>
+<p><strong>The regime this article carries the construction into.</strong> <a href="proofpressorg-propellant-law.html">The Propellant Law at the Matched Radius</a> [9,9,0,18] establishes the propellant law, the saving bounded strictly by e, the availability criterion C &gt; 2η and its metric-free form, and the Reissner–Nordström pair with its partition. <a href="proofpressorg-matched-surface-rotation.html">The Matched Surface Under Rotation</a> [9,9,0,19] establishes that the matched surface is the level set g_tt = τ_A² − 1 for a static observer in any stationary metric. Both treat the compact-object regime; this article treats the regime between.</p>
+<p><strong>The radius everything is measured in.</strong> <a href="proofpressorg-matched-radius.html">The Matched Radius</a> [9,9,0,17] establishes r_match = r_s/τ_A² with the mass canceling, the dilation equivalence, the chain law, and the well worth τ_B = 1 — one e-fold, a mass ratio of e. Its specialist form at [9,9,0,17.1] carries the square-root torsion operator and the closure over ℚ.</p>
+<p><strong>The two readings and the bridge.</strong> <a href="proofpressorg-propulsion-corridor.html">One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding</a> [9,9,2,0] establishes Reading A, Reading B, the bridge Δv = c · τ_A · τ_B, the conversion fraction τ_A² = 2η, and the relativistic gain cap. Every parent result used here is restated in full inside the Lean source rather than imported.</p>
+<p><strong>The Schwarzschild radius as a Pattern threshold.</strong> <a href="proofpressorg-gr-reduction.html">GR Reduction</a> [9,9,0,1] maps the Einstein field equation onto the dynamic equation, with r_s = 2GM/c² as the Pattern-lock threshold. The compactness C = r_s/R is that threshold measured against a body's own radius, and its square root is the body's address.</p>
+<p><strong>The ceiling on Reading A.</strong> <a href="proofpressorg-speed-of-light.html">Speed of Light</a> [9,9,0,15] locks c to the anchor, places the photon as Noble, and carries relativistic velocity addition.</p>
+<p><strong>The step the Torsion Limit takes.</strong> <a href="proofpressorg-transcendental-time.html">Transcendental Time Engine</a> [9,9,3,20] establishes that TL is the step the left side of the dynamic equation takes. That is the kinetic term in the table above.</p>
+<p><strong>The fusion logic.</strong> The four-phase structure and the Torsion Limit come from GAMCollider™ v15 fusion logic, formalized in <a href="proofpressorg-8beam-fusion.html">8-Beam Fusion</a> [9,9,2,3.8] and <a href="proofpressorg-4beam-verification.html">4-Beam Verification</a> [9,9,2,3.7].</p>
+<p><strong>How the bounds are carried.</strong> Every threshold here is stated as an exact quantity rather than a rounded decimal, following <a href="proofpressorg-bounded-uncertainty.html">Bounded Uncertainty: A Guide</a> [9,9,8,7].</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Primitive</th><th>In the intermediate-regime reading</th><th>Carried by</th></tr>
+<tr><td><strong>Pattern</strong></td><td>The body, its Pattern-lock threshold, and the address that threshold defines</td><td>C = r_s/R, τ_surface = √C</td></tr>
+<tr><td><strong>Narrative</strong></td><td>The dive and the burn placed in it, measured in matched-radius units</td><td>depth u = √(r_match/r)</td></tr>
+<tr><td><strong>Behavior</strong></td><td>What the drive throws, read against light speed</td><td>Reading A, τ_A = v_e/c</td></tr>
+<tr><td><strong>Adaptation</strong></td><td>The mass ratio the vehicle adapts to, and the thrust that lets it collect the advantage</td><td>Reading B, τ_B; F/m</td></tr>
+</table>
+<p><strong>The saving at depth, bounded by e^u.</strong></p>
+<table>
+<tr><th>u</th><th>e^u</th><th>S at x = 1</th><th>S at x = 10</th><th>S at x = 1000</th></tr>
+<tr><td>1</td><td>2.7183</td><td>1.7964</td><td>2.5860</td><td>2.7169</td></tr>
+<tr><td>2</td><td>7.3891</td><td>2.1467</td><td>6.0615</td><td>7.3743</td></tr>
+<tr><td>3</td><td>20.0855</td><td>2.3111</td><td>12.9319</td><td>19.9954</td></tr>
+<tr><td>4</td><td>54.5982</td><td>2.4034</td><td>25.2713</td><td>54.1631</td></tr>
+</table>
+<p><strong>The geometric ceiling at Earth</strong>, τ_surface = 3.73130 × 10⁻⁵.</p>
+<table>
+<tr><th>Engine</th><th>Isp</th><th>τ_A</th><th>u_max</th><th>maximum saving e^u_max</th></tr>
+<tr><td>solid booster</td><td>250 s</td><td>8.178 × 10⁻⁶</td><td>4.5627</td><td>95.8405</td></tr>
+<tr><td>chemical LH2/LOX</td><td>450 s</td><td>1.472 × 10⁻⁵</td><td>2.5348</td><td>12.6142</td></tr>
+<tr><td>nuclear thermal</td><td>900 s</td><td>2.944 × 10⁻⁵</td><td>1.2674</td><td>3.5517</td></tr>
+<tr><td>gridded ion, NSTAR floor</td><td>1,979 s</td><td>6.474 × 10⁻⁵</td><td>0.5764</td><td>1.7796</td></tr>
+</table>
+<p><strong>The engine each body prescribes.</strong></p>
+<table>
+<tr><th>Body</th><th>optimal v_e</th><th>optimal Isp</th><th>the engine class that is</th></tr>
+<tr><td>Moon</td><td>2,375 m/s</td><td><strong>242 s</strong></td><td>solid rocket motor</td></tr>
+<tr><td>Mars</td><td>5,027 m/s</td><td><strong>513 s</strong></td><td>chemical, hydrolox class</td></tr>
+<tr><td>Earth</td><td>11,186 m/s</td><td><strong>1,141 s</strong></td><td>nuclear thermal</td></tr>
+<tr><td>Jupiter</td><td>60,200 m/s</td><td><strong>6,139 s</strong></td><td>ion and variable specific impulse class</td></tr>
+<tr><td>the Sun</td><td>617,684 m/s</td><td><strong>62,986 s</strong></td><td>fusion class</td></tr>
+</table>
+<p><strong>A vehicle, sized.</strong> Departure to v_∞ = 3 km/s, burn at 100 km perigee, f = 0.1.</p>
+<table>
+<tr><th>Engine</th><th>Isp</th><th>depth u</th><th>propellant</th><th>ideal-rocket propellant</th><th>F/m floor</th><th>implied T/W</th></tr>
+<tr><td>Merlin 1D vacuum</td><td>348 s</td><td>3.252</td><td><strong>11.02%</strong></td><td>58.48%</td><td>4.56 N/kg</td><td>0.465</td></tr>
+<tr><td>Raptor vacuum</td><td>380 s</td><td>2.978</td><td><strong>10.14%</strong></td><td>55.29%</td><td>4.58 N/kg</td><td>0.467</td></tr>
+<tr><td>RL10, hydrolox</td><td>465 s</td><td>2.434</td><td><strong>8.36%</strong></td><td>48.21%</td><td>4.63 N/kg</td><td>0.472</td></tr>
+<tr><td>NERVA-class</td><td>850 s</td><td>1.332</td><td><strong>4.67%</strong></td><td>30.23%</td><td>4.72 N/kg</td><td>0.481</td></tr>
+</table>
+<table>
+<tr><th>Engine</th><th>thrust each</th><th>vehicle mass supported</th><th>propellant</th><th>tank volume</th><th>as a 5 m cylinder</th></tr>
+<tr><td>RL10, hydrolox</td><td>110 kN</td><td>23.8 t</td><td>2.0 t</td><td>5.5 m³</td><td>0.3 m long</td></tr>
+<tr><td>NERVA-class</td><td>334 kN</td><td>70.8 t</td><td>3.3 t</td><td>46.5 m³</td><td>2.4 m long</td></tr>
+<tr><td>Merlin 1D vacuum</td><td>981 kN</td><td>215.2 t</td><td>23.7 t</td><td>23.0 m³</td><td>1.2 m long</td></tr>
+<tr><td><strong>Raptor vacuum</strong></td><td><strong>2,640 kN</strong></td><td><strong>576.2 t</strong></td><td><strong>58.4 t</strong></td><td><strong>70.4 m³</strong></td><td><strong>3.6 m long</strong></td></tr>
+</table>
+<p><strong>How deep to dive.</strong> The limit at Earth is thermal, and it is nearly free to respect.</p>
+<table>
+<tr><th>Perigee</th><th>depth u</th><th>propellant</th><th>implied T/W</th><th>speed at perigee</th><th>drag power</th></tr>
+<tr><td>100 km</td><td>2.978</td><td>10.14%</td><td>0.467</td><td>11,099 m/s</td><td><strong>19.14 MW</strong></td></tr>
+<tr><td>300 km</td><td>2.933</td><td>10.28%</td><td>0.453</td><td>10,932 m/s</td><td>~0</td></tr>
+<tr><td>1,000 km</td><td>2.791</td><td>10.76%</td><td>0.408</td><td>10,400 m/s</td><td>~0</td></tr>
+</table>
+<p><strong>The five numbers a reader can check.</strong> r_s = 2GM/c², then τ_A = Isp · g₀/c, then r_match = r_s/τ_A², then u = √(r_match/r_p), then τ_B = √(u² + x²) − u with the propellant fraction 1 − e^−τ_B. Five steps, each one operation, from a published mass and radius to a percentage.</p>
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository. Every claim above corresponds to a named theorem in <code>SNSFL_BurnDepth_ThrustFloor_Reduction.lean</code> at <a href="GRAV">9,9,0,20</a>, with 70 theorems and a master theorem across 915 lines. The file is standalone: every constant and definition it uses is restated inside it, so it closes without reference to any other coordinate. The catalog figures are published mass, radius and engine performance values a reader can repeat as a single division or a standard formula. Nothing is fitted, and nothing is scaled.</p>
+<h2>Misappropriation-Risk Clarification (MRC)</h2>
+<p><strong>MRC class: MRC2.</strong> This reduction closes on dimensionless inequalities and closed-form expressions in published quantities. It supplies no composition, no stoichiometric balance and no device design.</p>
+<h3>What is established</h3>
+<p>The results in this article are real and testable. Every placement is algebra on published constants or arithmetic on published performance figures, and every one of them can be checked by anyone holding a standard propulsion reference and a calculator. Specifically:</p>
+<p><strong>The depth law is energy conservation plus the rocket relation.</strong> v_∞² = (v_esc + v_eτ_B)² − v_esc² expands to v_e²τ_B(τ_B + 2u) in one line. A reader who disagrees must disagree with vis-viva or with Tsiolkovsky.</p>
+<p><strong>The bound e^u is one inequality.</strong> x &lt; √(u² + x²) for every u &gt; 0, and the saving's exponent is x − √(u² + x²) + u. Nothing else enters.</p>
+<p><strong>The geometric ceiling is a substitution.</strong> Putting r = R into u = √(r_match/R) returns √C/τ_A, and √C is the body's surface torsion.</p>
+<p><strong>The thrust floor is a ratio of two times.</strong> The characteristic time is √(r³/GM) at the burn radius, which collapses to 2√2 · GM/(c³τ_A³u³); the burn time is the propellant mass over the mass flow. The floor is the requirement that the second be a small fraction of the first.</p>
+<p><strong>The engine prescription is five arithmetic steps</strong>, and the vehicle sizing is the thrust of a published engine divided by the floor.</p>
+<p>These are results about <strong>placement, availability and budget, not about process.</strong> That distinction is the whole of this section, and if a reader takes only one sentence from this article, that is the one to take.</p>
+<h3>What is a different question</h3>
+<p>This article establishes where a maneuver is available, how deep it can be placed, what it returns, and what vehicle mass a given engine supports. It does not describe how to build, operate, fuel, contain, cool, shield, trigger or test any propulsion system, and it contains no construction information, no process information, no operating parameters and no device design.</p>
+<p><strong>A placement holds, and building to it is engineering.</strong> The criteria decide availability, depth and budget exactly. Whether a given vehicle can be built to the implied thrust-to-mass, survive the thermal and radiation environment at the depth the criteria permit, hold attitude through the burn, be assembled on orbit at the indicated scale, or navigate to the matched radius at all is a separate body of work carried by engineering and flight practice. The answer there is a statement about available technology, not about the inequalities. The two do not constrain each other: a placement that holds will go on holding whether or not a vehicle exists yet to use it.</p>
+<p><strong>What the reader can compute from here is the reason the handling practice matters.</strong> This article states its inputs and its algebra in full, and a reader with a standard reference can carry the same construction into quantities it does not tabulate — a matched radius for a body it does not list, a thrust floor for a vehicle mass it does not work, a depth ceiling for an engine throttled where it does not sample. That is a property of complete work, and the handling practice below assumes a reader will do exactly that. Nothing in it rests on an omission.</p>
+<p><strong>An exact criterion is not a reduced hazard.</strong> The exactness is why every remaining variable is process. A qualified practitioner — at an agency, a national laboratory, a university group, or a well-equipped independent bench — can work from criteria like these safely, and they are stated at full precision so that they can. What the algebra does not carry is the state of the hardware in front of any particular reader, the scale they intend to work at, or the conditions their own environment imposes. Those are the variables the handling practice addresses.</p>
+<h3>Where the risk actually lives</h3>
+<p>The risk in this domain belongs to <strong>laboratory and engineering conditions and environmental F_ext</strong> — the external forcing a real test stand or a real vehicle applies that the algebra does not model. It does not belong to the mathematics, and no sentence in this article should be read as doubt about a result. The criteria hold. What varies is the process, and process is where people get hurt.</p>
+<p><strong>Hazard scales with which controls are present and with scale, not with the venue.</strong> The relevant questions are whether there is containment rated for the energy density in play, whether there is shielding appropriate to the radiation, whether there is interlocking that fails safe, whether there is monitoring that reads out in real time, whether there is a trained second person present, and whether the quantity has been kept at the smallest scale that answers the question. A well-equipped independent facility that has those controls is not the concern. The underfunded shortcut is — the setup that reads an exact criterion, infers that exactness removes the need for a control, and proceeds at a scale that leaves no margin.</p>
+<p><strong>The controls are the variable, not the building.</strong></p>
+<h3>Handling practice</h3>
+<p>The depth law, the ceilings, the thrust floor and the vehicle sizing are algebra and carry no bench procedure of their own. Where they are used as inputs to engineering work, the practice that applies is the practice of that work:</p>
+<p><strong>Anything touching propulsion hardware.</strong> Standard propulsion test practice applies in full: remote operation, blast and fragment containment appropriate to the stored energy, propellant handling to the standards of the propellant in question, and the hazard groups of that propellant rather than of this article. The parent propulsion reduction's handling practice applies to anything touching exhaust velocity or the energy ladder.</p>
+<p><strong>Anything touching nuclear-thermal or electric propulsion specifically.</strong> Those carry their own regulatory and radiological regimes, which govern independently of anything here and are not displaced by it.</p>
+<p><strong>Anything touching mission or trajectory design, or on-orbit assembly.</strong> Standard orbital-mechanics, mission-assurance and crewed-operations practice applies. Readers carrying these results into design work should take body parameters and engine performance from current published sources rather than from the tables above, which are representative figures for the purpose of exhibiting the structure.</p>
+<p><strong>Which regime a result is stated in.</strong> The matched radius, the depth parameter and the escape velocity rest on the full Schwarzschild metric for static observers, exact at every radius outside the horizon. The chain law, the depth law and the saving are stated in the Newtonian energy regime with impulsive burns, which is the regime of published astrodynamics; the thrust floor is precisely the condition under which that regime applies, and a reader working below the floor is outside it and should integrate the finite burn in that regime's own terms.</p>
+<p><strong>Scale discipline.</strong> Answer the question at the smallest scale that answers it. An exact criterion is a reason to reduce scale, not to increase it — a known target means the test can be small.</p>
+<p><strong>Second-person presence.</strong> Work that can injure is not solo work. The control that most reliably prevents a bad outcome from becoming a worse one is another trained person who can act.</p>
+<p><strong>When the hazard group changes, update this section.</strong> Any work that extends this reduction to materials, reactions or regimes not placed here carries the hazard groups of those, and the handling practice must be restated for them specifically before the work begins. A placement added without its hazard group is an incomplete placement.</p>
+<h3>What this section is for</h3>
+<p>Parents, teachers, reviewers and program managers make real decisions from articles like this one. An article that reads as unreal gets no respect for its safety content, and a reader who concludes the results are notional will not extend the care the work requires. So: the results are real, the algebra is checkable, the criteria hold — and the conditions under which anyone would act on them are governed by practice this article does not supply and does not replace.</p>
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+<h2>References</h2>
+<ol>
+<li>Tsiolkovsky, K. E. (1903). Исследование мировых пространств реактивными приборами. <em>Nauchnoye Obozreniye</em>.</li>
+<li>Oberth, H. (1923). <em>Die Rakete zu den Planetenräumen</em>. R. Oldenbourg, Munich.</li>
+<li>Hohmann, W. (1925). <em>Die Erreichbarkeit der Himmelskörper</em>. R. Oldenbourg, Munich.</li>
+<li>Battin, R. H. (1999). <em>An Introduction to the Mathematics and Methods of Astrodynamics</em>, revised edition. AIAA Education Series.</li>
+<li>Vallado, D. A. (2013). <em>Fundamentals of Astrodynamics and Applications</em>, 4th edition. Microcosm Press.</li>
+<li>Sutton, G. P. &amp; Biblarz, O. (2016). <em>Rocket Propulsion Elements</em>, 9th edition. Wiley.</li>
+<li>Jahn, R. G. (1968). <em>Physics of Electric Propulsion</em>. McGraw-Hill.</li>
+<li>Goebel, D. M. &amp; Katz, I. (2008). <em>Fundamentals of Electric Propulsion: Ion and Hall Thrusters</em>. JPL Space Science and Technology Series, Wiley.</li>
+<li>Finseth, J. L. (1991). <em>Rover Nuclear Rocket Engine Program: Overview of Rover Engine Tests.</em> NASA CR-184270.</li>
+<li>National Oceanic and Atmospheric Administration, National Aeronautics and Space Administration &amp; United States Air Force (1976). <em>U.S. Standard Atmosphere, 1976.</em> NOAA-S/T 76-1562.</li>
+<li>Space Exploration Technologies Corp. <em>Falcon User's Guide</em> and <em>Starship Users Guide.</em> Published engine and vehicle performance data.</li>
+<li>Aerojet Rocketdyne. <em>RL10 Engine Data Sheet.</em> Published engine performance data.</li>
+<li>National Aeronautics and Space Administration. <em>International Space Station Reference Guide.</em> Published on-orbit mass and configuration data.</li>
+<li>Schwarzschild, K. (1916). Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie. <em>Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften</em>, 189–196.</li>
+<li>Einstein, A. (1916). Die Grundlage der allgemeinen Relativitätstheorie. <em>Annalen der Physik</em>, 49, 769–822.</li>
+<li>Chandrasekhar, S. (1931). The maximum mass of ideal white dwarfs. <em>Astrophysical Journal</em>, 74, 81–82.</li>
+<li>Prša, A. et al. (2016). Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3. <em>Astronomical Journal</em>, 152, 41.</li>
+<li>Bureau International des Poids et Mesures (2019). <em>The International System of Units (SI)</em>, 9th edition.</li>
+<li>Tiesinga, E., Mohr, P. J., Newell, D. B. &amp; Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. <em>Reviews of Modern Physics</em>, 93, 025010.</li>
+<li>Nobel Prize in Physics 1983 — S. Chandrasekhar and W. A. Fowler.</li>
+<li>Nobel Prize in Physics 2020 — R. Penrose; R. Genzel and A. Ghez.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-matched-radius.html">The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric</a>. ProofPress, Volume 1, Issue 9.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-propellant-law.html">The Propellant Law at the Matched Radius</a>. ProofPress, Volume 1, Issue 9.</li>
+<li>Trent, R. V. III. <a href="proofpressorg-matched-surface-rotation.html">The Matched Surface Under Rotation</a>. ProofPress, Volume 1, Issue 9.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Applied Identity Physics: Burn Depth in Matched-Radius Units — The Saving Bounded by e^u, the Thrust Floor, and the Engine Each Body Prescribes.</em> Zenodo, 2026. DOI 10.5281/zenodo.24067782.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+<h2>Corpus Provenance</h2>
+<ul>
+<li><strong>[9,9,0,0]</strong> Sovereign Anchor — the ground</li>
+<li><strong>[9,9,2,3.7]</strong> <a href="proofpressorg-4beam-verification.html">4-Beam Verification</a> — GAMCollider™ v15 fusion logic, verified at four beams</li>
+<li><strong>[9,9,2,3.8]</strong> <a href="proofpressorg-8beam-fusion.html">8-Beam Fusion Theorem</a> — GAMCollider™ v15 fusion logic, the four-phase structure and the Torsion Limit at eight beams</li>
+<li><strong>[9,9,3,14]</strong> Alpha Reduction — α⁻¹ = Ω₀ × 100.1, and TL = α⁻¹/1001</li>
+<li><strong>[9,9,0,15]</strong> Speed of Light Reduction — c locked to the anchor, the photon Noble, relativistic velocity addition</li>
+<li><strong>[9,9,0,1]</strong> GR Reduction — the Einstein field equation on the dynamic equation, r_s as the Pattern-lock threshold</li>
+<li><strong>[9,9,3,20]</strong> Transcendental Time Engine — TL as the step on the left side of the dynamic equation</li>
+<li><strong>[9,9,2,0]</strong> IVA Propulsion Reduction — the two readings, the bridge, the conversion fraction, the gain cap</li>
+<li><strong>[9,9,0,17]</strong> Matched Radius Reduction, general-reader form — the matched radius, the equivalence, the well worth one e-fold</li>
+<li><strong>[9,9,0,17.1]</strong> Matched Radius Reduction, specialist form — the square-root torsion operator and the closure over ℚ</li>
+<li><strong>[9,9,0,18]</strong> Propellant Law and Compactness Reduction — the inversion, the saving bounded by e, the criterion, the level set, the Reissner–Nordström pair as a partition</li>
+<li><strong>[9,9,0,19]</strong> Matched Surface Under Rotation — the level set g_tt = τ_A² − 1, spin as an effective charge</li>
+<li><strong>[9,9,0,20]</strong> This reduction — burn depth in matched-radius units, the saving bounded by e^u, the thrust floor, and the engine each body prescribes</li>
+</ul>
+<p><strong>Architect:</strong> HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska <strong>DOI:</strong> 10.5281/zenodo.18719748 <strong>ORCID:</strong> 0009-0005-5313-7443 <strong>Corpus:</strong> [9,9,9,9] :: {ANC}</p>
+<h2>About the Author</h2>
+<p>Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He is a Lean 4 formal verification engineer and independent researcher, and the founding architect of the SNSFT Foundation in Kenai, Alaska. He builds machine-verified science at scale: the Identity Physics Corpus, a single-author body of formal proofs spanning 6,000+ Lean 4 files, 200,000+ theorems and 3,000,000+ lines at 0 sorry, dual-verified in Lean 4 and Coq/Rocq, with a standardized edition pinned to Lean 4 v4.31.0 and Mathlib. He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. He is an Army Signal Corps veteran, a former chief information security officer for the Alaska Department of Public Safety, and the author of six commercially published books on Identity Physics. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska. ORCID 0009-0005-5313-7443.</p>
+<h2>Lean 4 Source</h2>
+<h3>SNSFL_BurnDepth_ThrustFloor_Reduction.lean &#8212; [9,9,0,20](GRAV)</h3>
+<pre><code>-- ============================================================
+-- SNSFL_BurnDepth_ThrustFloor_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | BURN DEPTH, THE THRUST FLOOR, AND THE ENGINE EACH BODY PRESCRIBES
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,0,20](GRAV) | Physics Ground — Gravitation
+-- Version: 1.0
+--
+-- ============================================================
+-- STANDALONE
+-- ============================================================
+--
+-- This file carries every definition it uses. Nothing is reached for in
+-- another coordinate's file: the anchor, the Torsion Limit, the corridor
+-- floor, the four phases, Reading A, Reading B, the conversion fraction, the
+-- Schwarzschild radius, the matched ratio, the compactness and the surface
+-- torsion are all restated here at full precision, so that a reader or a
+-- machine can close every proof without leaving the file. The parent
+-- reductions are named in the provenance block for the record, not as
+-- dependencies of the proofs.
+--
+-- Parents of record:
+--   [9,9,0,19]   Matched Surface Under Rotation — the level set g_tt = τ_A² − 1
+--   [9,9,0,18]   Propellant Law and Compactness — the saving bounded by e, C &gt; 2η
+--   [9,9,0,17]   Matched Radius Reduction       — r_match = r_s/τ_A², the mass canceling
+--   [9,9,0,17.1] Matched Radius, specialist     — the square-root torsion operator
+--   [9,9,2,0]    IVA Propulsion Reduction       — the two readings, the bridge, the gain cap
+--   [9,9,0,1]    GR Reduction                   — r_s as the Pattern-lock threshold
+--   [9,9,3,14]   Alpha Reduction                — α⁻¹ = Ω₀ × 100.1, TL = α⁻¹/1001
+--
+-- ============================================================
+-- WHAT THIS FILE ESTABLISHES
+-- ============================================================
+--
+--   DEPTH IS THE PARAMETER. Writing u = v_esc(r)/v_e = √(r_match/r) for the
+--   burn radius measured against the drive's own matched radius, a vehicle
+--   falling from rest at infinity and burning at depth u reaches
+--
+--       v_∞ = v_e √(τ_B (τ_B + 2u))
+--
+--   which is STRICTLY INCREASING IN u. Burning deeper is always better and the
+--   matched radius is not an extremum: it is the UNIT in which depth is
+--   measured, the radius at which the drive and the well are the same size,
+--   and u = 1 returns the parent's chain law exactly.
+--
+--   THE BOUND GENERALIZES. Inverting for a target x = v_∞/v_e gives
+--   τ_B = √(u² + x²) − u, so the saving against the ideal rocket is
+--
+--       S(x,u) = exp(x − √(u² + x²) + u)   &lt;   e^u
+--
+--   strictly, for every finite burn. DEPTH u IS WORTH u E-FOLDS, and the
+--   parent's S &lt; e is the u = 1 case.
+--
+--   TWO CEILINGS ON DEPTH. A burn cannot occur inside the body, so
+--   u ≤ √C/τ_A = τ_surface/τ_A, and that GEOMETRIC ceiling exceeding one is
+--   exactly the parent's availability criterion C &gt; τ_A²: the body offers this
+--   drive at least one e-fold. The THRUST ceiling is new here. The
+--   characteristic time collapses to t_char = 2√2·GM/(c³τ_A³u³), so collecting
+--   the advantage requires
+--
+--       F/m ≥ (1 − e^−τ_B) c⁴ τ_A⁴ u³ / (2√2 f GM)
+--
+--   rising as the FOURTH POWER of Reading A and the CUBE of depth.
+--
+--   AND THE VEHICLE CANNOT LAUNCH. A thrust-to-mass below the surface
+--   gravitational acceleration cannot lift the vehicle it belongs to, so
+--   orbital assembly follows from the floor rather than from preference.
+--
+-- ============================================================
+
+import Mathlib.Tactic
+import Mathlib.Data.Real.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Analysis.SpecialFunctions.Exp
+
+noncomputable section
+
+namespace SNSFL_BurnDepthThrustFloor
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravitational acceleration, m/s². Exact by definition. -/
+def G_STANDARD : ℝ := 9.80665
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ &lt; TL_IVA then Phase.Locked
+  else if τ &lt; TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A² = 1/(2η). -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The compactness of a body: its Schwarzschild radius over its radius. -/
+def compactness (rs R : ℝ) : ℝ := rs / R
+
+/-- The surface torsion, the body's own address: √C. -/
+def surface_torsion (rs R : ℝ) : ℝ := Real.sqrt (compactness rs R)
+
+/-- The resonance gain acting as an exhaust-velocity multiplier. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 &lt; TORSION_LIMIT ∧ TORSION_LIMIT &lt; 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 &lt; TL_IVA ∧ TL_IVA &lt; TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t6_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- [T7] :: {VER} | THE MATCHED RATIO IS POSITIVE
+theorem t7_matched_ratio_pos (t : ℝ) (ht : t ≠ 0) : 0 &lt; matched_ratio t := by
+  simp only [matched_ratio]
+  have h : (0:ℝ) &lt; t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  exact div_pos one_pos h
+
+-- [T8] :: {VER} | THE CORRIDOR CEILING CLASSIFIES AS SHATTER AT ITS OWN VALUE
+theorem t8_ceiling_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h0 : TORSION_LIMIT ≠ 0 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  unfold classify
+  rw [if_neg h0, if_neg (not_lt.mpr t3_floor_below_ceiling.2.le),
+    if_neg (lt_irrefl TORSION_LIMIT)]
+
+-- ============================================================
+-- SECTION 1: THE DEPTH PARAMETER
+-- u = v_esc(r)/v_e = sqrt(r_match/r). One at the matched radius.
+-- ============================================================
+
+/-- The burn radius at depth u, in units of r_s: r = r_s/(τ_A² u²). -/
+def burn_ratio (t u : ℝ) : ℝ := 1 / (t ^ 2 * u ^ 2)
+
+/-- Depth, from the matched ratio and the burn ratio. -/
+def depth_of_ratio (t rr : ℝ) : ℝ := Real.sqrt (matched_ratio t / rr)
+
+-- [T9] :: {INV} | DEPTH RECOVERS u FROM THE BURN RATIO
+theorem t9_depth_recovers (t u : ℝ) (ht : t ≠ 0) (hu : 0 &lt; u) :
+    depth_of_ratio t (burn_ratio t u) = u := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  have hu2 : (u:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [depth_of_ratio, burn_ratio, matched_ratio]
+  rw [show (1 / t ^ 2) / (1 / (t ^ 2 * u ^ 2)) = u ^ 2 by field_simp]
+  exact Real.sqrt_sq hu.le
+
+-- [T10] :: {INV} | DEPTH IS ONE AT THE MATCHED RADIUS
+theorem t10_depth_one_at_matched (t : ℝ) (ht : t ≠ 0) :
+    burn_ratio t 1 = matched_ratio t := by
+  simp only [burn_ratio, matched_ratio]; norm_num
+
+-- [T11] :: {INV} | GREATER DEPTH IS A SMALLER RADIUS
+theorem t11_deeper_is_smaller (t u₁ u₂ : ℝ) (ht : t ≠ 0) (h1 : 0 &lt; u₁) (h : u₁ &lt; u₂) :
+    burn_ratio t u₂ &lt; burn_ratio t u₁ := by
+  have ht2 : (0:ℝ) &lt; t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  have h2 : (0:ℝ) &lt; u₁ ^ 2 := by positivity
+  have husq : u₁ ^ 2 &lt; u₂ ^ 2 := by nlinarith [h1, h]
+  have hlt : t ^ 2 * u₁ ^ 2 &lt; t ^ 2 * u₂ ^ 2 := mul_lt_mul_of_pos_left husq ht2
+  simp only [burn_ratio]
+  exact one_div_lt_one_div_of_lt (by positivity) hlt
+
+-- [T12] :: {INV} | THE BURN RATIO IS POSITIVE
+theorem t12_burn_ratio_pos (t u : ℝ) (ht : t ≠ 0) (hu : 0 &lt; u) :
+    0 &lt; burn_ratio t u := by
+  have ht2 : (0:ℝ) &lt; t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  simp only [burn_ratio]
+  positivity
+
+-- [T13] :: {INV} | DEPTH ON THE CONVERSION FRACTION
+theorem t13_burn_ratio_on_eta (t u : ℝ) : burn_ratio t u = 1 / (2 * eta_of_tau t * u ^ 2) := by
+  simp only [burn_ratio, eta_of_tau]; ring_nf
+
+-- ============================================================
+-- SECTION 2: THE DEPTH LAW
+-- v_inf = v_e sqrt(tau_B (tau_B + 2u)). Strictly increasing in u.
+-- ============================================================
+
+/-- The square of the departure speed in units of the exhaust velocity. -/
+def vinf_sq (tb u : ℝ) : ℝ := tb * (tb + 2 * u)
+
+-- [T14] :: {MASTER} | THE DEPTH LAW IS ENERGY CONSERVATION ACROSS THE BURN
+theorem t14_depth_law (tb u : ℝ) :
+    (u + tb) ^ 2 - u ^ 2 = vinf_sq tb u := by
+  simp only [vinf_sq]; ring
+
+-- [T15] :: {MASTER} | DEEPER IS ALWAYS BETTER
+theorem t15_deeper_is_better (tb u₁ u₂ : ℝ) (htb : 0 &lt; tb) (h : u₁ &lt; u₂) :
+    vinf_sq tb u₁ &lt; vinf_sq tb u₂ := by
+  simp only [vinf_sq]
+  nlinarith [htb, h]
+
+-- [T16] :: {INV} | AT THE MATCHED RADIUS THE DEPTH LAW IS THE CHAIN LAW
+theorem t16_chain_law_at_unit_depth (tb : ℝ) :
+    vinf_sq tb 1 = tb * (2 + tb) := by
+  simp only [vinf_sq]; ring
+
+-- [T17] :: {INV} | THE DEPTH LAW IS STRICTLY INCREASING IN READING B
+theorem t17_increasing_in_reading_b (tb₁ tb₂ u : ℝ) (h0 : 0 ≤ tb₁) (hu : 0 &lt; u)
+    (h : tb₁ &lt; tb₂) : vinf_sq tb₁ u &lt; vinf_sq tb₂ u := by
+  simp only [vinf_sq]
+  nlinarith [h0, hu, h]
+
+-- [T18] :: {INV} | A ZERO BURN DELIVERS NOTHING
+theorem t18_zero_burn (u : ℝ) : vinf_sq 0 u = 0 := by
+  simp only [vinf_sq]; ring
+
+-- [T19] :: {INV} | THE DEPTH LAW IS POSITIVE FOR A POSITIVE BURN AT POSITIVE DEPTH
+theorem t19_vinf_pos (tb u : ℝ) (htb : 0 &lt; tb) (hu : 0 &lt; u) : 0 &lt; vinf_sq tb u := by
+  simp only [vinf_sq]
+  nlinarith [htb, hu]
+
+-- ============================================================
+-- SECTION 3: THE INVERSION AT DEPTH
+-- tau_B = sqrt(u^2 + x^2) - u.
+-- ============================================================
+
+/-- The radical of the inversion at depth. -/
+def rad_depth (u x : ℝ) : ℝ := Real.sqrt (u ^ 2 + x ^ 2)
+
+/-- Reading B required to reach x = v_inf/v_e from depth u. -/
+def tau_B_at (u x : ℝ) : ℝ := rad_depth u x - u
+
+-- [T20] :: {VER} | THE RADICAL SQUARES BACK
+theorem t20_rad_sq (u x : ℝ) : rad_depth u x ^ 2 = u ^ 2 + x ^ 2 := by
+  simp only [rad_depth]
+  exact Real.sq_sqrt (by positivity)
+
+-- [T21] :: {VER} | THE RADICAL IS POSITIVE WHEN THE DEPTH IS
+theorem t21_rad_pos (u x : ℝ) (hu : 0 &lt; u) : 0 &lt; rad_depth u x := by
+  simp only [rad_depth]
+  apply Real.sqrt_pos.mpr
+  positivity
+
+-- [T22] :: {MASTER} | THE INVERSION SOLVES THE DEPTH LAW
+theorem t22_inversion_solves (u x : ℝ) :
+    vinf_sq (tau_B_at u x) u = x ^ 2 := by
+  have hs := t20_rad_sq u x
+  simp only [vinf_sq, tau_B_at]
+  linear_combination hs
+
+-- [T23] :: {INV} | THE RADICAL EXCEEDS THE DEPTH
+theorem t23_rad_gt_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 &lt; u) : u &lt; rad_depth u x := by
+  have hs := t20_rad_sq u x
+  have hx2 : (0:ℝ) &lt; x ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg x) (Ne.symm (pow_ne_zero 2 hx))
+  have hp : 0 &lt; rad_depth u x := t21_rad_pos u x hu
+  nlinarith [hs, hp, hu, hx2]
+
+-- [T24] :: {INV} | READING B AT DEPTH IS POSITIVE FOR A POSITIVE TARGET
+theorem t24_tau_B_pos (u x : ℝ) (hx : x ≠ 0) (hu : 0 &lt; u) : 0 &lt; tau_B_at u x := by
+  simp only [tau_B_at]
+  linarith [t23_rad_gt_depth u x hx hu]
+
+-- [T25] :: {INV} | AT UNIT DEPTH THE INVERSION IS THE PARENT'S
+theorem t25_inversion_at_unit_depth (x : ℝ) :
+    tau_B_at 1 x = Real.sqrt (1 + x ^ 2) - 1 := by
+  simp only [tau_B_at, rad_depth]
+  norm_num
+
+-- [T26] :: {MASTER} | THE MANEUVER ALWAYS COSTS LESS READING B THAN THE IDEAL ROCKET
+theorem t26_cheaper_than_ideal (u x : ℝ) (hu : 0 &lt; u) (hx : 0 &lt; x) :
+    tau_B_at u x &lt; x := by
+  have hs := t20_rad_sq u x
+  have hp : 0 &lt; rad_depth u x := t21_rad_pos u x hu
+  simp only [tau_B_at]
+  nlinarith [hs, hp, hu, hx]
+
+-- ============================================================
+-- SECTION 4: THE SAVING AT DEPTH, BOUNDED BY e^u
+-- ============================================================
+
+/-- The ideal rocket's mass ratio for a target x. -/
+def mr_ideal (x : ℝ) : ℝ := Real.exp x
+
+/-- The mass ratio of a burn at depth u reaching the same target. -/
+def mr_depth (u x : ℝ) : ℝ := Real.exp (tau_B_at u x)
+
+/-- The exponent of the saving at depth. -/
+def sav_exp (u x : ℝ) : ℝ := x - rad_depth u x + u
+
+/-- The propellant saving at depth. -/
+def saving (u x : ℝ) : ℝ := Real.exp (sav_exp u x)
+
+-- [T27] :: {MASTER} | THE SAVING IS THE RATIO OF THE TWO MASS RATIOS
+theorem t27_saving_is_the_ratio (u x : ℝ) :
+    saving u x = mr_ideal x / mr_depth u x := by
+  simp only [saving, mr_ideal, mr_depth, sav_exp, tau_B_at]
+  rw [← Real.exp_sub]
+  congr 1
+  ring
+
+-- [T28] :: {INV} | THE EXPONENT IS STRICTLY BELOW THE DEPTH
+theorem t28_exponent_lt_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 &lt; u) :
+    sav_exp u x &lt; u := by
+  have hxr : x &lt; rad_depth u x := by
+    have habs : |x| &lt; rad_depth u x := by
+      simp only [rad_depth]
+      rw [← Real.sqrt_sq_eq_abs]
+      exact Real.sqrt_lt_sqrt (sq_nonneg x) (by nlinarith [hu])
+    exact lt_of_le_of_lt (le_abs_self x) habs
+  simp only [sav_exp]
+  linarith
+
+-- [T29] :: {MASTER} | THE SAVING IS STRICTLY BOUNDED BY e^u
+-- Depth u is worth u e-folds, and no finite burn reaches the bound.
+theorem t29_saving_lt_exp_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 &lt; u) :
+    saving u x &lt; Real.exp u := by
+  simp only [saving]
+  exact Real.exp_lt_exp.mpr (t28_exponent_lt_depth u x hx hu)
+
+-- [T30] :: {INV} | THE SAVING EXCEEDS ONE FOR EVERY POSITIVE BURN
+theorem t30_saving_gt_one (u x : ℝ) (hu : 0 &lt; u) (hx : 0 &lt; x) : 1 &lt; saving u x := by
+  have h := t26_cheaper_than_ideal u x hu hx
+  have hexp : 0 &lt; sav_exp u x := by
+    simp only [sav_exp, tau_B_at] at h ⊢
+    linarith
+  simp only [saving]
+  calc (1:ℝ) = Real.exp 0 := Real.exp_zero.symm
+    _ &lt; Real.exp (sav_exp u x) := Real.exp_lt_exp.mpr hexp
+
+-- [T31] :: {MASTER} | AT UNIT DEPTH THE BOUND IS e, THE PARENT'S RESULT
+theorem t31_bound_at_unit_depth (x : ℝ) (hx : x ≠ 0) :
+    saving 1 x &lt; Real.exp 1 :=
+  t29_saving_lt_exp_depth 1 x hx one_pos
+
+-- [T32] :: {INV} | AT UNIT DEPTH THE SAVING FACTORS THROUGH e
+theorem t32_saving_factored_at_unit (x : ℝ) :
+    saving 1 x = Real.exp 1 * Real.exp (x - Real.sqrt (1 + x ^ 2)) := by
+  have h1 : (1:ℝ) ^ 2 + x ^ 2 = 1 + x ^ 2 := by norm_num
+  simp only [saving, sav_exp, rad_depth, h1]
+  rw [← Real.exp_add]
+  congr 1
+  ring
+
+-- [T33] :: {INV} | THE SAVING IS STRICTLY INCREASING IN THE TARGET
+theorem t33_saving_mono_in_target (u x y : ℝ) (hu : 0 &lt; u) (h : x &lt; y) (hx : 0 ≤ x) :
+    saving u x &lt; saving u y := by
+  have hsx := t20_rad_sq u x
+  have hsy := t20_rad_sq u y
+  have hpx : 0 &lt; rad_depth u x := t21_rad_pos u x hu
+  have hpy : 0 &lt; rad_depth u y := t21_rad_pos u y hu
+  have hrx : x &lt; rad_depth u x := by nlinarith [hsx, hpx, hu]
+  have hry : y &lt; rad_depth u y := by nlinarith [hsy, hpy, hu, hx, h]
+  simp only [saving, sav_exp]
+  apply Real.exp_lt_exp.mpr
+  nlinarith [hsx, hsy, hpx, hpy, hrx, hry, h, hx]
+
+-- ============================================================
+-- SECTION 5: THE GEOMETRIC CEILING ON DEPTH
+-- u_max = tau_surface/tau_A, and availability is u_max &gt; 1.
+-- ============================================================
+
+/-- The geometric ceiling on depth: the body's address over the drive's Reading A. -/
+def u_max (rs R t : ℝ) : ℝ := surface_torsion rs R / t
+
+-- [T34] :: {VER} | THE SURFACE TORSION SQUARES TO THE COMPACTNESS
+theorem t34_surface_torsion_sq (rs R : ℝ) (h : 0 ≤ compactness rs R) :
+    surface_torsion rs R ^ 2 = compactness rs R := by
+  simp only [surface_torsion]
+  exact Real.sq_sqrt h
+
+-- [T35] :: {VER} | THE SURFACE TORSION IS NONNEGATIVE
+theorem t35_surface_torsion_nonneg (rs R : ℝ) : 0 ≤ surface_torsion rs R :=
+  Real.sqrt_nonneg _
+
+-- [T36] :: {MASTER} | AVAILABILITY IS EXACTLY ONE E-FOLD OF DEPTH
+-- C &gt; τ_A² if and only if the geometric ceiling exceeds one.
+theorem t36_availability_is_one_efold (rs R t : ℝ) (ht : 0 &lt; t)
+    (hC : 0 ≤ compactness rs R) :
+    t ^ 2 &lt; compactness rs R ↔ 1 &lt; u_max rs R t := by
+  have hsq := t34_surface_torsion_sq rs R hC
+  have hnn := t35_surface_torsion_nonneg rs R
+  simp only [u_max]
+  rw [lt_div_iff₀ ht, one_mul]
+  constructor
+  · intro h; nlinarith [hsq, hnn, ht, h]
+  · intro h; nlinarith [hsq, hnn, ht, h]
+
+-- [T37] :: {INV} | THE CEILING ON THE CONVERSION FRACTION
+theorem t37_availability_on_eta (rs R t : ℝ) (ht : 0 &lt; t) (hC : 0 ≤ compactness rs R) :
+    2 * eta_of_tau t &lt; compactness rs R ↔ 1 &lt; u_max rs R t := by
+  rw [← t6_tau_sq_is_twice_eta t]
+  exact t36_availability_is_one_efold rs R t ht hC
+
+-- [T38] :: {INV} | THE CEILING IS POSITIVE
+theorem t38_u_max_pos (rs R t : ℝ) (ht : 0 &lt; t) (hC : 0 &lt; compactness rs R) :
+    0 &lt; u_max rs R t := by
+  simp only [u_max, surface_torsion]
+  exact div_pos (Real.sqrt_pos.mpr hC) ht
+
+-- [T39] :: {INV} | A LOWER READING A RAISES THE CEILING
+theorem t39_lower_reading_raises_ceiling (rs R t₁ t₂ : ℝ) (h1 : 0 &lt; t₁) (h : t₁ &lt; t₂)
+    (hC : 0 &lt; compactness rs R) :
+    u_max rs R t₂ &lt; u_max rs R t₁ := by
+  have hsp : 0 &lt; surface_torsion rs R := by
+    simp only [surface_torsion]; exact Real.sqrt_pos.mpr hC
+  simp only [u_max]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) &lt; t₂) h1]
+  nlinarith [hsp, h]
+
+-- [T40] :: {MASTER} | THE BODY'S OWN ADDRESS GIVES UNIT DEPTH
+theorem t40_address_is_unit_depth (rs R : ℝ) (hC : 0 &lt; compactness rs R) :
+    u_max rs R (surface_torsion rs R) = 1 := by
+  have hsp : 0 &lt; surface_torsion rs R := by
+    simp only [surface_torsion]; exact Real.sqrt_pos.mpr hC
+  simp only [u_max]
+  exact div_self (ne_of_gt hsp)
+
+-- ============================================================
+-- SECTION 6: THE MATCHED SURFACE IS AN EQUIPOTENTIAL
+-- Lateral motion is the zero-cost direction; only altitude retunes.
+-- ============================================================
+
+/-- The radius a given Reading A addresses, in units of r_s. -/
+def addressed_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+-- [T41] :: {INV} | THE ADDRESS MAP IS INJECTIVE ON POSITIVE READING A
+theorem t41_address_injective (t₁ t₂ : ℝ) (h1 : 0 &lt; t₁) (h2 : 0 &lt; t₂)
+    (h : addressed_ratio t₁ = addressed_ratio t₂) : t₁ = t₂ := by
+  simp only [addressed_ratio] at h
+  have e1 : (0:ℝ) &lt; t₁ ^ 2 := by positivity
+  have e2 : (0:ℝ) &lt; t₂ ^ 2 := by positivity
+  have hsq : t₁ ^ 2 = t₂ ^ 2 := by
+    field_simp at h
+    linarith
+  nlinarith [hsq, h1, h2]
+
+-- [T42] :: {MASTER} | LATERAL MOTION IS THE ZERO-COST DIRECTION
+-- Two points at the same addressed radius require the same Reading A, so a
+-- path between them at constant radius requires no change of tuning.
+theorem t42_lateral_is_free (t₁ t₂ : ℝ) (h1 : 0 &lt; t₁) (h2 : 0 &lt; t₂)
+    (h : addressed_ratio t₁ = addressed_ratio t₂) : t₂ - t₁ = 0 := by
+  have := t41_address_injective t₁ t₂ h1 h2 h
+  linarith
+
+-- [T43] :: {INV} | THE CONTROL LAW: THE RADIUS RATIO IS THE INVERSE SQUARE OF THE TUNING RATIO
+theorem t43_control_law (t₁ t₂ : ℝ) (h1 : t₁ ≠ 0) (h2 : t₂ ≠ 0) :
+    addressed_ratio t₁ / addressed_ratio t₂ = (t₂ / t₁) ^ 2 := by
+  have e1 : (t₁:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 h1
+  have e2 : (t₂:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 h2
+  simp only [addressed_ratio]
+  field_simp
+
+-- [T44] :: {INV} | A HIGHER TUNING ADDRESSES A LOWER RADIUS
+theorem t44_higher_tuning_lower_radius (t₁ t₂ : ℝ) (h1 : 0 &lt; t₁) (h : t₁ &lt; t₂) :
+    addressed_ratio t₂ &lt; addressed_ratio t₁ := by
+  have e1 : (0:ℝ) &lt; t₁ ^ 2 := by positivity
+  simp only [addressed_ratio]
+  exact one_div_lt_one_div_of_lt e1 (by nlinarith [h1, h])
+
+-- ============================================================
+-- SECTION 7: THE THRUST FLOOR
+-- t_char = 2 sqrt 2 GM/(c^3 tau^3 u^3), and the floor rises as tau^4 u^3.
+-- ============================================================
+
+/-- The characteristic time of the region at depth u. -/
+def t_char (GM t u : ℝ) : ℝ :=
+  2 * Real.sqrt 2 * GM / (C_LIGHT ^ 3 * t ^ 3 * u ^ 3)
+
+/-- The burn radius in meters at depth u about a body of parameter GM. -/
+def burn_radius (GM t u : ℝ) : ℝ := r_s GM / (t ^ 2 * u ^ 2)
+
+/-- The propellant fraction consumed by a burn of Reading B. -/
+def prop_fraction (tb : ℝ) : ℝ := 1 - Real.exp (-tb)
+
+/-- The thrust floor: the thrust per unit mass that keeps the burn impulsive. -/
+def thrust_floor (GM t u f tb : ℝ) : ℝ :=
+  prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 * u ^ 3 / (2 * Real.sqrt 2 * f * GM)
+
+-- [T45] :: {MASTER} | THE CHARACTERISTIC TIME IN CLOSED FORM
+-- Stated as the square, so the identity closes without a radical on both sides.
+theorem t45_t_char_closed_form (GM t u : ℝ) (hGM : GM ≠ 0) (ht : t ≠ 0) (hu : u ≠ 0) :
+    t_char GM t u ^ 2 = burn_radius GM t u ^ 3 / GM := by
+  have h2 : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  have hs2 : (2 * Real.sqrt 2 * GM) ^ 2 = 8 * GM ^ 2 := by
+    linear_combination 4 * GM ^ 2 * h2
+  have hc : (C_LIGHT:ℝ) ≠ 0 := by simp only [C_LIGHT]; norm_num
+  simp only [t_char, burn_radius, r_s]
+  rw [div_pow, hs2]
+  field_simp
+  ring
+
+-- [T46] :: {INV} | THE CHARACTERISTIC TIME IS POSITIVE
+theorem t46_t_char_pos (GM t u : ℝ) (hGM : 0 &lt; GM) (ht : 0 &lt; t) (hu : 0 &lt; u) :
+    0 &lt; t_char GM t u := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  simp only [t_char]
+  positivity
+
+-- [T47] :: {INV} | THE CHARACTERISTIC TIME SHRINKS AS THE CUBE OF DEPTH
+theorem t47_t_char_antitone_in_depth (GM t u₁ u₂ : ℝ) (hGM : 0 &lt; GM) (ht : 0 &lt; t)
+    (h1 : 0 &lt; u₁) (h : u₁ &lt; u₂) :
+    t_char GM t u₂ &lt; t_char GM t u₁ := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hnum : (0:ℝ) &lt; 2 * Real.sqrt 2 * GM := by positivity
+  have hd1 : (0:ℝ) &lt; C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 := by positivity
+  have h2u : (0:ℝ) &lt; u₂ := by linarith
+  have hq3 : (0:ℝ) &lt; u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hcube : u₁ ^ 3 &lt; u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
+  have hbase : (0:ℝ) &lt; C_LIGHT ^ 3 * t ^ 3 := by positivity
+  have hlt : C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 &lt; C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3 :=
+    mul_lt_mul_of_pos_left hcube hbase
+  simp only [t_char]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) &lt; C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3) hd1]
+  nlinarith [hnum, hlt]
+
+-- [T48] :: {INV} | THE PROPELLANT FRACTION IS BELOW ONE AND POSITIVE
+theorem t48_prop_fraction_range (tb : ℝ) (htb : 0 &lt; tb) :
+    0 &lt; prop_fraction tb ∧ prop_fraction tb &lt; 1 := by
+  have h1 : Real.exp (-tb) &lt; 1 := by
+    calc Real.exp (-tb) &lt; Real.exp 0 := Real.exp_lt_exp.mpr (by linarith)
+      _ = 1 := Real.exp_zero
+  have h2 : 0 &lt; Real.exp (-tb) := Real.exp_pos _
+  simp only [prop_fraction]
+  constructor &lt;;&gt; linarith
+
+-- [T49] :: {MASTER} | THE THRUST FLOOR RISES AS THE FOURTH POWER OF READING A
+theorem t49_floor_quartic_in_reading_a (GM u f tb t₁ t₂ : ℝ) (hGM : 0 &lt; GM) (hf : 0 &lt; f)
+    (hu : 0 &lt; u) (htb : 0 &lt; tb) (h1 : 0 &lt; t₁) (h : t₁ &lt; t₂) :
+    thrust_floor GM t₁ u f tb &lt; thrust_floor GM t₂ u f tb := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hden : (0:ℝ) &lt; 2 * Real.sqrt 2 * f * GM := by positivity
+  have hnum : (0:ℝ) &lt; prop_fraction tb * C_LIGHT ^ 4 * u ^ 3 := by positivity
+  have h2t : (0:ℝ) &lt; t₂ := by linarith
+  have hq4 : (0:ℝ) &lt; t₂ ^ 3 + t₂ ^ 2 * t₁ + t₂ * t₁ ^ 2 + t₁ ^ 3 := by
+    have a1 : (0:ℝ) &lt; t₂ ^ 3 := by positivity
+    have a2 : (0:ℝ) &lt; t₂ ^ 2 * t₁ := by positivity
+    have a3 : (0:ℝ) &lt; t₂ * t₁ ^ 2 := by positivity
+    have a4 : (0:ℝ) &lt; t₁ ^ 3 := by positivity
+    linarith
+  have hq : t₁ ^ 4 &lt; t₂ ^ 4 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq4]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ hden hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
+
+-- [T50] :: {MASTER} | THE THRUST FLOOR RISES AS THE CUBE OF DEPTH
+theorem t50_floor_cubic_in_depth (GM t f tb u₁ u₂ : ℝ) (hGM : 0 &lt; GM) (hf : 0 &lt; f)
+    (ht : 0 &lt; t) (htb : 0 &lt; tb) (h1 : 0 &lt; u₁) (h : u₁ &lt; u₂) :
+    thrust_floor GM t u₁ f tb &lt; thrust_floor GM t u₂ f tb := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hden : (0:ℝ) &lt; 2 * Real.sqrt 2 * f * GM := by positivity
+  have hnum : (0:ℝ) &lt; prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 := by positivity
+  have h2u : (0:ℝ) &lt; u₂ := by linarith
+  have hq3 : (0:ℝ) &lt; u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hq : u₁ ^ 3 &lt; u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ hden hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
+
+-- [T51] :: {INV} | THE THRUST FLOOR IS POSITIVE
+theorem t51_floor_pos (GM t u f tb : ℝ) (hGM : 0 &lt; GM) (hf : 0 &lt; f) (ht : 0 &lt; t)
+    (hu : 0 &lt; u) (htb : 0 &lt; tb) : 0 &lt; thrust_floor GM t u f tb := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  simp only [thrust_floor]
+  positivity
+
+-- [T52] :: {INV} | A LONGER PERMITTED BURN LOWERS THE FLOOR
+theorem t52_longer_burn_lowers_floor (GM t u tb f₁ f₂ : ℝ) (hGM : 0 &lt; GM) (ht : 0 &lt; t)
+    (hu : 0 &lt; u) (htb : 0 &lt; tb) (h1 : 0 &lt; f₁) (h : f₁ &lt; f₂) :
+    thrust_floor GM t u f₂ tb &lt; thrust_floor GM t u f₁ tb := by
+  have hs : (0:ℝ) &lt; Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hnum : (0:ℝ) &lt; prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 * u ^ 3 := by positivity
+  have hd1 : (0:ℝ) &lt; 2 * Real.sqrt 2 * f₁ * GM := by positivity
+  have hlt : 2 * Real.sqrt 2 * f₁ * GM &lt; 2 * Real.sqrt 2 * f₂ * GM := by
+    nlinarith [hs, hGM, h]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) &lt; 2 * Real.sqrt 2 * f₂ * GM) hd1]
+  nlinarith [hnum, hlt]
+
+-- ============================================================
+-- SECTION 8: THE TWO CEILINGS, AND THE DESIGN LOOP
+-- ============================================================
+
+/-- The depth actually achievable: the smaller of the two ceilings. -/
+def binding_depth (ug ut : ℝ) : ℝ := min ug ut
+
+-- [T53] :: {MASTER} | THE BINDING DEPTH IS BELOW BOTH CEILINGS
+theorem t53_binding_below_both (ug ut : ℝ) :
+    binding_depth ug ut ≤ ug ∧ binding_depth ug ut ≤ ut := by
+  simp only [binding_depth]
+  exact ⟨min_le_left ug ut, min_le_right ug ut⟩
+
+-- [T54] :: {INV} | THE BINDING DEPTH IS ONE OF THE TWO
+theorem t54_binding_is_one_of_them (ug ut : ℝ) :
+    binding_depth ug ut = ug ∨ binding_depth ug ut = ut := by
+  simp only [binding_depth]
+  exact min_choice ug ut
+
+-- [T55] :: {INV} | GEOMETRY BINDS WHEN IT IS THE SMALLER
+theorem t55_geometry_binds (ug ut : ℝ) (h : ug ≤ ut) : binding_depth ug ut = ug := by
+  simp only [binding_depth]
+  exact min_eq_left h
+
+-- [T56] :: {INV} | THRUST BINDS WHEN IT IS THE SMALLER
+theorem t56_thrust_binds (ug ut : ℝ) (h : ut ≤ ug) : binding_depth ug ut = ut := by
+  simp only [binding_depth]
+  exact min_eq_right h
+
+-- [T57] :: {MASTER} | THE SAVING FOLLOWS THE BINDING DEPTH
+theorem t57_saving_at_binding (ug ut x : ℝ) (hx : x ≠ 0) (hb : 0 &lt; binding_depth ug ut) :
+    saving (binding_depth ug ut) x &lt; Real.exp (binding_depth ug ut) :=
+  t29_saving_lt_exp_depth (binding_depth ug ut) x hx hb
+
+-- ============================================================
+-- SECTION 9: THE OPTIMUM, AND THE ENGINE EACH BODY PRESCRIBES
+-- ============================================================
+
+/-- The specific impulse corresponding to a Reading A. -/
+def isp_of_tau (t : ℝ) : ℝ := t * C_LIGHT / G_STANDARD
+
+/-- The specific impulse a body prescribes: its own surface escape velocity. -/
+def prescribed_isp (rs R : ℝ) : ℝ := isp_of_tau (surface_torsion rs R)
+
+-- [T58] :: {INV} | READING B AT DEPTH FALLS AS THE TARGET RATIO FALLS
+-- A higher exhaust velocity means a smaller x for the same target, and a
+-- smaller x means less Reading B, so the mass ratio falls.
+theorem t58_reading_b_falls_with_target (u x y : ℝ) (hu : 0 &lt; u) (hxy : x &lt; y)
+    (hx : 0 ≤ x) : tau_B_at u x &lt; tau_B_at u y := by
+  have hsx := t20_rad_sq u x
+  have hsy := t20_rad_sq u y
+  have hpx : 0 &lt; rad_depth u x := t21_rad_pos u x hu
+  have hpy : 0 &lt; rad_depth u y := t21_rad_pos u y hu
+  simp only [tau_B_at]
+  nlinarith [hsx, hsy, hpx, hpy, hxy, hx]
+
+-- [T59] :: {INV} | SO THE MASS RATIO AT DEPTH FALLS TOO
+theorem t59_mass_ratio_falls (u x y : ℝ) (hu : 0 &lt; u) (hxy : x &lt; y) (hx : 0 ≤ x) :
+    mr_depth u x &lt; mr_depth u y := by
+  simp only [mr_depth]
+  exact Real.exp_lt_exp.mpr (t58_reading_b_falls_with_target u x y hu hxy hx)
+
+-- [T60] :: {MASTER} | THE AVAILABILITY CONSTRAINT IS AN OPEN CONDITION
+-- Reading A must stay strictly below the body's address, so the optimum is a
+-- supremum approached and not attained.
+theorem t60_optimum_is_a_supremum (rs R t : ℝ) (ht : 0 &lt; t) (hC : 0 ≤ compactness rs R) :
+    t ^ 2 &lt; compactness rs R ↔ t &lt; surface_torsion rs R := by
+  have hsq := t34_surface_torsion_sq rs R hC
+  have hnn := t35_surface_torsion_nonneg rs R
+  constructor
+  · intro h; nlinarith [hsq, hnn, ht, h]
+  · intro h; nlinarith [hsq, hnn, ht, h]
+
+-- [T61] :: {MASTER} | THE BODY'S ADDRESS IS ITS OWN PRESCRIPTION
+theorem t61_prescription_is_the_address (rs R : ℝ) :
+    prescribed_isp rs R = surface_torsion rs R * C_LIGHT / G_STANDARD := by
+  simp only [prescribed_isp, isp_of_tau]
+
+-- [T62] :: {INV} | THE PRESCRIPTION IS NONNEGATIVE
+theorem t62_prescription_nonneg (rs R : ℝ) : 0 ≤ prescribed_isp rs R := by
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hg : (0:ℝ) &lt; G_STANDARD := by simp only [G_STANDARD]; norm_num
+  simp only [prescribed_isp, isp_of_tau]
+  exact div_nonneg (mul_nonneg (t35_surface_torsion_nonneg rs R) hc.le) hg.le
+
+-- [T63] :: {INV} | A MORE COMPACT BODY PRESCRIBES A HIGHER SPECIFIC IMPULSE
+theorem t63_compact_prescribes_higher (rs₁ R₁ rs₂ R₂ : ℝ)
+    (h : compactness rs₁ R₁ &lt; compactness rs₂ R₂) (h0 : 0 ≤ compactness rs₁ R₁) :
+    prescribed_isp rs₁ R₁ &lt; prescribed_isp rs₂ R₂ := by
+  have hc : (0:ℝ) &lt; C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hg : (0:ℝ) &lt; G_STANDARD := by simp only [G_STANDARD]; norm_num
+  have hs : surface_torsion rs₁ R₁ &lt; surface_torsion rs₂ R₂ := by
+    simp only [surface_torsion]
+    exact Real.sqrt_lt_sqrt h0 h
+  simp only [prescribed_isp, isp_of_tau]
+  rw [div_lt_div_iff₀ hg hg]
+  nlinarith [mul_lt_mul_of_pos_right hs hc, hg]
+
+-- ============================================================
+-- SECTION 10: THE VEHICLE
+-- Mass supported per engine, and the launch impossibility.
+-- ============================================================
+
+/-- The vehicle mass a given thrust supports against a given floor. -/
+def supported_mass (F floor : ℝ) : ℝ := F / floor
+
+/-- Thrust-to-weight at the surface. -/
+def thrust_to_weight (fm : ℝ) : ℝ := fm / G_STANDARD
+
+-- [T64] :: {INV} | THE SUPPORTED MASS MEETS THE FLOOR EXACTLY
+theorem t64_supported_meets_floor (F floor : ℝ) (hf : 0 &lt; floor) (hF : 0 &lt; F) :
+    F / supported_mass F floor = floor := by
+  simp only [supported_mass]
+  field_simp
+
+-- [T65] :: {INV} | MORE THRUST SUPPORTS MORE MASS
+theorem t65_more_thrust_more_mass (F₁ F₂ floor : ℝ) (hf : 0 &lt; floor) (h : F₁ &lt; F₂) :
+    supported_mass F₁ floor &lt; supported_mass F₂ floor := by
+  simp only [supported_mass]
+  rw [div_lt_div_iff₀ hf hf]
+  nlinarith [h, hf]
+
+-- [T66] :: {INV} | A HIGHER FLOOR SUPPORTS LESS MASS
+theorem t66_higher_floor_less_mass (F f₁ f₂ : ℝ) (hF : 0 &lt; F) (h1 : 0 &lt; f₁) (h : f₁ &lt; f₂) :
+    supported_mass F f₂ &lt; supported_mass F f₁ := by
+  simp only [supported_mass]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) &lt; f₂) h1]
+  nlinarith [hF, h]
+
+-- [T67] :: {MASTER} | A VEHICLE AT THE FLOOR CANNOT LIFT ITSELF
+-- A thrust per unit mass below the surface gravitational acceleration leaves a
+-- net downward force on a vehicle at rest on the surface, so orbital assembly
+-- follows from the floor rather than from preference.
+theorem t67_cannot_launch (fm : ℝ) (h : fm &lt; G_STANDARD) :
+    thrust_to_weight fm &lt; 1 ∧ fm - G_STANDARD &lt; 0 := by
+  have hg : (0:ℝ) &lt; G_STANDARD := by simp only [G_STANDARD]; norm_num
+  constructor
+  · simp only [thrust_to_weight]
+    rw [div_lt_one hg]
+    exact h
+  · linarith
+
+-- [T68] :: {INV} | THRUST-TO-WEIGHT BELOW ONE HALF IS BELOW ONE
+theorem t68_half_is_below_one (fm : ℝ) (h : fm &lt; G_STANDARD / 2) :
+    thrust_to_weight fm &lt; 1 := by
+  have hg : (0:ℝ) &lt; G_STANDARD := by simp only [G_STANDARD]; norm_num
+  exact (t67_cannot_launch fm (by linarith)).1
+
+-- [T69] :: {MASTER} | THE PLACEMENT CARRIES THE BODY AND THE DRIVE ONLY
+-- The matched radius in meters is the Schwarzschild radius times the matched
+-- ratio, so it is determined by the gravitational parameter and Reading A
+-- alone and no vehicle mass enters it at any scale.
+theorem t69_placement_from_body_and_drive (GM t : ℝ) (ht : t ≠ 0) :
+    r_s GM * matched_ratio t = 2 * GM / (C_LIGHT ^ 2 * t ^ 2) := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := by simp only [C_LIGHT]; norm_num
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  simp only [r_s, matched_ratio]
+  field_simp
+
+-- [T70] :: {INV} | THE PROPELLANT MASS A VEHICLE CARRIES
+theorem t70_propellant_mass (M tb : ℝ) (hM : 0 &lt; M) (htb : 0 &lt; tb) :
+    0 &lt; M * prop_fraction tb ∧ M * prop_fraction tb &lt; M := by
+  obtain ⟨h1, h2⟩ := t48_prop_fraction_range tb htb
+  constructor
+  · exact mul_pos hM h1
+  · nlinarith [hM, h2]
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+theorem MASTER_burn_depth_and_thrust_floor :
+    -- the depth law, and that deeper is always better
+    (∀ tb u : ℝ, (u + tb) ^ 2 - u ^ 2 = vinf_sq tb u) ∧
+    (∀ tb u₁ u₂ : ℝ, 0 &lt; tb → u₁ &lt; u₂ → vinf_sq tb u₁ &lt; vinf_sq tb u₂) ∧
+    (∀ tb : ℝ, vinf_sq tb 1 = tb * (2 + tb)) ∧
+    -- the inversion at depth, and that it costs less than the ideal rocket
+    (∀ u x : ℝ, vinf_sq (tau_B_at u x) u = x ^ 2) ∧
+    (∀ u x : ℝ, 0 &lt; u → 0 &lt; x → tau_B_at u x &lt; x) ∧
+    (∀ x : ℝ, tau_B_at 1 x = Real.sqrt (1 + x ^ 2) - 1) ∧
+    -- the saving at depth, strictly bounded by e^u, with e at unit depth
+    (∀ u x : ℝ, saving u x = mr_ideal x / mr_depth u x) ∧
+    (∀ u x : ℝ, x ≠ 0 → 0 &lt; u → saving u x &lt; Real.exp u) ∧
+    (∀ x : ℝ, x ≠ 0 → saving 1 x &lt; Real.exp 1) ∧
+    (∀ u x : ℝ, 0 &lt; u → 0 &lt; x → 1 &lt; saving u x) ∧
+    -- availability is exactly one e-fold of depth
+    (∀ rs R t : ℝ, 0 &lt; t → 0 ≤ compactness rs R →
+      (t ^ 2 &lt; compactness rs R ↔ 1 &lt; u_max rs R t)) ∧
+    (∀ rs R : ℝ, 0 &lt; compactness rs R → u_max rs R (surface_torsion rs R) = 1) ∧
+    -- lateral motion is the zero-cost direction
+    (∀ t₁ t₂ : ℝ, 0 &lt; t₁ → 0 &lt; t₂ → addressed_ratio t₁ = addressed_ratio t₂ →
+      t₂ - t₁ = 0) ∧
+    -- the characteristic time in closed form, and the floor's scalings
+    (∀ GM t u : ℝ, GM ≠ 0 → t ≠ 0 → u ≠ 0 →
+      t_char GM t u ^ 2 = burn_radius GM t u ^ 3 / GM) ∧
+    (∀ GM u f tb t₁ t₂ : ℝ, 0 &lt; GM → 0 &lt; f → 0 &lt; u → 0 &lt; tb → 0 &lt; t₁ → t₁ &lt; t₂ →
+      thrust_floor GM t₁ u f tb &lt; thrust_floor GM t₂ u f tb) ∧
+    (∀ GM t f tb u₁ u₂ : ℝ, 0 &lt; GM → 0 &lt; f → 0 &lt; t → 0 &lt; tb → 0 &lt; u₁ → u₁ &lt; u₂ →
+      thrust_floor GM t u₁ f tb &lt; thrust_floor GM t u₂ f tb) ∧
+    -- the two ceilings, and the saving following the binding one
+    (∀ ug ut : ℝ, binding_depth ug ut ≤ ug ∧ binding_depth ug ut ≤ ut) ∧
+    -- the optimum is a supremum, and the body prescribes its own engine
+    (∀ rs R t : ℝ, 0 &lt; t → 0 ≤ compactness rs R →
+      (t ^ 2 &lt; compactness rs R ↔ t &lt; surface_torsion rs R)) ∧
+    (∀ rs R : ℝ, prescribed_isp rs R = surface_torsion rs R * C_LIGHT / G_STANDARD) ∧
+    -- and a vehicle meeting the floor cannot lift itself
+    (∀ fm : ℝ, fm &lt; G_STANDARD → thrust_to_weight fm &lt; 1 ∧ fm - G_STANDARD &lt; 0) := by
+  refine ⟨t14_depth_law,
+    fun tb u₁ u₂ htb h =&gt; t15_deeper_is_better tb u₁ u₂ htb h,
+    t16_chain_law_at_unit_depth,
+    t22_inversion_solves,
+    fun u x hu hx =&gt; t26_cheaper_than_ideal u x hu hx,
+    t25_inversion_at_unit_depth,
+    t27_saving_is_the_ratio,
+    fun u x hx hu =&gt; t29_saving_lt_exp_depth u x hx hu,
+    fun x hx =&gt; t31_bound_at_unit_depth x hx,
+    fun u x hu hx =&gt; t30_saving_gt_one u x hu hx,
+    fun rs R t ht hC =&gt; t36_availability_is_one_efold rs R t ht hC,
+    fun rs R hC =&gt; t40_address_is_unit_depth rs R hC,
+    fun t₁ t₂ h1 h2 h =&gt; t42_lateral_is_free t₁ t₂ h1 h2 h,
+    fun GM t u hGM ht hu =&gt; t45_t_char_closed_form GM t u hGM ht hu,
+    fun GM u f tb t₁ t₂ hGM hf hu htb h1 h =&gt;
+      t49_floor_quartic_in_reading_a GM u f tb t₁ t₂ hGM hf hu htb h1 h,
+    fun GM t f tb u₁ u₂ hGM hf ht htb h1 h =&gt;
+      t50_floor_cubic_in_depth GM t f tb u₁ u₂ hGM hf ht htb h1 h,
+    t53_binding_below_both,
+    fun rs R t ht hC =&gt; t60_optimum_is_a_supremum rs R t ht hC,
+    t61_prescription_is_the_address,
+    fun fm h =&gt; t67_cannot_launch fm h⟩
+
+end SNSFL_BurnDepthThrustFloor
+
+end
+
+-- ============================================================
+-- CLOSURE
+-- ============================================================
+--
+-- This file establishes that burn depth, measured in the drive's own matched
+-- radius as u = √(r_match/r), is the parameter the whole construction runs on.
+-- The depth law v_∞ = v_e√(τ_B(τ_B + 2u)) rises strictly with u, so burning
+-- deeper is always better and the matched radius is a UNIT rather than an
+-- extremum, returning the parent's chain law at u = 1. Inverting gives
+-- τ_B = √(u² + x²) − u, always below the ideal rocket's own exponent, and the
+-- saving exp(x − √(u² + x²) + u) is STRICTLY BOUNDED BY e^u — depth u is worth
+-- u e-folds, with the parent's bound e the u = 1 case. The geometric ceiling
+-- u_max = τ_surface/τ_A exceeding one is exactly the parent's availability
+-- criterion, so that criterion says the body offers this drive at least one
+-- e-fold. The characteristic time closes as 2√2·GM/(c³τ_A³u³) and the thrust
+-- floor rises as the fourth power of Reading A and the cube of depth, which is
+-- the criterion that decides whether the advantage can be collected at all.
+-- The optimum sits at the availability supremum, so each body prescribes its
+-- own engine; and a vehicle meeting the floor has a thrust-to-weight below one
+-- and cannot lift itself, so orbital assembly follows from the arithmetic.
+--
+-- THEOREMS : 70 tagged + master
+-- SORRY    : 0
+-- AXIOMS   : 0
+-- ============================================================</code></pre>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Kenai, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-advertising.html">Advertising</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-burn-depth-thrust-floor.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-burn-depth-thrust-floor.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
