@@ -225,7 +225,8 @@ theorem t11_deeper_is_smaller (t u₁ u₂ : ℝ) (ht : t ≠ 0) (h1 : 0 < u₁)
   have ht2 : (0:ℝ) < t ^ 2 :=
     lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
   have h2 : (0:ℝ) < u₁ ^ 2 := by positivity
-  have hlt : t ^ 2 * u₁ ^ 2 < t ^ 2 * u₂ ^ 2 := by nlinarith [ht2, h1, h]
+  have husq : u₁ ^ 2 < u₂ ^ 2 := by nlinarith [h1, h]
+  have hlt : t ^ 2 * u₁ ^ 2 < t ^ 2 * u₂ ^ 2 := mul_lt_mul_of_pos_left husq ht2
   simp only [burn_ratio]
   exact one_div_lt_one_div_of_lt (by positivity) hlt
 
@@ -363,8 +364,14 @@ theorem t27_saving_is_the_ratio (u x : ℝ) :
 -- [T28] :: {INV} | THE EXPONENT IS STRICTLY BELOW THE DEPTH
 theorem t28_exponent_lt_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 < u) :
     sav_exp u x < u := by
+  have hxr : x < rad_depth u x := by
+    have habs : |x| < rad_depth u x := by
+      simp only [rad_depth]
+      rw [← Real.sqrt_sq_eq_abs]
+      exact Real.sqrt_lt_sqrt (sq_nonneg x) (by nlinarith [hu])
+    exact lt_of_le_of_lt (le_abs_self x) habs
   simp only [sav_exp]
-  linarith [t23_rad_gt_depth u x hx hu, t20_rad_sq u x]
+  linarith
 
 -- [T29] :: {MASTER} | THE SAVING IS STRICTLY BOUNDED BY e^u
 -- Depth u is worth u e-folds, and no finite burn reaches the bound.
@@ -505,7 +512,6 @@ theorem t43_control_law (t₁ t₂ : ℝ) (h1 : t₁ ≠ 0) (h2 : t₂ ≠ 0) :
   have e2 : (t₂:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 h2
   simp only [addressed_ratio]
   field_simp
-  ring
 
 -- [T44] :: {INV} | A HIGHER TUNING ADDRESSES A LOWER RADIUS
 theorem t44_higher_tuning_lower_radius (t₁ t₂ : ℝ) (h1 : 0 < t₁) (h : t₁ < t₂) :
@@ -562,9 +568,14 @@ theorem t47_t_char_antitone_in_depth (GM t u₁ u₂ : ℝ) (hGM : 0 < GM) (ht :
   have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
   have hnum : (0:ℝ) < 2 * Real.sqrt 2 * GM := by positivity
   have hd1 : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 := by positivity
-  have hlt : C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 < C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3 := by
-    have : u₁ ^ 3 < u₂ ^ 3 := by nlinarith [h1, h]
-    nlinarith [this, hc, ht]
+  have h2u : (0:ℝ) < u₂ := by linarith
+  have hq3 : (0:ℝ) < u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hcube : u₁ ^ 3 < u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
+  have hbase : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 := by positivity
+  have hlt : C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 < C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3 :=
+    mul_lt_mul_of_pos_left hcube hbase
   simp only [t_char]
   rw [div_lt_div_iff₀ (by linarith : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3) hd1]
   nlinarith [hnum, hlt]
@@ -588,10 +599,18 @@ theorem t49_floor_quartic_in_reading_a (GM u f tb t₁ t₂ : ℝ) (hGM : 0 < GM
   have hp := (t48_prop_fraction_range tb htb).1
   have hden : (0:ℝ) < 2 * Real.sqrt 2 * f * GM := by positivity
   have hnum : (0:ℝ) < prop_fraction tb * C_LIGHT ^ 4 * u ^ 3 := by positivity
-  have hq : t₁ ^ 4 < t₂ ^ 4 := by nlinarith [h1, h]
+  have h2t : (0:ℝ) < t₂ := by linarith
+  have hq4 : (0:ℝ) < t₂ ^ 3 + t₂ ^ 2 * t₁ + t₂ * t₁ ^ 2 + t₁ ^ 3 := by
+    have a1 : (0:ℝ) < t₂ ^ 3 := by positivity
+    have a2 : (0:ℝ) < t₂ ^ 2 * t₁ := by positivity
+    have a3 : (0:ℝ) < t₂ * t₁ ^ 2 := by positivity
+    have a4 : (0:ℝ) < t₁ ^ 3 := by positivity
+    linarith
+  have hq : t₁ ^ 4 < t₂ ^ 4 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq4]
   simp only [thrust_floor]
   rw [div_lt_div_iff₀ hden hden]
-  nlinarith [hq, hnum, hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
 
 -- [T50] :: {MASTER} | THE THRUST FLOOR RISES AS THE CUBE OF DEPTH
 theorem t50_floor_cubic_in_depth (GM t f tb u₁ u₂ : ℝ) (hGM : 0 < GM) (hf : 0 < f)
@@ -602,10 +621,14 @@ theorem t50_floor_cubic_in_depth (GM t f tb u₁ u₂ : ℝ) (hGM : 0 < GM) (hf 
   have hp := (t48_prop_fraction_range tb htb).1
   have hden : (0:ℝ) < 2 * Real.sqrt 2 * f * GM := by positivity
   have hnum : (0:ℝ) < prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 := by positivity
-  have hq : u₁ ^ 3 < u₂ ^ 3 := by nlinarith [h1, h]
+  have h2u : (0:ℝ) < u₂ := by linarith
+  have hq3 : (0:ℝ) < u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hq : u₁ ^ 3 < u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
   simp only [thrust_floor]
   rw [div_lt_div_iff₀ hden hden]
-  nlinarith [hq, hnum, hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
 
 -- [T51] :: {INV} | THE THRUST FLOOR IS POSITIVE
 theorem t51_floor_pos (GM t u f tb : ℝ) (hGM : 0 < GM) (hf : 0 < f) (ht : 0 < t)
