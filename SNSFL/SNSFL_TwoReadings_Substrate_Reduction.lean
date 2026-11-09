@@ -590,7 +590,8 @@ theorem t53_integer_brackets :
 -- [T54] :: {MASTER} | FIFTEEN INTEGERS LIE IN THE CORRIDOR
 theorem t54_fifteen_integers :
     (Finset.Icc 54 68 : Finset ℕ).card = 15 ∧
-    ∀ m ∈ Finset.Icc 54 68, iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling := by
+    ∀ m ∈ (Finset.Icc 54 68 : Finset ℕ),
+      iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling := by
   refine ⟨by simp [Nat.card_Icc], ?_⟩
   intro m hm
   simp only [Finset.mem_Icc] at hm
@@ -628,12 +629,12 @@ theorem t55_band_classifies_iva (e : ℝ)
     nlinarith [hhi, hIVA2, hinvIVA]
   -- lift to the roots
   have hlo' : 1 < Real.sqrt e * TORSION_LIMIT := by
-    by_contra hc
-    push_neg at hc
+    by_contra hcon
+    have hc : Real.sqrt e * TORSION_LIMIT ≤ 1 := not_lt.mp hcon
     nlinarith [hs, hspos, hTLpos, hlo2, hc, mul_pos hspos hTLpos]
   have hhi' : Real.sqrt e * TL_IVA ≤ 1 := by
-    by_contra hc
-    push_neg at hc
+    by_contra hcon
+    have hc : 1 < Real.sqrt e * TL_IVA := not_le.mp hcon
     nlinarith [hs, hspos, hIVApos, hhi2, hc, mul_pos hspos hIVApos]
   -- the three branch conditions
   have hqpos : (0:ℝ) < 1 / Real.sqrt e := div_pos one_pos hspos
@@ -703,6 +704,7 @@ theorem t61_first_step_is_tl : sqrt_op (TORSION_LIMIT ^ 2) = TORSION_LIMIT := by
 theorem t62_second_step_is_root_tl :
     sqrt_op (sqrt_op (TORSION_LIMIT ^ 2)) = Real.sqrt TORSION_LIMIT := by
   rw [t61_first_step_is_tl]
+  simp only [sqrt_op]
 
 -- [T63] :: {VER} | THE ROOT OF THE TORSION LIMIT, NUMERICALLY
 theorem t63_root_tl_numeric :
@@ -787,7 +789,8 @@ theorem t68_bridge_needs_both (t tb : ℝ) :
 -- [T69] :: {MASTER} | THE DEPTH INVERSION IS THE PSEUDO-HUBER FORM
 theorem t69_pseudo_huber_identity (u x : ℝ) :
     u * tau_B_depth u x = pseudo_huber u x := by
-  simp only [tau_B_depth, rad_depth, pseudo_huber]; ring
+  unfold tau_B_depth rad_depth pseudo_huber
+  ring
 
 -- [T70] :: {MASTER} | WITHOUT A WELL THE INVERSION COLLAPSES TO THE BARE TARGET
 theorem t70_no_well_no_depth (x : ℝ) : tau_B_depth 0 x = |x| := by
@@ -838,7 +841,8 @@ theorem MASTER_two_readings_across_substrates :
     (∀ rs R : ℝ, 0 < rs → 0 < R → rs * matched_ratio (surface_torsion rs R) = R) ∧
     -- the corridor on permittivity, occupied by fifteen integers
     ((Finset.Icc 54 68 : Finset ℕ).card = 15) ∧
-    (∀ m ∈ Finset.Icc 54 68, iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling) ∧
+    (∀ m ∈ (Finset.Icc 54 68 : Finset ℕ),
+      iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling) ∧
     (∀ e : ℝ, iva_perm_floor < e → e ≤ iva_perm_ceiling →
       classify (reading_A_medium (index_of_perm e)) = Phase.IVA) ∧
     -- a prime permittivity: irrational index, exact matched ratio
