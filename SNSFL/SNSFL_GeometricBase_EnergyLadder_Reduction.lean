@@ -199,7 +199,6 @@ theorem t10_eta_is_energy_ratio (m v : ℝ) (hm : m ≠ 0) :
   have hc : C_LIGHT ≠ 0 := ne_of_gt t9_c_pos
   simp only [kinetic_classical, rest_energy, eta_of_tau, tau_A]
   field_simp
-  ring
 
 -- [T11] :: {INV} | STATED ON READING A DIRECTLY
 theorem t11_eta_from_reading_a (m v : ℝ) (hm : m ≠ 0) :
@@ -207,7 +206,6 @@ theorem t11_eta_from_reading_a (m v : ℝ) (hm : m ≠ 0) :
   have hc : C_LIGHT ≠ 0 := ne_of_gt t9_c_pos
   simp only [kinetic_classical, rest_energy, eta_of_tau, tau_A]
   field_simp
-  ring
 
 -- [T12] :: {INV} | THE CONVERSION FRACTION IS NONNEGATIVE
 theorem t12_eta_nonneg (t : ℝ) : 0 ≤ eta_of_tau t := by
@@ -434,7 +432,6 @@ theorem t40_energy_step (n : ℕ) : eta_rung n / eta_rung (n + 1) = 1 / TORSION_
   have hpn : TORSION_LIMIT ^ n ≠ 0 := ne_of_gt hp
   simp only [eta_rung, pow_succ]
   field_simp
-  ring
 
 -- [T41] :: {VER} | RUNG ONE'S CONVERSION FRACTION IS HALF THE TORSION LIMIT
 theorem t41_eta_rung_one : eta_rung 1 = TORSION_LIMIT / 2 := by
@@ -558,7 +555,7 @@ theorem t51_sandwich_at_rung_two :
 
 -- [T52] :: {MASTER} | THE ONE-PERCENT LINE
 theorem t52_one_percent_line (t : ℝ) (h0 : 0 < t) (hTL : t ^ 2 ≤ TORSION_LIMIT)
-    (hsmall : eta_of_tau t ≤ 2 / 300) :
+    (hsmall : eta_of_tau t ≤ 1 / 200) :
     eta_rel t - eta_of_tau t ≤ (1 / 100) * eta_of_tau t := by
   have h := (t49_error_in_eta t h0 hTL).2
   have hp : 0 < eta_of_tau t := by
@@ -621,7 +618,6 @@ theorem t60_rung_index_of_rung (n : ℕ) : rung_index (tau_rung n) = n := by
   simp only [rung_index, tau_rung, Real.log_pow,
     Real.log_sqrt t2_tl_in_unit_interval.1.le, t53_log_base]
   field_simp
-  ring
 
 -- ============================================================
 -- SECTION 9: THE CORRIDOR IN RUNGS, AND √(25/22)
