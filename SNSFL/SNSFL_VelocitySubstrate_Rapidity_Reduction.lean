@@ -157,7 +157,7 @@ def classify (t : ℝ) : Phase :=
 
 -- [T11] :: {VER} | ZERO CLASSIFIES AS NOBLE
 theorem t11_zero_is_noble : classify 0 = Phase.Noble := by
-  simp only [classify]
+  simp [classify]
 
 -- [T12] :: {VER} | THE CORRIDOR FLOOR CLASSIFIES AS IVA
 theorem t12_floor_is_iva : classify TL_IVA = Phase.IVA := by
@@ -213,6 +213,7 @@ theorem t17_c_pos : 0 < C_LIGHT := by simp only [C_LIGHT]; norm_num
 
 -- [T18] :: {VER} | READING A IS THE SPEED OVER THE LIMITING SPEED
 theorem t18_reading_a (v : ℝ) : tau_A v * C_LIGHT = v := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t17_c_pos
   simp only [tau_A]
   field_simp
 
@@ -251,7 +252,11 @@ theorem t24_exp_tau_b (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
 theorem t25_doppler_gt_one (t : ℝ) (h0 : 0 < t) (h2 : t < 1) : 1 < doppler t := by
   have hsq : doppler t ^ 2 = (1 + t) / (1 - t) := t20_doppler_sq t (by linarith) h2
   have hpos : 0 < doppler t := t19_doppler_pos t (by linarith) h2
-  nlinarith [hsq, hpos]
+  have hr : 1 < (1 + t) / (1 - t) := by
+    rw [lt_div_iff₀ (by linarith : (0:ℝ) < 1 - t)]
+    linarith
+  have h2d : 1 < doppler t ^ 2 := by rw [hsq]; exact hr
+  nlinarith [hpos, h2d]
 
 -- [T26] :: {INV} | READING B IS POSITIVE ABOVE NOBLE
 theorem t26_tau_b_pos (t : ℝ) (h0 : 0 < t) (h2 : t < 1) : 0 < tau_B_of t := by
@@ -295,7 +300,6 @@ theorem t30_ratio_factors (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
   have h2v : (0:ℝ) < 1 - v := by linarith
   rw [t28_one_plus_vadd u v huv, t29_one_minus_vadd u v huv]
   field_simp
-  ring
 
 -- [T31] :: {MASTER} | THE DOPPLER FACTOR IS MULTIPLICATIVE UNDER VELOCITY ADDITION
 theorem t31_doppler_mul (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
@@ -340,7 +344,7 @@ theorem t35_doppler_div (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
   rw [← Real.sqrt_div' _ (by positivity)]
   congr 1
   field_simp
-  ring
+  ring_nf
 
 -- [T36] :: {MASTER} | A DIFFERENCE OF READING B IS ONE READING B
 theorem t36_tau_b_sub (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
@@ -613,6 +617,9 @@ theorem t65_gamma_half_sum (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
   have hgs := t57_gamma_sq t h1 h2
   have h2t : (0:ℝ) < 1 - t := by linarith
   have h1t : (0:ℝ) < 1 + t := by linarith
+  have hr : (0:ℝ) < 1 - t ^ 2 := t55_radicand_pos t h1 h2
+  have hrne : (1:ℝ) - t ^ 2 ≠ 0 := ne_of_gt hr
+  have hdne : doppler t ≠ 0 := ne_of_gt hd
   have hsq : (2 * gamma_of t) ^ 2 = (doppler t + 1 / doppler t) ^ 2 := by
     rw [mul_pow, hgs]
     have hexp : (doppler t + 1 / doppler t) ^ 2
@@ -745,8 +752,11 @@ theorem t80_gate_inverts (tb te : ℝ) (hte : te ≠ 0) :
 -- [T81] :: {MASTER} | THE ROCKET INVERTS THE GATE
 theorem t81_rocket_inverts (te mr : ℝ) (hte : te ≠ 0) (hmr : 0 < mr) :
     mr_gate (tau_B_final te mr) te = mr := by
-  simp only [mr_gate, tau_B_final]
-  rw [mul_div_assoc, div_self hte, mul_one, Real.exp_log hmr]
+  have h : tau_B_final te mr / te = Real.log mr := by
+    simp only [tau_B_final]
+    field_simp
+  simp only [mr_gate, h]
+  exact Real.exp_log hmr
 
 -- [T82] :: {VER} | THE GATE IS POSITIVE
 theorem t82_gate_pos (tb te : ℝ) : 0 < mr_gate tb te := Real.exp_pos _
