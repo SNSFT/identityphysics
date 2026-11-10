@@ -340,11 +340,39 @@ theorem t35_doppler_div (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
   have h1b : (0:ℝ) < 1 + b := by linarith
   have h2b : (0:ℝ) < 1 - b := by linarith
   have hab : (0:ℝ) < 1 - a * b := by nlinarith
-  simp only [doppler]
-  rw [← Real.sqrt_div' _ (by positivity)]
-  congr 1
-  field_simp
-  ring_nf
+  have habne : (1:ℝ) - a * b ≠ 0 := ne_of_gt hab
+  -- one plus and one minus the difference argument each factor
+  have hplus : 1 + (a - b) / (1 - a * b) = ((1 + a) * (1 - b)) / (1 - a * b) := by
+    field_simp
+    try ring
+  have hminus : 1 - (a - b) / (1 - a * b) = ((1 - a) * (1 + b)) / (1 - a * b) := by
+    field_simp
+    try ring
+  -- so the difference argument lies inside the unit interval
+  have hc1 : -1 < (a - b) / (1 - a * b) := by
+    have hp : (0:ℝ) < ((1 + a) * (1 - b)) / (1 - a * b) := div_pos (mul_pos h1a h2b) hab
+    linarith [hplus, hp]
+  have hc2 : (a - b) / (1 - a * b) < 1 := by
+    have hp : (0:ℝ) < ((1 - a) * (1 + b)) / (1 - a * b) := div_pos (mul_pos h2a h1b) hab
+    linarith [hminus, hp]
+  -- the difference argument composed with b returns a
+  have hden : (1:ℝ) + (a - b) / (1 - a * b) * b = (1 - b ^ 2) / (1 - a * b) := by
+    field_simp
+    try ring
+  have hdne : (1:ℝ) + (a - b) / (1 - a * b) * b ≠ 0 := by
+    rw [hden]
+    exact ne_of_gt (div_pos (by nlinarith) hab)
+  have hvadd : vadd ((a - b) / (1 - a * b)) b = a := by
+    simp only [vadd]
+    rw [div_eq_iff hdne, hden]
+    field_simp
+    try ring
+  -- and multiplicativity turns that into the quotient
+  have hdb : doppler b ≠ 0 := ne_of_gt (t19_doppler_pos b hb1 hb2)
+  have key : doppler ((a - b) / (1 - a * b)) * doppler b = doppler a := by
+    rw [← t31_doppler_mul _ b hc1 hc2 hb1 hb2, hvadd]
+  rw [div_eq_iff hdb]
+  exact key.symm
 
 -- [T36] :: {MASTER} | A DIFFERENCE OF READING B IS ONE READING B
 theorem t36_tau_b_sub (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
@@ -392,8 +420,8 @@ theorem t41_tanh_gt_neg_one (b : ℝ) : -1 < tanh_op b := by
   have hd := t37_tanh_denom_pos b
   have hp : (0:ℝ) < Real.exp b ^ 2 := by positivity
   simp only [tanh_op]
-  rw [neg_lt, ← neg_div, lt_div_iff₀ hd]
-  nlinarith
+  rw [neg_lt, ← neg_div, div_lt_one hd]
+  linarith
 
 -- [T42] :: {MASTER} | THE OPERATOR LANDS INSIDE THE UNIT INTERVAL ALWAYS
 theorem t42_tanh_in_unit (b : ℝ) : -1 < tanh_op b ∧ tanh_op b < 1 :=
@@ -416,7 +444,6 @@ theorem t44_tanh_op_is_tanh (b : ℝ) : tanh_op b = Real.tanh b := by
   simp only [tanh_op, Real.tanh_eq_sinh_div_cosh, Real.sinh_eq, Real.cosh_eq,
     Real.exp_neg]
   field_simp
-  ring
 
 -- [T45] :: {MASTER} | THE MAP IS FORCED — THE OPERATOR SATISFIES THE ADDITION LAW
 theorem t45_tanh_satisfies_vadd (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
@@ -563,7 +590,14 @@ theorem t59_remaining_is_inv_doppler (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
   have hsq := t58_remaining_fraction t h1 h2
   have hl : 0 < gamma_of t * (1 - t) := by positivity
   have hrr : 0 < 1 / doppler t := by positivity
-  nlinarith [hsq, hl, hrr]
+  have hsq2 : (gamma_of t * (1 - t)) ^ 2 = (1 / doppler t) ^ 2 := by
+    rw [hsq, div_pow, one_pow]
+  have hfac : (gamma_of t * (1 - t) - 1 / doppler t)
+      * (gamma_of t * (1 - t) + 1 / doppler t) = 0 := by
+    linear_combination hsq2
+  rcases mul_eq_zero.mp hfac with h | h
+  · linarith
+  · linarith
 
 -- [T60] :: {MASTER} | CELERITY CLOSES THE LOOP — THE ROOT RETURNS THE LORENTZ
 --                     FACTOR
@@ -599,9 +633,10 @@ theorem t63_celerity_noble : celerity 0 = 0 := by
 theorem t64_gamma_ge_one (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 1 ≤ gamma_of t := by
   have hr := t55_radicand_pos t h1 h2
   have hs : Real.sqrt (1 - t ^ 2) ≤ 1 := by
-    rw [show (1:ℝ) = Real.sqrt 1 from (Real.sqrt_one).symm]
-    apply Real.sqrt_le_sqrt
-    nlinarith
+    have hle : Real.sqrt (1 - t ^ 2) ≤ Real.sqrt 1 := by
+      apply Real.sqrt_le_sqrt
+      nlinarith
+    rwa [Real.sqrt_one] at hle
   have hsp : 0 < Real.sqrt (1 - t ^ 2) := Real.sqrt_pos.mpr hr
   simp only [gamma_of]
   rw [le_div_iff₀ hsp]
