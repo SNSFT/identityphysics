@@ -774,7 +774,6 @@ theorem t76_ab_product (UTS Be A B : ℝ) (hU : 0 < UTS)
   have hUne : UTS ≠ 0 := ne_of_gt hU
   subst hbal
   field_simp
-  ring
 
 -- [T77] :: {VER} | 1045 STEEL — 292.5 MPa AGAINST 585 MPa
 theorem t77_ab_steel : ((292.5 : ℝ) / 585) * TORSION_LIMIT = 0.068449549992008 := by
