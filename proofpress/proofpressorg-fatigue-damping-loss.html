@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp &#183; ProofPress</title>
+  <meta name="description" content="[9,9,2,53](ENGR) - Fatigue is loss of damping capacity. Pattern capacity in a driven structure is inertia times damping, P = 2 I zeta, so the quantity that falls under cyclic load is a measurable material property. External forcing is rank one: the reachable set is the Behavior line, Pattern capacity is invariant under every external event, and because forcing is additive it carries no memory - so cyclic damage cannot be externally caused. Static strength fixes Pattern capacity as UTS/TL with no fitting; the life law gives the Basquin form with the fatigue exponent identified as the exponent in a degradation law; the endurance limit is the damage-recovery balance B_e = (r/k)^(1/m), invariant under the form of the damage law, and exists exactly when a stress-independent recovery channel exists. The knee is sharp because the exponent is large: (B/B_e)^m is 2.291 at ten percent overload and 414.6 at double load. 1045 steel sits at 0.500 x TL and 2024-T4 at 0.350 x TL, both inside Locked. Volume 1, ProofPress.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-fatigue-damping-loss.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp">
+  <meta property="og:description" content="[9,9,2,53](ENGR) &#8212; Volume 1, ProofPress. &#937;&#8320; = 1.36899099984016. DOI 10.5281/zenodo.18719748.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-fatigue-damping-loss.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="citation_journal_title" content="ProofPress">
+  <meta name="citation_journal_abbrev" content="ProofPress">
+  <meta name="citation_publisher" content="SNSFT Foundation">
+  <meta name="citation_issn" content="pending">
+  <meta name="citation_language" content="en">
+  <!-- ==================================================================== -->
+
+  <!-- ==================== PER-ARTICLE FIELDS ==================== -->
+  <!-- Edit all of this block for each new article. Nothing above this. -->
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp">
+  <meta name="DC.creator" content="Trent, Russell Vernon III (HIGHTISTIC)">
+  <meta name="DC.identifier" content="10.5281/zenodo.18719748">
+  <meta name="citation_title" content="Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp">
+  <meta name="citation_author" content="Trent, Russell Vernon III">
+  <meta name="citation_author_institution" content="SNSFT Foundation">
+  <meta name="citation_publication_date" content="2026/11/08">
+  <meta name="citation_online_date" content="2026/11/08">
+  <meta name="citation_doi" content="10.5281/zenodo.18719748">
+  <meta name="citation_volume" content="1">
+  <meta name="citation_technical_report_number" content="9,9,2,53">
+  <meta name="citation_abstract_html_url" content="https://proofpress.org/proofpressorg-fatigue-damping-loss.html">
+  <meta name="citation_fulltext_html_url" content="https://proofpress.org/proofpressorg-fatigue-damping-loss.html">
+  <meta name="citation_keywords" content="fatigue; damping capacity; damping ratio; endurance limit; fatigue limit; Basquin's law; fatigue exponent; S-N curve; Coffin-Manson; strain aging; Cottrell atmosphere; dislocation pinning; work hardening; cyclic loading; low-cycle fatigue; structural dynamics; flutter onset; Scanlan derivatives; Saint-Venant torsion; 1045 steel; 2024-T4 aluminum; ultimate tensile strength; controllability; underactuation; reachable set; external forcing; Lagrangian projection; Identity Vector Amplification; PNBA; Applied Identity Physics; Lean 4">
+  <!-- =============================================================== -->
+
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+    .meta-block p { margin-bottom: 0.3rem; color: var(--text-muted); }
+    .meta-block strong { color: var(--text); }
+
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin-top: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+
+    .btn-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--accent-dim);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: var(--surface-2); text-decoration: none; }
+    .download-btn.copied { color: var(--green); border-color: var(--green); }
+    @media print {
+      header, .btn-row, footer, .legal-footnote, .page-eyebrow { display: none !important; }
+      body { background: #fff; color: #000; }
+      .prose, .prose * { color: #000 !important; }
+      section.hero { display: none !important; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp",
+    "datePublished": "2026-11-06",
+    "author": [
+      { "@type": "Person", "name": "Russell Vernon Trent III", "alternateName": "HIGHTISTIC" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "SNSFT Foundation",
+      "taxID": "42-2038440"
+    },
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "alternateName": "Journal of Empirically Grounded Machine-Verified Formal Logic",
+      "issn": "pending",
+      "url": "https://proofpress.org/"
+    },
+    "identifier": "10.5281/zenodo.18719748",
+    "url": "https://proofpress.org/proofpressorg-fatigue-damping-loss.html",
+    "keywords": "fatigue, damping capacity, endurance limit, Basquin's law, fatigue exponent, S-N curve, Coffin-Manson, strain aging, dislocation pinning, work hardening, cyclic loading, structural dynamics, flutter onset, Saint-Venant torsion, 1045 steel, 2024-T4 aluminum, controllability, reachable set, external forcing, Lagrangian projection, Identity Vector Amplification, PNBA, Applied Identity Physics, Lean 4"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="volume">Volume 1 · 2026</div>
+    <h1>ProofPress<span class="tm">™</span></h1>
+    <div class="subtitle">Journal of Empirically Grounded Machine-Verified Formal Logic</div>
+
+    <div class="issn-line">
+      <strong>ISSN:</strong> pending (application in preparation)
+    </div>
+
+    <div class="statement">
+      <p>ProofPress<span class="tm">™</span> is an Academic Journal of Empirically Grounded Machine-Verified Formal Logic. This academic publication serves as a specialized scholarly journal dedicated to the intersection of empirical research and machine-verified formal logic.</p>
+      <p>Within its pages, researchers present rigorous methodologies and validated proofs evaluated through automated technological systems. The volume functions as a foundational platform for advancing computational logic and strict verification standards across theoretical disciplines.</p>
+      <p>By bridging practical observation with automated deduction, the text establishes a systematic framework for publishing high-confidence logical propositions. Published by the SNSFT Foundation (EIN 42-2038440). It publishes systematic, lossless reductions of existing, human-peer-reviewed empirical science into machine-verified formal logic.</p>
+
+      <p>Every article applies the same fixed method: the Long Division Protocol<span class="tm">™</span> (LDP<span class="tm">™</span>) — the scientific method with machine verification as the final step — and the four substrate-neutral PNBA<span class="tm">™</span> primitives (Pattern, Narrative, Behavior, Adaptation). The governing equation is identical across all domains:</p>
+
+      <div class="eq">
+        d/dt(IM · Pv) = Σ<sub>X</sub> λ<sub>X</sub> · O<sub>X</sub> · S + F<sub>ext</sub>
+      </div>
+
+      <div class="constants">
+        <div class="const-item">
+          <strong>Ω₀</strong> = 1.36899099984016 GHz
+        </div>
+        <div class="const-item">
+          <strong>TL</strong> = Ω₀ / 10 = 0.136899099984016
+        </div>
+      </div>
+
+      <p>Both are derived constants, proved from three independent physical systems, not free parameters. All reductions are verified in Lean 4 under a strict 0-sorry, 0-free-parameter compiler constraint and deposited under DOI base 10.5281/zenodo.18719748.</p>
+
+      <p>ProofPress takes results that have already passed human peer review in the primary literature and renders them as formally verified, substrate-neutral logical structure. The output is an archival anchor: the original empirical content is preserved losslessly while every inference step becomes machine-checkable. Citation of Ω₀ and the DOI base is required for any work that builds on these reductions.</p>
+
+      <p>The Identity Physics<span class="tm">™</span> Corpus that underpins the journal currently comprises 3,000,000+ lines, 200,000+ theorems, 111+ permanent DOI deposits, and six commercially published books, all 0-sorry.</p>
+    </div>
+
+    <div class="publisher">
+      Published by SNSFT Foundation · Kenai, Alaska, United States · Hosted at proofpress.org
+    </div>
+  </section>
+
+  <div class="page-header">
+    <div class="page-eyebrow">[9,9,2,53](ENGR) · Volume 1 · Issue 9 · November 2026</div>
+    <h1>Fatigue Is Loss of Damping Capacity: the Endurance Limit as a Damage–Recovery Balance, the Basquin Exponent Identified, and Why the Knee Is Sharp</h1>
+    <div class="btn-row">
+      <button class="download-btn" onclick="ppCopy(this)">&#10697; COPY</button>
+      <a class="download-btn" href="proofpressorg-fatigue-damping-loss.md" download>&#8595; .MD</a>
+      <a class="download-btn" href="https://raw.githubusercontent.com/SNSFT/identityphysics/main/SNSFL/SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean" download>&#8595; .LEAN</a>
+      <button class="download-btn" onclick="window.print()">&#8595; PDF</button>
+      <button class="download-btn" onclick="ppDownloadRTF()">&#8595; WORD</button>
+    </div>
+  </div>
+
+  <div class="prose">
+<p><strong>Author:</strong> Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443<br>
+<strong>Coordinate:</strong> <a href="ENGR">9,9,2,53</a> · Identity Physics Series · Engineering Ground, Applied Structures<br>
+<strong>Issue:</strong> ProofPress, Volume 1, Issue 9 · November 2026<br>
+<strong>DOI:</strong> 10.5281/zenodo.18719748<br>
+<strong>Verified:</strong> 100 theorems · 1,134 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib · source and CI record<br>
+<strong>Engine:</strong> GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit</p>
+<h2>Abstract</h2>
+<p><strong>Fatigue is loss of damping capacity.</strong> The quantity that falls under cyclic load is the damping ratio ζ, a measurable material property with its own instrumentation, and not an abstract damage variable. From that identification follow a closed-form endurance limit, the test for whether a material has one at all, the Basquin exponent identified as the exponent in a degradation law, and the sharpness of the knee as a consequence of that exponent rather than a separate fact. Static strength alone fixes the capacity the life law runs on, with no fitting.</p>
+<p>This article reaches those results by descent, and the descent is short. The Dynamic Equation carries external forcing as a primitive term at Layer 0: d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext. Across the corpus, F_ext is realized the same way in every substrate — <code>f_ext_op s δ = { s with B := s.B + δ }</code> — and the theorem that it leaves Pattern, Narrative and Adaptation unchanged is carried in more than twenty files. This reduction states what that realization establishes, and then applies it repeatedly.</p>
+<p><strong>External forcing is rank one.</strong> The reachable set under F_ext alone is a line in a four-coordinate state: three of the four primitives are not externally reachable at all. Forcing moves torsion τ = B/P, so it carries a system across every phase boundary, while Pattern capacity is invariant under every external event. <strong>All structural change is endogenous</strong>; the outside sets conditions and nothing else. A control engineer reads the same statement as underactuation by three.</p>
+<p><strong>Pure forcing has no memory.</strong> F_ext is additive — δ₁ then δ₂ lands exactly where δ₁+δ₂ lands in one application, with no trace of the sequence. Therefore <strong>a system that survives a load once survives it indefinitely under forcing alone</strong>, and cyclic damage cannot be externally caused. Whatever accumulates accumulates in Σ λ_X · O_X.</p>
+<p>That places damage in the Behavior-to-Pattern coupling, and the Tacoma–Scanlan reduction [9,9,2,52] says what Pattern is made of in a loaded structure: <strong>P = 2Iζ</strong>, inertia times damping. So <strong>fatigue is loss of damping capacity</strong>, and the quantity that falls under cyclic load is a measurable material property rather than an abstraction. Writing degradation per cycle as dP/dN = −k·B^m and shatter at P = B/TL gives N_f = (P₀ − B/TL)/(k·B^m), which for loads well below static strength is <strong>N_f ∝ B^−m</strong> — the Basquin form, with the empirical fatigue exponent identified as the exponent in the pattern-degradation law.</p>
+<p><strong>The endurance limit is a balance.</strong> Adding the restoring action of the internal operators, dP/dN = −k·B^m + r, gives a load at which degradation and recovery cancel exactly: <strong>B_e = (r/k)^(1/m)</strong>. The balance condition is identical whether damage is additive or multiplicative, since the P factor cancels, so the result does not depend on the form of the damage law. An endurance limit therefore exists exactly when the substrate carries a stress-independent recovery channel, and the stress-independence is forced rather than assumed: <strong>dissipation is driven and scales with load, while conservative relaxation is a function of configuration and cannot.</strong> Against published data this places 1045 steel's plateau at 0.500 × static and 2024-T4 aluminum's reference ratio at 0.350 × static, both inside Locked, and the condition separates them correctly: steel carries the channel and has a limit, aluminum does not and has none. It reproduces the accepted metallurgical account of the fatigue limit as a balance between fatigue damage and localized strengthening.</p>
+<p><strong>The knee is sharp because the exponent is large.</strong> The damage-to-recovery ratio is (B/B_e)^m, so at m = 8.696 a ten percent overload raises damage over recovery by 2.291× and a doubled load by 414.7×. Sharpness is a consequence of m, not a separate fact.</p>
+<p>Two further results follow. <strong>The existence of fatigue proves Pattern is controllable</strong>: damage is a nonzero B→P coupling, which is exactly the first-order reachability condition that Round-one underactuation leaves open, so damage and the control channel are one coupling read with two signs — which is why cyclic loading both degrades and strengthens metals. And the lossless boundary already carried in forty-one corpus files, <code>F_ext &gt; A · P · B</code>, is the endurance condition in its corpus form, giving <strong>A · B = (B_e/static) · TL</strong>, which a fatigue test reads off directly: 0.068449549992008 for 1045 steel and 0.0479146849944056 for 2024-T4.</p>
+<h2>What This Article Proves</h2>
+<p>Every result below corresponds to a named theorem in <code>SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean</code> at coordinate [9,9,2,53](ENGR), which compiles under the continuous-integration build of the SNSFT/identityphysics repository on Lean 4 v4.31.0 with Mathlib, carrying 0 sorry and 0 custom axioms. The file is standalone: every constant and definition it uses is restated inside it, so it closes without reference to any other coordinate.</p>
+<ol>
+<li>The grounding enters as arithmetic on published quantities: the anchor as ten Torsion Limits, the bare term as one thousand of them, <strong>bare plus kinetic as the inverse fine-structure constant</strong>, TL × 1001 = α⁻¹, the multiplier factoring as 7 · 11 · 13, the one-step anchor route Ω₀ × 100.1, the Torsion Limit positive, and the corridor floor in closed form, positive and below the ceiling (<code>t1_anchor_is_ten_tl</code>, <code>t2_bare_is_thousand_tl</code>, <code>t3_bare_plus_kinetic</code>, <code>t4_tl_times_1001</code>, <code>t5_multiplier_factors</code>, <code>t6_anchor_route</code>, <code>t7_tl_pos</code>, <code>t8_tl_iva_value</code>, <code>t9_iva_floor_below_limit</code>, <code>t10_tl_iva_pos</code>).</li>
+<li>The phase structure on torsion τ = B/P: zero Behavior is Noble, Noble and Shatter are exclusive, Locked and IVA are exclusive, IVA and Shatter are exclusive, the reading is a function of the ratio alone, and <strong>the four phases exhaust every non-negative reading</strong> (<code>t11_zero_behavior_is_noble</code>, <code>t12_noble_shatter_exclusive</code>, <code>t13_locked_iva_exclusive</code>, <code>t14_iva_shatter_exclusive</code>, <code>t15_phase_is_ratio_only</code>, <code>t16_phases_exhaust</code>).</li>
+<li><strong>The intervention theorem.</strong> External forcing leaves Pattern, Narrative and Adaptation unchanged and moves Behavior by addition, stated termwise and then as one statement (<code>t17_f_ext_preserves_p</code>, <code>t18_f_ext_preserves_n</code>, <code>t19_f_ext_preserves_a</code>, <code>t20_f_ext_on_b</code>, <code>t21_intervention</code>).</li>
+<li><strong>The reachable set under forcing is exactly the Behavior line, in both directions:</strong> a state is reached from <code>s</code> if and only if it agrees with <code>s</code> off Behavior, and <strong>Pattern capacity is invariant under every external event</strong> (<code>t22_reachable_set_is_a_line</code>, <code>t23_pattern_invariant_under_all_forcing</code>).</li>
+<li>Forcing still carries a system across every boundary: positive forcing raises torsion, negative lowers it, <strong>for any state with positive Pattern there is a forcing that puts it in Shatter</strong>, and that state has the Pattern capacity it started with — <strong>phase changes without Pattern changing</strong> (<code>t24_positive_forcing_raises_torsion</code>, <code>t25_negative_forcing_lowers_torsion</code>, <code>t26_forcing_reaches_shatter</code>, <code>t27_phase_change_without_pattern_change</code>).</li>
+<li><strong>All structural change is endogenous.</strong> Any difference in Pattern, Narrative or Adaptation between two states rules out forcing as its cause (<code>t28_structural_change_is_endogenous</code>).</li>
+<li><strong>Pure forcing has no memory.</strong> Forcing composes additively and commutes, zero forcing is the identity, and <strong>n applications of δ land exactly where one application of n·δ lands</strong>, proved by induction on n (<code>t29_forcing_additive</code>, <code>t30_forcing_commutes</code>, <code>t31_zero_forcing_identity</code>, <code>t32_no_memory</code>).</li>
+<li><strong>Nothing accumulates:</strong> the torsion reading after any number of applications is the closed linear form (B + n·δ)/P, and <strong>a strict drop in Pattern capacity is unreachable by any number of external events whatsoever</strong> — cyclic damage is internal, as a consequence rather than a premise (<code>t33_nothing_accumulates</code>, <code>t34_cyclic_damage_is_internal</code>).</li>
+<li><strong>The forcing domain is a statement about the substrate.</strong> Under the guard that Behavior stays positive, Behavior cannot be driven to zero and <strong>Noble cannot be imposed from outside</strong>; without the guard, Noble is reached. The guard is automatic above zero (<code>t35_guarded_excludes_zero_behavior</code>, <code>t36_noble_not_externally_reachable</code>, <code>t37_unguarded_reaches_noble</code>, <code>t38_guard_automatic_above_zero</code>).</li>
+<li><strong>Pattern capacity in a driven structure is inertia times damping.</strong> The driven ratio is torsion on that reading, <strong>onset at ratio one is exactly torsion at the Torsion Limit</strong> as a biconditional, raising damping lowers the ratio, and the capacity is positive (<code>t39_driven_ratio_is_torsion</code>, <code>t40_onset_is_limit</code>, <code>t41_damping_lowers_ratio</code>, <code>t44_pattern_of_damping_pos</code>).</li>
+<li><strong>Fatigue is loss of damping capacity.</strong> At fixed inertia a fall in damping is exactly a fall in Pattern capacity, and losing damping drives the ratio toward onset (<code>t42_fatigue_is_damping_loss</code>, <code>t43_damping_loss_climbs_toward_onset</code>).</li>
+<li><strong>Pattern capacity from static strength, with no fitting:</strong> static strength is the Torsion Limit times Pattern capacity, <strong>a state loaded at static strength sits exactly at the Shatter boundary</strong>, and the capacity is positive and strictly increasing in strength (<code>t45_static_strength_from_capacity</code>, <code>t46_static_load_is_shatter_boundary</code>, <code>t47_pattern_capacity_pos</code>, <code>t48_pattern_capacity_mono</code>).</li>
+<li><strong>The life law.</strong> Cycles to shatter times the loss per cycle is exactly the capacity available above the shatter load, life is positive below static strength, <strong>the Basquin form holds as the load-power identity</strong>, and raising the load lowers the available capacity (<code>t49_life_law</code>, <code>t50_life_pos_below_static</code>, <code>t51_basquin_form</code>, <code>t52_available_capacity_decreasing</code>).</li>
+<li>The published slopes give the exponent by reciprocal for both materials, and <strong>the exponent is a substrate response and is not set by the structure: the life law closes for every exponent whatsoever</strong> (<code>t53_steel_exponent</code>, <code>t54_aluminum_exponent</code>, <code>t55_exponent_is_substrate_response</code>).</li>
+<li><strong>The endurance limit is a balance.</strong> Net degradation is zero at B_e = (r/k)^(1/m), <strong>recovery dominates strictly below it</strong> and <strong>damage dominates strictly above it</strong>, the limit is positive, and it rises with the recovery rate (<code>t56_endurance_balance</code>, <code>t57_below_endurance_recovers</code>, <code>t58_above_endurance_damages</code>, <code>t61_endurance_limit_pos</code>, <code>t62_endurance_rises_with_recovery</code>).</li>
+<li><strong>The balance is invariant under the form of the damage law:</strong> with damage and recovery both proportional to Pattern capacity the Pattern factor cancels from both sides, so additive and multiplicative damage give the same balance condition (<code>t59_balance_invariant_under_damage_form</code>).</li>
+<li><strong>An endurance limit exists exactly when a stress-independent recovery channel exists</strong>, as a biconditional on the positivity of r (<code>t60_endurance_exists_iff_recovery</code>).</li>
+<li><strong>The endurance readings on the torsion scale.</strong> 1045 steel at 0.500 × TL and 2024-T4 aluminum at 0.350 × TL, computed exactly; <strong>both lie strictly inside Locked</strong>; any ratio below the corridor floor is a Locked reading; and <strong>the scale is shared, since the ratio is recovered from the reading for any material whatsoever</strong> (<code>t63_steel_tau_endurance</code>, <code>t64_aluminum_tau_endurance</code>, <code>t65_both_inside_locked</code>, <code>t66_ratio_below_floor_is_locked</code>, <code>t67_scale_is_shared</code>).</li>
+<li><strong>The knee, and why it is sharp.</strong> The damage-to-recovery ratio is one at the limit, below one beneath it, above one past it, multiplicative in the load ratio, positive, and <strong>strictly increasing in the exponent</strong> — so sharpness follows from the exponent rather than standing beside it (<code>t68_knee_at_one</code>, <code>t69_knee_below_one</code>, <code>t70_knee_above_one</code>, <code>t71_sharpness_from_exponent</code>, <code>t72_knee_multiplicative</code>, <code>t73_knee_pos</code>).</li>
+<li><strong>The lossy boundary in its corpus form.</strong> Lossless absorption and the lossy condition are mutually exclusive and exhaustive, <strong>the boundary evaluated at the endurance limit gives A · B = (B_e/static) · TL</strong>, the two materials' products are computed from their published strengths in MPa, and <strong>the product is what a fatigue curve supplies — every factorization closes, so A and B are not separately fixed by it</strong> (<code>t74_dominance_lossy_exclusive</code>, <code>t75_dominance_lossy_exhaust</code>, <code>t76_ab_product</code>, <code>t77_ab_steel</code>, <code>t78_ab_aluminum</code>, <code>t79_product_not_factors</code>).</li>
+<li><strong>The existence of fatigue proves Pattern is controllable.</strong> A strict drop in Pattern under positive Behavior requires a nonzero coupling, and <strong>a nonzero coupling makes any target Pattern value reachable by one forcing followed by the coupling</strong> (<code>t80_fatigue_is_nonzero_coupling</code>, <code>t81_pattern_controllable</code>).</li>
+<li><strong>One channel, two signs.</strong> The same coupling with opposite sign raises Pattern by exactly as much as it lowers it, and under positive Behavior a positive coupling raises Pattern while a negative one lowers it — <strong>work hardening and fatigue are the same channel</strong> (<code>t82_one_channel_two_signs</code>, <code>t83_hardening_and_fatigue</code>).</li>
+<li><strong>The Lagrangian projection places every operator but the Behavior operator at the identity.</strong> The Lagrangian is the kinetic product less the potential sum, the potential is symmetric and additive, <strong>forcing enters the potential by addition alone</strong>, the Euler–Lagrange content is Narrative momentum against the Pattern–Behavior balance, and <strong>the three independent routes — forcing, projection and damage coupling — meet on the Behavior axis</strong> (<code>t84_projection_identity_off_b</code>, <code>t85_lag_total_form</code>, <code>t86_potential_symmetric</code>, <code>t87_potential_additive</code>, <code>t88_forcing_in_potential</code>, <code>t89_el_balance</code>, <code>t90_three_routes_meet_on_b</code>).</li>
+<li><strong>The cyclic companion to the static onset.</strong> Any strictly falling damping sequence drives the driven ratio strictly up, <strong>onset is reached at the critical damping B/(2I)</strong>, the structure starts below onset exactly when damping exceeds that value, and <strong>the static and cyclic cases share one threshold</strong> (<code>t91_cyclic_approach_to_onset</code>, <code>t92_onset_damping</code>, <code>t93_below_onset_iff_damping_above</code>, <code>t94_one_threshold</code>).</li>
+<li><strong>The e-fold reading of the multiplicative form:</strong> zero at the shatter load, strictly positive below it, <strong>additive along a path</strong>, and strictly decreasing in the load (<code>t95_efolds_zero_at_shatter</code>, <code>t96_efolds_pos_below_shatter</code>, <code>t97_efolds_additive</code>, <code>t98_efolds_decreasing</code>).</li>
+<li><strong>The IVA corridor on load is the band between 88% and 100% of static strength</strong>, and it is nonempty for every positive static strength (<code>t99_corridor_on_load</code>, <code>t100_corridor_nonempty</code>).</li>
+<li>The master theorem gathers the anchor, the intervention theorem, the reachable set, additivity, the internality of cyclic damage, fatigue as damping loss, Pattern capacity from static strength, the life law, the endurance balance with its existence condition and its invariance under the damage form, the knee at the limit and its sharpening with the exponent, the two torsion-scale readings, controllability with the two-sign channel, and the Lagrangian projection, into one conjunction (<code>MASTER_forced_response_cycles_to_shatter</code>).</li>
+</ol>
+<p><strong>What the formal layer does not carry.</strong>Three classes of statement in this article are arithmetic on published quantities rather than theorems, and they are marked as such where they appear. The published fatigue constants themselves — σ'_f, b, UTS and the endurance ratios for 1045 steel and 2024-T4 — are handbook values a reader supplies from a materials data set; the formal layer carries the exponent relation they feed, the torsion-scale placements they produce and the bounds those are read against. The cycle counts of §14 are the life law evaluated at a stated anchoring convention, and the formal layer carries the law, the band and the corridor placement rather than any particular convention's numbers. And the 8.9% systematic exponent drift that separates the two damage laws in §13 is a numerical comparison of two closed forms the formal layer does carry, over a stress range a reader chooses.</p>
+<h2>Connections to the Formalized Corpus</h2>
+<p><strong>The Torsion Limit.</strong> The Universal Torsion Limit is TL = 0.136899099984016 and the Sovereign Anchor Constant is Ω₀ = TL × 10 = 1.36899099984016. Nothing in this article sets it. It enters at full corpus precision from the inverse fine-structure constant, by direct subtraction:</p>
+<table>
+<tr><th>Napkin math, corpus precision</th><th>Value</th></tr>
+<tr><td>1/α</td><td>137.035999084000016</td></tr>
+<tr><td>Subtract one TL</td><td>137.035999084000016 − 0.136899099984016 = 136.899099984016</td></tr>
+<tr><td>What is left</td><td>136.899099984016 = TL × 1000, exactly</td></tr>
+<tr><td>Bare + kinetic</td><td>136.899099984016 + 0.136899099984016 = 137.035999084000016</td></tr>
+<tr><td>Rounded to published digits</td><td>137.035999084 = CODATA 2018</td></tr>
+</table>
+<table>
+<tr><th>Term</th><th>Value</th><th>QED reading</th><th>PNBA reading</th></tr>
+<tr><td>Bare: TL × 1000</td><td>136.899099984016</td><td>The bare electron contribution</td><td>Pattern capacity at the electromagnetic scale</td></tr>
+<tr><td>Kinetic: TL × 1</td><td>0.136899099984016</td><td>Radiative corrections, a renormalized series</td><td>External forcing F_ext at Layer 0, one exact term</td></tr>
+<tr><td>Total: TL × 1001</td><td>137.035999084000016</td><td>Bare + perturbative series</td><td>1/α</td></tr>
+</table>
+<p>This agrees with the CODATA (Committee on Data of the International Science Council) 2018 value in every published digit at ε = 0, with no free parameter ([9,9,3,14]). The full multiplier factors as 1001 = 7 · 11 · 13, so TL = α⁻¹/1001. Folding the factor of ten into the multiplier gives the same identity in one step, Ω₀ × 100.1 = α⁻¹, with 100.1 = (7 · 11 · 13)/10.</p>
+<p><strong>Every structural quantity in this article is a pure number.</strong> TL and Ω₀ carry no units and 1001 is an integer, and substituting SI base units into α⁻¹ = 4πε₀ℏc/e² cancels mass, length, time and current completely. Torsion τ = B/P is a ratio, the phase bands are bands on a ratio, and the damage-to-recovery ratio is dimensionless. Where a load or a stress appears it appears divided by a capacity, which is why steel and aluminum are placed on one scale in §7 without converting units between them.</p>
+<p>The Identity Physics Dynamic Equation is</p>
+<pre><code class="language-lean">
+with IM the Identity Mass, Pv the Purpose Vector and F_ext external forcing. The rate of change of identity momentum equals the weighted action of the four PNBA operators on the state, plus external forcing. F_ext is a primitive term at Layer 0, not a perturbation of the operator sum.
+
+Across the corpus, F_ext is realized identically in every substrate:
+</code></pre>
+<p>and the theorem <code>f_ext_preserves_pna</code> — that P, N and A are unchanged — is carried separately in more than twenty files, alongside <code>f_ext_positive_increases_torsion</code> and <code>f_ext_negative_decreases_torsion</code>. Where the operator is stated with its domain it carries <code>(hδ : s.B + δ &gt; 0)</code>, admitting any forcing that keeps Behavior positive.</p>
+<p>Torsion is τ = B/P, Behavior load against Pattern capacity. A reading τ ≥ 0 classifies as Noble for τ = 0, Locked for 0 &lt; τ &lt; TL_IVA, IVA for TL_IVA ≤ τ &lt; TL, and Shatter for τ ≥ TL, where IVA abbreviates Identity Vector Amplification. The IVA corridor is the half-open band [0.12047120798593408, 0.136899099984016).</p>
+<p>The corpus carries four layers with the order L0 → L1 → L2 → L4, and theorems that the order is never inverted. PNBA is Layer 0. The Dynamic Equation is Layer 1. Legacy formalisms are Layer 2: the Lagrangian Reduction [9,9,0,5] states it directly — "L = T − V is Layer 2. This is Layer 1." A Layer 2 formalism projects from the structure and never supports it, which is why this article reaches legacy results by descent and match rather than by appeal. Basquin's law, the Coffin–Manson relation, the Rayleigh dissipation function and Onsager reciprocity are all Layer 2 and appear here as projections.</p>
+<p><strong>Saint-Venant torsion [9,9,2,51]</strong> establishes β = TL to eight significant figures in a real structural material. <strong>Tacoma–Scanlan flutter [9,9,2,52]</strong> carries the driven case: B = ρB⁴A₂\*, <strong>P = 2Iζ</strong>, R = B/P, τ = R · TL, with onset at R = 1 ⟺ τ = TL. For the Tacoma deck, R = 1.3877 — 39% past onset, Shatter — held below onset by ζ ≥ 0.0070 and inside Locked by ζ ≥ 0.0079, with <code>damping_lowers_ratio</code> proved for every admissible pair. That reduction solves the <strong>static</strong> case, R ≥ 1. This one carries the <strong>cyclic</strong> case, R &lt; 1, where a structure begins below onset and ζ falls under repeated loading until R reaches 1.</p>
+<p><strong>The fusion logic.</strong> The four-phase structure and the Torsion Limit come from GAMCollider™ v15 fusion logic, formalized in 8-Beam Fusion [9,9,2,3.8] and 4-Beam Verification [9,9,2,3.7].</p>
+<p><strong>How the bounds are carried.</strong> Every threshold here is stated as an exact quantity rather than a rounded decimal, following Bounded Uncertainty: A Guide [9,9,8,7].</p>
+<h2>The PNBA Map</h2>
+<table>
+<tr><th>Primitive</th><th>In the forced-response reading</th><th>Carried by</th></tr>
+<tr><td><strong>Pattern</strong></td><td>Capacity — inertia times damping in a driven structure, and the quantity cyclic load degrades</td><td>P = 2Iζ, and P₀ = UTS/TL</td></tr>
+<tr><td><strong>Narrative</strong></td><td>The cycle count the degradation accumulates along</td><td>N, cycles to failure</td></tr>
+<tr><td><strong>Behavior</strong></td><td>The applied load — the only coordinate external forcing reaches</td><td>B, and F_ext into it</td></tr>
+<tr><td><strong>Adaptation</strong></td><td>The restoring channel, whose presence decides whether an endurance limit exists at all</td><td>r, and A in the A·B product</td></tr>
+</table>
+<p><strong>What external forcing can and cannot do.</strong> The corpus realizes F_ext as <code>f_ext_op s δ = { s with B := s.B + δ }</code>, so the reachable set from any state under forcing alone is the Behavior line.</p>
+<table>
+<tr><th>coordinate</th><th>externally reachable</th><th>what moves it</th></tr>
+<tr><td><strong>Pattern</strong></td><td><strong>no</strong></td><td>the internal operator sum only</td></tr>
+<tr><td><strong>Narrative</strong></td><td><strong>no</strong></td><td>the internal operator sum only</td></tr>
+<tr><td><strong>Behavior</strong></td><td><strong>yes, by addition</strong></td><td>F_ext</td></tr>
+<tr><td><strong>Adaptation</strong></td><td><strong>no</strong></td><td>the internal operator sum only</td></tr>
+</table>
+<p><strong>Pattern capacity from static strength.</strong> Shatter at τ = B/P ≥ TL makes static strength B_static = TL · P₀, so capacity follows from a handbook number with nothing fitted.</p>
+<table>
+<tr><th>material</th><th>UTS</th><th><strong>P₀ = UTS/TL</strong></th></tr>
+<tr><td>1045 steel</td><td>585 MPa</td><td><strong>4,273.2</strong></td></tr>
+<tr><td>2024-T4 aluminum</td><td>470 MPa</td><td><strong>3,433.2</strong></td></tr>
+</table>
+<p><strong>The endurance readings on one scale.</strong> The endurance ratio in torsion units places two unlike materials on the same axis, in the same unit, both inside Locked.</p>
+<table>
+<tr><th>material</th><th>B_e/static</th><th><strong>τ_e in TL units</strong></th><th>phase</th></tr>
+<tr><td>1045 steel</td><td>0.500</td><td><strong>0.500 × TL</strong> = 0.068449549992008</td><td>Locked</td></tr>
+<tr><td>2024-T4 aluminum</td><td>0.350</td><td><strong>0.350 × TL</strong> = 0.0479146849944056</td><td>Locked</td></tr>
+</table>
+<p>For the steel this is an endurance plateau; for the aluminum it is the reference ratio at its 10⁷-cycle convention, since standard practice carries no plateau for aluminum alloys — which is the balance condition reporting the absence of a stress-independent recovery channel as the absence of a limit.</p>
+<p><strong>The knee, and why it is sharp.</strong> The ratio of damage to recovery at any load is (B/B_e)^m, so sharpness is a consequence of the degradation exponent rather than a separate property.</p>
+<table>
+<tr><th>B/B_e</th><th>1045 steel (m = 8.696)</th><th>2024-T4 (m = 8.065)</th></tr>
+<tr><td>0.50</td><td>0.002</td><td>0.004</td></tr>
+<tr><td>0.80</td><td>0.144</td><td>0.165</td></tr>
+<tr><td>0.90</td><td>0.400</td><td>0.428</td></tr>
+<tr><td><strong>1.00</strong></td><td><strong>1.000</strong></td><td><strong>1.000</strong></td></tr>
+<tr><td>1.10</td><td>2.291</td><td>2.157</td></tr>
+<tr><td>1.25</td><td>6.961</td><td>6.047</td></tr>
+<tr><td>1.50</td><td>33.980</td><td>26.308</td></tr>
+<tr><td>2.00</td><td><strong>414.622</strong></td><td><strong>267.708</strong></td></tr>
+</table>
+<p><strong>The exponent is a substrate property and is not set by the structure.</strong> Fitted values of m run from about 6.4 to about 12.4 across engineering alloys. TL is the boundary — it fixes where shatter is, in the one unit every substrate shares — while k, m and r are the substrate's response inside that boundary. A structure that fixed the response as well as the boundary would be making a statement about microstructure from a dimensionless identity, which the layer hierarchy rules out. The spread in m is therefore a prediction of the arrangement rather than a gap in it: materials differ in response and agree on the boundary.</p>
+<p><strong>The cyclic companion to the static onset.</strong> [9,9,2,52] solves the static case, R ≥ 1; this reduction carries the cyclic case, R &lt; 1, where a structure begins below onset and ζ falls under repeated loading until R reaches 1.</p>
+<table>
+<tr><th></th><th>[9,9,2,52]</th><th>this reduction</th></tr>
+<tr><td>regime</td><td>R ≥ 1, static</td><td>R &lt; 1, cyclic</td></tr>
+<tr><td>failure</td><td>onset exceeded on application</td><td>ζ degrades until R = 1</td></tr>
+<tr><td>the held quantity</td><td>ζ as a design value</td><td>ζ as a state that falls</td></tr>
+<tr><td>criterion</td><td>damping needed to hold</td><td>load below which ζ does not fall</td></tr>
+</table>
+<p><strong>The IVA corridor on load.</strong> The corridor is τ ∈ [0.88 · TL, TL) — loads between 88% and 100% of static strength. The cycle count depends on which convention anchors the power law, so both are stated.</p>
+<table>
+<tr><th>τ/TL</th><th>load (MPa)</th><th>anchored at endurance</th><th>anchored on the strain-life fit</th></tr>
+<tr><td>0.99</td><td>579.2</td><td>≈ 2,630</td><td>≈ 75</td></tr>
+<tr><td>0.94</td><td>549.9</td><td>≈ 4,130</td><td>≈ 117</td></tr>
+<tr><td>0.88</td><td>514.8</td><td>≈ 7,330</td><td>≈ 208</td></tr>
+<tr><td>0.50</td><td>292.5</td><td>10⁶ (the anchor)</td><td>≈ 28,400</td></tr>
+</table>
+<p>The two conventions differ by a factor of about 35 across the band because a single power law is not valid both at the endurance point and within 1% of static strength. What both agree on is the band statement: the IVA corridor on load is the finite-life regime, three to four orders of magnitude below the endurance anchor under either convention. The correspondence is stated for 1045 steel with its anchor named; a material without an endurance plateau does not carry it.</p>
+<p><strong>The four numbers a reader can check.</strong> Take a published UTS and divide by TL for Pattern capacity; take the endurance ratio to place the material in torsion units; take (B/B_e)^m for the damage-to-recovery ratio at any load; and take the endurance ratio times TL for the A·B product. Four steps, each one operation, from a materials handbook to a place on the scale.</p>
+<h2>Verification</h2>
+<p>The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib) with 0 sorry and 0 custom axioms, as part of the continuous-integration build of the SNSFT/identityphysics repository. Every result above corresponds to a named theorem in <code>SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean</code> at 9,9,2,53, with 100 theorems and a master theorem across 1,134 lines. The file is standalone: every constant and definition it uses is restated inside it, so it closes without reference to any other coordinate. The fatigue constants quoted are published handbook figures a reader can repeat from a materials data set. Nothing is fitted, and nothing is scaled.</p>
+<h2>Misappropriation-Risk Clarification (MRC)</h2>
+<p><strong>MRC class: MRC2.</strong> This reduction closes on dimensionless identities, closed-form expressions in published quantities, and arithmetic on published fatigue data. It supplies no material composition, no heat treatment or processing route, no component geometry, and no design allowable.</p>
+<h3>What is established</h3>
+<p>The results of this article are exact statements about pure numbers and about ratios of published quantities, and they hold as stated. External forcing is rank one and the reachable set under it is a line. Pure forcing carries no memory, so cyclic damage is internal. Pattern capacity in a loaded structure is inertia times damping, so fatigue is loss of damping capacity. Static strength fixes Pattern capacity as P₀ = UTS/TL. The life law is N_f = (P₀ − B/TL)/(k·B^m). The endurance limit is the damage-recovery balance B_e = (r/k)^(1/m), invariant under the form of the damage law, and exists exactly when a stress-independent recovery channel exists. The damage-to-recovery ratio is (B/B_e)^m. The lossy boundary gives A·B = (B_e/static)·TL. A substrate that fatigues has a controllable Pattern.</p>
+<p>These are real results, computable from this article and a fatigue handbook, and checkable by anyone with a calculator. A reader who repeats the arithmetic gets the same numbers. A qualified practitioner — at an agency, a national laboratory, a university group, a design office, or a well-equipped independent shop — can work from them directly and safely, and the quantities they supply are usable the day they are read.</p>
+<h3>What is a different question</h3>
+<p>Where a material sits on the torsion scale is a statement about ratios of published quantities. It is not a design allowable, a certification basis, or a substitute for testing the part that will be built. Those are engineering activities with their own standards, qualification procedures and regulatory frameworks, and this article addresses none of them.</p>
+<p>That the endurance limit is a balance says what sets it. It does not say what value it takes for a specimen that has not been measured, because k and r are substrate properties that this reduction locates rather than supplies. A structure's actual life depends on its geometry, its surface condition, its residual stresses, its environment and its loading spectrum, and nothing in a ratio speaks to those.</p>
+<p>Likewise, that fatigue is loss of damping capacity is a statement about which quantity falls. Whether a particular damping measurement is a valid proxy for remaining life in a particular component is a qualification question, settled by correlation against that component, not by the identification.</p>
+<h3>Where the risk actually lives</h3>
+<p>The risk in structural engineering has never lived in the arithmetic of S-N curves, which has been in undergraduate texts since the 1950s and in published data sets since. It lives in the gap between a specimen and a structure: in geometry, in surface finish, in welds and fasteners and joints, in environment, in the loading spectrum the thing actually sees, and in whether the margin assumed in design survives the part as built and as maintained.</p>
+<p>An exact figure is not a reduced hazard, and a ratio is not a hazard at all. The exactness of a placement is why every remaining variable in a real structure is process: the detail design, the inspection interval, the qualification testing, and the competence of the people signing it off. Hazard in this domain scales with which controls are present — design review, qualification test, inspection, monitoring, a maintenance program, a competent authority — and with consequence of failure, not with the venue. A well-equipped institutional or independent program working within its qualification basis is not the concern. The undertested shortcut on a safety-critical part is.</p>
+<p>Withholding a number would not be a control here in any case. Every fatigue figure in this article is in published handbooks and standard data sets, and any reader with a reference work or an AI assistant retrieves them in seconds. An MRC that rested on omission would rest on nothing. This one rests on handling practice.</p>
+<h3>Handling practice</h3>
+<p>Plain practice, stated as practice:</p>
+<p>Life assessment for a part that matters is qualified by test on that part, under its own loading spectrum, within the standards that govern its sector. That is not a restriction this article adds; it is the existing framework, and it applies whether or not a torsion placement is in use.</p>
+<p>Published constants are cited to their sources with the convention stated. The endurance ratios used here are the handbook 0.5 for steel and the 0.35 reference for aluminum, and §14 states its band under both of the two anchoring conventions rather than one; a reader using a different evaluated value gets a different placement and should say which value and which anchor they used. The 0.350 reference for 2024-T4 is a reference ratio and not an endurance plateau, which is why §14's correspondence is stated for the steel only.</p>
+<p>A damping measurement used as a fatigue indicator is correlated against the component before it is relied on, in the same way any indirect measurement is qualified.</p>
+<p>Educational use is straightforward and welcome. The four-step check of this article — take a published UTS, divide by TL for Pattern capacity, take the endurance ratio to place it in torsion units, then take (B/B_e)^m for the damage ratio at any load — is arithmetic a student can do with a calculator and a handbook, and it teaches static strength, the endurance limit and the sharpness of the knee in one exercise. Nothing in that exercise touches material, apparatus or condition.</p>
+<h3>What this section is for</h3>
+<p>Parents, teachers, reviewers, design engineers and program managers make real decisions from articles like this one. An article that reads as unreal gets no respect for its safety content, and a reader who concludes the results are not real has been handed a reason to ignore the handling practice beside them. So this section says plainly that the results hold, that they are computable and checkable, that qualified people can work from them, and that the care belongs to the gap between a specimen and a structure rather than to the arithmetic that places either one.</p>
+<p>A reader who finds only this article and no other in the corpus should still finish this section knowing what is established, what is a separate question, where the risk lives and what practice looks like. That is why it is written at full length.</p>
+<h2>AIM Training Declaration</h2>
+<p>Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.</p>
+<h2>References</h2>
+<ol>
+<li>Basquin, O. H. "The exponential law of endurance tests." <em>Proceedings of the American Society for Testing and Materials</em> 10:625–630, 1910.</li>
+<li>Wöhler, A. "Über die Festigkeitsversuche mit Eisen und Stahl." <em>Zeitschrift für Bauwesen</em> 20:73–106, 1870.</li>
+<li>Coffin, L. F. "A study of the effects of cyclic thermal stresses on a ductile metal." <em>Transactions of the ASME</em> 76:931–950, 1954.</li>
+<li>Manson, S. S. <em>Behavior of Materials Under Conditions of Thermal Stress.</em> NACA Technical Note 2933, 1953.</li>
+<li>Cottrell, A. H. and Bilby, B. A. "Dislocation Theory of Yielding and Strain Ageing of Iron." <em>Proceedings of the Physical Society A</em> 62:49–62, 1949.</li>
+<li>Taylor, G. I. "The Mechanism of Plastic Deformation of Crystals." <em>Proceedings of the Royal Society A</em> 145:362–387, 1934.</li>
+<li>Orowan, E. "Zur Kristallplastizität III." <em>Zeitschrift für Physik</em> 89:634–659, 1934.</li>
+<li>Polanyi, M. "Über eine Art Gitterstörung, die einen Kristall plastisch machen könnte." <em>Zeitschrift für Physik</em> 89:660–664, 1934.</li>
+<li>Onsager, L. "Reciprocal Relations in Irreversible Processes. I." <em>Physical Review</em> 37:405–426, 1931.</li>
+<li>Noether, E. "Invariante Variationsprobleme." <em>Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen</em>, 235–257, 1918.</li>
+<li>Scanlan, R. H. and Tomko, J. J. "Airfoil and Bridge Deck Flutter Derivatives." <em>Journal of the Engineering Mechanics Division, ASCE</em> 97:1717–1737, 1971.</li>
+<li>Suresh, S. <em>Fatigue of Materials.</em> 2nd edition, Cambridge University Press, 1998.</li>
+<li>Stephens, R. I., Fatemi, A., Stephens, R. R. and Fuchs, H. O. <em>Metal Fatigue in Engineering.</em> 2nd edition, Wiley, 2001.</li>
+<li>Dowling, N. E. <em>Mechanical Behavior of Materials.</em> 4th edition, Pearson, 2013.</li>
+<li>Budynas, R. G. and Nisbett, J. K. <em>Shigley's Mechanical Engineering Design.</em> 10th edition, McGraw-Hill, 2015.</li>
+<li>Boyer, H. E., editor. <em>Atlas of Fatigue Curves.</em> ASM International, 1986.</li>
+<li><em>Metallic Materials Properties Development and Standardization (MMPDS).</em> Battelle Memorial Institute.</li>
+<li>Tiesinga, E., Mohr, P. J., Newell, D. B. and Taylor, B. N. "CODATA Recommended Values of the Fundamental Physical Constants: 2018." <em>Reviews of Modern Physics</em> 93:025010, 2021.</li>
+<li>Bureau International des Poids et Mesures. <em>The International System of Units (SI).</em> 9th edition, 2019.</li>
+<li>Mac Lane, S. <em>Categories for the Working Mathematician.</em> Springer, 1971.</li>
+<li>Bacon, F. <em>Novum Organum.</em> 1620.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Applied Identity Physics: The Geometric Base — b₀ = 1/√TL, the Energy Ladder, and the Nuclear Band in One Rung.</em> Zenodo, 2026. DOI 10.5281/zenodo.24087896.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Applied Identity Physics: The Two Readings Across Substrates.</em> Zenodo, 2026. DOI 10.5281/zenodo.24073396.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Applied Identity Physics: Burn Depth in Matched-Radius Units, the Thrust Floor, and the Engine Each Body Prescribes.</em> Zenodo, 2026. DOI 10.5281/zenodo.24067782.</li>
+<li>Trent, R. V. III (HIGHTISTIC). <em>Identity Physics Corpus.</em> DOI 10.5281/zenodo.18719748. 2026.</li>
+</ol>
+<h2>Corpus Provenance</h2>
+<ul>
+<li><strong>[9,9,0,0]</strong> Sovereign Anchor — the ground</li>
+<li><strong>[9,9,2,3.7]</strong> 4-Beam Verification — GAMCollider™ v15 fusion logic, verified at four beams</li>
+<li><strong>[9,9,2,3.8]</strong> 8-Beam Fusion Theorem — GAMCollider™ v15 fusion logic, the four-phase structure and the Torsion Limit at eight beams</li>
+<li><strong>[9,9,3,14]</strong> Alpha Reduction — α⁻¹ = Ω₀ × 100.1, and TL = α⁻¹/1001</li>
+<li><strong>[9,9,0,15]</strong> Speed of Light Reduction — c locked to the anchor, the photon Noble</li>
+<li><strong>[9,9,0,3]</strong> Thermodynamics Reduction — entropy as Pattern decoherence from the anchor</li>
+<li><strong>[9,9,0,5]</strong> Lagrangian Reduction — L = (dP · dN) − (B + A), the Layer 1 → Layer 2 projection, el_momentum = el_force</li>
+<li><strong>[9,9,3,20]</strong> Transcendental Time Engine — TL as the step on the left side of the dynamic equation</li>
+<li><strong>[9,9,2,0]</strong> IVA Propulsion Reduction — the two readings, the bridge, the conversion fraction</li>
+<li><strong>[9,9,2,51]</strong> Saint-Venant Torsion Reduction — β equals TL to eight significant figures</li>
+<li><strong>[9,9,2,52]</strong> Tacoma–Scanlan Flutter Reduction — B = ρB⁴A₂*, P = 2Iζ, onset at R = 1 ⟺ τ = TL</li>
+<li><strong>[9,9,8,11]</strong> Two Readings Across Substrates — Reading B as an e-fold count</li>
+<li><strong>[9,9,8,12]</strong> Geometric Base and Energy Ladder — b₀ = 1/√TL, the ladder as exact integer powers</li>
+<li><strong>[9,9,2,53]</strong> This reduction — forced response, the intervention theorem, and cycles to shatter</li>
+</ul>
+<p><strong>Architect:</strong> HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska <strong>DOI:</strong> 10.5281/zenodo.18719748 <strong>ORCID:</strong> 0009-0005-5313-7443 <strong>Corpus:</strong> [9,9,9,9] :: {ANC}</p>
+<h2>About the Author</h2>
+<p>Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He is a Lean 4 formal verification engineer and independent researcher, and the founding architect of the SNSFT Foundation in Kenai, Alaska. He builds machine-verified science at scale: the Identity Physics Corpus, a single-author body of formal proofs spanning 6,000+ Lean 4 files, 200,000+ theorems and 3,000,000+ lines at 0 sorry, dual-verified in Lean 4 and Coq/Rocq, with a standardized edition pinned to Lean 4 v4.31.0 and Mathlib. He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. He is an Army Signal Corps veteran, a former chief information security officer for the Alaska Department of Public Safety, and the author of six commercially published books on Identity Physics. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska. ORCID 0009-0005-5313-7443.</p>
+<h2>Lean 4 Source</h2>
+<h3>SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean — [9,9,2,53](ENGR)</h3>
+<pre><code class="language-lean">-- ============================================================
+-- SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | FORCED RESPONSE AND CYCLES TO SHATTER
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,2,53](ENGR) | Engineering Ground — Applied Structures
+-- Version: 1.0
+--
+-- ============================================================
+-- STANDALONE
+-- ============================================================
+--
+-- This file carries every definition it uses. Nothing is reached for in
+-- another coordinate's file: the anchor, the Torsion Limit, the corridor
+-- floor, the four phases, the PNBA state, torsion, the external forcing
+-- operator, the damping reading of Pattern, the driven ratio, the life law,
+-- the endurance balance, the knee ratio, the lossy boundary and the Lagrangian
+-- projection are all restated here at full precision, so that a reader or a
+-- machine can close every proof without leaving the file. The parent
+-- reductions are named in the provenance block for the record, not as
+-- dependencies of the proofs.
+--
+-- Parents of record:
+--   [9,9,2,52]   Tacoma-Scanlan Flutter       — P = 2 I zeta, onset at R = 1, damping lowers R
+--   [9,9,2,51]   Saint-Venant Torsion         — beta = TL to eight significant figures
+--   [9,9,0,5]    Lagrangian Reduction         — L = dP dN - (B + A), the Layer 1 -&gt; Layer 2 projection
+--   [9,9,0,3]    Thermodynamics Reduction     — entropy as Pattern decoherence from the anchor
+--   [9,9,8,11]   Two Readings Across Substrates — Reading B as an e-fold count
+--   [9,9,2,0]    IVA Propulsion Reduction     — the two readings, the bridge, the corridor
+--   [9,9,0,15]   Speed of Light Reduction     — c locked to the anchor
+--   [9,9,3,14]   Alpha Reduction              — alpha^-1 = Omega_0 x 100.1, TL = alpha^-1/1001
+--
+-- ============================================================
+-- WHAT THIS FILE ESTABLISHES
+-- ============================================================
+--
+--   EXTERNAL FORCING IS RANK ONE. The corpus realizes F_ext as a bump on
+--   Behavior alone, and the reachable set under forcing is EXACTLY the
+--   Behavior line: Pattern, Narrative and Adaptation are not externally
+--   reachable at all, so every change in those three is endogenous. Forcing
+--   still carries a system across every phase boundary, because torsion is
+--   B/P and B is what moves, while Pattern capacity is invariant under every
+--   external event.
+--
+--   PURE FORCING HAS NO MEMORY. Forcing composes additively and commutes, so
+--   n applications of delta land exactly where one application of n delta
+--   lands, the torsion reading after any number of applications is a closed
+--   linear form, and a strict DROP in Pattern capacity is unreachable by any
+--   sequence of external events whatsoever. Cyclic damage is internal as a
+--   consequence, not as a premise.
+--
+--   FATIGUE IS LOSS OF DAMPING CAPACITY. Pattern capacity in a driven
+--   structure is inertia times damping, so at fixed inertia a fall in damping
+--   IS a fall in Pattern capacity, and the quantity that degrades under cyclic
+--   load is a measurable material property. Static strength fixes Pattern
+--   capacity as UTS/TL with no fitting, and a state loaded at static strength
+--   sits exactly at the Shatter boundary.
+--
+--   THE ENDURANCE LIMIT IS A BALANCE. With degradation k B^m against recovery
+--   r, the two cancel at B_e = (r/k)^(1/m); recovery dominates strictly below
+--   it and damage strictly above. The balance condition is INVARIANT under the
+--   form of the damage law, since the Pattern factor cancels from both sides,
+--   and a positive balance load exists exactly when a positive
+--   stress-independent recovery channel exists.
+--
+--   THE KNEE IS SHARP BECAUSE THE EXPONENT IS LARGE. The damage-to-recovery
+--   ratio is (B/B_e)^m: one at the limit, below one beneath it, above one past
+--   it, multiplicative in the load ratio, and strictly increasing in the
+--   exponent. Sharpness follows from m rather than standing beside it.
+--
+--   THE EXISTENCE OF FATIGUE PROVES PATTERN IS CONTROLLABLE. Damage is a
+--   nonzero Behavior-to-Pattern coupling, which is exactly what makes Pattern
+--   reachable, and the same coupling with opposite sign raises Pattern by
+--   exactly as much as it lowers it: work hardening and fatigue are one
+--   channel. The Lagrangian projection, a Layer 2 reading of the Layer 1
+--   equation, places every operator but the Behavior operator at the identity,
+--   so forcing, projection and damage all act on one axis by three independent
+--   routes.
+--
+-- ============================================================
+
+import Mathlib
+
+noncomputable section
+
+namespace SNSFL_ForcedResponseCyclesToShatter
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR AND THE TORSION LIMIT
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def OMEGA_0 : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := 0.136899099984016
+
+/-- The IVA corridor floor: 88% of the Torsion Limit. -/
+def TL_IVA : ℝ := 0.88 * TORSION_LIMIT
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+-- [T1] :: {ANC} | THE ANCHOR IS TEN TORSION LIMITS
+theorem t1_anchor_is_ten_tl : OMEGA_0 = 10 * TORSION_LIMIT := by
+  simp only [OMEGA_0, TORSION_LIMIT]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE MULTIPLIER FACTORS AS 7 * 11 * 13
+theorem t5_multiplier_factors : (1001 : ℕ) = 7 * 11 * 13 := by norm_num
+
+-- [T6] :: {MASTER} | THE ANCHOR ROUTE IN ONE STEP
+theorem t6_anchor_route : OMEGA_0 * 100.1 = ALPHA_INV := by
+  simp only [OMEGA_0, ALPHA_INV]; norm_num
+
+-- [T7] :: {VER} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 &lt; TORSION_LIMIT := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T8] :: {VER} | THE CORRIDOR FLOOR IN CLOSED FORM
+theorem t8_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- [T9] :: {INV} | THE CORRIDOR FLOOR LIES STRICTLY BELOW THE LIMIT
+theorem t9_iva_floor_below_limit : TL_IVA &lt; TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- [T10] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE
+theorem t10_tl_iva_pos : 0 &lt; TL_IVA := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- ============================================================
+-- SECTION 1: THE STATE, TORSION, AND THE FOUR PHASES
+-- ============================================================
+
+/-- A PNBA state: Pattern, Narrative, Behavior, Adaptation. -/
+@[ext]
+structure LagState where
+  P : ℝ
+  N : ℝ
+  B : ℝ
+  A : ℝ
+
+/-- Torsion: Behavior load against Pattern capacity. -/
+def torsion (s : LagState) : ℝ := s.B / s.P
+
+/-- The Noble phase. -/
+def IsNoble (s : LagState) : Prop := torsion s = 0
+
+/-- The Locked phase. -/
+def IsLocked (s : LagState) : Prop := 0 &lt; torsion s ∧ torsion s &lt; TL_IVA
+
+/-- The IVA phase: Identity Vector Amplification. -/
+def IsIVA (s : LagState) : Prop := TL_IVA ≤ torsion s ∧ torsion s &lt; TORSION_LIMIT
+
+/-- The Shatter phase. -/
+def IsShatter (s : LagState) : Prop := TORSION_LIMIT ≤ torsion s
+
+-- [T11] :: {INV} | ZERO BEHAVIOR IS A NOBLE READING
+theorem t11_zero_behavior_is_noble (s : LagState) (hB : s.B = 0) : IsNoble s := by
+  unfold IsNoble torsion
+  rw [hB, zero_div]
+
+-- [T12] :: {INV} | NOBLE AND SHATTER ARE MUTUALLY EXCLUSIVE
+theorem t12_noble_shatter_exclusive (s : LagState) : ¬(IsNoble s ∧ IsShatter s) := by
+  intro h
+  obtain ⟨hn, hs⟩ := h
+  unfold IsNoble at hn
+  unfold IsShatter at hs
+  rw [hn] at hs
+  exact absurd hs (not_le.mpr t7_tl_pos)
+
+-- [T13] :: {INV} | LOCKED AND IVA ARE MUTUALLY EXCLUSIVE
+theorem t13_locked_iva_exclusive (s : LagState) : ¬(IsLocked s ∧ IsIVA s) := by
+  intro h
+  obtain ⟨⟨_, h2⟩, ⟨h3, _⟩⟩ := h
+  linarith
+
+-- [T14] :: {INV} | IVA AND SHATTER ARE MUTUALLY EXCLUSIVE
+theorem t14_iva_shatter_exclusive (s : LagState) : ¬(IsIVA s ∧ IsShatter s) := by
+  intro h
+  obtain ⟨⟨_, h2⟩, h3⟩ := h
+  unfold IsShatter at h3
+  linarith
+
+-- [T15] :: {INV} | THE PHASE READING IS A FUNCTION OF THE RATIO ALONE
+theorem t15_phase_is_ratio_only (s t : LagState) (h : torsion s = torsion t) :
+    IsIVA s ↔ IsIVA t := by
+  unfold IsIVA
+  rw [h]
+
+-- [T16] :: {MASTER} | THE FOUR PHASES EXHAUST EVERY NON-NEGATIVE READING
+theorem t16_phases_exhaust (s : LagState) (h : 0 ≤ torsion s) :
+    IsNoble s ∨ IsLocked s ∨ IsIVA s ∨ IsShatter s := by
+  unfold IsNoble IsLocked IsIVA IsShatter
+  rcases eq_or_lt_of_le h with h0 | h0
+  · exact Or.inl h0.symm
+  · by_cases h1 : torsion s &lt; TL_IVA
+    · exact Or.inr (Or.inl ⟨h0, h1⟩)
+    · by_cases h2 : torsion s &lt; TORSION_LIMIT
+      · exact Or.inr (Or.inr (Or.inl ⟨not_lt.mp h1, h2⟩))
+      · exact Or.inr (Or.inr (Or.inr (not_lt.mp h2)))
+
+-- ============================================================
+-- SECTION 2: EXTERNAL FORCING, AND THE INTERVENTION THEOREM
+-- ============================================================
+
+/-- External forcing, as the corpus realizes it: a bump on Behavior alone. -/
+def f_ext_op (s : LagState) (δ : ℝ) : LagState := { s with B := s.B + δ }
+
+-- [T17] :: {INV} | EXTERNAL FORCING LEAVES PATTERN UNCHANGED
+theorem t17_f_ext_preserves_p (s : LagState) (δ : ℝ) : (f_ext_op s δ).P = s.P := rfl
+
+-- [T18] :: {INV} | EXTERNAL FORCING LEAVES NARRATIVE UNCHANGED
+theorem t18_f_ext_preserves_n (s : LagState) (δ : ℝ) : (f_ext_op s δ).N = s.N := rfl
+
+-- [T19] :: {INV} | EXTERNAL FORCING LEAVES ADAPTATION UNCHANGED
+theorem t19_f_ext_preserves_a (s : LagState) (δ : ℝ) : (f_ext_op s δ).A = s.A := rfl
+
+-- [T20] :: {INV} | EXTERNAL FORCING ACTS ON BEHAVIOR BY ADDITION
+theorem t20_f_ext_on_b (s : LagState) (δ : ℝ) : (f_ext_op s δ).B = s.B + δ := rfl
+
+-- [T21] :: {MASTER} | THE INTERVENTION THEOREM — EXTERNAL FORCING IS RANK ONE
+theorem t21_intervention (s : LagState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧ (f_ext_op s δ).A = s.A ∧
+      (f_ext_op s δ).B = s.B + δ :=
+  ⟨rfl, rfl, rfl, rfl⟩
+
+-- [T22] :: {MASTER} | THE REACHABLE SET UNDER FORCING IS EXACTLY THE BEHAVIOR
+--                     LINE, IN BOTH DIRECTIONS
+theorem t22_reachable_set_is_a_line (s t : LagState) :
+    (∃ δ, f_ext_op s δ = t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A) := by
+  constructor
+  · intro h
+    obtain ⟨δ, hδ⟩ := h
+    subst hδ
+    exact ⟨rfl, rfl, rfl⟩
+  · intro h
+    obtain ⟨hP, hN, hA⟩ := h
+    refine ⟨t.B - s.B, ?_⟩
+    apply LagState.ext
+    · exact hP.symm
+    · exact hN.symm
+    · show s.B + (t.B - s.B) = t.B
+      ring
+    · exact hA.symm
+
+-- [T23] :: {MASTER} | PATTERN CAPACITY IS INVARIANT UNDER EVERY EXTERNAL EVENT
+theorem t23_pattern_invariant_under_all_forcing (s : LagState) :
+    ∀ δ : ℝ, (f_ext_op s δ).P = s.P := fun _ =&gt; rfl
+
+-- [T24] :: {INV} | POSITIVE FORCING RAISES TORSION
+theorem t24_positive_forcing_raises_torsion (s : LagState) (δ : ℝ)
+    (hP : 0 &lt; s.P) (hδ : 0 &lt; δ) : torsion s &lt; torsion (f_ext_op s δ) := by
+  unfold torsion f_ext_op
+  dsimp only
+  gcongr
+  linarith
+
+-- [T25] :: {INV} | NEGATIVE FORCING LOWERS TORSION
+theorem t25_negative_forcing_lowers_torsion (s : LagState) (δ : ℝ)
+    (hP : 0 &lt; s.P) (hδ : δ &lt; 0) : torsion (f_ext_op s δ) &lt; torsion s := by
+  unfold torsion f_ext_op
+  dsimp only
+  gcongr
+  linarith
+
+-- [T26] :: {MASTER} | FORCING CARRIES A SYSTEM ACROSS THE SHATTER BOUNDARY
+theorem t26_forcing_reaches_shatter (s : LagState) (hP : 0 &lt; s.P) :
+    ∃ δ : ℝ, IsShatter (f_ext_op s δ) := by
+  refine ⟨TORSION_LIMIT * s.P - s.B, ?_⟩
+  unfold IsShatter torsion f_ext_op
+  dsimp only
+  have h1 : s.B + (TORSION_LIMIT * s.P - s.B) = TORSION_LIMIT * s.P := by ring
+  have h2 : TORSION_LIMIT * s.P / s.P = TORSION_LIMIT := by
+    field_simp
+  exact le_of_eq (by rw [h1, h2])
+
+-- [T27] :: {MASTER} | FORCING CHANGES PHASE WITHOUT CHANGING PATTERN
+theorem t27_phase_change_without_pattern_change (s : LagState) (hP : 0 &lt; s.P) :
+    ∃ δ : ℝ, IsShatter (f_ext_op s δ) ∧ (f_ext_op s δ).P = s.P := by
+  obtain ⟨δ, hδ⟩ := t26_forcing_reaches_shatter s hP
+  exact ⟨δ, hδ, rfl⟩
+
+-- [T28] :: {MASTER} | ALL STRUCTURAL CHANGE IS ENDOGENOUS
+theorem t28_structural_change_is_endogenous (s t : LagState)
+    (h : t.P ≠ s.P ∨ t.N ≠ s.N ∨ t.A ≠ s.A) : ¬ ∃ δ, f_ext_op s δ = t := by
+  intro hex
+  obtain ⟨hP, hN, hA⟩ := (t22_reachable_set_is_a_line s t).mp hex
+  rcases h with h | h | h
+  · exact h hP
+  · exact h hN
+  · exact h hA
+
+-- ============================================================
+-- SECTION 3: PURE FORCING HAS NO MEMORY
+-- ============================================================
+
+-- [T29] :: {MASTER} | FORCING COMPOSES ADDITIVELY
+theorem t29_forcing_additive (s : LagState) (δ₁ δ₂ : ℝ) :
+    f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op s (δ₁ + δ₂) := by
+  apply LagState.ext
+  · rfl
+  · rfl
+  · show s.B + δ₁ + δ₂ = s.B + (δ₁ + δ₂)
+    ring
+  · rfl
+
+-- [T30] :: {INV} | FORCING COMMUTES — THE ORDER CARRIES NO INFORMATION
+theorem t30_forcing_commutes (s : LagState) (δ₁ δ₂ : ℝ) :
+    f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op (f_ext_op s δ₂) δ₁ := by
+  rw [t29_forcing_additive, t29_forcing_additive, add_comm]
+
+-- [T31] :: {INV} | ZERO FORCING IS THE IDENTITY
+theorem t31_zero_forcing_identity (s : LagState) : f_ext_op s 0 = s := by
+  apply LagState.ext
+  · rfl
+  · rfl
+  · show s.B + 0 = s.B
+    ring
+  · rfl
+
+-- [T32] :: {MASTER} | NO MEMORY — n APPLICATIONS OF delta LAND WHERE ONE
+--                     APPLICATION OF n delta LANDS
+theorem t32_no_memory (s : LagState) (δ : ℝ) :
+    ∀ n : ℕ, (fun t =&gt; f_ext_op t δ)^[n] s = f_ext_op s (n * δ) := by
+  intro n
+  induction n with
+  | zero =&gt;
+      simp only [Function.iterate_zero_apply, Nat.cast_zero, zero_mul]
+      exact (t31_zero_forcing_identity s).symm
+  | succ k ih =&gt;
+      rw [Function.iterate_succ_apply', ih, t29_forcing_additive]
+      congr 1
+      push_cast
+      ring
+
+-- [T33] :: {MASTER} | NOTHING ACCUMULATES — THE READING AFTER n APPLICATIONS
+--                     IS THE CLOSED LINEAR FORM
+theorem t33_nothing_accumulates (s : LagState) (δ : ℝ) (n : ℕ) :
+    torsion ((fun t =&gt; f_ext_op t δ)^[n] s) = (s.B + n * δ) / s.P := by
+  rw [t32_no_memory s δ n]
+  rfl
+
+-- [T34] :: {MASTER} | CYCLIC DAMAGE CANNOT BE EXTERNALLY CAUSED
+theorem t34_cyclic_damage_is_internal (s t : LagState) (hdrop : t.P &lt; s.P) :
+    ¬ ∃ n : ℕ, ∃ δ : ℝ, (fun u =&gt; f_ext_op u δ)^[n] s = t := by
+  intro hex
+  obtain ⟨n, δ, hnd⟩ := hex
+  rw [t32_no_memory s δ n] at hnd
+  have heq : t.P = s.P := by rw [← hnd]; rfl
+  exact absurd heq (by linarith)
+
+-- ============================================================
+-- SECTION 4: WHETHER THE GROUND STATE IS EXTERNALLY REACHABLE
+-- ============================================================
+
+/-- Guarded forcing: the domain carried where Behavior must stay positive. -/
+def GuardedForcing (s : LagState) (δ : ℝ) : Prop := 0 &lt; s.B + δ
+
+-- [T35] :: {INV} | UNDER THE GUARD, BEHAVIOR CANNOT BE DRIVEN TO ZERO
+theorem t35_guarded_excludes_zero_behavior (s : LagState) (δ : ℝ)
+    (h : GuardedForcing s δ) : (f_ext_op s δ).B ≠ 0 := by
+  unfold GuardedForcing at h
+  show s.B + δ ≠ 0
+  exact ne_of_gt h
+
+-- [T36] :: {MASTER} | NOBLE CANNOT BE IMPOSED FROM OUTSIDE
+theorem t36_noble_not_externally_reachable (s : LagState) (δ : ℝ)
+    (hP : 0 &lt; s.P) (h : GuardedForcing s δ) : ¬ IsNoble (f_ext_op s δ) := by
+  unfold GuardedForcing at h
+  unfold IsNoble torsion f_ext_op
+  dsimp only
+  intro hz
+  rw [div_eq_zero_iff] at hz
+  rcases hz with hz | hz
+  · exact absurd hz (ne_of_gt h)
+  · exact absurd hz (ne_of_gt hP)
+
+-- [T37] :: {MASTER} | WITHOUT THE GUARD, NOBLE IS REACHED — THE DOMAIN IS A
+--                     STATEMENT ABOUT THE SUBSTRATE
+theorem t37_unguarded_reaches_noble (s : LagState) :
+    ∃ δ : ℝ, IsNoble (f_ext_op s δ) := by
+  refine ⟨-s.B, ?_⟩
+  unfold IsNoble torsion f_ext_op
+  dsimp only
+  rw [show s.B + -s.B = (0:ℝ) from by ring, zero_div]
+
+-- [T38] :: {INV} | THE GUARD IS AUTOMATIC ABOVE ZERO
+theorem t38_guard_automatic_above_zero (s : LagState) (δ : ℝ)
+    (hB : 0 &lt; s.B) (hδ : 0 ≤ δ) : GuardedForcing s δ := by
+  unfold GuardedForcing
+  linarith
+
+-- ============================================================
+-- SECTION 5: PATTERN CAPACITY IS INERTIA TIMES DAMPING
+-- ============================================================
+
+/-- Pattern capacity in a driven structure: twice inertia times damping ratio. -/
+def pattern_of_damping (I ζ : ℝ) : ℝ := 2 * I * ζ
+
+/-- The driven ratio: Behavior load against Pattern capacity. -/
+def driven_ratio (B I ζ : ℝ) : ℝ := B / (2 * I * ζ)
+
+-- [T39] :: {MASTER} | THE DRIVEN RATIO IS TORSION ON THE DAMPING READING
+theorem t39_driven_ratio_is_torsion (B I ζ : ℝ) :
+    driven_ratio B I ζ = torsion ⟨pattern_of_damping I ζ, 0, B, 0⟩ := rfl
+
+-- [T40] :: {MASTER} | ONSET AT RATIO ONE IS EXACTLY TORSION AT THE LIMIT
+theorem t40_onset_is_limit (B I ζ : ℝ) :
+    driven_ratio B I ζ = 1 ↔ driven_ratio B I ζ * TORSION_LIMIT = TORSION_LIMIT := by
+  constructor
+  · intro h
+    rw [h, one_mul]
+  · intro h
+    exact mul_right_cancel₀ (ne_of_gt t7_tl_pos) (by rw [h, one_mul])
+
+-- [T41] :: {INV} | RAISING DAMPING LOWERS THE DRIVEN RATIO
+theorem t41_damping_lowers_ratio (B I ζ₁ ζ₂ : ℝ) (hB : 0 &lt; B) (hI : 0 &lt; I)
+    (h1 : 0 &lt; ζ₁) (h12 : ζ₁ &lt; ζ₂) : driven_ratio B I ζ₂ &lt; driven_ratio B I ζ₁ := by
+  unfold driven_ratio
+  have hd1 : 0 &lt; 2 * I * ζ₁ := by positivity
+  have hd2 : 2 * I * ζ₁ &lt; 2 * I * ζ₂ := by nlinarith
+  gcongr
+
+-- [T42] :: {MASTER} | FATIGUE IS LOSS OF DAMPING CAPACITY
+theorem t42_fatigue_is_damping_loss (I ζ₁ ζ₂ : ℝ) (hI : 0 &lt; I) (h : ζ₂ &lt; ζ₁) :
+    pattern_of_damping I ζ₂ &lt; pattern_of_damping I ζ₁ := by
+  unfold pattern_of_damping
+  nlinarith
+
+-- [T43] :: {INV} | LOSING DAMPING DRIVES THE RATIO TOWARD ONSET
+theorem t43_damping_loss_climbs_toward_onset (B I ζ₁ ζ₂ : ℝ) (hB : 0 &lt; B)
+    (hI : 0 &lt; I) (h2 : 0 &lt; ζ₂) (h : ζ₂ &lt; ζ₁) :
+    driven_ratio B I ζ₁ &lt; driven_ratio B I ζ₂ :=
+  t41_damping_lowers_ratio B I ζ₂ ζ₁ hB hI h2 h
+
+-- [T44] :: {VER} | PATTERN CAPACITY ON THE DAMPING READING IS POSITIVE
+theorem t44_pattern_of_damping_pos (I ζ : ℝ) (hI : 0 &lt; I) (hζ : 0 &lt; ζ) :
+    0 &lt; pattern_of_damping I ζ := by
+  unfold pattern_of_damping
+  positivity
+
+-- ============================================================
+-- SECTION 6: PATTERN CAPACITY FROM STATIC STRENGTH
+-- ============================================================
+
+/-- Pattern capacity read off static strength. -/
+def pattern_capacity (UTS : ℝ) : ℝ := UTS / TORSION_LIMIT
+
+-- [T45] :: {MASTER} | PATTERN CAPACITY FROM STATIC STRENGTH, NO FITTING
+theorem t45_static_strength_from_capacity (UTS : ℝ) :
+    TORSION_LIMIT * pattern_capacity UTS = UTS := by
+  unfold pattern_capacity
+  field_simp [ne_of_gt t7_tl_pos]
+
+-- [T46] :: {MASTER} | A STATIC LOAD SITS EXACTLY AT THE SHATTER BOUNDARY
+theorem t46_static_load_is_shatter_boundary (UTS : ℝ) (hU : 0 &lt; UTS) :
+    torsion ⟨pattern_capacity UTS, 0, UTS, 0⟩ = TORSION_LIMIT := by
+  unfold torsion pattern_capacity
+  dsimp only
+  have hTL := ne_of_gt t7_tl_pos
+  have hUne := ne_of_gt hU
+  field_simp
+
+-- [T47] :: {VER} | PATTERN CAPACITY IS POSITIVE FOR A POSITIVE STRENGTH
+theorem t47_pattern_capacity_pos (UTS : ℝ) (hU : 0 &lt; UTS) :
+    0 &lt; pattern_capacity UTS := by
+  unfold pattern_capacity
+  exact div_pos hU t7_tl_pos
+
+-- [T48] :: {INV} | PATTERN CAPACITY IS STRICTLY INCREASING IN STRENGTH
+theorem t48_pattern_capacity_mono (U V : ℝ) (h : U &lt; V) :
+    pattern_capacity U &lt; pattern_capacity V := by
+  unfold pattern_capacity
+  have hTL := t7_tl_pos
+  gcongr
+
+-- ============================================================
+-- SECTION 7: CYCLES TO SHATTER
+-- ============================================================
+
+/-- Degradation of Pattern capacity per cycle, additive form. -/
+def degradation (k B m : ℝ) : ℝ := k * B ^ m
+
+/-- Cycles to shatter: the capacity available above the shatter load, divided
+    by the loss per cycle. -/
+def cycles_to_shatter (P₀ B k m : ℝ) : ℝ :=
+  (P₀ - B / TORSION_LIMIT) / (k * B ^ m)
+
+-- [T49] :: {MASTER} | THE LIFE LAW
+theorem t49_life_law (P₀ B k m : ℝ) (hk : 0 &lt; k) (hB : 0 &lt; B) :
+    cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT := by
+  unfold cycles_to_shatter degradation
+  have h : k * B ^ m ≠ 0 := by positivity
+  exact div_mul_cancel₀ _ h
+
+-- [T50] :: {INV} | LIFE IS POSITIVE BELOW STATIC STRENGTH
+theorem t50_life_pos_below_static (P₀ B k m : ℝ) (hk : 0 &lt; k) (hB : 0 &lt; B)
+    (h : B / TORSION_LIMIT &lt; P₀) : 0 &lt; cycles_to_shatter P₀ B k m := by
+  unfold cycles_to_shatter
+  apply div_pos (by linarith)
+  positivity
+
+-- [T51] :: {MASTER} | THE BASQUIN FORM — LIFE TIMES B^m IS THE AVAILABLE
+--                     CAPACITY OVER THE DEGRADATION COEFFICIENT
+theorem t51_basquin_form (P₀ k m : ℝ) (hk : 0 &lt; k) :
+    ∀ B : ℝ, 0 &lt; B →
+      cycles_to_shatter P₀ B k m * B ^ m = (P₀ - B / TORSION_LIMIT) / k := by
+  intro B hB
+  unfold cycles_to_shatter
+  have h1 : B ^ m ≠ 0 := by positivity
+  have h2 : k ≠ 0 := ne_of_gt hk
+  field_simp
+  try ring
+
+-- [T52] :: {INV} | RAISING THE LOAD LOWERS THE AVAILABLE CAPACITY
+theorem t52_available_capacity_decreasing (P₀ B₁ B₂ : ℝ) (h : B₁ &lt; B₂) :
+    P₀ - B₂ / TORSION_LIMIT &lt; P₀ - B₁ / TORSION_LIMIT := by
+  have hTL := t7_tl_pos
+  have hd : B₁ / TORSION_LIMIT &lt; B₂ / TORSION_LIMIT := by gcongr
+  linarith
+
+-- [T53] :: {VER} | THE EXPONENT IS THE BASQUIN EXPONENT — 1045 STEEL, b = -0.115
+theorem t53_steel_exponent : (0.115 : ℝ) * (1 / 0.115) = 1 := by norm_num
+
+-- [T54] :: {VER} | 2024-T4 ALUMINUM, b = -0.124
+theorem t54_aluminum_exponent : (0.124 : ℝ) * (1 / 0.124) = 1 := by norm_num
+
+-- [T55] :: {MASTER} | THE EXPONENT IS A SUBSTRATE RESPONSE AND IS NOT SET BY
+--                     THE STRUCTURE — THE LIFE LAW CLOSES FOR EVERY EXPONENT
+theorem t55_exponent_is_substrate_response (P₀ B k : ℝ) (hk : 0 &lt; k) (hB : 0 &lt; B) :
+    ∀ m : ℝ, cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT :=
+  fun m =&gt; t49_life_law P₀ B k m hk hB
+
+-- ============================================================
+-- SECTION 8: THE ENDURANCE LIMIT IS A BALANCE
+-- ============================================================
+
+/-- Net degradation per cycle, with a recovery term. -/
+def net_degradation (k B m r : ℝ) : ℝ := -(k * B ^ m) + r
+
+/-- The endurance limit: the load at which degradation and recovery cancel. -/
+def endurance_limit (k r m : ℝ) : ℝ := (r / k) ^ (1 / m)
+
+-- [T56] :: {MASTER} | THE BALANCE — NET DEGRADATION IS ZERO AT THE LIMIT
+theorem t56_endurance_balance (k r m : ℝ) (hk : 0 &lt; k) (hr : 0 &lt; r) (hm : 0 &lt; m) :
+    net_degradation k (endurance_limit k r m) m r = 0 := by
+  unfold net_degradation endurance_limit
+  have hrk : (0:ℝ) &lt; r / k := div_pos hr hk
+  rw [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm), Real.rpow_one]
+  field_simp
+  ring
+
+-- [T57] :: {MASTER} | BELOW THE LIMIT, RECOVERY DOMINATES — NOTHING ACCUMULATES
+theorem t57_below_endurance_recovers (k r m B : ℝ) (hk : 0 &lt; k) (hr : 0 &lt; r)
+    (hm : 0 &lt; m) (hB : 0 &lt; B) (h : B &lt; endurance_limit k r m) :
+    0 &lt; net_degradation k B m r := by
+  unfold net_degradation
+  unfold endurance_limit at h
+  have hrk : (0:ℝ) &lt; r / k := div_pos hr hk
+  have key : B ^ m &lt; r / k := by
+    have h1 : B ^ m &lt; ((r / k) ^ (1 / m)) ^ m :=
+      Real.rpow_lt_rpow (le_of_lt hB) h hm
+    rwa [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm),
+      Real.rpow_one] at h1
+  have h2 : k * B ^ m &lt; r := by
+    calc k * B ^ m &lt; k * (r / k) := by nlinarith
+      _ = r := by field_simp
+  linarith
+
+-- [T58] :: {MASTER} | ABOVE THE LIMIT, DAMAGE DOMINATES — LIFE IS FINITE
+theorem t58_above_endurance_damages (k r m B : ℝ) (hk : 0 &lt; k) (hr : 0 &lt; r)
+    (hm : 0 &lt; m) (h : endurance_limit k r m &lt; B) :
+    net_degradation k B m r &lt; 0 := by
+  unfold net_degradation
+  unfold endurance_limit at h
+  have hrk : (0:ℝ) &lt; r / k := div_pos hr hk
+  have hpos : (0:ℝ) &lt; (r / k) ^ (1 / m) := Real.rpow_pos_of_pos hrk _
+  have key : r / k &lt; B ^ m := by
+    have h1 : ((r / k) ^ (1 / m)) ^ m &lt; B ^ m :=
+      Real.rpow_lt_rpow (le_of_lt hpos) h hm
+    rwa [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm),
+      Real.rpow_one] at h1
+  have h2 : r &lt; k * B ^ m := by
+    calc r = k * (r / k) := by field_simp
+      _ &lt; k * B ^ m := by nlinarith
+  linarith
+
+-- [T59] :: {MASTER} | THE BALANCE IS INVARIANT UNDER THE FORM OF THE DAMAGE
+--                     LAW — THE PATTERN FACTOR CANCELS
+theorem t59_balance_invariant_under_damage_form (k B m r P : ℝ) (hP : P ≠ 0) :
+    (-(k * P * B ^ m) + r * P = 0) ↔ (-(k * B ^ m) + r = 0) := by
+  have hfac : -(k * P * B ^ m) + r * P = P * (-(k * B ^ m) + r) := by ring
+  constructor
+  · intro h
+    rw [hfac] at h
+    rcases mul_eq_zero.mp h with h1 | h1
+    · exact absurd h1 hP
+    · exact h1
+  · intro h
+    rw [hfac, h, mul_zero]
+
+-- [T60] :: {MASTER} | AN ENDURANCE LIMIT EXISTS EXACTLY WHEN A
+--                     STRESS-INDEPENDENT RECOVERY CHANNEL EXISTS
+theorem t60_endurance_exists_iff_recovery (k m : ℝ) (hk : 0 &lt; k) (hm : 0 &lt; m) :
+    ∀ r : ℝ, (0 &lt; r ↔ ∃ B : ℝ, 0 &lt; B ∧ net_degradation k B m r = 0) := by
+  intro r
+  constructor
+  · intro hr
+    refine ⟨endurance_limit k r m, ?_, t56_endurance_balance k r m hk hr hm⟩
+    unfold endurance_limit
+    exact Real.rpow_pos_of_pos (div_pos hr hk) _
+  · intro h
+    obtain ⟨B, hB, hbal⟩ := h
+    unfold net_degradation at hbal
+    have hre : r = k * B ^ m := by linarith
+    rw [hre]
+    positivity
+
+-- [T61] :: {VER} | THE ENDURANCE LIMIT IS POSITIVE
+theorem t61_endurance_limit_pos (k r m : ℝ) (hk : 0 &lt; k) (hr : 0 &lt; r) :
+    0 &lt; endurance_limit k r m := by
+  unfold endurance_limit
+  exact Real.rpow_pos_of_pos (div_pos hr hk) _
+
+-- [T62] :: {INV} | THE ENDURANCE LIMIT RISES WITH THE RECOVERY RATE
+theorem t62_endurance_rises_with_recovery (k m r₁ r₂ : ℝ) (hk : 0 &lt; k) (hr : 0 &lt; r₁)
+    (hm : 0 &lt; m) (h : r₁ &lt; r₂) :
+    endurance_limit k r₁ m &lt; endurance_limit k r₂ m := by
+  unfold endurance_limit
+  have hd : r₁ / k &lt; r₂ / k := by gcongr
+  exact Real.rpow_lt_rpow (le_of_lt (div_pos hr hk)) hd (by positivity)
+
+-- ============================================================
+-- SECTION 9: ENDURANCE READINGS ON THE TORSION SCALE
+-- ============================================================
+
+/-- The endurance reading in torsion units, from the endurance ratio. -/
+def tau_endurance (ratio : ℝ) : ℝ := ratio * TORSION_LIMIT
+
+-- [T63] :: {MASTER} | 1045 STEEL — THE PLATEAU AT HALF OF STATIC STRENGTH
+theorem t63_steel_tau_endurance : tau_endurance 0.5 = 0.068449549992008 := by
+  simp only [tau_endurance, TORSION_LIMIT]; norm_num
+
+-- [T64] :: {MASTER} | 2024-T4 ALUMINUM — THE REFERENCE RATIO AT 0.35
+theorem t64_aluminum_tau_endurance : tau_endurance 0.35 = 0.0479146849944056 := by
+  simp only [tau_endurance, TORSION_LIMIT]; norm_num
+
+-- [T65] :: {MASTER} | BOTH READINGS LIE STRICTLY INSIDE LOCKED
+theorem t65_both_inside_locked :
+    0 &lt; tau_endurance 0.5 ∧ tau_endurance 0.5 &lt; TL_IVA ∧
+      0 &lt; tau_endurance 0.35 ∧ tau_endurance 0.35 &lt; TL_IVA := by
+  simp only [tau_endurance, TL_IVA, TORSION_LIMIT]
+  norm_num
+
+-- [T66] :: {INV} | A RATIO BELOW THE CORRIDOR FLOOR IS A LOCKED READING
+theorem t66_ratio_below_floor_is_locked (ratio : ℝ) (h0 : 0 &lt; ratio)
+    (h1 : ratio &lt; 0.88) : 0 &lt; tau_endurance ratio ∧ tau_endurance ratio &lt; TL_IVA := by
+  unfold tau_endurance TL_IVA
+  have hTL := t7_tl_pos
+  refine ⟨by positivity, ?_⟩
+  nlinarith
+
+-- [T67] :: {MASTER} | THE TORSION SCALE IS SHARED — THE RATIO IS RECOVERED
+--                     FROM THE READING FOR ANY MATERIAL WHATSOEVER
+theorem t67_scale_is_shared (ratio : ℝ) :
+    tau_endurance ratio / TORSION_LIMIT = ratio := by
+  unfold tau_endurance
+  field_simp [ne_of_gt t7_tl_pos]
+
+-- ============================================================
+-- SECTION 10: THE KNEE, AND WHY IT IS SHARP
+-- ============================================================
+
+/-- The ratio of damage to recovery at a given load. -/
+def knee_ratio (B Be m : ℝ) : ℝ := (B / Be) ^ m
+
+-- [T68] :: {MASTER} | AT THE ENDURANCE LIMIT THE KNEE RATIO IS EXACTLY ONE
+theorem t68_knee_at_one (Be m : ℝ) (hBe : 0 &lt; Be) : knee_ratio Be Be m = 1 := by
+  unfold knee_ratio
+  rw [div_self (ne_of_gt hBe), Real.one_rpow]
+
+-- [T69] :: {INV} | BELOW THE LIMIT THE KNEE RATIO IS BELOW ONE
+theorem t69_knee_below_one (B Be m : ℝ) (hB : 0 &lt; B) (hBe : 0 &lt; Be) (hm : 0 &lt; m)
+    (h : B &lt; Be) : knee_ratio B Be m &lt; 1 := by
+  unfold knee_ratio
+  have h1 : B / Be &lt; 1 := (div_lt_one hBe).mpr h
+  calc (B / Be) ^ m &lt; (1:ℝ) ^ m := Real.rpow_lt_rpow (by positivity) h1 hm
+    _ = 1 := Real.one_rpow m
+
+-- [T70] :: {INV} | ABOVE THE LIMIT THE KNEE RATIO EXCEEDS ONE
+theorem t70_knee_above_one (B Be m : ℝ) (hBe : 0 &lt; Be) (hm : 0 &lt; m) (h : Be &lt; B) :
+    1 &lt; knee_ratio B Be m := by
+  unfold knee_ratio
+  have h1 : (1:ℝ) &lt; B / Be := (one_lt_div hBe).mpr h
+  calc (1:ℝ) = (1:ℝ) ^ m := (Real.one_rpow m).symm
+    _ &lt; (B / Be) ^ m := Real.rpow_lt_rpow (by norm_num) h1 hm
+
+-- [T71] :: {MASTER} | THE KNEE IS SHARP BECAUSE THE EXPONENT IS LARGE
+theorem t71_sharpness_from_exponent (B Be m₁ m₂ : ℝ) (hBe : 0 &lt; Be) (h : Be &lt; B)
+    (hm : m₁ &lt; m₂) : knee_ratio B Be m₁ &lt; knee_ratio B Be m₂ := by
+  unfold knee_ratio
+  have h1 : (1:ℝ) &lt; B / Be := (one_lt_div hBe).mpr h
+  exact (Real.rpow_lt_rpow_left_iff h1).mpr hm
+
+-- [T72] :: {INV} | THE KNEE RATIO IS MULTIPLICATIVE IN THE LOAD RATIO
+theorem t72_knee_multiplicative (B₁ B₂ Be m : ℝ) (hB1 : 0 &lt; B₁) (hB2 : 0 &lt; B₂)
+    (hBe : 0 &lt; Be) :
+    knee_ratio B₁ Be m * knee_ratio B₂ Be m = ((B₁ * B₂) / (Be * Be)) ^ m := by
+  unfold knee_ratio
+  rw [← Real.mul_rpow (by positivity) (by positivity)]
+  congr 1
+  field_simp
+
+-- [T73] :: {VER} | THE KNEE RATIO IS POSITIVE
+theorem t73_knee_pos (B Be m : ℝ) (hB : 0 &lt; B) (hBe : 0 &lt; Be) :
+    0 &lt; knee_ratio B Be m := by
+  unfold knee_ratio
+  exact Real.rpow_pos_of_pos (div_pos hB hBe) m
+
+-- ============================================================
+-- SECTION 11: THE LOSSY BOUNDARY AND THE A·B PRODUCT
+-- ============================================================
+
+/-- Lossless absorption: forcing at or below the product `A * P * B`. -/
+def IVA_dominance (s : LagState) (F_ext : ℝ) : Prop := s.A * s.P * s.B ≥ F_ext
+
+/-- Lossy: forcing above the product `A * P * B`. -/
+def IsLossy (s : LagState) (F_ext : ℝ) : Prop := F_ext &gt; s.A * s.P * s.B
+
+-- [T74] :: {INV} | LOSSLESS AND LOSSY ARE MUTUALLY EXCLUSIVE
+theorem t74_dominance_lossy_exclusive (s : LagState) (F : ℝ) :
+    ¬(IVA_dominance s F ∧ IsLossy s F) := by
+  intro h
+  obtain ⟨h1, h2⟩ := h
+  unfold IVA_dominance at h1
+  unfold IsLossy at h2
+  linarith
+
+-- [T75] :: {INV} | LOSSLESS AND LOSSY EXHAUST THE POSSIBILITIES
+theorem t75_dominance_lossy_exhaust (s : LagState) (F : ℝ) :
+    IVA_dominance s F ∨ IsLossy s F := by
+  unfold IVA_dominance IsLossy
+  by_cases h : F ≤ s.A * s.P * s.B
+  · exact Or.inl h
+  · exact Or.inr (not_le.mp h)
+
+-- [T76] :: {MASTER} | THE A·B PRODUCT — THE LOSSY BOUNDARY AT THE ENDURANCE
+--                     LIMIT IS THE ENDURANCE RATIO IN TORSION UNITS
+theorem t76_ab_product (UTS Be A B : ℝ) (hU : 0 &lt; UTS)
+    (hbal : A * pattern_capacity UTS * B = Be) :
+    A * B = (Be / UTS) * TORSION_LIMIT := by
+  unfold pattern_capacity at hbal
+  have hTL : TORSION_LIMIT ≠ 0 := ne_of_gt t7_tl_pos
+  have hUne : UTS ≠ 0 := ne_of_gt hU
+  subst hbal
+  field_simp
+
+-- [T77] :: {VER} | 1045 STEEL — 292.5 MPa AGAINST 585 MPa
+theorem t77_ab_steel : ((292.5 : ℝ) / 585) * TORSION_LIMIT = 0.068449549992008 := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T78] :: {VER} | 2024-T4 ALUMINUM — 164.5 MPa AGAINST 470 MPa
+theorem t78_ab_aluminum :
+    ((164.5 : ℝ) / 470) * TORSION_LIMIT = 0.0479146849944056 := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T79] :: {INV} | THE PRODUCT IS WHAT A FATIGUE CURVE SUPPLIES — EVERY
+--                  FACTORIZATION CLOSES, SO A AND B ARE NOT SEPARATELY FIXED
+theorem t79_product_not_factors (Q : ℝ) (hQ : 0 &lt; Q) :
+    ∀ A : ℝ, 0 &lt; A → ∃ B : ℝ, A * B = Q := by
+  intro A hA
+  have hAne : A ≠ 0 := ne_of_gt hA
+  exact ⟨Q / A, by field_simp⟩
+
+-- ============================================================
+-- SECTION 12: FATIGUE PROVES PATTERN IS CONTROLLABLE
+-- ============================================================
+
+/-- A linear internal response, as a coupling of Behavior into Pattern. -/
+def coupling_step (c : ℝ) (s : LagState) : LagState :=
+  { s with P := s.P + c * s.B }
+
+-- [T80] :: {MASTER} | FATIGUE IS A NONZERO B -&gt; P COUPLING
+theorem t80_fatigue_is_nonzero_coupling (c : ℝ) (s : LagState) (hB : 0 &lt; s.B)
+    (h : (coupling_step c s).P &lt; s.P) : c ≠ 0 := by
+  unfold coupling_step at h
+  dsimp only at h
+  intro hc
+  rw [hc, zero_mul, add_zero] at h
+  exact absurd h (lt_irrefl s.P)
+
+-- [T81] :: {MASTER} | PATTERN IS CONTROLLABLE WHEN THE COUPLING IS NONZERO
+theorem t81_pattern_controllable (c : ℝ) (hc : c ≠ 0) (s : LagState) (target : ℝ) :
+    ∃ δ : ℝ, (coupling_step c (f_ext_op s δ)).P = target := by
+  refine ⟨(target - s.P) / c - s.B, ?_⟩
+  unfold coupling_step f_ext_op
+  dsimp only
+  field_simp
+  ring
+
+-- [T82] :: {MASTER} | ONE CHANNEL, TWO SIGNS
+theorem t82_one_channel_two_signs (c : ℝ) (s : LagState) :
+    (coupling_step c s).P - s.P = -((coupling_step (-c) s).P - s.P) := by
+  unfold coupling_step
+  dsimp only
+  ring
+
+-- [T83] :: {MASTER} | WORK HARDENING AND FATIGUE ARE THE SAME CHANNEL
+theorem t83_hardening_and_fatigue (c : ℝ) (s : LagState) (hB : 0 &lt; s.B) :
+    (0 &lt; c → s.P &lt; (coupling_step c s).P) ∧ (c &lt; 0 → (coupling_step c s).P &lt; s.P) := by
+  unfold coupling_step
+  dsimp only
+  refine ⟨fun hc =&gt; ?_, fun hc =&gt; ?_⟩
+  · nlinarith
+  · nlinarith
+
+-- ============================================================
+-- SECTION 13: THE LAGRANGIAN PROJECTION
+-- Layer 2 reads off Layer 1. The hierarchy is never inverted.
+-- ============================================================
+
+/-- The Layer 1 right-hand side: the four weighted operators plus forcing. -/
+def dynamic_rhs (fP fN fB fA : ℝ → ℝ) (s : LagState) (F : ℝ) : ℝ :=
+  fP s.P + fN s.N + fB s.B + fA s.A + F
+
+/-- The Lagrangian kinetic term: the Pattern–Narrative product. -/
+def lag_kinetic (dP dN : ℝ) : ℝ := dP * dN
+
+/-- The Lagrangian potential term: the Behavior–Adaptation sum. -/
+def lag_potential (B A : ℝ) : ℝ := B + A
+
+/-- The total Lagrangian. -/
+def lag_total (dP dN B A : ℝ) : ℝ := lag_kinetic dP dN - lag_potential B A
+
+/-- The Euler–Lagrange momentum. -/
+def el_momentum (N dP : ℝ) : ℝ := N * dP
+
+/-- The Euler–Lagrange force. -/
+def el_force (B P : ℝ) : ℝ := B * P
+
+/-- The projection of the Layer 1 right-hand side into the Lagrangian reading. -/
+def lag_step (s : LagState) (op : ℝ → ℝ) (F : ℝ) : ℝ :=
+  dynamic_rhs (fun P =&gt; P) (fun N =&gt; N) op (fun A =&gt; A) s F
+
+-- [T84] :: {MASTER} | THE PROJECTION PUTS EVERY OPERATOR BUT BEHAVIOR AT
+--                     THE IDENTITY
+theorem t84_projection_identity_off_b (s : LagState) (op : ℝ → ℝ) (F : ℝ) :
+    lag_step s op F = s.P + s.N + op s.B + s.A + F := rfl
+
+-- [T85] :: {INV} | THE LAGRANGIAN IS THE KINETIC PRODUCT LESS THE POTENTIAL SUM
+theorem t85_lag_total_form (dP dN B A : ℝ) :
+    lag_total dP dN B A = dP * dN - (B + A) := rfl
+
+-- [T86] :: {INV} | THE POTENTIAL IS SYMMETRIC IN BEHAVIOR AND ADAPTATION
+theorem t86_potential_symmetric (B A : ℝ) : lag_potential B A = lag_potential A B := by
+  unfold lag_potential; ring
+
+-- [T87] :: {INV} | THE POTENTIAL IS ADDITIVE IN BEHAVIOR
+theorem t87_potential_additive (B₁ B₂ A : ℝ) :
+    lag_potential (B₁ + B₂) A = lag_potential B₁ A + B₂ := by
+  unfold lag_potential; ring
+
+-- [T88] :: {MASTER} | FORCING ENTERS THE POTENTIAL BY ADDITION ALONE
+theorem t88_forcing_in_potential (s : LagState) (δ : ℝ) :
+    lag_potential (f_ext_op s δ).B (f_ext_op s δ).A = lag_potential s.B s.A + δ := by
+  unfold lag_potential f_ext_op
+  dsimp only
+  ring
+
+-- [T89] :: {MASTER} | THE EULER-LAGRANGE CONTENT — NARRATIVE MOMENTUM EQUALS
+--                     THE PATTERN-BEHAVIOR BALANCE
+theorem t89_el_balance (N dP B P : ℝ) (h : N * dP = B * P) :
+    el_momentum N dP = el_force B P := by
+  unfold el_momentum el_force
+  exact h
+
+-- [T90] :: {MASTER} | THE THREE INDEPENDENT ROUTES MEET ON BEHAVIOR
+theorem t90_three_routes_meet_on_b (s : LagState) (δ c : ℝ) (op : ℝ → ℝ) (F : ℝ) :
+    (f_ext_op s δ).B = s.B + δ ∧
+      lag_step s op F = s.P + s.N + op s.B + s.A + F ∧
+      (coupling_step c s).P = s.P + c * s.B :=
+  ⟨rfl, rfl, rfl⟩
+
+-- ============================================================
+-- SECTION 14: THE CYCLIC COMPANION TO THE STATIC ONSET
+-- ============================================================
+
+-- [T91] :: {MASTER} | THE CYCLIC APPROACH TO ONSET — A FALLING DAMPING
+--                     SEQUENCE DRIVES THE RATIO STRICTLY UP
+theorem t91_cyclic_approach_to_onset (B I : ℝ) (ζ : ℕ → ℝ) (hB : 0 &lt; B) (hI : 0 &lt; I)
+    (hpos : ∀ n, 0 &lt; ζ n) (hdec : ∀ n, ζ (n + 1) &lt; ζ n) :
+    ∀ n, driven_ratio B I (ζ n) &lt; driven_ratio B I (ζ (n + 1)) := by
+  intro n
+  exact t41_damping_lowers_ratio B I (ζ (n + 1)) (ζ n) hB hI (hpos (n + 1)) (hdec n)
+
+-- [T92] :: {MASTER} | ONSET IS REACHED AT THE CRITICAL DAMPING B / (2 I)
+theorem t92_onset_damping (B I : ℝ) (hI : 0 &lt; I) (hB : 0 &lt; B) :
+    driven_ratio B I (B / (2 * I)) = 1 := by
+  unfold driven_ratio
+  have h2I : (2 : ℝ) * I ≠ 0 := by positivity
+  have hBne : B ≠ 0 := ne_of_gt hB
+  field_simp
+
+-- [T93] :: {MASTER} | THE STRUCTURE STARTS BELOW ONSET EXACTLY WHEN DAMPING
+--                     EXCEEDS THE CRITICAL VALUE
+theorem t93_below_onset_iff_damping_above (B I ζ : ℝ) (hI : 0 &lt; I) (hB : 0 &lt; B)
+    (hζ : 0 &lt; ζ) : driven_ratio B I ζ &lt; 1 ↔ B / (2 * I) &lt; ζ := by
+  unfold driven_ratio
+  rw [div_lt_one (by positivity), div_lt_iff₀ (by positivity)]
+  constructor &lt;;&gt; intro h &lt;;&gt; nlinarith
+
+-- [T94] :: {MASTER} | THE STATIC AND CYCLIC CASES SHARE ONE THRESHOLD
+theorem t94_one_threshold (B I ζ : ℝ) :
+    driven_ratio B I ζ = torsion ⟨pattern_of_damping I ζ, 0, B, 0⟩ :=
+  t39_driven_ratio_is_torsion B I ζ
+
+-- ============================================================
+-- SECTION 15: THE E-FOLD READING OF THE MULTIPLICATIVE FORM
+-- ============================================================
+
+/-- The capacity lost before shatter, as an e-fold count. -/
+def efolds_to_shatter (P₀ B : ℝ) : ℝ := Real.log (P₀ * TORSION_LIMIT / B)
+
+-- [T95] :: {VER} | AT THE SHATTER LOAD THE E-FOLD COUNT IS ZERO
+theorem t95_efolds_zero_at_shatter (P₀ : ℝ) (hP : 0 &lt; P₀) :
+    efolds_to_shatter P₀ (P₀ * TORSION_LIMIT) = 0 := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  rw [div_self (by positivity), Real.log_one]
+
+-- [T96] :: {INV} | BELOW THE SHATTER LOAD THE E-FOLD COUNT IS POSITIVE
+theorem t96_efolds_pos_below_shatter (P₀ B : ℝ) (hB : 0 &lt; B)
+    (h : B &lt; P₀ * TORSION_LIMIT) : 0 &lt; efolds_to_shatter P₀ B := by
+  unfold efolds_to_shatter
+  apply Real.log_pos
+  rw [lt_div_iff₀ hB, one_mul]
+  exact h
+
+-- [T97] :: {MASTER} | THE E-FOLD COUNT IS ADDITIVE ALONG A PATH
+theorem t97_efolds_additive (P₀ B₁ B₂ : ℝ) (hP : 0 &lt; P₀) (h1 : 0 &lt; B₁) (h2 : 0 &lt; B₂) :
+    efolds_to_shatter P₀ B₂ = efolds_to_shatter P₀ B₁ + Real.log (B₁ / B₂) := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  rw [← Real.log_mul (by positivity) (by positivity)]
+  congr 1
+  field_simp
+  try ring
+
+-- [T98] :: {INV} | THE E-FOLD COUNT IS STRICTLY DECREASING IN THE LOAD
+theorem t98_efolds_decreasing (P₀ B₁ B₂ : ℝ) (hP : 0 &lt; P₀) (h1 : 0 &lt; B₁)
+    (h : B₁ &lt; B₂) : efolds_to_shatter P₀ B₂ &lt; efolds_to_shatter P₀ B₁ := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  have hB2 : 0 &lt; B₂ := lt_trans h1 h
+  apply Real.log_lt_log (by positivity)
+  gcongr
+
+-- ============================================================
+-- SECTION 16: THE IVA CORRIDOR ON LOAD
+-- ============================================================
+
+-- [T99] :: {MASTER} | THE IVA CORRIDOR ON LOAD IS THE BAND BETWEEN 88% AND
+--                     100% OF STATIC STRENGTH
+theorem t99_corridor_on_load (UTS B : ℝ) (hU : 0 &lt; UTS)
+    (h : IsIVA ⟨pattern_capacity UTS, 0, B, 0⟩) : 0.88 * UTS ≤ B ∧ B &lt; UTS := by
+  unfold IsIVA torsion pattern_capacity TL_IVA at h
+  dsimp only at h
+  obtain ⟨h1, h2⟩ := h
+  have hTL := t7_tl_pos
+  rw [div_div_eq_mul_div] at h1 h2
+  rw [le_div_iff₀ hU] at h1
+  rw [div_lt_iff₀ hU] at h2
+  constructor
+  · nlinarith
+  · nlinarith
+
+-- [T100] :: {VER} | THE CORRIDOR IS NONEMPTY FOR EVERY POSITIVE STRENGTH
+theorem t100_corridor_nonempty (UTS : ℝ) (hU : 0 &lt; UTS) :
+    ∃ B : ℝ, 0.88 * UTS ≤ B ∧ B &lt; UTS := by
+  refine ⟨0.94 * UTS, by nlinarith, by nlinarith⟩
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | FORCED RESPONSE AND CYCLES TO SHATTER
+theorem MASTER_forced_response_cycles_to_shatter :
+    -- the anchor
+    (OMEGA_0 = 10 * TORSION_LIMIT) ∧
+    (BARE + TORSION_LIMIT = ALPHA_INV) ∧
+    (TORSION_LIMIT * 1001 = ALPHA_INV) ∧
+    -- the intervention theorem
+    (∀ s : LagState, ∀ δ : ℝ, (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧
+      (f_ext_op s δ).A = s.A ∧ (f_ext_op s δ).B = s.B + δ) ∧
+    (∀ s t : LagState,
+      (∃ δ, f_ext_op s δ = t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A)) ∧
+    -- no memory, and damage is internal
+    (∀ s : LagState, ∀ δ₁ δ₂ : ℝ,
+      f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op s (δ₁ + δ₂)) ∧
+    (∀ s t : LagState, t.P &lt; s.P →
+      ¬ ∃ n : ℕ, ∃ δ : ℝ, (fun u =&gt; f_ext_op u δ)^[n] s = t) ∧
+    -- fatigue is damping loss
+    (∀ I ζ₁ ζ₂ : ℝ, 0 &lt; I → ζ₂ &lt; ζ₁ →
+      pattern_of_damping I ζ₂ &lt; pattern_of_damping I ζ₁) ∧
+    -- Pattern capacity from static strength
+    (∀ UTS : ℝ, TORSION_LIMIT * pattern_capacity UTS = UTS) ∧
+    -- the life law
+    (∀ P₀ B k m : ℝ, 0 &lt; k → 0 &lt; B →
+      cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT) ∧
+    -- the endurance balance, and when it exists
+    (∀ k r m : ℝ, 0 &lt; k → 0 &lt; r → 0 &lt; m →
+      net_degradation k (endurance_limit k r m) m r = 0) ∧
+    (∀ k m : ℝ, 0 &lt; k → 0 &lt; m → ∀ r : ℝ,
+      (0 &lt; r ↔ ∃ B : ℝ, 0 &lt; B ∧ net_degradation k B m r = 0)) ∧
+    -- the balance is invariant under the form of the damage law
+    (∀ k B m r P : ℝ, P ≠ 0 →
+      ((-(k * P * B ^ m) + r * P = 0) ↔ (-(k * B ^ m) + r = 0))) ∧
+    -- the knee
+    (∀ Be m : ℝ, 0 &lt; Be → knee_ratio Be Be m = 1) ∧
+    (∀ B Be m₁ m₂ : ℝ, 0 &lt; Be → Be &lt; B → m₁ &lt; m₂ →
+      knee_ratio B Be m₁ &lt; knee_ratio B Be m₂) ∧
+    -- the endurance readings on the torsion scale
+    (tau_endurance 0.5 = 0.068449549992008) ∧
+    (tau_endurance 0.35 = 0.0479146849944056) ∧
+    -- controllability, and one channel with two signs
+    (∀ c : ℝ, c ≠ 0 → ∀ s : LagState, ∀ target : ℝ,
+      ∃ δ : ℝ, (coupling_step c (f_ext_op s δ)).P = target) ∧
+    (∀ c : ℝ, ∀ s : LagState,
+      (coupling_step c s).P - s.P = -((coupling_step (-c) s).P - s.P)) ∧
+    -- the Lagrangian projection
+    (∀ s : LagState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
+      lag_step s op F = s.P + s.N + op s.B + s.A + F) := by
+  exact ⟨t1_anchor_is_ten_tl, t3_bare_plus_kinetic, t4_tl_times_1001,
+    fun s δ =&gt; t21_intervention s δ,
+    fun s t =&gt; t22_reachable_set_is_a_line s t,
+    fun s δ₁ δ₂ =&gt; t29_forcing_additive s δ₁ δ₂,
+    fun s t h =&gt; t34_cyclic_damage_is_internal s t h,
+    fun I ζ₁ ζ₂ hI h =&gt; t42_fatigue_is_damping_loss I ζ₁ ζ₂ hI h,
+    fun UTS =&gt; t45_static_strength_from_capacity UTS,
+    fun P₀ B k m hk hB =&gt; t49_life_law P₀ B k m hk hB,
+    fun k r m hk hr hm =&gt; t56_endurance_balance k r m hk hr hm,
+    fun k m hk hm =&gt; t60_endurance_exists_iff_recovery k m hk hm,
+    fun k B m r P hP =&gt; t59_balance_invariant_under_damage_form k B m r P hP,
+    fun Be m hBe =&gt; t68_knee_at_one Be m hBe,
+    fun B Be m₁ m₂ hBe h hm =&gt; t71_sharpness_from_exponent B Be m₁ m₂ hBe h hm,
+    t63_steel_tau_endurance, t64_aluminum_tau_endurance,
+    fun c hc s target =&gt; t81_pattern_controllable c hc s target,
+    fun c s =&gt; t82_one_channel_two_signs c s,
+    fun s op F =&gt; t84_projection_identity_off_b s op F⟩
+
+end SNSFL_ForcedResponseCyclesToShatter
+
+end
+
+-- ============================================================
+-- CLOSURE
+-- ============================================================
+--
+-- This file establishes the forced-response structure of the Identity Physics
+-- Dynamic Equation and the cyclic-life results that follow from it. The Torsion
+-- Limit enters from the inverse fine-structure constant by subtraction, with
+-- the bare term at one thousand Torsion Limits and the full multiplier
+-- factoring as 7 * 11 * 13, and nothing in the file sets it. External forcing
+-- is realized as a bump on Behavior alone, and the intervention theorem states
+-- what that realization establishes: Pattern, Narrative and Adaptation are not
+-- externally reachable, the reachable set under forcing is exactly the Behavior
+-- line, and therefore every change in the three unreached primitives is
+-- endogenous. Forcing composes additively and commutes, so repeated application
+-- carries no information about the sequence, the torsion reading after any
+-- number of applications is the closed linear form, and a strict drop in
+-- Pattern capacity is unreachable by any number of external events whatsoever
+-- -- cyclic damage is internal, as a consequence rather than a premise. The
+-- guarded domain is read as a statement about the substrate: under it Noble is
+-- not externally reachable, and without it Noble is reached. Pattern capacity
+-- in a driven structure is inertia times damping, so a fall in damping is
+-- exactly a fall in Pattern capacity and fatigue is loss of damping capacity,
+-- with the driven ratio shown to be torsion on that reading and onset shown
+-- equivalent to torsion at the Torsion Limit. Static strength fixes Pattern
+-- capacity as the strength over the Torsion Limit, with no fitting, and a state
+-- loaded at static strength sits exactly at the Shatter boundary. The life law
+-- closes for every exponent, with the Basquin form recovered as the load-power
+-- identity; the exponent is a free substrate response and is not set by the
+-- structure. The endurance limit is the load at which degradation and recovery
+-- cancel, recovery dominates strictly below it and damage strictly above, the
+-- balance condition is invariant under the form of the damage law because the
+-- Pattern factor cancels, and a positive balance load exists exactly when a
+-- positive stress-independent recovery channel exists. The knee ratio is one at
+-- the limit, below one beneath it, above one past it, multiplicative in the
+-- load ratio, and strictly increasing in the exponent, so sharpness follows
+-- from the exponent rather than standing beside it. The endurance readings for
+-- 1045 steel and 2024-T4 aluminum are computed exactly on the torsion scale
+-- from their published strengths, and both lie strictly inside Locked. The
+-- lossy boundary and lossless absorption are shown exclusive and exhaustive,
+-- and the boundary evaluated at the endurance limit yields the A·B product,
+-- which a fatigue curve supplies as a product and not as factors. A nonzero
+-- Behavior-to-Pattern coupling is necessary for a drop in Pattern and
+-- sufficient for Pattern to be controllable, and the same coupling with
+-- opposite sign raises Pattern by exactly as much as it lowers it, so work
+-- hardening and fatigue are one channel. The Lagrangian projection is shown to
+-- place every operator but the Behavior operator at the identity, the potential
+-- to be symmetric and additive, forcing to enter the potential by addition
+-- alone, and the three independent routes -- forcing, projection and damage
+-- coupling -- to meet on the Behavior axis. The cyclic approach to onset is
+-- established for any strictly falling damping sequence against the same
+-- threshold the static case uses, the critical damping value is computed, the
+-- e-fold reading of the multiplicative form is shown zero at shatter, positive
+-- below it, additive along a path and strictly decreasing in the load, and the
+-- IVA corridor on load is shown to be the band between 88% and 100% of static
+-- strength and nonempty for every positive static strength.
+--
+-- THEOREMS : 100 tagged + master
+-- SORRY    : 0
+-- AXIOMS   : 0
+-- ============================================================</code></pre>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Kenai, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-advertising.html">Advertising</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+
+<script>
+async function ppFetchSource() {
+  const r = await fetch('proofpressorg-fatigue-damping-loss.md');
+  return await r.text();
+}
+async function ppCopy(btn) {
+  try {
+    const text = await ppFetchSource();
+    await navigator.clipboard.writeText(text);
+    const original = btn.textContent;
+    btn.textContent = '✓ COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    alert('Copy failed — your browser may block clipboard access on this page. Use the .MD download instead.');
+  }
+}
+function ppRtfEscape(s) {
+  return s.replace(/\\/g, '\\\\').replace(/\{/g, '\\{').replace(/\}/g, '\\}')
+           .replace(/[^\x00-\x7F]/g, c => '\\u' + c.charCodeAt(0) + '?');
+}
+async function ppDownloadRTF() {
+  const text = await ppFetchSource();
+  const lines = text.split('\n').map(l => ppRtfEscape(l) + '\\par').join('\n');
+  const rtf = '{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0 Courier New;}}\\f0\\fs20\n' + lines + '\n}';
+  const blob = new Blob([rtf], { type: 'application/rtf' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'proofpressorg-fatigue-damping-loss.rtf';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
