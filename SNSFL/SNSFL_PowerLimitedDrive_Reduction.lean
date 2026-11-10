@@ -258,7 +258,7 @@ theorem t21_reading_a (v : ℝ) : tau_A v * C_LIGHT = v := by
 -- [T22] :: {MASTER} | THRUST IS TWICE THE JET POWER OVER THE EXHAUST VELOCITY
 theorem t22_thrust_from_power (mdot ve : ℝ) (hv : ve ≠ 0) :
     thrust mdot ve = 2 * jet_power mdot ve / ve := by
-  simp only [thrust, jet_power]; field_simp; ring
+  simp only [thrust, jet_power]; field_simp
 
 -- [T23] :: {MASTER} | THE FIXED PRODUCT
 theorem t23_fixed_product (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
@@ -275,7 +275,6 @@ theorem t25_accel_is_thrust_over_mass (mdot ve P m : ℝ) (hv : ve ≠ 0) (hm : 
     thrust mdot ve / m = 2 / ((m / P) * ve) := by
   rw [t22_thrust_from_power mdot ve hv, ← hP]
   field_simp
-  ring
 
 -- [T26] :: {MASTER} | SPECIFIC POWER IS HALF THE ACCELERATION TIMES THE EXHAUST VELOCITY
 theorem t26_spec_power_form (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
@@ -286,7 +285,7 @@ theorem t26_spec_power_form (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
 theorem t27_spec_power_operator (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
     spec_power al = C_LIGHT / 2 * accel al ve * tau_A ve := by
   have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
-  simp only [spec_power, accel, tau_A]; field_simp; ring
+  simp only [spec_power, accel, tau_A]; field_simp
 
 -- [T28] :: {INV} | ACCELERATION IS POSITIVE FOR A POSITIVE PLANT AND DRIVE
 theorem t28_accel_pos (al ve : ℝ) (ha : 0 < al) (hv : 0 < ve) : 0 < accel al ve := by
@@ -371,7 +370,7 @@ def sink_crossover (dh : ℝ) : ℝ := Real.sqrt (2 * dh)
 -- [T39] :: {MASTER} | THE SINK RATIO IS INDEPENDENT OF THE POWER
 theorem t39_sink_power_free (dh ve mdot : ℝ) (hv : ve ≠ 0) (hm : mdot ≠ 0) :
     mdot * dh / jet_power mdot ve = sink_ratio dh ve := by
-  simp only [jet_power, sink_ratio]; field_simp; ring
+  simp only [jet_power, sink_ratio]; field_simp
 
 -- [T40] :: {MASTER} | MASS FLOW IS TWICE THE POWER OVER THE SQUARED EXHAUST VELOCITY
 theorem t40_mass_flow (mdot ve : ℝ) (hv : ve ≠ 0) :
@@ -455,12 +454,10 @@ theorem t50_rej_unique (x : ℝ) (h : rej x = 27 / 256) : x = 3 / 4 := by
   have hk := t46_rej_factorization x
   rw [h] at hk
   have h0 : (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) = 0 := by
-    have : (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256 = 0 := by linarith [hk]
-    field_simp at this
-    exact this
+    have hd : (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256 = 0 := by linarith [hk]
+    linarith [hd]
   rcases mul_eq_zero.mp h0 with h1 | h2
-  · have : 4 * x - 3 = 0 := by
-      exact pow_eq_zero_iff (two_ne_zero).mp h1
+  · have hr : 4 * x - 3 = 0 := sq_eq_zero_iff.mp h1
     linarith
   · exact absurd h2 (ne_of_gt hq)
 
@@ -529,7 +526,7 @@ def crossover (kc kr : ℝ) : ℝ := fourth_root (3 * kr / (4 * kc))
 -- [T59] :: {MASTER} | AT THE OPTIMUM THE DECOMPOSITION HAS THREE ADDENDS
 theorem t59_alpha_at_opt (kc kv kr Tc : ℝ) (hT : Tc ≠ 0) :
     alpha_of kc kv kr (1 / 4) Tc = alpha_at_opt kc kv kr Tc := by
-  simp only [alpha_of, alpha_at_opt]; field_simp; ring
+  simp only [alpha_of, alpha_at_opt]; field_simp
 
 -- [T60] :: {MASTER} | EXACTLY ONE ADDEND CARRIES THE REJECTION TEMPERATURE
 theorem t60_one_addend_carries_T (kc kv kr Tc : ℝ) :
@@ -545,9 +542,12 @@ theorem t61_floor_T_free (kc kv T1 T2 : ℝ) :
 theorem t62_descends_to_floor (kc kv kr T1 T2 : ℝ) (hr : 0 < kr) (h1 : 0 < T1) (h : T1 < T2) :
     alpha_at_opt kc kv kr T2 < alpha_at_opt kc kv kr T1 := by
   simp only [alpha_at_opt]
+  have hT2 : 0 < T2 := by linarith
+  have key : (0:ℝ) < (T2 - T1) * ((T2 + T1) * (T2 ^ 2 + T1 ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) (by positivity))
   have : 3 * kr / T2 ^ 4 < 3 * kr / T1 ^ 4 := by
     apply div_lt_div_of_pos_left (by linarith) (by positivity)
-    nlinarith
+    nlinarith [key]
   linarith
 
 -- [T63] :: {INV} | THE FLOOR IS A STRICT LOWER BOUND FOR A POSITIVE RADIATOR TERM
@@ -763,9 +763,10 @@ theorem t87_prop_eff_unique (r : ℝ) (h : prop_eff r = 1) : r = 1 := by
   rw [h] at hd
   have hz : (1 - r) ^ 2 = 0 := by
     have h0 : (1 - r) ^ 2 / (1 + r ^ 2) = 0 := by linarith [hd]
-    field_simp at h0
-    exact h0
-  have : 1 - r = 0 := pow_eq_zero_iff (two_ne_zero).mp hz
+    rcases div_eq_zero_iff.mp h0 with hA | hB
+    · exact hA
+    · exact absurd hB (ne_of_gt hdp)
+  have hr : 1 - r = 0 := sq_eq_zero_iff.mp hz
   linarith
 
 -- [T88] :: {MASTER} | THE MATCHED RADIUS CARRIES THE TORSION OUT OF THE RATIO
@@ -980,13 +981,14 @@ theorem t113_margin_mono (T1 T2 Tc : ℝ) (h0 : 0 < T1) (h : T1 < T2) (h2 : T2 <
   have hr2 : T2 / Tc < 1 := by rw [div_lt_one hc]; exact h2
   have hp1 : 0 < T1 / Tc := by positivity
   have hp2 : 0 < T2 / Tc := by positivity
-  have hlt : (T1 / Tc) ^ 4 < (T2 / Tc) ^ 4 := by
-    have : T1 / Tc < T2 / Tc := by apply div_lt_div_of_pos_right h hc
-    nlinarith [hp1, this]
-  have hd1 : 0 < 1 - (T1 / Tc) ^ 4 := by nlinarith [hp1, hr1]
-  have hd2 : 0 < 1 - (T2 / Tc) ^ 4 := by nlinarith [hp2, hr2]
+  have h12 : T1 / Tc < T2 / Tc := by apply div_lt_div_of_pos_right h hc
+  have hs1 : (T1 / Tc) ^ 2 < 1 := by nlinarith [hp1, hr1]
+  have hs2 : (T2 / Tc) ^ 2 < 1 := by nlinarith [hp2, hr2]
+  have hd1 : 0 < 1 - (T1 / Tc) ^ 4 := by nlinarith [hs1, sq_nonneg ((T1 / Tc) ^ 2)]
+  have hd2 : 0 < 1 - (T2 / Tc) ^ 4 := by nlinarith [hs2, sq_nonneg ((T2 / Tc) ^ 2)]
+  have hlt : (T1 / Tc) ^ 4 < (T2 / Tc) ^ 4 := by nlinarith [hp1, hp2, h12]
   simp only [margin]
-  apply div_lt_div_of_pos_left one_pos hd2
+  rw [div_lt_div_iff₀ (by linarith) (by linarith)]
   linarith
 
 -- [T114] :: {MASTER} | THE GATE AND THE BURN ARGUMENT ARE THE SAME OBJECT
