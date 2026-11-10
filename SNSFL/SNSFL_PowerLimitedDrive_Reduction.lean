@@ -526,12 +526,12 @@ def crossover (kc kr : ℝ) : ℝ := fourth_root (3 * kr / (4 * kc))
 -- [T59] :: {MASTER} | AT THE OPTIMUM THE DECOMPOSITION HAS THREE ADDENDS
 theorem t59_alpha_at_opt (kc kv kr Tc : ℝ) (hT : Tc ≠ 0) :
     alpha_of kc kv kr (1 / 4) Tc = alpha_at_opt kc kv kr Tc := by
-  simp only [alpha_of, alpha_at_opt]; field_simp
+  simp only [alpha_of, alpha_at_opt]; field_simp; ring
 
 -- [T60] :: {MASTER} | EXACTLY ONE ADDEND CARRIES THE REJECTION TEMPERATURE
 theorem t60_one_addend_carries_T (kc kv kr Tc : ℝ) :
     alpha_at_opt kc kv kr Tc = alpha_floor kc kv + 3 * kr / Tc ^ 4 := by
-  simp only [alpha_at_opt, alpha_floor]; ring
+  simp only [alpha_at_opt, alpha_floor]
 
 -- [T61] :: {MASTER} | THE FLOOR DOES NOT DEPEND ON THE REJECTION TEMPERATURE
 theorem t61_floor_T_free (kc kv T1 T2 : ℝ) :
@@ -596,11 +596,16 @@ theorem t68_alpha_at_crossover (kc kv kr : ℝ) (hc : 0 < kc) (hr : 0 < kr) :
 theorem t69_crossover_unique (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr) (hT : 0 < Tc)
     (h : 3 * kr / Tc ^ 4 = 4 * kc) : Tc ^ 4 = crossover kc kr ^ 4 := by
   have hcne : kc ≠ 0 := ne_of_gt hc
-  rw [t67_crossover kc kr hc hr] at *
-  simp only [crossover]
-  rw [t64_fourth_root_pow _ (by positivity : (0:ℝ) ≤ 3 * kr / (4 * kc))]
-  field_simp at h ⊢
-  linarith [h]
+  have hTne : Tc ^ 4 ≠ 0 := pow_ne_zero 4 (ne_of_gt hT)
+  have h4c : (4:ℝ) * kc ≠ 0 := mul_ne_zero (by norm_num) hcne
+  have hB : crossover kc kr ^ 4 = 3 * kr / (4 * kc) := by
+    simp only [crossover]
+    exact t64_fourth_root_pow _ (by positivity)
+  have hA : Tc ^ 4 = 3 * kr / (4 * kc) := by
+    rw [eq_div_iff h4c]
+    field_simp at h
+    linarith [h]
+  rw [hA, hB]
 
 -- [T70] :: {INV} | BELOW THE CROSSOVER THE RADIATOR ADDEND DOMINATES
 theorem t70_radiator_dominates (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr) (hT : 0 < Tc)
@@ -969,26 +974,33 @@ theorem t112_margin_gt_one (Tenv Tc : ℝ) (h0 : 0 < Tenv) (h : Tenv < Tc) : 1 <
   have hr1 : Tenv / Tc < 1 := by rw [div_lt_one hc]; exact h
   have hq : (Tenv / Tc) ^ 4 < 1 := by nlinarith [hr, hr1]
   have hd : 0 < 1 - (Tenv / Tc) ^ 4 := by linarith
+  have hq4 : (0:ℝ) < (Tenv / Tc) ^ 4 := pow_pos hr 4
   simp only [margin]
   rw [lt_div_iff₀ hd]
-  nlinarith [hr]
+  linarith [hq4]
 
 -- [T113] :: {MASTER} | THE MARGIN RISES WITH THE ENVIRONMENT
 theorem t113_margin_mono (T1 T2 Tc : ℝ) (h0 : 0 < T1) (h : T1 < T2) (h2 : T2 < Tc) :
     margin T1 Tc < margin T2 Tc := by
   have hc : 0 < Tc := by linarith
+  have hT2 : 0 < T2 := by linarith
+  have hp1 : 0 < T1 / Tc := div_pos h0 hc
+  have hp2 : 0 < T2 / Tc := div_pos hT2 hc
   have hr1 : T1 / Tc < 1 := by rw [div_lt_one hc]; linarith
   have hr2 : T2 / Tc < 1 := by rw [div_lt_one hc]; exact h2
-  have hp1 : 0 < T1 / Tc := by positivity
-  have hp2 : 0 < T2 / Tc := by positivity
   have h12 : T1 / Tc < T2 / Tc := by apply div_lt_div_of_pos_right h hc
   have hs1 : (T1 / Tc) ^ 2 < 1 := by nlinarith [hp1, hr1]
   have hs2 : (T2 / Tc) ^ 2 < 1 := by nlinarith [hp2, hr2]
   have hd1 : 0 < 1 - (T1 / Tc) ^ 4 := by nlinarith [hs1, sq_nonneg ((T1 / Tc) ^ 2)]
   have hd2 : 0 < 1 - (T2 / Tc) ^ 4 := by nlinarith [hs2, sq_nonneg ((T2 / Tc) ^ 2)]
-  have hlt : (T1 / Tc) ^ 4 < (T2 / Tc) ^ 4 := by nlinarith [hp1, hp2, h12]
+  have hsum : (0:ℝ) < (T2 / Tc) ^ 2 + (T1 / Tc) ^ 2 :=
+    add_pos_of_pos_of_nonneg (pow_pos hp2 2) (sq_nonneg _)
+  have key : (0:ℝ) <
+      (T2 / Tc - T1 / Tc) * ((T2 / Tc + T1 / Tc) * ((T2 / Tc) ^ 2 + (T1 / Tc) ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hlt : (T1 / Tc) ^ 4 < (T2 / Tc) ^ 4 := by nlinarith [key]
   simp only [margin]
-  rw [div_lt_div_iff₀ (by linarith) (by linarith)]
+  rw [div_lt_div_iff₀ hd1 hd2]
   linarith
 
 -- [T114] :: {MASTER} | THE GATE AND THE BURN ARGUMENT ARE THE SAME OBJECT
