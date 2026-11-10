@@ -612,20 +612,31 @@ theorem t70_radiator_dominates (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr) (hT 
     (h : Tc < crossover kc kr) : 4 * kc < 3 * kr / Tc ^ 4 := by
   have hx := t67_crossover kc kr hc hr
   have hcp := t66_crossover_pos kc kr hc hr
-  have : 3 * kr / crossover kc kr ^ 4 < 3 * kr / Tc ^ 4 := by
-    apply div_lt_div_of_pos_left (by linarith) (by positivity)
-    nlinarith
-  linarith [hx, this]
+  have hsum : (0:ℝ) < crossover kc kr ^ 2 + Tc ^ 2 := by
+    linarith [pow_pos hcp 2, sq_nonneg Tc]
+  have key : (0:ℝ) < (crossover kc kr - Tc) *
+      ((crossover kc kr + Tc) * (crossover kc kr ^ 2 + Tc ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hT4 : Tc ^ 4 < crossover kc kr ^ 4 := by nlinarith [key]
+  have hlt : 3 * kr / crossover kc kr ^ 4 < 3 * kr / Tc ^ 4 :=
+    div_lt_div_of_pos_left (by linarith) (pow_pos hT 4) hT4
+  linarith [hx, hlt]
 
 -- [T71] :: {INV} | ABOVE THE CROSSOVER THE CORE ADDEND DOMINATES
 theorem t71_core_dominates (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr)
     (h : crossover kc kr < Tc) : 3 * kr / Tc ^ 4 < 4 * kc := by
   have hx := t67_crossover kc kr hc hr
   have hcp := t66_crossover_pos kc kr hc hr
-  have : 3 * kr / Tc ^ 4 < 3 * kr / crossover kc kr ^ 4 := by
-    apply div_lt_div_of_pos_left (by linarith) (by positivity)
-    nlinarith
-  linarith [hx, this]
+  have hT : (0:ℝ) < Tc := by linarith
+  have hsum : (0:ℝ) < Tc ^ 2 + crossover kc kr ^ 2 := by
+    linarith [pow_pos hT 2, sq_nonneg (crossover kc kr)]
+  have key : (0:ℝ) < (Tc - crossover kc kr) *
+      ((Tc + crossover kc kr) * (Tc ^ 2 + crossover kc kr ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hC4 : crossover kc kr ^ 4 < Tc ^ 4 := by nlinarith [key]
+  have hlt : 3 * kr / Tc ^ 4 < 3 * kr / crossover kc kr ^ 4 :=
+    div_lt_div_of_pos_left (by linarith) (pow_pos hcp 4) hC4
+  linarith [hx, hlt]
 
 -- ============================================================
 -- SECTION 7: THE GOVERNING INEQUALITY, AND ITS EXACT WIDTH
@@ -683,7 +694,6 @@ theorem t77_at_lower_edge (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
   have htne : t ≠ 0 := ne_of_gt ht
   simp only [exhaust_torsion_sq, alpha_lo]
   field_simp
-  ring
 
 -- [T78] :: {MASTER} | AT THE UPPER EDGE THE EXHAUST TORSION SQUARES TO THE FLOOR
 theorem t78_at_upper_edge (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
@@ -693,7 +703,6 @@ theorem t78_at_upper_edge (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
   have htne : t ≠ 0 := ne_of_gt ht
   simp only [exhaust_torsion_sq, alpha_hi]
   field_simp
-  ring
 
 -- [T79] :: {MASTER} | THE PRESCRIBED TORSION FALLS AS SPECIFIC MASS RISES
 theorem t79_torsion_antitone (kap t a1 a2 : ℝ) (hk : kap ≠ 0) (ht : 0 < t) (h1 : 0 < a1)
@@ -701,9 +710,8 @@ theorem t79_torsion_antitone (kap t a1 a2 : ℝ) (hk : kap ≠ 0) (ht : 0 < t) (
   have hc : (0:ℝ) < C_LIGHT := t13_c_pos
   have hk2 : 0 < kap ^ 2 := by positivity
   simp only [exhaust_torsion_sq]
-  apply div_lt_div_of_pos_right _ (by positivity)
-  rw [mul_lt_mul_left hk2]
-  apply div_lt_div_of_pos_left (by linarith) h1 h
+  apply div_lt_div_of_pos_right _ (pow_pos hc 2)
+  exact mul_lt_mul_of_pos_left (div_lt_div_of_pos_left (by linarith) h1 h) hk2
 
 -- [T80] :: {MASTER} | THE CHARACTERISTIC VELOCITY SQUARES TO TWICE DURATION OVER ALPHA
 theorem t80_v_ch_sq (t al : ℝ) (ht : 0 < t) (ha : 0 < al) :
@@ -790,7 +798,6 @@ theorem t90_escape_is_exhaust (GM t : ℝ) (hGM : GM ≠ 0) (h : t ≠ 0) :
   have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
   simp only [r_match]
   field_simp
-  ring
 
 -- [T91] :: {MASTER} | THE MATCHED RATIO IS THE SQUARED RECIPROCAL OF READING A
 theorem t91_matched_ratio_form (t : ℝ) (h : t ≠ 0) : matched_ratio t * t ^ 2 = 1 := by
@@ -972,7 +979,8 @@ theorem t112_margin_gt_one (Tenv Tc : ℝ) (h0 : 0 < Tenv) (h : Tenv < Tc) : 1 <
   have hc : 0 < Tc := by linarith
   have hr : 0 < Tenv / Tc := by positivity
   have hr1 : Tenv / Tc < 1 := by rw [div_lt_one hc]; exact h
-  have hq : (Tenv / Tc) ^ 4 < 1 := by nlinarith [hr, hr1]
+  have hs : (Tenv / Tc) ^ 2 < 1 := by nlinarith [hr, hr1]
+  have hq : (Tenv / Tc) ^ 4 < 1 := by nlinarith [hs, sq_nonneg ((Tenv / Tc) ^ 2)]
   have hd : 0 < 1 - (Tenv / Tc) ^ 4 := by linarith
   have hq4 : (0:ℝ) < (Tenv / Tc) ^ 4 := pow_pos hr 4
   simp only [margin]
@@ -993,8 +1001,8 @@ theorem t113_margin_mono (T1 T2 Tc : ℝ) (h0 : 0 < T1) (h : T1 < T2) (h2 : T2 <
   have hs2 : (T2 / Tc) ^ 2 < 1 := by nlinarith [hp2, hr2]
   have hd1 : 0 < 1 - (T1 / Tc) ^ 4 := by nlinarith [hs1, sq_nonneg ((T1 / Tc) ^ 2)]
   have hd2 : 0 < 1 - (T2 / Tc) ^ 4 := by nlinarith [hs2, sq_nonneg ((T2 / Tc) ^ 2)]
-  have hsum : (0:ℝ) < (T2 / Tc) ^ 2 + (T1 / Tc) ^ 2 :=
-    add_pos_of_pos_of_nonneg (pow_pos hp2 2) (sq_nonneg _)
+  have hsum : (0:ℝ) < (T2 / Tc) ^ 2 + (T1 / Tc) ^ 2 := by
+    linarith [pow_pos hp2 2, sq_nonneg (T1 / Tc)]
   have key : (0:ℝ) <
       (T2 / Tc - T1 / Tc) * ((T2 / Tc + T1 / Tc) * ((T2 / Tc) ^ 2 + (T1 / Tc) ^ 2)) :=
     mul_pos (by linarith) (mul_pos (by linarith) hsum)
