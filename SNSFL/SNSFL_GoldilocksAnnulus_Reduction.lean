@@ -333,11 +333,12 @@ theorem t38_matches_annulus (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
 theorem t39_out_beyond_in (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
     d_in L S_run < d_out L S_run := by
   obtain ⟨hi, _⟩ := t35_edges_pos L S_run hL hS
+  have hf : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
+  have hf1 : FLOOR_FRACTION < 1 := by simp only [FLOOR_FRACTION]; norm_num
+  have hlt : FLOOR_FRACTION * S_run < S_run := by nlinarith
   have hsq : d_in L S_run ^ 2 < d_out L S_run ^ 2 := by
     rw [t33_d_in_sq L S_run (le_of_lt hL) hS, t34_d_out_sq L S_run (le_of_lt hL) hS]
-    have hf : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
-    rw [div_lt_div_iff₀ hS (mul_pos hf hS)]
-    nlinarith [hL]
+    exact div_lt_div_of_pos_left hL (mul_pos hf hS) hlt
   nlinarith [hi]
 
 -- [T40] :: {ANN} | THE ANNULUS WIDTH IS POSITIVE
@@ -447,8 +448,9 @@ theorem t50_swing_mono_in_s (s1 s2 e : ℝ) (he : 0 < e) (he1 : e < 1) (h : s1 <
   simp only [swing]
   have hb : 0 < 1 - e ^ 2 := by nlinarith
   have hd : 0 < (1 - e ^ 2) ^ 2 := pow_pos hb 2
+  have hn : 4 * e * s1 < 4 * e * s2 := by nlinarith
   rw [div_lt_div_iff₀ hd hd]
-  nlinarith
+  exact mul_lt_mul_of_pos_right hn hd
 
 -- THE BAND-CROSSING NUMBER
 def crossing_number (s e : ℝ) : ℝ := swing s e / (1 - FLOOR_FRACTION)
@@ -668,10 +670,11 @@ theorem t81_heavier_shorter (M1 M2 : ℝ) (h1 : 0 < M1) (h : M1 < M2) :
   have hs1 : 0 < Real.sqrt M1 := Real.sqrt_pos.mpr h1
   have hs2 : Real.sqrt M1 < Real.sqrt M2 := Real.sqrt_lt_sqrt (le_of_lt h1) h
   have hd1 : 0 < M1 ^ 2 * Real.sqrt M1 := mul_pos (pow_pos h1 2) hs1
-  have hA : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M1 := by nlinarith [hs1]
-  have hB : M2 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := by
-    have := pow_pos h2 2
-    nlinarith [hs2, this]
+  have hsq : M1 ^ 2 < M2 ^ 2 := by nlinarith
+  have hA : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M1 :=
+    mul_lt_mul_of_pos_right hsq hs1
+  have hB : M2 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 :=
+    mul_lt_mul_of_pos_left hs2 (pow_pos h2 2)
   have hlt : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := lt_trans hA hB
   exact div_lt_div_of_pos_left (by norm_num) hd1 hlt
 
@@ -927,7 +930,7 @@ theorem t113_quartic (f eps G Rp T v1 v2 : ℝ) (hf : 0 < f) (he : 0 < eps) (hG 
   have h2 : 0 < v2 := lt_trans h1 h
   have hsq : v1 ^ 2 < v2 ^ 2 := by nlinarith
   have hq : v1 ^ 4 < v2 ^ 4 := by nlinarith [pow_pos h1 2, pow_pos h2 2]
-  nlinarith [hq, hd, hf]
+  exact mul_lt_mul_of_pos_right (mul_lt_mul_of_pos_left hq hf) hd
 
 -- The matched-radius identity carries Reading A onto an escape velocity.
 /-- The speed of light in vacuum, SI exact. -/
