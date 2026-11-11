@@ -238,9 +238,7 @@ theorem t24_lrel_mono (f g : ℝ) (h0 : 0 ≤ f) (hfg : f < g) (h1 : g ≤ 1) :
   have hdf : 0 < 1.4 - BRIGHT_C * f := t22_denom_pos f h0 (le_of_lt (lt_of_lt_of_le hfg h1))
   have hdg : 0 < 1.4 - BRIGHT_C * g := t22_denom_pos g (le_trans h0 (le_of_lt hfg)) h1
   simp only [Lrel]
-  rw [div_lt_div_iff hdf hdg]
-  simp only [BRIGHT_C]
-  linarith
+  exact div_lt_div_of_pos_left (by norm_num) hdg (by simp only [BRIGHT_C]; linarith)
 
 -- [T25] :: {INV} | A LONGER MAIN SEQUENCE HOLDS A BODY NEARER ZAMS
 theorem t25_longer_ms_lower_f (age tms1 tms2 : ℝ)
@@ -283,16 +281,17 @@ theorem t30_across_mono (ceil s1 s2 : ℝ) (h : ceil < FLOOR_FRACTION) (h12 : s1
     across ceil s1 < across ceil s2 := by
   have hd : (0:ℝ) < FLOOR_FRACTION - ceil := by linarith
   simp only [across]
-  rw [div_lt_div_iff hd hd]
-  nlinarith [h12, hd]
+  exact div_lt_div_of_pos_right (by linarith) hd
 
 -- [T31] :: {INV} | THE POSITION LIES IN THE UNIT INTERVAL ON THE BAND
 theorem t31_across_in_unit (ceil s : ℝ) (hc : ceil < FLOOR_FRACTION) (h : inBand ceil s) :
     0 ≤ across ceil s ∧ across ceil s < 1 := by
-  have hd : 0 < FLOOR_FRACTION - ceil := by linarith
+  have hd : (0:ℝ) < FLOOR_FRACTION - ceil := by linarith
+  simp only [across]
   constructor
   · exact div_nonneg (by linarith [h.1]) (le_of_lt hd)
-  · rw [div_lt_one hd]; linarith [h.2]
+  · rw [div_lt_one hd]
+    linarith [h.2]
 
 -- [T32] :: {MASTER} | THE FLOOR CARRIES NO STAR AND NO AGENT IN IT
 --   The floor fraction is the same real number for every ceiling and every flux.
@@ -325,7 +324,7 @@ theorem t35_warmpow_at_floor : warmPow FLOOR_FRACTION = 1 := by
 theorem t36_warmpow_gt_one (s : ℝ) (hp : 0 < s) (h : s < FLOOR_FRACTION) :
     1 < warmPow s := by
   simp only [warmPow]
-  rw [lt_div_iff hp]; linarith
+  exact (one_lt_div hp).mpr h
 
 -- [T37] :: {MASTER} | THE REQUIRED WARMING FALLS AS PRESENT FLUX RISES
 theorem t37_warmpow_antitone (s1 s2 : ℝ) (h1 : 0 < s1) (h12 : s1 < s2) :
@@ -335,11 +334,11 @@ theorem t37_warmpow_antitone (s1 s2 : ℝ) (h1 : 0 < s1) (h12 : s1 < s2) :
 
 -- [T38] :: {INV} | THE WARMING FACTOR IS THE FOURTH ROOT OF THE FLUX RATIO
 --   T_target / T_now raised to the fourth returns the flux ratio.
-theorem t38_fourth_power (w s : ℝ) (hw : 0 < w) (h : w ^ 4 = warmPow s) :
-    w ^ 4 * s = FLOOR_FRACTION ∨ s = 0 := by
-  rcases eq_or_ne s 0 with hs | hs
-  · right; exact hs
-  · left; rw [h]; simp only [warmPow]; field_simp
+theorem t38_fourth_power (w s : ℝ) (hw : 0 < w) (hs : 0 < s) (h : w ^ 4 = warmPow s) :
+    w ^ 4 * s = FLOOR_FRACTION := by
+  rw [h]
+  simp only [warmPow]
+  field_simp
 
 -- [T39] :: {VER} | THE REQUIRED WARMING VANISHES EXACTLY AT THE FLOOR
 theorem t39_no_warming_at_floor (w : ℝ) (hw : 0 < w) (h : w ^ 4 = warmPow FLOOR_FRACTION) :
@@ -373,21 +372,21 @@ theorem t41_at_floor_crosses_now (fn : ℝ) : fFloor FLOOR_FRACTION fn = fn := b
 -- [T42] :: {MASTER} | THE CROSSING RISES WITH PRESENT FRACTIONAL AGE
 theorem t42_ffloor_mono_fn (s fn1 fn2 : ℝ) (hs : 0 < s) (h : fn1 < fn2) :
     fFloor s fn1 < fFloor s fn2 := by
-  have hf : (0:ℝ) < FLOOR_FRACTION := by norm_num [FLOOR_FRACTION]
-  have hstep : s * fn1 / FLOOR_FRACTION < s * fn2 / FLOOR_FRACTION := by
-    rw [div_lt_div_iff hf hf]
-    nlinarith [mul_lt_mul_of_pos_left h hs, hf]
-  rw [t40_ffloor_expand, t40_ffloor_expand]
+  have key : fFloor s fn2 - fFloor s fn1 = s * (fn2 - fn1) * (25 / 22) := by
+    simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+  have hk : (0:ℝ) < s * (fn2 - fn1) * (25 / 22) :=
+    mul_pos (mul_pos hs (by linarith)) (by norm_num)
   linarith
 
 -- [T43] :: {MASTER} | THE CROSSING FALLS AS PRESENT FLUX RISES, ON THE MAIN SEQUENCE
 theorem t43_ffloor_antitone_s (s1 s2 fn : ℝ) (hfn : fn ≤ 1) (h12 : s1 < s2) :
     fFloor s2 fn < fFloor s1 fn := by
-  have hk : (0:ℝ) < (s2 - s1) * (3199 / 2000 - fn) :=
+  have key : fFloor s1 fn - fFloor s2 fn
+      = (s2 - s1) * (3199 / 1760 - fn * (25 / 22)) := by
+    simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+  have hk : (0:ℝ) < (s2 - s1) * (3199 / 1760 - fn * (25 / 22)) :=
     mul_pos (by linarith) (by linarith)
-  rw [t40_ffloor_expand, t40_ffloor_expand]
-  simp only [BRIGHT_C, FLOOR_FRACTION]
-  nlinarith [hk]
+  linarith
 
 -- {INV} | The host delivers exactly when the crossing lies on the main sequence.
 def hostDelivers (s fn : ℝ) : Prop := 0 < fFloor s fn ∧ fFloor s fn ≤ 1
