@@ -336,7 +336,7 @@ theorem t39_out_beyond_in (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
   have hsq : d_in L S_run ^ 2 < d_out L S_run ^ 2 := by
     rw [t33_d_in_sq L S_run (le_of_lt hL) hS, t34_d_out_sq L S_run (le_of_lt hL) hS]
     have hf : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
-    rw [div_lt_div_iff hS (mul_pos hf hS)]
+    rw [div_lt_div_iff₀ hS (mul_pos hf hS)]
     nlinarith [hL]
   nlinarith [hi]
 
@@ -399,7 +399,8 @@ theorem t45_swing_identity (s e : ℝ) (h1 : e ≠ 1) (h2 : e ≠ -1) :
 theorem t46_swing_pos (s e : ℝ) (hs : 0 < s) (he : 0 < e) (he1 : e < 1) :
     0 < swing s e := by
   simp only [swing]
-  have hd : 0 < (1 - e ^ 2) ^ 2 := by positivity
+  have hb : 0 < 1 - e ^ 2 := by nlinarith
+  have hd : 0 < (1 - e ^ 2) ^ 2 := pow_pos hb 2
   apply div_pos
   · nlinarith
   · exact hd
@@ -423,17 +424,30 @@ theorem t49_swing_mono_in_e (s e1 e2 : ℝ) (hs : 0 < s)
     (h1 : 0 ≤ e1) (h12 : e1 < e2) (h2 : e2 < 1) :
     swing s e1 < swing s e2 := by
   simp only [swing]
-  have hd1 : 0 < (1 - e1 ^ 2) ^ 2 := by nlinarith
-  have hd2 : 0 < (1 - e2 ^ 2) ^ 2 := by nlinarith
-  rw [div_lt_div_iff hd1 hd2]
-  nlinarith [sq_nonneg (e1 * e2), sq_nonneg (e1 + e2), sq_nonneg (e1 - e2)]
+  have he2 : 0 ≤ e2 := le_of_lt (lt_of_le_of_lt h1 h12)
+  have hb1 : 0 < 1 - e1 ^ 2 := by nlinarith
+  have hb2 : 0 < 1 - e2 ^ 2 := by nlinarith
+  have hd1 : 0 < (1 - e1 ^ 2) ^ 2 := pow_pos hb1 2
+  have hd2 : 0 < (1 - e2 ^ 2) ^ 2 := pow_pos hb2 2
+  have hab : 0 ≤ e1 * e2 := mul_nonneg h1 he2
+  have hab1 : e1 * e2 < 1 := by nlinarith
+  have hbr : 0 < 1 + 2 * (e1 * e2) - (e1 * e2) * (e1 ^ 2 + e1 * e2 + e2 ^ 2) := by
+    nlinarith [hab, hab1, sq_nonneg e1, sq_nonneg e2]
+  have key : e2 * (1 - e1 ^ 2) ^ 2 - e1 * (1 - e2 ^ 2) ^ 2
+      = (e2 - e1) * (1 + 2 * (e1 * e2) - (e1 * e2) * (e1 ^ 2 + e1 * e2 + e2 ^ 2)) := by ring
+  have hba : 0 < e2 - e1 := by linarith
+  have hpos : 0 < e2 * (1 - e1 ^ 2) ^ 2 - e1 * (1 - e2 ^ 2) ^ 2 := by
+    rw [key]; exact mul_pos hba hbr
+  rw [div_lt_div_iff₀ hd1 hd2]
+  nlinarith [hpos, hs]
 
 -- [T50] :: {HLD} | THE SWING RISES WITH FLUX AT FIXED ECCENTRICITY
 theorem t50_swing_mono_in_s (s1 s2 e : ℝ) (he : 0 < e) (he1 : e < 1) (h : s1 < s2) :
     swing s1 e < swing s2 e := by
   simp only [swing]
-  have hd : 0 < (1 - e ^ 2) ^ 2 := by nlinarith
-  rw [div_lt_div_iff hd hd]
+  have hb : 0 < 1 - e ^ 2 := by nlinarith
+  have hd : 0 < (1 - e ^ 2) ^ 2 := pow_pos hb 2
+  rw [div_lt_div_iff₀ hd hd]
   nlinarith
 
 -- THE BAND-CROSSING NUMBER
@@ -575,7 +589,7 @@ def s_at (s_now T0 t : ℝ) : ℝ := s_now * Lrel T0 t
 
 -- [T69] :: {CLK} | AT THE PRESENT THE TRACK IS UNITY
 theorem t70_track_now (T0 : ℝ) (h : T0 ≠ 0) : Lrel T0 T0 = 1 := by
-  simp only [Lrel]; field_simp
+  simp only [Lrel]; rw [div_self h]; norm_num
 
 -- [T70] :: {CLK} | THE PRESENT FLUX IS RECOVERED
 theorem t71_flux_now (s_now T0 : ℝ) (h : T0 ≠ 0) : s_at s_now T0 T0 = s_now := by
@@ -585,10 +599,10 @@ theorem t71_flux_now (s_now T0 : ℝ) (h : T0 ≠ 0) : s_at s_now T0 T0 = s_now 
 theorem t72_track_mono (T0 t1 t2 : ℝ) (hT : 0 < T0) (h : t1 < t2)
     (hp1 : 0 < 1 + 0.4 * (1 - t1 / T0)) (hp2 : 0 < 1 + 0.4 * (1 - t2 / T0)) :
     Lrel T0 t1 < Lrel T0 t2 := by
-  simp only [Lrel]
-  rw [div_lt_div_iff hp1 hp2]
   have hq : t1 / T0 < t2 / T0 := by
-    rw [div_lt_div_iff hT hT]; nlinarith
+    rw [div_lt_div_iff₀ hT hT]; nlinarith
+  simp only [Lrel]
+  rw [div_lt_div_iff₀ hp1 hp2]
   linarith
 
 -- [T72] :: {CLK} | THE FLUX RISES WITH TIME FOR A POSITIVE PRESENT FLUX
@@ -654,7 +668,11 @@ theorem t81_heavier_shorter (M1 M2 : ℝ) (h1 : 0 < M1) (h : M1 < M2) :
   have hs1 : 0 < Real.sqrt M1 := Real.sqrt_pos.mpr h1
   have hs2 : Real.sqrt M1 < Real.sqrt M2 := Real.sqrt_lt_sqrt (le_of_lt h1) h
   have hd1 : 0 < M1 ^ 2 * Real.sqrt M1 := mul_pos (pow_pos h1 2) hs1
-  have hlt : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := by nlinarith
+  have hA : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M1 := by nlinarith [hs1]
+  have hB : M2 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := by
+    have := pow_pos h2 2
+    nlinarith [hs2, this]
+  have hlt : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := lt_trans hA hB
   exact div_lt_div_of_pos_left (by norm_num) hd1 hlt
 
 -- THE DURATION GATE
@@ -769,8 +787,7 @@ theorem t98_ratio_antitone (pv p1 p2 : ℝ) (hv : 0 < pv) (h1 : 0 < p1) (h : p1 
 theorem t99_ratio_mono (p1 p2 pa : ℝ) (ha : 0 < pa) (h : p1 < p2) :
     ratio p1 pa < ratio p2 pa := by
   simp only [ratio]
-  rw [div_lt_div_iff ha ha]
-  nlinarith
+  exact div_lt_div_of_pos_right h ha
 
 /-- The critical-lapse threshold: the gradient at which a column's ratio turns over. -/
 def g_star (Rgas T Lvap H : ℝ) : ℝ := Rgas * T ^ 2 / (Lvap * H)
@@ -782,9 +799,7 @@ def dlnr (Rgas T Lvap H g : ℝ) : ℝ := 1 / H - Lvap * g / (Rgas * T ^ 2)
 theorem t100_gstar_pos (Rgas T Lvap H : ℝ) (hR : 0 < Rgas) (hT : 0 < T)
     (hL : 0 < Lvap) (hH : 0 < H) : 0 < g_star Rgas T Lvap H := by
   simp only [g_star]
-  apply div_pos
-  · nlinarith
-  · exact mul_pos hL hH
+  exact div_pos (mul_pos hR (pow_pos hT 2)) (mul_pos hL hH)
 
 -- [T97] :: {COL} | THE RATIO FALLS WITH ALTITUDE EXACTLY ABOVE THE THRESHOLD
 theorem t101_falls_iff (Rgas T Lvap H g : ℝ) (hR : 0 < Rgas) (hT : 0 < T)
@@ -793,7 +808,7 @@ theorem t101_falls_iff (Rgas T Lvap H g : ℝ) (hR : 0 < Rgas) (hT : 0 < T)
   have hd : 0 < Rgas * T ^ 2 := mul_pos hR (pow_pos hT 2)
   have hLH : 0 < Lvap * H := mul_pos hL hH
   simp only [dlnr, g_star]
-  rw [sub_lt_zero, div_lt_div_iff hH hd, div_lt_iff₀ hLH]
+  rw [sub_lt_zero, div_lt_div_iff₀ hH hd, div_lt_iff₀ hLH]
   constructor <;> intro h <;> nlinarith
 
 -- ============================================================
@@ -813,8 +828,10 @@ def hydro_p (p0 rho gacc z : ℝ) : ℝ := p0 + rho * gacc * z
 -- [T99] :: {CRP} | HYDROSTATIC PRESSURE RISES WITH DEPTH
 theorem t104_hydro_mono (p0 rho gacc z1 z2 : ℝ) (hr : 0 < rho) (hg : 0 < gacc) (h : z1 < z2) :
     hydro_p p0 rho gacc z1 < hydro_p p0 rho gacc z2 := by
+  have hp : 0 < rho * gacc := mul_pos hr hg
+  have hm := mul_lt_mul_of_pos_left h hp
   simp only [hydro_p]
-  nlinarith
+  nlinarith [hm]
 
 -- THE TERMINATING DEPTH, IN CLOSED FORM
 def z_terminate (p0 rho gacc p_crit : ℝ) : ℝ := (p_crit - p0) / (rho * gacc)
@@ -825,6 +842,7 @@ theorem t106_z_term (p0 rho gacc p_crit : ℝ) (hr : 0 < rho) (hg : 0 < gacc) :
   simp only [hydro_p, z_terminate]
   have h : rho * gacc ≠ 0 := ne_of_gt (mul_pos hr hg)
   field_simp
+  ring
 
 -- [T101] :: {CRP} | BELOW THE TERMINATING DEPTH NO BOIL EXISTS
 theorem t107_below_terminate (p0 rho gacc p_crit z : ℝ) (hr : 0 < rho) (hg : 0 < gacc)
@@ -832,8 +850,10 @@ theorem t107_below_terminate (p0 rho gacc p_crit z : ℝ) (hr : 0 < rho) (hg : 0
     ¬ boil_exists (hydro_p p0 rho gacc z) p_crit := by
   apply t102_axis_terminates
   rw [← t106_z_term p0 rho gacc p_crit hr hg]
+  have hp : 0 < rho * gacc := mul_pos hr hg
+  have hz := mul_nonneg (le_of_lt hp) (sub_nonneg.mpr h)
   simp only [hydro_p]
-  nlinarith
+  nlinarith [hz]
 
 -- ============================================================
 -- SECTION 10: THE COSMIC SHORELINE
@@ -862,7 +882,6 @@ theorem t108_shore4_solves (f eps G Rp T vesc : ℝ) (he : eps ≠ 0) (hG : G �
   simp only [E_in, E_bind, I_shore4]
   have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
   field_simp
-  ring
 
 -- [T103] :: {SHR} | THE FOURTH-POWER BRANCH CARRIES A RADIUS AND A TIME
 theorem t109_shore4_form (f eps G Rp T vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
@@ -871,7 +890,6 @@ theorem t109_shore4_form (f eps G Rp T vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 
   simp only [I_shore4]
   have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
   field_simp
-  ring
 
 -- [T104] :: {SHR} | THE DYNAMICAL TIME IS POSITIVE
 theorem t110_tdyn_pos (Rp vesc : ℝ) (hR : 0 < Rp) (hv : 0 < vesc) : 0 < t_dyn Rp vesc := by
@@ -887,7 +905,6 @@ theorem t111_shore5_from_tdyn (f eps G Rp vesc : ℝ) (he : eps ≠ 0) (hG : G �
   have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
   have hs : Real.sqrt 2 ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr (by norm_num))
   field_simp
-  ring
 
 -- [T106] :: {SHR} | THE TWO BRANCHES DIFFER BY ONE POWER OF THE ESCAPE VELOCITY
 theorem t112_branches_differ (f eps G Rp vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
@@ -906,9 +923,11 @@ theorem t113_quartic (f eps G Rp T v1 v2 : ℝ) (hf : 0 < f) (he : 0 < eps) (hG 
   simp only [I_shore4]
   have hpi : 0 < Real.pi := Real.pi_pos
   have hd : 0 < 4 * Real.pi * eps * G * Rp * T := by positivity
-  rw [div_lt_div_iff hd hd]
-  have hq : v1 ^ 4 < v2 ^ 4 := by nlinarith [sq_nonneg (v1 + v2), sq_nonneg (v1 - v2)]
-  nlinarith
+  rw [div_lt_div_iff₀ hd hd]
+  have h2 : 0 < v2 := lt_trans h1 h
+  have hsq : v1 ^ 2 < v2 ^ 2 := by nlinarith
+  have hq : v1 ^ 4 < v2 ^ 4 := by nlinarith [pow_pos h1 2, pow_pos h2 2]
+  nlinarith [hq, hd, hf]
 
 -- The matched-radius identity carries Reading A onto an escape velocity.
 /-- The speed of light in vacuum, SI exact. -/
