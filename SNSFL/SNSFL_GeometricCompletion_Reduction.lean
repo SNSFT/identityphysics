@@ -168,8 +168,11 @@ theorem t14_rho_at_one : rhoBar 1 = 11800 := by
 -- [T15] :: {RED} | THE LAW RISES WITH THE STRUCTURAL COORDINATE
 theorem t15_rho_mono (x y : ℝ) (hx : 0 ≤ x) (h : x < y) : rhoBar x < rhoBar y := by
   simp only [rhoBar, RHO_FLOOR, RHO_SPAN]
-  have hy : 0 ≤ y := le_trans hx (le_of_lt h)
-  nlinarith [sq_nonneg x, sq_nonneg y, sq_nonneg (x + y)]
+  have hy0 : 0 < y := lt_of_le_of_lt hx h
+  have hsq : x ^ 2 < y ^ 2 := by nlinarith
+  have hstep1 : x * x ^ 2 ≤ x * y ^ 2 := mul_le_mul_of_nonneg_left (le_of_lt hsq) hx
+  have hstep2 : x * y ^ 2 < y * y ^ 2 := mul_lt_mul_of_pos_right h (pow_pos hy0 2)
+  nlinarith [hstep1, hstep2]
 
 -- [T16] :: {MASTER} | THE LAW'S RANGE OVER THE UNIT INTERVAL
 --   The law is a cubic over the unit interval, so its range is bounded at both
@@ -316,8 +319,9 @@ theorem t34_retention_mono_R (R S I : ℝ) (hR : 0 < R) (hI : 0 < I) (h : R < S)
     retentionGeom R I < retentionGeom S I := by
   simp only [retentionGeom]
   have hS : 0 < S := lt_trans hR h
-  refine div_lt_div_of_pos_right ?_ hI
-  nlinarith [pow_pos hR 2, pow_pos hS 2, sq_nonneg (R + S), mul_pos hR hS]
+  have hsq : R ^ 2 < S ^ 2 := by nlinarith
+  have h4 : R ^ 4 < S ^ 4 := by nlinarith [pow_pos hR 2, pow_pos hS 2]
+  exact div_lt_div_of_pos_right h4 hI
 
 -- [T35] :: {RED} | RETENTION FALLS AS THE INSOLATION RISES
 theorem t35_retention_anti_I (R I J : ℝ) (hR : 0 < R) (hI : 0 < I) (h : I < J) :
@@ -506,7 +510,7 @@ def classify (t : ℝ) : Phase :=
 
 -- [T55] :: {RED} | THE FLOOR FRACTION CARRIES THE IVA FLOOR ON THE FLUX AXIS
 theorem t55_floor_in_flux : tauOf FLOOR_FRACTION = TL_IVA := by
-  simp only [tauOf, TL_IVA]; ring
+  simp only [tauOf, TL_IVA]
 
 -- [T56] :: {PHS} | A READING AT OR ABOVE THE RUNAWAY IS SHATTER
 theorem t56_flux_shatter (s : ℝ) (h : 1 ≤ s) : classify (tauOf s) = Phase.Shatter := by
@@ -548,15 +552,16 @@ def certifiedRetaining (R lo hi : ℝ) : Prop :=
   CROSSING < retentionGeom R lo ∧ CROSSING < retentionGeom R hi
 
 -- [T60] :: {MASTER} | CERTIFICATION IS SOUND ON THE RETENTION READING
---   Monotonicity in the insolation carries the endpoints to the whole interval,
---   so two endpoint evaluations settle every reading inside a published bar.
-theorem t60_cert_retaining_sound (R lo hi I : ℝ) (hR : 0 < R) (hlo : 0 < lo)
+--   Retention falls as the insolation rises, so the floor over a published bar
+--   stands at its upper endpoint, and one endpoint evaluation settles every
+--   reading inside the bar.
+theorem t60_cert_retaining_sound (R lo hi I : ℝ) (hR : 0 < R) (hI : 0 < I)
     (h1 : lo ≤ I) (h2 : I ≤ hi) (hc : certifiedRetaining R lo hi) :
     CROSSING < retentionGeom R I := by
-  obtain ⟨hl, _⟩ := hc
-  rcases eq_or_lt_of_le h1 with h | h
-  · rwa [← h]
-  · exact lt_trans hl (t35_retention_anti_I R lo I hR hlo h)
+  obtain ⟨_, hh⟩ := hc
+  rcases eq_or_lt_of_le h2 with h | h
+  · rwa [h]
+  · exact lt_trans hh (t35_retention_anti_I R I hi hR hI h)
 
 -- [T61] :: {MASTER} | THE CHAIN CLOSES
 --   The density law carries the closure, the closure carries escape velocity onto
