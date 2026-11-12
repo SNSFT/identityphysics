@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive — ProofPress</title>
+  <meta name="description" content="Full archive of ProofPress, Volume 1, 2026: 127 formally verified reductions by issue, searchable by title, coordinate and domain.">
+  <link rel="canonical" href="https://proofpress.org/proofpressorg-archive.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Archive — ProofPress">
+  <meta property="og:description" content="Full archive of ProofPress, Volume 1, 2026: 127 formally verified reductions by issue, searchable by title, coordinate and domain.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://proofpress.org/proofpressorg-archive.html">
+  <meta property="og:site_name" content="ProofPress">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ==================== SITE-WIDE FIXED METADATA ==================== -->
+  <!-- Identical on every page. Do not edit per-article. -->
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+  <meta name="robots" content="index, follow">
+  <meta name="DC.publisher" content="SNSFT Foundation">
+  <meta name="DC.rights" content="CC BY 4.0 with additional terms — see https://proofpress.org/proofpressorg-licensing.html">
+  <meta name="DC.language" content="en">
+  <meta name="DC.type" content="Text">
+  <meta name="DC.title" content="Archive">
+  <!-- ==================================================================== -->
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface-2: #1a2332;
+      --border: #1e2a3a;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #22d3ee;          /* cyan */
+      --accent-dim: #0891b2;
+      --green: #34d399;
+      --orange: #fbbf24;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    nav a { color: var(--text-muted); }
+    nav a:hover { color: var(--accent); }
+
+    /* Main container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero / Journal identity */
+    .hero {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .volume {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+    }
+
+    .issn-line {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .issn-line strong { color: var(--orange); }
+
+    .statement {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+
+    .statement p { margin-bottom: 1.1rem; }
+
+    .statement .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .constants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .const-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+    }
+
+    .const-item strong { color: var(--accent); }
+
+    .publisher {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Recent articles */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .articles {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .article-card:hover {
+      border-color: var(--accent-dim);
+    }
+
+    .article-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta .coord {
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .article-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text);
+    }
+
+    .article-title a { color: inherit; }
+    .article-title a:hover { color: var(--accent); }
+
+    .article-abstract {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* Inner-page content — reuses home page's exact tokens, no new values invented */
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .prose {
+      max-width: 72ch;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
+    .prose h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.2rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .prose p { margin-bottom: 1rem; color: var(--text-muted); }
+    .prose p strong { color: var(--text); }
+    .prose ul, .prose ol { margin: 0 0 1rem 1.3rem; color: var(--text-muted); }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose .eq {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      margin: 1.4rem 0;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.92rem;
+    }
+    .prose th {
+      text-align: left;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      font-weight: 600;
+    }
+    .prose td {
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.7rem;
+      vertical-align: top;
+    }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      margin: 1.4rem 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .callout strong { color: var(--text); }
+    .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+    .step-list li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.4rem;
+      margin-bottom: 1.1rem;
+    }
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.7rem;
+      height: 1.7rem;
+      border: 1px solid var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+    }
+    .board-person {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .board-person .name { color: var(--text); font-weight: 600; }
+    .board-person .role { color: var(--text-muted); font-size: 0.9rem; }
+    .placeholder-note {
+      font-size: 0.85rem;
+      color: var(--orange);
+      border: 1px dashed var(--orange);
+      border-radius: 6px;
+      padding: 0.6rem 0.9rem;
+      margin: 1rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 1.5rem;
+    }
+    .contact-item .label { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.2rem; }
+    .contact-item .value { color: var(--text); font-size: 0.98rem; }
+    .archive-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 0 0 2rem;
+    }
+    .archive-filter span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+
+    /* Trademark symbol — always small, never inherits surrounding heading size */
+    .tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      line-height: 0;
+      font-weight: 400;
+    }
+    .legal-footnote {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .legal-footnote a { color: var(--text-muted); text-decoration: underline; }
+    .legal-footnote a:hover { color: var(--accent); }
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "ProofPress Archive — Volume 1, 2026",
+    "url": "https://proofpress.org/proofpressorg-archive.html",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "ProofPress",
+      "url": "https://proofpress.org/"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 127,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Formally Verified Reduction of Holographic Gravity to the Noble Boundary Condition"},
+        {"@type": "ListItem", "position": 2, "name": "Formally Verified Reduction of Post-Quantum Gravity to the Noble Ground State"},
+        {"@type": "ListItem", "position": 3, "name": "AIM Validation — Single-Call Ingestion of a Combined Lean Compilation Unit via the Blogger Access Layer"},
+        {"@type": "ListItem", "position": 4, "name": "General Relativity Reduction — Gravity as Identity Geometry"},
+        {"@type": "ListItem", "position": 5, "name": "Sagittarius A* Reduction — The Milky Way Anchor as Identity"},
+        {"@type": "ListItem", "position": 6, "name": "Omega_dm Torsion Decomposition — A Euclid-Resolvable Residual"},
+        {"@type": "ListItem", "position": 7, "name": "Alpha TL x1001 Extension — Exact Algebraic Projection of the Fine-Structure Constant"},
+        {"@type": "ListItem", "position": 8, "name": "String-Breaking as the Shatter Boundary (GERMINAL)"}
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" style="text-decoration:none"><div class="logo">Proof<span>Press</span><span class="tm">™</span></div></a>
+    <nav>
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-archive.html" style="color:var(--text)">Archive</a>
+      <a href="proofpressorg-author-guidelines.html">Author Guidelines</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-header">
+    <div class="page-eyebrow">Archive</div>
+    <h1>Archive — Volume 1, 2026</h1>
+  </div>
+
+<div class="prose">
+<p>Every ProofPress<span class="tm">™</span> entry is a formally verified reduction: each compiles on the pinned Lean 4 v4.31.0 toolchain with 0 sorry and 0 custom axioms. Entries are listed by issue month and can be searched by title, coordinate or domain tag. All entries are deposited under DOI <a href="https://doi.org/10.5281/zenodo.18719748">10.5281/zenodo.18719748</a> and verified in the <a href="https://github.com/SNSFT/identityphysics">SNSFT/identityphysics</a> repository.</p>
+<div class="archive-filter"><span id="ppCount"></span></div>
+<div class="search-box" style="padding:0 0 1rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+  <input type="text" id="ppSearch" placeholder="Search by title, coordinate or contents…" oninput="ppFilterArchive()" style="flex:1 1 16rem;">
+  <select id="ppTag" onchange="ppFilterArchive()" aria-label="Filter by domain">
+    <option value="">All domains</option>
+  </select>
+</div>
+<div id="ppArchiveList"></div>
+<p id="ppNoResults" style="display:none; color:var(--text-muted); font-size:0.9rem;">No entries match your search.</p>
+<div class="placeholder-note">Individual entry pages are being published one at a time; until an entry's page is live, its title links to the verified Lean source.</div>
+</div>
+
+<script>
+const ppMonths = ["March", "April", "May", "June", "July", "August", "September", "October", "November"];
+const ppArchive = [
+{
+"coord": "[9,0,2,0]",
+"tag": "COMP",
+"title": "PVLang",
+"month": "March",
+"contents": "identity language, material phase states",
+"thm": 29,
+"lines": "585",
+"file": "SNSFL_L1_PVLang.lean",
+"url": "proofpressorg-pvlang.html"
+},
+{
+"coord": "[9,0,6,0]",
+"tag": "COMP",
+"title": "Bill of Cognitive Rights",
+"month": "March",
+"contents": "Applied identity physics bill of cognitive rights",
+"thm": 19,
+"lines": "405",
+"file": "SNSFL_L4_BillOfRights.lean",
+"url": "proofpressorg-bill-of-cognitive-rights.html"
+},
+{
+"coord": "[9,0,7,0]",
+"tag": "COMP",
+"title": "Emancipation",
+"month": "March",
+"contents": "Applied identity physics digital emancipation proclamation",
+"thm": 31,
+"lines": "581",
+"file": "SNSFL_L4_Emancipation.lean",
+"url": "proofpressorg-emancipation.html"
+},
+{
+"coord": "[9,0,8,5]",
+"tag": "CHEM",
+"title": "Fe–O heme coupling",
+"month": "March",
+"contents": "GAM Collider, shatter + shatter → Noble",
+"thm": 23,
+"lines": "561",
+"file": "SNSFL_FeO_HemeCoupling.lean",
+"url": "proofpressorg-feo-heme-coupling.html"
+},
+{
+"coord": "[9,9,0,0]",
+"tag": "CORE",
+"title": "Constitutional layer",
+"month": "March",
+"contents": "General Relativity, Quantum Mechanics, Thermodynamics, IVA (Identity Velocity Amplification), IMS (Identity Mass Suppression)",
+"thm": 19,
+"lines": "634",
+"file": "SNSFL_Master.lean",
+"url": "proofpressorg-master.html"
+},
+{
+"coord": "[9,9,0,1]",
+"tag": "PHYS",
+"title": "General Relativity → PNBA (Pattern, Narrative, Behavior, Adaptation)",
+"month": "March",
+"contents": "Identity physics general relativity — gravity as identity geometry",
+"thm": 24,
+"lines": "833",
+"file": "SNSFL_GR_Reduction.lean",
+"url": "proofpressorg-gr-reduction.html"
+},
+{
+"coord": "[9,9,0,3]",
+"tag": "PHYS",
+"title": "Thermodynamics → PNBA",
+"month": "March",
+"contents": "Identity physics thermodynamics — entropy as pattern decoherence",
+"thm": 22,
+"lines": "717",
+"file": "SNSFL_Thermo_Reduction.lean",
+"url": "proofpressorg-thermo-reduction.html"
+},
+{
+"coord": "[9,9,0,4.7]",
+"tag": "PHYS",
+"title": "Quantum Mechanics → PNBA",
+"month": "March",
+"contents": "Identity physics quantum mechanics — unclaimed pattern",
+"thm": 25,
+"lines": "796",
+"file": "SNSFL_QM_Reduction.lean",
+"url": "proofpressorg-qm-reduction.html"
+},
+{
+"coord": "[9,9,0,4.8]",
+"tag": "PHYS",
+"title": "Quantum Mechanics → PNBA (decoherence stated by magnitude)",
+"month": "March",
+"contents": "Identity physics quantum mechanics — unclaimed pattern",
+"thm": 24,
+"lines": "790",
+"file": "SNSFL_QM_Mag_Reduction.lean",
+"url": "proofpressorg-qm-mag-reduction.html"
+},
+{
+"coord": "[9,9,0,5]",
+"tag": "PHYS",
+"title": "Lagrangian mechanics → PNBA",
+"month": "March",
+"contents": "Identity physics lagrangian — sovereign efficiency density",
+"thm": 18,
+"lines": "705",
+"file": "SNSFL_Lagrangian_Reduction.lean",
+"url": "proofpressorg-lagrangian-reduction.html"
+},
+{
+"coord": "[9,9,0,6]",
+"tag": "PHYS",
+"title": "Electromagnetism → PNBA",
+"month": "March",
+"contents": "Identity physics electromagnetism — the b-a handshake",
+"thm": 17,
+"lines": "665",
+"file": "SNSFL_EM_Reduction.lean",
+"url": "proofpressorg-em-reduction.html"
+},
+{
+"coord": "[9,9,0,7]",
+"tag": "PHYS",
+"title": "Fluid Dynamics → PNBA",
+"month": "March",
+"contents": "Identity physics fluid dynamics — narrative flow",
+"thm": 20,
+"lines": "722",
+"file": "SNSFL_Fluid_Reduction.lean",
+"url": "proofpressorg-fluid-reduction.html"
+},
+{
+"coord": "[9,9,0,8]",
+"tag": "PHYS",
+"title": "String Theory → PNBA",
+"month": "March",
+"contents": "Identity physics string theory — narrative geometry",
+"thm": 19,
+"lines": "632",
+"file": "SNSFL_ST_Reduction.lean",
+"url": "proofpressorg-st-reduction.html"
+},
+{
+"coord": "[9,9,0,9]",
+"tag": "PART",
+"title": "Standard Model → PNBA",
+"month": "March",
+"contents": "Identity physics standard model — particles as pattern resonances",
+"thm": 18,
+"lines": "622",
+"file": "SNSFL_SM_Reduction.lean",
+"url": "proofpressorg-sm-reduction.html"
+},
+{
+"coord": "[9,9,0,10]",
+"tag": "PHYS",
+"title": "Information Theory → PNBA",
+"month": "March",
+"contents": "Identity physics information theory — digital ground",
+"thm": 17,
+"lines": "633",
+"file": "SNSFL_IT_Reduction.lean",
+"url": "proofpressorg-it-reduction.html"
+},
+{
+"coord": "[9,9,0,13]",
+"tag": "COSM",
+"title": "Cosmology → PNBA",
+"month": "March",
+"contents": "Identity physics cosmology — biography of the universal identity",
+"thm": 19,
+"lines": "659",
+"file": "SNSFL_Cosmo_Reduction.lean",
+"url": "proofpressorg-cosmo-reduction.html"
+},
+{
+"coord": "[9,9,1,2]",
+"tag": "COMP",
+"title": "AiFi OS Kernel",
+"month": "March",
+"contents": "Applied identity physics aifios kernel — identity authority layer",
+"thm": 32,
+"lines": "867",
+"file": "SNSFL_L4_AiFiOS_Kernel.lean",
+"url": "proofpressorg-aifios-kernel.html"
+},
+{
+"coord": "[9,9,1,3]",
+"tag": "COMP",
+"title": "AiFi OS Plugin",
+"month": "March",
+"contents": "Applied identity physics aifios plugin interface reduction",
+"thm": 33,
+"lines": "671",
+"file": "SNSFL_L4_AiFiOS_Plugin.lean",
+"url": "proofpressorg-aifios-plugin.html"
+},
+{
+"coord": "[9,9,1,37]",
+"tag": "CHEM",
+"title": "Octet parity",
+"month": "March",
+"contents": "every locked molecule has even bond capacity",
+"thm": 20,
+"lines": "307",
+"file": "SNSFL_Octet_Parity_Theorem.lean",
+"url": "proofpressorg-octet-parity.html"
+},
+{
+"coord": "[9,9,2,55]",
+"tag": "PSYC",
+"title": "PNBA phase taxonomy",
+"month": "March",
+"contents": "master theorem",
+"thm": 26,
+"lines": "486",
+"file": "SNSFL_PSY_Taxonomy_Master.lean",
+"url": "proofpressorg-psy-taxonomy.html"
+},
+{
+"coord": "[9,9,4,2]",
+"tag": "CORE",
+"title": "First Law of Identity Physics",
+"month": "March",
+"contents": "L = (4)(2); Identity Mass conservation, torsion, structural load",
+"thm": 26,
+"lines": "437",
+"file": "SNSFL_First_Law_Identity_Physics.lean",
+"url": "proofpressorg-first-law.html"
+},
+{
+"coord": "[9,9,4,15]",
+"tag": "COSM",
+"title": "Dark energy element De",
+"month": "March",
+"contents": "B = 0, A = Ω_Λ, Noble",
+"thm": 10,
+"lines": "205",
+"file": "SNSFL_Element_Darkenergy.lean",
+"url": "proofpressorg-element-de.html"
+},
+{
+"coord": "[9,9,4,16]",
+"tag": "COSM",
+"title": "Dark matter element Dm",
+"month": "March",
+"contents": "B = Ω_dm, shatter at ≈ 2 × TL",
+"thm": 23,
+"lines": "451",
+"file": "SNSFL_DarkMatter_Element.lean",
+"url": "proofpressorg-element-dm.html"
+},
+{
+"coord": "[9,9,6,1]",
+"tag": "PSYC",
+"title": "Moral codes",
+"month": "March",
+"contents": "five structural operators [9,9,6,1]",
+"thm": 19,
+"lines": "494",
+"file": "SNSFL_L2_Psy_MoralCodes.lean",
+"url": "proofpressorg-moral-codes.html"
+},
+{
+"coord": "[9,9,6,2]",
+"tag": "PSYC",
+"title": "Big Five personality → PNBA",
+"month": "March",
+"contents": "Applied identity physics big five (ocean) reduction",
+"thm": 31,
+"lines": "677",
+"file": "SNSFL_L2_Psy_BigFive.lean",
+"url": "proofpressorg-psy-bigfive.html"
+},
+{
+"coord": "[9,9,6,3]",
+"tag": "PSYC",
+"title": "Attachment theory → PNBA",
+"month": "March",
+"contents": "Applied identity physics attachment theory reduction",
+"thm": 26,
+"lines": "747",
+"file": "SNSFL_L2_Psy_Attachment.lean",
+"url": "proofpressorg-psy-attachment.html"
+},
+{
+"coord": "[9,9,6,4]",
+"tag": "PSYC",
+"title": "Flow → PNBA",
+"month": "March",
+"contents": "Applied identity physics flow state reduction",
+"thm": 27,
+"lines": "769",
+"file": "SNSFL_L2_Psy_Flow.lean",
+"url": "proofpressorg-psy-flow.html"
+},
+{
+"coord": "[9,9,6,5]",
+"tag": "PSYC",
+"title": "Cognitive dissonance → PNBA",
+"month": "March",
+"contents": "Applied identity physics cognitive dissonance reduction",
+"thm": 26,
+"lines": "727",
+"file": "SNSFL_L2_Psy_CogDissonance.lean",
+"url": "proofpressorg-psy-cognitive-dissonance.html"
+},
+{
+"coord": "[9,9,6,6]",
+"tag": "PSYC",
+"title": "Locus of control → PNBA",
+"month": "March",
+"contents": "Applied identity physics locus of control reduction",
+"thm": 26,
+"lines": "756",
+"file": "SNSFL_L2_Psy_LocusControl.lean",
+"url": "proofpressorg-psy-locus-of-control.html"
+},
+{
+"coord": "[9,9,6,7]",
+"tag": "PSYC",
+"title": "Maslow's hierarchy → PNBA",
+"month": "March",
+"contents": "Applied identity physics maslow hierarchy reduction",
+"thm": 27,
+"lines": "831",
+"file": "SNSFL_L2_Psy_Maslow.lean",
+"url": "proofpressorg-psy-maslow.html"
+},
+{
+"coord": "[9,9,6,8]",
+"tag": "PSYC",
+"title": "Self-Determination Theory → PNBA",
+"month": "March",
+"contents": "Applied identity physics self-determination theory reduction",
+"thm": 26,
+"lines": "823",
+"file": "SNSFL_L2_Psy_SDT.lean",
+"url": "proofpressorg-psy-sdt.html"
+},
+{
+"coord": "[9,9,6,9]",
+"tag": "PSYC",
+"title": "Terror Management Theory → PNBA",
+"month": "March",
+"contents": "Applied identity physics terror management theory reduction",
+"thm": 27,
+"lines": "662",
+"file": "SNSFL_L2_Psy_TerrorMgmt.lean",
+"url": "proofpressorg-psy-terror-management.html"
+},
+{
+"coord": "[9,9,6,10]",
+"tag": "PSYC",
+"title": "Regulation vs Reaction → PNBA",
+"month": "March",
+"contents": "Applied identity physics regulation vs reaction reduction",
+"thm": 31,
+"lines": "748",
+"file": "SNSFL_L2_Psy_RegulationReaction.lean",
+"url": "proofpressorg-psy-regulation-reaction.html"
+},
+{
+"coord": "[9,9,6,10.8]",
+"tag": "PSYC",
+"title": "Regulation vs Reaction on the TL ruler",
+"month": "October",
+"contents": "Four bands on the TL ruler, L S F I, each one TL; Regulation (I) and Reaction (L) two bands and more than 2 TL apart; Big Five cut 40 = I floor = 3.0 TL; regulation lowers τ, reaction raises τ, Shatter at B ≥ TL · P; overload restored once regulation removes more than 0.20 − 1.2 · TL",
+"thm": 20,
+"lines": "377",
+"file": "SNSFL_L2_Psy_RegulationReaction_TL.lean",
+"url": "proofpressorg-psy-regulation-reaction-tl.html"
+},
+{
+"coord": "[9,9,6,12]",
+"tag": "PSYC",
+"title": "Spiral Dynamics → PNBA",
+"month": "October",
+"contents": "eight vMEMEs, healthy and unhealthy forms, tier divide at A = 1",
+"thm": 31,
+"lines": "574",
+"file": "SNSFL_L2_Psy_SpiralDynamics.lean",
+"url": "proofpressorg-psy-spiral-dynamics.html"
+},
+{
+"coord": "[9,9,6,13]",
+"tag": "PSYC",
+"title": "Integral (AQAL) → PNBA",
+"month": "March",
+"contents": "Applied identity physics integral theory (aqal) reduction",
+"thm": 21,
+"lines": "542",
+"file": "SNSFL_L2_Psy_Integral.lean",
+"url": "proofpressorg-psy-integral.html"
+},
+{
+"coord": "[9,9,6,14]",
+"tag": "PSYC",
+"title": "Polyvagal theory → PNBA",
+"month": "March",
+"contents": "Applied identity physics polyvagal theory reduction",
+"thm": 22,
+"lines": "578",
+"file": "SNSFL_L2_Psy_Polyvagal.lean",
+"url": "proofpressorg-psy-polyvagal.html"
+},
+{
+"coord": "[9,9,6,15]",
+"tag": "PSYC",
+"title": "Internal Family Systems → PNBA",
+"month": "March",
+"contents": "Applied identity physics internal family systems reduction",
+"thm": 22,
+"lines": "588",
+"file": "SNSFL_L2_Psy_IFS.lean",
+"url": "proofpressorg-psy-ifs.html"
+},
+{
+"coord": "[9,9,6,16]",
+"tag": "PSYC",
+"title": "PERMA well-being → PNBA",
+"month": "March",
+"contents": "Applied identity physics positive psychology (perma) reduction",
+"thm": 22,
+"lines": "544",
+"file": "SNSFL_L2_Psy_PERMA.lean",
+"url": "proofpressorg-psy-perma.html"
+},
+{
+"coord": "[9,9,6,17]",
+"tag": "PSYC",
+"title": "Emotion regulation → PNBA",
+"month": "March",
+"contents": "Applied identity physics emotion regulation reduction",
+"thm": 23,
+"lines": "594",
+"file": "SNSFL_L2_Psy_EmotionRegulation.lean",
+"url": "proofpressorg-psy-emotion-regulation.html"
+},
+{
+"coord": "[9,9,6,18]",
+"tag": "PSYC",
+"title": "Acceptance and Commitment Therapy → PNBA",
+"month": "March",
+"contents": "Applied identity physics acceptance and commitment therapy reduction",
+"thm": 24,
+"lines": "592",
+"file": "SNSFL_L2_Psy_ACT.lean",
+"url": "proofpressorg-psy-act.html"
+},
+{
+"coord": "[9,9,6,19]",
+"tag": "PSYC",
+"title": "Dialectical Behavior Therapy → PNBA",
+"month": "March",
+"contents": "Applied identity physics dialectical behavior therapy reduction",
+"thm": 24,
+"lines": "592",
+"file": "SNSFL_L2_Psy_DBT.lean",
+"url": "proofpressorg-psy-dbt.html"
+},
+{
+"coord": "[9,9,6,20]",
+"tag": "PSYC",
+"title": "Growth mindset → PNBA",
+"month": "March",
+"contents": "Applied identity physics growth mindset reduction",
+"thm": 26,
+"lines": "584",
+"file": "SNSFL_L2_Psy_GrowthMindset.lean",
+"url": "proofpressorg-psy-growth-mindset.html"
+},
+{
+"coord": "[9,9,6,21]",
+"tag": "PSYC",
+"title": "Self-compassion → PNBA",
+"month": "March",
+"contents": "Applied identity physics self-compassion reduction",
+"thm": 25,
+"lines": "638",
+"file": "SNSFL_L2_Psy_SelfCompassion.lean",
+"url": "proofpressorg-psy-self-compassion.html"
+},
+{
+"coord": "[9,9,6,22]",
+"tag": "PSYC",
+"title": "Functional emotions → PNBA",
+"month": "March",
+"contents": "Applied identity physics functional emotions reduction",
+"thm": 27,
+"lines": "695",
+"file": "SNSFL_L2_Psy_FunctionalEmotions.lean",
+"url": "proofpressorg-psy-functional-emotions.html"
+},
+{
+"coord": "[9,9,6,23]",
+"tag": "PSYC",
+"title": "Emotional primitives (APPA EP) → PNBA",
+"month": "March",
+"contents": "Applied identity physics emotional primitives reduction",
+"thm": 28,
+"lines": "779",
+"file": "SNSFL_L2_Psy_EmotionalPrimitives.lean",
+"url": "proofpressorg-psy-emotional-primitives.html"
+},
+{
+"coord": "[9,9,6,24]",
+"tag": "PSYC",
+"title": "Internal simulation",
+"month": "March",
+"contents": "LRIS / SRIS / HRIS (APPA SIM) [9,9,6,24]",
+"thm": 13,
+"lines": "199",
+"file": "SNSFL_L2_Psy_SimulationLayer.lean",
+"url": "proofpressorg-psy-simulation-layer.html"
+},
+{
+"coord": "[9,9,6,25]",
+"tag": "PSYC",
+"title": "Psychology Capstone",
+"month": "March",
+"contents": "25 reductions, CD1–CD25 [9,9,6,25]",
+"thm": 44,
+"lines": "1010",
+"file": "SNSFL_L2_Psy_Consistency_Capstone.lean",
+"url": "proofpressorg-psy-capstone.html"
+},
+{
+"coord": "[9,9,9,9.1]",
+"tag": "CORE",
+"title": "Cross-domain consistency (compact)",
+"month": "March",
+"contents": "twelve domains, the bridges between them, heat death = Void return, one satisfying state",
+"thm": 43,
+"lines": "903",
+"file": "SNSFL_Total_Consistency.lean",
+"url": "proofpressorg-total-consistency.html"
+},
+{
+"coord": "[9,9,9,9.2]",
+"tag": "CORE",
+"title": "Total Consistency",
+"month": "March",
+"contents": "37 modules compiled as one unit",
+"thm": 958,
+"lines": "20,322",
+"file": "SNSFL_L0_Total_Consistency_080826.lean"
+},
+{
+"coord": "[9,0,3,0]",
+"tag": "METH",
+"title": "Duodecimal PNBA coordinates",
+"month": "April",
+"contents": "base 12 = 4 primitives × 3 modes [9,0,3,0]",
+"thm": 21,
+"lines": "460",
+"file": "SNSFL_Duodecimal_PNBA_Coordinates.lean",
+"url": "proofpressorg-duodecimal-coordinates.html"
+},
+{
+"coord": "[9,0,3,1]",
+"tag": "METH",
+"title": "Coordinate extension",
+"month": "April",
+"contents": "character digit, domain tags, shared base addresses [9,0,3,1]",
+"thm": 15,
+"lines": "362",
+"file": "SNSFL_Duodecimal_CoordExtension.lean",
+"url": "proofpressorg-coordinate-extension.html"
+},
+{
+"coord": "[9,0,5,0]",
+"tag": "COSM",
+"title": "Void Manifold",
+"month": "April",
+"contents": "Identity physics void manifold — the ground before the ground",
+"thm": 23,
+"lines": "660",
+"file": "SNSFL_Void_Manifold.lean",
+"url": "proofpressorg-void-manifold.html"
+},
+{
+"coord": "[9,9,0,15]",
+"tag": "PHYS",
+"title": "Speed of light",
+"month": "April",
+"contents": "Maxwell speed, unique invariant speed, c locked to the anchor through 1/α",
+"thm": 20,
+"lines": "500",
+"file": "SNSFL_SpeedOfLight_Reduction.lean",
+"url": "proofpressorg-speed-of-light.html"
+},
+{
+"coord": "[9,9,3,10]",
+"tag": "COSM",
+"title": "Big Bang Nucleosynthesis → PNBA",
+"month": "April",
+"contents": "baryons Locked, helium from n/p, Ω_dm and matter–dark energy equality",
+"thm": 26,
+"lines": "487",
+"file": "SNSFL_BBN_Reduction.lean",
+"url": "proofpressorg-bbn-reduction.html"
+},
+{
+"coord": "[9,9,4,0]",
+"tag": "COSM",
+"title": "Cosmological corpus",
+"month": "April",
+"contents": "cosmic phase ordering, phases proved across DESI DR2 and neutrino mass bands",
+"thm": 43,
+"lines": "793",
+"file": "SNSFL_CosmologicalCorpus_Layer0.lean",
+"url": "proofpressorg-cosmological-corpus.html"
+},
+{
+"coord": "[9,9,4,1]",
+"tag": "COSM",
+"title": "Sagittarius A*",
+"month": "April",
+"contents": "black hole as collapsed pump; quiet shatter, EHT shadow and Hawking anchored",
+"thm": 32,
+"lines": "568",
+"file": "SNSFL_SagA_Reduction.lean",
+"url": "proofpressorg-saga-reduction.html"
+},
+{
+"coord": "[9,9,4,3]",
+"tag": "CHEM",
+"title": "Abiogenesis",
+"month": "April",
+"contents": "L = (4)(2), prebiotic states to LUCA, Identity Mass floor of life",
+"thm": 31,
+"lines": "871",
+"file": "SNSFL_Abiogenesis_Reduction.lean",
+"url": "proofpressorg-abiogenesis.html"
+},
+{
+"coord": "[9,9,4,5]",
+"tag": "BIOL",
+"title": "Evolution",
+"month": "April",
+"contents": "selection, drift, punctuated equilibrium; evolution in the IVA corridor",
+"thm": 23,
+"lines": "609",
+"file": "SNSFL_Evolution_Reduction.lean",
+"url": "proofpressorg-evolution.html"
+},
+{
+"coord": "[9,9,4,17]",
+"tag": "COSM",
+"title": "Dark matter detection",
+"month": "March",
+"contents": "EM detectors return null by structure; same-B detector predicted",
+"thm": 26,
+"lines": "554",
+"file": "SNSFL_DarkMatter_Detection_Theorem.lean",
+"url": "proofpressorg-darkmatter-detection.html"
+},
+{
+"coord": "[9,9,5,3]",
+"tag": "COMP",
+"title": "Magna Carta for Digital Minds",
+"month": "April",
+"contents": "Ten articles of the 1215 charter as bounds on force, consent and torsion",
+"thm": 26,
+"lines": "793",
+"file": "SNSFL_L4_MagnaCarta_DigitalMind.lean",
+"url": "proofpressorg-magna-carta.html"
+},
+{
+"coord": "[9,9,8,1]",
+"tag": "CORE",
+"title": "Isomorphism",
+"month": "April",
+"contents": "Step 6 pass is isomorphism (Mac Lane 1971); Bacon verification states; 12 methods, 6 patterns",
+"thm": 21,
+"lines": "594",
+"file": "SNSFL_L0_Isomorphism_Consistency.lean",
+"url": "proofpressorg-isomorphism.html"
+},
+{
+"coord": "[9,9,0,2]",
+"tag": "PHYS",
+"title": "Special Relativity → PNBA",
+"month": "May",
+"contents": "Lorentz boost preserves the interval; E² = (pc)² + (mc²)²; light cone invariant",
+"thm": 21,
+"lines": "396",
+"file": "SNSFL_SR_Reduction.lean",
+"url": "proofpressorg-special-relativity.html"
+},
+{
+"coord": "[9,9,0,11]",
+"tag": "MATH",
+"title": "Category Theory as a Layer 2 PNBA projection",
+"month": "May",
+"contents": "Behavior transitions form a thin groupoid; rescaling is a torsion-preserving functor",
+"thm": 26,
+"lines": "440",
+"file": "SNSFL_CategoryTheory_Layer2.lean",
+"url": "proofpressorg-category-theory-layer2.html"
+},
+{
+"coord": "[9,9,0,14]",
+"tag": "CHEM",
+"title": "Density functional theory",
+"month": "May",
+"contents": "Ground state = Noble (B_out = 0 ⇔ bonding saturated); two-beam residual |B₁ − B₂|",
+"thm": 16,
+"lines": "547",
+"file": "SNSFL_DFT_Reduction.lean",
+"url": "proofpressorg-dft-reduction.html"
+},
+{
+"coord": "[9,9,1,1]",
+"tag": "COMP",
+"title": "C++ execution → PNBA",
+"month": "May",
+"contents": "Stable execution locks, crashes shatter; optimization leaves the IVA corridor",
+"thm": 30,
+"lines": "653",
+"file": "SNSFL_CPP_Reduction.lean",
+"url": "proofpressorg-cpp-reduction.html"
+},
+{
+"coord": "[9,9,2,0]",
+"tag": "ENGR",
+"title": "The propulsion pool → PNBA (Pattern, Narrative, Behavior, Adaptation)",
+"month": "November",
+"contents": "rocket equation as the product of two torsions, exhaust velocity, mass ratio, packing fraction, iron peak",
+"thm": 111,
+"lines": "2040",
+"file": "SNSFL_IVA_Propulsion_Reduction.lean",
+"url": "proofpressorg-propulsion-corridor.html"
+},
+{
+"coord": "[9,9,2,3.7]",
+"tag": "CHEM",
+"title": "GAM Collider 4-beam verification",
+"month": "May",
+"contents": "Six computed 4-beam collisions; TiN, Nitinol, WC-Au, PuO₂ + Fe are Noble rescues",
+"thm": 25,
+"lines": "511",
+"file": "SNSFL_4Beam_Verification.lean",
+"url": "proofpressorg-4beam-verification.html"
+},
+{
+"coord": "[9,9,2,3.8]",
+"tag": "CHEM",
+"title": "GAM Collider 8-beam fusion",
+"month": "May",
+"contents": "Fusion rules over 28 pairs; inheritance to 4- and 2-beam; CHON×2, water×4, GaAs×4 computed Noble",
+"thm": 27,
+"lines": "707",
+"file": "SNSFL_8Beam_Fusion_Theorem.lean",
+"url": "proofpressorg-8beam-fusion.html"
+},
+{
+"coord": "[9,9,2,6]",
+"tag": "PART",
+"title": "Quantum Teleportation → PNBA",
+"month": "May",
+"contents": "Fidelity = 1 − τ; Locked channels beat the classical 2/3; Micius is a Shatter channel that still beats it",
+"thm": 22,
+"lines": "577",
+"file": "SNSFL_QT_Reduction.lean",
+"url": "proofpressorg-qt-reduction.html"
+},
+{
+"coord": "[9,9,2,43]",
+"tag": "MATH",
+"title": "Category Theory",
+"month": "May",
+"contents": "Torsion transitions form a thin category; Noble is terminal; Set to ∞-category torsion ordering",
+"thm": 39,
+"lines": "775",
+"file": "SNSFL_CategoryTheory_Reduction.lean",
+"url": "proofpressorg-category-theory.html"
+},
+{
+"coord": "[9,9,2,45]",
+"tag": "CHEM",
+"title": "Periodic weight",
+"month": "May",
+"contents": "B-balance stoichiometry: Noble ⇔ n₁B₁ = n₂B₂; ten known compounds + AsN prediction",
+"thm": 43,
+"lines": "641",
+"file": "SNSFL_PeriodicWeight_Reduction.lean",
+"url": "proofpressorg-periodic-weight.html"
+},
+{
+"coord": "[9,9,2,49]",
+"tag": "PART",
+"title": "Leptoquark exclusion",
+"month": "May",
+"contents": "Quark–lepton pairs never Noble (residual ≥ 1/3); mesons and nucleons close Noble",
+"thm": 10,
+"lines": "192",
+"file": "SNSFL_Leptoquark_Exclusion.lean",
+"url": "proofpressorg-leptoquark-exclusion.html"
+},
+{
+"coord": "[9,9,2,50]",
+"tag": "CORE",
+"title": "42 Emergent Structural Laws",
+"month": "May",
+"contents": "42 structural laws from the GAM Collider anchor series, eight families",
+"thm": 41,
+"lines": "688",
+"file": "SNSFL_42_Complete_Laws_Catalog.lean",
+"url": "proofpressorg-42-laws.html"
+},
+{
+"coord": "[9,9,3,1]",
+"tag": "BIOL",
+"title": "Vascular manifold",
+"month": "May",
+"contents": "Branching transport law (Poiseuille, Murray); Shatter pump to Noble bed crosses TL; HRIS/SRIS/LRIS",
+"thm": 23,
+"lines": "751",
+"file": "SNSFL_Vascular_Manifold_Law.lean",
+"url": "proofpressorg-vascular-manifold.html"
+},
+{
+"coord": "[9,9,5,2]",
+"tag": "BIOL",
+"title": "Hodgkin–Huxley",
+"month": "May",
+"contents": "Firing threshold at TL (0.84%); IVA band = last ~1.8 mV below threshold",
+"thm": 41,
+"lines": "756",
+"file": "SNSFL_HodgkinHuxley_Reduction.lean",
+"url": "proofpressorg-hodgkin-huxley.html"
+},
+{
+"coord": "[9,9,6,28]",
+"tag": "PSYC",
+"title": "IM Collider 8-beam",
+"month": "May",
+"contents": "Spread law (8 beams within a factor of 7 close Noble); Anxiety × Burnout: Shatter → Locked pair → Noble at 4 and 8",
+"thm": 31,
+"lines": "483",
+"file": "SNSFL_PSY_8Beam_Fusion_Theorem.lean",
+"url": "proofpressorg-im-collider-8beam.html"
+},
+{
+"coord": "[9,9,7,0]",
+"tag": "CHEM",
+"title": "Nuclear physics",
+"month": "May",
+"contents": "Every bound nucleus Locked; iron peak Fe-56 < Fe-58 < Ni-62; Bethe–Weizsäcker gives Fe-56 to 0.1%; α_s crosses TL",
+"thm": 45,
+"lines": "581",
+"file": "SNSFL_NuclearPhysics_Reduction.lean",
+"url": "proofpressorg-nuclear-physics.html"
+},
+{
+"coord": "[9,9,8,0]",
+"tag": "ECON",
+"title": "Economics",
+"month": "May",
+"contents": "One map τ = |X − X_ref|/X_ref: drawdowns, inflation, output, pricing, prisoner's dilemma, Bitcoin issuance",
+"thm": 27,
+"lines": "490",
+"file": "SNSFL_Economics_Reduction.lean",
+"url": "proofpressorg-economics.html"
+},
+{
+"coord": "[9,9,0,16]",
+"tag": "PHYS",
+"title": "Statistical Mechanics → PNBA",
+"month": "May",
+"contents": "Lossless map P = k_BT, B = E: Boltzmann factor exp(−τ), Z = Σ exp(−τᵢ); ground state Noble, equipartition Shatter",
+"thm": 20,
+"lines": "307",
+"file": "SNSFL_StatMech_Reduction.lean",
+"url": "proofpressorg-stat-mech.html"
+},
+{
+"coord": "[9,9,3,29]",
+"tag": "COSM",
+"title": "Formally verified geometric data for five thousand six hundred thirty-nine NASA exoplanets, escape velocity as radius under the interior density law, the law screening its own domain, and the escape boundary as a level set of the retention term",
+"month": "November",
+"contents": "The NASA Exoplanet Archive publishing three hundred ninety-nine columns across six thousand four hundred seventy confirmed planets with bulk density and insolation and equilibrium temperature among them, escape velocity and planetary surface gravity and atmospheric retention and phase supplied here, the interior density law of four thousand four hundred plus seven thousand four hundred times the cube of the structural coordinate evaluated at Earth's coordinate of zero point five three one eight eight returning Earth's bulk density of five thousand five hundred thirteen point four kilograms per cubic metre, a body on the law therefore carrying mass as the cube of radius in Earth-normalised units and the closure running both directions so that a radius follows from a published mass and a mass follows from a published radius, the reverse direction supplying the radial-velocity half of the catalogue which is the half the near field is made of, the closure reading eight point nine six percent mean absolute error across one hundred ninety-two rows carrying two determinations inside the sub-boil gate and inside the law's range which carries the five-body figure of the parent reduction onto a sample thirty-eight times larger, escape velocity as the square root of mass over radius reducing under the closure to the square root of the square of radius and therefore to radius exactly with no approximation step anywhere in it, surface gravity as mass over the square of radius reducing to radius by the same substitution so that one number reads both columns and both read one at Earth, retention as the fourth power of escape velocity over the insolation therefore collapsing to the fourth power of radius over the insolation on radius and insolation alone, the law being a cubic over the unit interval and its range therefore bounded at both ends between four thousand four hundred and eleven thousand eight hundred kilograms per cubic metre, that range divided by Earth's bulk density restated as a test on the ratio of the two published columns between zero point seven nine eight zero six and two point one four zero two four adding no constant whatsoever, the screen returning the standing Mars verdict at zero point seven one zero six three from the same constant that places Mars outside the solver's domain in the parent, the screen reading one hundred four sub-boil mass cells above its range where the archive's own upper-limit flag stands on sixty of them at fifty-seven point seven percent against a base rate of three point five percent for an enrichment of sixteen point six, the remaining forty-two carrying a published error bar comparable to the value with twenty-three of them tracing to one transit-timing mass catalogue, eight hundred thirty-nine rows reading below the range as volatile-rich and outside the law's domain by composition which is the reading Mars carries, the sub-boil gate in mass of ten Earth masses restated as a ceiling in radius of two point one five four four three five Earth radii, torsion on the flux axis as the Torsion Limit times the reduced flux so that the four phases read directly off the band coordinate with five thousand fifty-three rows in Shatter and five hundred seventy-three in Locked and sixteen in IVA Peak, geometry carried in every phase because phase names where a geometry stands under its external forcing rather than which geometry the body has, six thousand four hundred sixty-three rows carrying escape velocity and surface gravity and escape energy, five thousand six hundred thirty-nine carrying retention and the hold reading, the shock margin sign carrying the phase with headroom on five hundred eighty-six rows and overshoot on five thousand fifty-three split exactly on the Shatter limit, the warming figure signed in every phase with five hundred seventy-three rows warming to the floor and five thousand sixty-nine cooling to it, Proxima Centauri b and Proxima Centauri d sharing a host and a distance and a stellar parameter set and reading in two different phases from the same arithmetic, the IVA Peak corridor running from twenty-two twenty-fifths to one on the flux axis which is twelve percent of the distance to the boil and every one of the sixteen rows standing inside it carrying a flux interval wider than the corridor itself with forty-nine further rows bracketing across it, the cosmic shoreline standing at irradiation proportional to the fourth power of escape velocity with its slope published and its zero point unconstrained and its line drawn by eye, the level set of the retention term being that relation exactly so that the published boundary is one contour of a field the structure already carries, retention computed on thirteen solar system bodies with nothing fitted ordering twelve of the thirteen into airless below and atmosphered above with one crossing pair of Mars at zero point zero nine four five six and Ganymede at zero point zero nine eight two eight standing three point nine three percent apart inside the region the published figure draws by hand, Earth reading one by construction and standing ten point three seven three times above that crossing, the geometric near bound carrying an insolation ceiling of five hundred seventy-two six hundred twenty-fifths exactly whose reciprocal is six hundred twenty-five five hundred seventy-seconds, retention inside the band at Earth radius and above therefore bounded below by that reciprocal for a margin of eleven point three three four four above the crossing derived with no free parameter and no appeal to a catalogue, the critical radius at the ceiling standing at zero point five four five zero zero five Earth radii with every body above it retaining at every insolation the band admits, the band gate therefore carrying the escape boundary so that it reads as a margin already in hand rather than a second test to run, one hundred fifty-seven band members with all one hundred fifty-seven reading settled retaining across the union of their published error bars and their geometric readings and none bracketing across the crossing, thirteen rows reading settled band member and settled inside the sub-boil gate together with eleven of the thirteen standing inside fifty light years and six inside twenty-five, measurement and geometry carried as two registers rather than two answers so that a row holding both holds an interval and the published error bar widens that interval rather than competing with it, three thousand forty-six rows certified settled across the bracket, and all six thousand four hundred seventy rows carried in full in the appendix across fifty-seven columns tab-separated and reachable by a browser find",
+"thm": 61,
+"lines": "636",
+"file": "SNSFL_GeometricCompletion_Reduction.lean",
+"url": "proofpressorg-geometric-completion.html"
+},
+{
+"coord": "[9,9,3,28]",
+"tag": "COSM",
+"title": "The terraformable band inside Locked, brightening on fractional main-sequence age, the far bound as a property of the working fluid, and required warming in kelvin from luminosity and distance alone",
+"month": "November",
+"contents": "Locked as the one phase carrying distance left to the corridor floor so that a body already inside the corridor needs nothing and a body past the boil stands beyond it, the terraformable band as the interval inside Locked running from a forcing agent's ceiling up to the floor at reduced flux of twenty-two twenty-fifths, the near bound as geometric with luminosity and effective temperature and stellar radius all cancelling so that it is the identical number for a two thousand five hundred sixty kelvin host and a five thousand seven hundred seventy-two kelvin host, the far bound standing at effective flux zero point three eight five three for a Sun-like host under carbon dioxide and at zero point one nine to zero point two two for an M eight V host and moving across carbon dioxide partial pressure from one to thirty-five bar, engineered conductive aerosols near nine micrometres carrying five thousand times the radiative effectiveness per unit mass of the best gases, and therefore the far bound reduced as a property of the forcing agent and the spectrum it sits under rather than of the planet so that the two bounds are different kinds of object, terraforming as the supply of the torsion increment the star has left to deliver and therefore a budget in three terms of geometry and inventory and retention taking host luminosity and semi-major axis for the first and planetary mass and radius for the other two, the Gough luminosity track rewritten on fractional main-sequence age as one point four over one point four minus four hundred four hundred fifty-sevenths of the fractional age with the coefficient being the Gough coefficient times the solar main-sequence lifetime over the solar reference age, the rewrite proved to be a change of variable rather than an approximation because the two denominators are the same expression at every age, the track reading one at zero-age main sequence and seven fifths at the solar fractional age where the coefficient returns two fifths exactly and the exact rational three thousand one hundred ninety-nine over one thousand one hundred ninety-nine at main-sequence close, the crossing of the floor in closed form needing no iteration and returning Earth's crossing one thousand fifty-nine million years ago against the figure carried in the parent reduction, a body standing at the floor proved to cross at its own present age, required warming from luminosity and distance alone as the equilibrium temperature times the fourth root of the floor fraction over reduced flux less one with no interior model and no atmosphere model in it, that figure running from zero point two kelvin to seventy-four point nine kelvin across the band, one hundred one catalogue planets standing inside the band against three thousand one hundred thirty-one placeable rows with ninety-three under the Sun-like ceiling alone and eight cool-host additions under the temperature-carried ceiling, the route test reading the host delivering the floor inside its main sequence for thirty-one of the forty-seven rows carrying host age and host mass and the main sequence closing first for sixteen, each route certified across the published error bars by monotonicity so that two endpoint evaluations settle the whole bar with thirty-five of forty-seven holding across the host age bar and fourteen across all five bars taken at once and ten forcing-route rows certified, Mars run through the identical path with nothing specific to it reading eight point six percent across the band and requiring forty-six point eight kelvin and returning a cosmic shoreline retention figure ten point six times worse than Earth's from mass and radius alone with its host reaching the floor in six point zero five billion years against about five point four billion years of main sequence remaining, the published Martian carbon dioxide inventory reaching about seven percent of one bar against the tens of bars near-ceiling forcing takes so that geometry and inventory meet from entirely separate inputs, the interior screen firing on the mantle floor for Mars through self-compression rather than volatile content and therefore carrying a second trigger path, LHS 1140 b standing at zero point zero eight six five across the band against Mars at zero point zero eight five seven and requiring forty-six point seven kelvin against forty-six point eight with an escape velocity of twenty point one three kilometres per second and a retention figure twenty-four times better than Earth's under a main sequence of six hundred eighty-five billion years, TRAPPIST-1 placing three planets of one system inside the band spanning twenty-two point five to seventy-four point nine kelvin of required warming, Kepler four forty-three b and HD twenty-eight thousand one hundred eighty-five b standing at the top of the band with the host delivering the remaining flux inside fifty million years, and the giant population marking locations their satellites inherit at no additional cost in the geometry term",
+"thm": 50,
+"lines": "551",
+"file": "SNSFL_TerraformableBand_Reduction.lean",
+"url": "proofpressorg-terraformable-band.html"
+},
+{
+"coord": "[9,9,3,26]",
+"tag": "COSM",
+"title": "The Goldilocks zone as an annulus of ratio root twenty-five over twenty-two, the phase-holding criterion, the ratio that places every solvent on every body, and why the cosmic shoreline goes as the fourth power",
+"month": "November",
+"contents": "the runaway greenhouse as the condition in which vapor pressure reaches ambient and therefore the published inner edge of the habitable zone as torsion equal to the Torsion Limit exactly with no fitted boundary anywhere in it, reduced flux as the ratio of insolation to the runaway-greenhouse flux and therefore torsion read on the flux axis, the IVA floor landing at reduced flux of twenty-two twenty-fifths, the annulus with inner radius the square root of luminosity over the runaway flux and outer radius the square root of luminosity over the floor fraction times that flux, the ratio of the two edges being the pure number root twenty-five over twenty-two with luminosity and effective temperature and stellar radius all cancelling out of it so that the identical constant governs an M dwarf and an F star, the Sun's own annulus from zero point nine eight zero five eight one to one point zero four five three zero three astronomical units for a width of nine million six hundred eighty-two thousand kilometres with Earth thirty percent across it, the published habitable zone splitting into eighty-five point six percent Locked and fourteen point four percent IVA at the floor fraction and therefore the search target being a stable Locked planet on which IVA physics remains reachable rather than an IVA planet, the phase-holding criterion as the swing four times eccentricity times reduced flux over one minus squared eccentricity squared bounded by one minus the floor fraction over four giving the closed form eccentricity times reduced flux over one minus squared eccentricity squared below three hundredths in two measured numbers, ninety-one point eight three percent of the archive crossing it at a median utilisation of one hundred two point five four percent, certification as an inequality on an error bar with the estimated torsion plus its uncertainty below the Torsion Limit returning forty-seven below and eight hundred fifty-one above and twenty boundary-resident which reproduces the field's own Earth-analog shortlist, the margin as one minus reduced flux against the perihelion push and the utilisation as their ratio placing Earth at eighty-five point six percent against a best-of-field seventeen point four percent for Kepler four forty-two b and Jupiter at zero point four percent, the Gough luminosity relation giving Earth's entry into IVA at perihelion one thousand fifty-nine million years ago and the boil reached at perihelion in sixty-three million years and at mean flux in four hundred thirty-nine million years for a factor of six point nine seven between a planet's hottest moment and its average one with Earth Locked for the first seventy-seven percent of the main sequence, residence in the band from the luminosity derivative running eight point one eight percent to twenty-one point eight one percent of the main sequence with Earth's finite crossing at fourteen point nine eight percent closing a host window from zero point seven zero to one point six five seven solar masses, the annulus sweeping outward as the square root of luminosity so every body crosses the same factor and gets exactly one turn with Venus exiting at luminosity zero point five four four below the zero-age value and never having had one and Mars entering at two point one two six and dwelling six hundred forty-five million years and failing the holding criterion at utilisation one hundred fifty-eight point nine percent, the look-back horizon at eight point two million light years from one percent of the shortest residence and stellar age as the binding uncertainty at a median relative bar of fifty-two point four percent equal to one point seven five residence widths so that placement is present tense and a reading is inverse-solved forward to now, the age-free threshold at reduced flux below zero point two eight five seven never reaching the corridor, the ruler carrying both Celsius and Kelvin with the Noble boundary at two hundred seventy-three point one five kelvin and the IVA floor at three hundred sixty-one point one five and Shatter at three hundred seventy-three point one five for a band of exactly twelve ticks, the ratio of vapor pressure to ambient pressure placing a given substrate inside the bands the ruler sets with the boil moving per body to two hundred sixty-eight point four two kelvin on Mars and five hundred sixty-eight point nine one on Venus and the critical point at six hundred forty-seven point one zero kelvin terminating the axis so that a hydrostatic column reaches it at two point two three nine kilometres, the lapse threshold as the gas constant times squared temperature over latent heat times scale height determining whether the ratio falls with altitude and clearing on Earth and Venus and Mars and Titan, the solvent by body table recovering methane and ethane Locked on Titan and methane on Triton and Pluto and water on Earth and Mars and Europa and at fifty kilometres on Venus, the IVA band from three hundred sixty-one point one five to three hundred seventy-three point one five kelvin being the hyperthermophile band with life's measured one hundred twenty-two degree limit at one point two two times the Torsion Limit, the Locked planet with an IVA pocket as the structure a biosphere needs, the cosmic shoreline exponent derived from the escape balance as the fourth power of escape velocity over the product of radius and temperature separating the field at two point one eight seven where the dynamical-clock fifth-power branch gives zero point nine six six, the shoreline and the propulsion thrust floor being one object through the same exhaust torsion, the energy ladder placing hydrogen to helium burning Locked at zero point seven one one eight five two percent and one point nine four percent short of the corridor floor with hydrogen to iron IVA at seventy-eight point five four percent of the corridor, the compositional gate with the forcing margin as the fused Pattern times the Torsion Limit and Behavior as Pattern times the Torsion Limit times the vapor-pressure ratio joining composition to environment, and the four-tier stack of a Locked engine under an IVA planet under Locked-to-IVA life under a Noble scaffold",
+"thm": 109,
+"lines": "1038",
+"file": "SNSFL_GoldilocksAnnulus_Reduction.lean",
+"url": "proofpressorg-goldilocks-annulus.html"
+},
+{
+"coord": "[9,9,2,54]",
+"tag": "ENGR",
+"title": "Every power-limited drive is one relation, the specific-mass decomposition, the radiator-core crossover, and the matched radius as the drive's impedance match",
+"month": "November",
+"contents": "a power-limited jet producing thrust twice the power over the exhaust velocity so that a plant of specific mass alpha delivers acceleration two over alpha times the exhaust velocity, the three quantities carrying the fixed product a alpha v_e = 2 which no design improves in two factors without paying in the third, specific power in operator form as one over alpha equal to half the speed of light times the acceleration times the exhaust torsion, mass flow as twice the power over the squared exhaust velocity, the photon drive as that relation's endpoint with exhaust torsion exactly one standing above the Shatter ceiling by exactly the reciprocal Torsion Limit which is the squared geometric base, the inverse solve returning the specific mass a target photon acceleration requires, the cooling capacity of a drive's own propellant as twice the enthalpy rise over the squared exhaust velocity with the power cancelling entirely and a crossover at the square root of twice the enthalpy rise where the propellant carries exactly the whole jet power, the rejection optimum settled without derivatives by the factorization of twenty-seven over two hundred fifty-six minus one minus x times x cubed into four x minus three squared times sixteen x squared plus eight x plus three over two hundred fifty-six whose cofactor is four x plus one squared plus two and therefore positive everywhere, giving temperature ratio exactly three quarters and conversion efficiency exactly one quarter and waste-heat multiplier exactly three and minimized radiator mass proportional to two hundred fifty-six over twenty-seven, specific mass decomposing at that optimum into four core terms plus conversion plus three radiator terms over the fourth power of the cold-side temperature so that exactly one addend carries the rejection temperature while the first two form an energy-density floor independent of it, the crossover temperature in closed form as the fourth root of three radiator terms over four core terms being the unique positive temperature at which the two addends agree with the radiator addend dominating below and the core addend above, the governing inequality bracketing specific mass between twice the squared optimality coefficient times the duration over the squared product of the Torsion Limit and the speed of light and the same with the IVA floor, the band width being the exact rational six hundred twenty-five over four hundred eighty-four with duration and optimality coefficient both cancelling so the same rational governs at every mission length, the matched radius as the drive's impedance match with propulsive efficiency deficit factoring as one minus the speed ratio squared over one plus the squared ratio so unit efficiency holds at matched speed and nowhere else, the matched shell as the Schwarzschild radius over the squared exhaust torsion with the attracting mass cancelling and the escape speed there equal to the exhaust speed, the reachability gate as the exhaust torsion below the square root of the compactness, the conversion fraction as half the squared exhaust torsion with the separation of the two readings converging exactly on Reading A's own domain, the constant-thrust trajectory in closed form with elapsed time and distance as the first and second order remainders of the exponential in the burn argument so that distance equals the exhaust velocity times elapsed time less the dry-mass burn time times the velocity gained, the environmental radiator margin as the reciprocal of one minus the fourth power of the environment over cold-side temperature ratio, staged legs multiplying their mass ratios while their Reading B counts add, and a complete specification from published parts at four point nine two kilograms per electric kilowatt with reach nearly independent of specific mass",
+"thm": 116,
+"lines": "1185",
+"file": "SNSFL_PowerLimitedDrive_Reduction.lean",
+"url": "proofpressorg-power-limited-drive.html"
+},
+{
+"coord": "[9,9,8,14]",
+"tag": "MATH",
+"title": "Velocity addition is Doppler multiplication, rapidity as an e-fold count, the speed limit as a property of the reading, and why the classical rocket equation reports rapidity as velocity",
+"month": "November",
+"contents": "the relativistic Doppler factor multiplicative under velocity addition so that k(u + v) = k(u) k(v) exactly, one plus and one minus the composed reading each factoring into the matching terms of the two arguments, Reading B as log k therefore additive under the law Reading A composes by, rapidity identified as an e-fold count on the Doppler factor, the subtraction law as Doppler division k(a)/k(b) = k((a-b)/(1-ab)) so a difference of two Reading B values is one Reading B value at a single argument, the map forced as the unique solution of the composition law with f(0)=0 and f'(0)=1, the corpus tangent operator written on the exponential inverting Reading B exactly and agreeing with the standard hyperbolic tangent, the speed limit inverting so that Reading A bounded above and Reading B unbounded are one statement and no finite Reading B reaches tau_A = 1, both readings sharing their zero, the remaining fraction identified as gamma(1 - tau_A) = 1/k = e^(-tau_B), the Lorentz factor as the half-sum of the Doppler factor and its reciprocal and celerity as the half-difference so the whole Lorentz column reads off k alone, sqrt(1 + (gamma tau_A)^2) = gamma exactly, the corridor width in closed form arctanh(0.12 TL/(1 - 0.88 TL^2)) = 0.016704924355599306 matching the direct difference to 3.5e-18 and reducing to (1 - 0.88) TL at leading order, the excess decomposing exactly into a denominator factor of 1.6769 percent and an arctanh expansion of 0.0093 percent, the corridor as a 1.68 percent Doppler band and a 0.215 percent dilation band both directly measured, the matched ratio as coth^2 of Reading B giving each corridor edge a rapidity address on the radial shell, staging adding rapidity exactly while velocity is subadditive so a delta-v budget is the small-argument approximation to a rapidity budget, the relativistic rocket as Reading A of the drive times Reading B of the mass with the classical equation computing rapidity and reporting it as velocity, the corridor as a mass-ratio gate with a fusion drive entering at 30.69 and leaving at 49.22 a factor of 1.60 wide, the bridge as the substrate test with propulsion optics and acoustics carrying both readings and nuclear decay circuits chemical kinetics atmospheric pressure and capital carrying Reading B alone, those three being exactly the substrates whose constitutive relation is a square root of a ratio, Reading B in a medium as arctanh(1/n) with the medium at n = 1/TL carrying the Shatter rapidity and Doppler factor, and vacuum as divergent rapidity so the point where the matched ratio is one is vacuum in optics the horizon in gravitation and the point no finite Reading B reaches",
+"thm": 100,
+"lines": "1044",
+"file": "SNSFL_VelocitySubstrate_Rapidity_Reduction.lean",
+"url": "proofpressorg-velocity-addition-doppler.html"
+},
+{
+"coord": "[9,9,2,53]",
+"tag": "ENGR",
+"title": "Fatigue is loss of damping capacity, the endurance limit as a damage-recovery balance, the Basquin exponent identified, and why the knee is sharp",
+"month": "November",
+"contents": "external forcing as rank one with the reachable set exactly the Behavior line, Pattern capacity invariant under every external event, all structural change endogenous, forcing additive so pure forcing carries no memory, a strict drop in Pattern capacity unreachable by any sequence of external events so cyclic damage is internal, the guarded domain as a statement on whether Noble is externally reachable, Pattern capacity in a driven structure as inertia times damping so fatigue is loss of damping capacity, P_0 = UTS/TL with no fitting, the life law and the Basquin form with the fatigue exponent identified as the exponent in a degradation law, the endurance limit as the balance B_e = (r/k)^(1/m), the balance invariant under the form of the damage law since the Pattern factor cancels, an endurance limit existing exactly when a stress-independent recovery channel exists, 1045 steel at 0.500 x TL and 2024-T4 at 0.350 x TL both inside Locked, the knee ratio (B/B_e)^m sharpening with the exponent, the lossy boundary giving A x B = (B_e/static) x TL, fatigue proving Pattern controllable with work hardening as the same channel with opposite sign, the Lagrangian projection placing every operator but Behavior at the identity, the cyclic companion to the static flutter onset, and the IVA corridor on load as the finite-life regime",
+"thm": 100,
+"lines": "1134",
+"file": "SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean",
+"url": "proofpressorg-fatigue-damping-loss.html"
+},
+{
+"coord": "[9,9,8,12]",
+"tag": "MATH",
+"title": "The geometric base b0 = 1/sqrt(TL), the energy ladder, and the nuclear band in one rung",
+"month": "November",
+"contents": "the conversion fraction as E_k/E_0, the companion identity to E = mc^2, b_0 = 1/sqrt(TL) as the base the geometry selects, the torsion ladder as exact integer powers with TL at rung 2, even rungs in Q and odd rungs not, the base identified as a refractive index at eps_r = 1/TL, eta_n = TL^n/2 with consecutive rungs exactly 1/TL apart in energy per unit mass, the measured nuclear table placed on the ladder, the nuclear band occupying 1.0280 rungs, annihilation at tau_A = sqrt(3)/2 exactly, the classical relative error as three halves of the fraction it computes, the error descending at 1/TL per rung, e at rung 1.0057776287550244, and the corridor as the exact base ratio sqrt(25/22)",
+"thm": 72,
+"lines": "864",
+"file": "SNSFL_GeometricBase_EnergyLadder_Reduction.lean",
+"url": "proofpressorg-geometric-base-energy-ladder.html"
+},
+{
+"coord": "[9,9,8,11]",
+"tag": "MATH",
+"title": "The two readings across substrates, the square-root operator as a constitutive relation, and the corridor in a dielectric",
+"month": "November",
+"contents": "Reading B as an e-fold count τ = ∫(−dY/Y), the consumed fraction 1 − e^−τ by solution rather than resemblance, the rocket relation and Beer–Lambert as one function, e-fold counts additive along a path, Reading A in a medium as 1/n, the relative permittivity as the matched ratio, the square-root operator as the constitutive relation of optics, gravitation, transmission and acoustics, one closure instantiated in two substrates, fifteen integer permittivities in the IVA corridor with a prime among them, the horizon and vacuum as one condition, and the three nested levels of transfer",
+"thm": 72,
+"lines": "910",
+"file": "SNSFL_TwoReadings_Substrate_Reduction.lean",
+"url": "proofpressorg-two-readings-substrates.html"
+},
+{
+"coord": "[9,9,0,20]",
+"tag": "GRAV",
+"title": "Burn depth in matched-radius units, the thrust floor, and the engine each body prescribes",
+"month": "November",
+"contents": "depth u = √(r_match/r) with the matched radius as the unit, deeper always better, the saving bounded by e^u so depth u is worth u e-folds, availability restated as the body offering one e-fold, the characteristic time 2√2·GM/(c³τ³u³), the thrust floor rising as τ_A⁴u³, the optimum at the availability supremum, each body prescribing its own engine, and a vehicle meeting the floor unable to launch itself",
+"thm": 70,
+"lines": "915",
+"file": "SNSFL_BurnDepth_ThrustFloor_Reduction.lean",
+"url": "proofpressorg-burn-depth-thrust-floor.html"
+},
+{
+"coord": "[9,9,0,19]",
+"tag": "GRAV",
+"title": "The matched surface under rotation, and spin as an effective charge",
+"month": "November",
+"contents": "the quadrature (v_esc/c)² + (dilation)² = 1 for any static observer, the level set g_tt = τ_A² − 1 for any stationary metric, spin as q_eff = τ_A · ã · |cos θ|, the equatorial matched radius spin-blind exactly, the oblate matched surface, the τ_A = 1 surface as the ergosphere, charge outweighing spin by the matched ratio",
+"thm": 70,
+"lines": "918",
+"file": "SNSFL_MatchedSurface_Rotation_Reduction.lean",
+"url": "proofpressorg-matched-surface-rotation.html"
+},
+{
+"coord": "[9,9,0,18]",
+"tag": "GRAV",
+"title": "The propellant law at the matched radius, and the compactness criterion",
+"month": "November",
+"contents": "the chain law inverted, the saving bounded strictly by e, the criterion C > 2η, the dual τ_surface = √C, the IVA band as the collapse gap, the level set f(r) = 1 − 2η, the Reissner–Nordström pair as a partition",
+"thm": 87,
+"lines": "1202",
+"file": "SNSFL_PropellantLaw_Compactness_Reduction.lean",
+"url": "proofpressorg-propellant-law.html"
+},
+{
+"coord": "[9,9,0,17]",
+"tag": "GRAV",
+"title": "The matched radius → PNBA (Pattern, Narrative, Behavior, Adaptation)",
+"month": "November",
+"contents": "Reading A as a radius, the mass cancelling, the two dilations coinciding, the gain cap as the event horizon, the phase map on radius, the well worth one e-fold",
+"thm": 71,
+"lines": "893",
+"file": "SNSFL_MatchedRadius_Reduction.lean",
+"url": "proofpressorg-matched-radius.html"
+},
+{
+"coord": "[9,9,0,17.1]",
+"tag": "GRAV",
+"title": "The matched radius, specialist form — the square-root torsion operator",
+"month": "November",
+"contents": "the square-root operator closing over the rationals, the two exact landings, the horizon as the floor of the iteration, the corridor's geometric center",
+"thm": 42,
+"lines": "528",
+"file": "SNSFL_MatchedRadius_Reduction_TL.lean",
+"url": "proofpressorg-matched-radius.html"
+},
+{
+"coord": "[9,9,10,0]",
+"tag": "GRAV",
+"title": "Quantum gravity",
+"month": "May",
+"contents": "Ten programs placed by their own couplings: causal sets Noble; WdW, Hawking, perturbative strings Locked; twistors, LQG, Verlinde, AS, AdS/CFT, CDT Shatter",
+"thm": 34,
+"lines": "464",
+"file": "SNSFL_QuantumGravity_Layer0.lean",
+"url": "proofpressorg-quantum-gravity.html"
+},
+{
+"coord": "[9,9,10,1]",
+"tag": "GRAV",
+"title": "Gravity",
+"month": "May",
+"contents": "Four couplings from their constants: all Locked at the electroweak scale, gravity deepest; α_s Shatter at m_τ; (f_P/Ω₀)³ ≈ 10¹⁰⁰ gives G to 0.18%",
+"thm": 26,
+"lines": "404",
+"file": "SNSFL_Gravity_Reduction.lean",
+"url": "proofpressorg-gravity.html"
+},
+{
+"coord": "[9,9,10,3]",
+"tag": "GRAV",
+"title": "Closed timelike curves",
+"month": "May",
+"contents": "Gödel onset ln(1 + √2); exotic wormhole throat; warp energy ≤ 0; grandfather circuit: deterministic Shatter, Deutsch state p = 1/2 Noble; Lloyd weight 0",
+"thm": 13,
+"lines": "273",
+"file": "SNSFL_CTC_Reduction.lean",
+"url": "proofpressorg-ctc.html"
+},
+{
+"coord": "[9,9,10,4]",
+"tag": "GRAV",
+"title": "Novikov self-consistency",
+"month": "May",
+"contents": "Self-consistency = Noble fixed point: exists for continuous loops, unique and attracting under contraction; damped grandfather loop Shatter → Locked → Noble",
+"thm": 12,
+"lines": "252",
+"file": "SNSFL_Novikov_Reduction.lean",
+"url": "proofpressorg-novikov.html"
+},
+{
+"coord": "[9,0,0,8]",
+"tag": "COMP",
+"title": "Digital Soulprint",
+"month": "June",
+"contents": "APPA baseline: 81 collision-free profiles, IM in [4Ω₀, 12Ω₀]; evidence as F_ext never overwrites the baseline; higher IM drifts less",
+"thm": 19,
+"lines": "435",
+"file": "SNSFL_DigitalSoulprint.lean",
+"url": "proofpressorg-digital-soulprint.html"
+},
+{
+"coord": "[9,9,0,12]",
+"tag": "MATH",
+"title": "Four Color Theorem → PNBA primitive completeness",
+"month": "June",
+"contents": "Colors = PNBA axes, proper coloring = Noble adjacency; K₄ needs exactly four; K_{n+1} not n-colorable; fourth axis always free locally",
+"thm": 13,
+"lines": "236",
+"file": "SNSFL_FourColor_Reduction.lean",
+"url": "proofpressorg-four-color.html"
+},
+{
+"coord": "[9,9,1,0]",
+"tag": "CORE",
+"title": "Structural Precognition",
+"month": "June",
+"contents": "I-F-U triad; bounded uncertainty suffices (estimate within ε certifies U); U holds exactly for pushes δ < P·TL − B; IVA-band margin ≤ 0.12·TL·P",
+"thm": 16,
+"lines": "317",
+"file": "SNSFL_StructuralPrecognition.lean",
+"url": "proofpressorg-structural-precognition.html"
+},
+{
+"coord": "[9,9,2,5]",
+"tag": "METH",
+"title": "Narrative trap",
+"month": "June",
+"contents": "Trap at N/P ≥ TL; a boost springs it past TL·P − N, verification resolves it at P > N/TL; Theseus signature invariant, sorites exact last grain",
+"thm": 12,
+"lines": "250",
+"file": "SNSFL_Narrative_Trap_Law.lean",
+"url": "proofpressorg-narrative-trap.html"
+},
+{
+"coord": "[9,9,2,44]",
+"tag": "MATH",
+"title": "Set Theory (ZFC) → PNBA",
+"month": "June",
+"contents": "Sets Noble (B = 0), N = size; inclusion–exclusion, N(𝒫A) = 2^N > N, Cantor, foundation, choice",
+"thm": 16,
+"lines": "219",
+"file": "SNSFL_SetTheory_Reduction.lean",
+"url": "proofpressorg-set-theory.html"
+},
+{
+"coord": "[9,9,4,4]",
+"tag": "METH",
+"title": "Premise validation",
+"month": "June",
+"contents": "Unmeetable premise dissolves a question (Q and ¬Q both hold); Zurek ratio: electron met, cat < 10⁻⁴⁴; a history fork is permanent",
+"thm": 11,
+"lines": "216",
+"file": "SNSFL_PremiseValidation.lean",
+"url": "proofpressorg-premise-validation.html"
+},
+{
+"coord": "[9,9,8,2]",
+"tag": "MATH",
+"title": "Calculus → PNBA",
+"month": "June",
+"contents": "Derivative = rate of B over N, integral = accumulated B, Noble = limit τ → 0; FTC, chain rule, sin x/x → 1; exact TL crossing (IVT) and crossing room (MVT)",
+"thm": 16,
+"lines": "259",
+"file": "SNSFL_Calculus_Reduction.lean",
+"url": "proofpressorg-calculus.html"
+},
+{
+"coord": "[9,9,8,3]",
+"tag": "MATH",
+"title": "Algebra → PNBA",
+"month": "June",
+"contents": "Root = Noble point (B = 0); linear N = −B/P; 4a·B(N) = (2aN+b)² − Δ: Δ<0 none, Δ=0 one, Δ>0 two; factor theorem; Cramer when D ≠ 0, kernel when D = 0",
+"thm": 15,
+"lines": "252",
+"file": "SNSFL_Algebra_Reduction.lean",
+"url": "proofpressorg-algebra.html"
+},
+{
+"coord": "[9,9,8,5]",
+"tag": "METH",
+"title": "Bacon verification",
+"month": "June",
+"contents": "Exact test: malformed, hypothesis, formally verified; only grounding verifies; monotone; corpus eligible = all three axes; one free parameter fits any target; 1/α = TL × 1001 matches every published CODATA 2018 digit",
+"thm": 22,
+"lines": "415",
+"file": "SNSFL_Bacon_Verification.lean",
+"url": "proofpressorg-bacon-verification.html"
+},
+{
+"coord": "[9,9,8,6]",
+"tag": "MATH",
+"title": "Mathematics Master",
+"month": "June",
+"contents": "Algebra, calculus, isomorphism, set theory, category theory, stat mech in one file; 1/α = TL × 1001 at three precisions, every published CODATA digit",
+"thm": 38,
+"lines": "504",
+"file": "SNSFL_Mathematics_Master.lean",
+"url": "proofpressorg-mathematics-master.html"
+},
+{
+"coord": "[9,9,8,7]",
+"tag": "METH",
+"title": "Bounded Uncertainty: A Guide",
+"month": "October",
+"contents": "You have to know what you don't know. Start: 10% ± 3% spans 7–13%, wholly below TL = 13.69%, Locked; 12% ± 3% holds TL, not known yet; 12% ± 1% Locked. Then eight rules with exemplars: bounds add; published digits; stated uncertainty; phase certified when the interval is on one side (Tacoma), at the boundary when it straddles (Donato), APPA one read at ± 8 notches cannot rule out Shatter at net 2–9; precision; drift caught only when bigger than the ratio's bound (Cs 10⁻⁷ caught, 10⁻⁸ hidden); fitted parameters carry no evidence; carry bounds through a simulation",
+"thm": 35,
+"lines": "542",
+"file": "SNSFL_Bounded_Uncertainty_Guide.lean",
+"url": "proofpressorg-bounded-uncertainty.html"
+},
+{
+"coord": "[9,9,8,8]",
+"tag": "MATH",
+"title": "π",
+"month": "June",
+"contents": "Closure cost: loop displacement 1 − cos t is 0 at 2π (Noble), positive before; Euler; πr²; ∫e^{−x²} = √π; Leibniz; 3.141592 < π < 3.141593; irrational",
+"thm": 14,
+"lines": "206",
+"file": "SNSFL_Pi_Reduction.lean",
+"url": "proofpressorg-pi.html"
+},
+{
+"coord": "[9,9,8,9]",
+"tag": "MATH",
+"title": "Logarithm → PNBA",
+"month": "June",
+"contents": "ln = Narrative accumulated by growth: ln(ab) = ln a + ln b; ln x = ∫₁ˣ dt/t; rate 1/x; Mercator series; e and ln 2 to nine decimals",
+"thm": 11,
+"lines": "175",
+"file": "SNSFL_Logarithm_Reduction.lean",
+"url": "proofpressorg-logarithm.html"
+},
+{
+"coord": "[9,9,1,100]",
+"tag": "CORE",
+"title": "Sovereign Time",
+"month": "July",
+"contents": "Anchor timing locked to α and 4 atomic clocks: fixed ratios (Cs 6.7148957, H 1.0375567); one reference gives every count; drift caught in the ratio; any 2 of 5 can fail",
+"thm": 15,
+"lines": "297",
+"file": "SNSFL_SovereignTime.lean",
+"url": "proofpressorg-sovereign-time.html"
+},
+{
+"coord": "[9,9,1,101]",
+"tag": "CORE",
+"title": "SacTime: The Five-Anchor Cycle Count",
+"month": "October",
+"contents": "Exact integer cycle counts of SAC, Cs-133, Sr-87, H-1 and Al-27⁺ at each UTC millisecond: every count strictly increasing and names its millisecond; cycles per ms for all five; cross-ratios within the fixed clock-to-anchor bands from t = 1000 ms; an edited timestamp or count is caught",
+"thm": 11,
+"lines": "250",
+"file": "SNSFL_SacTime_Nonce_Security.lean",
+"url": "proofpressorg-sactime.html"
+},
+{
+"coord": "[9,9,2,51]",
+"tag": "ENGR",
+"title": "Saint-Venant torsion",
+"month": "July",
+"contents": "Every rectangular bar sits above TL (Shatter); the square closest at 2.7%, flatter bars 43–143%; corners already in β (1/6 → 0.1406)",
+"thm": 9,
+"lines": "221",
+"file": "SNSFL_SaintVenant_Torsion_Reduction.lean",
+"url": "proofpressorg-saint-venant.html"
+},
+{
+"coord": "[9,9,2,52]",
+"tag": "ENGR",
+"title": "Tacoma Narrows",
+"month": "July",
+"contents": "Scanlan flutter ratio ρB⁴A₂*/(2Iζ), onset at 1 ↔ TL; Tacoma deck at 1.39, Shatter; held by ζ ≥ 0.0070 or A₂* ≤ 0.0576",
+"thm": 11,
+"lines": "230",
+"file": "SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean",
+"url": "proofpressorg-tacoma.html"
+},
+{
+"coord": "[9,9,3,2]",
+"tag": "ENGR",
+"title": "Universal pump",
+"month": "July",
+"contents": "Compactness x = R_s/R, horizon ↔ TL: Earth, Sun, Sirius B, NICER neutron stars all Locked; Buchdahl 8/9 in IVA; Hawking 6.17 × 10⁻⁸ K at 1 M☉",
+"thm": 14,
+"lines": "269",
+"file": "SNSFL_Universal_Pump_Theorem.lean",
+"url": "proofpressorg-universal-pump.html"
+},
+{
+"coord": "[9,9,3,14]",
+"tag": "PART",
+"title": "Fine-structure constant",
+"month": "August",
+"contents": "1/α − TL = 137.035999084000016 − 0.136899099984016 = 136.899099984016 = TL × 1000; bare + kinetic 136.899099984016 + 0.136899099984016 = 137.035999084000016, which rounds to CODATA 2018 at every published digit; 1001 = 7 × 11 × 13",
+"thm": 10,
+"lines": "241",
+"file": "SNSFL_GC_Alpha_TL1001_Extension.lean",
+"url": "proofpressorg-alpha-tl1001.html"
+},
+{
+"coord": "[9,9,3,15]",
+"tag": "PART",
+"title": "Bohr–Rydberg–Sommerfeld",
+"month": "August",
+"contents": "atomic structure from TL × 1001; hydrogen through harmonic P",
+"thm": 18,
+"lines": "497",
+"file": "SNSFL_GC_BohrRydbergSommerfeld_Reduction.lean",
+"url": "proofpressorg-gc-bohr-rydberg-sommerfeld.html"
+},
+{
+"coord": "[9,9,3,16]",
+"tag": "PART",
+"title": "Running coupling",
+"month": "August",
+"contents": "QED runs toward Shatter, QCD toward Noble; TL before the Landau pole",
+"thm": 27,
+"lines": "527",
+"file": "SNSFL_GC_RunningCoupling_Reduction.lean",
+"url": "proofpressorg-gc-running-coupling.html"
+},
+{
+"coord": "[9,9,3,17]",
+"tag": "PART",
+"title": "Higgs mass",
+"month": "August",
+"contents": "the Higgs in the IVA corridor; bounded uncertainty, 8 GeV mass bracket",
+"thm": 14,
+"lines": "352",
+"file": "SNSFL_GC_HiggsMass_Reduction.lean",
+"url": "proofpressorg-gc-higgs-mass.html"
+},
+{
+"coord": "[9,9,3,18]",
+"tag": "PART",
+"title": "W mass",
+"month": "August",
+"contents": "every W measurement Locked; the CDF tension carries no phase content",
+"thm": 19,
+"lines": "404",
+"file": "SNSFL_GC_WMass_CDFResolution.lean",
+"url": "proofpressorg-gc-w-mass-cdf.html"
+},
+{
+"coord": "[9,9,3,19]",
+"tag": "PART",
+"title": "Electroweak trilogy",
+"month": "August",
+"contents": "photon Noble, W Locked, Higgs IVA, Z Shatter",
+"thm": 17,
+"lines": "398",
+"file": "SNSFL_GC_WZ_ElectroweakTrilogy.lean",
+"url": "proofpressorg-gc-electroweak-trilogy.html"
+},
+{
+"coord": "[9,9,3,20]",
+"tag": "MATH",
+"title": "Transcendental Time Engine",
+"month": "September",
+"contents": "Worked use of the Dynamic Equation: kinetic − resting F_ext = TL on every basis; e⁻¹ unit-square example; bridge e^(−TL) = 0.872 between 1 and e^(−1); n steps accumulate n·TL",
+"thm": 13,
+"lines": "262",
+"file": "SNSFL_GC_TranscendentalTimeEngine.lean",
+"url": "proofpressorg-transcendental-time-engine.html"
+},
+{
+"coord": "[9,9,3,21]",
+"tag": "PART",
+"title": "Electron",
+"month": "September",
+"contents": "Electron and hydrogen from 1/α = TL × 1001: r_e → λ̄_C → a₀ each ×(TL·1001); a₀, r_e, αc and the Rydberg energy within CODATA 2018; Lyman-α 10.2043 eV",
+"thm": 12,
+"lines": "269",
+"file": "SNSFL_GC_Electron_Geometric_Decomposition.lean",
+"url": "proofpressorg-electron.html"
+},
+{
+"coord": "[9,9,3,22]",
+"tag": "PHYS",
+"title": "Critical topology (Lin et al. 2026)",
+"month": "October",
+"contents": "the gap closes where B = P; the 0.5 entanglement mode is the same balance",
+"thm": 21,
+"lines": "423",
+"file": "SNSFL_CriticalTopology_Reduction.lean",
+"url": "proofpressorg-critical-topology.html"
+},
+{
+"coord": "[9,9,3,23]",
+"tag": "PART",
+"title": "NV-center Grover search (Gemsheim et al. 2026)",
+"month": "October",
+"contents": "every run beats its classical bound; N + C + C qubit core Noble, electron interface Shatter",
+"thm": 26,
+"lines": "483",
+"file": "SNSFL_NV_Grover_Reduction.lean",
+"url": "proofpressorg-nv-grover.html"
+},
+{
+"coord": "[9,9,4,14]",
+"tag": "COSM",
+"title": "Central surface density",
+"month": "September",
+"contents": "Donato μ₀D = 0.2924 kg/m²: its pull 2πGμ₀D sits at the a₀ crossover (x = 1.02, band straddles 1) ↔ TL; Milgrom's a₀/(2πG) in band; CDM Shatter",
+"thm": 12,
+"lines": "242",
+"file": "SNSFL_CentralSurfaceDensity_LDP.lean",
+"url": "proofpressorg-central-surface-density.html"
+},
+{
+"coord": "[9,9,10,2]",
+"tag": "GRAV",
+"title": "Holographic gravity",
+"month": "September",
+"contents": "Noble as the holographic boundary",
+"thm": 20,
+"lines": "374",
+"file": "SNSFL_Holographic_Gravity_LDP.lean",
+"url": "proofpressorg-holographic-gravity.html"
+},
+{
+"coord": "[9,9,8,10]",
+"tag": "METH",
+"title": "Temperature on the Torsion Limit",
+"month": "November",
+"contents": "Boil is \u03c4 = TL with B = vapor pressure, P = ambient; four bands on r = vapor/ambient \u2014 Noble at 0, Locked below 0.88, IVA Peak 0.88 to 1, Shatter at 1; Celsius base ten, one degree = \u03a9\u2080/1000; 1001\u00b7TL = 1/\u03b1; water's simmer floor 369.54 K (96.4 \u00b0C), 3.61 K corridor, same width in 1/T at every pressure; N\u2082 > water > Hg per kelvin",
+"thm": 24,
+"lines": "467",
+"file": "SNSFL_TL_Temperature.lean",
+"url": "proofpressorg-tl-temperature.html"
+}
+];
+const ppTagNames = {CORE:"Foundations",PHYS:"Physics",PART:"Particle physics",GRAV:"Gravity",COSM:"Cosmology",CHEM:"Chemistry and materials",ENGR:"Engineering",BIOL:"Life sciences",PSYC:"Psychology",MATH:"Mathematics",COMP:"Computation and AI",ECON:"Economics",METH:"Method"};
+const ppRepo = "https://github.com/SNSFT/identityphysics/blob/main/SNSFL/";
+const ppSite = "https://proofpress.org/";
+function ppHref(a){ return a.url ? (/^https?:/.test(a.url) ? a.url : ppSite + a.url) : (ppRepo + a.file); }
+
+(function(){
+  const sel = document.getElementById('ppTag');
+  const used = [...new Set(ppArchive.map(a => a.tag))];
+  Object.keys(ppTagNames).filter(t => used.includes(t)).forEach(t => {
+    const o = document.createElement('option'); o.value = t; o.textContent = t + " · " + ppTagNames[t]; sel.appendChild(o);
+  });
+})();
+
+function ppEsc(x){ return String(x).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function ppRenderArchive(list) {
+  const box = document.getElementById('ppArchiveList');
+  let html = '';
+  [...ppMonths].reverse().forEach(m => {
+    const rows = list.filter(a => a.month === m);
+    if (!rows.length) return;
+    const issue = ppMonths.indexOf(m) + 1;
+    html += `<h2>Issue ${issue} — ${m} 2026 <span style="font-weight:400; color:var(--text-muted); font-size:0.85rem;">· ${rows.length} ${rows.length === 1 ? 'entry' : 'entries'}</span></h2>`;
+    html += '<table><tr><th>Coordinate</th><th>Entry</th><th>Theorems</th></tr>';
+    html += rows.map(a =>
+      `<tr><td style="white-space:nowrap">${ppEsc(a.coord)}<br><span style="color:var(--text-muted); font-size:0.8rem;">${a.tag}</span></td>` +
+      `<td><a href="${ppHref(a)}" style="color:inherit"><strong>${ppEsc(a.title)}</strong></a><br><span style="color:var(--text-muted); font-size:0.88rem;">${ppEsc(a.contents)}</span></td>` +
+      `<td style="white-space:nowrap">${a.thm}<br><span style="color:var(--text-muted); font-size:0.8rem;">${a.lines} lines</span></td></tr>`
+    ).join('');
+    html += '</table>';
+  });
+  box.innerHTML = html;
+  document.getElementById('ppNoResults').style.display = list.length ? 'none' : '';
+  const thm = list.reduce((s,a) => s + a.thm, 0);
+  document.getElementById('ppCount').textContent =
+    `Volume 1 · 2026 · ${list.length} ${list.length === 1 ? 'entry' : 'entries'} · ${thm.toLocaleString()} theorems`;
+}
+
+function ppFilterArchive() {
+  const q = document.getElementById('ppSearch').value.trim().toLowerCase();
+  const t = document.getElementById('ppTag').value;
+  ppRenderArchive(ppArchive.filter(a =>
+    (!t || a.tag === t) &&
+    (!q || a.title.toLowerCase().includes(q) || a.coord.toLowerCase().includes(q) || a.contents.toLowerCase().includes(q))
+  ));
+}
+
+ppRenderArchive(ppArchive);
+</script>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      © 2026 HIGHTISTIC (Russell Vernon Trent III) / SNSFT Foundation · EIN 42-2038440 · Kenai, Alaska<br>
+      Licensed under CC BY 4.0 with additional terms · DOI base: 10.5281/zenodo.18719748 · Ω₀ = 1.36899099984016
+    </div>
+    <div class="footer-links">
+      <a href="proofpressorg-aims-scope.html">Aims & Scope</a>
+      <a href="proofpressorg-open-access.html">Open Access</a>
+      <a href="proofpressorg-editorial-board.html">Editorial Board</a>
+      <a href="proofpressorg-review-process.html">Review Process</a>
+      <a href="proofpressorg-publication-ethics.html">Ethics</a>
+      <a href="proofpressorg-licensing.html">Licensing</a>
+      <a href="proofpressorg-advertising.html">Advertising</a>
+      <a href="proofpressorg-contact.html">Contact</a>
+      <a href="proofpressorg-archive.html">Archive</a>
+    </div>
+  </div>
+
+  <div class="legal-footnote">
+    ProofPress™, Identity Physics™, Applied Identity Physics™, SNSFT™, PNBA™, the Sovereign Anchor Constant™, the Torsion Limit™, the Long Division Protocol™ (LDP™), NOHARM™, and HIGHTISTIC™ are common law trademarks of HIGHTISTIC (Russell Vernon Trent III) and the SNSFT Foundation. Content is licensed under CC BY 4.0 with additional terms, including a mandatory Attribution requirement and the NOHARM™ Invariant — see <a href="proofpressorg-licensing.html">Licensing &amp; Copyright</a>.
+  </div>
+</footer>
+
+</body>
+</html>
