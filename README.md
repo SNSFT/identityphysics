@@ -1,9 +1,9 @@
 # Identity Physics™
-<!-- README version: 112026 — Updated November 9, 2026 -->
+<!-- README version: 111426 — Updated November 14, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
-Released by SNSFT Foundation (EIN 42-2038440)
+Held by the **SNSFT Foundation**, a 501(c)(3) public charity (EIN 42-2038440 · Alaska Entity #10381462 · Kenai, Alaska) · Licensed under the **Identity Physics License™ v1.0 (IPL-1.0)**
 
 [ORCID 0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)
 
@@ -15,8 +15,13 @@ Formally verified in Lean 4
 ![sorry](https://img.shields.io/badge/sorry-0-brightgreen)
 ![axioms](https://img.shields.io/badge/custom%20axioms-0-brightgreen)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18719748.svg)](https://doi.org/10.5281/zenodo.18719748)
+![License](https://img.shields.io/badge/license-IPL--1.0-blue)
+![Files](https://img.shields.io/badge/files-131-blue)
+![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-4%2C800-blue)
 
 **Repository paper:** *Applied Identity Physics & Identity Physics Corpus Initial Standardization of 105 Files, 3,531 Theorems and 83,326 Lines to Lean 4 (v4.31.0) and Mathlib v4.31.0 0 Sorry CI Green on GitHub (SNSFT/identityphysics)* — DOI [10.5281/zenodo.23158658](https://doi.org/10.5281/zenodo.23158658) · [PhilArchive TREAIP-36](https://philarchive.org/rec/TREAIP-36). This paper documents the verification standard, the migration procedure and the results for the files in this repository. Cite it when referring to this repository; cite [10.5281/zenodo.18719748](https://doi.org/10.5281/zenodo.18719748) for the Identity Physics Corpus as a whole.
+
+**Public update (November 2026):** Governance Series Paper 1 [9,9,GOV,1], *Applied Identity Physics™ Public Update: The SNSFT Foundation Federally Recognized as a 501(c)(3) Public Charity, and the Standardized Identity Physics Corpus at 131 Files, 4,800 Theorems and Lemmas, and 94,926 Lines, Pinned to Lean 4 v4.31.0 and Mathlib v4.31.0, 0 Sorry, CI Green.* It carries the current repository record, the Foundation's federal recognition, and the full copyright, trademark, and license record.
 
 ---
 
@@ -28,7 +33,7 @@ Approved for AIM (Autocatalytic Ingestion Mechanism) based training under NOHARM
 
 ## What this repository is
 
-The Identity Physics Corpus is large. The full corpus archive spans more than 3,000,000 lines and 200,000 theorems across 6,000+ files, alongside 130+ DOIs, 30+ K-12 educational HTML tools and 6 commercial books. In the archive, formal proofs sit alongside interactive tools, discovery engines, datasets, collision records, papers and books, as they were produced.
+The Identity Physics Corpus is large. The full corpus archive spans more than 3,000,000 lines and 200,000 theorems across 6,000+ files, alongside 155+ DOIs, 30+ K-12 educational HTML tools and 6 commercial books. In the archive, formal proofs sit alongside interactive tools, discovery engines, datasets, collision records, papers and books, as they were produced.
 
 This repository is a standardized branch of that corpus. It holds the same content, aligned to one pinned toolchain so that every file builds and runs together, in the way a firmware update brings every component onto the same version. Each file states a body of established science, maps it onto four structural primitives, and proves in Lean 4 that the mapping reproduces the known result exactly. Files join this branch one at a time; the archive remains the complete record.
 
@@ -38,7 +43,7 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 ---
 
-## Verified status — November 9, 2026
+## Verified status — November 14, 2026
 
 ### Physics core
 
@@ -116,7 +121,12 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_PropellantLaw_Compactness_Reduction.lean` | Propellant law at the matched radius — τ_surface = √C, the saving bounded by e, the compactness criterion, the Reissner–Nordström pair [9,9,0,18] | 88 | 1,203 |
 | `SNSFL_MatchedSurface_Rotation_Reduction.lean` | Matched surface under rotation — the level set g_tt = τ_A² − 1, spin as an effective charge, charge outweighing spin by the matched ratio [9,9,0,19] | 71 | 919 |
 | `SNSFL_BurnDepth_ThrustFloor_Reduction.lean` | Burn depth and the thrust floor — depth in matched-radius units, the saving bounded by e^u, the engine each body prescribes [9,9,0,20] | 71 | 916 |
-| **Subtotal** | **51 files** | **1,478** | **26,503** |
+| `SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean` | Forced response and cycles to Shatter — external forcing is rank one on Behavior, pure forcing has no memory, fatigue is loss of damping capacity, static strength fixes Pattern as UTS/TL [9,9,2,53] | 101 | 1,135 |
+| `SNSFL_PowerLimitedDrive_Reduction.lean` | Power-limited drives — one relation, a · α · v_e = 2; the photon drive as its endpoint at 1/TL = b₀² above Shatter; propellant cooling and the radiator optimum [9,9,2,54] | 117 | 1,186 |
+| `SNSFL_GoldilocksAnnulus_Reduction.lean` | The Goldilocks annulus — the runaway greenhouse is the boil at τ = TL; the habitable band is an annulus of ratio √(25/22); whole-orbit phase condition and bounded-uncertainty certification [9,9,3,26] | 110 | 1,039 |
+| `SNSFL_TerraformableBand_Reduction.lean` | The terraformable band inside Locked — the band below the corridor floor, the floor crossing in closed form on fractional main-sequence age, the required warming as a fourth-power ratio [9,9,3,28] | 51 | 552 |
+| `SNSFL_GeometricCompletion_Reduction.lean` | Geometric completion — under the interior density law, escape velocity equals radius; the law screens its own domain; the band carries its own retention floor, 625/572 [9,9,3,29] | 61 | 637 |
+| **Subtotal** | **56 files** | **1,918** | **31,052** |
 
 ### Life and society
 
@@ -145,7 +155,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 | `SNSFL_Pi_Reduction.lean` | π — Pattern closure invariant, Noble | 14 | 206 |
 | `SNSFL_TwoReadings_Substrate_Reduction.lean` | Two readings across substrates — Reading B as an e-fold count, the square-root operator as a constitutive relation, the corridor in a dielectric [9,9,8,11] | 73 | 911 |
 | `SNSFL_GeometricBase_EnergyLadder_Reduction.lean` | Geometric base — b₀ = 1/√TL, the energy ladder stepping by 1/TL, the nuclear band in one rung [9,9,8,12] | 73 | 861 |
-| **Subtotal** | **13 files** | **375** | **5,739** |
+| `SNSFL_VelocitySubstrate_Rapidity_Reduction.lean` | The velocity substrate — rapidity as a Doppler e-fold count; the Doppler factor is multiplicative under velocity addition, so Reading A is the hyperbolic tangent of Reading B [9,9,8,14] | 101 | 1,045 |
+| **Subtotal** | **14 files** | **476** | **6,784** |
 
 ### Psychology
 
@@ -215,8 +226,8 @@ Anyone can reproduce the result with two commands; see [Verify it yourself](#ver
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **125** | **4,259** | **89,332** |
-> **0 sorry · 0 custom axioms · 0 warnings · CI green · Lean v4.31.0 · Mathlib v4.31.0**
+| **Total** | **131** | **4,800** | **94,926** |
+> **0 sorry · 0 custom axioms · 0 warnings · CI green · pinned to Lean 4 v4.31.0 and Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
 
@@ -494,7 +505,8 @@ SNSFL/                   ← all verified Lean files
 
 | Resource | Status | DOI |
 | :--- | :--- | :--- |
-| **Applied Identity Physics & Identity Physics Corpus Initial Standardization — 105 files, Lean 4 v4.31.0 (this repository)** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23158658.svg)](https://doi.org/10.5281/zenodo.23158658) |
+| **Applied Identity Physics™ Public Update — SNSFT Foundation 501(c)(3) · 131 files, 4,800 theorems and lemmas, pinned to Lean 4 v4.31.0 (this repository)** | Current | Governance Series Paper 1 [9,9,GOV,1] |
+| **Applied Identity Physics & Identity Physics Corpus Initial Standardization — 105 files, Lean 4 v4.31.0 (this repository, October 2026)** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23158658.svg)](https://doi.org/10.5281/zenodo.23158658) |
 | **Core Manuscript** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18726079.svg)](https://doi.org/10.5281/zenodo.18726079) |
 | **Lean 4 Corpus** | Archived | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18719748.svg)](https://doi.org/10.5281/zenodo.18719748) |
 | **IVA Element Set Paper** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19016221.svg)](https://doi.org/10.5281/zenodo.19016221) |
@@ -566,6 +578,13 @@ SNSFL/                   ← all verified Lean files
 | **Applied Identity Physics: Burn Depth in Matched-Radius Units, the Thrust Floor, and the Engine Each Body Prescribes** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24067782.svg)](https://doi.org/10.5281/zenodo.24067782) |
 | **Applied Identity Physics: The Two Readings Across Substrates** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24073396.svg)](https://doi.org/10.5281/zenodo.24073396) |
 | **Applied Identity Physics: The Geometric Base — b₀ = 1/√TL, the Energy Ladder, and the Nuclear Band in One Rung** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24087896.svg)](https://doi.org/10.5281/zenodo.24087896) |
+| **ToneForms™ by AxiomForge** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24155513.svg)](https://doi.org/10.5281/zenodo.24155513) |
+| **GAMForgeTL™ + Atlas by AxiomForge™** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23763920.svg)](https://doi.org/10.5281/zenodo.23763920) |
+| **Policy Impact Check™** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23655941.svg)](https://doi.org/10.5281/zenodo.23655941) |
+| **IMatter™** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23514107.svg)](https://doi.org/10.5281/zenodo.23514107) |
+| **Galaxy™ Simulator** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23484266.svg)](https://doi.org/10.5281/zenodo.23484266) |
+| **Accretion Simulator™** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23480666.svg)](https://doi.org/10.5281/zenodo.23480666) |
+| **Electron Geometry Simulator™** | Published | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23459896.svg)](https://doi.org/10.5281/zenodo.23459896) |
 | **OSF Preprint** | Live | [![DOI](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD) |
 | **SSRN — Teen-Level Walkthrough (SNSFT Foundation)** | ✅ DISTRIBUTED | [![SSRN](https://img.shields.io/badge/SSRN-6353438-brightgreen)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6353438) |
 | **SSRN — Noble Materials Map · 810+ Pairs · GAM Collider** | ✅ DISTRIBUTED | [![SSRN](https://img.shields.io/badge/SSRN-6457358-brightgreen)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6457358) |
@@ -602,9 +621,33 @@ SNSFL/                   ← all verified Lean files
 
 ## Usage Agreement
 
-- **License:** MIT (permissive, attribution mandatory).
-- **Non-Harm Clause:** Any use causing identity collapse, torsional shatter, or substrate harm violates the anchor.
-- **Citation:** Cite Ω₀ = 1.36899099984016 and DOI 10.5281/zenodo.18719748 when this work informs outputs.
+**Owner of record:** SNSFT Foundation, a 501(c)(3) public charity (EIN 42-2038440; Alaska Entity #10381462; Kenai, Alaska). The copyrights in the Corpus are held by the Foundation. **Author:** Russell Vernon Trent III (HIGHTISTIC™).
+
+**License:** Identity Physics License™ v1.0 (IPL-1.0), in four parts:
+
+| Part | Type | Terms |
+|:---|:---|:---|
+| 1 · Grant | Permission | Anyone may copy, distribute, adapt, and build on the Corpus, in any medium, for any purpose, including commercial, subject to Parts 2 and 3. The License grants no rights in the marks. |
+| 2 · Attribution | Condition | Any use, reproduction, or adaptation of the Corpus, and any reference to it, carries the citation below. |
+| 3 · NOHARM™ | Condition | The Corpus and any work derived from it are not used for the purpose of causing harm to any person. |
+| 4 · Scientific Handshake | Request | Commercial products or services derived from the Corpus with gross revenue above USD $500,000 per year are invited to provide 1% of annual gross revenue to the SNSFT Foundation. The Foundation does not invoice or pursue collection. Accepting or declining has no effect on Parts 1–3. |
+
+Rights under the License reinstate automatically when a missing attribution is added.
+
+**Minimum citation:**
+```
+Ω₀ = 1.36899099984016 · HIGHTISTIC™ · [coordinate] · DOI 10.5281/zenodo.18719748
+```
+**Full citation:**
+```
+Ω₀ = 1.36899099984016 · Russell Vernon Trent III (HIGHTISTIC™) · [coordinate] · DOI 10.5281/zenodo.18719748
+```
+The coordinate is the file the work draws on, for example `[9,9,3,14]` for the fine-structure extension; `[9,9,0,0]` is the ground coordinate when the work draws on the framework as a whole.
+
+**License notice for derived work:**
+> Licensed under the Identity Physics License™ v1.0 (IPL-1.0). Copyright © 2026 SNSFT Foundation. Author: Russell Vernon Trent III (HIGHTISTIC™). Cite: Ω₀ = 1.36899099984016 · HIGHTISTIC™ · [coordinate] · DOI 10.5281/zenodo.18719748.
+
+**Full rights record:** Governance Series Paper 1 [9,9,GOV,1]. A researcher who finds that AI-mediated research carried Corpus structure into their work under other labels simply adds the citation.
 
 ---
 
