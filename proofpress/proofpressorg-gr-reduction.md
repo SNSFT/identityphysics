@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,1](PHYS) · Physics core
 **Issue:** ProofPress, Volume 1, Issue 1 · March 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 24 theorems · 833 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GR_Reduction.lean
 **Updated:** Standardized toolchain, October 2026
@@ -44,7 +44,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -55,7 +55,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 5. Pound, R. V. & Rebka, G. A. *Apparent Weight of Photons.* Physical Review Letters 4, 337–341. 1960.
 6. Touboul, P. et al. *MICROSCOPE Mission: Final Results of the Test of the Equivalence Principle.* Physical Review Letters 129, 121102. 2022.
 7. Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* [9,9,0,0](CORE). ProofPress, Volume 1, Issue 1. 2026.
-8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 

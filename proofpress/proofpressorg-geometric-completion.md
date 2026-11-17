@@ -8,7 +8,7 @@
 
 **Issue:** ProofPress, Volume 1, Issue 9 · November 2026
 
-**DOI:** 10.5281/zenodo.24152266
+**DOI:** 10.17605/OSF.IO/KWTYD
 
 **Verified:** 61 theorems + master · 636 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib · source and CI record
 
@@ -909,7 +909,7 @@ The arithmetic in this paper takes a calculator. A reader with one published col
 
 ### 14.4 The Scientific Handshake
 
-This reduction is released under the SNSFT Foundation's scientific handshake. The math is public, the arithmetic is runnable by hand, and the tool that draws it is free with no account and no installation. Any researcher, teacher, student or institution may use it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is the whole of what is asked in return. Where an institution values the work and is able to support the Foundation's work for others, the Foundation is there. Where it is not, the work remains available on the same terms.
+This reduction is released under the SNSFT Foundation's scientific handshake. The math is public, the arithmetic is runnable by hand, and the tool that draws it is free with no account and no installation. Any researcher, teacher, student or institution may use it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is the whole of what is asked in return. Where an institution values the work and is able to support the Foundation's work for others, the Foundation is there. Where it is not, the work remains available on the same terms.
 
 ## Misappropriation-Risk Clarification (MRC)
 
@@ -953,7 +953,7 @@ The arithmetic in §3, §4 and §5 is a calculator exercise and it is safe to ru
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -985,9 +985,9 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 - **[9,9,0,17]** Matched Radius Reduction — r_match = r_s/τ_A², the mass canceling
 - **[9,9,1,0]** Structural Precognition — the I-F-U triad and the forcing operator on Behavior
 - **[9,9,3,25]** Accretion Boundaries — Hill spacing, the Roche limit and the critical impact speed on the Torsion Limit
-- **[9,9,3,26]** The Goldilocks Annulus — the annulus ratio √(25/22), the clock, and the cosmic shoreline through the matched radius · DOI 10.5281/zenodo.24127910
+- **[9,9,3,26]** The Goldilocks Annulus — the annulus ratio √(25/22), the clock, and the cosmic shoreline through the matched radius · DOI 10.17605/OSF.IO/KWTYD
 - **[9,9,3,27]** IMatter™ — TL-cells, the counted interior, the impact layer and the mantle-floor screen
-- **[9,9,3,28]** The Terraformable Band — the parent reduction, the interior density law, the tankiness product and the 101 placed band members · DOI 10.5281/zenodo.24148006
+- **[9,9,3,28]** The Terraformable Band — the parent reduction, the interior density law, the tankiness product and the 101 placed band members · DOI 10.17605/OSF.IO/KWTYD
 - **[9,9,2,3]** GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit
 
 ## Corpus Provenance
@@ -1005,7 +1005,7 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 | [9,9,1,0] | SNSFL_StructuralPrecognition.lean | The I-F-U triad and the forcing operator on Behavior |
 | [9,9,2,3.8] | SNSFL_8Beam_Fusion_Theorem.lean | GAMCollider™ v15 fusion logic — the four-phase structure and the Torsion Limit |
 
-**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska · **DOI:** 10.5281/zenodo.24152266 · **Anchor DOI:** 10.5281/zenodo.18719748 · **ORCID:** 0009-0005-5313-7443 · **Corpus:** [9,9,9,9] :: {ANC}
+**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska · **DOI:** 10.17605/OSF.IO/KWTYD · **Anchor DOI:** 10.17605/OSF.IO/KWTYD · **ORCID:** 0009-0005-5313-7443 · **Corpus:** [9,9,9,9] :: {ANC}
 
 ## About the Author
 

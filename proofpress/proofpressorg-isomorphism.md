@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,8,1](CORE) · Structural Capstone
 **Issue:** ProofPress, Volume 1, Issue 2 · April 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 594 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L0_Isomorphism_Consistency.lean
 **Updated:** Standardized toolchain, October 2026
@@ -51,7 +51,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -60,7 +60,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Noether, E. (1918). Invariante Variationsprobleme. *Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen*, 235–257.
 4. Popper, K. (1959). *The Logic of Scientific Discovery*. Hutchinson.
 5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 

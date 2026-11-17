@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,28](PSYC) · Collider Engine Series · IM Collider 8-beam
 **Issue:** ProofPress, Volume 1, Issue 3 · May 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 31 theorems · 483 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PSY_8Beam_Fusion_Theorem.lean
 **Updated:** Standardized toolchain, October 2026
@@ -36,7 +36,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -44,7 +44,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Maslach, C. & Leiter, M. P. (2016). Understanding the burnout experience. *World Psychiatry*, 15(2), 103–111.
 3. Trent, R. V. III. The Eight-Beam Fusion Theorem (GAM Collider). ProofPress, Volume 1, Issue 3.
 4. Trent, R. V. III. Flow. ProofPress.
-5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 
