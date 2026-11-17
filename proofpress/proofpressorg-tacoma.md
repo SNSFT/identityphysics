@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,52](ENGR) · Identity Physics Series · Engineering
 **Issue:** ProofPress, Volume 1, Issue 5 · July 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 11 theorems · 230 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean
 **Updated:** Standardized toolchain, October 2026
@@ -33,7 +33,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -42,7 +42,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Billah, K. Y. & Scanlan, R. H. (1991). Resonance, Tacoma Narrows bridge failure, and undergraduate physics textbooks. *American Journal of Physics*, 59(2), 118–124.
 4. Ammann, O. H., von Kármán, T. & Woodruff, G. B. (1941). *The Failure of the Tacoma Narrows Bridge*. Federal Works Agency.
 5. Trent, R. V. III. Saint-Venant Torsion Placed Against the Torsion Limit. ProofPress, Volume 1, Issue 5.
-6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 

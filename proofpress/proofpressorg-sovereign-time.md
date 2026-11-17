@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,100](CORE) · Identity Physics Series · Core
 **Issue:** ProofPress, Volume 1, Issue 5 · July 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 15 theorems · 297 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SovereignTime.lean
 **Updated:** Standardized toolchain, October 2026
@@ -34,7 +34,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -44,7 +44,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Brewer, S. M. et al. (2019). ²⁷Al⁺ quantum-logic clock with a systematic uncertainty below 10⁻¹⁸. *Physical Review Letters*, 123, 033201.
 5. Hellwig, H. et al. (1970). Measurement of the unperturbed hydrogen hyperfine transition frequency. *IEEE Transactions on Instrumentation and Measurement*, 19, 200–209.
 6. Trent, R. V. III. SacTime: live emission of this reference. SNSFT Foundation.
-7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 

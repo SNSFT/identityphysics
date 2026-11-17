@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,6](PART) · Layer 2 · Application of the QM reduction
 **Issue:** ProofPress, Volume 1, Issue 3 · May 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 22 theorems · 577 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QT_Reduction.lean
 **Updated:** Standardized toolchain, October 2026
@@ -45,7 +45,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -54,7 +54,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Ren, J.-G. et al. (2017). Ground-to-satellite quantum teleportation. *Nature*, 549, 70–73.
 4. Wootters, W. K. & Zurek, W. H. (1982). A single quantum cannot be cloned. *Nature*, 299, 802–803.
 5. Trent, R. V. III. Quantum Mechanics Reduced to Unclaimed Pattern. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 
