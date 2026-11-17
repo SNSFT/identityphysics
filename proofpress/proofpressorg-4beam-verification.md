@@ -3,7 +3,7 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,3.7](CHEM) · Collider Engine Series · GAM Collider 4-beam
 **Issue:** ProofPress, Volume 1, Issue 3 · May 2026
-**DOI:** 10.5281/zenodo.18719748
+**DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 25 theorems · 511 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_4Beam_Verification.lean
 **Updated:** Standardized toolchain, October 2026
@@ -40,7 +40,7 @@ The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathli
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -50,7 +50,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Zener, C. (1948). *Elasticity and Anelasticity of Metals*. University of Chicago Press.
 5. Particle Data Group (2022). Review of Particle Physics. *Progress of Theoretical and Experimental Physics*, 2022, 083C01.
 6. Trent, R. V. III. Grover Search on a Room-Temperature Diamond Processor Reduced to PNBA. ProofPress, Volume 1, Issue 8.
-7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.5281/zenodo.18719748. 2026.
+7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
 
