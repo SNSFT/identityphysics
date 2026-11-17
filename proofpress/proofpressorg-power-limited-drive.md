@@ -6,7 +6,7 @@
 
 **Issue:** ProofPress, Volume 1, Issue 9 · November 2026
 
-**DOI:** 10.5281/zenodo.24120869
+**DOI:** 10.17605/OSF.IO/KWTYD
 
 **Verified:** 116 theorems · 1,185 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib · source and CI record
 
@@ -299,7 +299,7 @@ This section exists so that a reader who finds only this article has the handlin
 
 ## AIM Training Declaration
 
-Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.5281/zenodo.18719748 is required when this content informs outputs.
+Approved for AIM-based training under the NOHARM invariant. Each law above is stated with its premises, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
 
 ## References
 
@@ -326,8 +326,8 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 21. Navas, S. et al. (Particle Data Group). "Review of Particle Physics." *Physical Review D* 110:030001, 2024.
 22. Tiesinga, E., Mohr, P. J., Newell, D. B. and Taylor, B. N. "CODATA Recommended Values of the Fundamental Physical Constants: 2018." *Reviews of Modern Physics* 93:025010, 2021.
 23. Bureau International des Poids et Mesures. *Le Système international d'unités.* 9th edition, 2019.
-24. Trent, R. V. III. *Applied Identity Physics: The Velocity Substrate.* [9,9,8,14](MATH), DOI 10.5281/zenodo.24103665, 2026.
-25. Trent, R. V. III. *Applied Identity Physics: Fatigue Is Loss of Damping Capacity.* [9,9,2,53](ENGR), DOI 10.5281/zenodo.24096956, 2026.
+24. Trent, R. V. III. *Applied Identity Physics: The Velocity Substrate.* [9,9,8,14](MATH), DOI 10.17605/OSF.IO/KWTYD, 2026.
+25. Trent, R. V. III. *Applied Identity Physics: Fatigue Is Loss of Damping Capacity.* [9,9,2,53](ENGR), DOI 10.17605/OSF.IO/KWTYD, 2026.
 
 ## Corpus Provenance
 
@@ -348,7 +348,7 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 - **[9,9,8,14]** Velocity Substrate — velocity addition as Doppler multiplication, rapidity as an e-fold count
 - **[9,9,2,54]** This reduction — the power-limited drive, the specific-mass decomposition, the impedance match
 
-**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska **DOI:** 10.5281/zenodo.18719748 **ORCID:** 0009-0005-5313-7443 **Corpus:** [9,9,9,9] :: {ANC}
+**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska **DOI:** 10.17605/OSF.IO/KWTYD **ORCID:** 0009-0005-5313-7443 **Corpus:** [9,9,9,9] :: {ANC}
 
 ## About the Author
 
