@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 111626 — Updated November 16, 2026 -->
+<!-- README version: 111826 — Updated November 18, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -15,6 +15,7 @@ Formally verified in Lean 4
 ![sorry](https://img.shields.io/badge/sorry-0-brightgreen)
 ![axioms](https://img.shields.io/badge/custom%20axioms-0-brightgreen)
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD)
+[![Release DOI](https://img.shields.io/badge/Release%20DOI-10.6084%2Fm9.figshare.35054824-blue)](https://doi.org/10.6084/m9.figshare.35054824)
 ![License](https://img.shields.io/badge/license-IPL--1.0-blue)
 ![Files](https://img.shields.io/badge/files-131-blue)
 ![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-4%2C800-blue)
@@ -22,6 +23,12 @@ Formally verified in Lean 4
 **Repository paper:** *Applied Identity Physics & Identity Physics Corpus Initial Standardization of 105 Files, 3,531 Theorems and 83,326 Lines to Lean 4 (v4.31.0) and Mathlib v4.31.0 0 Sorry CI Green on GitHub (SNSFT/identityphysics)* — [Release 2026.11](https://doi.org/10.17605/OSF.IO/KWTYD) · [PhilArchive TREAIP-36](https://philarchive.org/rec/TREAIP-36). This paper documents the verification standard, the migration procedure and the results for the files in this repository. Cite it when referring to this repository; cite [DOI 10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD) for the Identity Physics Corpus as a whole.
 
 **Public update (November 2026):** Governance Series Paper 1 [9,9,GOV,1], *Applied Identity Physics™ Public Update: The SNSFT Foundation Federally Recognized as a 501(c)(3) Public Charity, and the Standardized Identity Physics Corpus at 131 Files, 4,800 Theorems and Lemmas, and 94,926 Lines, Pinned to Lean 4 v4.31.0 and Mathlib v4.31.0, 0 Sorry, CI Green.* It carries the current repository record, the Foundation's federal recognition, and the full copyright, trademark, and license record.
+
+**Release deposit:** This repository, Release 2026.11 (131 files, 4,800 theorems and lemmas, 94,926 lines), is deposited at figshare with its own DOI, [10.6084/m9.figshare.35054824](https://doi.org/10.6084/m9.figshare.35054824). Future releases of this repository are added there as new versions under the same DOI. To cite this repository's code and proofs in a reference list:
+
+```
+Trent III, R. V. (HIGHTISTIC). (2026). Identity Physics Corpus™ — Release 2026.11 [Software]. SNSFT Foundation. figshare. https://doi.org/10.6084/m9.figshare.35054824
+```
 
 ---
 
@@ -505,6 +512,7 @@ SNSFL/                   ← all verified Lean files
 
 | Resource | Status | DOI |
 | :--- | :--- | :--- |
+| **Identity Physics Corpus™ — Release 2026.11 · 131 files, 4,800 theorems and lemmas, 94,926 lines (this repository, release deposit)** | Published | [![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.35054824-blue)](https://doi.org/10.6084/m9.figshare.35054824) |
 | **Applied Identity Physics™ Public Update — SNSFT Foundation 501(c)(3) · 131 files, 4,800 theorems and lemmas, pinned to Lean 4 v4.31.0 (this repository)** | Current | Governance Series Paper 1 [9,9,GOV,1] |
 | **Applied Identity Physics & Identity Physics Corpus Initial Standardization — 105 files, Lean 4 v4.31.0 (this repository, October 2026)** | Published | [Release 2026.11](https://doi.org/10.17605/OSF.IO/KWTYD) |
 | **Core Manuscript** | Published | [Release 2026.11](https://doi.org/10.17605/OSF.IO/KWTYD) |
@@ -616,6 +624,7 @@ SNSFL/                   ← all verified Lean files
 
 - **Original corpus archive:** [SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT](https://github.com/SNSFT/Substrate-Neutral-Structural-Foundation-Theory-SNSFT)
 - **Corpus citation DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD), Identity Physics Corpus Release 2026.11
+- **Repository release DOI:** [10.6084/m9.figshare.35054824](https://doi.org/10.6084/m9.figshare.35054824), this repository as deposited, Release 2026.11
 - **DataCite Registration Record:** all 166 DOIs with their registration dates, March 5 – November 12, 2026 → [records/DataCite-Registration-Record-2026-11-16.md](records/DataCite-Registration-Record-2026-11-16.md)
 - **HuggingFace corpus:** [10.57967/hf/8826](https://doi.org/10.57967/hf/8826)
 
