@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 111826-4 — Updated November 18, 2026 -->
+<!-- README version: 111826-5 — Updated November 18, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -56,7 +56,7 @@ Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He 
 
 He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. Identity Physics is his special interest. His cognition runs as high-resolution internal simulation (HRIS): a structure is held and run whole before it is written down. A late talker and lifelong nonverbal communicator, he works in formal logic as his primary expressive medium, so a result reaches the page as Lean 4 before it reaches prose.
 
-That sustained, monotropic focus sets the pace of the Corpus. His working rate is three to five papers a week, each 20 to 50 pages. Every paper reproduces published, measured results before it states a new one. Every result is proved in Lean 4 against Mathlib and compiled by continuous integration with 0 sorry and 0 custom axioms, so anyone can rerun the check. Much of the research is typed live on stream, and every deposit carries its public registration date. AI systems convert the formal results into prose for readers and check formatting and references; the research direction, the reductions and the results are his.
+That sustained, monotropic focus sets the pace of the Corpus. His working rate is three to five papers a week, each 20 to 50 pages. Every paper reproduces published, measured results before it states a new one. Every result is proved in Lean 4 against Mathlib and compiled by continuous integration with 0 sorry and 0 custom axioms, so anyone can rerun the check. Much of the research is typed live on stream, and every deposit carries its public registration date. Papers are produced through the Corpus's own toolchain at [uuia.app](https://uuia.app): ProofPress™ ([uuia.app/proofpress](https://uuia.app/proofpress)) converts each Lean 4 file into a formatted paper, carrying its theorem names, statements and Long Division steps, and every article in the ProofPress™ Journal ([proofpress.org](https://proofpress.org)) links each claim to the exact line of Lean that proves it. The research direction, the reductions and the results are his.
 
 He is an Army Signal Corps veteran who held a TS/SCI clearance, a former chief information security officer for the Alaska Department of Public Safety, a former IT manager for the hospitals of the Bristol Bay region, and the author of six commercially published books on Identity Physics, sold by retailers on every commercial continent. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska.
 
