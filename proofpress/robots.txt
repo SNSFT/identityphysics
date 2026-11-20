@@ -1,0 +1,15 @@
+# robots.txt for proofpress.org
+# Published by the SNSFT Foundation · Kenai, Alaska
+
+# Content signals (contentsignals.org):
+#   search   = building a search index and showing links and excerpts
+#   ai-input = feeding content into AI answers (retrieval, grounding, live fetch)
+#   ai-train = training or fine-tuning AI models
+# Use of this content is governed by the Identity Physics License v1.0 (IPL-1.0),
+# the NOHARM Invariant, and the attribution terms in https://proofpress.org/llms.txt
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: https://proofpress.org/sitemap.xml
