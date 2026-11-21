@@ -1,5 +1,5 @@
 # Identity Physics™
-<!-- README version: 111826-5 — Updated November 18, 2026 -->
+<!-- README version: 112026 — Updated November 20, 2026 -->
 
 Architect: Russell Vernon Trent III — HIGHTISTIC
 
@@ -17,8 +17,8 @@ Formally verified in Lean 4
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD)
 [![Release DOI](https://img.shields.io/badge/Release%20DOI-10.6084%2Fm9.figshare.35054824-blue)](https://doi.org/10.6084/m9.figshare.35054824)
 ![License](https://img.shields.io/badge/license-IPL--1.0-blue)
-![Files](https://img.shields.io/badge/files-131-blue)
-![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-4%2C800-blue)
+![Files](https://img.shields.io/badge/files-133-blue)
+![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-4%2C862-blue)
 
 **Repository paper:** *Applied Identity Physics & Identity Physics Corpus Initial Standardization of 105 Files, 3,531 Theorems and 83,326 Lines to Lean 4 (v4.31.0) and Mathlib v4.31.0 0 Sorry CI Green on GitHub (SNSFT/identityphysics)* — [Release 2026.11](https://doi.org/10.17605/OSF.IO/KWTYD) · [PhilArchive TREAIP-36](https://philarchive.org/rec/TREAIP-36). This paper documents the verification standard, the migration procedure and the results for the files in this repository. Cite it when referring to this repository; cite [DOI 10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD) for the Identity Physics Corpus as a whole.
 
@@ -64,7 +64,7 @@ He is an Army Signal Corps veteran who held a TS/SCI clearance, a former chief i
 
 ---
 
-## Verified status — November 14, 2026
+## Verified status — November 20, 2026
 
 ### Physics core
 
@@ -147,7 +147,9 @@ He is an Army Signal Corps veteran who held a TS/SCI clearance, a former chief i
 | `SNSFL_GoldilocksAnnulus_Reduction.lean` | The Goldilocks annulus — the runaway greenhouse is the boil at τ = TL; the habitable band is an annulus of ratio √(25/22); whole-orbit phase condition and bounded-uncertainty certification [9,9,3,26] | 110 | 1,039 |
 | `SNSFL_TerraformableBand_Reduction.lean` | The terraformable band inside Locked — the band below the corridor floor, the floor crossing in closed form on fractional main-sequence age, the required warming as a fourth-power ratio [9,9,3,28] | 51 | 552 |
 | `SNSFL_GeometricCompletion_Reduction.lean` | Geometric completion — under the interior density law, escape velocity equals radius; the law screens its own domain; the band carries its own retention floor, 625/572 [9,9,3,29] | 61 | 637 |
-| **Subtotal** | **56 files** | **1,918** | **31,052** |
+| `SNSFL_GC_Regge_IVA_Ladder.lean` | Regge trajectories on the phase ladder — the ρ family's PDG masses read as rungs s = 1/ΔM² at τ = s · TL; the IVA floor inside the first rung's published error bar; the rungs climbing IVA Peak to TL; the string tension from the first rung, √σ = 425.0 to 425.5 MeV; the break at τ = TL into a Noble pair [9,9,3,30] | 31 | 464 |
+| `SNSFL_GC_Regge_IVA_Ladder_Exact.lean` | Regge trajectories on the phase ladder, specialist form — the same theorems over ℚ in core Lean, every numerical theorem decided by the kernel [9,9,3,30.1] | 31 | 416 |
+| **Subtotal** | **58 files** | **1,980** | **31,932** |
 
 ### Life and society
 
@@ -247,7 +249,7 @@ He is an Army Signal Corps veteran who held a TS/SCI clearance, a former chief i
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **131** | **4,800** | **94,926** |
+| **Total** | **133** | **4,862** | **95,806** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · pinned to Lean 4 v4.31.0 and Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
@@ -526,10 +528,11 @@ SNSFL/                   ← all verified Lean files
 
 ### Papers on PhilArchive
 
-Every paper below is held at PhilArchive with its own record and download, listed newest first (157 records).
+Every paper below is held at PhilArchive with its own record and download, listed newest first (158 records).
 
 | Added | Paper | Record |
 | :--- | :--- | :--- |
+| 2026-11-20 | **Applied Identity Physics: Regge Trajectories on the Phase Ladder — the ρ Family Opens at the IVA Floor, and the String That Rotates Is the String That Breaks, Lean 4, 0 Sorry, 0 Axioms, 0 Free Parameters, CI Green** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--64-blue)](https://philarchive.org/rec/TREAIP-64) [![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.35081008-blue)](https://doi.org/10.6084/m9.figshare.35081008) |
 | 2026-11-16 | **Applied Identity Physics™ Public Update: The SNSFT Foundation Federally Recognized as a 501(c)(3) Public Charity, and the Standardized Identity Physics Corpus at 131 Files, 4,800 Theorems and Lemmas, and 94,926 Lines, Pinned to Lean 4 v4.31.0 and Mathlib v4.31.0, 0 Sorry, CI Green** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--63-blue)](https://philarchive.org/rec/TREAIP-63) |
 | 2026-11-15 | **Official Notice from the SNSFT Foundation and Russell Vernon Trent III (HIGHTISTIC™), Founder of Identity Physics™: identityphysicsnet — False Claim of Origin, Failure of Due Diligence, and Unauthorized Use of the Identity Physics™ Mark, Continued After Notice** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREONF-blue)](https://philarchive.org/rec/TREONF) |
 | 2026-11-13 | **Applied Identity Physics: The ToneForms Reduction — The Geometric Layer of GAMCollider v15 Fusion Logic, Torsion Reads as Geometric Contraction Across 165 Substrates, Skeletal Nets Read as Bond Capacity on the Geometric Energy Ladder, Lean 4, CI Green, 0 Sorry, 0 Axioms, 0 Free Parameters** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--62-blue)](https://philarchive.org/rec/TREAIP-62) |
@@ -722,6 +725,7 @@ These are held in the corpus archive at OSF. This repository's own release is de
 
 | Resource | Status | Link |
 | :--- | :--- | :--- |
+| **Regge Trajectories on the Phase Ladder [9,9,3,30] — paper with both Lean 4 forms, figshare** | Published | [![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.35081008-blue)](https://doi.org/10.6084/m9.figshare.35081008) |
 | **SNSFL Full Corpus — HuggingFace Dataset** | Published | [![DOI](https://img.shields.io/badge/DOI-10.57967%2Fhf%2F8826-blue)](https://doi.org/10.57967/hf/8826) |
 | **OSF Preprint** | Live | [![DOI](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD) |
 | **DataCite Registration Record — 166 DOIs, March 5 – November 12, 2026** | Live | [records/DataCite-Registration-Record-2026-11-16.md](records/DataCite-Registration-Record-2026-11-16.md) |
