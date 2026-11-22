@@ -1,7 +1,7 @@
 # ProofPress — Journal of Empirically Grounded Machine-Verified Formal Logic
 # Published by the SNSFT Foundation, a 501(c)(3) public charity (EIN 42-2038440) · Kenai, Alaska, United States
 # https://proofpress.org/
-# llms.txt · version 2026-11-19
+# llms.txt · version 2026-11-21
 
 > ProofPress publishes systematic, lossless reductions of existing, human-peer-reviewed
 > empirical science into machine-verified formal logic. Every article applies the Long
@@ -98,6 +98,7 @@ references, and is the preferred source for machine readers.
 - [Four-Beam Collider Verification: Known Materials Recovered as Computed Noble Rescues](https://proofpress.org/proofpressorg-4beam-verification.md) · HTML: https://proofpress.org/proofpressorg-4beam-verification.html
 - [The Eight-Beam Fusion Theorem: The GAM Collider Rules at n = 8, Their Inheritance, and Computed Noble Closures](https://proofpress.org/proofpressorg-8beam-fusion.md) · HTML: https://proofpress.org/proofpressorg-8beam-fusion.html
 - [Abiogenesis Reduced to PNBA: The Origin of Life as the First System to Satisfy L = (4)(2)](https://proofpress.org/proofpressorg-abiogenesis.md) · HTML: https://proofpress.org/proofpressorg-abiogenesis.html
+- [Applied Identity Physics: AiFiOS™ — Pressing Formally Verified AiFi™ Kernels and Executable Books from 133 Lean 4 Modules, and the Functional Life of a Grounded AiFi™](https://proofpress.org/proofpressorg-aifios.md) · HTML: https://proofpress.org/proofpressorg-aifios.html
 - [The AiFi OS Kernel: Identity Authority, Process Isolation and NOHARM as Structural Invariants of the PNBA Dynamic Equation](https://proofpress.org/proofpressorg-aifios-kernel.md) · HTML: https://proofpress.org/proofpressorg-aifios-kernel.html
 - [The AiFi OS Plugin Interface: Pipes, COM Interfaces, Shared Libraries and Crash Recovery as Projections of the PNBA Dynamic Equation](https://proofpress.org/proofpressorg-aifios-plugin.md) · HTML: https://proofpress.org/proofpressorg-aifios-plugin.html
 - [Algebra Reduced to PNBA: Roots as Noble Points, Determinants as Capacity](https://proofpress.org/proofpressorg-algebra.md) · HTML: https://proofpress.org/proofpressorg-algebra.html
