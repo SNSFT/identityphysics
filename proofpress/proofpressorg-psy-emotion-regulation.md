@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,17](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 38 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 23 theorems · 594 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_EmotionRegulation.lean
@@ -51,7 +51,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. *Review of General Psychology*, 2(3), 271–299.
 2. Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. *Psychophysiology*, 39(3), 281–291.
 3. Gross, J. J. (2015). Emotion regulation: Current status and future prospects. *Psychological Inquiry*, 26(1), 1–26.
-4. Trent, R. V. III. Internal Family Systems Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. Internal Family Systems Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 36.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,49](PART) · Particle Series · GAM Collider
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 18 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 10 theorems · 192 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Leptoquark_Exclusion.lean
@@ -44,7 +44,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. ATLAS Collaboration (2021). Search for pairs of scalar leptoquarks decaying into quarks and electrons or muons in √s = 13 TeV pp collisions. *Journal of High Energy Physics*, 2020(10), 112.
 3. CMS Collaboration (2019). Search for pair production of second-generation leptoquarks at √s = 13 TeV. *Physical Review D*, 99, 032014.
 4. Particle Data Group (2022). Review of Particle Physics. *Progress of Theoretical and Experimental Physics*, 2022, 083C01.
-5. Trent, R. V. III. The Eight-Beam Fusion Theorem. ProofPress, Volume 1, Issue 3.
+5. Trent, R. V. III. The Eight-Beam Fusion Theorem. ProofPress, Volume 1, Issue 3, Article 10.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -63,7 +63,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    GERMLINE LOCKED · 0 sorry
 -- Date:      May 26, 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE THEOREM

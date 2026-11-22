@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,6](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 28 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 26 theorems · 756 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_LocusControl.lean
@@ -55,7 +55,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Lefcourt, H. M. (1982). *Locus of Control: Current Trends in Theory and Research* (2nd ed.). Erlbaum.
 5. Ng, T. W. H., Sorensen, K. L. & Eby, L. T. (2006). Locus of control at work: A meta-analysis. *Journal of Organizational Behavior*, 27(8), 1057–1087.
 6. Beck, A. T., Rush, A. J., Shaw, B. F. & Emery, G. (1979). *Cognitive Therapy of Depression*. Guilford.
-7. Trent, R. V. III. Cognitive Dissonance Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+7. Trent, R. V. III. Cognitive Dissonance Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 27.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

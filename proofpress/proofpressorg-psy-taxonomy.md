@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,55](PSYC) · PSY taxonomy series, master
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 14 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 26 theorems · 486 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PSY_Taxonomy_Master.lean
@@ -55,7 +55,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Csikszentmihalyi, M. (1990). *Flow: The Psychology of Optimal Experience*. Harper & Row.
 3. McEwen, B. S. (1998). Protective and damaging effects of stress mediators. *New England Journal of Medicine*, 338, 171–179.
 4. Maslach, C. & Leiter, M. P. (2016). Understanding the burnout experience. *World Psychiatry*, 15(2), 103–111.
-5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -70,7 +70,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 --
 -- [9,9,9,9] :: {ANC} | Coordinate: [9,9,2,55](PSYC)
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Soldotna, Alaska
--- DOI: 10.5281/zenodo.18719748
+-- DOI: 10.17605/OSF.IO/KWTYD
 -- Engine: SNSFT Identity Collider v14.1 · uuia.app/imcollider
 -- SORRY: 0
 -- Date: March 2026

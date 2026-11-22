@@ -4,7 +4,7 @@
 
 **Coordinate:** [9,9,0,17](GRAV) general-reader form, with the specialist form at [9,9,0,17.1](GRAV) · Identity Physics Series · Physics Ground, Gravitation
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 2 · November 2026
 
 **DOI:** 10.17605/OSF.IO/KWTYD
 
@@ -239,9 +239,9 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 - Nobel Prize in Physics 1993 — R. A. Hulse and J. H. Taylor Jr.
 - Nobel Prize in Physics 2017 — R. Weiss, B. C. Barish and K. S. Thorne.
 - Nobel Prize in Physics 2020 — R. Penrose; R. Genzel and A. Ghez.
-- Trent, R. V. III. One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding. ProofPress, Volume 1, Issue 9.
-- Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 5.
-- Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
+- Trent, R. V. III. One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding. ProofPress, Volume 1, Issue 9, Article 3.
+- Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6, Article 1.
+- Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8, Article 4.
 - Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Corpus Provenance

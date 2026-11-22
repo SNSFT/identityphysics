@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,12](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 8 · October 2026
+**Issue:** ProofPress, Volume 1, Issue 8, Article 1 · October 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 31 theorems · 574 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_SpiralDynamics.lean
@@ -50,8 +50,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Graves, C. W. (1970). Levels of existence: An open system theory of values. *Journal of Humanistic Psychology*, 10(2), 131–155.
 2. Beck, D. E. & Cowan, C. C. (1996). *Spiral Dynamics: Mastering Values, Leadership, and Change*. Blackwell.
 3. Graves, C. W. (2005). *The Never Ending Quest* (C. C. Cowan & N. Todorovic, Eds.). ECLET Publishing.
-4. Trent, R. V. III. Integral Theory (AQAL) Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-5. Trent, R. V. III. Maslow’s Hierarchy Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. Integral Theory (AQAL) Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 34.
+5. Trent, R. V. III. Maslow’s Hierarchy Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 29.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,0](PROPULSION) · Identity Physics Series · Propulsion
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 3 · November 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 111 theorems · 2,040 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_IVA_Propulsion_Reduction.lean
@@ -225,9 +225,9 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 - Nobel Prize in Physics 1959 — E. G. Segrè and O. Chamberlain, "for their discovery of the antiproton."
 - Nobel Prize in Physics 1967 — H. A. Bethe, "for his contributions to the theory of nuclear reactions, especially his discoveries concerning the energy production in stars."
 - Nobel Prize in Physics 1983 — S. Chandrasekhar, "for his theoretical studies of the physical processes of importance to the structure and evolution of the stars"; W. A. Fowler, "for his theoretical and experimental studies of the nuclear reactions of importance in the formation of the chemical elements in the universe."
-- Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 5.
+- Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6, Article 1.
 - Trent, R. V. III. Speed of Light. ProofPress, Volume 1.
-- Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
+- Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8, Article 4.
 - Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Corpus Provenance

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,7](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 29 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 27 theorems · 831 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_Maslow.lean
@@ -56,7 +56,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Keys, A., Brožek, J., Henschel, A., Mickelsen, O. & Taylor, H. L. (1950). *The Biology of Human Starvation*. University of Minnesota Press.
 5. Baumeister, R. F. & Leary, M. R. (1995). The need to belong. *Psychological Bulletin*, 117(3), 497–529.
 6. Yaden, D. B., Haidt, J., Hood, R. W., Vago, D. R. & Newberg, A. B. (2017). The varieties of self-transcendent experience. *Review of General Psychology*, 21(2), 143–160.
-7. Trent, R. V. III. Locus of Control Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+7. Trent, R. V. III. Locus of Control Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 28.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,5,2](BIOL) · Biology Series · Neuroscience
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 8 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 41 theorems · 756 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_HodgkinHuxley_Reduction.lean
@@ -43,7 +43,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Hodgkin, A. L. & Huxley, A. F. (1952). A quantitative description of membrane current and its application to conduction and excitation in nerve. *Journal of Physiology*, 117, 500–544.
 2. Hille, B. (2001). *Ion Channels of Excitable Membranes* (3rd ed.). Sinauer.
 3. Kandel, E. R. et al. (2021). *Principles of Neural Science* (6th ed.). McGraw-Hill.
-4. Trent, R. V. III. Abiogenesis. ProofPress, Volume 1, Issue 2.
+4. Trent, R. V. III. Abiogenesis. ProofPress, Volume 1, Issue 2, Article 8.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

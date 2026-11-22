@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,0](CORE) · Constitutional layer
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 1 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 19 theorems · 634 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Master.lean

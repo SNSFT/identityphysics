@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,5\](PHYS) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 6 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 18 theorems · 705 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Lagrangian_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -52,7 +52,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3.  Hilbert, D. *Die Grundlagen der Physik.* Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, 395–407. 1915.
 4.  Yang, C. N. & Mills, R. L. *Conservation of Isotopic Spin and Isotopic Gauge Invariance.* Physical Review 96, 191–195. 1954.
 5.  Dirac, P. A. M. *The Quantum Theory of the Electron.* Proceedings of the Royal Society A 117, 610–624. 1928.
-6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 7.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

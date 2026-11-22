@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,10](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 32 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 31 theorems · 748 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_RegulationReaction.lean
@@ -49,8 +49,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Dunn, W. (1997). The impact of sensory processing abilities on the daily lives of young children and their families: A conceptual model. *Infants & Young Children*, 9(4), 23–35.
 2. Aron, E. N. & Aron, A. (1997). Sensory-processing sensitivity and its relation to introversion and emotionality. *Journal of Personality and Social Psychology*, 73(2), 345–368.
 3. Kapp, S. K. et al. (2019). ‘People should be allowed to do what they like’: Autistic adults’ views and experiences of stimming. *Autism*, 23(7), 1782–1792.
-4. Trent, R. V. III. The Big Five Personality Traits Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. The Big Five Personality Traits Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 24.
+5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1, Article 14.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

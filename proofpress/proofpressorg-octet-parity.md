@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,37](CHEM) · Molecular series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 15 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 20 theorems · 307 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Octet_Parity_Theorem.lean
@@ -48,7 +48,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Lewis, G. N. (1916). The Atom and the Molecule. *Journal of the American Chemical Society*, 38(4), 762–785.
 2. Langmuir, I. (1919). The Arrangement of Electrons in Atoms and Molecules. *Journal of the American Chemical Society*, 41(6), 868–934.
 3. Pauling, L. (1960). *The Nature of the Chemical Bond* (3rd ed.). Cornell University Press.
-4. Trent, R. V. III. Fe–O Heme Coupling in the GAM Collider. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. Fe–O Heme Coupling in the GAM Collider. ProofPress, Volume 1, Issue 1, Article 11.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -333,7 +333,7 @@ end SNSFL_OctetParity
 --
 -- FILE: SNSFL_Octet_Parity_Theorem.lean
 -- SLOT: [9,9,1,37](CHEM) | MOLECULAR SERIES | GERMLINE LOCKED
--- DOI:  10.5281/zenodo.18719748
+-- DOI:  10.17605/OSF.IO/KWTYD
 --
 -- THEOREMS: 20.
 --   noble_gas_zero_bond_cap          — noble gas bc = 0 (for all 4)

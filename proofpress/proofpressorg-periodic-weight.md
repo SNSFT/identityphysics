@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,45](CHEM) · Collider Engine Series · B-balance stoichiometry
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 12 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 43 theorems · 641 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PeriodicWeight_Reduction.lean
@@ -52,7 +52,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Welker, H. (1952). Über neue halbleitende Verbindungen. *Zeitschrift für Naturforschung*, 7a, 744–749.
 4. Goodenough, J. B. (1955). Theory of the role of covalence in the perovskite-type manganites. *Physical Review*, 100, 564–573.
 5. Merki, D., Fierro, S., Vrubel, H. & Hu, X. (2011). Amorphous molybdenum sulfide films as catalysts for electrochemical hydrogen production in water. *Chemical Science*, 2, 1262–1267.
-6. Trent, R. V. III. Density Functional Theory Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+6. Trent, R. V. III. Density Functional Theory Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 3.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -70,7 +70,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    GERMINAL · 0 sorry
 -- Date:      May 20, 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE LAW
@@ -560,7 +560,7 @@ theorem MoS3_mass_values :
 -- gcd(3,3)=3, n1=1, n2=1
 -- Recipe: 1×74.922g As + 1×14.007g N = 88.929g/FU
 -- Designation: AsN-PRED · Coordinate: [9,9,2,45]
--- Prior art: Identity Physics corpus · DOI: 10.5281/zenodo.18719748
+-- Prior art: Identity Physics corpus · DOI: 10.17605/OSF.IO/KWTYD
 -- Process: high-pressure synthesis route TBD · Q2 semiconductor predicted
 -- Note: appears as PREDICTED in GAM Collider NOBLE_MAP · P_out > GaN
 

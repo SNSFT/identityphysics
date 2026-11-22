@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,23](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 44 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 28 theorems · 779 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_EmotionalPrimitives.lean
@@ -52,8 +52,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 1. Barrett, L. F. (2017). *How Emotions Are Made: The Secret Life of the Brain*. Houghton Mifflin Harcourt.
 2. Fredrickson, B. L. (2001). The role of positive emotions in positive psychology: The broaden-and-build theory of positive emotions. *American Psychologist*, 56(3), 218–226.
-3. Trent, R. V. III. Functional Emotions Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-4. Trent, R. V. III. Self-Compassion Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+3. Trent, R. V. III. Functional Emotions Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 43.
+4. Trent, R. V. III. Self-Compassion Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 42.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

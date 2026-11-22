@@ -4,7 +4,7 @@
 
 **Coordinate:** 9,9,0,19 · Identity Physics Series · Physics Ground, Gravitation
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 5 · November 2026
 
 **DOI:** 10.17605/OSF.IO/KWTYD
 
@@ -253,9 +253,9 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 - Nobel Prize in Physics 1983 — S. Chandrasekhar and W. A. Fowler.
 - Nobel Prize in Physics 2017 — R. Weiss, B. C. Barish and K. S. Thorne.
 - Nobel Prize in Physics 2020 — R. Penrose; R. Genzel and A. Ghez.
-- Trent, R. V. III. The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric. ProofPress, Volume 1, Issue 9.
-- Trent, R. V. III. The Propellant Law at the Matched Radius. ProofPress, Volume 1, Issue 9.
-- Trent, R. V. III. One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding. ProofPress, Volume 1, Issue 9.
+- Trent, R. V. III. The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric. ProofPress, Volume 1, Issue 9, Article 2.
+- Trent, R. V. III. The Propellant Law at the Matched Radius. ProofPress, Volume 1, Issue 9, Article 4.
+- Trent, R. V. III. One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding. ProofPress, Volume 1, Issue 9, Article 3.
 - Trent, R. V. III (HIGHTISTIC). *Applied Identity Physics: The Matched Surface Under Rotation — Spin as an Effective Charge and the Level Set g_tt = τ_A² − 1.* Identity Physics Corpus, 2026. DOI 10.17605/OSF.IO/KWTYD.
 - Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 

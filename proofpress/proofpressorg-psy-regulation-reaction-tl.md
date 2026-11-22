@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,10.8](PSYC) · Identity Physics Series · Psychology
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 33 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 20 theorems · 377 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_RegulationReaction_TL.lean
@@ -48,8 +48,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Dunn, W. (1997). The impact of sensory processing abilities on the daily lives of young children and their families: A conceptual model. *Infants & Young Children*, 9(4), 23–35.
 2. Aron, E. N. & Aron, A. (1997). Sensory-processing sensitivity and its relation to introversion and emotionality. *Journal of Personality and Social Psychology*, 73(2), 345–368.
 3. Kapp, S. K. et al. (2019). ‘People should be allowed to do what they like’: Autistic adults’ views and experiences of stimming. *Autism*, 23(7), 1782–1792.
-4. Trent, R. V. III. The Big Five Personality Traits Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-5. Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
+4. Trent, R. V. III. The Big Five Personality Traits Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 24.
+5. Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8, Article 4.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -74,7 +74,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      March 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE TL RULER

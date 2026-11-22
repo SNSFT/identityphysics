@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,4](METH) · Identity Physics Series · Methods
-**Issue:** ProofPress, Volume 1, Issue 4 · June 2026
+**Issue:** ProofPress, Volume 1, Issue 4, Article 6 · June 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 11 theorems · 216 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_PremiseValidation.lean
@@ -40,9 +40,9 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Schrödinger, E. (1935). Die gegenwärtige Situation in der Quantenmechanik. *Naturwissenschaften*, 23, 807–812.
 2. Zurek, W. H. (1991). Decoherence and the transition from quantum to classical. *Physics Today*, 44(10), 36–44.
 3. Joos, E. & Zeh, H. D. (1985). The emergence of classical properties through interaction with the environment. *Zeitschrift für Physik B*, 59, 223–243.
-4. Trent, R. V. III. The Narrative Trap Law. ProofPress, Volume 1, Issue 4.
-5. Trent, R. V. III. Closed Timelike Curves Reduced to PNBA. ProofPress, Volume 1, Issue 3.
-6. Trent, R. V. III. Novikov Self-Consistency Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+4. Trent, R. V. III. The Narrative Trap Law. ProofPress, Volume 1, Issue 4, Article 4.
+5. Trent, R. V. III. Closed Timelike Curves Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 20.
+6. Trent, R. V. III. Novikov Self-Consistency Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 21.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -63,7 +63,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      June 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THREE RESOLUTION TYPES

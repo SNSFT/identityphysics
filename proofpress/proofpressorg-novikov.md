@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,10,4](GRAV) · Gravity Series · Closed Timelike Curves
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 21 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 12 theorems · 252 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Novikov_Reduction.lean
@@ -43,7 +43,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Echeverria, F., Klinkhammer, G. & Thorne, K. S. (1991). Billiard balls in wormhole spacetimes with closed timelike curves: classical theory. *Physical Review D*, 44, 1077–1099.
 3. Novikov, I. D. (1989). An analysis of the operation of a time machine. *Soviet Physics JETP*, 68, 439–443.
 4. Deutsch, D. (1991). Quantum mechanics near closed timelike lines. *Physical Review D*, 44, 3197–3217.
-5. Trent, R. V. III. Closed Timelike Curves Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+5. Trent, R. V. III. Closed Timelike Curves Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 20.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -63,7 +63,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      May 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,21](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 42 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 25 theorems · 638 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_SelfCompassion.lean
@@ -51,8 +51,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 1. Neff, K. D. (2003). Self-compassion: An alternative conceptualization of a healthy attitude toward oneself. *Self and Identity*, 2(2), 85–101.
 2. Neff, K. D. (2003). The development and validation of a scale to measure self-compassion. *Self and Identity*, 2(3), 223–250.
-3. Trent, R. V. III. Dialectical Behavior Therapy Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-4. Trent, R. V. III. Acceptance and Commitment Therapy Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+3. Trent, R. V. III. Dialectical Behavior Therapy Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 40.
+4. Trent, R. V. III. Acceptance and Commitment Therapy Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 39.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

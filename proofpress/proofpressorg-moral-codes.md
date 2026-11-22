@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,1](PSYC) · Identity Physics series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 18 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 19 theorems · 494 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_MoralCodes.lean
@@ -48,8 +48,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Harvey, P. (2000). *An Introduction to Buddhist Ethics*. Cambridge University Press.
 3. Patañjali. *Yoga Sūtras* II.30–32 (the Yamas and Niyamas). Trans. E. F. Bryant (2009). North Point Press.
 4. Esposito, J. L. (2011). *What Everyone Needs to Know about Islam* (2nd ed.). Oxford University Press.
-5. Trent, R. V. III. The First Law of Identity Physics. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III. The Bill of Cognitive Rights. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. The First Law of Identity Physics. ProofPress, Volume 1, Issue 1, Article 48.
+6. Trent, R. V. III. The Bill of Cognitive Rights. ProofPress, Volume 1, Issue 1, Article 20.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

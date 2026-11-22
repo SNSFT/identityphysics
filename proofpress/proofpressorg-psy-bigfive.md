@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,2](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 24 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 31 theorems · 677 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_BigFive.lean
@@ -49,8 +49,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Goldberg, L. R. (1990). An alternative “description of personality”: The Big-Five factor structure. *Journal of Personality and Social Psychology*, 59(6), 1216–1229.
 2. McCrae, R. R. & Costa, P. T. (1987). Validation of the five-factor model of personality across instruments and observers. *Journal of Personality and Social Psychology*, 52(1), 81–90.
 3. John, O. P. & Srivastava, S. (1999). The Big Five trait taxonomy: History, measurement, and theoretical perspectives. In L. A. Pervin & O. P. John (Eds.), *Handbook of Personality* (2nd ed., pp. 102–138). Guilford.
-4. Trent, R. V. III. The Octet Parity Theorem. ProofPress, Volume 1, Issue 1.
-5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. The Octet Parity Theorem. ProofPress, Volume 1, Issue 1, Article 15.
+5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1, Article 14.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,7,0](CHEM) · Matter Hierarchy Series · Nuclear Physics
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 14 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 45 theorems · 579 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_NuclearPhysics_Reduction.lean
@@ -76,7 +76,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      May 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP
