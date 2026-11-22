@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,4.7\](PHYS) · Physics core · general-reader form (Behavior, Sustained)  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 4 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 25 theorems · 796 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QM_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -54,7 +54,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4.  Einstein, A., Podolsky, B. & Rosen, N. *Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?* Physical Review 47, 777–780. 1935.
 5.  Feynman, R. P. *Space-Time Approach to Non-Relativistic Quantum Mechanics.* Reviews of Modern Physics 20, 367–387. 1948.
 6.  Zurek, W. H. *Decoherence, einselection, and the quantum origins of the classical.* Reviews of Modern Physics 75, 715–775. 2003.
-7.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+7.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 8.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

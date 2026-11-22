@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,9](PSYC) · Psychology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 31 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 27 theorems · 662 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_TerrorMgmt.lean
@@ -56,8 +56,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Pyszczynski, T., Greenberg, J. & Solomon, S. (1999). A dual-process model of defense against conscious and unconscious death-related thoughts. *Psychological Review*, 106(4), 835–845.
 4. Arndt, J., Greenberg, J., Solomon, S., Pyszczynski, T. & Simon, L. (1997). Suppression, accessibility of death-related thoughts, and cultural worldview defense. *Journal of Personality and Social Psychology*, 73(1), 5–18.
 5. Burke, B. L., Martens, A. & Faucher, E. H. (2010). Two decades of terror management theory: A meta-analysis of mortality salience research. *Personality and Social Psychology Review*, 14(2), 155–195.
-6. Trent, R. V. III. Attachment Theory Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-7. Trent, R. V. III. Cognitive Dissonance Reduced to PNBA. ProofPress, Volume 1, Issue 1.
+6. Trent, R. V. III. Attachment Theory Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 25.
+7. Trent, R. V. III. Cognitive Dissonance Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 27.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

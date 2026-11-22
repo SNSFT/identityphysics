@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,4.8\](PHYS) · Physics core · specialist form (Behavior, Flexed)  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 5 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 24 theorems · 790 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QM_Mag_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -48,8 +48,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2.  Born, M. *Zur Quantenmechanik der Stoßvorgänge.* Zeitschrift für Physik 37, 863–867. 1926.
 3.  Zurek, W. H. *Decoherence, einselection, and the quantum origins of the classical.* Reviews of Modern Physics 75, 715–775. 2003.
 4.  Joos, E. & Zeh, H. D. *The emergence of classical properties through interaction with the environment.* Zeitschrift für Physik B 59, 223–243. 1985.
-5.  Trent, R. V. III (HIGHTISTIC). *Quantum Mechanics Reduced to Unclaimed Pattern* (general form). \[9,9,0,4.7\](PHYS). ProofPress, Volume 1, Issue 1. 2026.
-6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+5.  Trent, R. V. III (HIGHTISTIC). *Quantum Mechanics Reduced to Unclaimed Pattern* (general form). \[9,9,0,4.7\](PHYS). ProofPress, Volume 1, Issue 1, Article 4. 2026.
+6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 7.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

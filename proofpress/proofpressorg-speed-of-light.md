@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,15](PHYS) · Physics reductions · Speed of light
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 11 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 20 theorems · 500 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SpeedOfLight_Reduction.lean
@@ -53,8 +53,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Einstein, A. (1905). Zur Elektrodynamik bewegter Körper. *Annalen der Physik*, 17, 891–921.
 3. Bureau International des Poids et Mesures (2019). *The International System of Units (SI)*, 9th edition.
 4. Sommerfeld, A. (1916). Zur Quantentheorie der Spektrallinien. *Annalen der Physik*, 51, 1–94.
-5. Trent, R. V. III. Electromagnetism Reduced to the Behavior–Adaptation Handshake. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III. The Electroweak Bosons Across the Four Phases. ProofPress, Volume 1, Issue 6.
+5. Trent, R. V. III. Electromagnetism Reduced to the Behavior–Adaptation Handshake. ProofPress, Volume 1, Issue 1, Article 7.
+6. Trent, R. V. III. The Electroweak Bosons Across the Four Phases. ProofPress, Volume 1, Issue 6, Article 6.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

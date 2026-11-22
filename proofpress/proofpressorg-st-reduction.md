@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,8\](PHYS) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 9 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 19 theorems · 632 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_ST_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -52,7 +52,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4.  Maldacena, J. *The Large N Limit of Superconformal Field Theories and Supergravity.* Advances in Theoretical and Mathematical Physics 2, 231–252. 1998.
 5.  Sen, A. *Tachyon Condensation on the Brane Antibrane System.* Journal of High Energy Physics 1998(08), 012. 1998.
 6.  Susskind, L. *The Anthropic Landscape of String Theory.* arXiv:hep-th/0302219. 2003.
-7.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+7.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 8.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

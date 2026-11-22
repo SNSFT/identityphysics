@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,44](MATH) · Abstract Mathematics Series
-**Issue:** ProofPress, Volume 1, Issue 4 · June 2026
+**Issue:** ProofPress, Volume 1, Issue 4, Article 5 · June 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 16 theorems · 219 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SetTheory_Reduction.lean
@@ -48,7 +48,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Fraenkel, A. (1922). Zu den Grundlagen der Cantor-Zermeloschen Mengenlehre. *Mathematische Annalen*, 86, 230–237.
 3. Cantor, G. (1891). Über eine elementare Frage der Mannigfaltigkeitslehre. *Jahresbericht der DMV*, 1, 75–78.
 4. Kunen, K. (1980). *Set Theory: An Introduction to Independence Proofs*. North-Holland.
-5. Trent, R. V. III. Category Theory. ProofPress, Volume 1, Issue 3.
+5. Trent, R. V. III. Category Theory. ProofPress, Volume 1, Issue 3, Article 6.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -68,7 +68,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      June 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 -- Companion: [9,9,2,43] Category Theory
 --
 -- ============================================================

@@ -6,7 +6,7 @@
 
 **Coordinate:** [9,9,3,30](PHYS) · Identity Physics Series · Physics
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 15 · November 2026
 
 **DOI:** 10.6084/m9.figshare.35081008
 

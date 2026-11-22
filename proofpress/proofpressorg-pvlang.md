@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,0,2,0](COMP) · Language core · PVLang foundation
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 19 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 29 theorems · 585 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L1_PVLang.lean
@@ -47,7 +47,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 1. Slater, J. C. (1930). Atomic Shielding Constants. *Physical Review*, 36, 57–64.
 2. Plotkin, G. D. (1981). *A Structural Approach to Operational Semantics*. Aarhus University, DAIMI FN-19.
-3. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
+3. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
 4. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

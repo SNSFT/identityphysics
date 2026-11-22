@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,16](PHYS) · Physics Ground · Statistical Mechanics
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 16 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 20 theorems · 307 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_StatMech_Reduction.lean
@@ -51,7 +51,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Bose, S. N. (1924). Plancks Gesetz und Lichtquantenhypothese. *Zeitschrift für Physik*, 26, 178–181.
 5. Reif, F. (1965). *Fundamentals of Statistical and Thermal Physics*. McGraw-Hill.
 6. Trent, R. V. III. Quantum Mechanics → PNBA. ProofPress.
-7. Trent, R. V. III. Economics Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+7. Trent, R. V. III. Economics Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 15.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -71,7 +71,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      May 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,101](CORE) · Identity Physics Series · Core
-**Issue:** ProofPress, Volume 1, Issue 8 · October 2026
+**Issue:** ProofPress, Volume 1, Issue 8, Article 5 · October 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 11 theorems · 250 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SacTime_Nonce_Security.lean
@@ -57,7 +57,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Brewer, S. M. et al. (2019). ²⁷Al⁺ quantum-logic clock with a systematic uncertainty below 10⁻¹⁸. *Physical Review Letters*, 123, 033201.
 4. Kerckhoffs, A. (1883). La cryptographie militaire. *Journal des sciences militaires*, 9, 5–38.
 5. Krawczyk, H., Bellare, M. & Canetti, R. (1997). HMAC: Keyed-hashing for message authentication. RFC 2104.
-6. Trent, R. V. III. Sovereign Time: A Timing Reference Locked to Five Published Constants. ProofPress, Volume 1, Issue 5.
+6. Trent, R. V. III. Sovereign Time: A Timing Reference Locked to Five Published Constants. ProofPress, Volume 1, Issue 5, Article 1.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -82,7 +82,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      October 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE COUNTS (as computed in the SacTime implementation)

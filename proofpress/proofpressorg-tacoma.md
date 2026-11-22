@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,52](ENGR) · Identity Physics Series · Engineering
-**Issue:** ProofPress, Volume 1, Issue 5 · July 2026
+**Issue:** ProofPress, Volume 1, Issue 5, Article 3 · July 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 11 theorems · 230 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Tacoma_Scanlan_Flutter_Reduction.lean
@@ -41,7 +41,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Simiu, E. & Scanlan, R. H. (1996). *Wind Effects on Structures*, 3rd ed. Wiley.
 3. Billah, K. Y. & Scanlan, R. H. (1991). Resonance, Tacoma Narrows bridge failure, and undergraduate physics textbooks. *American Journal of Physics*, 59(2), 118–124.
 4. Ammann, O. H., von Kármán, T. & Woodruff, G. B. (1941). *The Failure of the Tacoma Narrows Bridge*. Federal Works Agency.
-5. Trent, R. V. III. Saint-Venant Torsion Placed Against the Torsion Limit. ProofPress, Volume 1, Issue 5.
+5. Trent, R. V. III. Saint-Venant Torsion Placed Against the Torsion Limit. ProofPress, Volume 1, Issue 5, Article 2.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -64,7 +64,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      July 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE LEGACY TEST

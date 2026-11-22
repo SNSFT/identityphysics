@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,2](PHYS) · Physics Ground · Special Relativity
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 1 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 396 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SR_Reduction.lean
@@ -52,8 +52,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Einstein, A. (1905). Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig? *Annalen der Physik*, 18, 639–641.
 3. Minkowski, H. (1909). Raum und Zeit. *Physikalische Zeitschrift*, 10, 104–111.
 4. Taylor, E. F. & Wheeler, J. A. (1992). *Spacetime Physics* (2nd ed.). W. H. Freeman.
-5. Trent, R. V. III. General Relativity Reduced to PNBA. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III. The Speed of Light Reduced to PNBA. ProofPress, Volume 1, Issue 2.
+5. Trent, R. V. III. General Relativity Reduced to PNBA. ProofPress, Volume 1, Issue 1, Article 2.
+6. Trent, R. V. III. The Speed of Light Reduced to PNBA. ProofPress, Volume 1, Issue 2, Article 11.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

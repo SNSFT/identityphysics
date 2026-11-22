@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,9\](PART) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 10 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 18 theorems · 622 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_SM_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -51,8 +51,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4.  Englert, F. & Brout, R. *Broken Symmetry and the Mass of Gauge Vector Mesons.* Physical Review Letters 13, 321–323. 1964.
 5.  Gross, D. J. & Wilczek, F. *Ultraviolet Behavior of Non-Abelian Gauge Theories.* Physical Review Letters 30, 1343–1346. 1973.
 6.  ATLAS Collaboration. *Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC.* Physics Letters B 716, 1–29. 2012.
-7.  Trent, R. V. III (HIGHTISTIC). *Electromagnetism Reduced to the Behavior–Adaptation Handshake.* \[9,9,0,6\](PHYS). ProofPress, Volume 1, Issue 1. 2026.
-8.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+7.  Trent, R. V. III (HIGHTISTIC). *Electromagnetism Reduced to the Behavior–Adaptation Handshake.* \[9,9,0,6\](PHYS). ProofPress, Volume 1, Issue 1, Article 7. 2026.
+8.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 9.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

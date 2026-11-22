@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,3\](PHYS) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 3 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 22 theorems · 717 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Thermo_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -52,7 +52,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3.  Carnot, S. *Réflexions sur la puissance motrice du feu.* Bachelier, Paris. 1824.
 4.  Nernst, W. *Über die Berechnung chemischer Gleichgewichte aus thermischen Messungen.* Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, 1–40. 1906.
 5.  Shannon, C. E. *A Mathematical Theory of Communication.* Bell System Technical Journal 27, 379–423. 1948.
-6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+6.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 7.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

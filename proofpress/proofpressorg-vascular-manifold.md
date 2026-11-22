@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,1](BIOL) · Vascular Series · Biological identity law
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 7 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 23 theorems · 751 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Vascular_Manifold_Law.lean
@@ -54,8 +54,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Sherman, T. F. (1981). On connecting large vessels to small: the meaning of Murray’s law. *Journal of General Physiology*, 78, 431–453.
 4. Harvey, W. (1628). *Exercitatio Anatomica de Motu Cordis et Sanguinis in Animalibus*.
 5. Pries, A. R. & Secomb, T. W. (2008). Blood flow in microvascular networks. In *Handbook of Physiology: Microcirculation* (2nd ed.), 3–36. Academic Press.
-6. Trent, R. V. III. Formally Verified Reduction of Holographic Gravity to the Noble Boundary Condition. ProofPress, Volume 1, Issue 7.
-7. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
+6. Trent, R. V. III. Formally Verified Reduction of Holographic Gravity to the Noble Boundary Condition. ProofPress, Volume 1, Issue 7, Article 4.
+7. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

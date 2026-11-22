@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,8,10](METH) · Identity Physics Series · Method
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 1 · November 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 24 theorems · 467 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_TL_Temperature.lean
@@ -137,8 +137,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Rumble, J. R. (ed.). *CRC Handbook of Chemistry and Physics* (normal boiling points, enthalpies of vaporization).
 4. Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
 5. Preston-Thomas, H. (1990). The International Temperature Scale of 1990 (ITS-90). *Metrologia*, 27.
-6. Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8.
-7. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 5.
+6. Trent, R. V. III. Bounded Uncertainty: A Guide. ProofPress, Volume 1, Issue 8, Article 4.
+7. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6, Article 1.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -166,7 +166,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      November 2026 · Kenai, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- GROUNDING: THE TORSION LIMIT
