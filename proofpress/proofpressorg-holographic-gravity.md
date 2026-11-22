@@ -120,6 +120,8 @@ import SNSFL_Total_Consistency
 
 **Date:** September 2026 · Kenai, Alaska
 
+**Issue:** ProofPress, Volume 1, Issue 7, Article 4 · September 2026
+
 **Version:** v1.5
 
 ------------------------------------------------------------------------
