@@ -213,6 +213,10 @@
   "2026-11-20": {
    "count": 61,
    "uniques": 3
+  },
+  "2026-11-21": {
+   "count": 18,
+   "uniques": 1
   }
  },
  "clones": {
@@ -427,6 +431,10 @@
   "2026-11-20": {
    "count": 506,
    "uniques": 43
+  },
+  "2026-11-21": {
+   "count": 37,
+   "uniques": 20
   }
  },
  "referrers": {
@@ -970,6 +978,23 @@
    {
     "referrer": "github.com",
     "count": 53,
+    "uniques": 2
+   },
+   {
+    "referrer": "proofpress.org",
+    "count": 2,
+    "uniques": 2
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 1,
+    "uniques": 1
+   }
+  ],
+  "2026-11-22": [
+   {
+    "referrer": "github.com",
+    "count": 59,
     "uniques": 2
    },
    {
@@ -3222,6 +3247,68 @@
     "count": 11,
     "uniques": 1
    }
+  ],
+  "2026-11-22": [
+   {
+    "path": "/SNSFT/identityphysics",
+    "title": "Overview",
+    "count": 158,
+    "uniques": 3
+   },
+   {
+    "path": "/SNSFT/identityphysics/actions",
+    "title": "/actions",
+    "count": 96,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
+    "title": "/tree/main/SNSFL",
+    "count": 60,
+    "uniques": 3
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload",
+    "title": "/upload",
+    "count": 51,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/projects",
+    "title": "/projects",
+    "count": 49,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload/main/SNSFL",
+    "title": "/upload/main/SNSFL",
+    "count": 31,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/proofpress",
+    "title": "/tree/main/proofpress",
+    "count": 21,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload/main/proofpress",
+    "title": "/upload/main/proofpress",
+    "count": 17,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main",
+    "title": "/tree/main",
+    "count": 16,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/blob/main/README.md",
+    "title": "/blob/main/README.md",
+    "count": 13,
+    "uniques": 1
+   }
   ]
  },
  "repo_stats": {
@@ -3440,9 +3527,17 @@
    "open_issues": 0,
    "size_kb": 13158,
    "commits_24h": 4
+  },
+  "2026-11-22": {
+   "stars": 0,
+   "forks": 0,
+   "watchers": 0,
+   "open_issues": 0,
+   "size_kb": 14545,
+   "commits_24h": 5
   }
  },
- "updated": "2026-11-21T16:46:01Z",
+ "updated": "2026-11-22T17:08:11Z",
  "ci_runs": {
   "2026-10-13": 0,
   "2026-10-14": 0,
@@ -3483,7 +3578,8 @@
   "2026-11-18": 1,
   "2026-11-19": 6,
   "2026-11-20": 13,
-  "2026-11-21": 2
+  "2026-11-21": 2,
+  "2026-11-22": 11
  },
  "pushes": {
   "2026-10-13": {
@@ -3684,6 +3780,11 @@
   "2026-11-21": {
    "commits": 1,
    "files": 1,
+   "lean_files": 0
+  },
+  "2026-11-22": {
+   "commits": 5,
+   "files": 266,
    "lean_files": 0
   }
  },
