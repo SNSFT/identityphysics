@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,3.8](CHEM) · Collider Engine Series · GAM Collider 8-beam
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 10 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 27 theorems · 707 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_8Beam_Fusion_Theorem.lean
@@ -48,9 +48,9 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 ## References
 
-1. Trent, R. V. III. Four-Beam Collider Verification. ProofPress, Volume 1, Issue 3.
-2. Trent, R. V. III. Density Functional Theory Reduced to PNBA. ProofPress, Volume 1, Issue 3.
-3. Trent, R. V. III. Grover Search on a Room-Temperature Diamond Processor Reduced to PNBA. ProofPress, Volume 1, Issue 8.
+1. Trent, R. V. III. Four-Beam Collider Verification. ProofPress, Volume 1, Issue 3, Article 9.
+2. Trent, R. V. III. Density Functional Theory Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 3.
+3. Trent, R. V. III. Grover Search on a Room-Temperature Diamond Processor Reduced to PNBA. ProofPress, Volume 1, Issue 8, Article 3.
 4. Alferov, Zh. I. & Kroemer, H. (2000). Nobel Prize in Physics, for developing semiconductor heterostructures. Nobel Foundation.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 

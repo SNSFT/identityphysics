@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,15](COSM) · Late cosmology series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 16 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 10 theorems · 205 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Element_Darkenergy.lean
@@ -47,7 +47,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Perlmutter, S. et al. (1999). Measurements of Ω and Λ from 42 High-Redshift Supernovae. *Astrophysical Journal*, 517, 565–586.
 3. Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. *Astronomy & Astrophysics*, 641, A6.
 4. Weinberg, S. (1989). The cosmological constant problem. *Reviews of Modern Physics*, 61, 1–23.
-5. Trent, R. V. III. Cosmology Reduced to the Universal Identity. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. Cosmology Reduced to the Universal Identity. ProofPress, Volume 1, Issue 1, Article 13.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

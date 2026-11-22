@@ -4,7 +4,7 @@
 
 **Coordinate:** [9,9,1,2](COMP) · Applied Identity Physics™ · AiFi™ OS series
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 16 · November 2026
 
 **DOI:** 10.6084/m9.figshare.35083996
 

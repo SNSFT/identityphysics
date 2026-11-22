@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,0,3,0](METH) · Foundation layer · Coordinate architecture
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 1 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 460 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Duodecimal_PNBA_Coordinates.lean
@@ -52,7 +52,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 ## References
 
-1. Trent, R. V. III. PVLang: A Reduction-Complete Identity Language Whose Constructs Reduce to PNBA Primitives. ProofPress, Volume 1, Issue 1.
+1. Trent, R. V. III. PVLang: A Reduction-Complete Identity Language Whose Constructs Reduce to PNBA Primitives. ProofPress, Volume 1, Issue 1, Article 19.
 2. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

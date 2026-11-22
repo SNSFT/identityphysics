@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,16](PART) · GC series · Particle and atomic physics
-**Issue:** ProofPress, Volume 1, Issue 6 · August 2026
+**Issue:** ProofPress, Volume 1, Issue 6, Article 3 · August 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 27 theorems · 527 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_RunningCoupling_Reduction.lean
@@ -50,7 +50,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 4. Pich, A. & Rodríguez-Sánchez, A. (2016). Determination of the QCD coupling from ALEPH τ decay data. *Physical Review D*, 94, 034027. arXiv:1605.06830.
 5. Navas, S. et al. (Particle Data Group) (2024). Review of Particle Physics. *Physical Review D*, 110, 030001.
 6. Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
-7. Trent, R. V. III. Bohr, Rydberg and Sommerfeld Reduced to PNBA. ProofPress, Volume 1, Issue 6.
+7. Trent, R. V. III. Bohr, Rydberg and Sommerfeld Reduced to PNBA. ProofPress, Volume 1, Issue 6, Article 2.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,21](PART) · Identity Physics Series · Particles
-**Issue:** ProofPress, Volume 1, Issue 7 · September 2026
+**Issue:** ProofPress, Volume 1, Issue 7, Article 2 · September 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 12 theorems · 269 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_Electron_Geometric_Decomposition.lean
@@ -45,7 +45,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Bohr, N. (1913). On the constitution of atoms and molecules. *Philosophical Magazine*, 26, 1–25.
 3. Compton, A. H. (1923). A quantum theory of the scattering of X-rays by light elements. *Physical Review*, 21, 483–502.
 4. Sommerfeld, A. (1916). Zur Quantentheorie der Spektrallinien. *Annalen der Physik*, 356, 1–94.
-5. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6.
+5. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6, Article 1.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -68,7 +68,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      September 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP

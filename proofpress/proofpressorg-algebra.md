@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,8,3](MATH) · Identity Physics Series · Mathematics
-**Issue:** ProofPress, Volume 1, Issue 4 · June 2026
+**Issue:** ProofPress, Volume 1, Issue 4, Article 8 · June 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 15 theorems · 252 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Algebra_Reduction.lean
@@ -42,7 +42,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Artin, M. (2011). *Algebra*, 2nd ed. Pearson.
 2. Strang, G. (2016). *Introduction to Linear Algebra*, 5th ed. Wellesley-Cambridge Press.
 3. The mathlib Community (2020). The Lean mathematical library. *CPP 2020*, 367–381.
-4. Trent, R. V. III. Calculus Reduced to PNBA. ProofPress, Volume 1, Issue 4.
+4. Trent, R. V. III. Calculus Reduced to PNBA. ProofPress, Volume 1, Issue 4, Article 7.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -64,7 +64,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      June 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 -- Companion: [9,9,8,2] Calculus
 --
 -- ============================================================

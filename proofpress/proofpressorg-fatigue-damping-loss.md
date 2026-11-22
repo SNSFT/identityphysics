@@ -4,7 +4,7 @@
 
 **Coordinate:** [9,9,2,53](ENGR) · Identity Physics Series · Engineering Ground, Applied Structures
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 7 · November 2026
 
 **DOI:** 10.17605/OSF.IO/KWTYD
 

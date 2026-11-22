@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,10](COSM) · Cosmological series · Big Bang Nucleosynthesis
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 7 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 26 theorems · 487 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_BBN_Reduction.lean
@@ -54,7 +54,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Particle Data Group (2024). Big-Bang nucleosynthesis. In *Review of Particle Physics*, *Physical Review D*, 110, 030001.
 3. Cyburt, R. H., Fields, B. D., Olive, K. A. & Yeh, T.-H. (2016). Big bang nucleosynthesis: present status. *Reviews of Modern Physics*, 88, 015004.
 4. Fixsen, D. J. (2009). The temperature of the cosmic microwave background. *The Astrophysical Journal*, 707, 916–920.
-5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1, Article 14.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

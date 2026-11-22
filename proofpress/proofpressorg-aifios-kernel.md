@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,2](COMP) · AiFi OS foundation layer
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 22 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 32 theorems · 867 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Kernel.lean
@@ -54,8 +54,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Saltzer, J. H. & Schroeder, M. D. (1975). The Protection of Information in Computer Systems. *Proceedings of the IEEE*, 63(9), 1278–1308.
 3. Liedtke, J. (1995). On μ-Kernel Construction. *Proceedings of the 15th ACM Symposium on Operating Systems Principles*, 237–250.
 4. Klein, G. et al. (2009). seL4: Formal Verification of an OS Kernel. *Proceedings of the 22nd ACM Symposium on Operating Systems Principles*, 207–220.
-5. Trent, R. V. III. Information Theory Reduced to Pattern Decoherence. ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III. The Bill of Cognitive Rights. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. Information Theory Reduced to Pattern Decoherence. ProofPress, Volume 1, Issue 1, Article 12.
+6. Trent, R. V. III. The Bill of Cognitive Rights. ProofPress, Volume 1, Issue 1, Article 20.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

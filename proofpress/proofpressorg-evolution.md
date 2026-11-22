@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,5](BIOL) · Identity Physics series · Evolution
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 9 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 23 theorems · 609 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Evolution_Reduction.lean
@@ -61,7 +61,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 6. Kimura, M. (1968). Evolutionary rate at the molecular level. *Nature*, 217, 624–626.
 7. Weiss, M. C. et al. (2016). The physiology and habitat of the last universal common ancestor. *Nature Microbiology*, 1, 16116.
 8. Cleland, C. E. & Chyba, C. F. (2002). Defining ‘life’. *Origins of Life and Evolution of the Biosphere*, 32, 387–393.
-9. Trent, R. V. III. Abiogenesis Reduced to PNBA. ProofPress, Volume 1, Issue 2.
+9. Trent, R. V. III. Abiogenesis Reduced to PNBA. ProofPress, Volume 1, Issue 2, Article 8.
 10. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

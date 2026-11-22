@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,16](COSM) · Late cosmology series, dark sector
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 17 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 23 theorems · 451 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DarkMatter_Element.lean
@@ -48,8 +48,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Rubin, V. C. & Ford, W. K. (1970). Rotation of the Andromeda Nebula from a Spectroscopic Survey of Emission Regions. *Astrophysical Journal*, 159, 379–403.
 3. Clowe, D. et al. (2006). A Direct Empirical Proof of the Existence of Dark Matter. *Astrophysical Journal Letters*, 648, L109–L113.
 4. Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. *Astronomy & Astrophysics*, 641, A6.
-5. Trent, R. V. III. Darkenergy (De). ProofPress, Volume 1, Issue 1.
-6. Trent, R. V. III. Cosmology Reduced to the Universal Identity. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. Darkenergy (De). ProofPress, Volume 1, Issue 1, Article 16.
+6. Trent, R. V. III. Cosmology Reduced to the Universal Identity. ProofPress, Volume 1, Issue 1, Article 13.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -77,7 +77,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- PUBLISHED: Trent, R. (HIGHTISTIC).
 --   "Dark Matter Passes Through Electromagnetic Detectors Because It Must:
 --    A Formally Verified GAM Collider Analysis"
---   DOI: 10.5281/zenodo.18719748 — April 2026
+--   DOI: 10.17605/OSF.IO/KWTYD — April 2026
 --
 -- LONG DIVISION:
 --   1. Here is the equation
@@ -364,7 +364,7 @@ theorem dm_self_k_noble_reachable :
 
 -- ============================================================
 -- LAYER 2: THE LATE-UNIVERSE ATTRACTOR PAIR
--- (from Paper §9, DOI: 10.5281/zenodo.18719748)
+-- (from Paper §9, DOI: 10.17605/OSF.IO/KWTYD)
 -- ============================================================
 -- Darkmatter (Dm): B = Ω_dm = 0.269, A = 0.01
 --   τ ≈ 0.272 — SHATTER-stable — gravitational clustering
@@ -467,7 +467,7 @@ end SNSFL_DarkMatter
 -- PUBLISHED IN:
 --   Trent, R. (HIGHTISTIC). "Dark Matter Passes Through
 --   Electromagnetic Detectors Because It Must."
---   DOI: 10.5281/zenodo.18719748 — April 2026
+--   DOI: 10.17605/OSF.IO/KWTYD — April 2026
 --
 -- DEPENDS ON:
 --   SNSFL_Master_IMS.lean          [9,9,0,0]  ANCHOR, TL

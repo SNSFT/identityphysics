@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,8,7](METH) · Identity Physics Series · Method
-**Issue:** ProofPress, Volume 1, Issue 8 · October 2026
+**Issue:** ProofPress, Volume 1, Issue 8, Article 4 · October 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 35 theorems · 542 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Bounded_Uncertainty_Guide.lean
@@ -55,8 +55,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Joint Committee for Guides in Metrology (2008). *Evaluation of measurement data: Guide to the expression of uncertainty in measurement* (JCGM 100:2008).
 2. Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
 3. Moore, R. E., Kearfott, R. B. & Cloud, M. J. (2009). *Introduction to Interval Analysis*. SIAM.
-4. Trent, R. V. III. Bacon Verification. ProofPress, Volume 1, Issue 4.
-5. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 5.
+4. Trent, R. V. III. Bacon Verification. ProofPress, Volume 1, Issue 4, Article 9.
+5. Trent, R. V. III. The Fine-Structure Constant: 1/α = TL × 1001. ProofPress, Volume 1, Issue 6, Article 1.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -81,7 +81,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      October 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- START HERE: THE SHAPE

@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,13\](COSM) · Physics core · Cosmology  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 13 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 19 theorems · 659 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Cosmo_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -55,8 +55,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 5.  Riess, A. G. et al. (1998). Observational Evidence from Supernovae for an Accelerating Universe and a Cosmological Constant. *Astronomical Journal*, 116, 1009–1038.
 6.  Perlmutter, S. et al. (1999). Measurements of Ω and Λ from 42 High-Redshift Supernovae. *Astrophysical Journal*, 517, 565–586.
 7.  Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. *Astronomy & Astrophysics*, 641, A6.
-8.  Trent, R. V. III. [General Relativity Reduced to PNBA](proofpressorg-gr-reduction.html). ProofPress, Volume 1, Issue 1.
-9.  Trent, R. V. III. [The Master Reduction](proofpressorg-master.html). ProofPress, Volume 1, Issue 1.
+8.  Trent, R. V. III. [General Relativity Reduced to PNBA](proofpressorg-gr-reduction.html). ProofPress, Volume 1, Issue 1, Article 2.
+9.  Trent, R. V. III. [The Master Reduction](proofpressorg-master.html). ProofPress, Volume 1, Issue 1, Article 1.
 10. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

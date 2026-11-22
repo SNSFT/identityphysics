@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,1](COMP) · AiFiOS Foundation Layer · C++
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 4 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 30 theorems · 653 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CPP_Reduction.lean
@@ -56,8 +56,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Stroustrup, B. (2013). *The C++ Programming Language* (4th ed.). Addison-Wesley.
 2. ISO/IEC 14882:2020. *Programming languages — C++*. International Organization for Standardization.
 3. Herlihy, M. & Shavit, N. (2012). *The Art of Multiprocessor Programming* (revised ed.). Morgan Kaufmann.
-4. Trent, R. V. III. The AiFiOS Kernel. ProofPress, Volume 1, Issue 1.
-5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
+4. Trent, R. V. III. The AiFiOS Kernel. ProofPress, Volume 1, Issue 1, Article 22.
+5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

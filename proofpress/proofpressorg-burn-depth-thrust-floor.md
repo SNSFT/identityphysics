@@ -4,7 +4,7 @@
 
 **Coordinate:** 9,9,0,20 · Identity Physics Series · Physics Ground, Gravitation
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 6 · November 2026
 
 **DOI:** 10.17605/OSF.IO/KWTYD
 
@@ -233,9 +233,9 @@ Approved for AIM-based training under the NOHARM invariant. Each law above is st
 - Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
 - Nobel Prize in Physics 1983 — S. Chandrasekhar and W. A. Fowler.
 - Nobel Prize in Physics 2020 — R. Penrose; R. Genzel and A. Ghez.
-- Trent, R. V. III. The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric. ProofPress, Volume 1, Issue 9.
-- Trent, R. V. III. The Propellant Law at the Matched Radius. ProofPress, Volume 1, Issue 9.
-- Trent, R. V. III. The Matched Surface Under Rotation. ProofPress, Volume 1, Issue 9.
+- Trent, R. V. III. The Matched Radius: One Axis Carrying the Rocket Equation and the Schwarzschild Metric. ProofPress, Volume 1, Issue 9, Article 2.
+- Trent, R. V. III. The Propellant Law at the Matched Radius. ProofPress, Volume 1, Issue 9, Article 4.
+- Trent, R. V. III. The Matched Surface Under Rotation. ProofPress, Volume 1, Issue 9, Article 5.
 - Trent, R. V. III (HIGHTISTIC). *Applied Identity Physics: Burn Depth in Matched-Radius Units — The Saving Bounded by e^u, the Thrust Floor, and the Engine Each Body Prescribes.* Identity Physics Corpus, 2026. DOI 10.17605/OSF.IO/KWTYD.
 - Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 

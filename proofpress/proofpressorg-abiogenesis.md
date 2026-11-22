@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,3](CHEM) · Identity Physics series · Origin of life
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 8 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 31 theorems · 871 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Abiogenesis_Reduction.lean
@@ -59,7 +59,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 5. Wächtershäuser, G. (1988). Before enzymes and templates: theory of surface metabolism. *Microbiological Reviews*, 52, 452–484.
 6. Powner, M. W., Gerland, B. & Sutherland, J. D. (2009). Synthesis of activated pyrimidine ribonucleotides in prebiotically plausible conditions. *Nature*, 459, 239–242.
 7. Weiss, M. C. et al. (2016). The physiology and habitat of the last universal common ancestor. *Nature Microbiology*, 1, 16116.
-8. Trent, R. V. III. The First Law of Identity Physics. ProofPress, Volume 1, Issue 1.
+8. Trent, R. V. III. The First Law of Identity Physics. ProofPress, Volume 1, Issue 1, Article 48.
 9. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

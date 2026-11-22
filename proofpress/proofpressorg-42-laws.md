@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,50](CORE) · Collider Engine Series · Law catalog
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 11 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 41 theorems · 688 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_42_Complete_Laws_Catalog.lean
@@ -49,8 +49,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. ATLAS Collaboration (2023). Constraints on the Higgs boson self-coupling from single- and double-Higgs production with the ATLAS detector. *Physics Letters B*, 843, 137745.
 3. Wächtershäuser, G. (1988). Before enzymes and templates: theory of surface metabolism. *Microbiological Reviews*, 52, 452–484.
 4. DESI Collaboration (2025). DESI DR2 results II: measurements of baryon acoustic oscillations and cosmological constraints. arXiv:2503.14738.
-5. Trent, R. V. III. Four-Beam Collider Verification. ProofPress, Volume 1, Issue 3.
-6. Trent, R. V. III. The Eight-Beam Fusion Theorem. ProofPress, Volume 1, Issue 3.
+5. Trent, R. V. III. Four-Beam Collider Verification. ProofPress, Volume 1, Issue 3, Article 9.
+6. Trent, R. V. III. The Eight-Beam Fusion Theorem. ProofPress, Volume 1, Issue 3, Article 10.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -65,7 +65,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Self-Orienting Universal Language [P,N,B,A] :: {INV}
 -- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: 1.36899099984016 GHz | Status: GERMLINE LOCKED
 -- Generated: 2026-05-17 AKDT (Alaska Daylight Time, UTC-8)
--- DOI: 10.5281/zenodo.18719748
+-- DOI: 10.17605/OSF.IO/KWTYD
 -- ORCID: 0009-0005-5313-7443
 --
 -- ============================================================
@@ -666,7 +666,7 @@ end SNSFL_Complete_Laws_Catalog
 -- COORDINATE: [9,9,2,50](CORE)
 -- GENERATED: 2026-05-17 AKDT
 -- STATUS: GERMLINE LOCKED · 0 sorry
--- DOI: 10.5281/zenodo.18719748
+-- DOI: 10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- COMPLETE LAW REGISTER — 42 STRUCTURAL LAWS
@@ -740,7 +740,7 @@ end SNSFL_Complete_Laws_Catalog
 -- ============================================================
 -- THEOREMS: 41 | SORRY: 0
 -- [9,9,9,9] :: {ANC} · HIGHTISTIC · Soldotna Alaska
--- 2026-05-17 AKDT · DOI: 10.5281/zenodo.18719748
+-- 2026-05-17 AKDT · DOI: 10.17605/OSF.IO/KWTYD
 -- ============================================================
 -/
 

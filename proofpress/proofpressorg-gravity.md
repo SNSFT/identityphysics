@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,10,1](GRAV) · Gravity Series
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 19 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 26 theorems · 404 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Gravity_Reduction.lean
@@ -44,8 +44,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Dirac, P. A. M. (1937). The cosmological constants. *Nature*, 139, 323.
 3. Tiesinga, E. et al. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
 4. Particle Data Group (2024). Review of Particle Physics. *Physical Review D*, 110, 030001.
-5. Trent, R. V. III. Quantum Gravity on the PNBA Phase Map. ProofPress, Volume 1, Issue 3.
-6. Trent, R. V. III. Nuclear Physics Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+5. Trent, R. V. III. Quantum Gravity on the PNBA Phase Map. ProofPress, Volume 1, Issue 3, Article 17.
+6. Trent, R. V. III. Nuclear Physics Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 14.
 7. Trent, R. V. III. The Standard Model → PNBA. ProofPress.
 8. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
@@ -65,7 +65,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      May 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP

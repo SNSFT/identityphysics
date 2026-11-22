@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,10,3](GRAV) · Gravity Series · Closed Timelike Curves
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 20 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 13 theorems · 273 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CTC_Reduction.lean
@@ -46,7 +46,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 3. Alcubierre, M. (1994). The warp drive: hyper-fast travel within general relativity. *Classical and Quantum Gravity*, 11, L73–L77.
 4. Deutsch, D. (1991). Quantum mechanics near closed timelike lines. *Physical Review D*, 44, 3197–3217.
 5. Lloyd, S. et al. (2011). Closed timelike curves via postselection: theory and experimental test of consistency. *Physical Review Letters*, 106, 040403.
-6. Trent, R. V. III. Gravity Reduced to PNBA. ProofPress, Volume 1, Issue 3.
+6. Trent, R. V. III. Gravity Reduced to PNBA. ProofPress, Volume 1, Issue 3, Article 19.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -68,7 +68,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      May 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE MAP

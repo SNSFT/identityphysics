@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,8,5](METH) · Identity Physics Series · Methods
-**Issue:** ProofPress, Volume 1, Issue 4 · June 2026
+**Issue:** ProofPress, Volume 1, Issue 4, Article 9 · June 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 402 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Bacon_Verification.lean
@@ -68,7 +68,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      June 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 -- Companion: Bacon Verification paper [9,9,8,4]
 --
 -- ============================================================

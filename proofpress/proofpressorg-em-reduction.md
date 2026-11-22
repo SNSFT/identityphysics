@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,6\](PHYS) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 7 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 17 theorems · 665 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_EM_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -48,8 +48,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1.  Maxwell, J. C. *A Dynamical Theory of the Electromagnetic Field.* Philosophical Transactions of the Royal Society of London 155, 459–512. 1865.
 2.  Faraday, M. *Experimental Researches in Electricity.* Philosophical Transactions of the Royal Society of London 122, 125–162. 1832.
 3.  Jackson, J. D. *Classical Electrodynamics*, 3rd edition. Wiley, New York. 1999.
-4.  Trent, R. V. III (HIGHTISTIC). *The Lagrangian Reduced to Sovereign Efficiency Density.* \[9,9,0,5\](PHYS). ProofPress, Volume 1, Issue 1. 2026.
-5.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+4.  Trent, R. V. III (HIGHTISTIC). *The Lagrangian Reduced to Sovereign Efficiency Density.* \[9,9,0,5\](PHYS). ProofPress, Volume 1, Issue 1, Article 6. 2026.
+5.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 6.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

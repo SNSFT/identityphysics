@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,14](PART) · Identity Physics Series · Particles
-**Issue:** ProofPress, Volume 1, Issue 6 · August 2026
+**Issue:** ProofPress, Volume 1, Issue 6, Article 1 · August 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 10 theorems · 241 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_Alpha_TL1001_Extension.lean
@@ -46,7 +46,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
 2. Morel, L., Yao, Z., Cladé, P. & Guellati-Khélifa, S. (2020). Determination of the fine-structure constant with an accuracy of 81 parts per trillion. *Nature*, 588, 61–65.
 3. Fan, X., Myers, T. G., Sukra, B. A. D. & Gabrielse, G. (2023). Measurement of the electron magnetic moment. *Physical Review Letters*, 130, 071801.
-4. Trent, R. V. III. Bacon Verification; Mathematics Master. ProofPress, Volume 1, Issue 4.
+4. Trent, R. V. III. Bacon Verification; Mathematics Master. ProofPress, Volume 1, Issue 4, Article 10.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -69,7 +69,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      August 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE SUBTRACTION

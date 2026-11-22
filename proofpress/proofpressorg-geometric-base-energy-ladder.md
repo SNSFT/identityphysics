@@ -4,7 +4,7 @@
 
 **Coordinate:** [9,9,8,12](MATH) · Identity Physics Series · Mathematics Ground, Foundations
 
-**Issue:** ProofPress, Volume 1, Issue 9 · November 2026
+**Issue:** ProofPress, Volume 1, Issue 9, Article 13 · November 2026
 
 **DOI:** 10.17605/OSF.IO/KWTYD
 

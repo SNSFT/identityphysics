@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,12](MATH) · Mathematics Layer
-**Issue:** ProofPress, Volume 1, Issue 4 · June 2026
+**Issue:** ProofPress, Volume 1, Issue 4, Article 2 · June 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 13 theorems · 236 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_FourColor_Reduction.lean
@@ -43,7 +43,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1. Appel, K. & Haken, W. (1977). Every planar map is four colorable. Part I: Discharging. *Illinois Journal of Mathematics*, 21, 429–490.
 2. Robertson, N., Sanders, D., Seymour, P. & Thomas, R. (1997). The four-colour theorem. *Journal of Combinatorial Theory, Series B*, 70, 2–44.
 3. Gonthier, G. (2008). Formal proof — the four-color theorem. *Notices of the American Mathematical Society*, 55(11), 1382–1393.
-4. Trent, R. V. III. Category Theory. ProofPress, Volume 1, Issue 3.
+4. Trent, R. V. III. Category Theory. ProofPress, Volume 1, Issue 3, Article 6.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
@@ -63,7 +63,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 -- Anchor:    1.36899099984016 GHz
 -- Status:    0 sorry
 -- Date:      June 2026 · Soldotna, Alaska
--- DOI:       10.5281/zenodo.18719748
+-- DOI:       10.17605/OSF.IO/KWTYD
 --
 -- ============================================================
 -- THE KNOWN RESULT

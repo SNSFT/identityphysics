@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,18](PART) · GC series · Particle and atomic physics
-**Issue:** ProofPress, Volume 1, Issue 6 · August 2026
+**Issue:** ProofPress, Volume 1, Issue 6, Article 5 · August 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 19 theorems · 404 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_GC_WMass_CDFResolution.lean

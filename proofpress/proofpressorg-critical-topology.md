@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,3,22](PHYS) · Condensed matter · Reduction of Lin et al. (2026)
-**Issue:** ProofPress, Volume 1, Issue 8 · October 2026
+**Issue:** ProofPress, Volume 1, Issue 8, Article 2 · October 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 423 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CriticalTopology_Reduction.lean

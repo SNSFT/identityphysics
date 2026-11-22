@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,7\](PHYS) · Physics core  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 8 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 20 theorems · 722 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Fluid_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -49,8 +49,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 1.  Navier, C.-L. *Mémoire sur les lois du mouvement des fluides.* Mémoires de l’Académie Royale des Sciences de l’Institut de France 6, 389–440. 1823.
 2.  Stokes, G. G. *On the Theories of the Internal Friction of Fluids in Motion.* Transactions of the Cambridge Philosophical Society 8, 287–319. 1845.
 3.  Reynolds, O. *An Experimental Investigation of the Circumstances Which Determine Whether the Motion of Water Shall Be Direct or Sinuous.* Philosophical Transactions of the Royal Society of London 174, 935–982. 1883.
-4.  Trent, R. V. III (HIGHTISTIC). *Thermodynamics Reduced to Pattern Decoherence.* \[9,9,0,3\](PHYS). ProofPress, Volume 1, Issue 1. 2026.
-5.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1. 2026.
+4.  Trent, R. V. III (HIGHTISTIC). *Thermodynamics Reduced to Pattern Decoherence.* \[9,9,0,3\](PHYS). ProofPress, Volume 1, Issue 1, Article 3. 2026.
+5.  Trent, R. V. III (HIGHTISTIC). *The Identity Physics Master.* \[9,9,0,0\](CORE). ProofPress, Volume 1, Issue 1, Article 1. 2026.
 6.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

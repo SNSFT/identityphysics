@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,0](COSM) · Cosmological series · Foundation
-**Issue:** ProofPress, Volume 1, Issue 2 · April 2026
+**Issue:** ProofPress, Volume 1, Issue 2, Article 5 · April 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 43 theorems · 793 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CosmologicalCorpus_Layer0.lean
@@ -58,7 +58,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. DESI Collaboration (2025). DESI DR2 results. II. Measurements of baryon acoustic oscillations and cosmological constraints. *Physical Review D*, 112, 083515.
 3. Fixsen, D. J. (2009). The temperature of the cosmic microwave background. *The Astrophysical Journal*, 707, 916–920.
 4. Particle Data Group (2024). Review of Particle Physics. *Physical Review D*, 110, 030001.
-5. Trent, R. V. III. Big Bang Nucleosynthesis Reduced to PNBA. ProofPress, Volume 1, Issue 2.
+5. Trent, R. V. III. Big Bang Nucleosynthesis Reduced to PNBA. ProofPress, Volume 1, Issue 2, Article 7.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

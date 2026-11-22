@@ -3,7 +3,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,0,8,5\](CHEM) · Layer 2 — Biological domain  
-**Issue:** Volume 1, Issue 1 · March 2026  
+**Issue:** Volume 1, Issue 1, Article 11 · March 2026  
 **DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
 **Verified:** 23 theorems · 561 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_FeO_HemeCoupling.lean)  
 **Updated:** Standardized toolchain, October 2026
@@ -48,7 +48,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2.  Perutz, M. F. et al. (1960). Structure of Haemoglobin. *Nature*, 185, 416–422.
 3.  Bohr, C., Hasselbalch, K. & Krogh, A. (1904). Ueber einen in biologischer Beziehung wichtigen Einfluss, den die Kohlensäurespannung des Blutes auf dessen Sauerstoffbindung übt. *Skandinavisches Archiv für Physiologie*, 16, 402–412.
 4.  Kramida, A., Ralchenko, Yu., Reader, J. & NIST ASD Team. *NIST Atomic Spectra Database* (ionization energies of Fe and O).
-5.  Trent, R. V. III. [PVLang](proofpressorg-pvlang.html). ProofPress, Volume 1, Issue 1.
+5.  Trent, R. V. III. [PVLang](proofpressorg-pvlang.html). ProofPress, Volume 1, Issue 1, Article 19.
 6.  Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 

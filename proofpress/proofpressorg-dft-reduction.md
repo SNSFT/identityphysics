@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,0,14](CHEM) · Physics Ground · Density Functional Theory
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 3 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 16 theorems · 547 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_DFT_Reduction.lean
@@ -53,7 +53,7 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Kohn, W. & Sham, L. J. (1965). Self-consistent equations including exchange and correlation effects. *Physical Review*, 140, A1133–A1138.
 3. Nakamura, S., Mukai, T. & Senoh, M. (1994). Candela-class high-brightness InGaN/AlGaN double-heterostructure blue-light-emitting diodes. *Applied Physics Letters*, 64, 1687–1689.
 4. Riley, F. L. (2000). Silicon nitride and related materials. *Journal of the American Ceramic Society*, 83, 245–265.
-5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
+5. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
 6. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

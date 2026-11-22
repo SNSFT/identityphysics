@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,2,43](MATH) · Abstract Mathematics Series
-**Issue:** ProofPress, Volume 1, Issue 3 · May 2026
+**Issue:** ProofPress, Volume 1, Issue 3, Article 6 · May 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 39 theorems · 775 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_CategoryTheory_Reduction.lean
@@ -54,8 +54,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 2. Mac Lane, S. (1971). *Categories for the Working Mathematician*. Springer.
 3. Eilenberg, S. & Moore, J. C. (1965). Adjoint functors and triples. *Illinois Journal of Mathematics*, 9, 381–398.
 4. Lurie, J. (2009). *Higher Topos Theory*. Princeton University Press.
-5. Trent, R. V. III. Category Theory as a Layer 2 Projection of PNBA. ProofPress, Volume 1, Issue 3.
-6. Trent, R. V. III. Isomorphism and Verification. ProofPress, Volume 1, Issue 2.
+5. Trent, R. V. III. Category Theory as a Layer 2 Projection of PNBA. ProofPress, Volume 1, Issue 3, Article 2.
+6. Trent, R. V. III. Isomorphism and Verification. ProofPress, Volume 1, Issue 2, Article 4.
 7. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source

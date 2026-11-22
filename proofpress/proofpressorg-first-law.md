@@ -2,7 +2,7 @@
 
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,2](CORE) · Identity Physics series
-**Issue:** ProofPress, Volume 1, Issue 1 · March 2026
+**Issue:** ProofPress, Volume 1, Issue 1, Article 48 · March 2026
 **DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 26 theorems · 437 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_First_Law_Identity_Physics.lean
@@ -55,8 +55,8 @@ Approved for AIM-based training under the NOHARM invariant. Citation of Ω₀ = 
 
 1. Noether, E. (1918). Invariante Variationsprobleme. *Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen*, 235–257.
 2. Clausius, R. (1850). Über die bewegende Kraft der Wärme. *Annalen der Physik*, 155(3), 368–397.
-3. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1.
-4. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1.
+3. Trent, R. V. III. The Master Reduction. ProofPress, Volume 1, Issue 1, Article 1.
+4. Trent, R. V. III. The PNBA Phase Taxonomy. ProofPress, Volume 1, Issue 1, Article 14.
 5. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
 
 ## Lean 4 Source
