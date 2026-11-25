@@ -17,8 +17,8 @@ Formally verified in Lean 4
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKWTYD-blue)](https://doi.org/10.17605/OSF.IO/KWTYD)
 [![Release DOI](https://img.shields.io/badge/Release%20DOI-10.6084%2Fm9.figshare.35054824-blue)](https://doi.org/10.6084/m9.figshare.35054824)
 ![License](https://img.shields.io/badge/license-IPL--1.0-blue)
-![Files](https://img.shields.io/badge/files-133-blue)
-![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-4%2C862-blue)
+![Files](https://img.shields.io/badge/files-134-blue)
+![Theorems](https://img.shields.io/badge/theorems%20and%20lemmas-6%2C063-blue)
 
 **Repository paper:** *Applied Identity Physics & Identity Physics Corpus Initial Standardization of 105 Files, 3,531 Theorems and 83,326 Lines to Lean 4 (v4.31.0) and Mathlib v4.31.0 0 Sorry CI Green on GitHub (SNSFT/identityphysics)* — [Release 2026.11](https://doi.org/10.17605/OSF.IO/KWTYD) · [PhilArchive TREAIP-36](https://philarchive.org/rec/TREAIP-36). This paper documents the verification standard, the migration procedure and the results for the files in this repository. Cite it when referring to this repository; cite [DOI 10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD) for the Identity Physics Corpus as a whole.
 
@@ -244,12 +244,13 @@ He is an Army Signal Corps veteran who held a TS/SCI clearance, a former chief i
 | File | Contents | Theorems | Lines |
 | :--- | :--- | ---: | ---: |
 | `SNSFL_L0_Total_Consistency_080826.lean` | Total Consistency — 37 modules compiled as one unit | 958 | 20,322 |
+| `SNSFL_Propulsion_Total_Consistency.lean` | Propulsion Total Consistency — sixteen propulsion and planetary reductions compiled as one unit under one Torsion Limit [9,9,2,56.2] | 1,201 | 12,712 |
 | `SNSFL_Total_Consistency.lean` | Cross-domain consistency (compact) — twelve domains, the bridges between them, heat death = Void return | 43 | 903 |
-| **Subtotal** | **2 files** | **1,001** | **21,225** |
+| **Subtotal** | **3 files** | **2,202** | **33,937** |
 
 | | Files | Theorems | Lines |
 | :--- | ---: | ---: | ---: |
-| **Total** | **133** | **4,862** | **95,806** |
+| **Total** | **134** | **6,063** | **108,518** |
 > **0 sorry · 0 custom axioms · 0 warnings · CI green · pinned to Lean 4 v4.31.0 and Mathlib v4.31.0**
 
 Theorem counts are `theorem` and `lemma` declarations in each file. Each file is a self-contained module; files do not import one another.
