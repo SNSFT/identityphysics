@@ -1050,6 +1050,359 @@
      ]
     },
     "2026-11-23": {
+     "pageviews": 214,
+     "uniques": 186,
+     "cached": 12,
+     "threats": 248,
+     "countries": [
+      {
+       "k": "US",
+       "n": 462,
+       "visits": 57
+      },
+      {
+       "k": "NL",
+       "n": 118,
+       "visits": 45
+      },
+      {
+       "k": "GB",
+       "n": 60,
+       "visits": 27
+      },
+      {
+       "k": "CN",
+       "n": 54,
+       "visits": 19
+      },
+      {
+       "k": "SG",
+       "n": 31,
+       "visits": 3
+      },
+      {
+       "k": "PL",
+       "n": 28,
+       "visits": 15
+      },
+      {
+       "k": "DE",
+       "n": 27,
+       "visits": 10
+      },
+      {
+       "k": "CH",
+       "n": 8,
+       "visits": 4
+      },
+      {
+       "k": "HK",
+       "n": 8,
+       "visits": 4
+      },
+      {
+       "k": "ID",
+       "n": 7,
+       "visits": 1
+      },
+      {
+       "k": "KR",
+       "n": 7,
+       "visits": 3
+      },
+      {
+       "k": "MX",
+       "n": 6,
+       "visits": 4
+      },
+      {
+       "k": "BR",
+       "n": 6,
+       "visits": 2
+      },
+      {
+       "k": "FR",
+       "n": 4,
+       "visits": 3
+      },
+      {
+       "k": "JP",
+       "n": 4,
+       "visits": 2
+      },
+      {
+       "k": "TW",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "CA",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "browsers": [
+      {
+       "k": "Chrome",
+       "n": 423,
+       "visits": 61
+      },
+      {
+       "k": "Unknown",
+       "n": 150,
+       "visits": 42
+      },
+      {
+       "k": "ChromeMobile",
+       "n": 129,
+       "visits": 48
+      },
+      {
+       "k": "MobileSafari",
+       "n": 76,
+       "visits": 26
+      },
+      {
+       "k": "AppleBot",
+       "n": 17,
+       "visits": 5
+      },
+      {
+       "k": "Curl",
+       "n": 15,
+       "visits": 7
+      },
+      {
+       "k": "GoogleBot",
+       "n": 9,
+       "visits": 4
+      },
+      {
+       "k": "Firefox",
+       "n": 5,
+       "visits": 2
+      },
+      {
+       "k": "Safari",
+       "n": 3,
+       "visits": 1
+      },
+      {
+       "k": "Edge",
+       "n": 3,
+       "visits": 1
+      },
+      {
+       "k": "BingBot",
+       "n": 2,
+       "visits": 2
+      },
+      {
+       "k": "ChromeHeadless",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "os": [
+      {
+       "k": "MacOSX",
+       "n": 345,
+       "visits": 24
+      },
+      {
+       "k": "Unknown",
+       "n": 174,
+       "visits": 53
+      },
+      {
+       "k": "Android",
+       "n": 131,
+       "visits": 50
+      },
+      {
+       "k": "Windows",
+       "n": 102,
+       "visits": 45
+      },
+      {
+       "k": "iOS",
+       "n": 76,
+       "visits": 26
+      },
+      {
+       "k": "Linux",
+       "n": 5,
+       "visits": 1
+      }
+     ],
+     "devices": [
+      {
+       "k": "desktop",
+       "n": 599,
+       "visits": 121
+      },
+      {
+       "k": "mobile",
+       "n": 210,
+       "visits": 78
+      },
+      {
+       "k": "tablet",
+       "n": 24,
+       "visits": 0
+      }
+     ],
+     "status": [
+      {
+       "k": "200",
+       "n": 314,
+       "visits": 199
+      },
+      {
+       "k": "403",
+       "n": 256,
+       "visits": 0
+      },
+      {
+       "k": "404",
+       "n": 139,
+       "visits": 0
+      },
+      {
+       "k": "301",
+       "n": 102,
+       "visits": 0
+      },
+      {
+       "k": "204",
+       "n": 14,
+       "visits": 0
+      },
+      {
+       "k": "405",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "206",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "304",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "cache": [
+      {
+       "k": "dynamic",
+       "n": 491,
+       "visits": 199
+      },
+      {
+       "k": "none",
+       "n": 275,
+       "visits": 0
+      },
+      {
+       "k": "miss",
+       "n": 28,
+       "visits": 0
+      },
+      {
+       "k": "revalidated",
+       "n": 19,
+       "visits": 0
+      },
+      {
+       "k": "hit",
+       "n": 12,
+       "visits": 0
+      },
+      {
+       "k": "expired",
+       "n": 8,
+       "visits": 0
+      }
+     ],
+     "probes": [
+      {
+       "k": "/var/www/html/.env",
+       "n": 10,
+       "visits": 0
+      },
+      {
+       "k": "/.git/HEAD",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/.git/config",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/.env.backup",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/.env.save",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/backend/.env",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/src/.env",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env.bak",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env.sample",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env.local",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env.old",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env~",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/api/.env",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env",
+       "n": 2,
+       "visits": 0
+      }
+     ],
      "requests": 833,
      "visits": 199,
      "bytes": 15406193,
@@ -1304,6 +1657,304 @@
      ]
     },
     "2026-11-24": {
+     "pageviews": 125,
+     "uniques": 132,
+     "cached": 119,
+     "threats": 6,
+     "countries": [
+      {
+       "k": "HK",
+       "n": 1129,
+       "visits": 5
+      },
+      {
+       "k": "IN",
+       "n": 133,
+       "visits": 4
+      },
+      {
+       "k": "US",
+       "n": 109,
+       "visits": 44
+      },
+      {
+       "k": "DE",
+       "n": 24,
+       "visits": 3
+      },
+      {
+       "k": "CN",
+       "n": 23,
+       "visits": 10
+      },
+      {
+       "k": "SG",
+       "n": 8,
+       "visits": 2
+      },
+      {
+       "k": "MX",
+       "n": 7,
+       "visits": 4
+      },
+      {
+       "k": "CH",
+       "n": 5,
+       "visits": 3
+      },
+      {
+       "k": "ID",
+       "n": 4,
+       "visits": 1
+      },
+      {
+       "k": "KR",
+       "n": 4,
+       "visits": 4
+      },
+      {
+       "k": "BR",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "RU",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "PL",
+       "n": 2,
+       "visits": 1
+      },
+      {
+       "k": "NL",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "CA",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "FR",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "browsers": [
+      {
+       "k": "Unknown",
+       "n": 419,
+       "visits": 17
+      },
+      {
+       "k": "MobileSafari",
+       "n": 335,
+       "visits": 22
+      },
+      {
+       "k": "Chrome",
+       "n": 201,
+       "visits": 28
+      },
+      {
+       "k": "FirefoxMobile",
+       "n": 194,
+       "visits": 0
+      },
+      {
+       "k": "ChromeMobile",
+       "n": 150,
+       "visits": 0
+      },
+      {
+       "k": "Firefox",
+       "n": 127,
+       "visits": 0
+      },
+      {
+       "k": "AppleBot",
+       "n": 10,
+       "visits": 3
+      },
+      {
+       "k": "BingBot",
+       "n": 10,
+       "visits": 9
+      },
+      {
+       "k": "GoogleBot",
+       "n": 7,
+       "visits": 1
+      },
+      {
+       "k": "Edge",
+       "n": 2,
+       "visits": 1
+      },
+      {
+       "k": "Curl",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "Safari",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "os": [
+      {
+       "k": "iOS",
+       "n": 679,
+       "visits": 22
+      },
+      {
+       "k": "Unknown",
+       "n": 436,
+       "visits": 26
+      },
+      {
+       "k": "Android",
+       "n": 128,
+       "visits": 1
+      },
+      {
+       "k": "Windows",
+       "n": 126,
+       "visits": 13
+      },
+      {
+       "k": "MacOSX",
+       "n": 46,
+       "visits": 16
+      },
+      {
+       "k": "ChromeOS",
+       "n": 41,
+       "visits": 2
+      },
+      {
+       "k": "Linux",
+       "n": 2,
+       "visits": 1
+      }
+     ],
+     "devices": [
+      {
+       "k": "mobile",
+       "n": 1151,
+       "visits": 24
+      },
+      {
+       "k": "desktop",
+       "n": 307,
+       "visits": 57
+      }
+     ],
+     "status": [
+      {
+       "k": "404",
+       "n": 775,
+       "visits": 0
+      },
+      {
+       "k": "301",
+       "n": 417,
+       "visits": 0
+      },
+      {
+       "k": "200",
+       "n": 174,
+       "visits": 81
+      },
+      {
+       "k": "405",
+       "n": 45,
+       "visits": 0
+      },
+      {
+       "k": "204",
+       "n": 34,
+       "visits": 0
+      },
+      {
+       "k": "403",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "304",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "499",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "206",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "cache": [
+      {
+       "k": "dynamic",
+       "n": 1031,
+       "visits": 81
+      },
+      {
+       "k": "miss",
+       "n": 245,
+       "visits": 0
+      },
+      {
+       "k": "hit",
+       "n": 120,
+       "visits": 0
+      },
+      {
+       "k": "none",
+       "n": 47,
+       "visits": 0
+      },
+      {
+       "k": "revalidated",
+       "n": 14,
+       "visits": 0
+      },
+      {
+       "k": "expired",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "probes": [
+      {
+       "k": "/.env",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.git/HEAD",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.git/config",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "/.env.local",
+       "n": 1,
+       "visits": 0
+      }
+     ],
      "requests": 1458,
      "visits": 81,
      "bytes": 12316814,
@@ -1525,5 +2176,5 @@
    }
   }
  },
- "updated": "2026-11-25T18:56:52Z"
+ "updated": "2026-11-25T19:14:41Z"
 }
