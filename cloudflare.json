@@ -1,0 +1,1529 @@
+{
+ "schema": 1,
+ "crawlers": {
+  "Claude-SearchBot": {
+   "operator": "Anthropic",
+   "kind": "search"
+  },
+  "Claude-User": {
+   "operator": "Anthropic",
+   "kind": "assistant"
+  },
+  "ClaudeBot": {
+   "operator": "Anthropic",
+   "kind": "crawl"
+  },
+  "OAI-SearchBot": {
+   "operator": "OpenAI",
+   "kind": "search"
+  },
+  "ChatGPT-User": {
+   "operator": "OpenAI",
+   "kind": "assistant"
+  },
+  "GPTBot": {
+   "operator": "OpenAI",
+   "kind": "crawl"
+  },
+  "meta-externalfetcher": {
+   "operator": "Meta",
+   "kind": "assistant"
+  },
+  "meta-externalagent": {
+   "operator": "Meta",
+   "kind": "crawl"
+  },
+  "meta-webindexer": {
+   "operator": "Meta",
+   "kind": "search"
+  },
+  "facebookexternalhit": {
+   "operator": "Meta",
+   "kind": "preview"
+  },
+  "Perplexity-User": {
+   "operator": "Perplexity",
+   "kind": "assistant"
+  },
+  "PerplexityBot": {
+   "operator": "Perplexity",
+   "kind": "search"
+  },
+  "MistralAI-User": {
+   "operator": "Mistral",
+   "kind": "assistant"
+  },
+  "DuckAssistBot": {
+   "operator": "DuckDuckGo",
+   "kind": "assistant"
+  },
+  "Google-CloudVertexBot": {
+   "operator": "Google",
+   "kind": "crawl"
+  },
+  "Googlebot": {
+   "operator": "Google",
+   "kind": "search"
+  },
+  "bingbot": {
+   "operator": "Microsoft",
+   "kind": "search"
+  },
+  "Applebot": {
+   "operator": "Apple",
+   "kind": "search"
+  },
+  "Amazonbot": {
+   "operator": "Amazon",
+   "kind": "crawl"
+  },
+  "PetalBot": {
+   "operator": "Huawei",
+   "kind": "crawl"
+  },
+  "Bytespider": {
+   "operator": "ByteDance",
+   "kind": "crawl"
+  },
+  "TikTokSpider": {
+   "operator": "ByteDance",
+   "kind": "crawl"
+  },
+  "CCBot": {
+   "operator": "Common Crawl",
+   "kind": "crawl"
+  },
+  "Baiduspider": {
+   "operator": "Baidu",
+   "kind": "search"
+  },
+  "archive.org_bot": {
+   "operator": "Internet Archive",
+   "kind": "archive"
+  }
+ },
+ "zones": {
+  "proofpress.org": {
+   "days": {
+    "2026-10-26": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-10-27": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-10-28": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-10-29": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-10-30": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-10-31": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-01": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-02": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-03": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-04": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-05": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-06": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-07": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-08": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-09": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-10": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-11": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-12": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-13": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-14": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-15": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-16": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-17": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-18": {
+     "requests": 0,
+     "visits": 0,
+     "bytes": 0,
+     "crawlers": {},
+     "paths": []
+    },
+    "2026-11-19": {
+     "requests": 580,
+     "visits": 119,
+     "bytes": 7197512,
+     "crawlers": {
+      "OAI-SearchBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1695
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      }
+     ]
+    },
+    "2026-11-20": {
+     "requests": 2729,
+     "visits": 441,
+     "bytes": 38475452,
+     "crawlers": {
+      "Applebot": {
+       "ok": 9,
+       "fail": 0,
+       "bytes": 87830
+      },
+      "GPTBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 2448
+      },
+      "Googlebot": {
+       "ok": 5,
+       "fail": 5,
+       "bytes": 2403207
+      },
+      "OAI-SearchBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1497
+      },
+      "bingbot": {
+       "ok": 5,
+       "fail": 0,
+       "bytes": 78628
+      },
+      "facebookexternalhit": {
+       "ok": 7,
+       "fail": 0,
+       "bytes": 9460
+      },
+      "meta-externalagent": {
+       "ok": 184,
+       "fail": 3,
+       "bytes": 2451621
+      },
+      "meta-webindexer": {
+       "ok": 56,
+       "fail": 0,
+       "bytes": 2032169
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 7
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "meta-webindexer",
+       "count": 4
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-velocity-addition-doppler.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-propellant-law.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-goldilocks-annulus.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-set-theory.md",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-aims-scope.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-licensing.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/.aws/credentials",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-review-process.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-publication-ethics.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-archive.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/.aws/config",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-open-access.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-advertising.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-editorial-board.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/index.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-contact.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-author-guidelines.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/cdn-cgi/l/email-protection",
+       "crawler": "meta-externalagent",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-psy-polyvagal.md",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qm-reduction.md",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-saint-venant.md",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-calculus.html",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-mathematics-master.html",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-electron.md",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-simulation-layer.html",
+       "crawler": "meta-externalagent",
+       "count": 1
+      }
+     ]
+    },
+    "2026-11-21": {
+     "requests": 1731,
+     "visits": 220,
+     "bytes": 27618235,
+     "crawlers": {
+      "Applebot": {
+       "ok": 6,
+       "fail": 0,
+       "bytes": 84586
+      },
+      "ChatGPT-User": {
+       "ok": 4,
+       "fail": 0,
+       "bytes": 35113
+      },
+      "GPTBot": {
+       "ok": 4,
+       "fail": 0,
+       "bytes": 78489
+      },
+      "Googlebot": {
+       "ok": 31,
+       "fail": 0,
+       "bytes": 512734
+      },
+      "OAI-SearchBot": {
+       "ok": 2,
+       "fail": 0,
+       "bytes": 2994
+      },
+      "bingbot": {
+       "ok": 7,
+       "fail": 0,
+       "bytes": 189190
+      },
+      "facebookexternalhit": {
+       "ok": 24,
+       "fail": 0,
+       "bytes": 385551
+      },
+      "meta-webindexer": {
+       "ok": 9,
+       "fail": 0,
+       "bytes": 2561474
+      }
+     },
+     "paths": [
+      {
+       "path": "/",
+       "crawler": "facebookexternalhit",
+       "count": 19
+      },
+      {
+       "path": "/",
+       "crawler": "Googlebot",
+       "count": 7
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 5
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 5
+      },
+      {
+       "path": "/favicon-192.png",
+       "crawler": "Googlebot",
+       "count": 3
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 2
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.md",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-em-reduction.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-regulation-reaction.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-evolution.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-review-process.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-regge-ladder.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-regge-ladder.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-velocity-addition-doppler.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-bounded-uncertainty.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-aims-scope.html",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-publication-ethics.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-review-process.html",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-propellant-law.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-editorial-board.html",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-contact.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-speed-of-light.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      }
+     ]
+    },
+    "2026-11-22": {
+     "requests": 953,
+     "visits": 134,
+     "bytes": 15390010,
+     "crawlers": {
+      "Applebot": {
+       "ok": 5,
+       "fail": 0,
+       "bytes": 170582
+      },
+      "Bytespider": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1604
+      },
+      "ChatGPT-User": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 16128
+      },
+      "GPTBot": {
+       "ok": 161,
+       "fail": 3,
+       "bytes": 2208519
+      },
+      "Googlebot": {
+       "ok": 10,
+       "fail": 0,
+       "bytes": 64069
+      },
+      "OAI-SearchBot": {
+       "ok": 26,
+       "fail": 0,
+       "bytes": 1762385
+      },
+      "bingbot": {
+       "ok": 8,
+       "fail": 0,
+       "bytes": 108445
+      },
+      "facebookexternalhit": {
+       "ok": 9,
+       "fail": 0,
+       "bytes": 182842
+      },
+      "meta-externalagent": {
+       "ok": 2,
+       "fail": 0,
+       "bytes": 158791
+      },
+      "meta-webindexer": {
+       "ok": 13,
+       "fail": 0,
+       "bytes": 3722849
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 8
+      },
+      {
+       "path": "/",
+       "crawler": "facebookexternalhit",
+       "count": 5
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 4
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-holographic-gravity.html",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-aims-scope.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-qt-reduction.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/index.html",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-pi.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-total-consistency.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-locus-of-control.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-first-law.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-simulation-layer.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-novikov.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-regulation-reaction.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.html",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-cognitive-dissonance.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-publication-ethics.html",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-regulation-reaction.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-emotional-primitives.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-special-relativity.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-act.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-holographic-gravity.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-bigfive.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-cpp-reduction.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-capstone.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-central-surface-density.html",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-structural-precognition.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-functional-emotions.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qm-mag-reduction.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-set-theory.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qt-reduction.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-growth-mindset.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-moral-codes.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-tl-temperature.html",
+       "crawler": "GPTBot",
+       "count": 1
+      }
+     ]
+    },
+    "2026-11-23": {
+     "requests": 833,
+     "visits": 199,
+     "bytes": 15406193,
+     "crawlers": {
+      "Applebot": {
+       "ok": 17,
+       "fail": 0,
+       "bytes": 198561
+      },
+      "ChatGPT-User": {
+       "ok": 2,
+       "fail": 2,
+       "bytes": 101773
+      },
+      "GPTBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 2464
+      },
+      "Googlebot": {
+       "ok": 10,
+       "fail": 0,
+       "bytes": 275339
+      },
+      "OAI-SearchBot": {
+       "ok": 16,
+       "fail": 3,
+       "bytes": 444486
+      },
+      "bingbot": {
+       "ok": 2,
+       "fail": 0,
+       "bytes": 31538
+      },
+      "facebookexternalhit": {
+       "ok": 4,
+       "fail": 0,
+       "bytes": 271104
+      },
+      "meta-externalagent": {
+       "ok": 2,
+       "fail": 0,
+       "bytes": 62040
+      },
+      "meta-webindexer": {
+       "ok": 13,
+       "fail": 0,
+       "bytes": 4899170
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 5
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 4
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-psy-integral.md",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-goldilocks-annulus.html",
+       "crawler": "facebookexternalhit",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 2
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-psy-maslow.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-moral-codes.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/MATH",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-propellant-law.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/ENGR",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-functional-emotions.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-speed-of-light.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/.env.test",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-aifios-kernel.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-novikov.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-aifios.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-em-reduction.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-regge-ladder.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-archive.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-element-dm.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.md",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-regge-ladder.html",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/GRAV",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-vascular-manifold.html",
+       "crawler": "Applebot",
+       "count": 1
+      }
+     ]
+    },
+    "2026-11-24": {
+     "requests": 1458,
+     "visits": 81,
+     "bytes": 12316814,
+     "crawlers": {
+      "Applebot": {
+       "ok": 10,
+       "fail": 0,
+       "bytes": 108343
+      },
+      "Bytespider": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1604
+      },
+      "ChatGPT-User": {
+       "ok": 1,
+       "fail": 1,
+       "bytes": 21778
+      },
+      "GPTBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 2469
+      },
+      "Googlebot": {
+       "ok": 7,
+       "fail": 0,
+       "bytes": 25572
+      },
+      "OAI-SearchBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1489
+      },
+      "bingbot": {
+       "ok": 10,
+       "fail": 0,
+       "bytes": 232583
+      },
+      "facebookexternalhit": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1522
+      },
+      "meta-webindexer": {
+       "ok": 14,
+       "fail": 0,
+       "bytes": 2636319
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 5
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-bbn-reduction.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/favicon-32.png",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-propellant-law.html",
+       "crawler": "bingbot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-psy-emotion-regulation.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-periodic-weight.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-bigfive.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Bytespider",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-cpp-reduction.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-octet-parity.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-abiogenesis.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-propellant-law.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/index.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-goldilocks-annulus.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-coordinate-extension.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/.env",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-maslow.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
+       "count": 1
+      }
+     ]
+    }
+   }
+  }
+ },
+ "updated": "2026-11-25T18:56:52Z"
+}
