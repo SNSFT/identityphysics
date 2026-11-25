@@ -2,12 +2,19 @@ name: Traffic snapshot
 
 # Saves GitHub traffic (views, clones, referrers, paths, repo stats) once a day
 # to traffic.json on the `traffic` branch, so history outlasts GitHub's 14-day window.
+# Saves Cloudflare site analytics for proofpress.org (requests, visits,
+# AI and search crawlers by name, their top paths) to cloudflare.json on the same branch.
 # The data branch keeps snapshot commits out of main and out of CI ([skip ci]).
 
 on:
   schedule:
     - cron: "17 9 * * *"   # 09:17 UTC daily (01:17 Alaska time)
   workflow_dispatch:         # run it by hand from the Actions tab
+    inputs:
+      cf_backfill:
+        description: "Cloudflare days to read back from yesterday (1-30)"
+        required: false
+        default: "2"
 
 permissions:
   contents: write
@@ -27,6 +34,7 @@ jobs:
       - name: Switch to the traffic data branch
         run: |
           cp .github/scripts/traffic_snapshot.py "$RUNNER_TEMP/traffic_snapshot.py"
+          cp .github/scripts/cloudflare_snapshot.py "$RUNNER_TEMP/cloudflare_snapshot.py"
           if git ls-remote --exit-code --heads origin traffic >/dev/null; then
             git fetch origin traffic
             git checkout traffic
@@ -41,11 +49,19 @@ jobs:
           REPO: ${{ github.repository }}
         run: python3 "$RUNNER_TEMP/traffic_snapshot.py"
 
+      - name: Collect Cloudflare snapshot
+        env:
+          CF_TOKEN: ${{ secrets.CF_TOKEN }}
+          CF_ZONES: proofpress.org
+          CF_BACKFILL: ${{ inputs.cf_backfill || '2' }}
+        run: python3 "$RUNNER_TEMP/cloudflare_snapshot.py"
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add traffic.json
+          if [ -f cloudflare.json ]; then git add cloudflare.json; fi
           if git diff --cached --quiet; then
             echo "No change."
           else
