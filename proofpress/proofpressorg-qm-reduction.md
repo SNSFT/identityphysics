@@ -4,7 +4,8 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID [0009-0005-5313-7443](https://orcid.org/0009-0005-5313-7443)  
 **Coordinate:** \[9,9,0,4.7\](PHYS) · Physics core · general-reader form (Behavior, Sustained)  
 **Issue:** Volume 1, Issue 1, Article 4 · March 2026  
-**DOI:** [10.17605/OSF.IO/KWTYD](https://doi.org/10.17605/OSF.IO/KWTYD)  
+**DOI:** 10.6084/m9.figshare.35111830
+**Corpus DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 25 theorems · 796 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · [source and CI record](https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_QM_Reduction.lean)  
 **Updated:** Standardized toolchain, October 2026
 

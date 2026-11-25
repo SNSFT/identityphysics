@@ -3,7 +3,8 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,6,13](PSYC) · Psychology series
 **Issue:** ProofPress, Volume 1, Issue 1, Article 34 · March 2026
-**DOI:** 10.17605/OSF.IO/KWTYD
+**DOI:** 10.6084/m9.figshare.35112112
+**Corpus DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 21 theorems · 542 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L2_Psy_Integral.lean
 **Updated:** Standardized toolchain, October 2026

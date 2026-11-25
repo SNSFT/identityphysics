@@ -3,7 +3,8 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,1,3](COMP) · AiFi OS foundation layer
 **Issue:** ProofPress, Volume 1, Issue 1, Article 23 · March 2026
-**DOI:** 10.17605/OSF.IO/KWTYD
+**DOI:** 10.6084/m9.figshare.35112079
+**Corpus DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 33 theorems · 668 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_L4_AiFiOS_Plugin.lean
 **Updated:** Standardized toolchain, October 2026

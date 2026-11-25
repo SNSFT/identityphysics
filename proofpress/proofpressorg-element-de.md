@@ -3,7 +3,8 @@
 **Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
 **Coordinate:** [9,9,4,15](COSM) · Late cosmology series
 **Issue:** ProofPress, Volume 1, Issue 1, Article 16 · March 2026
-**DOI:** 10.17605/OSF.IO/KWTYD
+**DOI:** 10.6084/m9.figshare.35112052
+**Corpus DOI:** 10.17605/OSF.IO/KWTYD
 **Verified:** 10 theorems · 205 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0
 **Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Element_Darkenergy.lean
 **Updated:** Standardized toolchain, October 2026
