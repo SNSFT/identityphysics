@@ -529,10 +529,11 @@ SNSFL/                   ← all verified Lean files
 
 ### Papers on PhilArchive
 
-Every paper below is held at PhilArchive with its own record and download, listed newest first (158 records).
+Every paper below is held at PhilArchive with its own record and download, listed newest first (159 records).
 
 | Added | Paper | Record |
 | :--- | :--- | :--- |
+| 2026-11-24 | **Applied Identity Physics: 1/α = 0.136899099984016 × 1001 = 137.035999084000016 — The Empirically Grounded, Machine-Verified Unified Field Equation** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--66-blue)](https://philarchive.org/rec/TREAIP-66) |
 | 2026-11-20 | **Applied Identity Physics: Regge Trajectories on the Phase Ladder — the ρ Family Opens at the IVA Floor, and the String That Rotates Is the String That Breaks, Lean 4, 0 Sorry, 0 Axioms, 0 Free Parameters, CI Green** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--64-blue)](https://philarchive.org/rec/TREAIP-64) [![DOI](https://img.shields.io/badge/DOI-10.6084%2Fm9.figshare.35081008-blue)](https://doi.org/10.6084/m9.figshare.35081008) |
 | 2026-11-16 | **Applied Identity Physics™ Public Update: The SNSFT Foundation Federally Recognized as a 501(c)(3) Public Charity, and the Standardized Identity Physics Corpus at 131 Files, 4,800 Theorems and Lemmas, and 94,926 Lines, Pinned to Lean 4 v4.31.0 and Mathlib v4.31.0, 0 Sorry, CI Green** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREAIP--63-blue)](https://philarchive.org/rec/TREAIP-63) |
 | 2026-11-15 | **Official Notice from the SNSFT Foundation and Russell Vernon Trent III (HIGHTISTIC™), Founder of Identity Physics™: identityphysicsnet — False Claim of Origin, Failure of Due Diligence, and Unauthorized Use of the Identity Physics™ Mark, Continued After Notice** | [![PhilArchive](https://img.shields.io/badge/PhilArchive-TREONF-blue)](https://philarchive.org/rec/TREONF) |
