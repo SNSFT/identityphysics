@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Daily GitHub traffic snapshot for the TL Traffic panel.
+"""Daily GitHub traffic snapshot for the Repository Acquisition Panel.
 
 Reads the GitHub traffic API (14-day window) and merges it into traffic.json,
-so history accumulates past GitHub's 14-day limit. Standard library only.
+so history accumulates past GitHub's 14-day limit. Nothing recorded is ever
+removed: every day, snapshot and imported record stays in the file. Standard library only.
 
 Environment:
   TRAFFIC_TOKEN  fine-grained token with Administration: Read and Actions: Read on the repo
@@ -52,12 +53,18 @@ def main():
     for k in ("views", "clones", "referrers", "paths", "repo_stats", "ci_runs", "pushes"):
         data.setdefault(k, {})
 
-    # Daily views and clones: GitHub revises recent days, so the newest read wins.
+    # Daily views and clones. GitHub finishes a day's count over the next day or two, so a
+    # read of the last two days replaces what is stored. An older day is settled: a later read
+    # replaces it only when it is at least as large, so a recorded day is never lowered or lost.
+    settled = (datetime.datetime.now(datetime.timezone.utc).date() - datetime.timedelta(days=2)).isoformat()
     for kind in ("views", "clones"):
         res = get(f"/repos/{REPO}/traffic/{kind}?per=day")
         for d in res.get(kind, []):
             day = d["timestamp"][:10]
-            data[kind][day] = {"count": d["count"], "uniques": d["uniques"]}
+            new, old = {"count": d["count"], "uniques": d["uniques"]}, data[kind].get(day)
+            if old and day < settled and new["count"] < old["count"]:
+                continue
+            data[kind][day] = new
 
     # Referrers and paths are 14-day totals only: keep one snapshot per collection day.
     data["referrers"][today] = get(f"/repos/{REPO}/traffic/popular/referrers")

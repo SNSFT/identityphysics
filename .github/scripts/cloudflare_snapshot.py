@@ -6,7 +6,11 @@ cloudflare.json, so history accumulates past Cloudflare's 31-day retention:
   - daily totals: requests, visits, bytes served
   - AI and search crawlers by name: allowed (status < 400), unsuccessful (status >= 400), bytes
   - the paths those crawlers requested most
-Days are UTC calendar days. Standard library only.
+  - visitor usage: page views, unique visitors, cached and threat counts, top pages by visits,
+    countries, referrers, browsers, operating systems, device types, status codes, cache status,
+    and the paths most often refused (403), which are automated probes
+Days are UTC calendar days. Nothing recorded is ever removed: a stored day is never lowered or
+emptied by a later read. A field the plan does not serve is skipped and noted. Standard library only.
 
 Environment:
   CF_TOKEN        Cloudflare API token with Zone > Zone: Read and Zone > Analytics: Read
@@ -76,11 +80,15 @@ def call(method, path, body=None):
         sys.exit(f"Cloudflare API {e.code} on {path}: {e.read().decode('utf-8', 'replace')[:300]}")
 
 
-def gql(query, variables):
+def gql(query, variables, soft=False):
     res = call("POST", "/graphql", {"query": query, "variables": variables})
-    if res.get("errors"):
-        sys.exit("Cloudflare GraphQL: " + "; ".join(e.get("message", "") for e in res["errors"]))
     time.sleep(0.4)
+    if res.get("errors"):
+        msg = "; ".join(e.get("message", "") for e in res["errors"])
+        if soft:
+            print("  skipped:", msg[:160])
+            return None
+        sys.exit("Cloudflare GraphQL: " + msg)
     return res["data"]["viewer"]["zones"][0]
 
 
@@ -101,6 +109,45 @@ Q_CRAWLERS = """query($z:string,$f:ZoneHttpRequestsAdaptiveGroupsFilter_InputObj
 Q_PATHS = """query($z:string,$f:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){viewer{zones(filter:{zoneTag:$z}){
   httpRequestsAdaptiveGroups(filter:$f,limit:500,orderBy:[count_DESC]){count
   dimensions{userAgent clientRequestPath}}}}}"""
+
+
+Q_DAILY = """query($z:string,$d:Date){viewer{zones(filter:{zoneTag:$z}){
+  httpRequests1dGroups(filter:{date:$d},limit:1){sum{requests pageViews bytes cachedRequests threats} uniq{uniques}}}}}"""
+
+Q_TOP = """query($z:string,$f:ZoneHttpRequestsAdaptiveGroupsFilter_InputObject){viewer{zones(filter:{zoneTag:$z}){
+  httpRequestsAdaptiveGroups(filter:$f,limit:%d,orderBy:[%s]){count sum{visits} dimensions{%s}}}}}"""
+
+# (key in cloudflare.json, dimension, rows kept, order, extra filter)
+USAGE = [
+    ("pages", "clientRequestPath", 30, "sum_visits_DESC", [{"visits_gt": 0}]),
+    ("countries", "clientCountryName", 20, "count_DESC", []),
+    ("referrers", "clientRefererHost", 20, "count_DESC", []),
+    ("browsers", "userAgentBrowser", 12, "count_DESC", []),
+    ("os", "userAgentOS", 10, "count_DESC", []),
+    ("devices", "clientDeviceType", 6, "count_DESC", []),
+    ("status", "edgeResponseStatus", 15, "count_DESC", []),
+    ("cache", "cacheStatus", 10, "count_DESC", []),
+    ("probes", "clientRequestPath", 15, "count_DESC", [{"edgeResponseStatus": 403}]),
+]
+
+
+def read_usage(zid, day, base):
+    out = {}
+    d = gql(Q_DAILY, {"z": zid, "d": day}, soft=True)
+    g = (d or {}).get("httpRequests1dGroups") or []
+    if g:
+        out["pageviews"] = g[0]["sum"]["pageViews"]
+        out["uniques"] = g[0]["uniq"]["uniques"]
+        out["cached"] = g[0]["sum"]["cachedRequests"]
+        out["threats"] = g[0]["sum"]["threats"]
+    for key, dim, n, order, extra in USAGE:
+        res = gql(Q_TOP % (n, order, dim), {"z": zid, "f": {"AND": base + extra}}, soft=True)
+        if res is None:
+            continue
+        out[key] = [{"k": str(r["dimensions"][dim] if r["dimensions"][dim] not in ("", None) else "(none)"),
+                     "n": r["count"], "visits": r["sum"]["visits"]}
+                    for r in res["httpRequestsAdaptiveGroups"]]
+    return out
 
 
 def read_day(zid, day):
@@ -130,13 +177,30 @@ def read_day(zid, day):
         paths[key] = paths.get(key, 0) + g["count"]
     top = sorted(paths.items(), key=lambda kv: -kv[1])[:40]
 
+    usage = read_usage(zid, day, base)
+
     return {
+        **usage,
         "requests": t["count"],
         "visits": t["sum"]["visits"],
         "bytes": t["sum"]["edgeResponseBytes"],
         "crawlers": dict(sorted(crawlers.items())),
         "paths": [{"path": p, "crawler": n, "count": c} for (p, n), c in top],
     }
+
+
+def merge(old, new, recent):
+    """A stored day is never lowered or emptied. The last two days take the new read, since
+    Cloudflare is still finishing them. An older day takes a new read only when it counts at
+    least as many requests. Either way, a field the stored day has and the new read lacks is kept."""
+    if not old:
+        return new
+    keep_new = recent or new.get("requests", 0) >= old.get("requests", 0)
+    base, other = (dict(new), old) if keep_new else (dict(old), new)
+    for k, v in other.items():
+        if k not in base or base[k] in (None, [], {}):
+            base[k] = v
+    return base
 
 
 def main():
@@ -153,12 +217,13 @@ def main():
     data.setdefault("zones", {})
 
     today = datetime.datetime.now(datetime.timezone.utc).date()
+    settled = (today - datetime.timedelta(days=2)).isoformat()
     days = [(today - datetime.timedelta(days=b)).isoformat() for b in range(BACKFILL, 0, -1)]
     for name in ZONES:
         zid = zone_id(name)
         z = data["zones"].setdefault(name, {"days": {}})
         for day in days:
-            z["days"][day] = read_day(zid, day)
+            z["days"][day] = merge(z["days"].get(day), read_day(zid, day), day >= settled)
         z["days"] = dict(sorted(z["days"].items()))
         print(f"{name}: {len(z['days'])} days recorded, read {days[0]} – {days[-1]}")
 
