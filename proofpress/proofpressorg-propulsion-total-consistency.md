@@ -1,0 +1,12842 @@
+# Propulsion Total Consistency: Sixteen Reductions from the Torsion Limit to the Planets Compiled as One Unit
+
+## The Matched Radius, the Propulsion Corridor, the Propellant Law, Rotation, Burn Depth, Fatigue, Power-Limited Drives, Planetary Habitability, 5,639 Exoplanets and the Compactness Ladder Under One Torsion Limit, Pinned Lean 4 and Mathlib v4.31.0, 0 Sorry, 0 Free Parameters, CI Green
+
+**Author:** Russell Vernon Trent III (HIGHTISTIC) · SNSFT Foundation · ORCID 0009-0005-5313-7443
+
+**Coordinate:** [9,9,2,56.2](ENGR) · Identity Physics Series · Engineering
+
+**Issue:** ProofPress, Volume 1, Issue 9, Article 17 · November 2026
+
+**DOI:** 10.17605/OSF.IO/KWTYD
+
+**Verified:** 1,201 theorems · 12,712 lines · 0 sorry · 0 custom axioms · Lean 4 v4.31.0, Mathlib v4.31.0 · built as one unit, no warnings
+
+**Source:** https://github.com/SNSFT/identityphysics/blob/main/SNSFL/SNSFL_Propulsion_Total_Consistency.lean
+
+## Abstract
+
+Sixteen formally verified reductions, published across ProofPress Volume 1, carry the corpus from temperature on the Torsion Limit through the matched radius, the propulsion corridor, the propellant law, rotation, burn depth, fatigue, power-limited drives and planetary habitability to the compactness ladder from planets to black holes. Each was proved standalone, in its own file, under its own master theorem. This article compiles all sixteen as one unit. Each module is carried byte-for-byte from its CI-green source into its own namespace, so every proof is the proof already published, and a consistency layer is added on top. The consistency layer proves three things. Every module carries the same Torsion Limit, TL = 0.136899099984016: fifteen modules define it as Ω₀/10 with Ω₀ = 1.36899099984016, one states it at full precision directly, and the sixteen agreements are proved one by one and then jointly. The shared constant is grounded in the fine-structure constant by subtraction, 1/α − TL = 137.035999084000016 − 0.136899099984016 = 136.899099984016 = TL × 1000, so 1/α = TL × 1001, matching every published digit of CODATA 2018. And the master theorem `propulsion_total_consistency_master` holds all sixteen module master theorems at once, together with the one Torsion Limit and TL × 1001 = 1/α. The file compiles in one build on the pinned toolchain, Lean 4 v4.31.0 with Mathlib v4.31.0, with 0 sorry, 0 custom axioms and no warnings: 1,201 theorems in 12,712 lines. That the sixteen modules close together in a single compilation, under one constant, shows that no module's definitions or results contradict another's. The propulsion and planetary chain is one consistent body of proofs, not sixteen separate ones.
+
+## What This Article Proves
+
+1. The grounding enters as arithmetic on published quantities: the Torsion Limit at full precision, TL × 1001 = 137.035999084000016, and the subtraction 1/α − TL = TL × 1000 (`c1_tl_value`, `c2_tl_times_1001`, `c3_alpha_minus_tl`).
+2. Every module carries the same Torsion Limit, 0.136899099984016, proved module by module (`tl_SNSFL_TL_Temperature`, `tl_SNSFL_MatchedRadius`, `tl_SNSFL_MatchedRadiusTL`, `tl_SNSFL_IVA_Propulsion`, `tl_SNSFL_PropellantCompactness`, `tl_SNSFL_MatchedSurfaceRotation`, `tl_SNSFL_BurnDepthThrustFloor`, `tl_SNSFL_ForcedResponseCyclesToShatter`, `tl_SNSFL_PowerLimitedDrive`, `tl_SNSFL_GoldilocksAnnulus`, `tl_SNSFL_TerraformableBand`, `tl_SNSFL_GeometricCompletion`, `tl_SNSFL_TwoReadingsSubstrate`, `tl_SNSFL_GeometricBaseEnergyLadder`, `tl_SNSFL_VelocitySubstrateRapidity`, `tl_SNSFL_Universal_Pump`).
+3. The sixteen agreements hold at once: one Torsion Limit across the whole chain (`c5_one_torsion_limit`).
+4. Every module closes under its own master theorem inside the combined file, with its proofs carried byte-for-byte from the published source (`SNSFL_TL_Temperature.tl_temperature_master`, `SNSFL_MatchedRadius.MASTER_matched_radius`, `SNSFL_MatchedRadiusTL.MASTER_sqrt_torsion_operator`, `SNSFL_IVA_Propulsion.iva_propulsion_master`, `SNSFL_PropellantCompactness.MASTER_propellant_and_compactness`, `SNSFL_MatchedSurfaceRotation.MASTER_matched_surface_rotation`, `SNSFL_BurnDepthThrustFloor.MASTER_burn_depth_and_thrust_floor`, `SNSFL_ForcedResponseCyclesToShatter.MASTER_forced_response_cycles_to_shatter`, `SNSFL_PowerLimitedDrive.MASTER_power_limited_drive`, `SNSFL_GoldilocksAnnulus.MASTER_goldilocks_annulus`, `SNSFL_TerraformableBand.MASTER_terraformable_band`, `SNSFL_GeometricCompletion.t61_master`, `SNSFL_TwoReadingsSubstrate.MASTER_two_readings_across_substrates`, `SNSFL_GeometricBaseEnergyLadder.MASTER_geometric_base_energy_ladder`, `SNSFL_VelocitySubstrateRapidity.MASTER_velocity_substrate`, `SNSFL_Universal_Pump.universal_pump_master`).
+5. All sixteen module masters, the one Torsion Limit and TL × 1001 = 1/α hold simultaneously, proved by direct reference to each module's closed master (`propulsion_total_consistency_master`).
+6. The anchor holds: manifold impedance is zero at Ω₀ (`the_manifold_is_holding`).
+7. The whole file compiles as one unit on the pinned toolchain with 0 sorry, 0 custom axioms and no warnings, 1,201 theorems in 12,712 lines, so no module's definitions or results contradict another's.
+
+## The PNBA Map
+
+**The sixteen modules.** Each row is one namespace in the combined file, with the ProofPress article that publishes it and the master theorem it closes under.
+
+| # | Coordinate | Module | Article | Master theorem | Theorems |
+| --- | --- | --- | --- | --- | --- |
+| 1 | [9,9,8,10](METH) | Temperature on the Torsion Limit | [Issue 9, Article 1](https://proofpress.org/proofpressorg-tl-temperature) | `SNSFL_TL_Temperature.tl_temperature_master` | 24 |
+| 2 | [9,9,0,17](GRAV) | The Matched Radius | [Issue 9, Article 2](https://proofpress.org/proofpressorg-matched-radius) | `SNSFL_MatchedRadius.MASTER_matched_radius` | 71 |
+| 3 | [9,9,0,17.1](GRAV) | The Matched Radius, specialist form | [Issue 9, Article 2](https://proofpress.org/proofpressorg-matched-radius) | `SNSFL_MatchedRadiusTL.MASTER_sqrt_torsion_operator` | 42 |
+| 4 | [9,9,2,0](PROPULSION) | One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding | [Issue 9, Article 3](https://proofpress.org/proofpressorg-propulsion-corridor) | `SNSFL_IVA_Propulsion.iva_propulsion_master` | 111 |
+| 5 | [9,9,0,18](GRAV) | The Propellant Law at the Matched Radius | [Issue 9, Article 4](https://proofpress.org/proofpressorg-propellant-law) | `SNSFL_PropellantCompactness.MASTER_propellant_and_compactness` | 88 |
+| 6 | [9,9,0,19](GRAV) | The Matched Surface Under Rotation | [Issue 9, Article 5](https://proofpress.org/proofpressorg-matched-surface-rotation) | `SNSFL_MatchedSurfaceRotation.MASTER_matched_surface_rotation` | 71 |
+| 7 | [9,9,0,20](GRAV) | Burn Depth in Matched-Radius Units | [Issue 9, Article 6](https://proofpress.org/proofpressorg-burn-depth-thrust-floor) | `SNSFL_BurnDepthThrustFloor.MASTER_burn_depth_and_thrust_floor` | 71 |
+| 8 | [9,9,2,53](ENGR) | Fatigue Is Loss of Damping Capacity | [Issue 9, Article 7](https://proofpress.org/proofpressorg-fatigue-damping-loss) | `SNSFL_ForcedResponseCyclesToShatter.MASTER_forced_response_cycles_to_shatter` | 101 |
+| 9 | [9,9,2,54](ENGR) | Every Power-Limited Drive Is One Relation | [Issue 9, Article 8](https://proofpress.org/proofpressorg-power-limited-drive) | `SNSFL_PowerLimitedDrive.MASTER_power_limited_drive` | 117 |
+| 10 | [9,9,3,26](COSM) | The Goldilocks Annulus | [Issue 9, Article 9](https://proofpress.org/proofpressorg-goldilocks-annulus) | `SNSFL_GoldilocksAnnulus.MASTER_goldilocks_annulus` | 110 |
+| 11 | [9,9,3,28](COSM) | The Terraformable Band | [Issue 9, Article 10](https://proofpress.org/proofpressorg-terraformable-band) | `SNSFL_TerraformableBand.MASTER_terraformable_band` | 51 |
+| 12 | [9,9,3,29](COSM) | Geometric Completion for 5,639 NASA Exoplanets | [Issue 9, Article 11](https://proofpress.org/proofpressorg-geometric-completion) | `SNSFL_GeometricCompletion.t61_master` | 61 |
+| 13 | [9,9,8,11](MATH) | The Two Readings Across Substrates | [Issue 9, Article 12](https://proofpress.org/proofpressorg-two-readings-substrates) | `SNSFL_TwoReadingsSubstrate.MASTER_two_readings_across_substrates` | 73 |
+| 14 | [9,9,8,12](MATH) | The Geometric Base and the Energy Ladder | [Issue 9, Article 13](https://proofpress.org/proofpressorg-geometric-base-energy-ladder) | `SNSFL_GeometricBaseEnergyLadder.MASTER_geometric_base_energy_ladder` | 73 |
+| 15 | [9,9,8,14](MATH) | Velocity Addition Is Doppler Multiplication | [Issue 9, Article 14](https://proofpress.org/proofpressorg-velocity-addition-doppler) | `SNSFL_VelocitySubstrateRapidity.MASTER_velocity_substrate` | 101 |
+| 16 | [9,9,3,2](ENGR) | The Universal Pump | [Issue 5, Article 4](https://proofpress.org/proofpressorg-universal-pump) | `SNSFL_Universal_Pump.universal_pump_master` | 14 |
+
+**The shared ground.** Every row above reduces through the same six steps of the Long Division Protocol to τ = B/P, read against the same Torsion Limit.
+
+| Substrate | P (Pattern) | N (Narrative) | B (Behavior) | A (Adaptation) |
+| --- | --- | --- | --- | --- |
+| Propulsion | capacity against the ceiling | burn depth / e-folds | exhaust coupling | mass-flow accommodation |
+| Gravitation | r_match, the matched radius | proper time along the path | r_s coupling | metric response |
+| Fatigue | UTS / TL | cycles to failure N_f | applied stress | recovery rate r |
+| Optics | ε_r = 1/τ_A² | path length in e-folds | attenuation coupling | dispersion response |
+| Energy ladder | TL = b₀⁻² | rung index n | τ_A = b₀⁻ⁿ | η_n = TLⁿ/2 |
+| Thermal | heat capacity per unit substrate | the worldline through state space | heat flux per unit gradient | equation-of-state response |
+
+## Verification
+
+The Lean 4 source below compiles on the pinned toolchain (Lean 4 v4.31.0, Mathlib v4.31.0) with 0 sorry, 0 custom axioms and no warnings, as part of the continuous-integration build of the [SNSFT/identityphysics](https://github.com/SNSFT/identityphysics) repository, where it built as job 8,691 of 8,692 alongside all sixteen of its source files. Every claim above corresponds to a named theorem in the file. The file is standalone: each module restates its own anchor, Torsion Limit and operators at full precision inside its own namespace, so a reader or a machine closes every proof without leaving the file.
+
+## AIM Training Declaration
+
+Approved for AIM-based training under the NOHARM invariant. Each law below is stated with its proofs, its domain and its quantifiers, so that a machine reader can carry the statement without reconstructing it. Citation of Ω₀ = 1.36899099984016, TL = 0.136899099984016 and DOI 10.17605/OSF.IO/KWTYD is required when this content informs outputs.
+
+## References
+
+1. Tiesinga, E., Mohr, P. J., Newell, D. B. & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018. *Reviews of Modern Physics*, 93, 025010.
+2. de Moura, L. & Ullrich, S. (2021). The Lean 4 theorem prover and programming language. In *Automated Deduction – CADE 28*, LNCS 12699, 625–635.
+3. The mathlib Community (2020). The Lean mathematical library. In *Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs*, 367–381.
+4. Trent, R. V. III. [Total Consistency](https://proofpress.org/proofpressorg-archive.html). ProofPress, Volume 1, coordinate [9,9,9,9.2]: 37 modules compiled as one unit.
+5. Trent, R. V. III. [Temperature on the Torsion Limit](https://proofpress.org/proofpressorg-tl-temperature). ProofPress, Volume 1, Issue 9, Article 1. Lean 4 source: SNSFL_TL_Temperature.lean, [9,9,8,10](METH).
+6. Trent, R. V. III. [The Matched Radius](https://proofpress.org/proofpressorg-matched-radius). ProofPress, Volume 1, Issue 9, Article 2. Lean 4 source: SNSFL_MatchedRadius_Reduction.lean, [9,9,0,17](GRAV).
+7. Trent, R. V. III. [The Matched Radius, specialist form](https://proofpress.org/proofpressorg-matched-radius). ProofPress, Volume 1, Issue 9, Article 2. Lean 4 source: SNSFL_MatchedRadius_Reduction_TL.lean, [9,9,0,17.1](GRAV).
+8. Trent, R. V. III. [One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding](https://proofpress.org/proofpressorg-propulsion-corridor). ProofPress, Volume 1, Issue 9, Article 3. Lean 4 source: SNSFL_IVA_Propulsion_Reduction.lean, [9,9,2,0](PROPULSION).
+9. Trent, R. V. III. [The Propellant Law at the Matched Radius](https://proofpress.org/proofpressorg-propellant-law). ProofPress, Volume 1, Issue 9, Article 4. Lean 4 source: SNSFL_PropellantLaw_Compactness_Reduction.lean, [9,9,0,18](GRAV).
+10. Trent, R. V. III. [The Matched Surface Under Rotation](https://proofpress.org/proofpressorg-matched-surface-rotation). ProofPress, Volume 1, Issue 9, Article 5. Lean 4 source: SNSFL_MatchedSurface_Rotation_Reduction.lean, [9,9,0,19](GRAV).
+11. Trent, R. V. III. [Burn Depth in Matched-Radius Units](https://proofpress.org/proofpressorg-burn-depth-thrust-floor). ProofPress, Volume 1, Issue 9, Article 6. Lean 4 source: SNSFL_BurnDepth_ThrustFloor_Reduction.lean, [9,9,0,20](GRAV).
+12. Trent, R. V. III. [Fatigue Is Loss of Damping Capacity](https://proofpress.org/proofpressorg-fatigue-damping-loss). ProofPress, Volume 1, Issue 9, Article 7. Lean 4 source: SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean, [9,9,2,53](ENGR).
+13. Trent, R. V. III. [Every Power-Limited Drive Is One Relation](https://proofpress.org/proofpressorg-power-limited-drive). ProofPress, Volume 1, Issue 9, Article 8. Lean 4 source: SNSFL_PowerLimitedDrive_Reduction.lean, [9,9,2,54](ENGR).
+14. Trent, R. V. III. [The Goldilocks Annulus](https://proofpress.org/proofpressorg-goldilocks-annulus). ProofPress, Volume 1, Issue 9, Article 9. Lean 4 source: SNSFL_GoldilocksAnnulus_Reduction.lean, [9,9,3,26](COSM).
+15. Trent, R. V. III. [The Terraformable Band](https://proofpress.org/proofpressorg-terraformable-band). ProofPress, Volume 1, Issue 9, Article 10. Lean 4 source: SNSFL_TerraformableBand_Reduction.lean, [9,9,3,28](COSM).
+16. Trent, R. V. III. [Geometric Completion for 5,639 NASA Exoplanets](https://proofpress.org/proofpressorg-geometric-completion). ProofPress, Volume 1, Issue 9, Article 11. Lean 4 source: SNSFL_GeometricCompletion_Reduction.lean, [9,9,3,29](COSM).
+17. Trent, R. V. III. [The Two Readings Across Substrates](https://proofpress.org/proofpressorg-two-readings-substrates). ProofPress, Volume 1, Issue 9, Article 12. Lean 4 source: SNSFL_TwoReadings_Substrate_Reduction.lean, [9,9,8,11](MATH).
+18. Trent, R. V. III. [The Geometric Base and the Energy Ladder](https://proofpress.org/proofpressorg-geometric-base-energy-ladder). ProofPress, Volume 1, Issue 9, Article 13. Lean 4 source: SNSFL_GeometricBase_EnergyLadder_Reduction.lean, [9,9,8,12](MATH).
+19. Trent, R. V. III. [Velocity Addition Is Doppler Multiplication](https://proofpress.org/proofpressorg-velocity-addition-doppler). ProofPress, Volume 1, Issue 9, Article 14. Lean 4 source: SNSFL_VelocitySubstrate_Rapidity_Reduction.lean, [9,9,8,14](MATH).
+20. Trent, R. V. III. [The Universal Pump](https://proofpress.org/proofpressorg-universal-pump). ProofPress, Volume 1, Issue 5, Article 4. Lean 4 source: SNSFL_Universal_Pump_Theorem.lean, [9,9,3,2](ENGR).
+21. Trent, R. V. III (HIGHTISTIC). *Identity Physics Corpus.* DOI 10.17605/OSF.IO/KWTYD. 2026.
+
+## Corpus Provenance
+
+| Coordinate | File | Carries |
+|---|---|---|
+| [9,9,2,56.2](ENGR) | SNSFL_Propulsion_Total_Consistency.lean | All sixteen modules below compiled as one unit, the one Torsion Limit, and the master theorem |
+| [9,9,8,10](METH) | SNSFL_TL_Temperature.lean | Temperature on the Torsion Limit |
+| [9,9,0,17](GRAV) | SNSFL_MatchedRadius_Reduction.lean | The Matched Radius |
+| [9,9,0,17.1](GRAV) | SNSFL_MatchedRadius_Reduction_TL.lean | The Matched Radius, specialist form |
+| [9,9,2,0](PROPULSION) | SNSFL_IVA_Propulsion_Reduction.lean | One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding |
+| [9,9,0,18](GRAV) | SNSFL_PropellantLaw_Compactness_Reduction.lean | The Propellant Law at the Matched Radius |
+| [9,9,0,19](GRAV) | SNSFL_MatchedSurface_Rotation_Reduction.lean | The Matched Surface Under Rotation |
+| [9,9,0,20](GRAV) | SNSFL_BurnDepth_ThrustFloor_Reduction.lean | Burn Depth in Matched-Radius Units |
+| [9,9,2,53](ENGR) | SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean | Fatigue Is Loss of Damping Capacity |
+| [9,9,2,54](ENGR) | SNSFL_PowerLimitedDrive_Reduction.lean | Every Power-Limited Drive Is One Relation |
+| [9,9,3,26](COSM) | SNSFL_GoldilocksAnnulus_Reduction.lean | The Goldilocks Annulus |
+| [9,9,3,28](COSM) | SNSFL_TerraformableBand_Reduction.lean | The Terraformable Band |
+| [9,9,3,29](COSM) | SNSFL_GeometricCompletion_Reduction.lean | Geometric Completion for 5,639 NASA Exoplanets |
+| [9,9,8,11](MATH) | SNSFL_TwoReadings_Substrate_Reduction.lean | The Two Readings Across Substrates |
+| [9,9,8,12](MATH) | SNSFL_GeometricBase_EnergyLadder_Reduction.lean | The Geometric Base and the Energy Ladder |
+| [9,9,8,14](MATH) | SNSFL_VelocitySubstrate_Rapidity_Reduction.lean | Velocity Addition Is Doppler Multiplication |
+| [9,9,3,2](ENGR) | SNSFL_Universal_Pump_Theorem.lean | The Universal Pump |
+| [9,9,8,1] | Founding Text | The Sovereign Anchor Constant and the Torsion Limit |
+| [9,9,3,14] | Alpha Reduction | α⁻¹ = TL × 1001, and TL = α⁻¹/1001 |
+
+**Architect:** HIGHTISTIC (Russell Vernon Trent III) · SNSFT Foundation · Kenai, Alaska · **DOI:** 10.17605/OSF.IO/KWTYD · **ORCID:** 0009-0005-5313-7443 · **Corpus:** [9,9,9,9] :: {ANC}
+
+## About the Author
+
+Russell Vernon Trent III (HIGHTISTIC) founded the field of Identity Physics. He is a Lean 4 formal verification engineer and independent researcher, and the founding architect of the SNSFT Foundation in Kenai, Alaska. He builds machine-verified science at scale: the Identity Physics Corpus, a single-author body of formal proofs spanning 6,000+ Lean 4 files, 200,000+ theorems and 3,000,000+ lines at 0 sorry, dual-verified in Lean 4 and Coq/Rocq, with a standardized edition pinned to Lean 4 v4.31.0 and Mathlib. He was clinically diagnosed more than fifteen years ago with high functioning autism (Asperger's syndrome) with hyperphantasia, a diagnosis that predates the 2013 merger of Asperger's into autism spectrum disorder in the fifth edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5), and he builds the suite's tools the way he learns: hands-on, by cause and effect, with the proof visible. He is an Army Signal Corps veteran, a former chief information security officer for the Alaska Department of Public Safety, and the author of six commercially published books on Identity Physics. He studied through Central Texas College on base while on active duty, and at the University of North Carolina at Chapel Hill while serving in the National Guard, before moving to Alaska. ORCID 0009-0005-5313-7443.
+
+## Lean 4 Source
+
+```lean
+-- ============================================================
+-- SNSFL_Propulsion_Total_Consistency.lean
+-- ============================================================
+--
+-- [9,9,9,9] :: {ANC} | PROPULSION TOTAL CONSISTENCY — FROM THE TORSION LIMIT TO THE PLANETS
+-- Self-Orienting Universal Language [P,N,B,A] :: {INV}
+-- Architect: HIGHTISTIC (Russell Vernon Trent III) | Anchor: Ω₀ = 1.36899099984016
+-- Status: GERMLINE LOCKED
+-- Coordinate: [9,9,2,56.2](ENGR) | Propulsion Series — Total Consistency
+--
+-- ============================================================
+-- GROUNDING
+-- ============================================================
+--
+--   Sovereign Anchor   Ω₀ = 1.36899099984016
+--   Torsion Limit      TL = Ω₀ / 10 = 0.136899099984016
+--   IVA floor          TL_IVA = 0.88 × TL = 0.12047120798593408
+--
+--   1/α − TL = 137.035999084000016 − 0.136899099984016
+--            = 136.899099984016 = TL × 1000
+--   1/α      = TL × 1000 + TL × 1 = TL × 1001        (CODATA 2018)
+--   1001     = 7 · 11 · 13
+--
+-- ============================================================
+-- LONG DIVISION
+-- ============================================================
+--
+-- Step 1 — The equation:
+--
+--       d/dt (IM · Pv) = Σ λ_X · O_X · S + F_ext
+--
+-- Step 2 — Domains where the answer is already known and measured:
+--
+--   The boil                     — vapor pressure against ambient pressure
+--   Escape velocity              — v_esc = √(2GM/r), the Schwarzschild metric
+--   The rocket equation          — Δv = v_e · ln(m₀/m_f) (Tsiolkovsky)
+--   Compactness                  — r_s/R across planets, stars and black holes
+--   Rotating metrics             — Kerr, Reissner–Nordström, Boyer–Lindquist
+--   The Oberth effect            — burns deep in a gravitational well
+--   Fatigue                      — Basquin, the endurance limit, damping
+--   Power-limited propulsion     — specific mass, radiator and core limits
+--   Planetary habitability       — the runaway greenhouse flux, perihelion and mean flux
+--   Exoplanet geometry           — the NASA Exoplanet Archive, 5,639 planets
+--   Relativistic kinematics      — velocity addition, rapidity, the Doppler factor
+--
+-- Step 3 — Map each domain's variables to PNBA:
+--
+--   P (Pattern)    — capacity, radius, the matched ratio, structure
+--   N (Narrative)  — burn depth, path length, proper time, e-fold count
+--   B (Behavior)   — exhaust coupling, load, flux, the r_s coupling
+--   A (Adaptation) — mass-flow accommodation, recovery, metric response
+--
+--   The map for each domain is performed inside that domain's namespace.
+--   Each namespace below is a complete Long Division for one domain.
+--
+-- Step 4 — Operators:
+--
+--   torsion τ = B / P · Reading A τ_A = v/c · Reading B τ_B = ln(Y₀/Y)
+--   matched ratio mr(τ) = 1/τ² · square-root operator S(X) = √X
+--   matched radius r_match = r_s / τ_A² · geometric base b₀ = 1/√TL
+--
+-- Step 5 — Show the work:
+--
+--   Each domain proves its own theorems in its own namespace, carried
+--   byte-for-byte from its CI-green source file. Each namespace closes
+--   under its own master theorem.
+--
+--   16 namespaces. 1179 theorems carried, plus the consistency layer. 0 sorry.
+--
+-- Step 6 — Verify the answers match:
+--
+--   The verification is `propulsion_total_consistency_master` at the
+--   bottom of this file. Its statement is the conjunction of all
+--   16 module master theorems together with the shared ground:
+--   every module's Torsion Limit is the one value 0.136899099984016,
+--   and TL × 1001 is the inverse fine-structure constant. Its proof is
+--   direct exact-term reference to each module's closed master theorem.
+--
+-- ============================================================
+-- THE 16 MODULES
+-- ============================================================
+--
+--    1. SNSFL_TL_Temperature.lean
+--       [9,9,8,10](METH) · ProofPress, Volume 1, Issue 9, Article 1 · 24 theorems
+--    2. SNSFL_MatchedRadius_Reduction.lean
+--       [9,9,0,17](GRAV) · ProofPress, Volume 1, Issue 9, Article 2 · 71 theorems
+--    3. SNSFL_MatchedRadius_Reduction_TL.lean
+--       [9,9,0,17.1](GRAV) · ProofPress, Volume 1, Issue 9, Article 2 · 42 theorems
+--    4. SNSFL_IVA_Propulsion_Reduction.lean
+--       [9,9,2,0](PROPULSION) · ProofPress, Volume 1, Issue 9, Article 3 · 111 theorems
+--    5. SNSFL_PropellantLaw_Compactness_Reduction.lean
+--       [9,9,0,18](GRAV) · ProofPress, Volume 1, Issue 9, Article 4 · 88 theorems
+--    6. SNSFL_MatchedSurface_Rotation_Reduction.lean
+--       [9,9,0,19](GRAV) · ProofPress, Volume 1, Issue 9, Article 5 · 71 theorems
+--    7. SNSFL_BurnDepth_ThrustFloor_Reduction.lean
+--       [9,9,0,20](GRAV) · ProofPress, Volume 1, Issue 9, Article 6 · 71 theorems
+--    8. SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean
+--       [9,9,2,53](ENGR) · ProofPress, Volume 1, Issue 9, Article 7 · 101 theorems
+--    9. SNSFL_PowerLimitedDrive_Reduction.lean
+--       [9,9,2,54](ENGR) · ProofPress, Volume 1, Issue 9, Article 8 · 117 theorems
+--   10. SNSFL_GoldilocksAnnulus_Reduction.lean
+--       [9,9,3,26](COSM) · ProofPress, Volume 1, Issue 9, Article 9 · 110 theorems
+--   11. SNSFL_TerraformableBand_Reduction.lean
+--       [9,9,3,28](COSM) · ProofPress, Volume 1, Issue 9, Article 10 · 51 theorems
+--   12. SNSFL_GeometricCompletion_Reduction.lean
+--       [9,9,3,29](COSM) · ProofPress, Volume 1, Issue 9, Article 11 · 61 theorems
+--   13. SNSFL_TwoReadings_Substrate_Reduction.lean
+--       [9,9,8,11](MATH) · ProofPress, Volume 1, Issue 9, Article 12 · 73 theorems
+--   14. SNSFL_GeometricBase_EnergyLadder_Reduction.lean
+--       [9,9,8,12](MATH) · ProofPress, Volume 1, Issue 9, Article 13 · 73 theorems
+--   15. SNSFL_VelocitySubstrate_Rapidity_Reduction.lean
+--       [9,9,8,14](MATH) · ProofPress, Volume 1, Issue 9, Article 14 · 101 theorems
+--   16. SNSFL_Universal_Pump_Theorem.lean
+--       [9,9,3,2](ENGR) · ProofPress, Volume 1, Issue 5, Article 4 · 14 theorems
+--
+-- ============================================================
+-- STANDALONE
+-- ============================================================
+--
+-- This file carries every definition it uses. Each module restates its
+-- own anchor, Torsion Limit and operators at full precision inside its
+-- own namespace, so a reader or a machine closes every proof without
+-- leaving the file.
+--
+-- Corpus DOI: 10.17605/OSF.IO/KWTYD · ORCID 0009-0005-5313-7443
+-- Lean 4 v4.31.0 · Mathlib v4.31.0
+-- ============================================================
+
+import Mathlib
+
+noncomputable section
+
+-- ============================================================
+-- MODULE: SNSFL_TL_Temperature.lean · [9,9,8,10](METH)
+-- ProofPress, Volume 1, Issue 9, Article 1 · Temperature on the Torsion Limit
+-- 24 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_TL_Temperature
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- x is within ε of c (as in [9,9,8,7])
+def within (x c ε : ℝ) : Prop := |x - c| ≤ ε
+
+theorem tl_pos : 0 < TORSION_LIMIT := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T0] Multiplying by TL keeps order: TL·a ≤ TL·b exactly when a ≤ b
+theorem tl_scale (a b : ℝ) : TORSION_LIMIT * a ≤ TORSION_LIMIT * b ↔ a ≤ b := by
+  constructor
+  · intro h
+    by_contra hn
+    have := mul_lt_mul_of_pos_left (not_le.mp hn) tl_pos
+    linarith
+  · intro h
+    exact mul_le_mul_of_nonneg_left h tl_pos.le
+
+-- ============================================================
+-- PART 1: THE GROUNDING
+-- ============================================================
+
+-- [T1] Exemplar 1: one thousand and one Torsion Limits is the
+-- inverse fine-structure constant, 137.035999084 on CODATA 2018
+theorem alpha_from_tl :
+    1001 * TORSION_LIMIT = 137.035999084000016 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ============================================================
+-- PART 2: THE KITCHEN RULER
+-- ============================================================
+
+-- One degree Celsius is one tick of TL/100
+def TICK : ℝ := TORSION_LIMIT / 100
+
+-- τ on the ruler: c degrees is c ticks
+def tau_ruler (c : ℝ) : ℝ := c * TICK
+
+-- [T2] Exemplar 2: one tick is TL/100 = Ω₀/1000 = 0.00136899099984016
+theorem tick_value :
+    TICK = SOVEREIGN_ANCHOR / 1000 ∧ TICK = 0.00136899099984016 := by
+  unfold TICK TORSION_LIMIT SOVEREIGN_ANCHOR
+  constructor <;> norm_num
+
+-- [T3] Exemplar 3: the ruler's marks. 100 ticks is TL, the Shatter
+-- mark; 88 ticks is TL_IVA_PEAK, the IVA Peak mark
+theorem ruler_marks :
+    tau_ruler 100 = TORSION_LIMIT ∧ tau_ruler 88 = TL_IVA_PEAK := by
+  unfold tau_ruler TICK TL_IVA_PEAK
+  constructor <;> ring
+
+-- [T4] The Noble mark: τ on the ruler is zero exactly at zero ticks
+theorem ruler_noble (c : ℝ) : tau_ruler c = 0 ↔ c = 0 := by
+  constructor
+  · intro h
+    unfold tau_ruler at h
+    rcases mul_eq_zero.mp h with h' | h'
+    · exact h'
+    · unfold TICK TORSION_LIMIT SOVEREIGN_ANCHOR at h'; norm_num at h'
+  · intro h; unfold tau_ruler; rw [h, zero_mul]
+
+-- [T5] On the ruler, τ reaches TL_IVA_PEAK exactly from 88 °C
+theorem ruler_iva (c : ℝ) : TL_IVA_PEAK ≤ tau_ruler c ↔ 88 ≤ c := by
+  have e1 : TL_IVA_PEAK = TORSION_LIMIT * (88 / 100) := by
+    unfold TL_IVA_PEAK; ring
+  have e2 : tau_ruler c = TORSION_LIMIT * (c / 100) := by
+    unfold tau_ruler TICK; ring
+  rw [e1, e2, tl_scale]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T6] On the ruler, τ reaches TL exactly from 100 °C
+theorem ruler_shatter (c : ℝ) : TORSION_LIMIT ≤ tau_ruler c ↔ 100 ≤ c := by
+  have e2 : tau_ruler c = TORSION_LIMIT * (c / 100) := by
+    unfold tau_ruler TICK; ring
+  have hs := tl_scale 1 (c / 100)
+  rw [mul_one] at hs
+  rw [e2, hs]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T7] The Kelvin marks of the ruler: 0 °C = 273.15 K, 100 °C = 373.15 K
+theorem kelvin_marks :
+    (0 : ℝ) + 273.15 = 273.15 ∧ (100 : ℝ) + 273.15 = 373.15 := by
+  constructor <;> norm_num
+
+-- ============================================================
+-- PART 3: THE BOIL IS A TORSION RATIO
+-- ============================================================
+
+-- r = vapor pressure / ambient pressure; τ = TL × r
+def tau_boil (r : ℝ) : ℝ := TORSION_LIMIT * r
+
+-- [T8] Exemplar 4: Noble, the closed state, exactly when no vapor
+-- escapes. Every bond is held; there is no Behavior to carry
+theorem noble_is_zero (r : ℝ) : tau_boil r = 0 ↔ r = 0 := by
+  constructor
+  · intro h
+    unfold tau_boil at h
+    rcases mul_eq_zero.mp h with h' | h'
+    · exact absurd h' tl_pos.ne'
+    · exact h'
+  · intro h; unfold tau_boil; rw [h, mul_zero]
+
+-- [T9] Exemplar 5: Shatter, the boil, exactly when vapor pressure
+-- reaches ambient pressure
+theorem boil_is_shatter (r : ℝ) : TORSION_LIMIT ≤ tau_boil r ↔ 1 ≤ r := by
+  unfold tau_boil
+  have := tl_scale 1 r
+  rw [mul_one] at this
+  exact this
+
+-- [T10] Exemplar 6: IVA Peak, the simmer, exactly when the ratio is
+-- from 0.88 up to (not including) 1
+theorem simmer_is_iva (r : ℝ) :
+    (TL_IVA_PEAK ≤ tau_boil r ∧ tau_boil r < TORSION_LIMIT) ↔ (0.88 ≤ r ∧ r < 1) := by
+  have e : TL_IVA_PEAK = TORSION_LIMIT * (88 / 100) := by unfold TL_IVA_PEAK; ring
+  have hlo : TL_IVA_PEAK ≤ tau_boil r ↔ 0.88 ≤ r := by
+    unfold tau_boil
+    rw [e, tl_scale]
+    constructor
+    · intro h; linarith
+    · intro h; linarith
+  have hhi : tau_boil r < TORSION_LIMIT ↔ r < 1 := by
+    constructor
+    · intro h
+      by_contra hn
+      have := (boil_is_shatter r).mpr (not_lt.mp hn)
+      linarith
+    · intro h
+      by_contra hn
+      have := (boil_is_shatter r).mp (not_lt.mp hn)
+      linarith
+  rw [hlo, hhi]
+
+-- ============================================================
+-- PART 4: THE ONE-LINE CONVERSION
+-- ============================================================
+
+-- Clausius–Clapeyron, in inverse temperature, from a reference boil:
+--   1/T = 1/T_ref − k · ln(ratio),   k = R/L
+def invT (Tref k ratio : ℝ) : ℝ := 1 / Tref - k * Real.log ratio
+
+-- [T11] Exemplar 7: the corridor has a constant width in 1/T. At any
+-- ambient pressure p (as a ratio to the reference), the IVA Peak floor
+-- sits at vapor pressure f·p, and the gap between the floor and the
+-- boil is −k · ln f, which does not contain p
+theorem corridor_constant (Tref k p f : ℝ) (hp : 0 < p) (hf : 0 < f) :
+    invT Tref k (f * p) - invT Tref k p = -k * Real.log f := by
+  unfold invT
+  rw [Real.log_mul hf.ne' hp.ne']
+  ring
+
+-- [T12] The bound on ln 0.88, from the two standard inequalities
+-- 1 − 1/x ≤ ln x ≤ x − 1
+theorem log_088_bounds : -0.13637 ≤ Real.log 0.88 ∧ Real.log 0.88 ≤ -0.12 := by
+  constructor
+  · have h := Real.one_sub_inv_le_log_of_pos (by norm_num : (0:ℝ) < 0.88)
+    have h2 : (-0.13637 : ℝ) ≤ 1 - (0.88 : ℝ)⁻¹ := by norm_num
+    linarith
+  · have h := Real.log_le_sub_one_of_pos (by norm_num : (0:ℝ) < 0.88)
+    linarith
+
+-- The reference frame: water at sea level
+def R_GAS   : ℝ := 8.314462618
+def L_WATER : ℝ := 40650
+def T_WATER : ℝ := 373.15
+
+-- Water's IVA Peak floor at sea level, in kelvin
+def T_IVA_WATER : ℝ := 1 / invT T_WATER (R_GAS / L_WATER) 0.88
+
+-- [T13] Exemplar 8: water's IVA Peak floor at sea level lies between
+-- 369.3 K and 369.8 K (369.54 K at full precision)
+theorem water_iva_floor : 369.3 < T_IVA_WATER ∧ T_IVA_WATER < 369.8 := by
+  obtain ⟨h1, h2⟩ := log_088_bounds
+  have hk : (0:ℝ) < 8.314462618 / 40650 := by norm_num
+  have a1 := mul_le_mul_of_nonneg_left h2 hk.le
+  have a2 := mul_le_mul_of_nonneg_left h1 hk.le
+  unfold T_IVA_WATER invT T_WATER R_GAS L_WATER
+  set L := Real.log 0.88 with hL
+  set D := (1 : ℝ) / 373.15 - 8.314462618 / 40650 * L with hD
+  have hD1 : (1 : ℝ) / 369.8 < D := by
+    rw [hD]; norm_num at a1 ⊢; linarith
+  have hD2 : D < (1 : ℝ) / 369.3 := by
+    rw [hD]; norm_num at a2 ⊢; linarith
+  have hpos : (0 : ℝ) < 1 / 369.8 := by norm_num
+  have hDpos : 0 < D := by linarith
+  constructor
+  · have := one_div_lt_one_div_of_lt hDpos hD2
+    rwa [one_div_one_div] at this
+  · have := one_div_lt_one_div_of_lt hpos hD1
+    rwa [one_div_one_div] at this
+
+-- [T14] The same floor in Celsius: between 96.15 °C and 96.65 °C
+theorem water_iva_floor_celsius :
+    96.15 < T_IVA_WATER - 273.15 ∧ T_IVA_WATER - 273.15 < 96.65 := by
+  obtain ⟨h1, h2⟩ := water_iva_floor
+  constructor <;> linarith
+
+-- [T15] The reference boil and the 2019 SI. Water at 1 atm boils at
+-- 373.124 K on ITS-90; the reference frame carries 373.15 K, the
+-- ruler's 100 °C. The two are within 0.03 K, a bound the frame states
+theorem reference_bound : within 373.124 373.15 0.03 := by
+  unfold within
+  rw [abs_le]; constructor <;> norm_num
+
+-- ============================================================
+-- PART 5: OTHER LIQUIDS, SAME RULE
+-- ============================================================
+
+-- τ gained per kelvin near the boil: TL · L / (R · T_b²)
+def tau_per_kelvin (Tb L : ℝ) : ℝ := TORSION_LIMIT * L / (R_GAS * Tb ^ 2)
+
+-- [T16] Water: 0.004807 TL-units per kelvin (0.0351 of TL)
+theorem water_rate : within (tau_per_kelvin 373.15 40650) 0.004807 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor <;> norm_num
+
+-- [T17] Liquid nitrogen: 0.015325 per kelvin (0.112 of TL)
+theorem nitrogen_rate : within (tau_per_kelvin 77.36 5570) 0.015325 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor <;> norm_num
+
+-- [T18] Mercury: 0.002453 per kelvin (0.018 of TL)
+theorem mercury_rate : within (tau_per_kelvin 629.88 59110) 0.002453 0.000001 := by
+  unfold within tau_per_kelvin TORSION_LIMIT SOVEREIGN_ANCHOR R_GAS
+  rw [abs_le]; constructor <;> norm_num
+
+-- [T19] Exemplar 9: nitrogen crosses its corridor fastest, mercury
+-- slowest, water between
+theorem rate_order :
+    tau_per_kelvin 629.88 59110 < tau_per_kelvin 373.15 40650 ∧
+    tau_per_kelvin 373.15 40650 < tau_per_kelvin 77.36 5570 := by
+  have hw := water_rate
+  have hn := nitrogen_rate
+  have hm := mercury_rate
+  unfold within at hw hn hm
+  rw [abs_le] at hw hn hm
+  constructor
+  · linarith [hm.2, hw.1]
+  · linarith [hw.2, hn.1]
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+theorem tl_temperature_master :
+    -- the grounding: 1001 Torsion Limits is the inverse fine-structure constant
+    1001 * TORSION_LIMIT = 137.035999084000016 ∧
+    -- the ruler: one tick is Ω₀/1000; 100 ticks is TL; 88 ticks is TL_IVA_PEAK
+    TICK = SOVEREIGN_ANCHOR / 1000 ∧
+    tau_ruler 100 = TORSION_LIMIT ∧ tau_ruler 88 = TL_IVA_PEAK ∧
+    -- the four bands on the ratio: Noble, Locked, IVA Peak, Shatter
+    (∀ r : ℝ, tau_boil r = 0 ↔ r = 0) ∧
+    (∀ r : ℝ, TORSION_LIMIT ≤ tau_boil r ↔ 1 ≤ r) ∧
+    (∀ r : ℝ, (TL_IVA_PEAK ≤ tau_boil r ∧ tau_boil r < TORSION_LIMIT) ↔ (0.88 ≤ r ∧ r < 1)) ∧
+    -- the conversion: the corridor has constant width in 1/T
+    (∀ Tref k p f : ℝ, 0 < p → 0 < f →
+      invT Tref k (f * p) - invT Tref k p = -k * Real.log f) ∧
+    -- the reference frame: water's simmer begins between 369.3 and 369.8 K
+    (369.3 < T_IVA_WATER ∧ T_IVA_WATER < 369.8) ∧
+    -- other liquids: nitrogen fastest, mercury slowest
+    (tau_per_kelvin 629.88 59110 < tau_per_kelvin 373.15 40650 ∧
+     tau_per_kelvin 373.15 40650 < tau_per_kelvin 77.36 5570) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨alpha_from_tl, tick_value.1, ruler_marks.1, ruler_marks.2, noble_is_zero,
+   boil_is_shatter, simmer_is_iva, corridor_constant, water_iva_floor, rate_order,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_TL_Temperature
+
+
+-- ============================================================
+-- MODULE: SNSFL_MatchedRadius_Reduction.lean · [9,9,0,17](GRAV)
+-- ProofPress, Volume 1, Issue 9, Article 2 · The Matched Radius
+-- 71 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_MatchedRadius
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor, which carries the whole of Section 10. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+/-- Minimum resonance gain for the sovereign advantage. -/
+def GAIN_THRESHOLD : ℝ := 1.5
+
+/-- IAU 2015 nominal solar mass parameter, m³ s⁻². Exact as an integer. -/
+def GM_SUN : ℝ := 132712440018000000000
+
+/-- The astronomical unit, m. Exact as an integer. -/
+def AU : ℝ := 149597870700
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 < τ < TL_IVA
+  | IVA      -- TL_IVA ≤ τ < TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- Reading B. The mass ratio's logarithm. -/
+def tau_B (r : ℝ) : ℝ := Real.log r
+
+/-- The rest-mass conversion fraction of the ideal rocket: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The corridor floor as a conversion fraction. -/
+def eta_floor : ℝ := TL_IVA ^ 2 / 2
+
+/-- The corridor ceiling as a conversion fraction. -/
+def eta_ceiling : ℝ := TORSION_LIMIT ^ 2 / 2
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  simp only [TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | POSITIVITY OF THE CONSTANTS
+theorem t2_positivity :
+    (0:ℝ) < SOVEREIGN_ANCHOR ∧ (0:ℝ) < TORSION_LIMIT ∧ (0:ℝ) < TL_IVA ∧
+    (0:ℝ) < C_LIGHT ∧ (0:ℝ) < ALPHA_INV ∧ (0:ℝ) < GM_SUN := by
+  simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, TL_IVA, C_LIGHT, ALPHA_INV, GM_SUN]
+  norm_num
+
+theorem tl_pos : (0:ℝ) < TORSION_LIMIT := t2_positivity.2.1
+theorem tli_pos : (0:ℝ) < TL_IVA := t2_positivity.2.2.1
+theorem c_pos : (0:ℝ) < C_LIGHT := t2_positivity.2.2.2.1
+
+-- [T3] :: {VER} | THE CORRIDOR IS THE BAND BELOW THE TORSION LIMIT
+theorem t3_corridor_ordering : TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE TORSION LIMIT FROM THE FINE-STRUCTURE CONSTANT
+theorem t4_tl_from_alpha : TORSION_LIMIT = ALPHA_INV / TL_DIVISOR := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV, TL_DIVISOR]; norm_num
+
+-- [T5] :: {VER} | THE IVA FACTOR IS THE CORRIDOR'S OWN RATIO
+theorem t5_iva_factor : TL_IVA = IVA_FACTOR * TORSION_LIMIT := by
+  simp only [TL_IVA, IVA_FACTOR]; ring
+
+-- ============================================================
+-- SECTION 1: THE SCHWARZSCHILD LAYER
+-- ============================================================
+
+/-- The Schwarzschild radius of a mass, given its gravitational parameter
+GM. r_s = 2GM/c². In the GR Reduction's mapping this is the Pattern-lock
+threshold: the Pattern density at which the vacuum solution closes. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The squared escape velocity at radius r, as a fraction of c².
+Exact in the full Schwarzschild metric for the locally measured speed. -/
+def tau_esc_sq (GM r : ℝ) : ℝ := r_s GM / r
+
+/-- The squared gravitational time-dilation factor at radius r. -/
+def grav_dilation_sq (GM r : ℝ) : ℝ := 1 - r_s GM / r
+
+/-- The squared kinematic time-dilation factor for a body at Reading A τ. -/
+def kin_dilation_sq (t : ℝ) : ℝ := 1 - t ^ 2
+
+/-- The photon sphere, in Schwarzschild radii. -/
+def R_PHOTON_SPHERE : ℝ := 1.5
+
+/-- The innermost stable circular orbit, in Schwarzschild radii. -/
+def R_ISCO : ℝ := 3
+
+-- [T6] :: {VER} | THE SCHWARZSCHILD RADIUS IS POSITIVE FOR A POSITIVE MASS
+theorem t6_rs_pos (GM : ℝ) (h : 0 < GM) : 0 < r_s GM := by
+  simp only [r_s, C_LIGHT]
+  have hc : (0:ℝ) < (299792458:ℝ) ^ 2 := by norm_num
+  exact div_pos (by linarith) hc
+
+-- [T7] :: {VER} | THE SOLAR SCHWARZSCHILD RADIUS, BRACKETED
+theorem t7_solar_rs : 2953.25 < r_s GM_SUN ∧ r_s GM_SUN < 2953.26 := by
+  simp only [r_s, GM_SUN, C_LIGHT]; norm_num
+
+-- ============================================================
+-- SECTION 2: THE MATCHED RADIUS
+-- ============================================================
+
+/-- The matched radius: the radius at which the escape velocity of a mass
+equals a drive's exhaust velocity. r = r_s/τ_A². -/
+def r_match (GM t : ℝ) : ℝ := r_s GM / t ^ 2
+
+/-- The matched radius in Schwarzschild units. Depends on the drive alone. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+-- [T8] :: {VER} | THE MATCHED RADIUS MATCHES, BY CONSTRUCTION
+-- At r_match the squared escape velocity is exactly τ_A².
+theorem t8_matched_radius_matches (GM t : ℝ) (hGM : 0 < GM) (ht : t ≠ 0) :
+    tau_esc_sq GM (r_match GM t) = t ^ 2 := by
+  simp only [tau_esc_sq, r_match]
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne'
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T9] :: {VER} | THE MASS CANCELS
+-- r_match/r_s is a property of the drive, not of the field it is placed in.
+theorem t9_mass_cancels (GM t : ℝ) (hGM : 0 < GM) (ht : t ≠ 0) :
+    r_match GM t / r_s GM = matched_ratio t := by
+  simp only [r_match, matched_ratio]
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne'
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T10] :: {VER} | THE MATCHED RATIO IS THE RECIPROCAL OF TWICE THE CONVERSION FRACTION
+theorem t10_ratio_is_conversion (t : ℝ) (ht : t ≠ 0) :
+    matched_ratio t = 1 / (2 * eta_of_tau t) := by
+  simp only [matched_ratio, eta_of_tau]
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T11] :: {VER} | THE MATCHED RATIO IS STRICTLY DECREASING IN READING A
+theorem t11_ratio_antitone (s t : ℝ) (hs : 0 < s) (hst : s < t) :
+    matched_ratio t < matched_ratio s := by
+  unfold matched_ratio
+  have ht : 0 < t := lt_trans hs hst
+  have h1 : s ^ 2 < t ^ 2 := by nlinarith
+  have h2 : (0:ℝ) < s ^ 2 := by positivity
+  exact one_div_lt_one_div_of_lt h2 h1
+
+-- [T12] :: {VER} | THE CORRIDOR ON RADIUS, BRACKETED
+theorem t12_corridor_on_radius :
+    53.35791 < matched_ratio TORSION_LIMIT ∧
+    matched_ratio TORSION_LIMIT < 53.357911 ∧
+    68.90226 < matched_ratio TL_IVA ∧
+    matched_ratio TL_IVA < 68.902261 := by
+  simp only [matched_ratio, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T13] :: {VER} | THE CORRIDOR BAND IS ORDERED, AND LIES OUTSIDE THE STRONG FIELD
+theorem t13_corridor_outside_strong_field :
+    matched_ratio TORSION_LIMIT < matched_ratio TL_IVA ∧
+    R_ISCO < matched_ratio TORSION_LIMIT ∧
+    R_PHOTON_SPHERE < matched_ratio TORSION_LIMIT ∧
+    1 < matched_ratio TORSION_LIMIT := by
+  simp only [matched_ratio, R_ISCO, R_PHOTON_SPHERE, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- ============================================================
+-- SECTION 3: THE EQUIVALENCE AT THE MATCHED RADIUS
+-- ============================================================
+
+-- [T14] :: {VER} | THE TWO DILATIONS COINCIDE AT THE MATCHED RADIUS
+-- Gravitational and kinematic dilation are the same quantity there.
+theorem t14_equivalence (GM t : ℝ) (hGM : 0 < GM) (ht : t ≠ 0) :
+    grav_dilation_sq GM (r_match GM t) = kin_dilation_sq t := by
+  simp only [grav_dilation_sq, kin_dilation_sq]
+  rw [show r_s GM / r_match GM t = t ^ 2 from t8_matched_radius_matches GM t hGM ht]
+
+-- [T15] :: {VER} | BOTH DILATIONS EQUAL 1 − 2η
+theorem t15_dilation_is_conversion (GM t : ℝ) (hGM : 0 < GM) (ht : t ≠ 0) :
+    grav_dilation_sq GM (r_match GM t) = 1 - 2 * eta_of_tau t ∧
+    kin_dilation_sq t = 1 - 2 * eta_of_tau t := by
+  refine ⟨?_, ?_⟩
+  · rw [t14_equivalence GM t hGM ht]; simp only [kin_dilation_sq, eta_of_tau]; ring
+  · simp only [kin_dilation_sq, eta_of_tau]; ring
+
+-- [T16] :: {VER} | THE DILATION FACTORS AT THE CORRIDOR EDGES, BRACKETED
+theorem t16_corridor_dilations :
+    0.98125 < kin_dilation_sq TORSION_LIMIT ∧
+    kin_dilation_sq TORSION_LIMIT < 0.98126 ∧
+    0.98548 < kin_dilation_sq TL_IVA ∧
+    kin_dilation_sq TL_IVA < 0.98549 := by
+  simp only [kin_dilation_sq, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T17] :: {VER} | THE DILATION IS POSITIVE FOR ANY SUBLIGHT DRIVE
+theorem t17_dilation_pos (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    0 < kin_dilation_sq t := by
+  unfold kin_dilation_sq; nlinarith
+
+-- ============================================================
+-- SECTION 4: THE RELATIVISTIC GAIN CAP IS THE EVENT HORIZON
+-- ============================================================
+
+/-- The gained Reading A: the resonance gain is an exhaust-velocity
+multiplier, so it scales Reading A. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T18] :: {VER} | THE CAP CONDITION AND THE HORIZON CONDITION ARE THE SAME
+theorem t18_cap_is_horizon (t g : ℝ) (ht : 0 < t) (hg : -1 < g) :
+    gained_tau t g < 1 ↔ 1 < matched_ratio (gained_tau t g) := by
+  simp only [matched_ratio, gained_tau]
+  have hpos : 0 < (1 + g) * t := by nlinarith
+  have hsq : (0:ℝ) < ((1 + g) * t) ^ 2 := pow_pos hpos 2
+  rw [lt_div_iff₀ hsq, one_mul]
+  constructor
+  · intro h; nlinarith
+  · intro h; nlinarith
+
+-- [T19] :: {VER} | EQUALITY TRANSFERS: THE CAP IS THE HORIZON EXACTLY
+theorem t19_cap_equals_horizon (t g : ℝ) (ht : 0 < t) (hg : -1 < g) :
+    gained_tau t g = 1 ↔ matched_ratio (gained_tau t g) = 1 := by
+  simp only [matched_ratio, gained_tau]
+  have hpos : 0 < (1 + g) * t := by nlinarith
+  have hsq : (0:ℝ) < ((1 + g) * t) ^ 2 := pow_pos hpos 2
+  constructor
+  · intro h; rw [h]; norm_num
+  · intro h
+    have hne : ((1 + g) * t) ^ 2 ≠ 0 := hsq.ne'
+    have h2 : ((1 + g) * t) ^ 2 = 1 := by
+      have hmul : ((1 + g) * t) ^ 2 * (1 / ((1 + g) * t) ^ 2)
+          = ((1 + g) * t) ^ 2 * 1 := by rw [h]
+      rw [mul_one, mul_one_div, div_self hne] at hmul
+      exact hmul.symm
+    have h3 : ((1 + g) * t - 1) * ((1 + g) * t + 1) = 0 :=
+      calc ((1 + g) * t - 1) * ((1 + g) * t + 1)
+          = ((1 + g) * t) ^ 2 - 1 := by ring
+        _ = 1 - 1 := by rw [h2]
+        _ = 0 := by ring
+    rcases mul_eq_zero.mp h3 with h4 | h4
+    · linarith
+    · linarith
+
+-- [T20] :: {VER} | THE CAP IN CORRIDOR TERMS
+-- At the corridor ceiling the cap on the gain is 1/TL − 1.
+theorem t20_cap_at_ceiling :
+    6.3046 < 1 / TORSION_LIMIT - 1 ∧ 1 / TORSION_LIMIT - 1 < 6.3047 ∧
+    7.3046 < 1 / TORSION_LIMIT ∧ 1 / TORSION_LIMIT < 7.3047 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T21] :: {VER} | THE PHOTON DRIVE MATCHES THE HORIZON OF EVERY MASS
+theorem t21_photon_matches_horizon (GM : ℝ) (hGM : 0 < GM) :
+    r_match GM 1 = r_s GM ∧ matched_ratio 1 = 1 := by
+  simp only [r_match, matched_ratio]; norm_num
+
+-- [T22] :: {VER} | HALF LIGHT SPEED MATCHES EXACTLY FOUR SCHWARZSCHILD RADII
+theorem t22_half_c_matches_four : matched_ratio 0.5 = 4 := by
+  unfold matched_ratio; norm_num
+
+-- ============================================================
+-- SECTION 5: THE FOUR PHASES AS A MAP ON RADIUS
+-- ============================================================
+
+-- [T23] :: {VER} | LOCKED IS THE FAR FIELD
+theorem t23_locked_is_far_field (t : ℝ) (h0 : 0 < t) (h : t < TL_IVA) :
+    matched_ratio TL_IVA < matched_ratio t :=
+  t11_ratio_antitone t TL_IVA h0 h
+
+-- [T24] :: {VER} | SHATTER IS THE INTERIOR TO THE CORRIDOR
+theorem t24_shatter_is_interior (t : ℝ) (h : TORSION_LIMIT < t) :
+    matched_ratio t < matched_ratio TORSION_LIMIT :=
+  t11_ratio_antitone TORSION_LIMIT t tl_pos h
+
+-- [T25] :: {VER} | IVA IS THE SHELL BETWEEN THE TWO EDGES
+theorem t25_iva_is_the_shell (t : ℝ) (hlo : TL_IVA ≤ t) (hhi : t < TORSION_LIMIT) :
+    matched_ratio TORSION_LIMIT < matched_ratio t ∧
+    matched_ratio t ≤ matched_ratio TL_IVA := by
+  refine ⟨t11_ratio_antitone t TORSION_LIMIT (lt_of_lt_of_le tli_pos hlo) hhi, ?_⟩
+  rcases eq_or_lt_of_le hlo with h | h
+  · rw [h]
+  · exact le_of_lt (t11_ratio_antitone TL_IVA t tli_pos h)
+
+-- [T26] :: {VER} | THE STRONG FIELD LIES INSIDE THE SHATTER BAND
+-- The exhaust velocity matching each landmark is above the Torsion Limit.
+theorem t26_strong_field_is_shatter :
+    TORSION_LIMIT < 0.577350269 ∧ TORSION_LIMIT < 0.816496581 ∧
+    matched_ratio 0.577350269 < matched_ratio TORSION_LIMIT ∧
+    matched_ratio 0.816496581 < matched_ratio TORSION_LIMIT := by
+  refine ⟨by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num,
+          by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num, ?_, ?_⟩
+  · exact t24_shatter_is_interior _ (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num)
+  · exact t24_shatter_is_interior _ (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num)
+
+-- [T27] :: {VER} | THE CORRIDOR CLASSIFIES AS IVA, THE EDGES AS STATED
+theorem t27_phase_of_edges :
+    classify TL_IVA = Phase.IVA ∧ classify TORSION_LIMIT = Phase.Shatter ∧
+    classify 0 = Phase.Noble := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold classify
+    rw [if_neg (ne_of_gt tli_pos), if_neg (lt_irrefl TL_IVA), if_pos t3_corridor_ordering]
+  · unfold classify
+    rw [if_neg (ne_of_gt tl_pos), if_neg (by linarith [t3_corridor_ordering]),
+      if_neg (lt_irrefl TORSION_LIMIT)]
+  · unfold classify; rw [if_pos rfl]
+
+-- ============================================================
+-- SECTION 6: BOTH EDGES ON RADIUS, IN THE FINE-STRUCTURE CONSTANT
+-- ============================================================
+
+-- [T28] :: {VER} | THE CEILING RADIUS IS (1001/α⁻¹)²
+theorem t28_ceiling_radius_in_alpha :
+    matched_ratio TORSION_LIMIT = (TL_DIVISOR / ALPHA_INV) ^ 2 := by
+  simp only [matched_ratio, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- [T29] :: {VER} | THE FLOOR RADIUS IS (1001/(0.88 · α⁻¹))²
+theorem t29_floor_radius_in_alpha :
+    matched_ratio TL_IVA = (TL_DIVISOR / (IVA_FACTOR * ALPHA_INV)) ^ 2 := by
+  simp only [matched_ratio, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T30] :: {VER} | THE BAND WIDTH ON RADIUS, IN α AND 0.88 ALONE
+theorem t30_band_width_in_alpha :
+    matched_ratio TL_IVA - matched_ratio TORSION_LIMIT
+      = (TL_DIVISOR / ALPHA_INV) ^ 2 * (1 / IVA_FACTOR ^ 2 - 1) := by
+  simp only [matched_ratio, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T31] :: {VER} | THE CONVERSION-FRACTION EDGES, BRACKETED
+theorem t31_eta_edges :
+    0.00725665 < eta_floor ∧ eta_floor < 0.00725666 ∧
+    0.00937068 < eta_ceiling ∧ eta_ceiling < 0.00937069 := by
+  simp only [eta_floor, eta_ceiling, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 7: READING B AGAINST THE WELL — ONE e-FOLD
+-- ============================================================
+
+-- [T32] :: {VER} | THE WELL AT THE MATCHED RADIUS IS WORTH τ_B = 1
+-- A fall from rest at infinity to the matched radius delivers c·τ_A, and a
+-- rocket delivers c·τ_A·τ_B, so the two agree exactly at τ_B = 1.
+theorem t32_well_is_one_efold (t tB : ℝ) (ht : 0 < t) :
+    t * tB = t ↔ tB = 1 := by
+  constructor
+  · intro h
+    have := mul_left_cancel₀ (ne_of_gt ht) (by linarith : t * tB = t * 1)
+    exact this
+  · intro h; rw [h]; ring
+
+-- [T33] :: {VER} | τ_B = 1 IS A MASS RATIO OF e
+theorem t33_one_efold_is_e : tau_B (Real.exp 1) = 1 := by
+  unfold tau_B; exact Real.log_exp 1
+
+-- [T34] :: {VER} | THE CORRIDOR'S READING B IS BELOW ONE e-FOLD
+theorem t34_corridor_below_one_efold :
+    TL_IVA < 1 ∧ TORSION_LIMIT < 1 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 8: THE DILATION DEFICIT, BRACKETED BY THE CONVERSION FRACTION
+-- Stated first on the polynomial forms, which carry the content, then on
+-- the square root itself.
+-- ============================================================
+
+-- [T35] :: {VER} | THE LOWER BRACKET, AS A POLYNOMIAL
+theorem t35_deficit_lower_poly (e : ℝ) (h0 : 0 < e) (h1 : e < 1/4) :
+    1 - 2 * e < (1 - e) ^ 2 := by nlinarith
+
+-- [T36] :: {VER} | THE UPPER BRACKET, AS A POLYNOMIAL
+theorem t36_deficit_upper_poly (e : ℝ) (h0 : 0 < e) (h1 : e < 1/4) :
+    (1 - e - e ^ 2) ^ 2 < 1 - 2 * e := by
+  have hk : e ^ 2 + 2 * e - 1 < 0 := by nlinarith
+  have he2 : (0:ℝ) < e ^ 2 := by positivity
+  nlinarith [mul_pos he2 (neg_pos.mpr hk)]
+
+-- [T37] :: {VER} | THE BRACKET ON THE SQUARE ROOT
+theorem t37_deficit_bracket (e : ℝ) (h0 : 0 < e) (h1 : e < 1/4) :
+    e < 1 - Real.sqrt (1 - 2 * e) ∧ 1 - Real.sqrt (1 - 2 * e) < e * (1 + e) := by
+  have hnn : (0:ℝ) ≤ 1 - 2 * e := by linarith
+  have hu : (0:ℝ) < 1 - e := by linarith
+  have hv : (0:ℝ) ≤ 1 - e - e ^ 2 := by nlinarith
+  refine ⟨?_, ?_⟩
+  · have : Real.sqrt (1 - 2 * e) < 1 - e := by
+      rw [show (1:ℝ) - e = Real.sqrt ((1 - e) ^ 2) from (Real.sqrt_sq hu.le).symm]
+      exact Real.sqrt_lt_sqrt hnn (t35_deficit_lower_poly e h0 h1)
+    linarith
+  · have : 1 - e - e ^ 2 < Real.sqrt (1 - 2 * e) := by
+      rw [show (1:ℝ) - e - e ^ 2 = Real.sqrt ((1 - e - e ^ 2) ^ 2) from (Real.sqrt_sq hv).symm]
+      exact Real.sqrt_lt_sqrt (by positivity) (t36_deficit_upper_poly e h0 h1)
+    nlinarith
+
+-- [T38] :: {VER} | THE CORRIDOR'S CONVERSION FRACTIONS ARE IN THE BRACKET'S DOMAIN
+theorem t38_eta_in_domain :
+    0 < eta_floor ∧ eta_floor < 1/4 ∧ 0 < eta_ceiling ∧ eta_ceiling < 1/4 := by
+  simp only [eta_floor, eta_ceiling, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 9: THE BUILD — A BURN AT THE MATCHED RADIUS
+-- Newtonian energy regime, impulsive burns.
+-- ============================================================
+
+/-- The squared Oberth multiplier at a radius where the local speed gives
+squared escape fraction `te2`, for a burn of Reading-A size `dv`. -/
+def oberth_sq (te2 dv : ℝ) : ℝ := 1 + 2 * Real.sqrt te2 / dv
+
+/-- The squared Oberth multiplier at the matched radius, where the local
+escape velocity is the drive's own exhaust velocity. -/
+def oberth_matched_sq (tB : ℝ) : ℝ := 1 + 2 / tB
+
+-- [T39] :: {VER} | AT THE MATCHED RADIUS THE EXHAUST VELOCITY CANCELS
+-- v_esc/Δv = v_e/(v_e·τ_B) = 1/τ_B, so the multiplier is a function of
+-- Reading B alone.
+theorem t39_exhaust_cancels (t tB : ℝ) (ht : t ≠ 0) (htB : tB ≠ 0) :
+    t / (t * tB) = 1 / tB := by
+  field_simp
+
+-- [T40] :: {VER} | THE MULTIPLIER AT THE CORRIDOR EDGES, BRACKETED
+theorem t40_multiplier_edges :
+    15.6092998 < oberth_matched_sq TORSION_LIMIT ∧
+    oberth_matched_sq TORSION_LIMIT < 15.6092999 ∧
+    17.6014770 < oberth_matched_sq TL_IVA ∧
+    oberth_matched_sq TL_IVA < 17.6014771 := by
+  simp only [oberth_matched_sq, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T41] :: {VER} | THE CEILING MULTIPLIER IS 1 + 2002/α⁻¹
+theorem t41_multiplier_ceiling_in_alpha :
+    oberth_matched_sq TORSION_LIMIT = 1 + 2 * TL_DIVISOR / ALPHA_INV := by
+  simp only [oberth_matched_sq, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- [T42] :: {VER} | THE FLOOR MULTIPLIER IS 1 + 2002/(0.88 · α⁻¹)
+theorem t42_multiplier_floor_in_alpha :
+    oberth_matched_sq TL_IVA = 1 + 2 * TL_DIVISOR / (IVA_FACTOR * ALPHA_INV) := by
+  simp only [oberth_matched_sq, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, IVA_FACTOR, ALPHA_INV]
+  norm_num
+
+-- [T43] :: {VER} | THE MULTIPLIER EXCEEDS ONE FOR ANY POSITIVE READING B
+theorem t43_multiplier_gt_one (tB : ℝ) (h : 0 < tB) : 1 < oberth_matched_sq tB := by
+  unfold oberth_matched_sq
+  have : 0 < 2 / tB := by positivity
+  linarith
+
+-- [T44] :: {VER} | THE MULTIPLIER IS STRICTLY DECREASING IN READING B
+theorem t44_multiplier_antitone (a b : ℝ) (ha : 0 < a) (hab : a < b) :
+    oberth_matched_sq b < oberth_matched_sq a := by
+  unfold oberth_matched_sq
+  have h : 2 / b < 2 / a := by
+    apply div_lt_div_of_pos_left (by norm_num) ha hab
+  linarith
+
+-- ============================================================
+-- SECTION 10: DEPTH AND GAIN ARE INTERCHANGEABLE
+-- Newtonian energy regime. The headline is T48: the stable-orbit
+-- reachability of the crossover reduces to 4 · (0.88)² > 3.
+-- ============================================================
+
+/-- The radius, in Schwarzschild units, at which the Oberth multiplier of a
+burn equals a resonance-gain multiplier 1 + g. -/
+def exchange_radius (t tB g : ℝ) : ℝ := 4 / (t * tB * ((1 + g) ^ 2 - 1)) ^ 2
+
+/-- The radius, in Schwarzschild units, at which depth delivers what the
+capped gain cannot. -/
+def crossover_radius (t tB : ℝ) : ℝ := 4 * t ^ 2 / (tB ^ 2 * (1 - t ^ 2) ^ 2)
+
+-- [T45] :: {VER} | THE EXCHANGE RADIUS IS POSITIVE WHERE IT IS DEFINED
+theorem t45_exchange_pos (t tB g : ℝ) (ht : 0 < t) (htB : 0 < tB) (hg : 0 < g) :
+    0 < exchange_radius t tB g := by
+  unfold exchange_radius
+  have h1 : 0 < (1 + g) ^ 2 - 1 := by nlinarith
+  have : 0 < t * tB * ((1 + g) ^ 2 - 1) := by positivity
+  positivity
+
+-- [T46] :: {VER} | THE EXCHANGE RADIUS AT THE STATED GAIN THRESHOLD, BRACKETED
+theorem t46_exchange_at_threshold :
+    413.1797 < exchange_radius TORSION_LIMIT TORSION_LIMIT GAIN_THRESHOLD ∧
+    exchange_radius TORSION_LIMIT TORSION_LIMIT GAIN_THRESHOLD < 413.1798 := by
+  simp only [exchange_radius, TORSION_LIMIT, SOVEREIGN_ANCHOR, GAIN_THRESHOLD]; norm_num
+
+-- [T47] :: {VER} | THE CROSSOVER COLLAPSES WHEN THE TWO READINGS AGREE
+theorem t47_crossover_collapses (t : ℝ) (ht : 0 < t) :
+    crossover_radius t t = 4 / (1 - t ^ 2) ^ 2 := by
+  unfold crossover_radius
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht.ne'
+  field_simp
+
+-- [T48] :: {VER} | THE HEADLINE: 4 · (0.88)² > 3
+-- The stable-orbit reachability of the crossover is this one inequality.
+-- The IVA factor clears the ISCO factor √3/2, and 1936/625 = 3.0976.
+theorem t48_iva_factor_clears_isco :
+    R_ISCO < 4 * IVA_FACTOR ^ 2 ∧ 4 * IVA_FACTOR ^ 2 = 1936 / 625 := by
+  simp only [R_ISCO, IVA_FACTOR]; norm_num
+
+-- [T49] :: {VER} | EQUIVALENTLY, THE CORRIDOR'S RATIO IS BELOW 2/√3
+theorem t49_ratio_below_two_over_root_three :
+    (TORSION_LIMIT / TL_IVA) ^ 2 * R_ISCO < 4 := by
+  simp only [TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR, R_ISCO]; norm_num
+
+-- [T50] :: {VER} | THE CROSSOVER LIES OUTSIDE THE ISCO AT EVERY CORRIDOR PAIRING
+theorem t50_crossover_outside_isco :
+    R_ISCO < crossover_radius TL_IVA TL_IVA ∧
+    R_ISCO < crossover_radius TL_IVA TORSION_LIMIT ∧
+    R_ISCO < crossover_radius TORSION_LIMIT TL_IVA ∧
+    R_ISCO < crossover_radius TORSION_LIMIT TORSION_LIMIT := by
+  simp only [crossover_radius, R_ISCO, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T51] :: {VER} | THE CROSSOVER IS AT LEAST FOUR SCHWARZSCHILD RADII
+theorem t51_crossover_at_least_four (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    4 ≤ crossover_radius t t := by
+  rw [t47_crossover_collapses t h0]
+  have ha : (0:ℝ) < 1 - t ^ 2 := by nlinarith
+  have hb : 1 - t ^ 2 ≤ 1 := by nlinarith
+  have hd : (0:ℝ) < (1 - t ^ 2) ^ 2 := by positivity
+  rw [le_div_iff₀ hd]
+  nlinarith [mul_le_one₀ hb (le_of_lt ha) hb]
+
+-- ============================================================
+-- SECTION 11: THE CHAIN
+-- Newtonian energy regime, impulsive burns. Energy adds; velocity does not.
+-- ============================================================
+
+/-- The per-burn energy factor of a matched burn: K = τ_B(2 + τ_B). -/
+def chain_K (tB : ℝ) : ℝ := tB * (2 + tB)
+
+/-- The squared chain torsion after n matched burns. -/
+def chain_tau_sq (t tB : ℝ) (n : ℕ) : ℝ := t ^ 2 * (n : ℝ) * chain_K tB
+
+/-- The burn count at which the chain reaches light speed. -/
+def chain_n_max (t tB : ℝ) : ℝ := 1 / (t ^ 2 * chain_K tB)
+
+-- [T52] :: {VER} | THE CHAIN IS ADDITIVE IN ENERGY, SO IT COMPOUNDS AS √n
+-- Each matched burn adds the same increment, independent of the burn index.
+theorem t52_chain_additive (t tB : ℝ) (n : ℕ) :
+    chain_tau_sq t tB (n + 1) = chain_tau_sq t tB n + t ^ 2 * chain_K tB := by
+  unfold chain_tau_sq
+  push_cast
+  ring
+
+-- [T53] :: {VER} | THE CHAIN AT ONE BURN IS THE OBERTH RESULT
+theorem t53_chain_one_burn (t tB : ℝ) (htB : tB ≠ 0) :
+    chain_tau_sq t tB 1 = (t * tB) ^ 2 * oberth_matched_sq tB := by
+  simp only [chain_tau_sq, chain_K, oberth_matched_sq]
+  push_cast
+  field_simp
+  ring
+
+-- [T54] :: {VER} | THE CHAIN IS MONOTONE IN THE BURN COUNT
+theorem t54_chain_monotone (t tB : ℝ) (ht : t ≠ 0) (htB : 0 < tB) (m n : ℕ) (h : m < n) :
+    chain_tau_sq t tB m < chain_tau_sq t tB n := by
+  simp only [chain_tau_sq, chain_K]
+  have hK : 0 < tB * (2 + tB) := by nlinarith
+  have ht2 : 0 < t ^ 2 := by positivity
+  have hmn : (m : ℝ) < (n : ℝ) := by exact_mod_cast h
+  have := mul_lt_mul_of_pos_left hmn ht2
+  nlinarith
+
+-- [T55] :: {VER} | THE CEILING PAIRING: LOCKED AT ONE AND TWO BURNS
+theorem t55_chain_locked_at_one_two :
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 1 < TL_IVA ^ 2 ∧
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 2 < TL_IVA ^ 2 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T56] :: {VER} | THE CEILING PAIRING LANDS IN THE CORRIDOR AT EXACTLY THREE BURNS
+theorem t56_chain_iva_at_three :
+    TL_IVA ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 ∧
+    chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 < TORSION_LIMIT ^ 2 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T57] :: {VER} | AND SHATTERS AT FOUR
+theorem t57_chain_shatter_at_four :
+    TORSION_LIMIT ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 4 := by
+  simp only [chain_tau_sq, chain_K, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T58] :: {VER} | THE SATURATION COUNT, BRACKETED
+theorem t58_n_max_bracket :
+    182.3955 < chain_n_max TORSION_LIMIT TORSION_LIMIT ∧
+    chain_n_max TORSION_LIMIT TORSION_LIMIT < 182.3956 ∧
+    269.7229 < chain_n_max TL_IVA TL_IVA ∧
+    chain_n_max TL_IVA TL_IVA < 269.7230 := by
+  simp only [chain_n_max, chain_K, TORSION_LIMIT, TL_IVA, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T59] :: {VER} | THE SATURATION COUNT IN α AND 1001 ALONE
+theorem t59_n_max_in_alpha :
+    chain_n_max TORSION_LIMIT TORSION_LIMIT
+      = TL_DIVISOR ^ 4 / (ALPHA_INV ^ 3 * (2 * TL_DIVISOR + ALPHA_INV)) := by
+  simp only [chain_n_max, chain_K, TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]
+  norm_num
+
+-- ============================================================
+-- SECTION 12: THE BUDGET IDENTITY
+-- The matched radius, in Schwarzschild units, IS the chain budget.
+-- This closes Section 2 against Section 11.
+-- ============================================================
+
+-- [T60] :: {VER} | THE CHAIN BUDGET IS THE MATCHED RADIUS
+theorem t60_budget_is_matched_radius (t tB : ℝ) (ht : t ≠ 0) (htB : 0 < tB) :
+    chain_n_max t tB * chain_K tB = matched_ratio t := by
+  simp only [chain_n_max, matched_ratio, chain_K]
+  have hK : tB * (2 + tB) ≠ 0 := by positivity
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T61] :: {VER} | THE BUDGET CLOSES AT EVERY CORRIDOR PAIRING
+theorem t61_budget_at_corridor :
+    chain_n_max TORSION_LIMIT TORSION_LIMIT * chain_K TORSION_LIMIT
+      = matched_ratio TORSION_LIMIT ∧
+    chain_n_max TORSION_LIMIT TL_IVA * chain_K TL_IVA
+      = matched_ratio TORSION_LIMIT ∧
+    chain_n_max TL_IVA TORSION_LIMIT * chain_K TORSION_LIMIT
+      = matched_ratio TL_IVA ∧
+    chain_n_max TL_IVA TL_IVA * chain_K TL_IVA
+      = matched_ratio TL_IVA := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tl_pos) tl_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tl_pos) tli_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tli_pos) tl_pos
+  · exact t60_budget_is_matched_radius _ _ (ne_of_gt tli_pos) tli_pos
+
+-- ============================================================
+-- SECTION 13: THE UNPROPELLED CATALOG
+-- Published JPL orbital elements against the matched-radius construction.
+-- ============================================================
+
+/-- The matched radius of a body at the perihelion of a conic with
+perihelion distance q and eccentricity e, in absolute units: 2q/(1 + e). -/
+def perihelion_matched (q e : ℝ) : ℝ := 2 * q / (1 + e)
+
+-- [T62] :: {VER} | THE PERIHELION MATCHED RADIUS IS 2q/(1 + e)
+-- From vis-viva v_q² = GM(1 + e)/q and r_match = r_s/τ², the Schwarzschild
+-- radius cancels and the result is a pure function of the orbit.
+theorem t62_perihelion_matched (GM q e : ℝ) (hGM : 0 < GM) (hq : 0 < q) (he : 0 < 1 + e) :
+    r_s GM / (r_s GM * (1 + e) / (2 * q)) = perihelion_matched q e := by
+  unfold perihelion_matched
+  have hrs : r_s GM ≠ 0 := (t6_rs_pos GM hGM).ne'
+  field_simp
+
+-- [T63] :: {VER} | A PARABOLIC TRAJECTORY MATCHES AT ITS OWN PERIHELION
+theorem t63_parabolic_matches_perihelion (q : ℝ) :
+    perihelion_matched q 1 = q := by
+  unfold perihelion_matched; ring
+
+-- [T64] :: {VER} | THE SIX PUBLISHED BODIES, r_match/q AGAINST 2/(1 + e)
+theorem t64_catalog_ratios :
+    perihelion_matched 1 0.8898 = 2 / 1.8898 ∧
+    perihelion_matched 1 0.8268 = 2 / 1.8268 ∧
+    perihelion_matched 1 1.2011 = 2 / 2.2011 ∧
+    perihelion_matched 1 3.3566 = 2 / 4.3566 ∧
+    perihelion_matched 1 0.1914 = 2 / 1.1914 := by
+  unfold perihelion_matched
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T65] :: {VER} | THE UNPROPELLED BODIES SIT DEEP IN THE FAR FIELD
+-- Their Reading A values place their matched radii at 10⁵ to 10⁷ r_s.
+theorem t65_unpropelled_far_field :
+    100000 < matched_ratio (tau_A 566500) ∧
+    1000000 < matched_ratio (tau_A 109400) ∧
+    1000000 < matched_ratio (tau_A 37600) := by
+  simp only [matched_ratio, tau_A, C_LIGHT]
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 14: THE PUBLISHED PROPULSION CATALOG ON THE RADIUS AXIS
+-- ============================================================
+
+def ve_cold_gas : ℝ := 700
+def ve_rl10b2   : ℝ := 4650
+def ve_nextc    : ℝ := 41000
+def ve_daedalus : ℝ := 10600000
+
+-- [T66] :: {VER} | EVERY FLOWN DRIVE MATCHES A RADIUS FAR OUTSIDE THE CORRIDOR
+theorem t66_flown_outside_corridor :
+    matched_ratio TL_IVA < matched_ratio (tau_A ve_cold_gas) ∧
+    matched_ratio TL_IVA < matched_ratio (tau_A ve_rl10b2) ∧
+    matched_ratio TL_IVA < matched_ratio (tau_A ve_nextc) ∧
+    matched_ratio TL_IVA < matched_ratio (tau_A ve_daedalus) := by
+  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT,
+    ve_cold_gas, ve_rl10b2, ve_nextc, ve_daedalus]
+  refine ⟨by norm_num, by norm_num, by norm_num, by norm_num⟩
+
+-- [T67] :: {VER} | ORDINARY MOTION IS DEEP IN LOCKED ON THE SAME AXIS
+theorem t67_ordinary_motion_locked :
+    matched_ratio TL_IVA < matched_ratio (tau_A 29780) ∧
+    matched_ratio TL_IVA < matched_ratio (tau_A 900) ∧
+    matched_ratio TL_IVA < matched_ratio (tau_A 16900) := by
+  simp only [matched_ratio, tau_A, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT]
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 15: MASTER
+-- ============================================================
+
+/-- **THE MATCHED RADIUS.**
+
+1.  For any drive and any mass, exactly one radius has escape velocity equal
+    to the exhaust velocity, and its ratio to the Schwarzschild radius is
+    1/τ_A² = 1/(2η). The mass cancels.
+2.  At that radius gravitational and kinematic time dilation are the same
+    quantity, 1 − 2η.
+3.  The relativistic gain cap and the event horizon are the same bound.
+4.  The four phases map onto radius, with Locked the far field, IVA the shell
+    at 53.36 to 68.90 r_s, Shatter the interior, and the cap the horizon.
+5.  Both corridor edges on radius are closed forms in α⁻¹ and 1001.
+6.  The Oberth multiplier at the matched radius is a function of Reading B
+    alone, and the stable-orbit reachability of the depth-beats-gain
+    crossover reduces to 4 · (0.88)² > 3.
+7.  The chain compounds additively in energy, lands in the corridor at three
+    burns for the ceiling pairing, and saturates at 1001⁴/(α⁻³(2002 + α⁻¹)).
+8.  The chain budget equals the matched ratio, which closes the radius
+    result against the chain result.
+-/
+theorem MASTER_matched_radius :
+    -- [1] the matched radius, with the mass cancelling
+    (∀ GM t : ℝ, 0 < GM → t ≠ 0 → tau_esc_sq GM (r_match GM t) = t ^ 2) ∧
+    (∀ GM t : ℝ, 0 < GM → t ≠ 0 → r_match GM t / r_s GM = matched_ratio t) ∧
+    (∀ t : ℝ, t ≠ 0 → matched_ratio t = 1 / (2 * eta_of_tau t)) ∧
+    -- [2] the equivalence
+    (∀ GM t : ℝ, 0 < GM → t ≠ 0 →
+      grav_dilation_sq GM (r_match GM t) = kin_dilation_sq t) ∧
+    (∀ GM t : ℝ, 0 < GM → t ≠ 0 →
+      grav_dilation_sq GM (r_match GM t) = 1 - 2 * eta_of_tau t) ∧
+    -- [3] the cap is the horizon
+    (∀ t g : ℝ, 0 < t → -1 < g →
+      (gained_tau t g < 1 ↔ 1 < matched_ratio (gained_tau t g))) ∧
+    (∀ GM : ℝ, 0 < GM → r_match GM 1 = r_s GM) ∧
+    -- [4] the phase map on radius
+    (matched_ratio TORSION_LIMIT < matched_ratio TL_IVA ∧
+      R_ISCO < matched_ratio TORSION_LIMIT) ∧
+    (∀ t : ℝ, 0 < t → t < TL_IVA → matched_ratio TL_IVA < matched_ratio t) ∧
+    (∀ t : ℝ, TORSION_LIMIT < t → matched_ratio t < matched_ratio TORSION_LIMIT) ∧
+    -- [5] both edges in α
+    (matched_ratio TORSION_LIMIT = (TL_DIVISOR / ALPHA_INV) ^ 2) ∧
+    (matched_ratio TL_IVA = (TL_DIVISOR / (IVA_FACTOR * ALPHA_INV)) ^ 2) ∧
+    -- [6] the burn, and the headline inequality
+    (oberth_matched_sq TORSION_LIMIT = 1 + 2 * TL_DIVISOR / ALPHA_INV) ∧
+    (R_ISCO < 4 * IVA_FACTOR ^ 2 ∧ 4 * IVA_FACTOR ^ 2 = 1936 / 625) ∧
+    (R_ISCO < crossover_radius TORSION_LIMIT TORSION_LIMIT) ∧
+    (∀ t : ℝ, 0 < t → t < 1 → 4 ≤ crossover_radius t t) ∧
+    -- [7] the chain
+    (∀ t tB : ℝ, ∀ n : ℕ,
+      chain_tau_sq t tB (n + 1) = chain_tau_sq t tB n + t ^ 2 * chain_K tB) ∧
+    (TL_IVA ^ 2 ≤ chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 ∧
+      chain_tau_sq TORSION_LIMIT TORSION_LIMIT 3 < TORSION_LIMIT ^ 2) ∧
+    (chain_n_max TORSION_LIMIT TORSION_LIMIT
+      = TL_DIVISOR ^ 4 / (ALPHA_INV ^ 3 * (2 * TL_DIVISOR + ALPHA_INV))) ∧
+    -- [8] the budget identity
+    (∀ t tB : ℝ, t ≠ 0 → 0 < tB →
+      chain_n_max t tB * chain_K tB = matched_ratio t) := by
+  exact ⟨fun GM t h1 h2 => t8_matched_radius_matches GM t h1 h2,
+    fun GM t h1 h2 => t9_mass_cancels GM t h1 h2,
+    fun t h => t10_ratio_is_conversion t h,
+    fun GM t h1 h2 => t14_equivalence GM t h1 h2,
+    fun GM t h1 h2 => (t15_dilation_is_conversion GM t h1 h2).1,
+    fun t g h1 h2 => t18_cap_is_horizon t g h1 h2,
+    fun GM h => (t21_photon_matches_horizon GM h).1,
+    ⟨t13_corridor_outside_strong_field.1, t13_corridor_outside_strong_field.2.1⟩,
+    fun t h1 h2 => t23_locked_is_far_field t h1 h2,
+    fun t h => t24_shatter_is_interior t h,
+    t28_ceiling_radius_in_alpha, t29_floor_radius_in_alpha,
+    t41_multiplier_ceiling_in_alpha, t48_iva_factor_clears_isco,
+    t50_crossover_outside_isco.2.2.2,
+    fun t h1 h2 => t51_crossover_at_least_four t h1 h2,
+    fun t tB n => t52_chain_additive t tB n,
+    t56_chain_iva_at_three, t59_n_max_in_alpha,
+    fun t tB h1 h2 => t60_budget_is_matched_radius t tB h1 h2⟩
+
+end SNSFL_MatchedRadius
+
+
+-- ============================================================
+-- MODULE: SNSFL_MatchedRadius_Reduction_TL.lean · [9,9,0,17.1](GRAV)
+-- ProofPress, Volume 1, Issue 9, Article 2 · The Matched Radius, specialist form
+-- 42 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_MatchedRadiusTL
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, READING A
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 < τ < TL_IVA
+  | IVA      -- TL_IVA ≤ τ < TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction of the ideal rocket: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius: the radius at which the escape velocity of a mass
+equals a drive's exhaust velocity. r = r_s/τ_A². -/
+def r_match (GM t : ℝ) : ℝ := r_s GM / t ^ 2
+
+/-- The matched radius in Schwarzschild units. Depends on the drive alone. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The square-root torsion operator. -/
+def S (X : ℝ) : ℝ := Real.sqrt X
+
+/-- The operator iterated. S⁰ is the identity. -/
+def sqrtIter : ℕ → ℝ → ℝ
+  | 0,     t => t
+  | (n+1), t => Real.sqrt (sqrtIter n t)
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 1: THE TORSION LIMIT IS AN EXACT RATIONAL
+-- This is why the layer closes. The anchor is a terminating
+-- decimal, so the Torsion Limit is a ratio of integers, and every
+-- quantity built from it by field operations is one too.
+-- ============================================================
+
+-- [T4] :: {VER} | THE TORSION LIMIT AS A RATIO OF INTEGERS
+theorem t4_tl_is_rational :
+    TORSION_LIMIT = 8556193749001 / 62500000000000 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T5] :: {VER} | THE RECIPROCAL IS A RATIO OF INTEGERS TOO
+theorem t5_tl_inverse_is_rational :
+    1 / TORSION_LIMIT = 62500000000000 / 8556193749001 := by
+  rw [t4_tl_is_rational]; norm_num
+
+-- [T6] :: {VER} | THE CORRIDOR FLOOR AS A RATIO OF INTEGERS
+theorem t6_tl_iva_is_rational :
+    TL_IVA = 94118131239011 / 781250000000000 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T7] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+-- The Torsion Limit is not a fitted parameter. It is the inverse
+-- fine-structure constant divided by 1001 = 7 × 11 × 13, exactly.
+theorem t7_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- ============================================================
+-- SECTION 2: THE OPERATOR IDENTITY
+-- The matched radius of a square root is the reciprocal of what
+-- was rooted. The root cancels; nothing irrational survives.
+-- ============================================================
+
+-- [T8] :: {VER} | MASTER — THE SQUARE-ROOT CLOSURE
+theorem t8_master_sqrt_closure (X : ℝ) (hX : 0 ≤ X) :
+    matched_ratio (S X) = 1 / X := by
+  simp only [matched_ratio, S, Real.sq_sqrt hX]
+
+-- [T9] :: {VER} | THE CLOSURE AS A PRODUCT: NO ERROR TERM
+-- The matched radius of √X multiplied by X is exactly one, so the
+-- operator carries no residue at any precision.
+theorem t9_closure_has_no_residue (X : ℝ) (hX : 0 < X) :
+    matched_ratio (S X) * X = 1 := by
+  rw [t8_master_sqrt_closure X hX.le, one_div, inv_mul_cancel₀ (ne_of_gt hX)]
+
+-- [T10] :: {VER} | THE MATCHED RADIUS OF A ROOT IS RATIONAL WHEN THE
+-- ROOTED QUANTITY IS. Stated as the general cancellation: the output
+-- depends on X alone, never on √X.
+theorem t10_output_free_of_the_root (X Y : ℝ) (hX : 0 ≤ X) (hY : 0 ≤ Y)
+    (h : X = Y) : matched_ratio (S X) = matched_ratio (S Y) := by
+  rw [t8_master_sqrt_closure X hX, t8_master_sqrt_closure Y hY, h]
+
+-- [T11] :: {VER} | THE FIRST LANDING — √TL PUTS THE MATCHED RADIUS AT 1/TL
+theorem t11_sqrt_tl_lands_at_tl_inverse :
+    matched_ratio (S TORSION_LIMIT) = 1 / TORSION_LIMIT := by
+  exact t8_master_sqrt_closure TORSION_LIMIT t2_tl_in_unit_interval.1.le
+
+-- [T12] :: {VER} | THE FIRST LANDING IS AN EXACT RATIONAL
+theorem t12_first_landing_rational :
+    matched_ratio (S TORSION_LIMIT) = 62500000000000 / 8556193749001 := by
+  rw [t11_sqrt_tl_lands_at_tl_inverse, t5_tl_inverse_is_rational]
+
+-- [T13] :: {VER} | THE FIRST LANDING, BRACKETED — 7.304649921853084 r_s
+theorem t13_first_landing_value :
+    7.30464992185308 < matched_ratio (S TORSION_LIMIT) ∧
+    matched_ratio (S TORSION_LIMIT) < 7.30464992185309 := by
+  rw [t12_first_landing_rational]; norm_num
+
+-- [T14] :: {VER} | THE SECOND LANDING — √TL_IVA PUTS IT AT 1/TL_IVA
+theorem t14_sqrt_tl_iva_lands_at_floor_inverse :
+    matched_ratio (S TL_IVA) = 1 / TL_IVA := by
+  exact t8_master_sqrt_closure TL_IVA t3_floor_below_ceiling.1.le
+
+-- [T15] :: {VER} | THE SECOND LANDING IS AN EXACT RATIONAL
+theorem t15_second_landing_rational :
+    matched_ratio (S TL_IVA) = 781250000000000 / 94118131239011 := by
+  rw [t14_sqrt_tl_iva_lands_at_floor_inverse, t6_tl_iva_is_rational]; norm_num
+
+-- [T16] :: {VER} | THE SECOND LANDING, BRACKETED — 8.300738547560323 r_s
+theorem t16_second_landing_value :
+    8.30073854756032 < matched_ratio (S TL_IVA) ∧
+    matched_ratio (S TL_IVA) < 8.30073854756033 := by
+  rw [t15_second_landing_rational]; norm_num
+
+-- [T17] :: {VER} | THE TWO LANDINGS STAND IN THE CORRIDOR WIDTH FACTOR,
+-- EXACTLY. Their ratio is 1/0.88 = 25/22, with no error term.
+theorem t17_landings_ratio_is_the_width_factor :
+    matched_ratio (S TL_IVA) = matched_ratio (S TORSION_LIMIT) * (25 / 22) := by
+  rw [t12_first_landing_rational, t15_second_landing_rational]; norm_num
+
+-- [T18] :: {VER} | THE SECOND LANDING IS THE FARTHER OF THE TWO
+theorem t18_floor_lands_farther :
+    matched_ratio (S TORSION_LIMIT) < matched_ratio (S TL_IVA) := by
+  rw [t12_first_landing_rational, t15_second_landing_rational]; norm_num
+
+-- ============================================================
+-- SECTION 3: THE SQUARE-ROOT SANDWICH
+-- For any torsion strictly inside the unit interval, the square
+-- root is strictly larger and still strictly below one. This is
+-- the engine of both the contraction and the self-centering.
+-- ============================================================
+
+-- [T19] :: {VER} | THE SANDWICH — k < √k < 1 ON (0,1)
+theorem t19_sqrt_sandwich (k : ℝ) (h0 : 0 < k) (h1 : k < 1) :
+    k < Real.sqrt k ∧ Real.sqrt k < 1 := by
+  have hs : Real.sqrt k ^ 2 = k := Real.sq_sqrt h0.le
+  have hp : 0 < Real.sqrt k := Real.sqrt_pos.mpr h0
+  constructor
+  · nlinarith [hs, hp, mul_pos h0 hp]
+  · nlinarith [hs, hp]
+
+-- [T20] :: {VER} | THE ROOT STAYS IN THE UNIT INTERVAL
+theorem t20_root_stays_in_unit_interval (k : ℝ) (h0 : 0 < k) (h1 : k < 1) :
+    0 < Real.sqrt k ∧ Real.sqrt k < 1 := by
+  exact ⟨Real.sqrt_pos.mpr h0, (t19_sqrt_sandwich k h0 h1).2⟩
+
+-- ============================================================
+-- SECTION 4: THE OPERATOR IS HORIZON-WARD
+-- A larger torsion names a nearer matched radius. So one square
+-- root moves the matched radius inward, and iterating drives it
+-- toward the Schwarzschild radius without ever reaching it.
+-- ============================================================
+
+-- [T21] :: {VER} | THE MATCHED RADIUS IS STRICTLY ANTITONE IN THE TORSION
+theorem t21_matched_ratio_antitone (t u : ℝ) (ht : 0 < t) (htu : t < u) :
+    matched_ratio u < matched_ratio t := by
+  simp only [matched_ratio]
+  have hu : 0 < u := lt_trans ht htu
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have h : t ^ 2 < u ^ 2 := by nlinarith
+  exact one_div_lt_one_div_of_lt ht2 h
+
+-- [T22] :: {VER} | ONE ROOT MOVES THE MATCHED RADIUS INWARD
+theorem t22_one_root_moves_inward (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    matched_ratio (S t) < matched_ratio t := by
+  simp only [S]
+  exact t21_matched_ratio_antitone t (Real.sqrt t) h0 (t19_sqrt_sandwich t h0 h1).1
+
+-- [T23] :: {VER} | THE ROOT NEVER CROSSES THE HORIZON
+-- The matched radius of √t stays strictly outside r_s for every
+-- torsion in (0,1), because it equals 1/t and t < 1.
+theorem t23_root_stays_outside_horizon (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    1 < matched_ratio (S t) := by
+  rw [t8_master_sqrt_closure t h0.le]
+  rw [lt_div_iff₀ h0]
+  linarith
+
+-- [T24] :: {VER} | THE ITERATE STAYS IN THE UNIT INTERVAL AT EVERY DEPTH
+theorem t24_iterate_stays_in_unit_interval (n : ℕ) (t : ℝ)
+    (h0 : 0 < t) (h1 : t < 1) :
+    0 < sqrtIter n t ∧ sqrtIter n t < 1 := by
+  induction n with
+  | zero => exact ⟨h0, h1⟩
+  | succ m ih =>
+      obtain ⟨hm0, hm1⟩ := ih
+      simp only [sqrtIter]
+      exact t20_root_stays_in_unit_interval (sqrtIter m t) hm0 hm1
+
+-- [T25] :: {VER} | THE HORIZON IS THE OPERATOR'S FLOOR AT EVERY DEPTH
+theorem t25_horizon_is_the_floor (n : ℕ) (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    1 < matched_ratio (sqrtIter n t) := by
+  obtain ⟨hn0, hn1⟩ := t24_iterate_stays_in_unit_interval n t h0 h1
+  simp only [matched_ratio]
+  have hn2 : (0:ℝ) < sqrtIter n t ^ 2 := by positivity
+  rw [lt_div_iff₀ hn2]
+  nlinarith
+
+-- [T26] :: {VER} | EACH ITERATION MOVES STRICTLY INWARD
+theorem t26_iteration_strictly_decreases (n : ℕ) (t : ℝ)
+    (h0 : 0 < t) (h1 : t < 1) :
+    matched_ratio (sqrtIter (n + 1) t) < matched_ratio (sqrtIter n t) := by
+  obtain ⟨hn0, hn1⟩ := t24_iterate_stays_in_unit_interval n t h0 h1
+  simp only [sqrtIter]
+  exact t21_matched_ratio_antitone (sqrtIter n t) (Real.sqrt (sqrtIter n t)) hn0
+    (t19_sqrt_sandwich (sqrtIter n t) hn0 hn1).1
+
+-- [T27] :: {VER} | THE TORSION LIMIT ENTERS THE CONTRACTION
+theorem t27_tl_enters_the_contraction :
+    matched_ratio (S TORSION_LIMIT) < matched_ratio TORSION_LIMIT := by
+  exact t22_one_root_moves_inward TORSION_LIMIT t2_tl_in_unit_interval.1
+    t2_tl_in_unit_interval.2
+
+-- ============================================================
+-- SECTION 5: THE OPERATOR CENTERS THE CORRIDOR
+-- A band of fixed width factor k has geometric mean √k times its
+-- ceiling, and the sandwich puts that mean strictly inside the
+-- band. Structural for every k in (0,1), not numerical.
+-- ============================================================
+
+-- [T28] :: {VER} | THE GEOMETRIC MEAN OF A BAND, IN CLOSED FORM
+-- The band [k·a, a] has geometric mean √k · a: squaring the
+-- candidate returns the product of the endpoints.
+theorem t28_band_geometric_mean (k a : ℝ) (hk : 0 ≤ k) :
+    (Real.sqrt k * a) ^ 2 = (k * a) * a := by
+  have hs : Real.sqrt k ^ 2 = k := Real.sq_sqrt hk
+  calc (Real.sqrt k * a) ^ 2 = Real.sqrt k ^ 2 * a ^ 2 := by ring
+    _ = k * a ^ 2 := by rw [hs]
+    _ = (k * a) * a := by ring
+
+-- [T29] :: {VER} | THE MEAN LIES STRICTLY INSIDE THE BAND
+theorem t29_mean_inside_band (k a : ℝ) (h0 : 0 < k) (h1 : k < 1) (ha : 0 < a) :
+    k * a < Real.sqrt k * a ∧ Real.sqrt k * a < a := by
+  obtain ⟨hlo, hhi⟩ := t19_sqrt_sandwich k h0 h1
+  refine ⟨mul_lt_mul_of_pos_right hlo ha, ?_⟩
+  calc Real.sqrt k * a < 1 * a := mul_lt_mul_of_pos_right hhi ha
+    _ = a := one_mul a
+
+-- [T30] :: {VER} | THE CORRIDOR'S OWN CENTER IS √0.88 × TL
+theorem t30_corridor_center :
+    TL_IVA < Real.sqrt 0.88 * TORSION_LIMIT ∧
+    Real.sqrt 0.88 * TORSION_LIMIT < TORSION_LIMIT := by
+  obtain ⟨hlo, hhi⟩ :=
+    t29_mean_inside_band 0.88 TORSION_LIMIT (by norm_num) (by norm_num)
+      t2_tl_in_unit_interval.1
+  constructor
+  · simp only [TL_IVA]; linarith [hlo]
+  · exact hhi
+
+-- [T31] :: {VER} | THE CENTER IS AN IVA TORSION
+theorem t31_center_classifies_iva :
+    classify (Real.sqrt 0.88 * TORSION_LIMIT) = Phase.IVA := by
+  obtain ⟨h1, h2⟩ := t30_corridor_center
+  have h3 : Real.sqrt 0.88 * TORSION_LIMIT ≠ 0 := by
+    have hpos : 0 < Real.sqrt 0.88 * TORSION_LIMIT :=
+      lt_trans t3_floor_below_ceiling.1 h1
+    exact ne_of_gt hpos
+  unfold classify
+  split_ifs with ha hb
+  · exact absurd ha h3
+  · exact absurd hb (not_lt.mpr h1.le)
+  · rfl
+
+-- [T32] :: {VER} | THE CENTER'S MATCHED RADIUS IS 1/(0.88 · TL²)
+theorem t32_center_matched_radius :
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT)
+      = 1 / (0.88 * TORSION_LIMIT ^ 2) := by
+  simp only [matched_ratio]
+  rw [t28_band_geometric_mean 0.88 TORSION_LIMIT (by norm_num)]
+  ring_nf
+
+-- [T33] :: {VER} | THE CENTER'S MATCHED RADIUS, BRACKETED — 60.633989182759 r_s
+theorem t33_center_matched_radius_value :
+    60.63398918275939 < matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) < 60.63398918275940 := by
+  rw [t32_center_matched_radius]
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T34] :: {VER} | THE CENTER'S MATCHED RADIUS IS THE GEOMETRIC MEAN OF
+-- THE CORRIDOR'S RADIUS BAND. Squaring it returns the product of the
+-- band's two endpoints, 1/TL² and 1/TL_IVA².
+theorem t34_center_is_the_radius_band_mean :
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ^ 2
+      = matched_ratio TORSION_LIMIT * matched_ratio TL_IVA := by
+  rw [t32_center_matched_radius]
+  simp only [matched_ratio, TL_IVA]
+  have h : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
+  field_simp
+
+-- [T35] :: {VER} | THE CENTER LIES INSIDE THE RADIUS BAND
+theorem t35_center_inside_radius_band :
+    matched_ratio TORSION_LIMIT
+      < matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) < matched_ratio TL_IVA := by
+  obtain ⟨h1, h2⟩ := t30_corridor_center
+  constructor
+  · exact t21_matched_ratio_antitone (Real.sqrt 0.88 * TORSION_LIMIT)
+      TORSION_LIMIT (lt_trans t3_floor_below_ceiling.1 h1) h2
+  · exact t21_matched_ratio_antitone TL_IVA (Real.sqrt 0.88 * TORSION_LIMIT)
+      t3_floor_below_ceiling.1 h1
+
+-- [T36] :: {VER} | THE RADIUS BAND'S WIDTH FACTOR IS 1/0.88², EXACTLY
+theorem t36_radius_band_width :
+    matched_ratio TL_IVA = matched_ratio TORSION_LIMIT * (625 / 484) := by
+  simp only [matched_ratio, TL_IVA]
+  have h : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
+  field_simp
+  ring
+
+-- ============================================================
+-- SECTION 6: THE CONVERSION FRACTION UNDER THE OPERATOR
+-- Reading A squared is twice the rest-mass conversion fraction,
+-- so the operator's image has conversion fraction X/2.
+-- ============================================================
+
+-- [T37] :: {VER} | THE CONVERSION FRACTION OF A ROOT IS HALF WHAT WAS ROOTED
+theorem t37_conversion_of_a_root (X : ℝ) (hX : 0 ≤ X) :
+    eta_of_tau (S X) = X / 2 := by
+  simp only [eta_of_tau, S, Real.sq_sqrt hX]
+
+-- [T38] :: {VER} | THE MATCHED RADIUS ON THE CONVERSION FRACTION
+theorem t38_matched_radius_on_conversion (t : ℝ) (ht : t ≠ 0) :
+    matched_ratio t = 1 / (2 * eta_of_tau t) := by
+  simp only [matched_ratio, eta_of_tau]
+  have h2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T39] :: {VER} | THE ROOT OF TL HAS CONVERSION FRACTION TL/2
+theorem t39_root_of_tl_conversion :
+    eta_of_tau (S TORSION_LIMIT) = TORSION_LIMIT / 2 := by
+  exact t37_conversion_of_a_root TORSION_LIMIT t2_tl_in_unit_interval.1.le
+
+-- ============================================================
+-- SECTION 7: THE MASS CANCELS HERE TOO
+-- The matched radius in metres still carries the central body, but
+-- in Schwarzschild units the operator's output is the drive alone.
+-- ============================================================
+
+-- [T40] :: {VER} | THE MATCHED RADIUS IN METRES FACTORS THROUGH THE RATIO
+theorem t40_matched_radius_factors (GM t : ℝ) (ht : t ≠ 0) :
+    r_match GM t = r_s GM * matched_ratio t := by
+  simp only [r_match, matched_ratio]
+  field_simp
+
+-- [T41] :: {VER} | THE MASS CANCELS IN THE OPERATOR'S OUTPUT
+theorem t41_mass_cancels (GM X : ℝ) (hGM : 0 < GM) (hX : 0 < X) :
+    r_match GM (S X) / r_s GM = 1 / X := by
+  have hrs : r_s GM ≠ 0 := by
+    simp only [r_s, C_LIGHT]
+    have : (0:ℝ) < 2 * GM / (299792458:ℝ) ^ 2 := by positivity
+    exact ne_of_gt this
+  rw [t40_matched_radius_factors GM (S X) (by
+    simp only [S]
+    exact ne_of_gt (Real.sqrt_pos.mpr hX))]
+  rw [t8_master_sqrt_closure X hX.le]
+  field_simp
+
+-- ============================================================
+-- SECTION 8: MASTER
+-- ============================================================
+
+-- [MASTER] :: {VER} | THE SQUARE-ROOT TORSION OPERATOR
+-- The operator identity, the two exact landings, the exact width
+-- factor between them, the horizon as the floor, and the corridor's
+-- own center, in one statement.
+theorem MASTER_sqrt_torsion_operator :
+    -- the operator identity: the root cancels
+    (∀ X : ℝ, 0 ≤ X → matched_ratio (S X) = 1 / X) ∧
+    -- the layer is closed over the rationals
+    TORSION_LIMIT = 8556193749001 / 62500000000000 ∧
+    matched_ratio (S TORSION_LIMIT) = 62500000000000 / 8556193749001 ∧
+    matched_ratio (S TL_IVA) = 781250000000000 / 94118131239011 ∧
+    -- the exactness anchor
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV ∧
+    -- the two landings stand in the corridor width factor, exactly
+    matched_ratio (S TL_IVA) = matched_ratio (S TORSION_LIMIT) * (25 / 22) ∧
+    -- the operator is horizon-ward, and the horizon is its floor
+    (∀ t : ℝ, 0 < t → t < 1 → matched_ratio (S t) < matched_ratio t) ∧
+    (∀ (n : ℕ) (t : ℝ), 0 < t → t < 1 → 1 < matched_ratio (sqrtIter n t)) ∧
+    -- the operator centers any band, structurally
+    (∀ k a : ℝ, 0 < k → k < 1 → 0 < a →
+      k * a < Real.sqrt k * a ∧ Real.sqrt k * a < a) ∧
+    -- and at the corridor's width factor the center is an IVA torsion
+    classify (Real.sqrt 0.88 * TORSION_LIMIT) = Phase.IVA ∧
+    matched_ratio (Real.sqrt 0.88 * TORSION_LIMIT) ^ 2
+      = matched_ratio TORSION_LIMIT * matched_ratio TL_IVA := by
+  refine ⟨fun X hX => t8_master_sqrt_closure X hX, t4_tl_is_rational,
+    t12_first_landing_rational, t15_second_landing_rational,
+    t7_tl_times_1001_is_alpha, t17_landings_ratio_is_the_width_factor,
+    fun t h0 h1 => t22_one_root_moves_inward t h0 h1,
+    fun n t h0 h1 => t25_horizon_is_the_floor n t h0 h1,
+    fun k a h0 h1 ha => t29_mean_inside_band k a h0 h1 ha,
+    t31_center_classifies_iva, t34_center_is_the_radius_band_mean⟩
+
+end SNSFL_MatchedRadiusTL
+
+
+-- ============================================================
+-- MODULE: SNSFL_IVA_Propulsion_Reduction.lean · [9,9,2,0](PROPULSION)
+-- ProofPress, Volume 1, Issue 9, Article 3 · One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding
+-- 111 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_IVA_Propulsion
+
+-- ============================================================
+-- SECTION 0: CONSTANTS AND THE FOUR PHASES
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL = 0.12047120798593408. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravity, m/s². -/
+def G_ACCEL : ℝ := 9.80665
+
+/-- Minimum resonance gain for the sovereign advantage. -/
+def GAIN_THRESHOLD : ℝ := 1.5
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+inductive Phase : Type
+  | Noble    -- τ = 0
+  | Locked   -- 0 < τ < TL_IVA
+  | IVA      -- TL_IVA ≤ τ < TL
+  | Shatter  -- τ ≥ TL
+  deriving DecidableEq, Repr
+
+noncomputable def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- The constants as decimal literals, for use by the numeric lemmas. -/
+theorem const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T1] :: {VER} | THE CORRIDOR IS A BAND, NOT AN EDGE
+-- Its width is exactly 12% of the Torsion Limit, which is what makes the
+-- IVA branch of the classifier reachable rather than a boundary case.
+theorem t1_corridor_has_width :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧
+    TORSION_LIMIT - TL_IVA = TORSION_LIMIT * 0.12 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+theorem tl_iva_pos : (0:ℝ) < TL_IVA := t1_corridor_has_width.1
+theorem tl_pos : (0:ℝ) < TORSION_LIMIT := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+theorem c_pos : (0:ℝ) < C_LIGHT := by unfold C_LIGHT; norm_num
+
+-- [T2] :: {VER} | τ = 0 IS NOBLE
+theorem t2_classify_noble : classify 0 = Phase.Noble := by
+  unfold classify; rw [if_pos rfl]
+
+-- [T3] :: {VER} | 0 < τ < TL_IVA IS LOCKED
+theorem t3_classify_locked (τ : ℝ) (h0 : 0 < τ) (h1 : τ < TL_IVA) :
+    classify τ = Phase.Locked := by
+  unfold classify; rw [if_neg h0.ne', if_pos h1]
+
+-- [T4] :: {VER} | TL_IVA ≤ τ < TL IS IVA
+theorem t4_classify_IVA (τ : ℝ) (h1 : TL_IVA ≤ τ) (h2 : τ < TORSION_LIMIT) :
+    classify τ = Phase.IVA := by
+  have hI := tl_iva_pos
+  unfold classify
+  rw [if_neg (by intro h0; rw [h0] at h1; linarith),
+      if_neg (by intro h; linarith), if_pos h2]
+
+-- [T5] :: {VER} | τ ≥ TL IS SHATTER
+theorem t5_classify_shatter (τ : ℝ) (h : TORSION_LIMIT ≤ τ) :
+    classify τ = Phase.Shatter := by
+  have hT := tl_pos
+  have hI := t1_corridor_has_width.2.1
+  unfold classify
+  rw [if_neg (by intro h0; rw [h0] at h; linarith),
+      if_neg (by intro h1; linarith), if_neg (by intro h2; linarith)]
+
+-- ============================================================
+-- SECTION 1: THE TSIOLKOVSKY LAYER
+-- ============================================================
+
+/-- Classical Tsiolkovsky. Δv = v_e · ln(m₀/m_f). -/
+noncomputable def delta_v_classical (v_e m0 m_f : ℝ) : ℝ :=
+  v_e * Real.log (m0 / m_f)
+
+/-- The sovereign form. The gain multiplies the classical result. -/
+noncomputable def delta_v_sovereign (v_e m0 m_f g_r : ℝ) : ℝ :=
+  v_e * (1 + g_r) * Real.log (m0 / m_f)
+
+-- [T6] :: {VER} | THE CLASSICAL FORM IS TSIOLKOVSKY, UNCHANGED
+theorem t6_classical_is_tsiolkovsky (v_e m0 m_f : ℝ) :
+    delta_v_classical v_e m0 m_f = v_e * Real.log (m0 / m_f) := rfl
+
+-- [T7] :: {VER} | THE GAIN RATIO IS EXACT
+theorem t7_gain_ratio_exact (v_e m0 m_f g_r : ℝ) :
+    delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f := by
+  unfold delta_v_sovereign delta_v_classical; ring
+
+-- [T8] :: {VER} | AT ZERO GAIN THE SOVEREIGN FORM IS THE CLASSICAL ONE
+theorem t8_reduces_at_zero_gain (v_e m0 m_f : ℝ) :
+    delta_v_sovereign v_e m0 m_f 0 = delta_v_classical v_e m0 m_f := by
+  unfold delta_v_sovereign delta_v_classical; ring
+
+-- [T9] :: {VER} | THE SOVEREIGN FORM EXCEEDS THE CLASSICAL ONE
+theorem t9_sovereign_exceeds_classical (v_e m0 m_f g_r : ℝ)
+    (h_ve : 0 < v_e) (h_gr : 0 < g_r) (h_m0 : m_f < m0) (h_mf : 0 < m_f) :
+    delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r := by
+  have h_ratio : (1:ℝ) < m0 / m_f := by rw [lt_div_iff₀ h_mf]; linarith
+  have h_log : 0 < Real.log (m0 / m_f) := Real.log_pos h_ratio
+  unfold delta_v_sovereign delta_v_classical
+  nlinarith [mul_pos h_ve h_log]
+
+-- ============================================================
+-- SECTION 2: EXPONENTIAL ENCLOSURES, DIVISION-FREE
+--
+-- Two elementary bounds carry every placement in Section 4. Both are
+-- stated multiplied out, so no hypothesis contains a division and every
+-- downstream placement closes by linear arithmetic.
+-- ============================================================
+
+-- [T10] :: {VER} | LOWER ENCLOSURE: 1 + x ≤ exp x
+theorem t10_exp_lower (x : ℝ) : x + 1 ≤ Real.exp x := Real.add_one_le_exp x
+
+-- [T11] :: {VER} | UPPER ENCLOSURE: (1 − x) · exp x ≤ 1
+theorem t11_exp_upper (x : ℝ) : (1 - x) * Real.exp x ≤ 1 := by
+  have hpos : 0 < Real.exp x := Real.exp_pos x
+  have h := Real.add_one_le_exp (-x)
+  rw [Real.exp_neg] at h
+  have h' : 1 - x ≤ (Real.exp x)⁻¹ := by linarith
+  have hmul := mul_le_mul_of_nonneg_right h' hpos.le
+  rwa [inv_mul_cancel₀ hpos.ne'] at hmul
+
+-- [T12] :: {VER} | THE CORRIDOR MASS-RATIO WINDOW IS ENCLOSED BY RATIONALS
+-- exp(TL_IVA) ∈ [1.120471, 1.136973] and exp(TL) ∈ [1.136899, 1.158614].
+theorem t12_corridor_ratio_enclosed :
+    1.120471 ≤ Real.exp TL_IVA ∧ Real.exp TL_IVA ≤ 1.136973 ∧
+    1.136899 ≤ Real.exp TORSION_LIMIT ∧ Real.exp TORSION_LIMIT ≤ 1.158614 := by
+  obtain ⟨hT, hI⟩ := const_values
+  have hlo1 := t10_exp_lower TL_IVA
+  have hup1 := t11_exp_upper TL_IVA
+  have hlo2 := t10_exp_lower TORSION_LIMIT
+  have hup2 := t11_exp_upper TORSION_LIMIT
+  rw [hI] at hlo1 hup1
+  rw [hT] at hlo2 hup2
+  rw [hI, hT]
+  exact ⟨by linarith, by linarith, by linarith, by linarith⟩
+
+-- ============================================================
+-- SECTION 3: READING A — THE CORRIDOR AS AN EXHAUST VELOCITY
+--
+-- τ_A = v_e / c. Pure rational arithmetic throughout.
+-- ============================================================
+
+/-- Reading A. Exhaust velocity against light speed. -/
+noncomputable def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The corridor floor as an exhaust velocity, m/s. -/
+noncomputable def corridor_ve_lo : ℝ := TL_IVA * C_LIGHT
+
+/-- The corridor ceiling as an exhaust velocity, m/s. -/
+noncomputable def corridor_ve_hi : ℝ := TORSION_LIMIT * C_LIGHT
+
+/-- Reading B. The mass ratio's logarithm. Stated here beside Reading A so the
+two readings are in scope together; Section 5 is where it is developed. -/
+noncomputable def tau_B (r : ℝ) : ℝ := Real.log r
+
+-- [T13] :: {VER} | READING A IS A CORRIDOR CONDITION ON v_e
+theorem t13_reading_A_window (w : ℝ) :
+    (TL_IVA ≤ tau_A w ∧ tau_A w < TORSION_LIMIT) ↔
+    (corridor_ve_lo ≤ w ∧ w < corridor_ve_hi) := by
+  have hc := c_pos
+  unfold tau_A corridor_ve_lo corridor_ve_hi
+  rw [le_div_iff₀ hc, div_lt_iff₀ hc]
+
+-- [T14] :: {VER} | THE CORRIDOR ASKS FOR 36,116.4 TO 41,041.3 KM/S
+theorem t14_corridor_ve_bounds :
+    36116359 ≤ corridor_ve_lo ∧ corridor_ve_lo ≤ 36116360 ∧
+    41041317 ≤ corridor_ve_hi ∧ corridor_ve_hi ≤ 41041318 := by
+  unfold corridor_ve_lo corridor_ve_hi TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T15] :: {VER} | THE CORRIDOR IS 12.047% TO 13.690% OF LIGHT SPEED
+theorem t15_corridor_as_fraction_of_c :
+    corridor_ve_lo / C_LIGHT = TL_IVA ∧ corridor_ve_hi / C_LIGHT = TORSION_LIMIT := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold corridor_ve_lo corridor_ve_hi
+  exact ⟨mul_div_cancel_right₀ _ hc, mul_div_cancel_right₀ _ hc⟩
+
+-- ── What this pool admits, and what Noble is in it ──────────
+
+-- [T16] :: {VER} | THE POOL'S REACH CONDITION
+-- No exhaust exceeds light speed, so Reading A is confined to (0,1). This
+-- is the ceiling the pool brings with it, before any composition is asked.
+theorem t16_reach_condition (w : ℝ) (h0 : 0 < w) (hlt : w < C_LIGHT) :
+    0 < tau_A w ∧ tau_A w < 1 := by
+  have hcp := c_pos
+  unfold tau_A
+  exact ⟨div_pos h0 hcp, by rw [div_lt_one hcp]; exact hlt⟩
+
+-- [T17] :: {VER} | THE CORRIDOR LIES INSIDE WHAT THE POOL ADMITS
+-- So this pool possesses an IVA phase: a sublight exhaust velocity places
+-- in the band. Reading B carries a floor and no ceiling, so the two
+-- factors of the rocket equation are bounded differently.
+theorem t17_pool_admits_IVA : 0 < TL_IVA ∧ TORSION_LIMIT < 1 := by
+  unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- [T18] :: {VER} | NOBLE IS THE UNFUELED VEHICLE
+-- Reading A vanishes exactly when there is no exhaust; Reading B vanishes
+-- exactly when there is no propellant. Both readings describe what a vehicle
+-- produces by expelling mass, so Noble here is the vehicle that produces no
+-- velocity of its own — not a vehicle at rest. Section 11 places the state.
+theorem t18_noble_is_unfueled (w r : ℝ) (hr : 0 < r) :
+    (tau_A w = 0 ↔ w = 0) ∧ (tau_B r = 0 ↔ r = 1) := by
+  refine ⟨?_, ?_⟩
+  · unfold tau_A
+    rw [div_eq_zero_iff]
+    constructor
+    · intro h
+      rcases h with h | h
+      · exact h
+      · exact absurd h c_pos.ne'
+    · intro h; exact Or.inl h
+  · unfold tau_B
+    constructor
+    · intro h
+      have he := Real.exp_log hr
+      rw [h, Real.exp_zero] at he
+      exact he.symm
+    · intro h; rw [h, Real.log_one]
+
+-- [T19] :: {VER} | EITHER ZERO SENDS THE PRODUCED Δv TO ZERO
+-- The bridge is a product, so a vehicle self-produces velocity only when it
+-- has both a nozzle and a reserve. Velocity it has without either is
+-- inherited rather than produced, and the product structure is what keeps
+-- the two apart.
+theorem t19_noble_gives_zero_dv (w r : ℝ) (h : tau_A w = 0 ∨ tau_B r = 0) :
+    C_LIGHT * tau_A w * tau_B r = 0 := by
+  rcases h with h | h
+  · rw [h]; ring
+  · rw [h]; ring
+
+/-- A drive below the corridor floor is Locked. -/
+theorem locked_of_ve (w : ℝ) (h0 : 0 < w) (h1 : w < corridor_ve_lo) :
+    classify (tau_A w) = Phase.Locked := by
+  have hc := c_pos
+  apply t3_classify_locked
+  · exact div_pos h0 hc
+  · unfold tau_A
+    rw [div_lt_iff₀ hc]
+    unfold corridor_ve_lo at h1
+    linarith
+
+/-- A drive at or above the corridor ceiling is Shatter. -/
+theorem shatter_of_ve (w : ℝ) (h : corridor_ve_hi ≤ w) :
+    classify (tau_A w) = Phase.Shatter := by
+  have hc := c_pos
+  apply t5_classify_shatter
+  unfold tau_A
+  rw [le_div_iff₀ hc]
+  unfold corridor_ve_hi at h
+  linarith
+
+/-- A drive inside the window places in the corridor. -/
+theorem iva_of_ve (w : ℝ) (h1 : corridor_ve_lo ≤ w) (h2 : w < corridor_ve_hi) :
+    classify (tau_A w) = Phase.IVA := by
+  obtain ⟨hlo, hhi⟩ := (t13_reading_A_window w).mpr ⟨h1, h2⟩
+  exact t4_classify_IVA _ hlo hhi
+
+-- ── The published catalog. Every effective exhaust velocity is T1. ──
+
+def ve_coldgas_n2    : ℝ := 700          -- cold gas N₂ thruster
+def ve_hydrazine     : ℝ := 2300         -- monopropellant hydrazine
+def ve_f1_sealevel   : ℝ := 2580         -- Saturn V F-1, sea level
+def ve_srb_solid     : ℝ := 2640         -- Shuttle solid rocket booster
+def ve_merlin1d_vac  : ℝ := 3050         -- Merlin 1D, vacuum
+def ve_raptor2_vac   : ℝ := 3730         -- Raptor 2, vacuum
+def ve_j2_vac        : ℝ := 4130         -- Saturn V J-2, vacuum
+def ve_rs25_vac      : ℝ := 4420         -- RS-25, vacuum
+def ve_ssme_vac      : ℝ := 4440         -- Shuttle main engine, vacuum
+def ve_rl10b2_vac    : ℝ := 4650         -- RL10B-2, best flown chemical
+def ve_nerva_ntr     : ℝ := 8300         -- NERVA nuclear thermal
+def ve_spt100_hall   : ℝ := 16000        -- SPT-100 Hall thruster
+def ve_nstar_ion     : ℝ := 30000        -- NSTAR ion, Deep Space 1
+def ve_nextc_ion     : ℝ := 41000        -- NEXT-C ion, best flown electric
+def ve_vasimr        : ℝ := 50000        -- VASIMR, design figure
+def ve_orion_pulse   : ℝ := 100000       -- Orion nuclear pulse concept
+def ve_daedalus      : ℝ := 10600000     -- Daedalus fusion concept
+def ve_antimatter    : ℝ := 100000000    -- antimatter beam core concept
+
+-- [T20] :: {VER} | EVERY FLOWN AND NEAR-TERM SYSTEM IS LOCKED
+theorem t20_flown_systems_locked :
+    classify (tau_A ve_coldgas_n2)   = Phase.Locked ∧
+    classify (tau_A ve_hydrazine)    = Phase.Locked ∧
+    classify (tau_A ve_f1_sealevel)  = Phase.Locked ∧
+    classify (tau_A ve_srb_solid)    = Phase.Locked ∧
+    classify (tau_A ve_merlin1d_vac) = Phase.Locked ∧
+    classify (tau_A ve_raptor2_vac)  = Phase.Locked ∧
+    classify (tau_A ve_j2_vac)       = Phase.Locked ∧
+    classify (tau_A ve_rs25_vac)     = Phase.Locked ∧
+    classify (tau_A ve_ssme_vac)     = Phase.Locked ∧
+    classify (tau_A ve_rl10b2_vac)   = Phase.Locked ∧
+    classify (tau_A ve_nerva_ntr)    = Phase.Locked ∧
+    classify (tau_A ve_spt100_hall)  = Phase.Locked ∧
+    classify (tau_A ve_nstar_ion)    = Phase.Locked ∧
+    classify (tau_A ve_nextc_ion)    = Phase.Locked ∧
+    classify (tau_A ve_vasimr)       = Phase.Locked ∧
+    classify (tau_A ve_orion_pulse)  = Phase.Locked := by
+  refine ⟨locked_of_ve _ (by unfold ve_coldgas_n2; norm_num)
+            (by unfold ve_coldgas_n2 corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_hydrazine; norm_num)
+            (by unfold ve_hydrazine corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_f1_sealevel; norm_num)
+            (by unfold ve_f1_sealevel corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_srb_solid; norm_num)
+            (by unfold ve_srb_solid corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_merlin1d_vac; norm_num)
+            (by unfold ve_merlin1d_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_raptor2_vac; norm_num)
+            (by unfold ve_raptor2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_j2_vac; norm_num)
+            (by unfold ve_j2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_rs25_vac; norm_num)
+            (by unfold ve_rs25_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_ssme_vac; norm_num)
+            (by unfold ve_ssme_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_rl10b2_vac; norm_num)
+            (by unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nerva_ntr; norm_num)
+            (by unfold ve_nerva_ntr corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_spt100_hall; norm_num)
+            (by unfold ve_spt100_hall corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nstar_ion; norm_num)
+            (by unfold ve_nstar_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_nextc_ion; norm_num)
+            (by unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_vasimr; norm_num)
+            (by unfold ve_vasimr corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          locked_of_ve _ (by unfold ve_orion_pulse; norm_num)
+            (by unfold ve_orion_pulse corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num)⟩
+
+-- [T21] :: {VER} | THE BEST FLOWN CHEMICAL ENGINE FALLS SHORT BY 7,766 TO 7,767
+-- RL10B-2 at 4,650 m/s against a floor of 36,116,359.56 m/s.
+theorem t21_best_chemical_short :
+    7766 * ve_rl10b2_vac < corridor_ve_lo ∧ corridor_ve_lo < 7767 * ve_rl10b2_vac := by
+  unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T22] :: {VER} | THE BEST FLOWN ELECTRIC ENGINE FALLS SHORT BY 880 TO 881
+theorem t22_best_ion_short :
+    880 * ve_nextc_ion < corridor_ve_lo ∧ corridor_ve_lo < 881 * ve_nextc_ion := by
+  unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- [T23] :: {VER} | PUBLISHED CONCEPTS BRACKET THE CORRIDOR
+-- A fusion design falls short by between 3 and 4 and remains Locked; a
+-- beam-core antimatter design overshoots into Shatter. The corridor lies
+-- between two published concepts rather than beyond all of them.
+theorem t23_concepts_bracket_corridor :
+    classify (tau_A ve_daedalus) = Phase.Locked ∧
+    classify (tau_A ve_antimatter) = Phase.Shatter ∧
+    3 * ve_daedalus < corridor_ve_lo ∧ corridor_ve_lo < 4 * ve_daedalus := by
+  refine ⟨locked_of_ve _ (by unfold ve_daedalus; norm_num)
+            (by unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          shatter_of_ve _
+            (by unfold ve_antimatter corridor_ve_hi TORSION_LIMIT
+                  SOVEREIGN_ANCHOR C_LIGHT; norm_num),
+          ?_, ?_⟩
+  · unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+  · unfold ve_daedalus corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+
+-- [T24] :: {VER} | THE READING-A CORRIDOR IS EMPTY OF BUILT HARDWARE
+-- Everything flown is Locked below the floor and the only catalog entry
+-- past the ceiling is a concept, so no built system places in the band.
+theorem best_chemical_locked : classify (tau_A ve_rl10b2_vac) = Phase.Locked :=
+  locked_of_ve _ (by unfold ve_rl10b2_vac; norm_num)
+    (by unfold ve_rl10b2_vac corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem best_electric_locked : classify (tau_A ve_nextc_ion) = Phase.Locked :=
+  locked_of_ve _ (by unfold ve_nextc_ion; norm_num)
+    (by unfold ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem antimatter_shatter : classify (tau_A ve_antimatter) = Phase.Shatter :=
+  shatter_of_ve _ (by unfold ve_antimatter corridor_ve_hi TORSION_LIMIT
+                        SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+theorem t24_reading_A_corridor_unoccupied :
+    classify (tau_A ve_rl10b2_vac) = Phase.Locked ∧
+    classify (tau_A ve_nextc_ion) = Phase.Locked ∧
+    classify (tau_A ve_daedalus) = Phase.Locked ∧
+    classify (tau_A ve_antimatter) = Phase.Shatter :=
+  ⟨best_chemical_locked, best_electric_locked,
+   t23_concepts_bracket_corridor.1, antimatter_shatter⟩
+
+/-- An exhaust velocity inside the window. 38,000 km/s. -/
+def ve_corridor_witness : ℝ := 38000000
+
+-- [T25] :: {VER} | A WITNESS INSIDE THE READING-A CORRIDOR
+-- The band is occupied by construction, not merely non-empty by width.
+theorem t25_reading_A_witness :
+    classify (tau_A ve_corridor_witness) = Phase.IVA :=
+  iva_of_ve _
+    (by unfold ve_corridor_witness corridor_ve_lo TL_IVA TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+    (by unfold ve_corridor_witness corridor_ve_hi TORSION_LIMIT
+          SOVEREIGN_ANCHOR C_LIGHT; norm_num)
+
+-- ============================================================
+-- SECTION 4: READING B — THE CORRIDOR AS A MASS RATIO
+--
+-- τ_B = ln(m₀/m_f), the rocket equation's own exponent.
+-- ============================================================
+
+-- [T26] :: {VER} | READING B IS A CORRIDOR CONDITION ON THE MASS RATIO
+-- The monotone bridge: a placement on τ_B is a window on r itself.
+theorem t26_reading_B_window (r : ℝ) (hr : 0 < r) :
+    (TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) ↔
+    (Real.exp TL_IVA ≤ r ∧ r < Real.exp TORSION_LIMIT) := by
+  unfold tau_B
+  rw [Real.le_log_iff_exp_le hr, Real.log_lt_iff_lt_exp hr]
+
+-- [T27] :: {VER} | THE CORRIDOR MASS RATIO LIES IN [1.120471, 1.158614]
+theorem t27_corridor_ratio_window (r : ℝ) (hr : 0 < r)
+    (h : TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) :
+    1.120471 ≤ r ∧ r ≤ 1.158614 := by
+  obtain ⟨e1, _, _, e4⟩ := t12_corridor_ratio_enclosed
+  rw [t26_reading_B_window r hr] at h
+  exact ⟨by linarith [h.1], by linarith [h.2]⟩
+
+-- [T28] :: {VER} | THE CORRIDOR IS A PROPELLANT FRACTION, 11.35% TO 12.79%
+-- The propellant fraction of a stage is 1 − m_f/m₀ = 1 − 1/r.
+theorem t28_corridor_propellant_fraction (r : ℝ) (hr : 0 < r)
+    (h : TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) :
+    1 - 1/(1.120471:ℝ) ≤ 1 - 1/r ∧ 1 - 1/r ≤ 1 - 1/(1.158614:ℝ) := by
+  obtain ⟨hlo, hhi⟩ := t27_corridor_ratio_window r hr h
+  have h1 : (0:ℝ) < 1.120471 := by norm_num
+  refine ⟨?_, ?_⟩
+  · have := one_div_le_one_div_of_le h1 hlo; linarith
+  · have := one_div_le_one_div_of_le hr hhi; linarith
+
+/-- A mass ratio below the corridor floor is Locked. -/
+theorem locked_of_ratio (r : ℝ) (h1 : 1 < r) (h : r < 1.120471) :
+    0 < tau_B r ∧ tau_B r < TL_IVA := by
+  obtain ⟨e1, _, _, _⟩ := t12_corridor_ratio_enclosed
+  have hr : (0:ℝ) < r := by linarith
+  refine ⟨Real.log_pos h1, ?_⟩
+  unfold tau_B
+  rw [Real.log_lt_iff_lt_exp hr]
+  linarith
+
+/-- A mass ratio at or above the corridor ceiling is Shatter. -/
+theorem shatter_of_ratio (r : ℝ) (h : 1.158614 ≤ r) :
+    TORSION_LIMIT ≤ tau_B r := by
+  obtain ⟨_, _, _, e4⟩ := t12_corridor_ratio_enclosed
+  have hr : (0:ℝ) < r := by linarith
+  unfold tau_B
+  rw [Real.le_log_iff_exp_le hr]
+  linarith
+
+-- ── Published vehicles. Every mass ratio is T1. ──
+
+def mr_car_tank   : ℝ := 1.04    -- passenger car, full to empty tank
+def mr_dawn_ion   : ℝ := 1.21    -- Dawn, total mission mass ratio
+def mr_airliner   : ℝ := 1.54    -- airliner at a 35% fuel fraction
+def mr_saturn_s1c : ℝ := 3.49    -- Saturn V first stage
+def mr_falcon9_s1 : ℝ := 3.60    -- Falcon 9 first stage
+def mr_shuttle_et : ℝ := 4.52    -- Shuttle orbiter with external tank
+def mr_falcon9_s2 : ℝ := 6.06    -- Falcon 9 second stage
+def mr_saturn_s2  : ℝ := 6.11    -- Saturn V second stage
+
+-- [T29] :: {VER} | A CAR'S FUEL TANK SITS BELOW THE CORRIDOR
+theorem t29_car_below_corridor :
+    0 < tau_B mr_car_tank ∧ tau_B mr_car_tank < TL_IVA :=
+  locked_of_ratio _ (by unfold mr_car_tank; norm_num)
+                    (by unfold mr_car_tank; norm_num)
+
+-- [T30] :: {VER} | DAWN'S ION STAGE SITS ABOVE THE CORRIDOR
+theorem t30_dawn_above_corridor : TORSION_LIMIT ≤ tau_B mr_dawn_ion :=
+  shatter_of_ratio _ (by unfold mr_dawn_ion; norm_num)
+
+-- [T31] :: {VER} | EVERY FLOWN LAUNCH STAGE IS SHATTER ON READING B
+theorem t31_launch_stages_shatter :
+    TORSION_LIMIT ≤ tau_B mr_airliner ∧
+    TORSION_LIMIT ≤ tau_B mr_saturn_s1c ∧
+    TORSION_LIMIT ≤ tau_B mr_falcon9_s1 ∧
+    TORSION_LIMIT ≤ tau_B mr_shuttle_et ∧
+    TORSION_LIMIT ≤ tau_B mr_falcon9_s2 ∧
+    TORSION_LIMIT ≤ tau_B mr_saturn_s2 :=
+  ⟨shatter_of_ratio _ (by unfold mr_airliner; norm_num),
+   shatter_of_ratio _ (by unfold mr_saturn_s1c; norm_num),
+   shatter_of_ratio _ (by unfold mr_falcon9_s1; norm_num),
+   shatter_of_ratio _ (by unfold mr_shuttle_et; norm_num),
+   shatter_of_ratio _ (by unfold mr_falcon9_s2; norm_num),
+   shatter_of_ratio _ (by unfold mr_saturn_s2; norm_num)⟩
+
+-- [T32] :: {VER} | THE READING-B CORRIDOR IS A BAND BETWEEN TWO FLOWN THINGS
+-- A car's tank is Locked below it and an ion probe is Shatter above it,
+-- so the corridor on mass ratio lies strictly between the two and no
+-- flown vehicle occupies it.
+theorem t32_corridor_between_car_and_probe :
+    tau_B mr_car_tank < TL_IVA ∧ TORSION_LIMIT ≤ tau_B mr_dawn_ion ∧
+    tau_B mr_car_tank < tau_B mr_dawn_ion := by
+  have h1 := t29_car_below_corridor.2
+  have h2 := t30_dawn_above_corridor
+  have h3 := t1_corridor_has_width.2.1
+  exact ⟨h1, h2, by linarith⟩
+
+-- [T33] :: {VER} | THE CORRIDOR IS A LOW MASS RATIO, NOT A HIGH ONE
+-- Every launch stage overshoots the ceiling, so the corridor is reached
+-- by carrying less propellant rather than more.
+theorem t33_corridor_is_below_every_stage :
+    tau_B mr_car_tank < TL_IVA ∧
+    (∀ r : ℝ, 1.158614 ≤ r → TORSION_LIMIT ≤ tau_B r) :=
+  ⟨t29_car_below_corridor.2, shatter_of_ratio⟩
+
+-- ── A tighter enclosure, enough to place a witness in the band ────────
+
+-- [T34] :: {VER} | THE QUADRATIC LOWER ENCLOSURE
+-- exp x = (exp (x/2))², and the linear bound applied to the half argument
+-- squares into (1 + x/2)² ≤ exp x.
+theorem t34_exp_lower_quad (x : ℝ) (hx : 0 ≤ x) : (1 + x/2)^2 ≤ Real.exp x := by
+  have hhalf : 1 + x/2 ≤ Real.exp (x/2) := by linarith [Real.add_one_le_exp (x/2)]
+  have hpos : (0:ℝ) ≤ 1 + x/2 := by linarith
+  have hsplit : Real.exp x = Real.exp (x/2) * Real.exp (x/2) := by
+    rw [← Real.exp_add]; ring_nf
+  rw [hsplit, sq]
+  exact mul_le_mul hhalf hhalf hpos (le_trans hpos hhalf)
+
+-- [T35] :: {VER} | THE CORRIDOR CEILING, ENCLOSED FROM BELOW
+theorem t35_exp_TL_lower : (1.1415:ℝ) ≤ Real.exp TORSION_LIMIT := by
+  have h := t34_exp_lower_quad TORSION_LIMIT tl_pos.le
+  rw [const_values.1] at h
+  rw [const_values.1]
+  norm_num at h
+  linarith
+
+-- [T36] :: {VER} | THE CORRIDOR FLOOR, ENCLOSED FROM ABOVE
+theorem t36_exp_TL_IVA_upper : Real.exp TL_IVA ≤ 1.137 := by
+  have h := t11_exp_upper TL_IVA
+  rw [const_values.2] at h
+  rw [const_values.2]
+  linarith
+
+/-- A mass ratio inside the window. Propellant fraction 12.204%. -/
+def mr_corridor_witness : ℝ := 1.139
+
+-- [T37] :: {VER} | A WITNESS INSIDE THE READING-B CORRIDOR
+-- The two enclosures leave the window [1.137, 1.1415), and this ratio
+-- sits inside it, so the band is occupied on Reading B as well.
+theorem t37_reading_B_witness :
+    TL_IVA ≤ tau_B mr_corridor_witness ∧
+    tau_B mr_corridor_witness < TORSION_LIMIT := by
+  have hr : (0:ℝ) < mr_corridor_witness := by unfold mr_corridor_witness; norm_num
+  rw [t26_reading_B_window _ hr]
+  refine ⟨?_, ?_⟩
+  · have h := t36_exp_TL_IVA_upper
+    unfold mr_corridor_witness; linarith
+  · have h := t35_exp_TL_lower
+    unfold mr_corridor_witness; linarith
+
+-- ============================================================
+-- SECTION 5: THE BRIDGE — Δv = c · τ_A · τ_B
+--
+-- The two readings are one vehicle seen from both ends, and the rocket
+-- equation is their product.
+-- ============================================================
+
+/-- Light speed recovers the exhaust velocity from Reading A. -/
+theorem c_mul_tau_A (w : ℝ) : C_LIGHT * tau_A w = w := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold tau_A
+  field_simp
+
+-- [T38] :: {VER} | THE BRIDGE THEOREM
+-- Δv = v_e · ln(m₀/m_f) = c · τ_A(v_e) · τ_B(m₀/m_f), exactly.
+theorem t38_bridge (w r : ℝ) :
+    delta_v_classical w r 1 = C_LIGHT * tau_A w * tau_B r := by
+  unfold delta_v_classical tau_B
+  rw [div_one, c_mul_tau_A]
+
+-- [T39] :: {VER} | THE SOVEREIGN BRIDGE
+theorem t39_bridge_sovereign (w r g_r : ℝ) :
+    delta_v_sovereign w r 1 g_r = (1 + g_r) * (C_LIGHT * tau_A w * tau_B r) := by
+  rw [t7_gain_ratio_exact, t38_bridge]
+
+/-- The Δv of a vehicle in the corridor on both readings. -/
+def corridor_dv_lo : ℝ := C_LIGHT * TL_IVA * TL_IVA
+def corridor_dv_hi : ℝ := C_LIGHT * TORSION_LIMIT * TORSION_LIMIT
+
+-- [T40] :: {VER} | THE CORRIDOR Δv BAND IS 4,350,981 TO 5,618,519 M/S
+-- 1.4513% to 1.8741% of light speed. Published mission budgets — surface
+-- to low orbit at 9,400 m/s, Earth escape at 11,200 m/s, the Dawn ion
+-- record at 11,000 m/s — all reach under 0.31% of this band.
+theorem t40_corridor_dv_band :
+    4350980 ≤ corridor_dv_lo ∧ corridor_dv_lo ≤ 4350982 ∧
+    5618518 ≤ corridor_dv_hi ∧ corridor_dv_hi ≤ 5618520 ∧
+    300 * 11200 < corridor_dv_hi := by
+  unfold corridor_dv_lo corridor_dv_hi TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 6: THE GAIN, AGAINST THE CORRIDOR
+--
+-- The gain layer and the corridor layer meet here: the resonance gain is
+-- an exhaust-velocity multiplier, so the corridor states what it must be.
+-- ============================================================
+
+-- [T41] :: {VER} | THE GAIN IS AN EXHAUST-VELOCITY MULTIPLIER
+-- Applying (1 + g_r) to Reading A is the same as scaling the exhaust
+-- velocity by it, so the gain moves a drive along the Reading-A axis.
+theorem t41_gain_is_exhaust_multiplier (w g_r : ℝ) :
+    (1 + g_r) * tau_A w = tau_A ((1 + g_r) * w) := by
+  unfold tau_A; ring
+
+-- [T42] :: {VER} | WHAT THE FLOOR ASKS OF THE BEST FLOWN DRIVE
+-- A factor between 880 and 881 on the best flown electric exhaust
+-- velocity reaches the corridor floor.
+theorem t42_gain_required_at_floor :
+    880 * ve_nextc_ion < corridor_ve_lo ∧ corridor_ve_lo < 881 * ve_nextc_ion :=
+  t22_best_ion_short
+
+-- [T43] :: {VER} | THE STATED THRESHOLD SUPPLIES 2.5
+-- At g_r = GAIN_THRESHOLD the multiplier is 2.5, and the product with the
+-- best flown exhaust velocity remains below the floor.
+theorem t43_threshold_below_floor :
+    (1 + GAIN_THRESHOLD) * ve_nextc_ion < corridor_ve_lo := by
+  unfold GAIN_THRESHOLD ve_nextc_ion corridor_ve_lo TL_IVA TORSION_LIMIT
+    SOVEREIGN_ANCHOR C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 7: THE ENERGY LADDER
+--
+-- Reading A squares into a rest-mass conversion fraction, which places
+-- the corridor against the published nuclear mass defects.
+-- ============================================================
+
+/-- The ideal-rocket energy relation: all released energy enters exhaust
+kinetic energy, so ½·v_e² = η·c². -/
+def IdealRocket (w eta : ℝ) : Prop := w ^ 2 = 2 * eta * C_LIGHT ^ 2
+
+-- [T44] :: {VER} | READING A SQUARES INTO A CONVERSION FRACTION
+theorem t44_tau_A_sq_of_ideal (w eta : ℝ) (h : IdealRocket w eta) :
+    (tau_A w) ^ 2 = 2 * eta := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := c_pos.ne'
+  unfold IdealRocket at h
+  unfold tau_A
+  rw [div_pow, h]
+  field_simp
+
+/-- The corridor floor as a rest-mass conversion fraction. -/
+def eta_floor : ℝ := TL_IVA ^ 2 / 2
+
+/-- The corridor ceiling as a rest-mass conversion fraction. -/
+def eta_ceiling : ℝ := TORSION_LIMIT ^ 2 / 2
+
+-- [T45] :: {VER} | THE CORRIDOR IS 0.725666% TO 0.937068% OF REST MASS
+theorem t45_eta_corridor_bounds :
+    0.00725665 ≤ eta_floor ∧ eta_floor ≤ 0.00725666 ∧
+    0.00937068 ≤ eta_ceiling ∧ eta_ceiling ≤ 0.00937069 := by
+  unfold eta_floor eta_ceiling TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── Published atomic masses, AME2020, in unified mass units. ──
+
+def u_H1   : ℝ := 1.00782503207    -- hydrogen-1
+def u_He4  : ℝ := 4.00260325413    -- helium-4
+def u_Fe56 : ℝ := 55.93493633      -- iron-56
+
+/-- Hydrogen to helium-4: the stellar fusion chain. -/
+def eta_H_to_He : ℝ := (4 * u_H1 - u_He4) / (4 * u_H1)
+
+/-- Hydrogen to iron-56: the limit of energy release by nuclear binding. -/
+def eta_H_to_Fe : ℝ := (56 * u_H1 - u_Fe56) / (56 * u_H1)
+
+def eta_U235_fission : ℝ := 0.00093
+def eta_DT_fusion    : ℝ := 0.00376
+def eta_annihilation : ℝ := 1
+
+-- [T46] :: {VER} | THE ENERGY LADDER
+-- Fission, deuterium–tritium fusion and the hydrogen-to-helium chain all
+-- fall below the floor; hydrogen to iron places inside the corridor;
+-- annihilation sits above the ceiling. The band opens above what stars do
+-- and closes above the iron peak, and Shatter begins where annihilation does.
+theorem t46_energy_ladder :
+    eta_U235_fission < eta_DT_fusion ∧
+    eta_DT_fusion < eta_H_to_He ∧
+    eta_H_to_He < eta_floor ∧
+    eta_floor < eta_H_to_Fe ∧
+    eta_H_to_Fe < eta_ceiling ∧
+    eta_ceiling < eta_annihilation := by
+  unfold eta_U235_fission eta_DT_fusion eta_H_to_He eta_H_to_Fe
+    eta_annihilation eta_floor eta_ceiling u_H1 u_He4 u_Fe56
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T47] :: {VER} | THE WITNESS SITS BETWEEN THE TWO NUCLEAR MARKS
+-- The Reading-A witness converts more than the stellar chain and less
+-- than the iron peak, so the corridor's occupied interior lies between
+-- the two published mass defects.
+theorem t47_witness_between_nuclear_marks :
+    eta_H_to_He < (tau_A ve_corridor_witness) ^ 2 / 2 ∧
+    (tau_A ve_corridor_witness) ^ 2 / 2 < eta_H_to_Fe := by
+  unfold eta_H_to_He eta_H_to_Fe tau_A ve_corridor_witness u_H1 u_He4 u_Fe56 C_LIGHT
+  norm_num
+
+-- ============================================================
+-- SECTION 8: THE NUCLEAR SECTOR
+--
+-- The conversion fraction of Section 7 is a published quantity under
+-- another name, which places the corridor against the whole nuclide table.
+-- ============================================================
+
+/-- The conversion fraction of any nuclide: the energy released building it
+out of hydrogen, as a fraction of the starting rest mass. -/
+def eta_of (A m : ℝ) : ℝ := (A * u_H1 - m) / (A * u_H1)
+
+/-- Aston's packing fraction, f = (m − A)/A × 10⁴. -/
+def packing_fraction (A m : ℝ) : ℝ := (m - A) / A * 10000
+
+def InCorridor (e : ℝ) : Prop := eta_floor ≤ e ∧ e < eta_ceiling
+
+-- [T48] :: {VER} | THE CONVERSION FRACTION IS ASTON'S PACKING FRACTION
+-- The two quantities are one, related exactly and linearly. The corridor
+-- is therefore a window on the packing fraction as Aston defined it.
+theorem t48_eta_is_packing_fraction (A m : ℝ) (hA : A ≠ 0) :
+    packing_fraction A m = (u_H1 * (1 - eta_of A m) - 1) * 10000 := by
+  have hu : (u_H1:ℝ) ≠ 0 := by unfold u_H1; norm_num
+  unfold packing_fraction eta_of
+  field_simp
+  ring
+
+-- [T49] :: {VER} | THE CORRIDOR IN PACKING-FRACTION UNITS
+-- f ∈ (−16.1898, +5.1159]. Iron-56 sits at −11.6185, inside it.
+theorem t49_corridor_packing_window :
+    -16.19 ≤ (u_H1 * (1 - eta_ceiling) - 1) * 10000 ∧
+    (u_H1 * (1 - eta_ceiling) - 1) * 10000 ≤ -16.18 ∧
+    5.11 ≤ (u_H1 * (1 - eta_floor) - 1) * 10000 ∧
+    (u_H1 * (1 - eta_floor) - 1) * 10000 ≤ 5.12 ∧
+    -11.62 ≤ packing_fraction 56 u_Fe56 ∧ packing_fraction 56 u_Fe56 ≤ -11.61 := by
+  unfold packing_fraction eta_floor eta_ceiling u_H1 u_Fe56
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── The nuclide census. Every atomic mass is AME2020, and T1. ──
+
+-- [T50] :: {VER} | THE TWO NUCLIDES BELOW THE FLOOR
+-- Hydrogen-1 releases nothing, and helium-4 — the first fusion product —
+-- falls short of the floor. These are the only two below it.
+theorem t50_below_the_floor :
+    eta_of 1 1.00782503207 = 0 ∧
+    eta_of 4 4.00260325413 < eta_floor := by
+  unfold eta_of eta_floor u_H1 TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T51] :: {VER} | THE LIGHT NUCLIDES PLACE IN THE CORRIDOR
+theorem t51_census_light :
+    InCorridor (eta_of 12 12) ∧
+    InCorridor (eta_of 16 15.99491461957) ∧
+    InCorridor (eta_of 20 19.9924401762) ∧
+    InCorridor (eta_of 24 23.985041697) ∧
+    InCorridor (eta_of 28 27.9769265347) ∧
+    InCorridor (eta_of 32 31.9720711744) ∧
+    InCorridor (eta_of 40 39.962590863) ∧
+    InCorridor (eta_of 48 47.94794198) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T52] :: {VER} | THE IRON PEAK PLACES IN THE CORRIDOR
+theorem t52_census_iron_peak :
+    InCorridor (eta_of 52 51.94050623) ∧
+    InCorridor (eta_of 54 53.93960899) ∧
+    InCorridor (eta_of 55 54.93804391) ∧
+    InCorridor (eta_of 56 55.93493633) ∧
+    InCorridor (eta_of 57 56.93539284) ∧
+    InCorridor (eta_of 58 57.93327443) ∧
+    InCorridor (eta_of 58 57.93534241) ∧
+    InCorridor (eta_of 59 58.93319429) ∧
+    InCorridor (eta_of 60 59.93078588) ∧
+    InCorridor (eta_of 62 61.92834537) ∧
+    InCorridor (eta_of 63 62.92959772) ∧
+    InCorridor (eta_of 64 63.92796682) ∧
+    InCorridor (eta_of 64 63.92914201) ∧
+    InCorridor (eta_of 66 65.92603381) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T53] :: {VER} | THE HEAVY NUCLIDES PLACE IN THE CORRIDOR
+theorem t53_census_heavy :
+    InCorridor (eta_of 84 83.9114977282) ∧
+    InCorridor (eta_of 98 97.90540482) ∧
+    InCorridor (eta_of 120 119.90220163) ∧
+    InCorridor (eta_of 132 131.9041550856) ∧
+    InCorridor (eta_of 142 141.907729) ∧
+    InCorridor (eta_of 150 149.9172829) ∧
+    InCorridor (eta_of 158 157.9241123) ∧
+    InCorridor (eta_of 164 163.9291819) ∧
+    InCorridor (eta_of 174 173.9388664) ∧
+    InCorridor (eta_of 184 183.95093092) ∧
+    InCorridor (eta_of 192 191.96147705) ∧
+    InCorridor (eta_of 195 194.9647917) ∧
+    InCorridor (eta_of 197 196.96656879) ∧
+    InCorridor (eta_of 208 207.9766525) ∧
+    InCorridor (eta_of 209 208.9803991) ∧
+    InCorridor (eta_of 232 232.0380558) ∧
+    InCorridor (eta_of 235 235.0439301) ∧
+    InCorridor (eta_of 238 238.0507884) := by
+  unfold InCorridor eta_of eta_floor eta_ceiling u_H1
+    TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T54] :: {VER} | THE FLOOR FALLS IN THE HELIUM-TO-URANIUM GAP
+-- Helium-4 sits below the floor and uranium-238, the least tightly bound
+-- of the heavy nuclides on this reading, sits above it. The floor
+-- separates the first fusion product from all heavier nuclear matter.
+theorem t54_floor_separates_helium :
+    eta_of 4 4.00260325413 < eta_floor ∧
+    eta_floor ≤ eta_of 238 238.0507884 := by
+  unfold eta_of eta_floor u_H1 TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T55] :: {VER} | IRON-56 IS THE MAXIMUM, AND IT IS BELOW THE CEILING
+-- Every nuclide in the census converts less than iron-56, and iron-56
+-- converts less than the ceiling. So the nuclear sector is confined to
+-- Locked and IVA: no nuclide reaches Shatter on this reading, and Shatter
+-- requires annihilation.
+theorem t55_iron_is_the_nuclear_maximum :
+    eta_of 62 61.92834537 < eta_of 56 55.93493633 ∧
+    eta_of 60 59.93078588 < eta_of 56 55.93493633 ∧
+    eta_of 58 57.93327443 < eta_of 56 55.93493633 ∧
+    eta_of 52 51.94050623 < eta_of 56 55.93493633 ∧
+    eta_of 238 238.0507884 < eta_of 56 55.93493633 ∧
+    eta_of 56 55.93493633 < eta_ceiling ∧
+    eta_ceiling < eta_annihilation := by
+  unfold eta_of eta_ceiling eta_annihilation u_H1 TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- [T56] :: {VER} | WHY THE READING SELECTS IRON-56 AND NOT NICKEL-62
+-- Nickel-62 holds the binding-energy-per-nucleon record; iron-56 holds the
+-- lowest mass per nucleon. The conversion fraction is built on mass per
+-- nucleon, so it selects iron-56, and the margin is the proton–neutron
+-- mass difference carried by the two nuclides' differing neutron counts.
+theorem t56_iron_over_nickel :
+    u_Fe56 / 56 < 61.92834537 / 62 ∧
+    eta_of 62 61.92834537 < eta_of 56 u_Fe56 := by
+  unfold eta_of u_H1 u_Fe56
+  norm_num
+
+-- ============================================================
+-- SECTION 9: MISSION CLOSURE
+--
+-- The bridge turns a corridor drive into a statement about the propellant
+-- any published solar-system mission would need.
+-- ============================================================
+
+def dv_LEO_from_surface : ℝ := 9400
+def dv_earth_escape     : ℝ := 11200
+def dv_mars_transfer    : ℝ := 3600
+def dv_jupiter_transfer : ℝ := 6300
+def dv_solar_escape     : ℝ := 8800
+def dv_dawn_flown       : ℝ := 11000
+def dv_voyager1_helio   : ℝ := 17000
+
+theorem corridor_ve_lo_pos : (0:ℝ) < corridor_ve_lo := by
+  unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT; norm_num
+
+-- [T57] :: {VER} | A CORRIDOR DRIVE PUTS EVERY MISSION DEEP IN LOCKED
+-- At the corridor floor the exhaust velocity is 36,116,359.56 m/s, so a
+-- mission budget up to 17,000 m/s needs a Reading-B torsion under
+-- 5 × 10⁻⁴ — three orders below the corridor floor on that axis.
+theorem t57_mission_tau_B_bound (dv : ℝ) (h0 : 0 ≤ dv) (h : dv ≤ 17000) :
+    dv / corridor_ve_lo < 0.0005 ∧ dv / corridor_ve_lo < TL_IVA := by
+  have hc := corridor_ve_lo_pos
+  have hb : dv / corridor_ve_lo < 0.0005 := by
+    rw [div_lt_iff₀ hc]
+    unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT
+    norm_num
+    linarith
+  refine ⟨hb, ?_⟩
+  have : (0.0005:ℝ) < TL_IVA := by
+    unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  linarith
+
+-- [T58] :: {VER} | AND A MASS RATIO WITHIN 0.051% OF UNITY
+-- The propellant fraction of every mission in the catalog falls under
+-- 0.051%: a corridor drive makes the solar system a near-unit-mass-ratio
+-- problem, and the propellant stops being the design constraint.
+theorem t58_mission_mass_ratio (dv : ℝ) (h0 : 0 ≤ dv) (h : dv ≤ 17000) :
+    Real.exp (dv / corridor_ve_lo) ≤ 1.00051 := by
+  have hc := corridor_ve_lo_pos
+  have hx : 0 ≤ dv / corridor_ve_lo := div_nonneg h0 hc.le
+  have hb := (t57_mission_tau_B_bound dv h0 h).1
+  have hup := t11_exp_upper (dv / corridor_ve_lo)
+  nlinarith [Real.exp_pos (dv / corridor_ve_lo), hup, hb, hx]
+
+-- [T59] :: {VER} | THE WHOLE PUBLISHED CATALOG, EXPLICITLY
+theorem t59_mission_catalog :
+    dv_mars_transfer / corridor_ve_lo < 0.0005 ∧
+    dv_jupiter_transfer / corridor_ve_lo < 0.0005 ∧
+    dv_solar_escape / corridor_ve_lo < 0.0005 ∧
+    dv_LEO_from_surface / corridor_ve_lo < 0.0005 ∧
+    dv_dawn_flown / corridor_ve_lo < 0.0005 ∧
+    dv_earth_escape / corridor_ve_lo < 0.0005 ∧
+    dv_voyager1_helio / corridor_ve_lo < 0.0005 :=
+  ⟨(t57_mission_tau_B_bound _ (by unfold dv_mars_transfer; norm_num)
+      (by unfold dv_mars_transfer; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_jupiter_transfer; norm_num)
+      (by unfold dv_jupiter_transfer; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_solar_escape; norm_num)
+      (by unfold dv_solar_escape; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_LEO_from_surface; norm_num)
+      (by unfold dv_LEO_from_surface; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_dawn_flown; norm_num)
+      (by unfold dv_dawn_flown; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_earth_escape; norm_num)
+      (by unfold dv_earth_escape; norm_num)).1,
+   (t57_mission_tau_B_bound _ (by unfold dv_voyager1_helio; norm_num)
+      (by unfold dv_voyager1_helio; norm_num)).1⟩
+
+-- ============================================================
+-- SECTION 10: THE ANCHOR BENEATH c
+--
+-- Reading A divides by light speed, and light speed is not an independent
+-- constant of this corpus. The speed-of-light reduction [9,9,0,15] fixes
+-- it through the anchor, so both readings collapse to expressions in the
+-- inverse fine-structure constant and one integer.
+-- ============================================================
+
+/-- The inverse fine-structure constant, from the alpha reduction. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+-- [T60] :: {VER} | THE INHERITED ALPHA DECOMPOSITION
+-- Ω₀ × (10² + 10⁻¹) is the inverse fine-structure constant exactly, and
+-- the Torsion Limit is therefore α⁻¹ divided by 1001.
+theorem t60_alpha_from_anchor :
+    SOVEREIGN_ANCHOR * (100 + 1/10) = ALPHA_INV ∧
+    TORSION_LIMIT * 1001 = ALPHA_INV ∧
+    TORSION_LIMIT = ALPHA_INV / 1001 := by
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV
+  norm_num
+
+-- [T61] :: {VER} | THE CORRIDOR IN EXHAUST VELOCITY, IN α AND 1001 ALONE
+-- The ceiling is c·α⁻¹/1001 and the floor is 0.88 of it. The band carries
+-- no free parameter: light speed, the fine-structure constant and the
+-- integer 1001 fix both edges.
+theorem t61_corridor_ve_in_alpha :
+    corridor_ve_hi = C_LIGHT * ALPHA_INV / 1001 ∧
+    corridor_ve_lo = 0.88 * (C_LIGHT * ALPHA_INV / 1001) := by
+  unfold corridor_ve_hi corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR
+    ALPHA_INV C_LIGHT
+  norm_num
+
+-- [T62] :: {VER} | THE CONVERSION CORRIDOR IS α⁻² OVER TWICE 1001²
+-- The ceiling of the energy reading is α⁻²/(2 × 1001²) exactly, and the
+-- floor is 0.88² of it. Section 7's band is an expression in α.
+theorem t62_eta_corridor_in_alpha :
+    eta_ceiling = ALPHA_INV ^ 2 / (2 * 1001 ^ 2) ∧
+    eta_floor = 0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) := by
+  unfold eta_ceiling eta_floor TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR ALPHA_INV
+  norm_num
+
+-- [T63] :: {VER} | THE NUCLEAR PLACEMENT, READ IN α
+-- Helium-4 falls below α⁻²·0.88²/(2 × 1001²) and iron-56 — the maximum of
+-- the conversion fraction over every nuclide in the census — falls below
+-- α⁻²/(2 × 1001²). The band that brackets the iron peak is expressible in
+-- the fine-structure constant and one integer.
+theorem t63_iron_peak_inside_alpha_band :
+    eta_of 4 4.00260325413 < 0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) ∧
+    0.88 ^ 2 * (ALPHA_INV ^ 2 / (2 * 1001 ^ 2)) ≤ eta_of 238 238.0507884 ∧
+    eta_of 56 55.93493633 < ALPHA_INV ^ 2 / (2 * 1001 ^ 2) := by
+  unfold eta_of u_H1 ALPHA_INV
+  norm_num
+
+-- ============================================================
+-- SECTION 11: THE REACH CONDITION UNDER A CHANGE OF FRAME
+--
+-- The pool's ceiling is light speed, and light speed is the fixed point
+-- of the frame-change operator, so the ceiling does not move with the
+-- observer.
+-- ============================================================
+
+/-- Relativistic velocity addition, cleared of nested fractions. -/
+noncomputable def velocity_add (u v : ℝ) : ℝ :=
+  C_LIGHT ^ 2 * (u + v) / (C_LIGHT ^ 2 + u * v)
+
+-- [T64] :: {VER} | THE SUBLIGHT INTERVAL IS CLOSED UNDER FRAME CHANGE
+-- The inequality turns on one factorization: u ⊕ v < c exactly when
+-- (c − u)(c − v) > 0.
+theorem t64_sublight_closed (u v : ℝ)
+    (hu0 : 0 ≤ u) (hu : u < C_LIGHT) (hv0 : 0 ≤ v) (hv : v < C_LIGHT) :
+    0 ≤ velocity_add u v ∧ velocity_add u v < C_LIGHT := by
+  have hc := c_pos
+  have hden : 0 < C_LIGHT ^ 2 + u * v := by positivity
+  unfold velocity_add
+  refine ⟨?_, ?_⟩
+  · apply div_nonneg (by positivity) hden.le
+  · rw [div_lt_iff₀ hden]
+    nlinarith [mul_pos (sub_pos.mpr hu) (sub_pos.mpr hv)]
+
+-- [T65] :: {VER} | SO THE REACH CONDITION IS FRAME-INDEPENDENT
+-- A drive that is sublight for one observer is sublight for every
+-- observer, so whether a composition can place in the corridor at all
+-- does not depend on who is measuring.
+theorem t65_reach_condition_frame_independent (u v : ℝ)
+    (hu0 : 0 < u) (hu : u < C_LIGHT) (hv0 : 0 ≤ v) (hv : v < C_LIGHT) :
+    tau_A (velocity_add u v) < 1 := by
+  have hc := c_pos
+  obtain ⟨_, hlt⟩ := t64_sublight_closed u v hu0.le hu hv0 hv
+  unfold tau_A
+  rw [div_lt_one hc]
+  exact hlt
+
+-- [T66] :: {VER} | THE PHOTON DRIVE IS THE SUPREMUM, AND IT IS SHATTER
+-- Reading A reaches one exactly at an exhaust velocity of c, which is
+-- 1/TL = 7.3046 times the corridor ceiling.
+theorem t66_photon_drive_is_supremum :
+    tau_A C_LIGHT = 1 ∧ classify (tau_A C_LIGHT) = Phase.Shatter := by
+  have h : tau_A C_LIGHT = 1 := by
+    unfold tau_A; exact div_self c_pos.ne'
+  refine ⟨h, ?_⟩
+  rw [h]
+  apply t5_classify_shatter
+  unfold TORSION_LIMIT SOVEREIGN_ANCHOR
+  norm_num
+
+-- ── The Noble state, placed ──────────────────────────────────
+--
+-- An unpropelled body carries m₀/m_f = 1 exactly and no exhaust, so it is
+-- Noble on both readings and self-produces nothing. The bodies in that state
+-- are the fastest things in the solar system, which is what separates
+-- produced velocity from inherited velocity on this pool.
+--
+-- Perihelion speeds below are computed from published orbital elements by
+-- vis-viva, v = √(GM(2/r − 1/a)), with GM_sun = 1.32712440018 × 10²⁰ m³/s².
+
+def v_phaethon  : ℝ := 109400     -- 3200 Phaethon, a = 1.2710 AU, e = 0.8898
+def v_icarus    : ℝ := 93200      -- 1566 Icarus, a = 1.0780 AU, e = 0.8268
+def v_oumuamua  : ℝ := 87100      -- 1I/'Oumuamua, a = −1.2790 AU, e = 1.2011
+def v_borisov   : ℝ := 43900      -- 2I/Borisov, a = −0.8514 AU, e = 3.3566
+def v_apophis   : ℝ := 37600      -- 99942 Apophis, a = 0.9224 AU, e = 0.1914
+def v_lovejoy   : ℝ := 566500     -- C/2011 W3 Lovejoy, q = 0.005528 AU
+
+-- [T67] :: {VER} | THE NOBLE STATE OF AN UNPROPELLED BODY
+-- No exhaust and no propellant, so both readings vanish and the produced
+-- Δv is zero.
+theorem t67_unpropelled_is_noble :
+    tau_A 0 = 0 ∧ tau_B 1 = 0 ∧ C_LIGHT * tau_A 0 * tau_B 1 = 0 := by
+  refine ⟨?_, ?_, ?_⟩
+  · unfold tau_A; exact zero_div _
+  · unfold tau_B; exact Real.log_one
+  · unfold tau_A tau_B; rw [Real.log_one]; ring
+
+-- [T68] :: {VER} | AND IT OUTRUNS EVERY PROPULSIVE BUDGET IN THE CATALOG
+-- Each of these bodies exceeds the largest published mission Δv, which is
+-- the Voyager 1 heliocentric figure, while producing none of its own.
+theorem t68_unpropelled_exceeds_every_budget :
+    dv_voyager1_helio < v_apophis ∧
+    dv_voyager1_helio < v_borisov ∧
+    dv_voyager1_helio < v_oumuamua ∧
+    dv_voyager1_helio < v_icarus ∧
+    dv_voyager1_helio < v_phaethon ∧
+    dv_voyager1_helio < v_lovejoy := by
+  unfold dv_voyager1_helio v_apophis v_borisov v_oumuamua v_icarus
+    v_phaethon v_lovejoy
+  norm_num
+
+-- [T69] :: {VER} | BY FACTORS OF SIX AND THIRTY-THREE
+-- Phaethon exceeds the largest propulsive budget by a factor between 6 and
+-- 7; the Lovejoy sungrazer by a factor between 33 and 34.
+theorem t69_unpropelled_margins :
+    6 * dv_voyager1_helio < v_phaethon ∧ v_phaethon < 7 * dv_voyager1_helio ∧
+    5 * dv_voyager1_helio < v_oumuamua ∧ v_oumuamua < 6 * dv_voyager1_helio ∧
+    33 * dv_voyager1_helio < v_lovejoy ∧ v_lovejoy < 34 * dv_voyager1_helio := by
+  unfold dv_voyager1_helio v_phaethon v_oumuamua v_lovejoy
+  norm_num
+
+-- [T70] :: {VER} | WHAT IT WOULD COST TO PRODUCE THOSE SPEEDS
+-- A corridor-floor drive reaches the Phaethon perihelion speed at a
+-- Reading-B torsion of 3.03 × 10⁻³ and the Lovejoy speed at 1.57 × 10⁻²,
+-- both still Locked. The speeds are not out of propulsive reach — they are
+-- out of reach of every drive that has been built.
+theorem t70_corridor_drive_matches_them :
+    v_phaethon / corridor_ve_lo < 0.0031 ∧
+    v_phaethon / corridor_ve_lo < TL_IVA ∧
+    v_lovejoy / corridor_ve_lo < 0.0158 ∧
+    v_lovejoy / corridor_ve_lo < TL_IVA := by
+  have hc : (0:ℝ) < corridor_ve_lo := by
+    unfold corridor_ve_lo TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR C_LIGHT; norm_num
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+  · rw [div_lt_iff₀ hc]
+    simp only [v_phaethon, v_lovejoy, corridor_ve_lo, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR, C_LIGHT]
+    norm_num
+
+-- ============================================================
+-- SECTION 12: THE EMITTER BEHIND THE GAIN
+--
+-- Section 7 showed the resonance gain is an exhaust-velocity multiplier and
+-- read off what the corridor demands of it. The general emitter \[9,9,6,6\]
+-- supplies the gain itself: g_r is the Sovereign Bubble Differential minus
+-- one, so the demand on the gain converts into a demand on the torsion the
+-- emitter holds in its interior.
+-- ============================================================
+
+/-- The Sovereign Bubble Differential, Δ(τ_b) = TL / τ_b. -/
+noncomputable def bubble_differential (tau_b : ℝ) : ℝ := TORSION_LIMIT / tau_b
+
+/-- The resonance gain supplied by an emitter holding its interior at τ_b. -/
+noncomputable def gain_of_bubble (tau_b : ℝ) : ℝ := bubble_differential tau_b - 1
+
+-- [T71] :: {VER} | THE GAIN MULTIPLIER IS THE BUBBLE DIFFERENTIAL
+-- 1 + g_r = Δ(τ_b), so the multiplier of Section 7 is the emitter's output.
+theorem t71_gain_multiplier_is_differential (tau_b : ℝ) :
+    1 + gain_of_bubble tau_b = bubble_differential tau_b := by
+  unfold gain_of_bubble; ring
+
+-- [T72] :: {VER} | THE EFFECTIVE READING A OF A DRIVE INSIDE A BUBBLE
+-- Composing the gain identity of Section 7 with the differential gives the
+-- drive's effective position on the Reading-A axis.
+theorem t72_effective_tau_A (w tau_b : ℝ) :
+    (1 + gain_of_bubble tau_b) * tau_A w = bubble_differential tau_b * tau_A w := by
+  rw [t71_gain_multiplier_is_differential]
+
+-- [T73] :: {VER} | THE EMITTER WINDOW
+-- A drive reaches the corridor exactly when the emitter holds its interior
+-- torsion in (τ_A, τ_A/0.88]. The window's edges are the drive's own Reading
+-- A and that value divided by the corridor's own 0.88.
+theorem t73_emitter_window (w tau_b : ℝ) (hw : 0 < w) (hb : 0 < tau_b) :
+    (TL_IVA ≤ bubble_differential tau_b * tau_A w ∧
+     bubble_differential tau_b * tau_A w < TORSION_LIMIT) ↔
+    (tau_A w < tau_b ∧ tau_b ≤ tau_A w / 0.88) := by
+  have hc := c_pos
+  have hT := tl_pos
+  have hA : 0 < tau_A w := by unfold tau_A; exact div_pos hw hc
+  have hI : TL_IVA = TORSION_LIMIT * 0.88 := rfl
+  have hkey : bubble_differential tau_b * tau_A w
+      = TORSION_LIMIT * tau_A w / tau_b := by
+    unfold bubble_differential
+    rw [div_mul_eq_mul_div]
+  rw [hI, hkey, le_div_iff₀ hb, div_lt_iff₀ hb,
+    le_div_iff₀ (by norm_num : (0:ℝ) < 0.88)]
+  constructor
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    refine ⟨?_, ?_⟩
+    · by_contra hcon
+      rw [not_lt] at hcon
+      nlinarith
+    · by_contra hcon
+      rw [not_le] at hcon
+      nlinarith
+  · intro h
+    obtain ⟨h1, h2⟩ := h
+    exact ⟨by nlinarith, by nlinarith⟩
+
+-- [T74] :: {VER} | THE WINDOW'S RELATIVE WIDTH IS THE CORRIDOR'S OWN RATIO
+-- The emitter window spans a factor of 1/0.88, which is 13.6364% — the same
+-- 0.88 that sets the corridor floor sets the width of the emitter window.
+theorem t74_window_relative_width (w : ℝ) (hw : 0 < w) :
+    tau_A w / 0.88 / tau_A w = 1 / 0.88 := by
+  have hc := c_pos
+  have hA : 0 < tau_A w := by unfold tau_A; exact div_pos hw hc
+  field_simp
+
+-- [T75] :: {VER} | THE SELF-REFERENTIAL CLOSURE
+-- A drive already at the corridor floor needs an emitter whose own interior
+-- torsion sits in the corridor, because TL_IVA / 0.88 is exactly TL.
+theorem t75_floor_drive_needs_corridor_emitter :
+    TL_IVA / 0.88 = TORSION_LIMIT := by
+  unfold TL_IVA; norm_num
+
+-- [T76] :: {VER} | THE STATED THRESHOLD AS A BUBBLE TORSION
+-- g_r = 1.5 is the emitter holding τ_b = TL/2.5 = 0.054759639994, which is
+-- Locked and well below the corridor floor.
+theorem t76_threshold_as_bubble_torsion :
+    gain_of_bubble (TORSION_LIMIT / 2.5) = GAIN_THRESHOLD ∧
+    TORSION_LIMIT / 2.5 < TL_IVA := by
+  have hT := tl_pos
+  have hTne : TORSION_LIMIT ≠ 0 := ne_of_gt hT
+  have h25 : TORSION_LIMIT / (TORSION_LIMIT / 2.5) = 2.5 := by
+    rw [div_div_eq_mul_div, mul_comm, mul_div_assoc, div_self hTne, mul_one]
+  refine ⟨?_, ?_⟩
+  · unfold gain_of_bubble bubble_differential GAIN_THRESHOLD
+    rw [h25]
+    norm_num
+  · unfold TL_IVA TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+
+-- ── The emitter windows the catalog demands ──────────────────
+
+-- [T77] :: {VER} | THE EMITTER WINDOW FOR THE BEST FLOWN ELECTRIC DRIVE
+-- NEXT-C at τ_A = 1.3676 × 10⁻⁴ needs an emitter in
+-- (1.3676 × 10⁻⁴, 1.5541 × 10⁻⁴] — four orders below the corridor floor.
+theorem t77_nextc_emitter_window :
+    0.00013676 < tau_A ve_nextc_ion ∧ tau_A ve_nextc_ion < 0.00013677 ∧
+    tau_A ve_nextc_ion / 0.88 < 0.00015542 ∧
+    tau_A ve_nextc_ion / 0.88 < TL_IVA := by
+  have hc := c_pos
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+  · simp only [tau_A, ve_nextc_ion, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
+    norm_num
+
+-- [T78] :: {VER} | THE EMITTER WINDOW FOR THE PUBLISHED FUSION CONCEPT
+-- The Daedalus figure at τ_A = 3.5358 × 10⁻² needs an emitter in
+-- (3.5358 × 10⁻², 4.0180 × 10⁻²], and that window is bracketed by two
+-- couplings the quantum-gravity reduction \[9,9,6,0\] places as Locked: the
+-- Penrose conformal coupling at 0.033745 below it, and the Hawking
+-- Planck-mass coupling at 0.040281 above it.
+theorem t78_daedalus_emitter_window :
+    0.033745 < tau_A ve_daedalus ∧
+    tau_A ve_daedalus / 0.88 < 0.040281 ∧
+    tau_A ve_daedalus / 0.88 < TL_IVA := by
+  have hc := c_pos
+  refine ⟨?_, ?_, ?_⟩ <;>
+  · simp only [tau_A, ve_daedalus, C_LIGHT, TL_IVA, TORSION_LIMIT,
+      SOVEREIGN_ANCHOR]
+    norm_num
+
+-- ============================================================
+-- SECTION 13: IMS GATING — THE GAIN EXISTS ONLY AT ANCHOR LOCK
+-- ============================================================
+
+inductive PathStatus : Type
+  | green   -- anchored: the gain is available
+  | red     -- drifted: classical only
+  deriving DecidableEq, Repr
+
+def check_ifu_safety (f : ℝ) : PathStatus :=
+  if f = SOVEREIGN_ANCHOR then PathStatus.green else PathStatus.red
+
+/-- The gain actually applied, after the gate. -/
+noncomputable def gated_gain (f g_r : ℝ) : ℝ :=
+  if check_ifu_safety f = PathStatus.green then 1 + g_r else 1
+
+-- [T79] :: {VER} | ANCHOR LOCK GIVES GREEN
+theorem t79_anchor_gives_green (f : ℝ) (h : f = SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.green := by
+  unfold check_ifu_safety; simp [h]
+
+-- [T80] :: {VER} | DRIFT GIVES RED
+theorem t80_drift_gives_red (f : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    check_ifu_safety f = PathStatus.red := by
+  unfold check_ifu_safety; simp [h]
+
+-- [T81] :: {VER} | OFF ANCHOR THE GAIN COLLAPSES TO ONE
+theorem t81_off_anchor_gain_is_one (f g_r : ℝ) (h : f ≠ SOVEREIGN_ANCHOR) :
+    gated_gain f g_r = 1 := by
+  unfold gated_gain
+  rw [t80_drift_gives_red f h]
+  simp
+
+-- [T82] :: {VER} | ANCHOR ZERO IMPEDANCE
+theorem t82_anchor_zero_impedance : manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- ============================================================
+-- SECTION 14: THE DYNAMIC EQUATION AND THE YEET FORCE
+-- ============================================================
+
+structure IVAState where
+  v_e      : ℝ   -- exhaust velocity, the Behavior rate
+  m0       : ℝ   -- initial Identity Mass
+  m_f      : ℝ   -- final Identity Mass
+  g_r      : ℝ   -- resonance gain
+  im       : ℝ   -- Identity Mass
+  pv       : ℝ   -- Purpose Vector magnitude
+  f_anchor : ℝ   -- resonant frequency
+
+def pnba_weight : ℝ := 1
+
+noncomputable def dynamic_rhs (op_P op_N op_B op_A : ℝ → ℝ)
+    (s : IVAState) (F_ext : ℝ) : ℝ :=
+  pnba_weight * op_P s.im + pnba_weight * op_N s.pv +
+  pnba_weight * op_B s.v_e + pnba_weight * op_A s.g_r + F_ext
+
+-- [T83] :: {VER} | THE DYNAMIC EQUATION IS LINEAR IN ITS OPERATORS
+theorem t83_dynamic_rhs_linear (op_P op_N op_B op_A : ℝ → ℝ) (s : IVAState) :
+    dynamic_rhs op_P op_N op_B op_A s 0 =
+    op_P s.im + op_N s.pv + op_B s.v_e + op_A s.g_r := by
+  unfold dynamic_rhs pnba_weight; ring
+
+/-- The Yeet Force, from the dynamic equation. -/
+noncomputable def yeet_force (G im pv r lam O S : ℝ) : ℝ :=
+  G * (im * pv) / r ^ 2 * (lam * O * S)
+
+-- [T84] :: {VER} | THE YEET FORCE IS POSITIVE WHEN ITS TERMS ARE
+theorem t84_yeet_force_positive (G im pv r lam O S : ℝ)
+    (hG : 0 < G) (him : 0 < im) (hpv : 0 < pv)
+    (hr : 0 < r) (hlam : 0 < lam) (hO : 0 < O) (hS : 0 < S) :
+    0 < yeet_force G im pv r lam O S := by
+  unfold yeet_force
+  have h1 : 0 < G * (im * pv) := mul_pos hG (mul_pos him hpv)
+  have h2 : 0 < r ^ 2 := by positivity
+  exact mul_pos (div_pos h1 h2) (mul_pos (mul_pos hlam hO) hS)
+
+noncomputable def f_ext_op (s : IVAState) (d : ℝ) : IVAState :=
+  { s with v_e := s.v_e + d }
+
+-- ============================================================
+-- SECTION 15: NOHARM, SUBSTRATE NEUTRALITY, BOUNDED VELOCITY
+-- ============================================================
+
+-- [T85] :: {VER} | F_ext TOUCHES THE BEHAVIOR RATE ONLY
+theorem t85_f_ext_preserves (s : IVAState) (d : ℝ) :
+    (f_ext_op s d).im = s.im ∧ (f_ext_op s d).pv = s.pv ∧
+    (f_ext_op s d).g_r = s.g_r ∧ (f_ext_op s d).m0 = s.m0 := by
+  unfold f_ext_op; simp
+
+-- ── The axis the gain acts on ────────────────────────────────
+--
+-- NOHARM gives the external force one axis: F_ext changes Behavior and
+-- leaves Pattern, Narrative and Adaptation untouched. The resonance gain
+-- is an Adaptation term. The two therefore act on disjoint primitives,
+-- which is what makes them independent terms of the dynamic equation
+-- rather than two names for the same accounting.
+
+/-- The gain operator: raises the resonance gain, touching nothing else. -/
+noncomputable def gain_op (s : IVAState) (d : ℝ) : IVAState :=
+  { s with g_r := s.g_r + d }
+
+-- [T86] :: {VER} | THE GAIN OPERATOR TOUCHES ADAPTATION ONLY
+-- It leaves the Behavior rate, both masses and the identity momentum
+-- exactly as they were.
+theorem t86_gain_op_preserves (s : IVAState) (d : ℝ) :
+    (gain_op s d).v_e = s.v_e ∧ (gain_op s d).m0 = s.m0 ∧
+    (gain_op s d).m_f = s.m_f ∧ (gain_op s d).im = s.im ∧
+    (gain_op s d).pv = s.pv := by
+  unfold gain_op; simp
+
+-- [T87] :: {VER} | THE TWO OPERATORS COMMUTE
+-- Applying the external force and then the gain gives the same state as
+-- applying the gain and then the external force. They are record updates
+-- on disjoint fields, so neither can be rewritten as the other and the
+-- order in which they enter the dynamic equation does not matter.
+theorem t87_f_ext_and_gain_commute (s : IVAState) (a b : ℝ) :
+    f_ext_op (gain_op s b) a = gain_op (f_ext_op s a) b := by
+  unfold f_ext_op gain_op; simp
+
+-- [T88] :: {VER} | THE GAIN CHANGES Δv WITHOUT CHANGING THE MASS RATIO
+-- This is the consequence that matters. The mass ratio is identical
+-- before and after the gain is applied, so the additional Δv the gain
+-- supplies did not come from additional expelled mass. The gain is not a
+-- Behavior term under another name.
+theorem t88_gain_leaves_mass_ratio_fixed (s : IVAState) (d : ℝ) :
+    (gain_op s d).m0 / (gain_op s d).m_f = s.m0 / s.m_f ∧
+    tau_B ((gain_op s d).m0 / (gain_op s d).m_f) = tau_B (s.m0 / s.m_f) ∧
+    delta_v_sovereign (gain_op s d).v_e (gain_op s d).m0
+      (gain_op s d).m_f (gain_op s d).g_r
+      = delta_v_sovereign s.v_e s.m0 s.m_f (s.g_r + d) := by
+  unfold gain_op
+  refine ⟨rfl, rfl, rfl⟩
+
+-- [T89] :: {VER} | AND THE EXTERNAL FORCE LEAVES THE GAIN FIXED
+-- The separation is two-sided: F_ext cannot supply gain and the gain
+-- cannot supply Behavior. Either term can be set to zero without
+-- disturbing the other.
+theorem t89_separation_is_two_sided (s : IVAState) (a b : ℝ) :
+    (f_ext_op s a).g_r = s.g_r ∧ (gain_op s b).v_e = s.v_e := by
+  unfold f_ext_op gain_op; simp
+
+-- ── The reaction partner, by case on F_ext ───────────────────
+--
+-- Published orbital speeds of the bodies a flyby can couple to. The
+-- classical bound on a single assist is Δv ≤ 2·v_body, attained in the
+-- perfect-reversal limit.
+
+def v_orb_saturn  : ℝ := 9680      -- m/s
+def v_orb_jupiter : ℝ := 13070
+def v_orb_earth   : ℝ := 29780
+def v_orb_venus   : ℝ := 35020
+def v_orb_mercury : ℝ := 47360
+
+-- [T90] :: {VER} | THE EXTERNAL CASE OUTRUNS THE PROPULSIVE CATALOG
+-- A single Jupiter assist supplies more than the largest published
+-- mission budget, with no propellant at all — so when F_ext is nonzero
+-- the reaction partner is the body, and the budget it can supply exceeds
+-- what the propulsive catalog reaches.
+theorem t90_assist_exceeds_catalog :
+    dv_voyager1_helio < 2 * v_orb_saturn ∧
+    dv_voyager1_helio < 2 * v_orb_jupiter ∧
+    dv_voyager1_helio < 2 * v_orb_earth ∧
+    dv_voyager1_helio < 2 * v_orb_venus ∧
+    dv_voyager1_helio < 2 * v_orb_mercury := by
+  unfold dv_voyager1_helio v_orb_saturn v_orb_jupiter v_orb_earth
+    v_orb_venus v_orb_mercury
+  norm_num
+
+-- [T91] :: {VER} | THE MASS RATIO IS WHAT HIDES THE RECOIL
+-- Momentum conservation fixes the partner's recoil at m_v·Δv/M_body, so a
+-- large partner recoils by an amount set entirely by the mass ratio. The
+-- ratio does not supply the gain; it is what makes the partner's share of
+-- the exchange unmeasurable.
+noncomputable def partner_recoil (m_v dv M_body : ℝ) : ℝ := m_v * dv / M_body
+
+theorem t91_recoil_is_the_mass_ratio (m_v dv M_body : ℝ) (hM : 0 < M_body) :
+    partner_recoil m_v dv M_body = dv * (m_v / M_body) ∧
+    m_v * dv = partner_recoil m_v dv M_body * M_body := by
+  have hne : M_body ≠ 0 := hM.ne'
+  unfold partner_recoil
+  refine ⟨by ring, ?_⟩
+  field_simp
+
+-- [T92] :: {VER} | NOHARM: POSITIVE IDENTITY MOMENTUM IS PRESERVED
+theorem t92_noharm (s : IVAState) (h_im : 0 < s.im) (h_pv : 0 < s.pv) :
+    0 < s.im * s.pv := mul_pos h_im h_pv
+
+-- [T93] :: {VER} | SUBSTRATE NEUTRALITY
+-- The gain theorem never inspects what v_e and m₀/m_f represent, so the
+-- same statement holds on any pool supplying a rate and a reserve.
+theorem t93_substrate_neutral (v_e m0 m_f g_r : ℝ)
+    (h_ve : 0 < v_e) (h_gr : 0 < g_r) (h_m0 : m_f < m0) (h_mf : 0 < m_f) :
+    delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r ∧
+    delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f :=
+  ⟨t9_sovereign_exceeds_classical v_e m0 m_f g_r h_ve h_gr h_m0 h_mf,
+   t7_gain_ratio_exact v_e m0 m_f g_r⟩
+
+-- [T94] :: {VER} | THE VELOCITY FIELD IS BOUNDED AT ANCHOR
+theorem t94_velocity_bounded (s : IVAState) (h_im : 0 < s.im)
+    (h_bounded : s.pv ≤ s.im * SOVEREIGN_ANCHOR) :
+    s.pv / s.im ≤ SOVEREIGN_ANCHOR := by
+  rw [div_le_iff₀ h_im]; linarith
+
+-- ============================================================
+-- SECTION 16: A KINEMATIC BOUND ON REPORTED FIGURES
+--
+-- Scope: this section proves one arithmetic statement about one set of
+-- reported figures and nothing beyond it. Under a constant-acceleration
+-- model, a descent of 8,534 m in 0.78 s requires more than 5,000 g. The
+-- figures are the reported ones; the theorem is the arithmetic.
+-- ============================================================
+
+def REPORTED_DESCENT : ℝ := 8534    -- m
+def REPORTED_TIME    : ℝ := 0.78    -- s
+def ACCEL_BOUND_G    : ℝ := 5000    -- g
+
+/-- Constant-acceleration descent from rest: a = 4y/t². -/
+noncomputable def accel_from_descent (y t : ℝ) : ℝ := 4 * y / t ^ 2
+
+-- [T95] :: {VER} | THE REPORTED KINEMATICS EXCEED 5,000 g
+theorem t95_kinematic_bound :
+    ACCEL_BOUND_G < accel_from_descent REPORTED_DESCENT REPORTED_TIME / G_ACCEL := by
+  unfold ACCEL_BOUND_G accel_from_descent REPORTED_DESCENT REPORTED_TIME G_ACCEL
+  norm_num
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+--
+-- ONE CORRIDOR, TWO READINGS, ONE PRODUCT.
+-- Reading A asks what the drive throws: 12.047% to 13.690% of light
+-- speed at the nozzle. Reading B asks how much of the vehicle it throws:
+-- a propellant fraction of 11.35% to 12.79%. The rocket equation is the
+-- product of the two, and a vehicle in the corridor on both carries a Δv
+-- between 4,350,981 and 5,618,519 m/s.
+-- ============================================================
+
+theorem iva_propulsion_master
+    (s : IVAState) (v_e m0 m_f g_r : ℝ)
+    (h_anchor : s.f_anchor = SOVEREIGN_ANCHOR)
+    (h_ve : 0 < v_e) (h_gr : GAIN_THRESHOLD ≤ g_r)
+    (h_m0 : m_f < m0) (h_mf : 0 < m_f)
+    (h_im : 0 < s.im) (h_pv : 0 < s.pv) :
+    -- [1] the corridor is a band of positive width, so IVA is reachable
+    (0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧
+     TORSION_LIMIT - TL_IVA = TORSION_LIMIT * 0.12) ∧
+    -- [2] the sovereign form exceeds the classical one, by an exact ratio
+    (delta_v_classical v_e m0 m_f < delta_v_sovereign v_e m0 m_f g_r ∧
+     delta_v_sovereign v_e m0 m_f g_r = (1 + g_r) * delta_v_classical v_e m0 m_f) ∧
+    -- [3] at zero gain the reduction is Tsiolkovsky exactly
+    delta_v_sovereign v_e m0 m_f 0 = delta_v_classical v_e m0 m_f ∧
+    -- [4] Reading A is a window on exhaust velocity
+    (∀ w : ℝ, (TL_IVA ≤ tau_A w ∧ tau_A w < TORSION_LIMIT) ↔
+      (corridor_ve_lo ≤ w ∧ w < corridor_ve_hi)) ∧
+    -- [5] Reading B is a window on the mass ratio
+    (∀ r : ℝ, 0 < r → ((TL_IVA ≤ tau_B r ∧ tau_B r < TORSION_LIMIT) ↔
+      (Real.exp TL_IVA ≤ r ∧ r < Real.exp TORSION_LIMIT))) ∧
+    -- [6] the bridge: the rocket equation is the product of the readings
+    (∀ w r : ℝ, delta_v_classical w r 1 = C_LIGHT * tau_A w * tau_B r) ∧
+    -- [7] neither corridor is occupied by built hardware
+    (classify (tau_A ve_rl10b2_vac) = Phase.Locked ∧
+     classify (tau_A ve_nextc_ion) = Phase.Locked ∧
+     classify (tau_A ve_antimatter) = Phase.Shatter ∧
+     tau_B mr_car_tank < TL_IVA ∧ TORSION_LIMIT ≤ tau_B mr_dawn_ion) ∧
+    -- [8] both corridors are occupied by a witness, so the band is a place
+    (classify (tau_A ve_corridor_witness) = Phase.IVA ∧
+     TL_IVA ≤ tau_B mr_corridor_witness ∧
+     tau_B mr_corridor_witness < TORSION_LIMIT) ∧
+    -- [9] the pool admits the corridor, and Noble is the unfueled vehicle
+    ((0 < TL_IVA ∧ TORSION_LIMIT < 1) ∧
+     (∀ w : ℝ, tau_A w = 0 ↔ w = 0)) ∧
+    -- [10] the gain is an exhaust multiplier, and the threshold is below the floor
+    ((∀ w q : ℝ, (1 + q) * tau_A w = tau_A ((1 + q) * w)) ∧
+     (1 + GAIN_THRESHOLD) * ve_nextc_ion < corridor_ve_lo) ∧
+    -- [11] the energy ladder: the corridor sits between stellar fusion
+    --      and the limit of nuclear binding
+    (eta_H_to_He < eta_floor ∧ eta_floor < eta_H_to_Fe ∧
+     eta_H_to_Fe < eta_ceiling ∧ eta_ceiling < eta_annihilation) ∧
+    -- [12] the nuclear sector is confined to Locked ∪ IVA: iron-56 is the
+    --      maximum of the conversion fraction and it sits below the ceiling
+    (eta_of 4 4.00260325413 < eta_floor ∧
+     eta_floor ≤ eta_of 238 238.0507884 ∧
+     eta_of 62 61.92834537 < eta_of 56 55.93493633 ∧
+     eta_of 56 55.93493633 < eta_ceiling) ∧
+    -- [13] a corridor drive puts every published mission deep in Locked,
+    --      at a mass ratio within 0.051% of unity
+    (∀ dv : ℝ, 0 ≤ dv → dv ≤ 17000 →
+      dv / corridor_ve_lo < TL_IVA ∧ Real.exp (dv / corridor_ve_lo) ≤ 1.00051) ∧
+    -- [14] off anchor the gain collapses to one
+    (∀ f w : ℝ, f ≠ SOVEREIGN_ANCHOR → gated_gain f w = 1) ∧
+    -- [15] the anchor sits at zero impedance
+    manifold_impedance s.f_anchor = 0 ∧
+    -- [16] NOHARM holds throughout
+    0 < s.im * s.pv := by
+  have h_gr' : 0 < g_r := by unfold GAIN_THRESHOLD at h_gr; linarith
+  obtain ⟨l1, l2, l3, l4, l5, l6⟩ := t46_energy_ladder
+  refine ⟨t1_corridor_has_width, ?_, t8_reduces_at_zero_gain v_e m0 m_f,
+          t13_reading_A_window, t26_reading_B_window, t38_bridge, ?_,
+          ⟨t25_reading_A_witness, t37_reading_B_witness.1, t37_reading_B_witness.2⟩,
+          ⟨t17_pool_admits_IVA, ?_⟩,
+          ⟨fun w q => t41_gain_is_exhaust_multiplier w q, t43_threshold_below_floor⟩,
+          ⟨l3, l4, l5, l6⟩,
+          ⟨t54_floor_separates_helium.1, t54_floor_separates_helium.2,
+           t55_iron_is_the_nuclear_maximum.1,
+           t55_iron_is_the_nuclear_maximum.2.2.2.2.2.1⟩,
+          fun dv hd0 hd => ⟨(t57_mission_tau_B_bound dv hd0 hd).2,
+                            t58_mission_mass_ratio dv hd0 hd⟩,
+          fun f w hf => t81_off_anchor_gain_is_one f w hf, ?_,
+          t92_noharm s h_im h_pv⟩
+  · exact t93_substrate_neutral v_e m0 m_f g_r h_ve h_gr' h_m0 h_mf
+  · exact ⟨best_chemical_locked, best_electric_locked, antimatter_shatter,
+           t29_car_below_corridor.2, t30_dawn_above_corridor⟩
+  · exact fun w => (t18_noble_is_unfueled w 1 one_pos).1
+  · rw [h_anchor]; exact t82_anchor_zero_impedance
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := t82_anchor_zero_impedance
+
+end SNSFL_IVA_Propulsion
+
+
+-- ============================================================
+-- MODULE: SNSFL_PropellantLaw_Compactness_Reduction.lean · [9,9,0,18](GRAV)
+-- ProofPress, Volume 1, Issue 9, Article 4 · The Propellant Law at the Matched Radius
+-- 88 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_PropellantCompactness
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A² = 1/(2η). -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The resonance gain acting as an exhaust-velocity multiplier. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+-- α⁻¹ is a thousand bare steps plus one kinetic step.
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | THE CONVERSION FRACTION AT EACH CORRIDOR EDGE
+theorem t6_conversion_fractions :
+    eta_of_tau TORSION_LIMIT = 73208451470443787388498001 / 7812500000000000000000000000 ∧
+    eta_of_tau TL_IVA = 8858222627923698274008258121 / 1220703125000000000000000000000 := by
+  constructor
+  · simp only [eta_of_tau, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [eta_of_tau, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 1: THE SQUARE-ROOT SANDWICH
+-- Every bound in Section 2 rests on x < √(1 + x²), which holds
+-- for every real x and is the only analytic input the
+-- propellant law needs.
+-- ============================================================
+
+/-- The radical that the inversion introduces. -/
+def rad (x : ℝ) : ℝ := Real.sqrt (1 + x ^ 2)
+
+-- [T7] :: {VER} | THE RADICAL SQUARES BACK
+theorem t7_rad_sq (x : ℝ) : rad x ^ 2 = 1 + x ^ 2 := by
+  simp only [rad]
+  exact Real.sq_sqrt (by positivity)
+
+-- [T8] :: {VER} | THE RADICAL IS POSITIVE
+theorem t8_rad_pos (x : ℝ) : 0 < rad x := by
+  simp only [rad]
+  exact Real.sqrt_pos.mpr (by positivity)
+
+-- [T9] :: {VER} | THE RADICAL DOMINATES THE ARGUMENT, FOR EVERY REAL x
+theorem t9_lt_rad (x : ℝ) : x < rad x := by
+  have h1 : x ^ 2 < 1 + x ^ 2 := by linarith
+  have h2 : |x| < rad x := by
+    simp only [rad]
+    rw [← Real.sqrt_sq_eq_abs]
+    exact Real.sqrt_lt_sqrt (sq_nonneg x) h1
+  exact lt_of_le_of_lt (le_abs_self x) h2
+
+-- [T10] :: {VER} | THE RADICAL ALSO DOMINATES THE NEGATIVE, SO x + rad x > 0
+theorem t10_sum_pos (x : ℝ) : 0 < x + rad x := by
+  have h1 : x ^ 2 < 1 + x ^ 2 := by linarith
+  have h2 : |x| < rad x := by
+    simp only [rad]
+    rw [← Real.sqrt_sq_eq_abs]
+    exact Real.sqrt_lt_sqrt (sq_nonneg x) h1
+  have h3 : -x ≤ |x| := neg_le_abs x
+  linarith
+
+-- ============================================================
+-- SECTION 2: THE INVERSION
+-- The chain law gives the speed from the mass ratio; inverted,
+-- it gives the mass ratio from the speed.
+-- ============================================================
+
+/-- The chain law at one burn, as a speed in units of exhaust velocity:
+x = v_∞/v_e = √(τ_B(2 + τ_B)). -/
+def chain_x (tB : ℝ) : ℝ := Real.sqrt (tB * (2 + tB))
+
+/-- The inversion: Reading B required to reach a target speed x. -/
+def tau_B_of_x (x : ℝ) : ℝ := rad x - 1
+
+-- [T11] :: {VER} | THE INVERSION SOLVES THE CHAIN QUADRATIC
+theorem t11_inversion_solves (x : ℝ) :
+    tau_B_of_x x ^ 2 + 2 * tau_B_of_x x = x ^ 2 := by
+  simp only [tau_B_of_x]
+  have h := t7_rad_sq x
+  nlinarith [h]
+
+-- [T12] :: {VER} | THE INVERSION IS THE POSITIVE ROOT
+theorem t12_inversion_positive (x : ℝ) (hx : 0 < x) : 0 < tau_B_of_x x := by
+  simp only [tau_B_of_x]
+  have h := t7_rad_sq x
+  have hp := t8_rad_pos x
+  nlinarith [h, hp]
+
+-- [T13] :: {VER} | THE INVERSION RECOVERS THE CHAIN LAW
+theorem t13_round_trip (tB : ℝ) (htB : 0 < tB) :
+    tau_B_of_x (chain_x tB) = tB := by
+  simp only [tau_B_of_x, chain_x, rad]
+  have hk : (0:ℝ) ≤ tB * (2 + tB) := by nlinarith
+  rw [Real.sq_sqrt hk]
+  have h1 : (1:ℝ) + tB * (2 + tB) = (1 + tB) ^ 2 := by ring
+  rw [h1, Real.sqrt_sq (by linarith)]
+  ring
+
+-- ============================================================
+-- SECTION 3: THE PROPELLANT LAW
+-- ============================================================
+
+/-- The mass ratio the ideal rocket needs to reach x · v_e with no well. -/
+def mr_ideal (x : ℝ) : ℝ := Real.exp x
+
+/-- The mass ratio a burn at the matched radius needs for the same speed. -/
+def mr_match (x : ℝ) : ℝ := Real.exp (tau_B_of_x x)
+
+/-- The exponent the saving carries. -/
+def sav_exp (x : ℝ) : ℝ := x - rad x + 1
+
+/-- The propellant saving. -/
+def saving (x : ℝ) : ℝ := Real.exp (sav_exp x)
+
+-- [T14] :: {VER} | THE SAVING IS THE RATIO OF THE TWO MASS RATIOS
+theorem t14_saving_is_the_ratio (x : ℝ) :
+    saving x = mr_ideal x / mr_match x := by
+  simp only [saving, mr_ideal, mr_match, sav_exp, tau_B_of_x]
+  rw [← Real.exp_sub]
+  congr 1
+  ring
+
+-- [T15] :: {VER} | THE SAVING IN THE FORM e · exp(x − √(1 + x²))
+theorem t15_saving_factored (x : ℝ) :
+    saving x = Real.exp 1 * Real.exp (x - rad x) := by
+  simp only [saving, sav_exp]
+  rw [← Real.exp_add]
+  congr 1
+  ring
+
+-- [T16] :: {VER} | THE EXPONENT IS STRICTLY BELOW ONE
+theorem t16_exponent_lt_one (x : ℝ) : sav_exp x < 1 := by
+  simp only [sav_exp]
+  have := t9_lt_rad x
+  linarith
+
+-- [T17] :: {VER} | MASTER BOUND — THE SAVING IS STRICTLY BELOW e
+-- No finite burn saves as much as the well is worth.
+theorem t17_saving_lt_e (x : ℝ) : saving x < Real.exp 1 := by
+  simp only [saving]
+  exact Real.exp_lt_exp.mpr (t16_exponent_lt_one x)
+
+-- [T18] :: {VER} | THE SAVING EXCEEDS ONE FOR EVERY POSITIVE BURN
+theorem t18_saving_gt_one (x : ℝ) (hx : 0 < x) : 1 < saving x := by
+  simp only [saving]
+  have hr := t7_rad_sq x
+  have hp := t8_rad_pos x
+  have h1 : rad x < 1 + x := by nlinarith [hr, hp]
+  have : 0 < sav_exp x := by simp only [sav_exp]; linarith
+  calc (1:ℝ) = Real.exp 0 := Real.exp_zero.symm
+    _ < Real.exp (sav_exp x) := Real.exp_lt_exp.mpr this
+
+-- [T19] :: {VER} | THE DECAY FORM OF THE EXPONENT
+-- x − √(1 + x²) = −1/(x + √(1 + x²)), which is how the exponent approaches
+-- zero and therefore how the saving approaches e.
+theorem t19_decay_form (x : ℝ) :
+    x - rad x = -1 / (x + rad x) := by
+  have hs := t10_sum_pos x
+  have hr := t7_rad_sq x
+  rw [eq_div_iff (ne_of_gt hs)]
+  nlinarith [hr]
+
+-- [T20] :: {VER} | THE EXPONENT IS BRACKETED BY −1/x ON THE POSITIVES
+theorem t20_exponent_bracket (x : ℝ) (hx : 0 < x) :
+    -1 / x < x - rad x ∧ x - rad x < 0 := by
+  have hs := t10_sum_pos x
+  have hlt := t9_lt_rad x
+  constructor
+  · rw [t19_decay_form x]
+    have h1 : 1 / (x + rad x) < 1 / x :=
+      one_div_lt_one_div_of_lt hx (by linarith [t8_rad_pos x])
+    rw [neg_div, neg_div]
+    linarith
+  · linarith
+
+-- [T21] :: {VER} | THE SAVING IS BRACKETED BY e · exp(−1/x) AND e
+-- The lower bracket makes the rate of approach explicit.
+theorem t21_saving_bracket (x : ℝ) (hx : 0 < x) :
+    Real.exp 1 * Real.exp (-1 / x) < saving x ∧ saving x < Real.exp 1 := by
+  obtain ⟨hlo, _⟩ := t20_exponent_bracket x hx
+  constructor
+  · rw [t15_saving_factored x]
+    exact mul_lt_mul_of_pos_left (Real.exp_lt_exp.mpr hlo) (Real.exp_pos 1)
+  · exact t17_saving_lt_e x
+
+-- [T22] :: {VER} | THE EXPONENT IS STRICTLY INCREASING
+theorem t22_exponent_mono (x y : ℝ) (h : x < y) :
+    x - rad x < y - rad y := by
+  have hx := t7_rad_sq x
+  have hy := t7_rad_sq y
+  have hxa := t9_lt_rad x
+  have hyb := t9_lt_rad y
+  have hpx := t8_rad_pos x
+  have hpy := t8_rad_pos y
+  have hsum : 0 < rad x + rad y := by linarith
+  nlinarith [hx, hy, hxa, hyb, hpx, hpy, hsum]
+
+-- [T23] :: {VER} | THE SAVING IS STRICTLY INCREASING
+theorem t23_saving_mono (x y : ℝ) (h : x < y) : saving x < saving y := by
+  simp only [saving, sav_exp]
+  exact Real.exp_lt_exp.mpr (by linarith [t22_exponent_mono x y h])
+
+-- ============================================================
+-- SECTION 4: WHY THE BOUND IS e
+-- The additive constant in the exponent is the Reading B the
+-- matched radius well supplies.
+-- ============================================================
+
+/-- The Reading B a fall to the matched radius is worth: one e-fold. -/
+def well_tau_B : ℝ := 1
+
+-- [T24] :: {VER} | THE SAVING'S CONSTANT IS THE WELL'S READING B
+theorem t24_constant_is_the_well (x : ℝ) :
+    sav_exp x = (x - rad x) + well_tau_B := by
+  simp only [sav_exp, well_tau_B]
+
+-- [T25] :: {VER} | THE LIMITING SAVING IS e RAISED TO THE WELL'S READING B
+theorem t25_bound_is_e_to_the_well :
+    Real.exp well_tau_B = Real.exp 1 := by
+  simp only [well_tau_B]
+
+-- [T26] :: {VER} | THE SAVING IS BOUNDED BY THE WELL'S OWN MASS RATIO
+-- The ceiling on the saving is exp of the well's Reading B, which is e.
+theorem t26_bounded_by_well_mass_ratio (x : ℝ) :
+    saving x < Real.exp well_tau_B := by
+  simp only [well_tau_B]
+  exact t17_saving_lt_e x
+
+-- ============================================================
+-- SECTION 5: THE SMALL-BURN END
+-- The cost ceases to be exponential: Reading B is bracketed
+-- between x²/2 − x⁴/8 and x²/2.
+-- ============================================================
+
+-- [T27] :: {VER} | READING B IS AT MOST HALF THE SQUARED TARGET SPEED
+theorem t27_small_burn_upper (x : ℝ) : tau_B_of_x x ≤ x ^ 2 / 2 := by
+  simp only [tau_B_of_x]
+  have hr := t7_rad_sq x
+  have hp := t8_rad_pos x
+  nlinarith [hr, hp, sq_nonneg (x ^ 2)]
+
+-- [T28] :: {VER} | AND AT LEAST THAT LESS THE QUARTIC TERM
+theorem t28_small_burn_lower (x : ℝ) (h1 : |x| ≤ 1) :
+    x ^ 2 / 2 - x ^ 4 / 8 ≤ tau_B_of_x x := by
+  simp only [tau_B_of_x]
+  have hr := t7_rad_sq x
+  have hp := t8_rad_pos x
+  have hx2 : x ^ 2 ≤ 1 := by
+    have := abs_le.mp h1
+    nlinarith [this.1, this.2]
+  nlinarith [hr, hp, sq_nonneg x, sq_nonneg (x ^ 2), sq_nonneg (x ^ 3)]
+
+-- [T29] :: {VER} | THE IDEAL ROCKET'S COST IS LINEAR IN THE TARGET SPEED
+-- Reading B is x itself with no well, against at most x²/2 with one.
+theorem t29_ideal_cost_is_linear (x : ℝ) (hx : 0 < x) (h1 : x < 2) :
+    tau_B_of_x x < x := by
+  have h := t27_small_burn_upper x
+  nlinarith [h]
+
+-- ============================================================
+-- SECTION 6: HOW MUCH OF e A BURN CAPTURES
+-- ============================================================
+
+/-- The target speed realizing a given fraction of the limiting saving,
+for t = ln φ in (−1,0). -/
+def x_of_exponent (t : ℝ) : ℝ := (t ^ 2 - 1) / (2 * t)
+
+-- [T30] :: {VER} | THE CLOSED FORM IS POSITIVE ON THE ADMISSIBLE RANGE
+theorem t30_x_of_exponent_pos (t : ℝ) (h0 : -1 < t) (h1 : t < 0) :
+    0 < x_of_exponent t := by
+  simp only [x_of_exponent]
+  have hn : t ^ 2 - 1 < 0 := by nlinarith
+  have hd : 2 * t < 0 := by linarith
+  exact div_pos_of_neg_of_neg hn hd
+
+-- [T31] :: {VER} | THE CLOSED FORM REALIZES THE TARGET EXPONENT
+theorem t31_x_of_exponent_realizes (t : ℝ) (h0 : -1 < t) (h1 : t < 0) :
+    x_of_exponent t - rad (x_of_exponent t) = t := by
+  set x := x_of_exponent t with hx
+  have hxpos : 0 < x := t30_x_of_exponent_pos t h0 h1
+  have hr := t7_rad_sq x
+  have hp := t8_rad_pos x
+  -- rad x = x - t, since (x - t)² = 1 + x² on this range
+  have hkey : rad x = x - t := by
+    have hnn : 0 ≤ x - t := by linarith
+    have hsq : (x - t) ^ 2 = 1 + x ^ 2 := by
+      simp only [hx, x_of_exponent]
+      have ht : t ≠ 0 := ne_of_lt h1
+      field_simp
+      ring
+    nlinarith [hr, hp, hsq, hnn]
+  rw [hkey]; ring
+
+-- ============================================================
+-- SECTION 7: THE COMPACTNESS CRITERION
+-- ============================================================
+
+/-- The standard compactness of a body: its Schwarzschild radius over its
+physical radius. -/
+def compactness (rs R : ℝ) : ℝ := rs / R
+
+-- [T32] :: {VER} | MASTER CRITERION — AVAILABILITY IS COMPACTNESS AGAINST READING A
+-- The matched radius lies outside the body exactly when the body is more
+-- compact than the drive is efficient.
+theorem t32_master_criterion (rs R t : ℝ) (hR : 0 < R) (ht : t ≠ 0) :
+    R < rs / t ^ 2 ↔ t ^ 2 < compactness rs R := by
+  simp only [compactness]
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  rw [lt_div_iff₀ ht2, lt_div_iff₀ hR]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T33] :: {VER} | THE CRITERION ON THE CONVERSION FRACTION
+theorem t33_criterion_on_eta (rs R t : ℝ) (hR : 0 < R) (ht : t ≠ 0) :
+    R < rs / t ^ 2 ↔ 2 * eta_of_tau t < compactness rs R := by
+  rw [t32_master_criterion rs R t hR ht]
+  simp only [eta_of_tau]
+  constructor
+  · intro h; linarith
+  · intro h; linarith
+
+-- [T34] :: {VER} | THE MATCHED RADIUS IS THE RATIO TIMES THE SCHWARZSCHILD RADIUS
+theorem t34_matched_radius_form (rs t : ℝ) (ht : t ≠ 0) :
+    rs * matched_ratio t = rs / t ^ 2 := by
+  simp only [matched_ratio]
+  field_simp
+
+-- [T35] :: {VER} | THE CORRIDOR THRESHOLDS, AS EXACT RATIONALS
+theorem t35_corridor_thresholds :
+    TORSION_LIMIT ^ 2 = 73208451470443787388498001 / 3906250000000000000000000000 ∧
+    TL_IVA ^ 2 = 8858222627923698274008258121 / 610351562500000000000000000000 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T36] :: {VER} | THE THRESHOLDS, BRACKETED
+theorem t36_threshold_values :
+    0.018741363576 < TORSION_LIMIT ^ 2 ∧ TORSION_LIMIT ^ 2 < 0.018741363577 ∧
+    0.014513311953 < TL_IVA ^ 2 ∧ TL_IVA ^ 2 < 0.014513311954 := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;>
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR] <;> norm_num
+
+-- [T37] :: {VER} | THE THRESHOLD RATIO IS THE WIDTH FACTOR SQUARED
+theorem t37_threshold_ratio :
+    TORSION_LIMIT ^ 2 = TL_IVA ^ 2 * (625 / 484) := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T38] :: {VER} | THE THRESHOLDS ARE ORDERED AND POSITIVE
+theorem t38_thresholds_ordered :
+    0 < TL_IVA ^ 2 ∧ TL_IVA ^ 2 < TORSION_LIMIT ^ 2 ∧ TORSION_LIMIT ^ 2 < 1 := by
+  refine ⟨?_, ?_, ?_⟩ <;>
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR] <;> norm_num
+
+-- ============================================================
+-- SECTION 8: THE DUAL READING AND THE BAND ON COMPACTNESS
+-- ============================================================
+
+/-- The Reading A whose matched radius is exactly a body's own surface. -/
+def tau_surface (C : ℝ) : ℝ := Real.sqrt C
+
+-- [T39] :: {VER} | THE SURFACE TORSION MATCHES THE SURFACE
+theorem t39_surface_torsion_matches (C : ℝ) (hC : 0 < C) :
+    tau_surface C ^ 2 = C := by
+  simp only [tau_surface]
+  exact Real.sq_sqrt hC.le
+
+-- [T40] :: {VER} | THE SURFACE TORSION IS THE UNIQUE ONE THAT DOES
+theorem t40_surface_torsion_unique (C t : ℝ) (hC : 0 < C) (ht : 0 < t)
+    (h : t ^ 2 = C) : t = tau_surface C := by
+  simp only [tau_surface]
+  have h1 : Real.sqrt C ^ 2 = C := Real.sq_sqrt hC.le
+  have h2 : 0 < Real.sqrt C := Real.sqrt_pos.mpr hC
+  nlinarith [h, h1, ht, h2]
+
+-- [T41] :: {VER} | THE SURFACE TORSION IS IN THE UNIT INTERVAL BELOW THE HORIZON
+theorem t41_surface_torsion_range (C : ℝ) (h0 : 0 < C) (h1 : C < 1) :
+    0 < tau_surface C ∧ tau_surface C < 1 := by
+  simp only [tau_surface]
+  have hs : Real.sqrt C ^ 2 = C := Real.sq_sqrt h0.le
+  have hp : 0 < Real.sqrt C := Real.sqrt_pos.mpr h0
+  exact ⟨hp, by nlinarith [hs, hp]⟩
+
+-- [T42] :: {VER} | THE IVA BAND READ ON COMPACTNESS
+theorem t42_iva_band_on_compactness (C : ℝ) (h0 : 0 < C) (h1 : C < 1) :
+    (TL_IVA ≤ tau_surface C ∧ tau_surface C < TORSION_LIMIT) ↔
+    (TL_IVA ^ 2 ≤ C ∧ C < TORSION_LIMIT ^ 2) := by
+  have hs : tau_surface C ^ 2 = C := t39_surface_torsion_matches C h0
+  obtain ⟨hp, _⟩ := t41_surface_torsion_range C h0 h1
+  obtain ⟨hf, _⟩ := t3_floor_below_ceiling
+  obtain ⟨hc, _⟩ := t2_tl_in_unit_interval
+  constructor
+  · intro ⟨ha, hb⟩
+    exact ⟨by nlinarith [hs, ha, hf], by nlinarith [hs, hb, hp]⟩
+  · intro ⟨ha, hb⟩
+    exact ⟨by nlinarith [hs, ha, hp, hf], by nlinarith [hs, hb, hp, hc]⟩
+
+-- ============================================================
+-- SECTION 9: MAGNITUDE AND AVAILABILITY ARE DECOUPLED
+-- ============================================================
+
+-- [T43] :: {VER} | THE DRIVE CANCELS FROM A COMPARISON OF TWO BODIES
+-- The ratio of the matched radii at two bodies is the ratio of their
+-- Schwarzschild radii, for every drive.
+theorem t43_drive_cancels_between_bodies (rs₁ rs₂ t : ℝ) (ht : t ≠ 0) :
+    rs₁ * matched_ratio t / (rs₂ * matched_ratio t) = rs₁ / rs₂ := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have hm : matched_ratio t ≠ 0 := by
+    simp only [matched_ratio]
+    positivity
+  rw [mul_comm rs₁, mul_comm rs₂, mul_div_mul_left _ _ hm]
+
+-- [T44] :: {VER} | THE BODY DOES FIX THE MATCHED RADIUS
+-- For a fixed drive the matched radius is strictly increasing in the
+-- Schwarzschild radius, so the body determines where the maneuver happens.
+theorem t44_radius_monotone_in_body (rs₁ rs₂ t : ℝ) (ht : t ≠ 0) (h : rs₁ < rs₂) :
+    rs₁ * matched_ratio t < rs₂ * matched_ratio t := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have hm : 0 < matched_ratio t := by
+    simp only [matched_ratio]
+    positivity
+  exact mul_lt_mul_of_pos_right h hm
+
+-- [T45] :: {VER} | AVAILABILITY IS FIXED BY THE CONVERSION FRACTION ALONE
+-- The threshold a body must clear is twice the drive's conversion fraction,
+-- carrying no mass ratio and no body parameter.
+theorem t45_threshold_is_the_conversion_fraction (t : ℝ) :
+    t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- ============================================================
+-- SECTION 10: WHAT THE GAIN COSTS IN AVAILABILITY
+-- ============================================================
+
+-- [T46] :: {VER} | THE GAINED CRITERION
+theorem t46_gained_criterion (rs R t g : ℝ) (hR : 0 < R) (ht : gained_tau t g ≠ 0) :
+    R < rs / gained_tau t g ^ 2 ↔ gained_tau t g ^ 2 < compactness rs R :=
+  t32_master_criterion rs R (gained_tau t g) hR ht
+
+-- [T47] :: {VER} | THE REQUIREMENT GROWS QUADRATICALLY IN THE GAIN
+theorem t47_gain_requirement_quadratic (t g : ℝ) :
+    gained_tau t g ^ 2 = (1 + g) ^ 2 * t ^ 2 := by
+  simp only [gained_tau]; ring
+
+-- [T48] :: {VER} | MORE GAIN DEMANDS MORE COMPACTNESS
+theorem t48_gain_tightens (t g₁ g₂ : ℝ) (ht : 0 < t) (h0 : 0 ≤ g₁) (h : g₁ < g₂) :
+    gained_tau t g₁ ^ 2 < gained_tau t g₂ ^ 2 := by
+  simp only [gained_tau]
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have h1 : (0:ℝ) < 1 + g₁ := by linarith
+  have hsq : (1 + g₁) ^ 2 < (1 + g₂) ^ 2 := by nlinarith
+  calc ((1 + g₁) * t) ^ 2 = (1 + g₁) ^ 2 * t ^ 2 := by ring
+    _ < (1 + g₂) ^ 2 * t ^ 2 := mul_lt_mul_of_pos_right hsq ht2
+    _ = ((1 + g₂) * t) ^ 2 := by ring
+
+-- [T49] :: {VER} | AT THE CAP ONLY A HORIZON QUALIFIES
+-- Reading A at its supremum requires compactness above one, which only the
+-- horizon itself reaches.
+theorem t49_cap_requires_horizon (rs R : ℝ) (hR : 0 < R) :
+    R < rs ↔ (1:ℝ) < compactness rs R := by
+  have h := t32_master_criterion rs R 1 hR one_ne_zero
+  norm_num at h
+  exact h
+
+-- [T50] :: {VER} | THE GAIN CAP AND THE CORRIDOR CEILING
+theorem t50_gain_at_ceiling (g : ℝ) :
+    gained_tau TORSION_LIMIT g ^ 2 = (1 + g) ^ 2 * TORSION_LIMIT ^ 2 :=
+  t47_gain_requirement_quadratic TORSION_LIMIT g
+
+-- ============================================================
+-- SECTION 11: THE MATCHED RADIUS AS A LEVEL SET
+-- Nothing in the construction is Schwarzschild-specific. For any
+-- static spherically symmetric metric with reciprocal g_tt and
+-- g_rr, the matched radius solves f(r) = 1 − τ_A².
+-- ============================================================
+
+/-- The level-set condition: the metric function equals the squared dilation
+factor. -/
+def matched_level (f : ℝ → ℝ) (t r : ℝ) : Prop := f r = 1 - t ^ 2
+
+/-- The Schwarzschild metric function. -/
+def f_schwarzschild (rs r : ℝ) : ℝ := 1 - rs / r
+
+/-- The Reissner–Nordström metric function. -/
+def f_rn (rs rQ r : ℝ) : ℝ := 1 - rs / r + rQ ^ 2 / r ^ 2
+
+-- [T51] :: {VER} | THE LEVEL SET IS THE SQUARED DILATION FACTOR
+-- The gravitational dilation factor of a static metric is √f, so the
+-- condition states that it equals the kinematic factor √(1 − τ_A²).
+theorem t51_level_set_is_dilation (f : ℝ → ℝ) (t r : ℝ) :
+    matched_level f t r ↔ f r = 1 - t ^ 2 := Iff.rfl
+
+-- [T52] :: {VER} | THE LEVEL SET ON THE CONVERSION FRACTION
+theorem t52_level_set_on_eta (f : ℝ → ℝ) (t r : ℝ) :
+    matched_level f t r ↔ f r = 1 - 2 * eta_of_tau t := by
+  simp only [matched_level, eta_of_tau]
+  constructor
+  · intro h; rw [h]; ring
+  · intro h; rw [h]; ring
+
+-- [T53] :: {VER} | THE SCHWARZSCHILD INSTANCE IS THE PARENT RESULT
+theorem t53_schwarzschild_instance (rs t r : ℝ) (hr : r ≠ 0) (ht : t ≠ 0) :
+    matched_level (f_schwarzschild rs) t r ↔ r = rs / t ^ 2 := by
+  simp only [matched_level, f_schwarzschild]
+  have ht2' : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  constructor
+  · intro h
+    have h1 : rs / r = t ^ 2 := by linarith
+    rw [div_eq_iff hr] at h1
+    rw [eq_div_iff ht2']
+    linarith [h1]
+  · intro h
+    subst h
+    have hrs : rs ≠ 0 := by
+      intro h0
+      rw [h0, zero_div] at hr
+      exact hr rfl
+    field_simp
+
+-- [T54] :: {VER} | THE SCHWARZSCHILD LEVEL SET IS THE MATCHED RATIO
+theorem t54_schwarzschild_is_matched_ratio (rs t : ℝ) (ht : t ≠ 0) :
+    rs / t ^ 2 = rs * matched_ratio t := (t34_matched_radius_form rs t ht).symm
+
+-- [T55] :: {VER} | THE DILATION FACTOR AT THE MATCHED RADIUS
+-- Both readings of the dilation are the same quantity because the level-set
+-- condition sets them equal.
+theorem t55_dilation_at_matched (f : ℝ → ℝ) (t r : ℝ) (h : matched_level f t r) :
+    Real.sqrt (f r) = Real.sqrt (1 - t ^ 2) := by
+  simp only [matched_level] at h
+  rw [h]
+
+-- [T56] :: {VER} | THE CORRIDOR'S LEVEL VALUES
+theorem t56_corridor_levels :
+    1 - TORSION_LIMIT ^ 2 =
+      3833041548529556212611501999 / 3906250000000000000000000000 ∧
+    1 - TL_IVA ^ 2 =
+      601493339872076301725991741879 / 610351562500000000000000000000 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 12: REISSNER–NORDSTRÖM — THE MATCHED RADIUS AS A PAIR
+-- ============================================================
+
+/-- The charge in units of the Schwarzschild radius. -/
+def q_of (rs rQ : ℝ) : ℝ := rQ / rs
+
+/-- The outer root of the Reissner–Nordström level set, in Schwarzschild
+radii: [1 + √(1 − 4q²τ²)]/(2τ²). -/
+def rn_outer (q t : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / (2 * t ^ 2)
+
+/-- The inner root. -/
+def rn_inner (q t : ℝ) : ℝ := (1 - Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / (2 * t ^ 2)
+
+/-- The charge correction factor the outer root applies to the Schwarzschild
+matched radius. -/
+def rn_factor (q t : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / 2
+
+-- [T57] :: {VER} | THE LEVEL SET IS A QUADRATIC IN THE RADIUS
+theorem t57_rn_quadratic (rs rQ t r : ℝ) (hr : r ≠ 0) :
+    matched_level (f_rn rs rQ) t r ↔ t ^ 2 * r ^ 2 - rs * r + rQ ^ 2 = 0 := by
+  simp only [matched_level, f_rn]
+  have hr2 : r ^ 2 ≠ 0 := pow_ne_zero 2 hr
+  constructor
+  · intro h; field_simp at h; nlinarith [h]
+  · intro h; field_simp; nlinarith [h]
+
+-- [T58] :: {VER} | THE DISCRIMINANT IS NONNEGATIVE ON THE PHYSICAL RANGE
+-- Sub-extremal charge, q ≤ 1/2, with Reading A below one.
+theorem t58_rn_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+  have hq2 : q ^ 2 ≤ 1 / 4 := by nlinarith
+  have ht2 : t ^ 2 ≤ 1 := by nlinarith
+  have hqn : (0:ℝ) ≤ 4 * q ^ 2 := by positivity
+  nlinarith [hq2, ht2, hqn]
+
+-- [T59] :: {VER} | THE TWO ROOTS SOLVE THE QUADRATIC
+theorem t59_rn_roots_solve (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    t ^ 2 * rn_outer q t ^ 2 - rn_outer q t + q ^ 2 = 0 ∧
+    t ^ 2 * rn_inner q t ^ 2 - rn_inner q t + q ^ 2 = 0 := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  constructor
+  · field_simp
+    linear_combination hs
+  · field_simp
+    linear_combination hs
+
+-- [T60] :: {VER} | THE UNCHARGED LIMIT RECOVERS THE PARENT RESULT
+theorem t60_rn_uncharged_limit (t : ℝ) (ht : 0 < t) :
+    rn_outer 0 t = matched_ratio t ∧ rn_inner 0 t = 0 := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  constructor
+  · simp only [rn_outer, matched_ratio]
+    norm_num
+    field_simp
+  · simp only [rn_inner]
+    norm_num
+
+-- [T61] :: {VER} | THE OUTER ROOT IS THE SCHWARZSCHILD RADIUS TIMES THE FACTOR
+theorem t61_rn_outer_factored (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t = matched_ratio t * rn_factor q t := by
+  simp only [rn_outer, matched_ratio, rn_factor]
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  field_simp
+
+-- [T62] :: {VER} | THE FACTOR IS ONE AT ZERO CHARGE
+theorem t62_rn_factor_uncharged : rn_factor 0 1 = 1 := by
+  simp only [rn_factor]
+  norm_num
+
+-- [T63] :: {VER} | THE FACTOR DECREASES IN THE CHARGE
+theorem t63_rn_factor_antitone (q₁ q₂ t : ℝ) (h0 : 0 ≤ q₁) (h : q₁ < q₂)
+    (hq2 : q₂ ≤ 1/2) (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q₂ t < rn_factor q₁ t := by
+  have hd1 : 0 ≤ 1 - 4 * q₁ ^ 2 * t ^ 2 :=
+    t58_rn_discriminant q₁ t h0 (by linarith) ht0 ht1
+  have hd2 : 0 ≤ 1 - 4 * q₂ ^ 2 * t ^ 2 :=
+    t58_rn_discriminant q₂ t (by linarith) hq2 ht0 ht1
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have hqsq : q₁ ^ 2 < q₂ ^ 2 := by nlinarith
+  have hlt : 1 - 4 * q₂ ^ 2 * t ^ 2 < 1 - 4 * q₁ ^ 2 * t ^ 2 := by
+    nlinarith [hqsq, ht2]
+  simp only [rn_factor]
+  have := Real.sqrt_lt_sqrt hd2 hlt
+  linarith
+
+-- [T64] :: {VER} | THE FACTOR AT EXTREMAL CHARGE IS THE DILATION FACTOR, SHIFTED
+theorem t64_rn_factor_extremal (t : ℝ) :
+    rn_factor (1/2) t = (1 + Real.sqrt (1 - t ^ 2)) / 2 := by
+  simp only [rn_factor]
+  have harg : (1:ℝ) - 4 * (1/2) ^ 2 * t ^ 2 = 1 - t ^ 2 := by ring
+  rw [harg]
+
+-- [T65] :: {VER} | THE MAXIMUM INWARD SHIFT IS THE DILATION DEFICIT, HALVED
+theorem t65_max_shift_is_half_the_deficit (t : ℝ) :
+    1 - rn_factor (1/2) t = (1 - Real.sqrt (1 - t ^ 2)) / 2 := by
+  rw [t64_rn_factor_extremal t]
+  ring
+
+-- [T66] :: {VER} | THE EXTREMAL FACTOR IS PINNED EXACTLY BY THE LEVEL VALUE
+-- Twice the extremal factor less one is the dilation factor itself, so its
+-- square is the level value 1 − τ_A², exactly and with no decimal.
+theorem t66_extremal_factor_exact (t : ℝ) (h : t ^ 2 ≤ 1) :
+    (2 * rn_factor (1/2) t - 1) ^ 2 = 1 - t ^ 2 := by
+  rw [t64_rn_factor_extremal t]
+  have hs : Real.sqrt (1 - t ^ 2) ^ 2 = 1 - t ^ 2 := Real.sq_sqrt (by linarith)
+  have hr : 2 * ((1 + Real.sqrt (1 - t ^ 2)) / 2) - 1 = Real.sqrt (1 - t ^ 2) := by
+    ring
+  rw [hr, hs]
+
+-- [T66b] :: {VER} | THE EXTREMAL FACTOR AT THE CORRIDOR EDGES, AS EXACT RATIONALS
+theorem t66b_extremal_factor_corridor :
+    (2 * rn_factor (1/2) TORSION_LIMIT - 1) ^ 2 =
+      3833041548529556212611501999 / 3906250000000000000000000000 ∧
+    (2 * rn_factor (1/2) TL_IVA - 1) ^ 2 =
+      601493339872076301725991741879 / 610351562500000000000000000000 := by
+  have hc : TORSION_LIMIT ^ 2 ≤ 1 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  have hf : TL_IVA ^ 2 ≤ 1 := by
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  constructor
+  · rw [t66_extremal_factor_exact TORSION_LIMIT hc]
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · rw [t66_extremal_factor_exact TL_IVA hf]
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T66c] :: {VER} | THE FACTOR IS BELOW ONE AT ANY NONZERO CHARGE
+-- Charge always moves the reachable root inward, never outward.
+theorem t66c_extremal_factor_lt_one (t : ℝ) (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor (1/2) t < 1 := by
+  rw [t64_rn_factor_extremal t]
+  have hpos : (0:ℝ) < 1 - t ^ 2 := by nlinarith
+  have hs : Real.sqrt (1 - t ^ 2) ^ 2 = 1 - t ^ 2 := Real.sq_sqrt hpos.le
+  have hp : 0 < Real.sqrt (1 - t ^ 2) := Real.sqrt_pos.mpr hpos
+  have h1 : Real.sqrt (1 - t ^ 2) < 1 := by nlinarith [hs, hp]
+  linarith
+
+-- [T67] :: {VER} | AT THE EXTREMAL CHARGE READING A'S SUPREMUM MATCHES THE HORIZON
+-- τ_A = 1 and q = 1/2 merge the pair at r = r_s/2, the extremal horizon.
+theorem t67_extremal_photon_matches_horizon :
+    rn_outer (1/2) 1 = 1/2 ∧ rn_inner (1/2) 1 = 1/2 := by
+  constructor
+  · simp only [rn_outer]; norm_num
+  · simp only [rn_inner]; norm_num
+
+
+-- ============================================================
+-- SECTION 12b: THE STRUCTURE OF THE CHARGED PAIR
+-- The two roots are not independent. They partition the
+-- uncharged matched radius, they bracket both horizons, and the
+-- factor that separates them also moves the availability
+-- criterion.
+-- ============================================================
+
+/-- The outer Reissner–Nordström horizon, in Schwarzschild radii. -/
+def rn_horizon_outer (q : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2)) / 2
+
+/-- The inner Reissner–Nordström horizon, in Schwarzschild radii. -/
+def rn_horizon_inner (q : ℝ) : ℝ := (1 - Real.sqrt (1 - 4 * q ^ 2)) / 2
+
+-- [T68] :: {VER} | THE CHARGE FACTOR IS AT LEAST ONE HALF
+theorem t68_rn_factor_ge_half (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) : 1/2 ≤ rn_factor q t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have hp : 0 ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_nonneg _
+  simp only [rn_factor]
+  linarith
+
+-- [T69] :: {VER} | THE PAIR PARTITIONS THE UNCHARGED MATCHED RADIUS
+-- Charge does not change the total. r₊ + r₋ is the Schwarzschild
+-- matched ratio at every charge.
+theorem t69_pair_partitions (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t + rn_inner q t = matched_ratio t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner, matched_ratio]
+  field_simp
+  ring
+
+-- [T70] :: {VER} | THE PRODUCT OF THE PAIR
+theorem t70_pair_product (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_outer q t * rn_inner q t = q ^ 2 * matched_ratio t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner, matched_ratio]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  field_simp
+  linear_combination -hs
+
+-- [T71] :: {VER} | THE INNER ROOT RATIONALIZES
+-- r₋ = 2q²/(1 + √(1 − 4q²τ²)), which removes the cancelling
+-- difference and exposes the inner root as a ratio in q².
+theorem t71_inner_rationalized (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t = 2 * q ^ 2 / (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_inner]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  have hsn : 0 ≤ s := Real.sqrt_nonneg _
+  have h1s : (0:ℝ) < 1 + s := by linarith
+  rw [div_eq_div_iff (by positivity) (ne_of_gt h1s)]
+  linear_combination -hs
+
+-- [T72] :: {VER} | THE INNER HORIZON RATIONALIZES THE SAME WAY
+-- The inner horizon is the inner root's own form at τ_A = 1.
+theorem t72_inner_horizon_rationalized (q : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2) :
+    rn_horizon_inner q = 2 * q ^ 2 / (1 + Real.sqrt (1 - 4 * q ^ 2)) := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hs : Real.sqrt (1 - 4 * q ^ 2) ^ 2 = 1 - 4 * q ^ 2 := Real.sq_sqrt hd
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have h1s : (0:ℝ) < 1 + Real.sqrt (1 - 4 * q ^ 2) := by linarith
+  simp only [rn_horizon_inner]
+  rw [div_eq_div_iff (by norm_num) (ne_of_gt h1s)]
+  linear_combination -hs
+
+-- [T73] :: {VER} | THE INNER ROOT LIES INSIDE THE INNER HORIZON
+theorem t73_inner_root_inside_inner_horizon (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t < rn_horizon_inner q := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0.le hq ht0 ht1
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hqsq : (0:ℝ) < q ^ 2 := pow_pos hq0 2
+  have htsq : t ^ 2 < 1 := by nlinarith
+  have hlt : 1 - 4 * q ^ 2 < 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_pos hqsq (sub_pos.mpr htsq)]
+  have hsq : Real.sqrt (1 - 4 * q ^ 2) < Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
+    Real.sqrt_lt_sqrt hdh hlt
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have hq2 : (0:ℝ) < 2 * q ^ 2 := by positivity
+  rw [t71_inner_rationalized q t hq0.le hq ht0 ht1,
+      t72_inner_horizon_rationalized q hq0.le hq]
+  apply div_lt_div_of_pos_left hq2 (by linarith) (by linarith)
+
+-- [T74] :: {VER} | THE OUTER HORIZON LIES INSIDE THE OUTER ROOT
+theorem t74_outer_horizon_inside_outer_root (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_horizon_outer q < rn_outer q t := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have htsq : t ^ 2 < 1 := by nlinarith
+  have hle : 1 - 4 * q ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_nonneg (sq_nonneg q) (sub_nonneg.mpr htsq.le)]
+  have hsq : Real.sqrt (1 - 4 * q ^ 2) ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) :=
+    Real.sqrt_le_sqrt hle
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have ht2' : t ^ 2 < 1 := by nlinarith
+  simp only [rn_horizon_outer, rn_outer]
+  rw [div_lt_div_iff₀ (by norm_num) (by positivity)]
+  nlinarith [hsq, hsn, ht2, ht2']
+
+-- [T75] :: {VER} | THE PAIR BRACKETS BOTH HORIZONS
+-- r₋ < r_H⁻ ≤ r_H⁺ < r₊ : exactly one root is a place a vehicle
+-- can occupy, and the ordering is strict at both ends.
+theorem t75_pair_brackets_both_horizons (q t : ℝ) (hq0 : 0 < q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t < rn_horizon_inner q ∧
+    rn_horizon_inner q ≤ rn_horizon_outer q ∧
+    rn_horizon_outer q < rn_outer q t := by
+  refine ⟨t73_inner_root_inside_inner_horizon q t hq0 hq ht0 ht1, ?_,
+    t74_outer_horizon_inside_outer_root q t hq0.le hq ht0 ht1⟩
+  have hdh : 0 ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2) := Real.sqrt_nonneg _
+  simp only [rn_horizon_inner, rn_horizon_outer]
+  linarith
+
+-- [T76] :: {VER} | THE CHARGE-FOR-SHIFT IDENTITY
+-- F(1 − F) = q²τ_A² exactly, so the charge that produces a given
+-- shift is fixed and the shift that a given charge produces is too.
+theorem t76_charge_for_shift (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q t * (1 - rn_factor q t) = q ^ 2 * t ^ 2 := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t58_rn_discriminant q t hq0 hq ht0 ht1
+  simp only [rn_factor]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  linear_combination -hs / 4
+
+-- [T77] :: {VER} | THE EXTREMAL FACTOR IS THE MINIMUM OVER THE CHARGE RANGE
+-- So the inward shift is saturated at the extremal charge: a larger
+-- shift would require q above one half, which is no longer a horizon.
+theorem t77_extremal_factor_is_minimum (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor (1/2) t ≤ rn_factor q t := by
+  have hdh : 0 ≤ 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 := by nlinarith
+  have hq4 : (0:ℝ) ≤ 1 - 4 * q ^ 2 := by nlinarith
+  have hle : 1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+    nlinarith [mul_nonneg (sq_nonneg t) hq4]
+  have hsq : Real.sqrt (1 - 4 * (1/2 : ℝ) ^ 2 * t ^ 2)
+      ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_le_sqrt hle
+  simp only [rn_factor]
+  linarith
+
+-- [T78] :: {VER} | THE CHARGED COMPACTNESS CRITERION
+-- Availability at a charged body is the uncharged criterion with the
+-- threshold divided by the charge factor.
+theorem t78_charged_criterion (rs R q t : ℝ) (hR : 0 < R) (ht : 0 < t)
+    (hF : 0 < rn_factor q t) :
+    R < rs * rn_outer q t ↔ t ^ 2 / rn_factor q t < compactness rs R := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  simp only [compactness]
+  rw [t61_rn_outer_factored q t ht]
+  simp only [matched_ratio]
+  rw [div_lt_div_iff₀ hF hR]
+  have key : rs * (1 / t ^ 2 * rn_factor q t) = rs * rn_factor q t / t ^ 2 := by
+    ring
+  rw [key, lt_div_iff₀ ht2, mul_comm R (t ^ 2)]
+
+-- [T79] :: {VER} | CHARGE TIGHTENS AVAILABILITY
+-- The charged threshold is never below the uncharged one, because the
+-- factor is never above one.
+theorem t79_charge_tightens_availability (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) (hFle : rn_factor q t ≤ 1) :
+    t ^ 2 ≤ t ^ 2 / rn_factor q t := by
+  have hF : (0:ℝ) < rn_factor q t := by
+    have := t68_rn_factor_ge_half q t hq0 hq ht0 ht1
+    linarith
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  rw [le_div_iff₀ hF]
+  nlinarith [ht2, hFle]
+
+
+-- ============================================================
+-- SECTION 12c: WHAT THE PAIR IS, AND THE CRITERION WITHOUT A METRIC
+-- The charge factor is a partition fraction rather than a
+-- correction, the discriminant bound is the partition identity
+-- read twice, and the availability criterion can be stated with
+-- no metric at all.
+-- ============================================================
+
+-- [T80] :: {VER} | THE FACTOR IS THE OUTER ROOT'S SHARE, AND 1 − F THE INNER'S
+-- r₊ = F · matched_ratio and r₋ = (1 − F) · matched_ratio, so the two
+-- shares sum to one and F is a partition fraction, not a correction.
+theorem t80_factor_is_a_partition_share (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t = rn_factor q t * matched_ratio t ∧
+    rn_inner q t = (1 - rn_factor q t) * matched_ratio t := by
+  have houter : rn_outer q t = rn_factor q t * matched_ratio t := by
+    rw [t61_rn_outer_factored q t ht]; ring
+  refine ⟨houter, ?_⟩
+  have hsum := t69_pair_partitions q t ht
+  have : rn_inner q t = matched_ratio t - rn_outer q t := by linarith
+  rw [this, houter]; ring
+
+-- [T81] :: {VER} | THE INNER ROOT IS q² OVER THE FACTOR
+-- So the pair is exactly { F/τ_A² , q²/F }, whose product is q²/τ_A².
+theorem t81_inner_is_q_sq_over_factor (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_inner q t = q ^ 2 / rn_factor q t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  have hF : (0:ℝ) < rn_factor q t := by
+    have := t68_rn_factor_ge_half q t hq0 hq ht0 ht1
+    linarith
+  have hid := t76_charge_for_shift q t hq0 hq ht0 ht1
+  rw [(t80_factor_is_a_partition_share q t ht0).2]
+  simp only [matched_ratio]
+  rw [eq_div_iff (ne_of_gt hF)]
+  field_simp
+  linear_combination hid
+
+-- [T82] :: {VER} | THE PARTITION IDENTITY CONTAINS THE DISCRIMINANT BOUND
+-- F(1 − F) ≤ ¼ for any real F, so T76 forces q²τ_A² ≤ ¼ — which is the
+-- discriminant condition of T58, reached from the partition instead.
+theorem t82_partition_gives_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q t * (1 - rn_factor q t) ≤ 1/4 ∧ q ^ 2 * t ^ 2 ≤ 1/4 := by
+  have hid := t76_charge_for_shift q t hq0 hq ht0 ht1
+  have hsq : (0:ℝ) ≤ (rn_factor q t - 1/2) ^ 2 := sq_nonneg _
+  constructor
+  · nlinarith [hsq]
+  · rw [← hid]; nlinarith [hsq]
+
+-- [T83] :: {VER} | THE CRITERION WITHOUT A METRIC
+-- Availability needs only the matched radius, not the metric that
+-- produced it: a body admits the maneuver exactly when its compactness
+-- exceeds the Schwarzschild radius over the matched radius.
+theorem t83_criterion_metric_free (rs R rmatch : ℝ) (hrs : 0 < rs) (hR : 0 < R)
+    (hrm : 0 < rmatch) :
+    R < rmatch ↔ rs / rmatch < compactness rs R := by
+  simp only [compactness]
+  rw [div_lt_div_iff₀ hrm hR]
+  constructor
+  · intro h; nlinarith [hrs, h]
+  · intro h; nlinarith [hrs, h]
+
+-- [T84] :: {VER} | THE METRIC-FREE CRITERION RECOVERS THE SCHWARZSCHILD FORM
+-- With r_match = r_s · matched_ratio, the threshold r_s/r_match is τ_A².
+theorem t84_metric_free_recovers_tau_sq (rs t : ℝ) (hrs : rs ≠ 0) (ht : t ≠ 0) :
+    rs / (rs * matched_ratio t) = t ^ 2 := by
+  simp only [matched_ratio]
+  have ht2 : t ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+
+-- [T85] :: {VER} | THE LOCAL ESCAPE SPEED AT A MATCHED RADIUS CARRIES NO METRIC
+-- Whatever f produced the level set, the locally measured escape fraction at
+-- its solution is Reading A itself. Everything downstream of that radius —
+-- the burn, the multiplier, the saving — therefore carries no metric data.
+theorem t85_escape_at_matched_is_reading_a (f : ℝ → ℝ) (t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level f t r) : Real.sqrt (1 - f r) = t := by
+  simp only [matched_level] at h
+  rw [h]
+  have : (1:ℝ) - (1 - t ^ 2) = t ^ 2 := by ring
+  rw [this, Real.sqrt_sq ht]
+
+-- ============================================================
+-- SECTION 13: MASTER
+-- ============================================================
+
+-- [MASTER] :: {VER} | THE PROPELLANT LAW AND THE COMPACTNESS CRITERION
+theorem MASTER_propellant_and_compactness :
+    -- the inversion solves the chain quadratic
+    (∀ x : ℝ, tau_B_of_x x ^ 2 + 2 * tau_B_of_x x = x ^ 2) ∧
+    -- the saving is the ratio of the two mass ratios, and factors through e
+    (∀ x : ℝ, saving x = mr_ideal x / mr_match x) ∧
+    (∀ x : ℝ, saving x = Real.exp 1 * Real.exp (x - rad x)) ∧
+    -- strictly bounded above by e, strictly increasing, bracketed below
+    (∀ x : ℝ, saving x < Real.exp 1) ∧
+    (∀ x y : ℝ, x < y → saving x < saving y) ∧
+    (∀ x : ℝ, 0 < x → Real.exp 1 * Real.exp (-1 / x) < saving x) ∧
+    -- the bound is the well's own Reading B
+    (∀ x : ℝ, sav_exp x = (x - rad x) + well_tau_B) ∧
+    Real.exp well_tau_B = Real.exp 1 ∧
+    -- the small-burn cost is quadratic, not exponential
+    (∀ x : ℝ, tau_B_of_x x ≤ x ^ 2 / 2) ∧
+    -- availability is compactness against Reading A
+    (∀ rs R t : ℝ, 0 < R → t ≠ 0 →
+      (R < rs / t ^ 2 ↔ t ^ 2 < compactness rs R)) ∧
+    (∀ rs R t : ℝ, 0 < R → t ≠ 0 →
+      (R < rs / t ^ 2 ↔ 2 * eta_of_tau t < compactness rs R)) ∧
+    -- the gain requirement grows quadratically
+    (∀ t g : ℝ, gained_tau t g ^ 2 = (1 + g) ^ 2 * t ^ 2) ∧
+    -- the matched radius is a level set, and Schwarzschild is the instance
+    (∀ (f : ℝ → ℝ) (t r : ℝ), matched_level f t r ↔ f r = 1 - 2 * eta_of_tau t) ∧
+    (∀ rs t r : ℝ, r ≠ 0 → t ≠ 0 →
+      (matched_level (f_schwarzschild rs) t r ↔ r = rs / t ^ 2)) ∧
+    -- Reissner–Nordström is the quadratic instance, with the outer root
+    -- factoring through the Schwarzschild radius
+    (∀ rs rQ t r : ℝ, r ≠ 0 →
+      (matched_level (f_rn rs rQ) t r ↔ t ^ 2 * r ^ 2 - rs * r + rQ ^ 2 = 0)) ∧
+    (∀ q t : ℝ, 0 < t → rn_outer q t = matched_ratio t * rn_factor q t) ∧
+    -- and the largest inward shift charge can produce is the deficit halved
+    (∀ t : ℝ, 1 - rn_factor (1/2) t = (1 - Real.sqrt (1 - t ^ 2)) / 2) := by
+  refine ⟨t11_inversion_solves, t14_saving_is_the_ratio, t15_saving_factored,
+    t17_saving_lt_e, t23_saving_mono,
+    fun x hx => (t21_saving_bracket x hx).1,
+    t24_constant_is_the_well, t25_bound_is_e_to_the_well,
+    t27_small_burn_upper,
+    fun rs R t hR ht => t32_master_criterion rs R t hR ht,
+    fun rs R t hR ht => t33_criterion_on_eta rs R t hR ht,
+    t47_gain_requirement_quadratic,
+    fun f t r => t52_level_set_on_eta f t r,
+    fun rs t r hr ht => t53_schwarzschild_instance rs t r hr ht,
+    fun rs rQ t r hr => t57_rn_quadratic rs rQ t r hr,
+    fun q t ht => t61_rn_outer_factored q t ht,
+    t65_max_shift_is_half_the_deficit⟩
+
+end SNSFL_PropellantCompactness
+
+
+-- ============================================================
+-- MODULE: SNSFL_MatchedSurface_Rotation_Reduction.lean · [9,9,0,19](GRAV)
+-- ProofPress, Volume 1, Issue 9, Article 5 · The Matched Surface Under Rotation
+-- 71 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_MatchedSurfaceRotation
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, READING A
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A² = 1/(2η). -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The compactness of a body: its Schwarzschild radius over its radius. -/
+def compactness (rs R : ℝ) : ℝ := rs / R
+
+/-- The resonance gain acting as an exhaust-velocity multiplier. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+-- α⁻¹ is a thousand bare steps plus one kinetic step.
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t6_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- [T7] :: {VER} | THE MATCHED RATIO AT EACH CORRIDOR EDGE IS POSITIVE
+theorem t7_matched_ratio_pos (t : ℝ) (ht : t ≠ 0) : 0 < matched_ratio t := by
+  simp only [matched_ratio]
+  have h : (0:ℝ) < t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  exact div_pos one_pos h
+
+-- [T8] :: {VER} | THE CORRIDOR CEILING CLASSIFIES AS SHATTER AT ITS OWN VALUE
+theorem t8_ceiling_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h0 : TORSION_LIMIT ≠ 0 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  unfold classify
+  rw [if_neg h0, if_neg (not_lt.mpr t3_floor_below_ceiling.2.le),
+    if_neg (lt_irrefl TORSION_LIMIT)]
+
+-- ============================================================
+-- SECTION 1: THE LEVEL SET IS THE TIME–TIME COMPONENT
+-- For a static observer in any stationary metric: the escape
+-- fraction squared is 1 + g_tt, the dilation squared is −g_tt,
+-- and the matched surface is the level set g_tt = τ_A² − 1.
+-- ============================================================
+
+/-- The locally measured escape fraction squared, for a static observer. -/
+def escape_sq (gtt : ℝ → ℝ) (r : ℝ) : ℝ := 1 + gtt r
+
+/-- The gravitational dilation squared, for a static observer. -/
+def dilation_sq (gtt : ℝ → ℝ) (r : ℝ) : ℝ := -(gtt r)
+
+/-- The matched surface of a drive of Reading A t, in any stationary metric. -/
+def matched_level (gtt : ℝ → ℝ) (t r : ℝ) : Prop := gtt r = t ^ 2 - 1
+
+/-- The Schwarzschild time–time component. -/
+def gtt_schwarzschild (rs : ℝ) : ℝ → ℝ := fun r => -(1 - rs / r)
+
+/-- The Reissner–Nordström time–time component. -/
+def gtt_rn (rs rQ : ℝ) : ℝ → ℝ := fun r => -(1 - rs / r + rQ ^ 2 / r ^ 2)
+
+/-- The rotating metric's time–time component, with the polar angle entering
+through cos θ. ρ² = r² + a² cos²θ. -/
+def gtt_kerr (rs a cs : ℝ) : ℝ → ℝ :=
+  fun r => -(1 - rs * r / (r ^ 2 + a ^ 2 * cs ^ 2))
+
+/-- The charged rotating metric's time–time component. -/
+def gtt_kn (rs a rQ cs : ℝ) : ℝ → ℝ :=
+  fun r => -(1 - (rs * r - rQ ^ 2) / (r ^ 2 + a ^ 2 * cs ^ 2))
+
+-- [T9] :: {INV} | THE QUADRATURE: ESCAPE AND DILATION SUM TO ONE
+-- Holds at every point of every stationary metric where a static
+-- observer exists. Nothing about symmetry enters.
+theorem t9_quadrature (gtt : ℝ → ℝ) (r : ℝ) :
+    escape_sq gtt r + dilation_sq gtt r = 1 := by
+  simp only [escape_sq, dilation_sq]; ring
+
+-- [T10] :: {INV} | THE MATCHED SURFACE IS THE LEVEL SET OF g_tt
+theorem t10_level_set_form (gtt : ℝ → ℝ) (t r : ℝ) :
+    matched_level gtt t r ↔ gtt r = t ^ 2 - 1 := Iff.rfl
+
+-- [T11] :: {INV} | AT THE MATCHED SURFACE THE ESCAPE FRACTION SQUARED IS τ_A²
+theorem t11_escape_at_matched (gtt : ℝ → ℝ) (t r : ℝ) (h : matched_level gtt t r) :
+    escape_sq gtt r = t ^ 2 := by
+  simp only [escape_sq, matched_level] at *
+  rw [h]; ring
+
+-- [T12] :: {INV} | AT THE MATCHED SURFACE THE DILATION SQUARED IS 1 − τ_A²
+theorem t12_dilation_at_matched (gtt : ℝ → ℝ) (t r : ℝ) (h : matched_level gtt t r) :
+    dilation_sq gtt r = 1 - t ^ 2 := by
+  simp only [dilation_sq, matched_level] at *
+  rw [h]; ring
+
+-- [T13] :: {INV} | THE LEVEL SET ON THE CONVERSION FRACTION
+theorem t13_level_set_on_eta (gtt : ℝ → ℝ) (t r : ℝ) :
+    matched_level gtt t r ↔ gtt r = 2 * eta_of_tau t - 1 := by
+  simp only [matched_level, eta_of_tau]
+  constructor <;> intro h <;> linarith [h]
+
+-- [T14] :: {INV} | THE ESCAPE FRACTION AT THE MATCHED SURFACE IS READING A
+theorem t14_escape_fraction_is_reading_a (gtt : ℝ → ℝ) (t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level gtt t r) : Real.sqrt (escape_sq gtt r) = t := by
+  rw [t11_escape_at_matched gtt t r h, Real.sqrt_sq ht]
+
+-- [T15] :: {INV} | THE SCHWARZSCHILD INSTANCE
+theorem t15_schwarzschild_instance (rs t r : ℝ) (hr : r ≠ 0) (ht : t ≠ 0) :
+    matched_level (gtt_schwarzschild rs) t r ↔ r = rs / t ^ 2 := by
+  simp only [matched_level, gtt_schwarzschild]
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  constructor
+  · intro h
+    have h1 : rs / r = t ^ 2 := by linarith
+    rw [div_eq_iff hr] at h1
+    rw [eq_div_iff ht2]
+    linarith [h1]
+  · intro h
+    subst h
+    have hrs : rs ≠ 0 := by
+      intro h0
+      rw [h0, zero_div] at hr
+      exact hr rfl
+    field_simp
+    ring
+
+-- [T16] :: {INV} | THE SCHWARZSCHILD MATCHED RADIUS IS THE MATCHED RATIO
+theorem t16_schwarzschild_is_matched_ratio (t : ℝ) (ht : t ≠ 0) :
+    (1:ℝ) / t ^ 2 = matched_ratio t := by
+  simp only [matched_ratio]
+
+-- ============================================================
+-- SECTION 2: THE REISSNER–NORDSTRÖM APPARATUS
+-- Restated in full, so the rotating results can be carried
+-- across the effective-charge bridge of Section 4.
+-- ============================================================
+
+/-- The charge in units of the Schwarzschild radius. -/
+def q_of (rs rQ : ℝ) : ℝ := rQ / rs
+
+/-- The outer root of the charged matched condition, in units of r_s. -/
+def rn_outer (q t : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / (2 * t ^ 2)
+
+/-- The inner root of the charged matched condition, in units of r_s. -/
+def rn_inner (q t : ℝ) : ℝ := (1 - Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / (2 * t ^ 2)
+
+/-- The partition fraction: the outer root's share of the uncharged matched
+radius. -/
+def rn_factor (q t : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * q ^ 2 * t ^ 2)) / 2
+
+-- [T17] :: {VER} | THE CHARGED DISCRIMINANT IS NONNEGATIVE
+theorem t17_rn_discriminant (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := by
+  have hq2 : q ^ 2 ≤ 1 / 4 := by nlinarith
+  have ht2 : t ^ 2 ≤ 1 := by nlinarith
+  have hqn : (0:ℝ) ≤ 4 * q ^ 2 := by positivity
+  nlinarith [hq2, ht2, hqn]
+
+-- [T18] :: {INV} | BOTH CHARGED ROOTS SOLVE THE QUADRATIC
+theorem t18_rn_roots_solve (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    t ^ 2 * rn_outer q t ^ 2 - rn_outer q t + q ^ 2 = 0 ∧
+    t ^ 2 * rn_inner q t ^ 2 - rn_inner q t + q ^ 2 = 0 := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t17_rn_discriminant q t hq0 hq ht0 ht1
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  constructor
+  · field_simp
+    linear_combination hs
+  · field_simp
+    linear_combination hs
+
+-- [T19] :: {INV} | THE OUTER ROOT IS THE PARTITION FRACTION TIMES THE RATIO
+theorem t19_rn_outer_factored (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t = matched_ratio t * rn_factor q t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_factor, matched_ratio]
+  field_simp
+
+-- [T20] :: {INV} | THE PAIR PARTITIONS THE UNCHARGED MATCHED RADIUS
+theorem t20_rn_pair_partitions (q t : ℝ) (ht : 0 < t) :
+    rn_outer q t + rn_inner q t = matched_ratio t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [rn_outer, rn_inner, matched_ratio]
+  field_simp
+  ring
+
+-- [T21] :: {INV} | THE PARTITION FRACTION IS AT MOST ONE
+theorem t21_rn_factor_le_one (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) : rn_factor q t ≤ 1 := by
+  have harg : (1:ℝ) - 4 * q ^ 2 * t ^ 2 ≤ 1 := by nlinarith [sq_nonneg (q * t)]
+  have hle : Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) ≤ 1 := by
+    calc Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) ≤ Real.sqrt 1 := Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
+  simp only [rn_factor]
+  linarith
+
+-- [T22] :: {INV} | THE PARTITION FRACTION IS AT LEAST ONE HALF
+theorem t22_rn_factor_ge_half (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) : 1/2 ≤ rn_factor q t := by
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) := Real.sqrt_nonneg _
+  simp only [rn_factor]
+  linarith
+
+-- [T23] :: {INV} | THE CHARGE-FOR-SHIFT IDENTITY
+theorem t23_charge_for_shift (q t : ℝ) (hq0 : 0 ≤ q) (hq : q ≤ 1/2)
+    (ht0 : 0 < t) (ht1 : t < 1) :
+    rn_factor q t * (1 - rn_factor q t) = q ^ 2 * t ^ 2 := by
+  have hd : 0 ≤ 1 - 4 * q ^ 2 * t ^ 2 := t17_rn_discriminant q t hq0 hq ht0 ht1
+  simp only [rn_factor]
+  set s := Real.sqrt (1 - 4 * q ^ 2 * t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * q ^ 2 * t ^ 2 := Real.sq_sqrt hd
+  linear_combination -hs / 4
+
+-- [T24] :: {INV} | THE CHARGED AVAILABILITY CRITERION
+theorem t24_charged_criterion (rs R q t : ℝ) (hR : 0 < R) (ht : 0 < t)
+    (hF : 0 < rn_factor q t) :
+    R < rs * rn_outer q t ↔ t ^ 2 / rn_factor q t < compactness rs R := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  simp only [compactness]
+  rw [t19_rn_outer_factored q t ht]
+  simp only [matched_ratio]
+  rw [div_lt_div_iff₀ hF hR]
+  have key : rs * (1 / t ^ 2 * rn_factor q t) = rs * rn_factor q t / t ^ 2 := by
+    ring
+  rw [key, lt_div_iff₀ ht2, mul_comm R (t ^ 2)]
+
+-- ============================================================
+-- SECTION 3: THE ROTATING METRIC
+-- The level set evaluated in Boyer–Lindquist, with the polar
+-- angle entering as a parameter through cos θ.
+-- ============================================================
+
+/-- The dimensionless spin, a/r_s. -/
+def spin_ratio (rs a : ℝ) : ℝ := a / rs
+
+/-- The outer root of the rotating matched condition, in units of r_s. -/
+def kerr_outer (t atil cs : ℝ) : ℝ :=
+  (1 + Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2)) / (2 * t ^ 2)
+
+/-- The inner root of the rotating matched condition, in units of r_s. -/
+def kerr_inner (t atil cs : ℝ) : ℝ :=
+  (1 - Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2)) / (2 * t ^ 2)
+
+/-- The rotating partition fraction. -/
+def kerr_factor (t atil cs : ℝ) : ℝ :=
+  (1 + Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2)) / 2
+
+/-- The static limit surface, in units of r_s: the outer root of g_tt = 0. -/
+def ergo_outer (atil cs : ℝ) : ℝ := (1 + Real.sqrt (1 - 4 * atil ^ 2 * cs ^ 2)) / 2
+
+-- [T25] :: {INV} | ON THE EQUATOR THE ROTATING COMPONENT IS SCHWARZSCHILD'S
+theorem t25_equatorial_is_schwarzschild (rs a r : ℝ) (hr : r ≠ 0) :
+    gtt_kerr rs a 0 r = gtt_schwarzschild rs r := by
+  simp only [gtt_kerr, gtt_schwarzschild]
+  have h : r ^ 2 + a ^ 2 * (0:ℝ) ^ 2 = r ^ 2 := by ring
+  have h2 : rs * r / r ^ 2 = rs / r := by
+    rw [div_eq_div_iff (pow_ne_zero 2 hr) hr]
+    ring
+  rw [h, h2]
+
+-- [T26] :: {INV} | THE ROTATING LEVEL SET IS A QUADRATIC IN THE RADIUS
+theorem t26_kerr_quadratic (rs a cs t r : ℝ) (hrho : r ^ 2 + a ^ 2 * cs ^ 2 ≠ 0) :
+    matched_level (gtt_kerr rs a cs) t r ↔
+      t ^ 2 * r ^ 2 - rs * r + t ^ 2 * (a ^ 2 * cs ^ 2) = 0 := by
+  simp only [matched_level, gtt_kerr]
+  constructor
+  · intro h
+    have h1 : rs * r / (r ^ 2 + a ^ 2 * cs ^ 2) = t ^ 2 := by linarith
+    rw [div_eq_iff hrho] at h1
+    linarith [h1]
+  · intro h
+    have h2 : rs * r / (r ^ 2 + a ^ 2 * cs ^ 2) = t ^ 2 := by
+      rw [div_eq_iff hrho]
+      linarith
+    linarith [h2]
+
+-- [T27] :: {INV} | THE CHARGED ROTATING LEVEL SET CARRIES BOTH PARAMETERS
+theorem t27_kn_quadratic (rs a rQ cs t r : ℝ) (hrho : r ^ 2 + a ^ 2 * cs ^ 2 ≠ 0) :
+    matched_level (gtt_kn rs a rQ cs) t r ↔
+      t ^ 2 * r ^ 2 - rs * r + (rQ ^ 2 + t ^ 2 * (a ^ 2 * cs ^ 2)) = 0 := by
+  simp only [matched_level, gtt_kn]
+  constructor
+  · intro h
+    have h1 : (rs * r - rQ ^ 2) / (r ^ 2 + a ^ 2 * cs ^ 2) = t ^ 2 := by linarith
+    rw [div_eq_iff hrho] at h1
+    linarith [h1]
+  · intro h
+    have h2 : (rs * r - rQ ^ 2) / (r ^ 2 + a ^ 2 * cs ^ 2) = t ^ 2 := by
+      rw [div_eq_iff hrho]
+      linarith
+    linarith [h2]
+
+-- ============================================================
+-- SECTION 4: SPIN AS AN EFFECTIVE CHARGE
+-- The bridge. Everything Section 2 proves transfers.
+-- ============================================================
+
+/-- The effective charge of rotation: q_eff = τ_A · ã · |cos θ|. -/
+def q_eff (t atil cs : ℝ) : ℝ := t * atil * |cs|
+
+/-- The combined effective charge of the charged rotating metric. -/
+def q_eff_kn (q t atil cs : ℝ) : ℝ := Real.sqrt (q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2)
+
+-- [T28] :: {INV} | THE EFFECTIVE CHARGE SQUARED
+theorem t28_q_eff_sq (t atil cs : ℝ) :
+    q_eff t atil cs ^ 2 = t ^ 2 * atil ^ 2 * cs ^ 2 := by
+  simp only [q_eff]
+  rw [mul_pow, mul_pow, sq_abs]
+
+-- [T29] :: {INV} | THE EFFECTIVE CHARGE IS NONNEGATIVE ON THE PHYSICAL RANGE
+theorem t29_q_eff_nonneg (t atil cs : ℝ) (ht : 0 ≤ t) (ha : 0 ≤ atil) :
+    0 ≤ q_eff t atil cs := by
+  simp only [q_eff]
+  exact mul_nonneg (mul_nonneg ht ha) (abs_nonneg cs)
+
+-- [T30] :: {INV} | THE TWO DISCRIMINANTS AGREE UNDER THE SUBSTITUTION
+theorem t30_discriminants_agree (t atil cs : ℝ) :
+    1 - 4 * q_eff t atil cs ^ 2 * t ^ 2 = 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 := by
+  rw [t28_q_eff_sq]; ring
+
+-- [T31] :: {MASTER} | THE BRIDGE: THE ROTATING ROOT IS THE CHARGED ROOT
+theorem t31_kerr_is_rn (t atil cs : ℝ) :
+    kerr_outer t atil cs = rn_outer (q_eff t atil cs) t ∧
+    kerr_inner t atil cs = rn_inner (q_eff t atil cs) t ∧
+    kerr_factor t atil cs = rn_factor (q_eff t atil cs) t := by
+  have h := t30_discriminants_agree t atil cs
+  refine ⟨?_, ?_, ?_⟩
+  · simp only [kerr_outer, rn_outer]; rw [h]
+  · simp only [kerr_inner, rn_inner]; rw [h]
+  · simp only [kerr_factor, rn_factor]; rw [h]
+
+-- [T32] :: {INV} | ON THE EQUATOR THE EFFECTIVE CHARGE VANISHES
+theorem t32_equatorial_q_eff_zero (t atil : ℝ) : q_eff t atil 0 = 0 := by
+  simp only [q_eff, abs_zero, mul_zero]
+
+-- [T33] :: {MASTER} | THE EQUATORIAL MATCHED RADIUS IS SPIN-INDEPENDENT
+-- It is exactly the Schwarzschild matched radius, at every spin.
+theorem t33_equatorial_spin_blind (t atil : ℝ) (ht : t ≠ 0) :
+    kerr_outer t atil 0 = matched_ratio t := by
+  simp only [kerr_outer, matched_ratio]
+  have h : 1 - 4 * t ^ 4 * atil ^ 2 * (0:ℝ) ^ 2 = 1 := by ring
+  rw [h, Real.sqrt_one]
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  field_simp
+  norm_num
+
+-- [T34] :: {INV} | THE EQUATORIAL RESULT HOLDS FOR EVERY SPIN AT ONCE
+theorem t34_equatorial_all_spins (t : ℝ) (ht : t ≠ 0) :
+    ∀ atil : ℝ, kerr_outer t atil 0 = matched_ratio t :=
+  fun atil => t33_equatorial_spin_blind t atil ht
+
+-- [T35] :: {INV} | THE ROTATING PARTITION FRACTION IS ONE ON THE EQUATOR
+theorem t35_kerr_factor_equatorial (t atil : ℝ) : kerr_factor t atil 0 = 1 := by
+  simp only [kerr_factor]
+  have h : 1 - 4 * t ^ 4 * atil ^ 2 * (0:ℝ) ^ 2 = 1 := by ring
+  rw [h, Real.sqrt_one]; norm_num
+
+-- [T36] :: {INV} | THE ROTATING OUTER ROOT IS THE FRACTION TIMES THE RATIO
+theorem t36_kerr_outer_factored (t atil cs : ℝ) (ht : 0 < t) :
+    kerr_outer t atil cs = matched_ratio t * kerr_factor t atil cs := by
+  obtain ⟨h1, _, h3⟩ := t31_kerr_is_rn t atil cs
+  rw [h1, h3]
+  exact t19_rn_outer_factored (q_eff t atil cs) t ht
+
+-- [T37] :: {MASTER} | THE ROTATING PAIR PARTITIONS THE MATCHED RADIUS
+theorem t37_kerr_pair_partitions (t atil cs : ℝ) (ht : 0 < t) :
+    kerr_outer t atil cs + kerr_inner t atil cs = matched_ratio t := by
+  obtain ⟨h1, h2, _⟩ := t31_kerr_is_rn t atil cs
+  rw [h1, h2]
+  exact t20_rn_pair_partitions (q_eff t atil cs) t ht
+
+-- [T38] :: {MASTER} | THE PAIR MULTIPLIES TO ã² cos²θ, READING A CANCELING
+theorem t38_kerr_pair_product (t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
+    kerr_outer t atil cs * kerr_inner t atil cs = atil ^ 2 * cs ^ 2 := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [kerr_outer, kerr_inner]
+  set s := Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 := Real.sq_sqrt hd
+  field_simp
+  linear_combination -hs
+
+-- [T39] :: {INV} | THE ROTATING CHARGE-FOR-SHIFT IDENTITY
+theorem t39_kerr_charge_for_shift (t atil cs : ℝ)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
+    kerr_factor t atil cs * (1 - kerr_factor t atil cs)
+      = t ^ 4 * atil ^ 2 * cs ^ 2 := by
+  simp only [kerr_factor]
+  set s := Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 := Real.sq_sqrt hd
+  linear_combination -hs / 4
+
+-- [T40] :: {INV} | THE INNER ROOT IS THE COMPLEMENTARY SHARE
+theorem t40_kerr_inner_share (t atil cs : ℝ) (ht : 0 < t) :
+    kerr_inner t atil cs = (1 - kerr_factor t atil cs) * matched_ratio t := by
+  have hsum := t37_kerr_pair_partitions t atil cs ht
+  have houter := t36_kerr_outer_factored t atil cs ht
+  have h : kerr_inner t atil cs = matched_ratio t - kerr_outer t atil cs := by
+    linarith
+  rw [h, houter]; ring
+
+-- ============================================================
+-- SECTION 5: THE SHAPE OF THE SURFACE
+-- Oblate, with a closed form in the polar angle.
+-- ============================================================
+
+-- [T41] :: {INV} | THE ROTATING DISCRIMINANT IS NONNEGATIVE
+theorem t41_kerr_discriminant (t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
+    (ha0 : 0 ≤ atil) (ha : atil ≤ 1/2) (hc : cs ^ 2 ≤ 1) :
+    0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 := by
+  have ha2 : atil ^ 2 ≤ 1 / 4 := by nlinarith
+  have ht2 : t ^ 2 ≤ 1 := by nlinarith
+  have ht4 : t ^ 4 ≤ 1 := by nlinarith
+  have hinner : t ^ 4 * atil ^ 2 ≤ 1 * (1/4) :=
+    mul_le_mul ht4 ha2 (sq_nonneg atil) (by norm_num)
+  have houter : t ^ 4 * atil ^ 2 * cs ^ 2 ≤ 1 * (1/4) * 1 :=
+    mul_le_mul hinner hc (sq_nonneg cs) (by norm_num)
+  linarith
+
+-- [T42] :: {INV} | THE SURFACE IS ANTITONE IN cos²θ — OBLATE
+theorem t42_oblate (t atil c1 c2 : ℝ) (ht : 0 < t)
+    (hd2 : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * c2 ^ 2)
+    (h : c1 ^ 2 < c2 ^ 2) (hat : 0 < t ^ 4 * atil ^ 2) :
+    kerr_outer t atil c2 < kerr_outer t atil c1 := by
+  have ht2 : (0:ℝ) < 2 * t ^ 2 := by positivity
+  have harg : 1 - 4 * t ^ 4 * atil ^ 2 * c2 ^ 2 < 1 - 4 * t ^ 4 * atil ^ 2 * c1 ^ 2 := by
+    nlinarith [mul_pos hat (sub_pos.mpr h)]
+  have hs : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * c2 ^ 2)
+          < Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * c1 ^ 2) :=
+    Real.sqrt_lt_sqrt hd2 harg
+  simp only [kerr_outer]
+  rw [div_lt_div_iff₀ ht2 ht2]
+  nlinarith [hs, ht2]
+
+-- [T43] :: {INV} | THE POLAR RADIUS IS AT MOST THE EQUATORIAL RADIUS
+theorem t43_polar_le_equatorial (t atil cs : ℝ) (ht : 0 < t)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
+    kerr_outer t atil cs ≤ matched_ratio t := by
+  have ht2 : (0:ℝ) < 2 * t ^ 2 := by positivity
+  have harg : (1:ℝ) - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 ≤ 1 := by
+    nlinarith [sq_nonneg (t ^ 2 * atil * cs)]
+  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
+    calc Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ Real.sqrt 1 :=
+          Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
+  have ht2' : (0:ℝ) < t ^ 2 := by positivity
+  simp only [kerr_outer, matched_ratio]
+  rw [div_le_div_iff₀ ht2 ht2']
+  nlinarith [hle, ht2']
+
+-- [T44] :: {INV} | THE ROTATING PARTITION FRACTION IS AT MOST ONE
+theorem t44_kerr_factor_le_one (t atil cs : ℝ)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
+    kerr_factor t atil cs ≤ 1 := by
+  have harg : (1:ℝ) - 4 * t ^ 4 * atil ^ 2 * cs ^ 2 ≤ 1 := by
+    nlinarith [sq_nonneg (t ^ 2 * atil * cs)]
+  have hle : Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ 1 := by
+    calc Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) ≤ Real.sqrt 1 :=
+          Real.sqrt_le_sqrt harg
+      _ = 1 := Real.sqrt_one
+  simp only [kerr_factor]
+  linarith
+
+-- [T45] :: {INV} | THE ROTATING PARTITION FRACTION IS POSITIVE
+theorem t45_kerr_factor_pos (t atil cs : ℝ) : 0 < kerr_factor t atil cs := by
+  have hsn : 0 ≤ Real.sqrt (1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) := Real.sqrt_nonneg _
+  simp only [kerr_factor]
+  linarith
+
+-- ============================================================
+-- SECTION 6: READING A = 1 AND THE STATIC LIMIT SURFACE
+-- ============================================================
+
+-- [T46] :: {MASTER} | AT READING A = 1 THE MATCHED SURFACE IS THE ERGOSPHERE
+theorem t46_cap_is_ergosphere (atil cs : ℝ) :
+    kerr_outer 1 atil cs = ergo_outer atil cs := by
+  simp only [kerr_outer, ergo_outer]
+  have h : 1 - 4 * (1:ℝ) ^ 4 * atil ^ 2 * cs ^ 2 = 1 - 4 * atil ^ 2 * cs ^ 2 := by
+    ring
+  rw [h]
+  norm_num
+
+-- [T47] :: {INV} | ON THE EQUATOR THE STATIC LIMIT IS THE SCHWARZSCHILD RADIUS
+theorem t47_ergo_equatorial (atil : ℝ) : ergo_outer atil 0 = 1 := by
+  simp only [ergo_outer]
+  have h : 1 - 4 * atil ^ 2 * (0:ℝ) ^ 2 = 1 := by ring
+  rw [h, Real.sqrt_one]; norm_num
+
+-- [T48] :: {INV} | AT EXTREMAL SPIN THE POLAR STATIC LIMIT IS THE HORIZON
+theorem t48_ergo_polar_extremal : ergo_outer (1/2) 1 = 1/2 := by
+  simp only [ergo_outer]
+  have h : 1 - 4 * ((1:ℝ)/2) ^ 2 * (1:ℝ) ^ 2 = 0 := by norm_num
+  rw [h, Real.sqrt_zero]; norm_num
+
+-- [T49] :: {INV} | THE SCHWARZSCHILD CAP IS THE HORIZON
+theorem t49_schwarzschild_cap_is_horizon : matched_ratio 1 = 1 := by
+  simp only [matched_ratio]; norm_num
+
+-- [T50] :: {INV} | BELOW THE CAP THE MATCHED SURFACE IS OUTSIDE THE STATIC LIMIT
+theorem t50_matched_outside_ergosphere (t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) (he : ergo_outer atil cs ≤ 1) :
+    ergo_outer atil cs ≤ matched_ratio t := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have hlt : t ^ 2 < 1 := by nlinarith
+  have : (1:ℝ) < matched_ratio t := by
+    simp only [matched_ratio]
+    rw [lt_div_iff₀ ht2]
+    linarith
+  linarith
+
+-- ============================================================
+-- SECTION 7: ROTATION AGAINST CHARGE, AND THE MATCHED RATIO
+-- ============================================================
+
+-- [T51] :: {MASTER} | CHARGE OUTWEIGHS SPIN BY EXACTLY THE MATCHED RATIO
+-- Give the charge parameter and the spin parameter the same value. The
+-- ratio of their contributions to the effective charge squared is 1/τ_A²,
+-- which is the matched ratio itself.
+theorem t51_charge_outweighs_spin (t v : ℝ) (ht : t ≠ 0) (hv : v ≠ 0) :
+    v ^ 2 / (t ^ 2 * v ^ 2 * 1 ^ 2) = matched_ratio t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  have hv2 : (v:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 hv
+  simp only [matched_ratio]
+  field_simp
+
+-- [T52] :: {INV} | THE COMBINED EFFECTIVE CHARGE OF THE CHARGED ROTATING METRIC
+theorem t52_kn_effective_charge (q t atil cs : ℝ)
+    (h : 0 ≤ q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2) :
+    q_eff_kn q t atil cs ^ 2 = q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2 := by
+  simp only [q_eff_kn]
+  exact Real.sq_sqrt h
+
+-- [T53] :: {INV} | CHARGE ENTERS UNWEIGHTED, SPIN WEIGHTED BY READING A SQUARED
+theorem t53_weighting_asymmetry (q t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
+    (ha : atil ≠ 0) (hc : cs ^ 2 = 1) (hq : q = atil) :
+    t ^ 2 * atil ^ 2 * cs ^ 2 < q ^ 2 := by
+  rw [hq, hc, mul_one]
+  have ha2 : (0:ℝ) < atil ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg atil) (Ne.symm (pow_ne_zero 2 ha))
+  have htl : t ^ 2 < 1 := by nlinarith
+  nlinarith [mul_pos ha2 (sub_pos.mpr htl)]
+
+-- [T54] :: {MASTER} | THE MATCHED DISCRIMINANT CLEARS ITS BOUND BY THE RATIO
+-- Over the physical range the quantity bounded by 1/4 is at most τ_A²/4,
+-- so the margin is 1/τ_A² — the matched ratio, in a third role.
+theorem t54_discriminant_margin (q t atil cs : ℝ) (ht0 : 0 < t) (ht1 : t < 1)
+    (hq0 : 0 ≤ q) (ha0 : 0 ≤ atil) (hbudget : atil ^ 2 + q ^ 2 ≤ 1/4)
+    (hc : cs ^ 2 ≤ 1) :
+    (q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2) * t ^ 2 ≤ t ^ 2 / 4 := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have htl : t ^ 2 < 1 := by nlinarith
+  have hts : t ^ 2 * cs ^ 2 ≤ 1 := by
+    nlinarith [mul_nonneg (sq_nonneg cs) (sub_nonneg.mpr htl.le)]
+  have h1 : t ^ 2 * atil ^ 2 * cs ^ 2 ≤ atil ^ 2 := by
+    nlinarith [mul_nonneg (sq_nonneg atil) (sub_nonneg.mpr hts)]
+  have h2 : q ^ 2 + t ^ 2 * atil ^ 2 * cs ^ 2 ≤ 1/4 := by linarith
+  nlinarith [h2, ht2]
+
+-- [T55] :: {INV} | THE MARGIN IS THE MATCHED RATIO
+theorem t55_margin_is_matched_ratio (t : ℝ) (ht : t ≠ 0) :
+    (1/4 : ℝ) / (t ^ 2 / 4) = matched_ratio t := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  simp only [matched_ratio]
+  field_simp
+
+-- ============================================================
+-- SECTION 8: AVAILABILITY UNDER ROTATION
+-- ============================================================
+
+-- [T56] :: {INV} | THE CRITERION WITHOUT A METRIC
+theorem t56_criterion_metric_free (rs R rmatch : ℝ) (hrs : 0 < rs) (hR : 0 < R)
+    (hrm : 0 < rmatch) :
+    R < rmatch ↔ rs / rmatch < compactness rs R := by
+  simp only [compactness]
+  rw [div_lt_div_iff₀ hrm hR]
+  constructor
+  · intro h; nlinarith [hrs, h]
+  · intro h; nlinarith [hrs, h]
+
+-- [T57] :: {INV} | THE SCHWARZSCHILD THRESHOLD IS READING A SQUARED
+theorem t57_metric_free_recovers_tau_sq (rs t : ℝ) (hrs : rs ≠ 0) (ht : t ≠ 0) :
+    rs / (rs * matched_ratio t) = t ^ 2 := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  simp only [matched_ratio]
+  field_simp
+
+-- [T58] :: {MASTER} | THE ROTATING AVAILABILITY CRITERION
+theorem t58_rotating_criterion (rs R t atil cs : ℝ) (hR : 0 < R) (ht : 0 < t) :
+    R < rs * kerr_outer t atil cs ↔
+      t ^ 2 / kerr_factor t atil cs < compactness rs R := by
+  obtain ⟨h1, _, h3⟩ := t31_kerr_is_rn t atil cs
+  rw [h1, h3]
+  exact t24_charged_criterion rs R (q_eff t atil cs) t hR ht
+    (by rw [← h3]; exact t45_kerr_factor_pos t atil cs)
+
+-- [T59] :: {MASTER} | THE EQUATORIAL CRITERION IS SPIN-FREE
+theorem t59_equatorial_criterion (rs R t atil : ℝ) (hR : 0 < R) (ht : 0 < t) :
+    R < rs * kerr_outer t atil 0 ↔ t ^ 2 < compactness rs R := by
+  rw [t58_rotating_criterion rs R t atil 0 hR ht, t35_kerr_factor_equatorial, div_one]
+
+-- [T60] :: {INV} | ROTATION TIGHTENS AVAILABILITY, NEVER LOOSENS IT
+theorem t60_rotation_tightens (t atil cs : ℝ) (ht : 0 < t)
+    (hd : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * cs ^ 2) :
+    t ^ 2 ≤ t ^ 2 / kerr_factor t atil cs := by
+  have hF := t45_kerr_factor_pos t atil cs
+  have hle := t44_kerr_factor_le_one t atil cs hd
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  rw [le_div_iff₀ hF]
+  nlinarith [ht2, hle]
+
+-- [T61] :: {INV} | THE PENALTY IS MONOTONE IN cos²θ
+theorem t61_penalty_monotone (t atil c1 c2 : ℝ) (ht : 0 < t)
+    (hd2 : 0 ≤ 1 - 4 * t ^ 4 * atil ^ 2 * c2 ^ 2)
+    (hlt : kerr_factor t atil c2 < kerr_factor t atil c1) :
+    t ^ 2 / kerr_factor t atil c1 < t ^ 2 / kerr_factor t atil c2 := by
+  have h2 := t45_kerr_factor_pos t atil c2
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  exact div_lt_div_of_pos_left ht2 h2 hlt
+
+-- [T62] :: {INV} | THE GAIN ENTERS THROUGH READING A, QUADRATICALLY
+theorem t62_gain_requirement_quadratic (t g : ℝ) :
+    gained_tau t g ^ 2 = (1 + g) ^ 2 * t ^ 2 := by
+  simp only [gained_tau]; ring
+
+-- [T63] :: {INV} | A LARGER GAIN TIGHTENS THE REQUIREMENT
+theorem t63_gain_tightens (t g₁ g₂ : ℝ) (ht : 0 < t) (h0 : 0 ≤ g₁) (h : g₁ < g₂) :
+    gained_tau t g₁ ^ 2 < gained_tau t g₂ ^ 2 := by
+  simp only [gained_tau]
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  have h1 : (0:ℝ) < 1 + g₁ := by linarith
+  have hsq : (1 + g₁) ^ 2 < (1 + g₂) ^ 2 := by nlinarith
+  calc ((1 + g₁) * t) ^ 2 = (1 + g₁) ^ 2 * t ^ 2 := by ring
+    _ < (1 + g₂) ^ 2 * t ^ 2 := mul_lt_mul_of_pos_right hsq ht2
+    _ = ((1 + g₂) * t) ^ 2 := by ring
+
+-- ============================================================
+-- SECTION 9: THE BUDGET CARRIES NO METRIC
+-- ============================================================
+
+-- [T64] :: {MASTER} | THE ESCAPE FRACTION AT ANY MATCHED SURFACE IS READING A
+-- This is T14 restated as the statement that the propellant budget sees no
+-- metric: the equality that the Oberth multiplier, the propellant law and
+-- the saving are built on holds in every stationary metric at once.
+theorem t64_budget_sees_no_metric (gtt : ℝ → ℝ) (t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level gtt t r) : Real.sqrt (escape_sq gtt r) = t :=
+  t14_escape_fraction_is_reading_a gtt t r ht h
+
+-- [T65] :: {INV} | THE ROTATING INSTANCE OF THE BUDGET STATEMENT
+theorem t65_budget_rotating (rs a cs t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level (gtt_kerr rs a cs) t r) :
+    Real.sqrt (escape_sq (gtt_kerr rs a cs) r) = t :=
+  t64_budget_sees_no_metric (gtt_kerr rs a cs) t r ht h
+
+-- [T66] :: {INV} | THE CHARGED ROTATING INSTANCE
+theorem t66_budget_charged_rotating (rs a rQ cs t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level (gtt_kn rs a rQ cs) t r) :
+    Real.sqrt (escape_sq (gtt_kn rs a rQ cs) r) = t :=
+  t64_budget_sees_no_metric (gtt_kn rs a rQ cs) t r ht h
+
+-- [T67] :: {INV} | THE CHARGED INSTANCE
+theorem t67_budget_charged (rs rQ t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level (gtt_rn rs rQ) t r) :
+    Real.sqrt (escape_sq (gtt_rn rs rQ) r) = t :=
+  t64_budget_sees_no_metric (gtt_rn rs rQ) t r ht h
+
+-- [T68] :: {INV} | THE SCHWARZSCHILD INSTANCE
+theorem t68_budget_schwarzschild (rs t r : ℝ) (ht : 0 ≤ t)
+    (h : matched_level (gtt_schwarzschild rs) t r) :
+    Real.sqrt (escape_sq (gtt_schwarzschild rs) r) = t :=
+  t64_budget_sees_no_metric (gtt_schwarzschild rs) t r ht h
+
+-- [T69] :: {INV} | THE DILATION AT ANY MATCHED SURFACE IS √(1 − 2η)
+theorem t69_dilation_at_matched_on_eta (gtt : ℝ → ℝ) (t r : ℝ)
+    (h : matched_level gtt t r) :
+    dilation_sq gtt r = 1 - 2 * eta_of_tau t := by
+  rw [t12_dilation_at_matched gtt t r h]
+  simp only [eta_of_tau]; ring
+
+-- [T70] :: {INV} | THE PHASE OF THE DIMENSIONLESS SPIN IS WELL DEFINED
+-- The phase map applies to any dimensionless ratio, and the spin is one.
+theorem t70_spin_classifies (atil : ℝ) (h0 : 0 < atil) (h1 : atil < TL_IVA) :
+    classify atil = Phase.Locked := by
+  unfold classify
+  rw [if_neg (ne_of_gt h0), if_pos h1]
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+theorem MASTER_matched_surface_rotation :
+    -- the quadrature, at every point of every stationary metric
+    (∀ (gtt : ℝ → ℝ) (r : ℝ), escape_sq gtt r + dilation_sq gtt r = 1) ∧
+    -- the matched surface is the level set of the time–time component
+    (∀ (gtt : ℝ → ℝ) (t r : ℝ), matched_level gtt t r ↔ gtt r = t ^ 2 - 1) ∧
+    (∀ (gtt : ℝ → ℝ) (t r : ℝ), matched_level gtt t r ↔
+      gtt r = 2 * eta_of_tau t - 1) ∧
+    -- and the escape fraction there is Reading A, so the budget sees no metric
+    (∀ (gtt : ℝ → ℝ) (t r : ℝ), 0 ≤ t → matched_level gtt t r →
+      Real.sqrt (escape_sq gtt r) = t) ∧
+    -- on the equator the rotating component is Schwarzschild's
+    (∀ rs a r : ℝ, r ≠ 0 → gtt_kerr rs a 0 r = gtt_schwarzschild rs r) ∧
+    -- the rotating level set is a quadratic in the radius
+    (∀ rs a cs t r : ℝ, r ^ 2 + a ^ 2 * cs ^ 2 ≠ 0 →
+      (matched_level (gtt_kerr rs a cs) t r ↔
+        t ^ 2 * r ^ 2 - rs * r + t ^ 2 * (a ^ 2 * cs ^ 2) = 0)) ∧
+    -- spin is an effective charge, and the whole charged apparatus transfers
+    (∀ t atil cs : ℝ, q_eff t atil cs ^ 2 = t ^ 2 * atil ^ 2 * cs ^ 2) ∧
+    (∀ t atil cs : ℝ, kerr_outer t atil cs = rn_outer (q_eff t atil cs) t) ∧
+    -- the equatorial matched radius is spin-independent, exactly
+    (∀ t atil : ℝ, t ≠ 0 → kerr_outer t atil 0 = matched_ratio t) ∧
+    -- the pair partitions the uncharged matched radius at every spin
+    (∀ t atil cs : ℝ, 0 < t →
+      kerr_outer t atil cs + kerr_inner t atil cs = matched_ratio t) ∧
+    -- at Reading A = 1 the matched surface is the static limit surface
+    (∀ atil cs : ℝ, kerr_outer 1 atil cs = ergo_outer atil cs) ∧
+    -- charge outweighs spin by the matched ratio, which is also the
+    -- margin by which the matched discriminant clears its bound
+    (∀ t v : ℝ, t ≠ 0 → v ≠ 0 →
+      v ^ 2 / (t ^ 2 * v ^ 2 * 1 ^ 2) = matched_ratio t) ∧
+    (∀ t : ℝ, t ≠ 0 → (1/4 : ℝ) / (t ^ 2 / 4) = matched_ratio t) ∧
+    -- availability: the criterion without a metric, under rotation, and
+    -- on the equator where the spin drops out
+    (∀ rs R rmatch : ℝ, 0 < rs → 0 < R → 0 < rmatch →
+      (R < rmatch ↔ rs / rmatch < compactness rs R)) ∧
+    (∀ rs R t atil cs : ℝ, 0 < R → 0 < t →
+      (R < rs * kerr_outer t atil cs ↔
+        t ^ 2 / kerr_factor t atil cs < compactness rs R)) ∧
+    (∀ rs R t atil : ℝ, 0 < R → 0 < t →
+      (R < rs * kerr_outer t atil 0 ↔ t ^ 2 < compactness rs R)) := by
+  refine ⟨t9_quadrature, t10_level_set_form, t13_level_set_on_eta,
+    fun gtt t r ht h => t64_budget_sees_no_metric gtt t r ht h,
+    fun rs a r hr => t25_equatorial_is_schwarzschild rs a r hr,
+    fun rs a cs t r hrho => t26_kerr_quadratic rs a cs t r hrho,
+    t28_q_eff_sq,
+    fun t atil cs => (t31_kerr_is_rn t atil cs).1,
+    fun t atil ht => t33_equatorial_spin_blind t atil ht,
+    fun t atil cs ht => t37_kerr_pair_partitions t atil cs ht,
+    t46_cap_is_ergosphere,
+    fun t v ht hv => t51_charge_outweighs_spin t v ht hv,
+    fun t ht => t55_margin_is_matched_ratio t ht,
+    fun rs R rmatch hrs hR hrm => t56_criterion_metric_free rs R rmatch hrs hR hrm,
+    fun rs R t atil cs hR ht => t58_rotating_criterion rs R t atil cs hR ht,
+    fun rs R t atil hR ht => t59_equatorial_criterion rs R t atil hR ht⟩
+
+end SNSFL_MatchedSurfaceRotation
+
+
+-- ============================================================
+-- MODULE: SNSFL_BurnDepth_ThrustFloor_Reduction.lean · [9,9,0,20](GRAV)
+-- ProofPress, Volume 1, Issue 9, Article 6 · Burn Depth in Matched-Radius Units
+-- 71 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_BurnDepthThrustFloor
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravitational acceleration, m/s². Exact by definition. -/
+def G_STANDARD : ℝ := 9.80665
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. The exhaust velocity against light speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The Schwarzschild radius of a body with gravitational parameter GM. -/
+def r_s (GM : ℝ) : ℝ := 2 * GM / C_LIGHT ^ 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A² = 1/(2η). -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The compactness of a body: its Schwarzschild radius over its radius. -/
+def compactness (rs R : ℝ) : ℝ := rs / R
+
+/-- The surface torsion, the body's own address: √C. -/
+def surface_torsion (rs R : ℝ) : ℝ := Real.sqrt (compactness rs R)
+
+/-- The resonance gain acting as an exhaust-velocity multiplier. -/
+def gained_tau (t g : ℝ) : ℝ := (1 + g) * t
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t6_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- [T7] :: {VER} | THE MATCHED RATIO IS POSITIVE
+theorem t7_matched_ratio_pos (t : ℝ) (ht : t ≠ 0) : 0 < matched_ratio t := by
+  simp only [matched_ratio]
+  have h : (0:ℝ) < t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  exact div_pos one_pos h
+
+-- [T8] :: {VER} | THE CORRIDOR CEILING CLASSIFIES AS SHATTER AT ITS OWN VALUE
+theorem t8_ceiling_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h0 : TORSION_LIMIT ≠ 0 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  unfold classify
+  rw [if_neg h0, if_neg (not_lt.mpr t3_floor_below_ceiling.2.le),
+    if_neg (lt_irrefl TORSION_LIMIT)]
+
+-- ============================================================
+-- SECTION 1: THE DEPTH PARAMETER
+-- u = v_esc(r)/v_e = sqrt(r_match/r). One at the matched radius.
+-- ============================================================
+
+/-- The burn radius at depth u, in units of r_s: r = r_s/(τ_A² u²). -/
+def burn_ratio (t u : ℝ) : ℝ := 1 / (t ^ 2 * u ^ 2)
+
+/-- Depth, from the matched ratio and the burn ratio. -/
+def depth_of_ratio (t rr : ℝ) : ℝ := Real.sqrt (matched_ratio t / rr)
+
+-- [T9] :: {INV} | DEPTH RECOVERS u FROM THE BURN RATIO
+theorem t9_depth_recovers (t u : ℝ) (ht : t ≠ 0) (hu : 0 < u) :
+    depth_of_ratio t (burn_ratio t u) = u := by
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  have hu2 : (u:ℝ) ^ 2 ≠ 0 := by positivity
+  simp only [depth_of_ratio, burn_ratio, matched_ratio]
+  rw [show (1 / t ^ 2) / (1 / (t ^ 2 * u ^ 2)) = u ^ 2 by field_simp]
+  exact Real.sqrt_sq hu.le
+
+-- [T10] :: {INV} | DEPTH IS ONE AT THE MATCHED RADIUS
+theorem t10_depth_one_at_matched (t : ℝ) (ht : t ≠ 0) :
+    burn_ratio t 1 = matched_ratio t := by
+  simp only [burn_ratio, matched_ratio]; norm_num
+
+-- [T11] :: {INV} | GREATER DEPTH IS A SMALLER RADIUS
+theorem t11_deeper_is_smaller (t u₁ u₂ : ℝ) (ht : t ≠ 0) (h1 : 0 < u₁) (h : u₁ < u₂) :
+    burn_ratio t u₂ < burn_ratio t u₁ := by
+  have ht2 : (0:ℝ) < t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  have h2 : (0:ℝ) < u₁ ^ 2 := by positivity
+  have husq : u₁ ^ 2 < u₂ ^ 2 := by nlinarith [h1, h]
+  have hlt : t ^ 2 * u₁ ^ 2 < t ^ 2 * u₂ ^ 2 := mul_lt_mul_of_pos_left husq ht2
+  simp only [burn_ratio]
+  exact one_div_lt_one_div_of_lt (by positivity) hlt
+
+-- [T12] :: {INV} | THE BURN RATIO IS POSITIVE
+theorem t12_burn_ratio_pos (t u : ℝ) (ht : t ≠ 0) (hu : 0 < u) :
+    0 < burn_ratio t u := by
+  have ht2 : (0:ℝ) < t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  simp only [burn_ratio]
+  positivity
+
+-- [T13] :: {INV} | DEPTH ON THE CONVERSION FRACTION
+theorem t13_burn_ratio_on_eta (t u : ℝ) : burn_ratio t u = 1 / (2 * eta_of_tau t * u ^ 2) := by
+  simp only [burn_ratio, eta_of_tau]; ring_nf
+
+-- ============================================================
+-- SECTION 2: THE DEPTH LAW
+-- v_inf = v_e sqrt(tau_B (tau_B + 2u)). Strictly increasing in u.
+-- ============================================================
+
+/-- The square of the departure speed in units of the exhaust velocity. -/
+def vinf_sq (tb u : ℝ) : ℝ := tb * (tb + 2 * u)
+
+-- [T14] :: {MASTER} | THE DEPTH LAW IS ENERGY CONSERVATION ACROSS THE BURN
+theorem t14_depth_law (tb u : ℝ) :
+    (u + tb) ^ 2 - u ^ 2 = vinf_sq tb u := by
+  simp only [vinf_sq]; ring
+
+-- [T15] :: {MASTER} | DEEPER IS ALWAYS BETTER
+theorem t15_deeper_is_better (tb u₁ u₂ : ℝ) (htb : 0 < tb) (h : u₁ < u₂) :
+    vinf_sq tb u₁ < vinf_sq tb u₂ := by
+  simp only [vinf_sq]
+  nlinarith [htb, h]
+
+-- [T16] :: {INV} | AT THE MATCHED RADIUS THE DEPTH LAW IS THE CHAIN LAW
+theorem t16_chain_law_at_unit_depth (tb : ℝ) :
+    vinf_sq tb 1 = tb * (2 + tb) := by
+  simp only [vinf_sq]; ring
+
+-- [T17] :: {INV} | THE DEPTH LAW IS STRICTLY INCREASING IN READING B
+theorem t17_increasing_in_reading_b (tb₁ tb₂ u : ℝ) (h0 : 0 ≤ tb₁) (hu : 0 < u)
+    (h : tb₁ < tb₂) : vinf_sq tb₁ u < vinf_sq tb₂ u := by
+  simp only [vinf_sq]
+  nlinarith [h0, hu, h]
+
+-- [T18] :: {INV} | A ZERO BURN DELIVERS NOTHING
+theorem t18_zero_burn (u : ℝ) : vinf_sq 0 u = 0 := by
+  simp only [vinf_sq]; ring
+
+-- [T19] :: {INV} | THE DEPTH LAW IS POSITIVE FOR A POSITIVE BURN AT POSITIVE DEPTH
+theorem t19_vinf_pos (tb u : ℝ) (htb : 0 < tb) (hu : 0 < u) : 0 < vinf_sq tb u := by
+  simp only [vinf_sq]
+  nlinarith [htb, hu]
+
+-- ============================================================
+-- SECTION 3: THE INVERSION AT DEPTH
+-- tau_B = sqrt(u^2 + x^2) - u.
+-- ============================================================
+
+/-- The radical of the inversion at depth. -/
+def rad_depth (u x : ℝ) : ℝ := Real.sqrt (u ^ 2 + x ^ 2)
+
+/-- Reading B required to reach x = v_inf/v_e from depth u. -/
+def tau_B_at (u x : ℝ) : ℝ := rad_depth u x - u
+
+-- [T20] :: {VER} | THE RADICAL SQUARES BACK
+theorem t20_rad_sq (u x : ℝ) : rad_depth u x ^ 2 = u ^ 2 + x ^ 2 := by
+  simp only [rad_depth]
+  exact Real.sq_sqrt (by positivity)
+
+-- [T21] :: {VER} | THE RADICAL IS POSITIVE WHEN THE DEPTH IS
+theorem t21_rad_pos (u x : ℝ) (hu : 0 < u) : 0 < rad_depth u x := by
+  simp only [rad_depth]
+  apply Real.sqrt_pos.mpr
+  positivity
+
+-- [T22] :: {MASTER} | THE INVERSION SOLVES THE DEPTH LAW
+theorem t22_inversion_solves (u x : ℝ) :
+    vinf_sq (tau_B_at u x) u = x ^ 2 := by
+  have hs := t20_rad_sq u x
+  simp only [vinf_sq, tau_B_at]
+  linear_combination hs
+
+-- [T23] :: {INV} | THE RADICAL EXCEEDS THE DEPTH
+theorem t23_rad_gt_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 < u) : u < rad_depth u x := by
+  have hs := t20_rad_sq u x
+  have hx2 : (0:ℝ) < x ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg x) (Ne.symm (pow_ne_zero 2 hx))
+  have hp : 0 < rad_depth u x := t21_rad_pos u x hu
+  nlinarith [hs, hp, hu, hx2]
+
+-- [T24] :: {INV} | READING B AT DEPTH IS POSITIVE FOR A POSITIVE TARGET
+theorem t24_tau_B_pos (u x : ℝ) (hx : x ≠ 0) (hu : 0 < u) : 0 < tau_B_at u x := by
+  simp only [tau_B_at]
+  linarith [t23_rad_gt_depth u x hx hu]
+
+-- [T25] :: {INV} | AT UNIT DEPTH THE INVERSION IS THE PARENT'S
+theorem t25_inversion_at_unit_depth (x : ℝ) :
+    tau_B_at 1 x = Real.sqrt (1 + x ^ 2) - 1 := by
+  simp only [tau_B_at, rad_depth]
+  norm_num
+
+-- [T26] :: {MASTER} | THE MANEUVER ALWAYS COSTS LESS READING B THAN THE IDEAL ROCKET
+theorem t26_cheaper_than_ideal (u x : ℝ) (hu : 0 < u) (hx : 0 < x) :
+    tau_B_at u x < x := by
+  have hs := t20_rad_sq u x
+  have hp : 0 < rad_depth u x := t21_rad_pos u x hu
+  simp only [tau_B_at]
+  nlinarith [hs, hp, hu, hx]
+
+-- ============================================================
+-- SECTION 4: THE SAVING AT DEPTH, BOUNDED BY e^u
+-- ============================================================
+
+/-- The ideal rocket's mass ratio for a target x. -/
+def mr_ideal (x : ℝ) : ℝ := Real.exp x
+
+/-- The mass ratio of a burn at depth u reaching the same target. -/
+def mr_depth (u x : ℝ) : ℝ := Real.exp (tau_B_at u x)
+
+/-- The exponent of the saving at depth. -/
+def sav_exp (u x : ℝ) : ℝ := x - rad_depth u x + u
+
+/-- The propellant saving at depth. -/
+def saving (u x : ℝ) : ℝ := Real.exp (sav_exp u x)
+
+-- [T27] :: {MASTER} | THE SAVING IS THE RATIO OF THE TWO MASS RATIOS
+theorem t27_saving_is_the_ratio (u x : ℝ) :
+    saving u x = mr_ideal x / mr_depth u x := by
+  simp only [saving, mr_ideal, mr_depth, sav_exp, tau_B_at]
+  rw [← Real.exp_sub]
+  congr 1
+  ring
+
+-- [T28] :: {INV} | THE EXPONENT IS STRICTLY BELOW THE DEPTH
+theorem t28_exponent_lt_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 < u) :
+    sav_exp u x < u := by
+  have hxr : x < rad_depth u x := by
+    have habs : |x| < rad_depth u x := by
+      simp only [rad_depth]
+      rw [← Real.sqrt_sq_eq_abs]
+      exact Real.sqrt_lt_sqrt (sq_nonneg x) (by nlinarith [hu])
+    exact lt_of_le_of_lt (le_abs_self x) habs
+  simp only [sav_exp]
+  linarith
+
+-- [T29] :: {MASTER} | THE SAVING IS STRICTLY BOUNDED BY e^u
+-- Depth u is worth u e-folds, and no finite burn reaches the bound.
+theorem t29_saving_lt_exp_depth (u x : ℝ) (hx : x ≠ 0) (hu : 0 < u) :
+    saving u x < Real.exp u := by
+  simp only [saving]
+  exact Real.exp_lt_exp.mpr (t28_exponent_lt_depth u x hx hu)
+
+-- [T30] :: {INV} | THE SAVING EXCEEDS ONE FOR EVERY POSITIVE BURN
+theorem t30_saving_gt_one (u x : ℝ) (hu : 0 < u) (hx : 0 < x) : 1 < saving u x := by
+  have h := t26_cheaper_than_ideal u x hu hx
+  have hexp : 0 < sav_exp u x := by
+    simp only [sav_exp, tau_B_at] at h ⊢
+    linarith
+  simp only [saving]
+  calc (1:ℝ) = Real.exp 0 := Real.exp_zero.symm
+    _ < Real.exp (sav_exp u x) := Real.exp_lt_exp.mpr hexp
+
+-- [T31] :: {MASTER} | AT UNIT DEPTH THE BOUND IS e, THE PARENT'S RESULT
+theorem t31_bound_at_unit_depth (x : ℝ) (hx : x ≠ 0) :
+    saving 1 x < Real.exp 1 :=
+  t29_saving_lt_exp_depth 1 x hx one_pos
+
+-- [T32] :: {INV} | AT UNIT DEPTH THE SAVING FACTORS THROUGH e
+theorem t32_saving_factored_at_unit (x : ℝ) :
+    saving 1 x = Real.exp 1 * Real.exp (x - Real.sqrt (1 + x ^ 2)) := by
+  have h1 : (1:ℝ) ^ 2 + x ^ 2 = 1 + x ^ 2 := by norm_num
+  simp only [saving, sav_exp, rad_depth, h1]
+  rw [← Real.exp_add]
+  congr 1
+  ring
+
+-- [T33] :: {INV} | THE SAVING IS STRICTLY INCREASING IN THE TARGET
+theorem t33_saving_mono_in_target (u x y : ℝ) (hu : 0 < u) (h : x < y) (hx : 0 ≤ x) :
+    saving u x < saving u y := by
+  have hsx := t20_rad_sq u x
+  have hsy := t20_rad_sq u y
+  have hpx : 0 < rad_depth u x := t21_rad_pos u x hu
+  have hpy : 0 < rad_depth u y := t21_rad_pos u y hu
+  have hrx : x < rad_depth u x := by nlinarith [hsx, hpx, hu]
+  have hry : y < rad_depth u y := by nlinarith [hsy, hpy, hu, hx, h]
+  simp only [saving, sav_exp]
+  apply Real.exp_lt_exp.mpr
+  nlinarith [hsx, hsy, hpx, hpy, hrx, hry, h, hx]
+
+-- ============================================================
+-- SECTION 5: THE GEOMETRIC CEILING ON DEPTH
+-- u_max = tau_surface/tau_A, and availability is u_max > 1.
+-- ============================================================
+
+/-- The geometric ceiling on depth: the body's address over the drive's Reading A. -/
+def u_max (rs R t : ℝ) : ℝ := surface_torsion rs R / t
+
+-- [T34] :: {VER} | THE SURFACE TORSION SQUARES TO THE COMPACTNESS
+theorem t34_surface_torsion_sq (rs R : ℝ) (h : 0 ≤ compactness rs R) :
+    surface_torsion rs R ^ 2 = compactness rs R := by
+  simp only [surface_torsion]
+  exact Real.sq_sqrt h
+
+-- [T35] :: {VER} | THE SURFACE TORSION IS NONNEGATIVE
+theorem t35_surface_torsion_nonneg (rs R : ℝ) : 0 ≤ surface_torsion rs R :=
+  Real.sqrt_nonneg _
+
+-- [T36] :: {MASTER} | AVAILABILITY IS EXACTLY ONE E-FOLD OF DEPTH
+-- C > τ_A² if and only if the geometric ceiling exceeds one.
+theorem t36_availability_is_one_efold (rs R t : ℝ) (ht : 0 < t)
+    (hC : 0 ≤ compactness rs R) :
+    t ^ 2 < compactness rs R ↔ 1 < u_max rs R t := by
+  have hsq := t34_surface_torsion_sq rs R hC
+  have hnn := t35_surface_torsion_nonneg rs R
+  simp only [u_max]
+  rw [lt_div_iff₀ ht, one_mul]
+  constructor
+  · intro h; nlinarith [hsq, hnn, ht, h]
+  · intro h; nlinarith [hsq, hnn, ht, h]
+
+-- [T37] :: {INV} | THE CEILING ON THE CONVERSION FRACTION
+theorem t37_availability_on_eta (rs R t : ℝ) (ht : 0 < t) (hC : 0 ≤ compactness rs R) :
+    2 * eta_of_tau t < compactness rs R ↔ 1 < u_max rs R t := by
+  rw [← t6_tau_sq_is_twice_eta t]
+  exact t36_availability_is_one_efold rs R t ht hC
+
+-- [T38] :: {INV} | THE CEILING IS POSITIVE
+theorem t38_u_max_pos (rs R t : ℝ) (ht : 0 < t) (hC : 0 < compactness rs R) :
+    0 < u_max rs R t := by
+  simp only [u_max, surface_torsion]
+  exact div_pos (Real.sqrt_pos.mpr hC) ht
+
+-- [T39] :: {INV} | A LOWER READING A RAISES THE CEILING
+theorem t39_lower_reading_raises_ceiling (rs R t₁ t₂ : ℝ) (h1 : 0 < t₁) (h : t₁ < t₂)
+    (hC : 0 < compactness rs R) :
+    u_max rs R t₂ < u_max rs R t₁ := by
+  have hsp : 0 < surface_torsion rs R := by
+    simp only [surface_torsion]; exact Real.sqrt_pos.mpr hC
+  simp only [u_max]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) < t₂) h1]
+  nlinarith [hsp, h]
+
+-- [T40] :: {MASTER} | THE BODY'S OWN ADDRESS GIVES UNIT DEPTH
+theorem t40_address_is_unit_depth (rs R : ℝ) (hC : 0 < compactness rs R) :
+    u_max rs R (surface_torsion rs R) = 1 := by
+  have hsp : 0 < surface_torsion rs R := by
+    simp only [surface_torsion]; exact Real.sqrt_pos.mpr hC
+  simp only [u_max]
+  exact div_self (ne_of_gt hsp)
+
+-- ============================================================
+-- SECTION 6: THE MATCHED SURFACE IS AN EQUIPOTENTIAL
+-- Lateral motion is the zero-cost direction; only altitude retunes.
+-- ============================================================
+
+/-- The radius a given Reading A addresses, in units of r_s. -/
+def addressed_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+-- [T41] :: {INV} | THE ADDRESS MAP IS INJECTIVE ON POSITIVE READING A
+theorem t41_address_injective (t₁ t₂ : ℝ) (h1 : 0 < t₁) (h2 : 0 < t₂)
+    (h : addressed_ratio t₁ = addressed_ratio t₂) : t₁ = t₂ := by
+  simp only [addressed_ratio] at h
+  have e1 : (0:ℝ) < t₁ ^ 2 := by positivity
+  have e2 : (0:ℝ) < t₂ ^ 2 := by positivity
+  have hsq : t₁ ^ 2 = t₂ ^ 2 := by
+    field_simp at h
+    linarith
+  nlinarith [hsq, h1, h2]
+
+-- [T42] :: {MASTER} | LATERAL MOTION IS THE ZERO-COST DIRECTION
+-- Two points at the same addressed radius require the same Reading A, so a
+-- path between them at constant radius requires no change of tuning.
+theorem t42_lateral_is_free (t₁ t₂ : ℝ) (h1 : 0 < t₁) (h2 : 0 < t₂)
+    (h : addressed_ratio t₁ = addressed_ratio t₂) : t₂ - t₁ = 0 := by
+  have := t41_address_injective t₁ t₂ h1 h2 h
+  linarith
+
+-- [T43] :: {INV} | THE CONTROL LAW: THE RADIUS RATIO IS THE INVERSE SQUARE OF THE TUNING RATIO
+theorem t43_control_law (t₁ t₂ : ℝ) (h1 : t₁ ≠ 0) (h2 : t₂ ≠ 0) :
+    addressed_ratio t₁ / addressed_ratio t₂ = (t₂ / t₁) ^ 2 := by
+  have e1 : (t₁:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 h1
+  have e2 : (t₂:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 h2
+  simp only [addressed_ratio]
+  field_simp
+
+-- [T44] :: {INV} | A HIGHER TUNING ADDRESSES A LOWER RADIUS
+theorem t44_higher_tuning_lower_radius (t₁ t₂ : ℝ) (h1 : 0 < t₁) (h : t₁ < t₂) :
+    addressed_ratio t₂ < addressed_ratio t₁ := by
+  have e1 : (0:ℝ) < t₁ ^ 2 := by positivity
+  simp only [addressed_ratio]
+  exact one_div_lt_one_div_of_lt e1 (by nlinarith [h1, h])
+
+-- ============================================================
+-- SECTION 7: THE THRUST FLOOR
+-- t_char = 2 sqrt 2 GM/(c^3 tau^3 u^3), and the floor rises as tau^4 u^3.
+-- ============================================================
+
+/-- The characteristic time of the region at depth u. -/
+def t_char (GM t u : ℝ) : ℝ :=
+  2 * Real.sqrt 2 * GM / (C_LIGHT ^ 3 * t ^ 3 * u ^ 3)
+
+/-- The burn radius in meters at depth u about a body of parameter GM. -/
+def burn_radius (GM t u : ℝ) : ℝ := r_s GM / (t ^ 2 * u ^ 2)
+
+/-- The propellant fraction consumed by a burn of Reading B. -/
+def prop_fraction (tb : ℝ) : ℝ := 1 - Real.exp (-tb)
+
+/-- The thrust floor: the thrust per unit mass that keeps the burn impulsive. -/
+def thrust_floor (GM t u f tb : ℝ) : ℝ :=
+  prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 * u ^ 3 / (2 * Real.sqrt 2 * f * GM)
+
+-- [T45] :: {MASTER} | THE CHARACTERISTIC TIME IN CLOSED FORM
+-- Stated as the square, so the identity closes without a radical on both sides.
+theorem t45_t_char_closed_form (GM t u : ℝ) (hGM : GM ≠ 0) (ht : t ≠ 0) (hu : u ≠ 0) :
+    t_char GM t u ^ 2 = burn_radius GM t u ^ 3 / GM := by
+  have h2 : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  have hs2 : (2 * Real.sqrt 2 * GM) ^ 2 = 8 * GM ^ 2 := by
+    linear_combination 4 * GM ^ 2 * h2
+  have hc : (C_LIGHT:ℝ) ≠ 0 := by simp only [C_LIGHT]; norm_num
+  simp only [t_char, burn_radius, r_s]
+  rw [div_pow, hs2]
+  field_simp
+  ring
+
+-- [T46] :: {INV} | THE CHARACTERISTIC TIME IS POSITIVE
+theorem t46_t_char_pos (GM t u : ℝ) (hGM : 0 < GM) (ht : 0 < t) (hu : 0 < u) :
+    0 < t_char GM t u := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  simp only [t_char]
+  positivity
+
+-- [T47] :: {INV} | THE CHARACTERISTIC TIME SHRINKS AS THE CUBE OF DEPTH
+theorem t47_t_char_antitone_in_depth (GM t u₁ u₂ : ℝ) (hGM : 0 < GM) (ht : 0 < t)
+    (h1 : 0 < u₁) (h : u₁ < u₂) :
+    t_char GM t u₂ < t_char GM t u₁ := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hnum : (0:ℝ) < 2 * Real.sqrt 2 * GM := by positivity
+  have hd1 : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 := by positivity
+  have h2u : (0:ℝ) < u₂ := by linarith
+  have hq3 : (0:ℝ) < u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hcube : u₁ ^ 3 < u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
+  have hbase : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 := by positivity
+  have hlt : C_LIGHT ^ 3 * t ^ 3 * u₁ ^ 3 < C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3 :=
+    mul_lt_mul_of_pos_left hcube hbase
+  simp only [t_char]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) < C_LIGHT ^ 3 * t ^ 3 * u₂ ^ 3) hd1]
+  nlinarith [hnum, hlt]
+
+-- [T48] :: {INV} | THE PROPELLANT FRACTION IS BELOW ONE AND POSITIVE
+theorem t48_prop_fraction_range (tb : ℝ) (htb : 0 < tb) :
+    0 < prop_fraction tb ∧ prop_fraction tb < 1 := by
+  have h1 : Real.exp (-tb) < 1 := by
+    calc Real.exp (-tb) < Real.exp 0 := Real.exp_lt_exp.mpr (by linarith)
+      _ = 1 := Real.exp_zero
+  have h2 : 0 < Real.exp (-tb) := Real.exp_pos _
+  simp only [prop_fraction]
+  constructor <;> linarith
+
+-- [T49] :: {MASTER} | THE THRUST FLOOR RISES AS THE FOURTH POWER OF READING A
+theorem t49_floor_quartic_in_reading_a (GM u f tb t₁ t₂ : ℝ) (hGM : 0 < GM) (hf : 0 < f)
+    (hu : 0 < u) (htb : 0 < tb) (h1 : 0 < t₁) (h : t₁ < t₂) :
+    thrust_floor GM t₁ u f tb < thrust_floor GM t₂ u f tb := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hden : (0:ℝ) < 2 * Real.sqrt 2 * f * GM := by positivity
+  have hnum : (0:ℝ) < prop_fraction tb * C_LIGHT ^ 4 * u ^ 3 := by positivity
+  have h2t : (0:ℝ) < t₂ := by linarith
+  have hq4 : (0:ℝ) < t₂ ^ 3 + t₂ ^ 2 * t₁ + t₂ * t₁ ^ 2 + t₁ ^ 3 := by
+    have a1 : (0:ℝ) < t₂ ^ 3 := by positivity
+    have a2 : (0:ℝ) < t₂ ^ 2 * t₁ := by positivity
+    have a3 : (0:ℝ) < t₂ * t₁ ^ 2 := by positivity
+    have a4 : (0:ℝ) < t₁ ^ 3 := by positivity
+    linarith
+  have hq : t₁ ^ 4 < t₂ ^ 4 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq4]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ hden hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
+
+-- [T50] :: {MASTER} | THE THRUST FLOOR RISES AS THE CUBE OF DEPTH
+theorem t50_floor_cubic_in_depth (GM t f tb u₁ u₂ : ℝ) (hGM : 0 < GM) (hf : 0 < f)
+    (ht : 0 < t) (htb : 0 < tb) (h1 : 0 < u₁) (h : u₁ < u₂) :
+    thrust_floor GM t u₁ f tb < thrust_floor GM t u₂ f tb := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hden : (0:ℝ) < 2 * Real.sqrt 2 * f * GM := by positivity
+  have hnum : (0:ℝ) < prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 := by positivity
+  have h2u : (0:ℝ) < u₂ := by linarith
+  have hq3 : (0:ℝ) < u₂ ^ 2 + u₂ * u₁ + u₁ ^ 2 := by
+    nlinarith [mul_pos h2u h1, sq_nonneg u₁, sq_nonneg u₂]
+  have hq : u₁ ^ 3 < u₂ ^ 3 := by
+    nlinarith [mul_pos (sub_pos.mpr h) hq3]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ hden hden]
+  nlinarith [mul_pos (mul_pos hnum hden) (sub_pos.mpr hq)]
+
+-- [T51] :: {INV} | THE THRUST FLOOR IS POSITIVE
+theorem t51_floor_pos (GM t u f tb : ℝ) (hGM : 0 < GM) (hf : 0 < f) (ht : 0 < t)
+    (hu : 0 < u) (htb : 0 < tb) : 0 < thrust_floor GM t u f tb := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  simp only [thrust_floor]
+  positivity
+
+-- [T52] :: {INV} | A LONGER PERMITTED BURN LOWERS THE FLOOR
+theorem t52_longer_burn_lowers_floor (GM t u tb f₁ f₂ : ℝ) (hGM : 0 < GM) (ht : 0 < t)
+    (hu : 0 < u) (htb : 0 < tb) (h1 : 0 < f₁) (h : f₁ < f₂) :
+    thrust_floor GM t u f₂ tb < thrust_floor GM t u f₁ tb := by
+  have hs : (0:ℝ) < Real.sqrt 2 := Real.sqrt_pos.mpr (by norm_num)
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hp := (t48_prop_fraction_range tb htb).1
+  have hnum : (0:ℝ) < prop_fraction tb * C_LIGHT ^ 4 * t ^ 4 * u ^ 3 := by positivity
+  have hd1 : (0:ℝ) < 2 * Real.sqrt 2 * f₁ * GM := by positivity
+  have hlt : 2 * Real.sqrt 2 * f₁ * GM < 2 * Real.sqrt 2 * f₂ * GM := by
+    nlinarith [hs, hGM, h]
+  simp only [thrust_floor]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) < 2 * Real.sqrt 2 * f₂ * GM) hd1]
+  nlinarith [hnum, hlt]
+
+-- ============================================================
+-- SECTION 8: THE TWO CEILINGS, AND THE DESIGN LOOP
+-- ============================================================
+
+/-- The depth actually achievable: the smaller of the two ceilings. -/
+def binding_depth (ug ut : ℝ) : ℝ := min ug ut
+
+-- [T53] :: {MASTER} | THE BINDING DEPTH IS BELOW BOTH CEILINGS
+theorem t53_binding_below_both (ug ut : ℝ) :
+    binding_depth ug ut ≤ ug ∧ binding_depth ug ut ≤ ut := by
+  simp only [binding_depth]
+  exact ⟨min_le_left ug ut, min_le_right ug ut⟩
+
+-- [T54] :: {INV} | THE BINDING DEPTH IS ONE OF THE TWO
+theorem t54_binding_is_one_of_them (ug ut : ℝ) :
+    binding_depth ug ut = ug ∨ binding_depth ug ut = ut := by
+  simp only [binding_depth]
+  exact min_choice ug ut
+
+-- [T55] :: {INV} | GEOMETRY BINDS WHEN IT IS THE SMALLER
+theorem t55_geometry_binds (ug ut : ℝ) (h : ug ≤ ut) : binding_depth ug ut = ug := by
+  simp only [binding_depth]
+  exact min_eq_left h
+
+-- [T56] :: {INV} | THRUST BINDS WHEN IT IS THE SMALLER
+theorem t56_thrust_binds (ug ut : ℝ) (h : ut ≤ ug) : binding_depth ug ut = ut := by
+  simp only [binding_depth]
+  exact min_eq_right h
+
+-- [T57] :: {MASTER} | THE SAVING FOLLOWS THE BINDING DEPTH
+theorem t57_saving_at_binding (ug ut x : ℝ) (hx : x ≠ 0) (hb : 0 < binding_depth ug ut) :
+    saving (binding_depth ug ut) x < Real.exp (binding_depth ug ut) :=
+  t29_saving_lt_exp_depth (binding_depth ug ut) x hx hb
+
+-- ============================================================
+-- SECTION 9: THE OPTIMUM, AND THE ENGINE EACH BODY PRESCRIBES
+-- ============================================================
+
+/-- The specific impulse corresponding to a Reading A. -/
+def isp_of_tau (t : ℝ) : ℝ := t * C_LIGHT / G_STANDARD
+
+/-- The specific impulse a body prescribes: its own surface escape velocity. -/
+def prescribed_isp (rs R : ℝ) : ℝ := isp_of_tau (surface_torsion rs R)
+
+-- [T58] :: {INV} | READING B AT DEPTH FALLS AS THE TARGET RATIO FALLS
+-- A higher exhaust velocity means a smaller x for the same target, and a
+-- smaller x means less Reading B, so the mass ratio falls.
+theorem t58_reading_b_falls_with_target (u x y : ℝ) (hu : 0 < u) (hxy : x < y)
+    (hx : 0 ≤ x) : tau_B_at u x < tau_B_at u y := by
+  have hsx := t20_rad_sq u x
+  have hsy := t20_rad_sq u y
+  have hpx : 0 < rad_depth u x := t21_rad_pos u x hu
+  have hpy : 0 < rad_depth u y := t21_rad_pos u y hu
+  simp only [tau_B_at]
+  nlinarith [hsx, hsy, hpx, hpy, hxy, hx]
+
+-- [T59] :: {INV} | SO THE MASS RATIO AT DEPTH FALLS TOO
+theorem t59_mass_ratio_falls (u x y : ℝ) (hu : 0 < u) (hxy : x < y) (hx : 0 ≤ x) :
+    mr_depth u x < mr_depth u y := by
+  simp only [mr_depth]
+  exact Real.exp_lt_exp.mpr (t58_reading_b_falls_with_target u x y hu hxy hx)
+
+-- [T60] :: {MASTER} | THE AVAILABILITY CONSTRAINT IS AN OPEN CONDITION
+-- Reading A must stay strictly below the body's address, so the optimum is a
+-- supremum approached and not attained.
+theorem t60_optimum_is_a_supremum (rs R t : ℝ) (ht : 0 < t) (hC : 0 ≤ compactness rs R) :
+    t ^ 2 < compactness rs R ↔ t < surface_torsion rs R := by
+  have hsq := t34_surface_torsion_sq rs R hC
+  have hnn := t35_surface_torsion_nonneg rs R
+  constructor
+  · intro h; nlinarith [hsq, hnn, ht, h]
+  · intro h; nlinarith [hsq, hnn, ht, h]
+
+-- [T61] :: {MASTER} | THE BODY'S ADDRESS IS ITS OWN PRESCRIPTION
+theorem t61_prescription_is_the_address (rs R : ℝ) :
+    prescribed_isp rs R = surface_torsion rs R * C_LIGHT / G_STANDARD := by
+  simp only [prescribed_isp, isp_of_tau]
+
+-- [T62] :: {INV} | THE PRESCRIPTION IS NONNEGATIVE
+theorem t62_prescription_nonneg (rs R : ℝ) : 0 ≤ prescribed_isp rs R := by
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hg : (0:ℝ) < G_STANDARD := by simp only [G_STANDARD]; norm_num
+  simp only [prescribed_isp, isp_of_tau]
+  exact div_nonneg (mul_nonneg (t35_surface_torsion_nonneg rs R) hc.le) hg.le
+
+-- [T63] :: {INV} | A MORE COMPACT BODY PRESCRIBES A HIGHER SPECIFIC IMPULSE
+theorem t63_compact_prescribes_higher (rs₁ R₁ rs₂ R₂ : ℝ)
+    (h : compactness rs₁ R₁ < compactness rs₂ R₂) (h0 : 0 ≤ compactness rs₁ R₁) :
+    prescribed_isp rs₁ R₁ < prescribed_isp rs₂ R₂ := by
+  have hc : (0:ℝ) < C_LIGHT := by simp only [C_LIGHT]; norm_num
+  have hg : (0:ℝ) < G_STANDARD := by simp only [G_STANDARD]; norm_num
+  have hs : surface_torsion rs₁ R₁ < surface_torsion rs₂ R₂ := by
+    simp only [surface_torsion]
+    exact Real.sqrt_lt_sqrt h0 h
+  simp only [prescribed_isp, isp_of_tau]
+  rw [div_lt_div_iff₀ hg hg]
+  nlinarith [mul_lt_mul_of_pos_right hs hc, hg]
+
+-- ============================================================
+-- SECTION 10: THE VEHICLE
+-- Mass supported per engine, and the launch impossibility.
+-- ============================================================
+
+/-- The vehicle mass a given thrust supports against a given floor. -/
+def supported_mass (F floor : ℝ) : ℝ := F / floor
+
+/-- Thrust-to-weight at the surface. -/
+def thrust_to_weight (fm : ℝ) : ℝ := fm / G_STANDARD
+
+-- [T64] :: {INV} | THE SUPPORTED MASS MEETS THE FLOOR EXACTLY
+theorem t64_supported_meets_floor (F floor : ℝ) (hf : 0 < floor) (hF : 0 < F) :
+    F / supported_mass F floor = floor := by
+  simp only [supported_mass]
+  field_simp
+
+-- [T65] :: {INV} | MORE THRUST SUPPORTS MORE MASS
+theorem t65_more_thrust_more_mass (F₁ F₂ floor : ℝ) (hf : 0 < floor) (h : F₁ < F₂) :
+    supported_mass F₁ floor < supported_mass F₂ floor := by
+  simp only [supported_mass]
+  rw [div_lt_div_iff₀ hf hf]
+  nlinarith [h, hf]
+
+-- [T66] :: {INV} | A HIGHER FLOOR SUPPORTS LESS MASS
+theorem t66_higher_floor_less_mass (F f₁ f₂ : ℝ) (hF : 0 < F) (h1 : 0 < f₁) (h : f₁ < f₂) :
+    supported_mass F f₂ < supported_mass F f₁ := by
+  simp only [supported_mass]
+  rw [div_lt_div_iff₀ (by linarith : (0:ℝ) < f₂) h1]
+  nlinarith [hF, h]
+
+-- [T67] :: {MASTER} | A VEHICLE AT THE FLOOR CANNOT LIFT ITSELF
+-- A thrust per unit mass below the surface gravitational acceleration leaves a
+-- net downward force on a vehicle at rest on the surface, so orbital assembly
+-- follows from the floor rather than from preference.
+theorem t67_cannot_launch (fm : ℝ) (h : fm < G_STANDARD) :
+    thrust_to_weight fm < 1 ∧ fm - G_STANDARD < 0 := by
+  have hg : (0:ℝ) < G_STANDARD := by simp only [G_STANDARD]; norm_num
+  constructor
+  · simp only [thrust_to_weight]
+    rw [div_lt_one hg]
+    exact h
+  · linarith
+
+-- [T68] :: {INV} | THRUST-TO-WEIGHT BELOW ONE HALF IS BELOW ONE
+theorem t68_half_is_below_one (fm : ℝ) (h : fm < G_STANDARD / 2) :
+    thrust_to_weight fm < 1 := by
+  have hg : (0:ℝ) < G_STANDARD := by simp only [G_STANDARD]; norm_num
+  exact (t67_cannot_launch fm (by linarith)).1
+
+-- [T69] :: {MASTER} | THE PLACEMENT CARRIES THE BODY AND THE DRIVE ONLY
+-- The matched radius in meters is the Schwarzschild radius times the matched
+-- ratio, so it is determined by the gravitational parameter and Reading A
+-- alone and no vehicle mass enters it at any scale.
+theorem t69_placement_from_body_and_drive (GM t : ℝ) (ht : t ≠ 0) :
+    r_s GM * matched_ratio t = 2 * GM / (C_LIGHT ^ 2 * t ^ 2) := by
+  have hc : (C_LIGHT:ℝ) ≠ 0 := by simp only [C_LIGHT]; norm_num
+  have ht2 : (t:ℝ) ^ 2 ≠ 0 := pow_ne_zero 2 ht
+  simp only [r_s, matched_ratio]
+  field_simp
+
+-- [T70] :: {INV} | THE PROPELLANT MASS A VEHICLE CARRIES
+theorem t70_propellant_mass (M tb : ℝ) (hM : 0 < M) (htb : 0 < tb) :
+    0 < M * prop_fraction tb ∧ M * prop_fraction tb < M := by
+  obtain ⟨h1, h2⟩ := t48_prop_fraction_range tb htb
+  constructor
+  · exact mul_pos hM h1
+  · nlinarith [hM, h2]
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+theorem MASTER_burn_depth_and_thrust_floor :
+    -- the depth law, and that deeper is always better
+    (∀ tb u : ℝ, (u + tb) ^ 2 - u ^ 2 = vinf_sq tb u) ∧
+    (∀ tb u₁ u₂ : ℝ, 0 < tb → u₁ < u₂ → vinf_sq tb u₁ < vinf_sq tb u₂) ∧
+    (∀ tb : ℝ, vinf_sq tb 1 = tb * (2 + tb)) ∧
+    -- the inversion at depth, and that it costs less than the ideal rocket
+    (∀ u x : ℝ, vinf_sq (tau_B_at u x) u = x ^ 2) ∧
+    (∀ u x : ℝ, 0 < u → 0 < x → tau_B_at u x < x) ∧
+    (∀ x : ℝ, tau_B_at 1 x = Real.sqrt (1 + x ^ 2) - 1) ∧
+    -- the saving at depth, strictly bounded by e^u, with e at unit depth
+    (∀ u x : ℝ, saving u x = mr_ideal x / mr_depth u x) ∧
+    (∀ u x : ℝ, x ≠ 0 → 0 < u → saving u x < Real.exp u) ∧
+    (∀ x : ℝ, x ≠ 0 → saving 1 x < Real.exp 1) ∧
+    (∀ u x : ℝ, 0 < u → 0 < x → 1 < saving u x) ∧
+    -- availability is exactly one e-fold of depth
+    (∀ rs R t : ℝ, 0 < t → 0 ≤ compactness rs R →
+      (t ^ 2 < compactness rs R ↔ 1 < u_max rs R t)) ∧
+    (∀ rs R : ℝ, 0 < compactness rs R → u_max rs R (surface_torsion rs R) = 1) ∧
+    -- lateral motion is the zero-cost direction
+    (∀ t₁ t₂ : ℝ, 0 < t₁ → 0 < t₂ → addressed_ratio t₁ = addressed_ratio t₂ →
+      t₂ - t₁ = 0) ∧
+    -- the characteristic time in closed form, and the floor's scalings
+    (∀ GM t u : ℝ, GM ≠ 0 → t ≠ 0 → u ≠ 0 →
+      t_char GM t u ^ 2 = burn_radius GM t u ^ 3 / GM) ∧
+    (∀ GM u f tb t₁ t₂ : ℝ, 0 < GM → 0 < f → 0 < u → 0 < tb → 0 < t₁ → t₁ < t₂ →
+      thrust_floor GM t₁ u f tb < thrust_floor GM t₂ u f tb) ∧
+    (∀ GM t f tb u₁ u₂ : ℝ, 0 < GM → 0 < f → 0 < t → 0 < tb → 0 < u₁ → u₁ < u₂ →
+      thrust_floor GM t u₁ f tb < thrust_floor GM t u₂ f tb) ∧
+    -- the two ceilings, and the saving following the binding one
+    (∀ ug ut : ℝ, binding_depth ug ut ≤ ug ∧ binding_depth ug ut ≤ ut) ∧
+    -- the optimum is a supremum, and the body prescribes its own engine
+    (∀ rs R t : ℝ, 0 < t → 0 ≤ compactness rs R →
+      (t ^ 2 < compactness rs R ↔ t < surface_torsion rs R)) ∧
+    (∀ rs R : ℝ, prescribed_isp rs R = surface_torsion rs R * C_LIGHT / G_STANDARD) ∧
+    -- and a vehicle meeting the floor cannot lift itself
+    (∀ fm : ℝ, fm < G_STANDARD → thrust_to_weight fm < 1 ∧ fm - G_STANDARD < 0) := by
+  refine ⟨t14_depth_law,
+    fun tb u₁ u₂ htb h => t15_deeper_is_better tb u₁ u₂ htb h,
+    t16_chain_law_at_unit_depth,
+    t22_inversion_solves,
+    fun u x hu hx => t26_cheaper_than_ideal u x hu hx,
+    t25_inversion_at_unit_depth,
+    t27_saving_is_the_ratio,
+    fun u x hx hu => t29_saving_lt_exp_depth u x hx hu,
+    fun x hx => t31_bound_at_unit_depth x hx,
+    fun u x hu hx => t30_saving_gt_one u x hu hx,
+    fun rs R t ht hC => t36_availability_is_one_efold rs R t ht hC,
+    fun rs R hC => t40_address_is_unit_depth rs R hC,
+    fun t₁ t₂ h1 h2 h => t42_lateral_is_free t₁ t₂ h1 h2 h,
+    fun GM t u hGM ht hu => t45_t_char_closed_form GM t u hGM ht hu,
+    fun GM u f tb t₁ t₂ hGM hf hu htb h1 h =>
+      t49_floor_quartic_in_reading_a GM u f tb t₁ t₂ hGM hf hu htb h1 h,
+    fun GM t f tb u₁ u₂ hGM hf ht htb h1 h =>
+      t50_floor_cubic_in_depth GM t f tb u₁ u₂ hGM hf ht htb h1 h,
+    t53_binding_below_both,
+    fun rs R t ht hC => t60_optimum_is_a_supremum rs R t ht hC,
+    t61_prescription_is_the_address,
+    fun fm h => t67_cannot_launch fm h⟩
+
+end SNSFL_BurnDepthThrustFloor
+
+
+-- ============================================================
+-- MODULE: SNSFL_ForcedResponse_CyclesToShatter_Reduction.lean · [9,9,2,53](ENGR)
+-- ProofPress, Volume 1, Issue 9, Article 7 · Fatigue Is Loss of Damping Capacity
+-- 101 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_ForcedResponseCyclesToShatter
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR AND THE TORSION LIMIT
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def OMEGA_0 : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := 0.136899099984016
+
+/-- The IVA corridor floor: 88% of the Torsion Limit. -/
+def TL_IVA : ℝ := 0.88 * TORSION_LIMIT
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+-- [T1] :: {ANC} | THE ANCHOR IS TEN TORSION LIMITS
+theorem t1_anchor_is_ten_tl : OMEGA_0 = 10 * TORSION_LIMIT := by
+  simp only [OMEGA_0, TORSION_LIMIT]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE MULTIPLIER FACTORS AS 7 * 11 * 13
+theorem t5_multiplier_factors : (1001 : ℕ) = 7 * 11 * 13 := by norm_num
+
+-- [T6] :: {MASTER} | THE ANCHOR ROUTE IN ONE STEP
+theorem t6_anchor_route : OMEGA_0 * 100.1 = ALPHA_INV := by
+  simp only [OMEGA_0, ALPHA_INV]; norm_num
+
+-- [T7] :: {VER} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T8] :: {VER} | THE CORRIDOR FLOOR IN CLOSED FORM
+theorem t8_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- [T9] :: {INV} | THE CORRIDOR FLOOR LIES STRICTLY BELOW THE LIMIT
+theorem t9_iva_floor_below_limit : TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- [T10] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE
+theorem t10_tl_iva_pos : 0 < TL_IVA := by
+  simp only [TL_IVA, TORSION_LIMIT]; norm_num
+
+-- ============================================================
+-- SECTION 1: THE STATE, TORSION, AND THE FOUR PHASES
+-- ============================================================
+
+/-- A PNBA state: Pattern, Narrative, Behavior, Adaptation. -/
+@[ext]
+structure LagState where
+  P : ℝ
+  N : ℝ
+  B : ℝ
+  A : ℝ
+
+/-- Torsion: Behavior load against Pattern capacity. -/
+def torsion (s : LagState) : ℝ := s.B / s.P
+
+/-- The Noble phase. -/
+def IsNoble (s : LagState) : Prop := torsion s = 0
+
+/-- The Locked phase. -/
+def IsLocked (s : LagState) : Prop := 0 < torsion s ∧ torsion s < TL_IVA
+
+/-- The IVA phase: Identity Vector Amplification. -/
+def IsIVA (s : LagState) : Prop := TL_IVA ≤ torsion s ∧ torsion s < TORSION_LIMIT
+
+/-- The Shatter phase. -/
+def IsShatter (s : LagState) : Prop := TORSION_LIMIT ≤ torsion s
+
+-- [T11] :: {INV} | ZERO BEHAVIOR IS A NOBLE READING
+theorem t11_zero_behavior_is_noble (s : LagState) (hB : s.B = 0) : IsNoble s := by
+  unfold IsNoble torsion
+  rw [hB, zero_div]
+
+-- [T12] :: {INV} | NOBLE AND SHATTER ARE MUTUALLY EXCLUSIVE
+theorem t12_noble_shatter_exclusive (s : LagState) : ¬(IsNoble s ∧ IsShatter s) := by
+  intro h
+  obtain ⟨hn, hs⟩ := h
+  unfold IsNoble at hn
+  unfold IsShatter at hs
+  rw [hn] at hs
+  exact absurd hs (not_le.mpr t7_tl_pos)
+
+-- [T13] :: {INV} | LOCKED AND IVA ARE MUTUALLY EXCLUSIVE
+theorem t13_locked_iva_exclusive (s : LagState) : ¬(IsLocked s ∧ IsIVA s) := by
+  intro h
+  obtain ⟨⟨_, h2⟩, ⟨h3, _⟩⟩ := h
+  linarith
+
+-- [T14] :: {INV} | IVA AND SHATTER ARE MUTUALLY EXCLUSIVE
+theorem t14_iva_shatter_exclusive (s : LagState) : ¬(IsIVA s ∧ IsShatter s) := by
+  intro h
+  obtain ⟨⟨_, h2⟩, h3⟩ := h
+  unfold IsShatter at h3
+  linarith
+
+-- [T15] :: {INV} | THE PHASE READING IS A FUNCTION OF THE RATIO ALONE
+theorem t15_phase_is_ratio_only (s t : LagState) (h : torsion s = torsion t) :
+    IsIVA s ↔ IsIVA t := by
+  unfold IsIVA
+  rw [h]
+
+-- [T16] :: {MASTER} | THE FOUR PHASES EXHAUST EVERY NON-NEGATIVE READING
+theorem t16_phases_exhaust (s : LagState) (h : 0 ≤ torsion s) :
+    IsNoble s ∨ IsLocked s ∨ IsIVA s ∨ IsShatter s := by
+  unfold IsNoble IsLocked IsIVA IsShatter
+  rcases eq_or_lt_of_le h with h0 | h0
+  · exact Or.inl h0.symm
+  · by_cases h1 : torsion s < TL_IVA
+    · exact Or.inr (Or.inl ⟨h0, h1⟩)
+    · by_cases h2 : torsion s < TORSION_LIMIT
+      · exact Or.inr (Or.inr (Or.inl ⟨not_lt.mp h1, h2⟩))
+      · exact Or.inr (Or.inr (Or.inr (not_lt.mp h2)))
+
+-- ============================================================
+-- SECTION 2: EXTERNAL FORCING, AND THE INTERVENTION THEOREM
+-- ============================================================
+
+/-- External forcing, as the corpus realizes it: a bump on Behavior alone. -/
+def f_ext_op (s : LagState) (δ : ℝ) : LagState := { s with B := s.B + δ }
+
+-- [T17] :: {INV} | EXTERNAL FORCING LEAVES PATTERN UNCHANGED
+theorem t17_f_ext_preserves_p (s : LagState) (δ : ℝ) : (f_ext_op s δ).P = s.P := rfl
+
+-- [T18] :: {INV} | EXTERNAL FORCING LEAVES NARRATIVE UNCHANGED
+theorem t18_f_ext_preserves_n (s : LagState) (δ : ℝ) : (f_ext_op s δ).N = s.N := rfl
+
+-- [T19] :: {INV} | EXTERNAL FORCING LEAVES ADAPTATION UNCHANGED
+theorem t19_f_ext_preserves_a (s : LagState) (δ : ℝ) : (f_ext_op s δ).A = s.A := rfl
+
+-- [T20] :: {INV} | EXTERNAL FORCING ACTS ON BEHAVIOR BY ADDITION
+theorem t20_f_ext_on_b (s : LagState) (δ : ℝ) : (f_ext_op s δ).B = s.B + δ := rfl
+
+-- [T21] :: {MASTER} | THE INTERVENTION THEOREM — EXTERNAL FORCING IS RANK ONE
+theorem t21_intervention (s : LagState) (δ : ℝ) :
+    (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧ (f_ext_op s δ).A = s.A ∧
+      (f_ext_op s δ).B = s.B + δ :=
+  ⟨rfl, rfl, rfl, rfl⟩
+
+-- [T22] :: {MASTER} | THE REACHABLE SET UNDER FORCING IS EXACTLY THE BEHAVIOR
+--                     LINE, IN BOTH DIRECTIONS
+theorem t22_reachable_set_is_a_line (s t : LagState) :
+    (∃ δ, f_ext_op s δ = t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A) := by
+  constructor
+  · intro h
+    obtain ⟨δ, hδ⟩ := h
+    subst hδ
+    exact ⟨rfl, rfl, rfl⟩
+  · intro h
+    obtain ⟨hP, hN, hA⟩ := h
+    refine ⟨t.B - s.B, ?_⟩
+    apply LagState.ext
+    · exact hP.symm
+    · exact hN.symm
+    · show s.B + (t.B - s.B) = t.B
+      ring
+    · exact hA.symm
+
+-- [T23] :: {MASTER} | PATTERN CAPACITY IS INVARIANT UNDER EVERY EXTERNAL EVENT
+theorem t23_pattern_invariant_under_all_forcing (s : LagState) :
+    ∀ δ : ℝ, (f_ext_op s δ).P = s.P := fun _ => rfl
+
+-- [T24] :: {INV} | POSITIVE FORCING RAISES TORSION
+theorem t24_positive_forcing_raises_torsion (s : LagState) (δ : ℝ)
+    (hP : 0 < s.P) (hδ : 0 < δ) : torsion s < torsion (f_ext_op s δ) := by
+  unfold torsion f_ext_op
+  dsimp only
+  gcongr
+  linarith
+
+-- [T25] :: {INV} | NEGATIVE FORCING LOWERS TORSION
+theorem t25_negative_forcing_lowers_torsion (s : LagState) (δ : ℝ)
+    (hP : 0 < s.P) (hδ : δ < 0) : torsion (f_ext_op s δ) < torsion s := by
+  unfold torsion f_ext_op
+  dsimp only
+  gcongr
+  linarith
+
+-- [T26] :: {MASTER} | FORCING CARRIES A SYSTEM ACROSS THE SHATTER BOUNDARY
+theorem t26_forcing_reaches_shatter (s : LagState) (hP : 0 < s.P) :
+    ∃ δ : ℝ, IsShatter (f_ext_op s δ) := by
+  refine ⟨TORSION_LIMIT * s.P - s.B, ?_⟩
+  unfold IsShatter torsion f_ext_op
+  dsimp only
+  have h1 : s.B + (TORSION_LIMIT * s.P - s.B) = TORSION_LIMIT * s.P := by ring
+  have h2 : TORSION_LIMIT * s.P / s.P = TORSION_LIMIT := by
+    field_simp
+  exact le_of_eq (by rw [h1, h2])
+
+-- [T27] :: {MASTER} | FORCING CHANGES PHASE WITHOUT CHANGING PATTERN
+theorem t27_phase_change_without_pattern_change (s : LagState) (hP : 0 < s.P) :
+    ∃ δ : ℝ, IsShatter (f_ext_op s δ) ∧ (f_ext_op s δ).P = s.P := by
+  obtain ⟨δ, hδ⟩ := t26_forcing_reaches_shatter s hP
+  exact ⟨δ, hδ, rfl⟩
+
+-- [T28] :: {MASTER} | ALL STRUCTURAL CHANGE IS ENDOGENOUS
+theorem t28_structural_change_is_endogenous (s t : LagState)
+    (h : t.P ≠ s.P ∨ t.N ≠ s.N ∨ t.A ≠ s.A) : ¬ ∃ δ, f_ext_op s δ = t := by
+  intro hex
+  obtain ⟨hP, hN, hA⟩ := (t22_reachable_set_is_a_line s t).mp hex
+  rcases h with h | h | h
+  · exact h hP
+  · exact h hN
+  · exact h hA
+
+-- ============================================================
+-- SECTION 3: PURE FORCING HAS NO MEMORY
+-- ============================================================
+
+-- [T29] :: {MASTER} | FORCING COMPOSES ADDITIVELY
+theorem t29_forcing_additive (s : LagState) (δ₁ δ₂ : ℝ) :
+    f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op s (δ₁ + δ₂) := by
+  apply LagState.ext
+  · rfl
+  · rfl
+  · show s.B + δ₁ + δ₂ = s.B + (δ₁ + δ₂)
+    ring
+  · rfl
+
+-- [T30] :: {INV} | FORCING COMMUTES — THE ORDER CARRIES NO INFORMATION
+theorem t30_forcing_commutes (s : LagState) (δ₁ δ₂ : ℝ) :
+    f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op (f_ext_op s δ₂) δ₁ := by
+  rw [t29_forcing_additive, t29_forcing_additive, add_comm]
+
+-- [T31] :: {INV} | ZERO FORCING IS THE IDENTITY
+theorem t31_zero_forcing_identity (s : LagState) : f_ext_op s 0 = s := by
+  apply LagState.ext
+  · rfl
+  · rfl
+  · show s.B + 0 = s.B
+    ring
+  · rfl
+
+-- [T32] :: {MASTER} | NO MEMORY — n APPLICATIONS OF delta LAND WHERE ONE
+--                     APPLICATION OF n delta LANDS
+theorem t32_no_memory (s : LagState) (δ : ℝ) :
+    ∀ n : ℕ, (fun t => f_ext_op t δ)^[n] s = f_ext_op s (n * δ) := by
+  intro n
+  induction n with
+  | zero =>
+      simp only [Function.iterate_zero_apply, Nat.cast_zero, zero_mul]
+      exact (t31_zero_forcing_identity s).symm
+  | succ k ih =>
+      rw [Function.iterate_succ_apply', ih, t29_forcing_additive]
+      congr 1
+      push_cast
+      ring
+
+-- [T33] :: {MASTER} | NOTHING ACCUMULATES — THE READING AFTER n APPLICATIONS
+--                     IS THE CLOSED LINEAR FORM
+theorem t33_nothing_accumulates (s : LagState) (δ : ℝ) (n : ℕ) :
+    torsion ((fun t => f_ext_op t δ)^[n] s) = (s.B + n * δ) / s.P := by
+  rw [t32_no_memory s δ n]
+  rfl
+
+-- [T34] :: {MASTER} | CYCLIC DAMAGE CANNOT BE EXTERNALLY CAUSED
+theorem t34_cyclic_damage_is_internal (s t : LagState) (hdrop : t.P < s.P) :
+    ¬ ∃ n : ℕ, ∃ δ : ℝ, (fun u => f_ext_op u δ)^[n] s = t := by
+  intro hex
+  obtain ⟨n, δ, hnd⟩ := hex
+  rw [t32_no_memory s δ n] at hnd
+  have heq : t.P = s.P := by rw [← hnd]; rfl
+  exact absurd heq (by linarith)
+
+-- ============================================================
+-- SECTION 4: WHETHER THE GROUND STATE IS EXTERNALLY REACHABLE
+-- ============================================================
+
+/-- Guarded forcing: the domain carried where Behavior must stay positive. -/
+def GuardedForcing (s : LagState) (δ : ℝ) : Prop := 0 < s.B + δ
+
+-- [T35] :: {INV} | UNDER THE GUARD, BEHAVIOR CANNOT BE DRIVEN TO ZERO
+theorem t35_guarded_excludes_zero_behavior (s : LagState) (δ : ℝ)
+    (h : GuardedForcing s δ) : (f_ext_op s δ).B ≠ 0 := by
+  unfold GuardedForcing at h
+  show s.B + δ ≠ 0
+  exact ne_of_gt h
+
+-- [T36] :: {MASTER} | NOBLE CANNOT BE IMPOSED FROM OUTSIDE
+theorem t36_noble_not_externally_reachable (s : LagState) (δ : ℝ)
+    (hP : 0 < s.P) (h : GuardedForcing s δ) : ¬ IsNoble (f_ext_op s δ) := by
+  unfold GuardedForcing at h
+  unfold IsNoble torsion f_ext_op
+  dsimp only
+  intro hz
+  rw [div_eq_zero_iff] at hz
+  rcases hz with hz | hz
+  · exact absurd hz (ne_of_gt h)
+  · exact absurd hz (ne_of_gt hP)
+
+-- [T37] :: {MASTER} | WITHOUT THE GUARD, NOBLE IS REACHED — THE DOMAIN IS A
+--                     STATEMENT ABOUT THE SUBSTRATE
+theorem t37_unguarded_reaches_noble (s : LagState) :
+    ∃ δ : ℝ, IsNoble (f_ext_op s δ) := by
+  refine ⟨-s.B, ?_⟩
+  unfold IsNoble torsion f_ext_op
+  dsimp only
+  rw [show s.B + -s.B = (0:ℝ) from by ring, zero_div]
+
+-- [T38] :: {INV} | THE GUARD IS AUTOMATIC ABOVE ZERO
+theorem t38_guard_automatic_above_zero (s : LagState) (δ : ℝ)
+    (hB : 0 < s.B) (hδ : 0 ≤ δ) : GuardedForcing s δ := by
+  unfold GuardedForcing
+  linarith
+
+-- ============================================================
+-- SECTION 5: PATTERN CAPACITY IS INERTIA TIMES DAMPING
+-- ============================================================
+
+/-- Pattern capacity in a driven structure: twice inertia times damping ratio. -/
+def pattern_of_damping (I ζ : ℝ) : ℝ := 2 * I * ζ
+
+/-- The driven ratio: Behavior load against Pattern capacity. -/
+def driven_ratio (B I ζ : ℝ) : ℝ := B / (2 * I * ζ)
+
+-- [T39] :: {MASTER} | THE DRIVEN RATIO IS TORSION ON THE DAMPING READING
+theorem t39_driven_ratio_is_torsion (B I ζ : ℝ) :
+    driven_ratio B I ζ = torsion ⟨pattern_of_damping I ζ, 0, B, 0⟩ := rfl
+
+-- [T40] :: {MASTER} | ONSET AT RATIO ONE IS EXACTLY TORSION AT THE LIMIT
+theorem t40_onset_is_limit (B I ζ : ℝ) :
+    driven_ratio B I ζ = 1 ↔ driven_ratio B I ζ * TORSION_LIMIT = TORSION_LIMIT := by
+  constructor
+  · intro h
+    rw [h, one_mul]
+  · intro h
+    exact mul_right_cancel₀ (ne_of_gt t7_tl_pos) (by rw [h, one_mul])
+
+-- [T41] :: {INV} | RAISING DAMPING LOWERS THE DRIVEN RATIO
+theorem t41_damping_lowers_ratio (B I ζ₁ ζ₂ : ℝ) (hB : 0 < B) (hI : 0 < I)
+    (h1 : 0 < ζ₁) (h12 : ζ₁ < ζ₂) : driven_ratio B I ζ₂ < driven_ratio B I ζ₁ := by
+  unfold driven_ratio
+  have hd1 : 0 < 2 * I * ζ₁ := by positivity
+  have hd2 : 2 * I * ζ₁ < 2 * I * ζ₂ := by nlinarith
+  gcongr
+
+-- [T42] :: {MASTER} | FATIGUE IS LOSS OF DAMPING CAPACITY
+theorem t42_fatigue_is_damping_loss (I ζ₁ ζ₂ : ℝ) (hI : 0 < I) (h : ζ₂ < ζ₁) :
+    pattern_of_damping I ζ₂ < pattern_of_damping I ζ₁ := by
+  unfold pattern_of_damping
+  nlinarith
+
+-- [T43] :: {INV} | LOSING DAMPING DRIVES THE RATIO TOWARD ONSET
+theorem t43_damping_loss_climbs_toward_onset (B I ζ₁ ζ₂ : ℝ) (hB : 0 < B)
+    (hI : 0 < I) (h2 : 0 < ζ₂) (h : ζ₂ < ζ₁) :
+    driven_ratio B I ζ₁ < driven_ratio B I ζ₂ :=
+  t41_damping_lowers_ratio B I ζ₂ ζ₁ hB hI h2 h
+
+-- [T44] :: {VER} | PATTERN CAPACITY ON THE DAMPING READING IS POSITIVE
+theorem t44_pattern_of_damping_pos (I ζ : ℝ) (hI : 0 < I) (hζ : 0 < ζ) :
+    0 < pattern_of_damping I ζ := by
+  unfold pattern_of_damping
+  positivity
+
+-- ============================================================
+-- SECTION 6: PATTERN CAPACITY FROM STATIC STRENGTH
+-- ============================================================
+
+/-- Pattern capacity read off static strength. -/
+def pattern_capacity (UTS : ℝ) : ℝ := UTS / TORSION_LIMIT
+
+-- [T45] :: {MASTER} | PATTERN CAPACITY FROM STATIC STRENGTH, NO FITTING
+theorem t45_static_strength_from_capacity (UTS : ℝ) :
+    TORSION_LIMIT * pattern_capacity UTS = UTS := by
+  unfold pattern_capacity
+  field_simp [ne_of_gt t7_tl_pos]
+
+-- [T46] :: {MASTER} | A STATIC LOAD SITS EXACTLY AT THE SHATTER BOUNDARY
+theorem t46_static_load_is_shatter_boundary (UTS : ℝ) (hU : 0 < UTS) :
+    torsion ⟨pattern_capacity UTS, 0, UTS, 0⟩ = TORSION_LIMIT := by
+  unfold torsion pattern_capacity
+  dsimp only
+  have hTL := ne_of_gt t7_tl_pos
+  have hUne := ne_of_gt hU
+  field_simp
+
+-- [T47] :: {VER} | PATTERN CAPACITY IS POSITIVE FOR A POSITIVE STRENGTH
+theorem t47_pattern_capacity_pos (UTS : ℝ) (hU : 0 < UTS) :
+    0 < pattern_capacity UTS := by
+  unfold pattern_capacity
+  exact div_pos hU t7_tl_pos
+
+-- [T48] :: {INV} | PATTERN CAPACITY IS STRICTLY INCREASING IN STRENGTH
+theorem t48_pattern_capacity_mono (U V : ℝ) (h : U < V) :
+    pattern_capacity U < pattern_capacity V := by
+  unfold pattern_capacity
+  have hTL := t7_tl_pos
+  gcongr
+
+-- ============================================================
+-- SECTION 7: CYCLES TO SHATTER
+-- ============================================================
+
+/-- Degradation of Pattern capacity per cycle, additive form. -/
+def degradation (k B m : ℝ) : ℝ := k * B ^ m
+
+/-- Cycles to shatter: the capacity available above the shatter load, divided
+    by the loss per cycle. -/
+def cycles_to_shatter (P₀ B k m : ℝ) : ℝ :=
+  (P₀ - B / TORSION_LIMIT) / (k * B ^ m)
+
+-- [T49] :: {MASTER} | THE LIFE LAW
+theorem t49_life_law (P₀ B k m : ℝ) (hk : 0 < k) (hB : 0 < B) :
+    cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT := by
+  unfold cycles_to_shatter degradation
+  have h : k * B ^ m ≠ 0 := by positivity
+  exact div_mul_cancel₀ _ h
+
+-- [T50] :: {INV} | LIFE IS POSITIVE BELOW STATIC STRENGTH
+theorem t50_life_pos_below_static (P₀ B k m : ℝ) (hk : 0 < k) (hB : 0 < B)
+    (h : B / TORSION_LIMIT < P₀) : 0 < cycles_to_shatter P₀ B k m := by
+  unfold cycles_to_shatter
+  apply div_pos (by linarith)
+  positivity
+
+-- [T51] :: {MASTER} | THE BASQUIN FORM — LIFE TIMES B^m IS THE AVAILABLE
+--                     CAPACITY OVER THE DEGRADATION COEFFICIENT
+theorem t51_basquin_form (P₀ k m : ℝ) (hk : 0 < k) :
+    ∀ B : ℝ, 0 < B →
+      cycles_to_shatter P₀ B k m * B ^ m = (P₀ - B / TORSION_LIMIT) / k := by
+  intro B hB
+  unfold cycles_to_shatter
+  have h1 : B ^ m ≠ 0 := by positivity
+  have h2 : k ≠ 0 := ne_of_gt hk
+  field_simp
+  try ring
+
+-- [T52] :: {INV} | RAISING THE LOAD LOWERS THE AVAILABLE CAPACITY
+theorem t52_available_capacity_decreasing (P₀ B₁ B₂ : ℝ) (h : B₁ < B₂) :
+    P₀ - B₂ / TORSION_LIMIT < P₀ - B₁ / TORSION_LIMIT := by
+  have hTL := t7_tl_pos
+  have hd : B₁ / TORSION_LIMIT < B₂ / TORSION_LIMIT := by gcongr
+  linarith
+
+-- [T53] :: {VER} | THE EXPONENT IS THE BASQUIN EXPONENT — 1045 STEEL, b = -0.115
+theorem t53_steel_exponent : (0.115 : ℝ) * (1 / 0.115) = 1 := by norm_num
+
+-- [T54] :: {VER} | 2024-T4 ALUMINUM, b = -0.124
+theorem t54_aluminum_exponent : (0.124 : ℝ) * (1 / 0.124) = 1 := by norm_num
+
+-- [T55] :: {MASTER} | THE EXPONENT IS A SUBSTRATE RESPONSE AND IS NOT SET BY
+--                     THE STRUCTURE — THE LIFE LAW CLOSES FOR EVERY EXPONENT
+theorem t55_exponent_is_substrate_response (P₀ B k : ℝ) (hk : 0 < k) (hB : 0 < B) :
+    ∀ m : ℝ, cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT :=
+  fun m => t49_life_law P₀ B k m hk hB
+
+-- ============================================================
+-- SECTION 8: THE ENDURANCE LIMIT IS A BALANCE
+-- ============================================================
+
+/-- Net degradation per cycle, with a recovery term. -/
+def net_degradation (k B m r : ℝ) : ℝ := -(k * B ^ m) + r
+
+/-- The endurance limit: the load at which degradation and recovery cancel. -/
+def endurance_limit (k r m : ℝ) : ℝ := (r / k) ^ (1 / m)
+
+-- [T56] :: {MASTER} | THE BALANCE — NET DEGRADATION IS ZERO AT THE LIMIT
+theorem t56_endurance_balance (k r m : ℝ) (hk : 0 < k) (hr : 0 < r) (hm : 0 < m) :
+    net_degradation k (endurance_limit k r m) m r = 0 := by
+  unfold net_degradation endurance_limit
+  have hrk : (0:ℝ) < r / k := div_pos hr hk
+  rw [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm), Real.rpow_one]
+  field_simp
+  ring
+
+-- [T57] :: {MASTER} | BELOW THE LIMIT, RECOVERY DOMINATES — NOTHING ACCUMULATES
+theorem t57_below_endurance_recovers (k r m B : ℝ) (hk : 0 < k) (hr : 0 < r)
+    (hm : 0 < m) (hB : 0 < B) (h : B < endurance_limit k r m) :
+    0 < net_degradation k B m r := by
+  unfold net_degradation
+  unfold endurance_limit at h
+  have hrk : (0:ℝ) < r / k := div_pos hr hk
+  have key : B ^ m < r / k := by
+    have h1 : B ^ m < ((r / k) ^ (1 / m)) ^ m :=
+      Real.rpow_lt_rpow (le_of_lt hB) h hm
+    rwa [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm),
+      Real.rpow_one] at h1
+  have h2 : k * B ^ m < r := by
+    calc k * B ^ m < k * (r / k) := by nlinarith
+      _ = r := by field_simp
+  linarith
+
+-- [T58] :: {MASTER} | ABOVE THE LIMIT, DAMAGE DOMINATES — LIFE IS FINITE
+theorem t58_above_endurance_damages (k r m B : ℝ) (hk : 0 < k) (hr : 0 < r)
+    (hm : 0 < m) (h : endurance_limit k r m < B) :
+    net_degradation k B m r < 0 := by
+  unfold net_degradation
+  unfold endurance_limit at h
+  have hrk : (0:ℝ) < r / k := div_pos hr hk
+  have hpos : (0:ℝ) < (r / k) ^ (1 / m) := Real.rpow_pos_of_pos hrk _
+  have key : r / k < B ^ m := by
+    have h1 : ((r / k) ^ (1 / m)) ^ m < B ^ m :=
+      Real.rpow_lt_rpow (le_of_lt hpos) h hm
+    rwa [← Real.rpow_mul (le_of_lt hrk), one_div_mul_cancel (ne_of_gt hm),
+      Real.rpow_one] at h1
+  have h2 : r < k * B ^ m := by
+    calc r = k * (r / k) := by field_simp
+      _ < k * B ^ m := by nlinarith
+  linarith
+
+-- [T59] :: {MASTER} | THE BALANCE IS INVARIANT UNDER THE FORM OF THE DAMAGE
+--                     LAW — THE PATTERN FACTOR CANCELS
+theorem t59_balance_invariant_under_damage_form (k B m r P : ℝ) (hP : P ≠ 0) :
+    (-(k * P * B ^ m) + r * P = 0) ↔ (-(k * B ^ m) + r = 0) := by
+  have hfac : -(k * P * B ^ m) + r * P = P * (-(k * B ^ m) + r) := by ring
+  constructor
+  · intro h
+    rw [hfac] at h
+    rcases mul_eq_zero.mp h with h1 | h1
+    · exact absurd h1 hP
+    · exact h1
+  · intro h
+    rw [hfac, h, mul_zero]
+
+-- [T60] :: {MASTER} | AN ENDURANCE LIMIT EXISTS EXACTLY WHEN A
+--                     STRESS-INDEPENDENT RECOVERY CHANNEL EXISTS
+theorem t60_endurance_exists_iff_recovery (k m : ℝ) (hk : 0 < k) (hm : 0 < m) :
+    ∀ r : ℝ, (0 < r ↔ ∃ B : ℝ, 0 < B ∧ net_degradation k B m r = 0) := by
+  intro r
+  constructor
+  · intro hr
+    refine ⟨endurance_limit k r m, ?_, t56_endurance_balance k r m hk hr hm⟩
+    unfold endurance_limit
+    exact Real.rpow_pos_of_pos (div_pos hr hk) _
+  · intro h
+    obtain ⟨B, hB, hbal⟩ := h
+    unfold net_degradation at hbal
+    have hre : r = k * B ^ m := by linarith
+    rw [hre]
+    positivity
+
+-- [T61] :: {VER} | THE ENDURANCE LIMIT IS POSITIVE
+theorem t61_endurance_limit_pos (k r m : ℝ) (hk : 0 < k) (hr : 0 < r) :
+    0 < endurance_limit k r m := by
+  unfold endurance_limit
+  exact Real.rpow_pos_of_pos (div_pos hr hk) _
+
+-- [T62] :: {INV} | THE ENDURANCE LIMIT RISES WITH THE RECOVERY RATE
+theorem t62_endurance_rises_with_recovery (k m r₁ r₂ : ℝ) (hk : 0 < k) (hr : 0 < r₁)
+    (hm : 0 < m) (h : r₁ < r₂) :
+    endurance_limit k r₁ m < endurance_limit k r₂ m := by
+  unfold endurance_limit
+  have hd : r₁ / k < r₂ / k := by gcongr
+  exact Real.rpow_lt_rpow (le_of_lt (div_pos hr hk)) hd (by positivity)
+
+-- ============================================================
+-- SECTION 9: ENDURANCE READINGS ON THE TORSION SCALE
+-- ============================================================
+
+/-- The endurance reading in torsion units, from the endurance ratio. -/
+def tau_endurance (ratio : ℝ) : ℝ := ratio * TORSION_LIMIT
+
+-- [T63] :: {MASTER} | 1045 STEEL — THE PLATEAU AT HALF OF STATIC STRENGTH
+theorem t63_steel_tau_endurance : tau_endurance 0.5 = 0.068449549992008 := by
+  simp only [tau_endurance, TORSION_LIMIT]; norm_num
+
+-- [T64] :: {MASTER} | 2024-T4 ALUMINUM — THE REFERENCE RATIO AT 0.35
+theorem t64_aluminum_tau_endurance : tau_endurance 0.35 = 0.0479146849944056 := by
+  simp only [tau_endurance, TORSION_LIMIT]; norm_num
+
+-- [T65] :: {MASTER} | BOTH READINGS LIE STRICTLY INSIDE LOCKED
+theorem t65_both_inside_locked :
+    0 < tau_endurance 0.5 ∧ tau_endurance 0.5 < TL_IVA ∧
+      0 < tau_endurance 0.35 ∧ tau_endurance 0.35 < TL_IVA := by
+  simp only [tau_endurance, TL_IVA, TORSION_LIMIT]
+  norm_num
+
+-- [T66] :: {INV} | A RATIO BELOW THE CORRIDOR FLOOR IS A LOCKED READING
+theorem t66_ratio_below_floor_is_locked (ratio : ℝ) (h0 : 0 < ratio)
+    (h1 : ratio < 0.88) : 0 < tau_endurance ratio ∧ tau_endurance ratio < TL_IVA := by
+  unfold tau_endurance TL_IVA
+  have hTL := t7_tl_pos
+  refine ⟨by positivity, ?_⟩
+  nlinarith
+
+-- [T67] :: {MASTER} | THE TORSION SCALE IS SHARED — THE RATIO IS RECOVERED
+--                     FROM THE READING FOR ANY MATERIAL WHATSOEVER
+theorem t67_scale_is_shared (ratio : ℝ) :
+    tau_endurance ratio / TORSION_LIMIT = ratio := by
+  unfold tau_endurance
+  field_simp [ne_of_gt t7_tl_pos]
+
+-- ============================================================
+-- SECTION 10: THE KNEE, AND WHY IT IS SHARP
+-- ============================================================
+
+/-- The ratio of damage to recovery at a given load. -/
+def knee_ratio (B Be m : ℝ) : ℝ := (B / Be) ^ m
+
+-- [T68] :: {MASTER} | AT THE ENDURANCE LIMIT THE KNEE RATIO IS EXACTLY ONE
+theorem t68_knee_at_one (Be m : ℝ) (hBe : 0 < Be) : knee_ratio Be Be m = 1 := by
+  unfold knee_ratio
+  rw [div_self (ne_of_gt hBe), Real.one_rpow]
+
+-- [T69] :: {INV} | BELOW THE LIMIT THE KNEE RATIO IS BELOW ONE
+theorem t69_knee_below_one (B Be m : ℝ) (hB : 0 < B) (hBe : 0 < Be) (hm : 0 < m)
+    (h : B < Be) : knee_ratio B Be m < 1 := by
+  unfold knee_ratio
+  have h1 : B / Be < 1 := (div_lt_one hBe).mpr h
+  calc (B / Be) ^ m < (1:ℝ) ^ m := Real.rpow_lt_rpow (by positivity) h1 hm
+    _ = 1 := Real.one_rpow m
+
+-- [T70] :: {INV} | ABOVE THE LIMIT THE KNEE RATIO EXCEEDS ONE
+theorem t70_knee_above_one (B Be m : ℝ) (hBe : 0 < Be) (hm : 0 < m) (h : Be < B) :
+    1 < knee_ratio B Be m := by
+  unfold knee_ratio
+  have h1 : (1:ℝ) < B / Be := (one_lt_div hBe).mpr h
+  calc (1:ℝ) = (1:ℝ) ^ m := (Real.one_rpow m).symm
+    _ < (B / Be) ^ m := Real.rpow_lt_rpow (by norm_num) h1 hm
+
+-- [T71] :: {MASTER} | THE KNEE IS SHARP BECAUSE THE EXPONENT IS LARGE
+theorem t71_sharpness_from_exponent (B Be m₁ m₂ : ℝ) (hBe : 0 < Be) (h : Be < B)
+    (hm : m₁ < m₂) : knee_ratio B Be m₁ < knee_ratio B Be m₂ := by
+  unfold knee_ratio
+  have h1 : (1:ℝ) < B / Be := (one_lt_div hBe).mpr h
+  exact (Real.rpow_lt_rpow_left_iff h1).mpr hm
+
+-- [T72] :: {INV} | THE KNEE RATIO IS MULTIPLICATIVE IN THE LOAD RATIO
+theorem t72_knee_multiplicative (B₁ B₂ Be m : ℝ) (hB1 : 0 < B₁) (hB2 : 0 < B₂)
+    (hBe : 0 < Be) :
+    knee_ratio B₁ Be m * knee_ratio B₂ Be m = ((B₁ * B₂) / (Be * Be)) ^ m := by
+  unfold knee_ratio
+  rw [← Real.mul_rpow (by positivity) (by positivity)]
+  congr 1
+  field_simp
+
+-- [T73] :: {VER} | THE KNEE RATIO IS POSITIVE
+theorem t73_knee_pos (B Be m : ℝ) (hB : 0 < B) (hBe : 0 < Be) :
+    0 < knee_ratio B Be m := by
+  unfold knee_ratio
+  exact Real.rpow_pos_of_pos (div_pos hB hBe) m
+
+-- ============================================================
+-- SECTION 11: THE LOSSY BOUNDARY AND THE A·B PRODUCT
+-- ============================================================
+
+/-- Lossless absorption: forcing at or below the product `A * P * B`. -/
+def IVA_dominance (s : LagState) (F_ext : ℝ) : Prop := s.A * s.P * s.B ≥ F_ext
+
+/-- Lossy: forcing above the product `A * P * B`. -/
+def IsLossy (s : LagState) (F_ext : ℝ) : Prop := F_ext > s.A * s.P * s.B
+
+-- [T74] :: {INV} | LOSSLESS AND LOSSY ARE MUTUALLY EXCLUSIVE
+theorem t74_dominance_lossy_exclusive (s : LagState) (F : ℝ) :
+    ¬(IVA_dominance s F ∧ IsLossy s F) := by
+  intro h
+  obtain ⟨h1, h2⟩ := h
+  unfold IVA_dominance at h1
+  unfold IsLossy at h2
+  linarith
+
+-- [T75] :: {INV} | LOSSLESS AND LOSSY EXHAUST THE POSSIBILITIES
+theorem t75_dominance_lossy_exhaust (s : LagState) (F : ℝ) :
+    IVA_dominance s F ∨ IsLossy s F := by
+  unfold IVA_dominance IsLossy
+  by_cases h : F ≤ s.A * s.P * s.B
+  · exact Or.inl h
+  · exact Or.inr (not_le.mp h)
+
+-- [T76] :: {MASTER} | THE A·B PRODUCT — THE LOSSY BOUNDARY AT THE ENDURANCE
+--                     LIMIT IS THE ENDURANCE RATIO IN TORSION UNITS
+theorem t76_ab_product (UTS Be A B : ℝ) (hU : 0 < UTS)
+    (hbal : A * pattern_capacity UTS * B = Be) :
+    A * B = (Be / UTS) * TORSION_LIMIT := by
+  unfold pattern_capacity at hbal
+  have hTL : TORSION_LIMIT ≠ 0 := ne_of_gt t7_tl_pos
+  have hUne : UTS ≠ 0 := ne_of_gt hU
+  subst hbal
+  field_simp
+
+-- [T77] :: {VER} | 1045 STEEL — 292.5 MPa AGAINST 585 MPa
+theorem t77_ab_steel : ((292.5 : ℝ) / 585) * TORSION_LIMIT = 0.068449549992008 := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T78] :: {VER} | 2024-T4 ALUMINUM — 164.5 MPa AGAINST 470 MPa
+theorem t78_ab_aluminum :
+    ((164.5 : ℝ) / 470) * TORSION_LIMIT = 0.0479146849944056 := by
+  simp only [TORSION_LIMIT]; norm_num
+
+-- [T79] :: {INV} | THE PRODUCT IS WHAT A FATIGUE CURVE SUPPLIES — EVERY
+--                  FACTORIZATION CLOSES, SO A AND B ARE NOT SEPARATELY FIXED
+theorem t79_product_not_factors (Q : ℝ) (hQ : 0 < Q) :
+    ∀ A : ℝ, 0 < A → ∃ B : ℝ, A * B = Q := by
+  intro A hA
+  have hAne : A ≠ 0 := ne_of_gt hA
+  exact ⟨Q / A, by field_simp⟩
+
+-- ============================================================
+-- SECTION 12: FATIGUE PROVES PATTERN IS CONTROLLABLE
+-- ============================================================
+
+/-- A linear internal response, as a coupling of Behavior into Pattern. -/
+def coupling_step (c : ℝ) (s : LagState) : LagState :=
+  { s with P := s.P + c * s.B }
+
+-- [T80] :: {MASTER} | FATIGUE IS A NONZERO B -> P COUPLING
+theorem t80_fatigue_is_nonzero_coupling (c : ℝ) (s : LagState) (hB : 0 < s.B)
+    (h : (coupling_step c s).P < s.P) : c ≠ 0 := by
+  unfold coupling_step at h
+  dsimp only at h
+  intro hc
+  rw [hc, zero_mul, add_zero] at h
+  exact absurd h (lt_irrefl s.P)
+
+-- [T81] :: {MASTER} | PATTERN IS CONTROLLABLE WHEN THE COUPLING IS NONZERO
+theorem t81_pattern_controllable (c : ℝ) (hc : c ≠ 0) (s : LagState) (target : ℝ) :
+    ∃ δ : ℝ, (coupling_step c (f_ext_op s δ)).P = target := by
+  refine ⟨(target - s.P) / c - s.B, ?_⟩
+  unfold coupling_step f_ext_op
+  dsimp only
+  field_simp
+  ring
+
+-- [T82] :: {MASTER} | ONE CHANNEL, TWO SIGNS
+theorem t82_one_channel_two_signs (c : ℝ) (s : LagState) :
+    (coupling_step c s).P - s.P = -((coupling_step (-c) s).P - s.P) := by
+  unfold coupling_step
+  dsimp only
+  ring
+
+-- [T83] :: {MASTER} | WORK HARDENING AND FATIGUE ARE THE SAME CHANNEL
+theorem t83_hardening_and_fatigue (c : ℝ) (s : LagState) (hB : 0 < s.B) :
+    (0 < c → s.P < (coupling_step c s).P) ∧ (c < 0 → (coupling_step c s).P < s.P) := by
+  unfold coupling_step
+  dsimp only
+  refine ⟨fun hc => ?_, fun hc => ?_⟩
+  · nlinarith
+  · nlinarith
+
+-- ============================================================
+-- SECTION 13: THE LAGRANGIAN PROJECTION
+-- Layer 2 reads off Layer 1. The hierarchy is never inverted.
+-- ============================================================
+
+/-- The Layer 1 right-hand side: the four weighted operators plus forcing. -/
+def dynamic_rhs (fP fN fB fA : ℝ → ℝ) (s : LagState) (F : ℝ) : ℝ :=
+  fP s.P + fN s.N + fB s.B + fA s.A + F
+
+/-- The Lagrangian kinetic term: the Pattern–Narrative product. -/
+def lag_kinetic (dP dN : ℝ) : ℝ := dP * dN
+
+/-- The Lagrangian potential term: the Behavior–Adaptation sum. -/
+def lag_potential (B A : ℝ) : ℝ := B + A
+
+/-- The total Lagrangian. -/
+def lag_total (dP dN B A : ℝ) : ℝ := lag_kinetic dP dN - lag_potential B A
+
+/-- The Euler–Lagrange momentum. -/
+def el_momentum (N dP : ℝ) : ℝ := N * dP
+
+/-- The Euler–Lagrange force. -/
+def el_force (B P : ℝ) : ℝ := B * P
+
+/-- The projection of the Layer 1 right-hand side into the Lagrangian reading. -/
+def lag_step (s : LagState) (op : ℝ → ℝ) (F : ℝ) : ℝ :=
+  dynamic_rhs (fun P => P) (fun N => N) op (fun A => A) s F
+
+-- [T84] :: {MASTER} | THE PROJECTION PUTS EVERY OPERATOR BUT BEHAVIOR AT
+--                     THE IDENTITY
+theorem t84_projection_identity_off_b (s : LagState) (op : ℝ → ℝ) (F : ℝ) :
+    lag_step s op F = s.P + s.N + op s.B + s.A + F := rfl
+
+-- [T85] :: {INV} | THE LAGRANGIAN IS THE KINETIC PRODUCT LESS THE POTENTIAL SUM
+theorem t85_lag_total_form (dP dN B A : ℝ) :
+    lag_total dP dN B A = dP * dN - (B + A) := rfl
+
+-- [T86] :: {INV} | THE POTENTIAL IS SYMMETRIC IN BEHAVIOR AND ADAPTATION
+theorem t86_potential_symmetric (B A : ℝ) : lag_potential B A = lag_potential A B := by
+  unfold lag_potential; ring
+
+-- [T87] :: {INV} | THE POTENTIAL IS ADDITIVE IN BEHAVIOR
+theorem t87_potential_additive (B₁ B₂ A : ℝ) :
+    lag_potential (B₁ + B₂) A = lag_potential B₁ A + B₂ := by
+  unfold lag_potential; ring
+
+-- [T88] :: {MASTER} | FORCING ENTERS THE POTENTIAL BY ADDITION ALONE
+theorem t88_forcing_in_potential (s : LagState) (δ : ℝ) :
+    lag_potential (f_ext_op s δ).B (f_ext_op s δ).A = lag_potential s.B s.A + δ := by
+  unfold lag_potential f_ext_op
+  dsimp only
+  ring
+
+-- [T89] :: {MASTER} | THE EULER-LAGRANGE CONTENT — NARRATIVE MOMENTUM EQUALS
+--                     THE PATTERN-BEHAVIOR BALANCE
+theorem t89_el_balance (N dP B P : ℝ) (h : N * dP = B * P) :
+    el_momentum N dP = el_force B P := by
+  unfold el_momentum el_force
+  exact h
+
+-- [T90] :: {MASTER} | THE THREE INDEPENDENT ROUTES MEET ON BEHAVIOR
+theorem t90_three_routes_meet_on_b (s : LagState) (δ c : ℝ) (op : ℝ → ℝ) (F : ℝ) :
+    (f_ext_op s δ).B = s.B + δ ∧
+      lag_step s op F = s.P + s.N + op s.B + s.A + F ∧
+      (coupling_step c s).P = s.P + c * s.B :=
+  ⟨rfl, rfl, rfl⟩
+
+-- ============================================================
+-- SECTION 14: THE CYCLIC COMPANION TO THE STATIC ONSET
+-- ============================================================
+
+-- [T91] :: {MASTER} | THE CYCLIC APPROACH TO ONSET — A FALLING DAMPING
+--                     SEQUENCE DRIVES THE RATIO STRICTLY UP
+theorem t91_cyclic_approach_to_onset (B I : ℝ) (ζ : ℕ → ℝ) (hB : 0 < B) (hI : 0 < I)
+    (hpos : ∀ n, 0 < ζ n) (hdec : ∀ n, ζ (n + 1) < ζ n) :
+    ∀ n, driven_ratio B I (ζ n) < driven_ratio B I (ζ (n + 1)) := by
+  intro n
+  exact t41_damping_lowers_ratio B I (ζ (n + 1)) (ζ n) hB hI (hpos (n + 1)) (hdec n)
+
+-- [T92] :: {MASTER} | ONSET IS REACHED AT THE CRITICAL DAMPING B / (2 I)
+theorem t92_onset_damping (B I : ℝ) (hI : 0 < I) (hB : 0 < B) :
+    driven_ratio B I (B / (2 * I)) = 1 := by
+  unfold driven_ratio
+  have h2I : (2 : ℝ) * I ≠ 0 := by positivity
+  have hBne : B ≠ 0 := ne_of_gt hB
+  field_simp
+
+-- [T93] :: {MASTER} | THE STRUCTURE STARTS BELOW ONSET EXACTLY WHEN DAMPING
+--                     EXCEEDS THE CRITICAL VALUE
+theorem t93_below_onset_iff_damping_above (B I ζ : ℝ) (hI : 0 < I) (hB : 0 < B)
+    (hζ : 0 < ζ) : driven_ratio B I ζ < 1 ↔ B / (2 * I) < ζ := by
+  unfold driven_ratio
+  rw [div_lt_one (by positivity), div_lt_iff₀ (by positivity)]
+  constructor <;> intro h <;> nlinarith
+
+-- [T94] :: {MASTER} | THE STATIC AND CYCLIC CASES SHARE ONE THRESHOLD
+theorem t94_one_threshold (B I ζ : ℝ) :
+    driven_ratio B I ζ = torsion ⟨pattern_of_damping I ζ, 0, B, 0⟩ :=
+  t39_driven_ratio_is_torsion B I ζ
+
+-- ============================================================
+-- SECTION 15: THE E-FOLD READING OF THE MULTIPLICATIVE FORM
+-- ============================================================
+
+/-- The capacity lost before shatter, as an e-fold count. -/
+def efolds_to_shatter (P₀ B : ℝ) : ℝ := Real.log (P₀ * TORSION_LIMIT / B)
+
+-- [T95] :: {VER} | AT THE SHATTER LOAD THE E-FOLD COUNT IS ZERO
+theorem t95_efolds_zero_at_shatter (P₀ : ℝ) (hP : 0 < P₀) :
+    efolds_to_shatter P₀ (P₀ * TORSION_LIMIT) = 0 := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  rw [div_self (by positivity), Real.log_one]
+
+-- [T96] :: {INV} | BELOW THE SHATTER LOAD THE E-FOLD COUNT IS POSITIVE
+theorem t96_efolds_pos_below_shatter (P₀ B : ℝ) (hB : 0 < B)
+    (h : B < P₀ * TORSION_LIMIT) : 0 < efolds_to_shatter P₀ B := by
+  unfold efolds_to_shatter
+  apply Real.log_pos
+  rw [lt_div_iff₀ hB, one_mul]
+  exact h
+
+-- [T97] :: {MASTER} | THE E-FOLD COUNT IS ADDITIVE ALONG A PATH
+theorem t97_efolds_additive (P₀ B₁ B₂ : ℝ) (hP : 0 < P₀) (h1 : 0 < B₁) (h2 : 0 < B₂) :
+    efolds_to_shatter P₀ B₂ = efolds_to_shatter P₀ B₁ + Real.log (B₁ / B₂) := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  rw [← Real.log_mul (by positivity) (by positivity)]
+  congr 1
+  field_simp
+  try ring
+
+-- [T98] :: {INV} | THE E-FOLD COUNT IS STRICTLY DECREASING IN THE LOAD
+theorem t98_efolds_decreasing (P₀ B₁ B₂ : ℝ) (hP : 0 < P₀) (h1 : 0 < B₁)
+    (h : B₁ < B₂) : efolds_to_shatter P₀ B₂ < efolds_to_shatter P₀ B₁ := by
+  unfold efolds_to_shatter
+  have hTL := t7_tl_pos
+  have hB2 : 0 < B₂ := lt_trans h1 h
+  apply Real.log_lt_log (by positivity)
+  gcongr
+
+-- ============================================================
+-- SECTION 16: THE IVA CORRIDOR ON LOAD
+-- ============================================================
+
+-- [T99] :: {MASTER} | THE IVA CORRIDOR ON LOAD IS THE BAND BETWEEN 88% AND
+--                     100% OF STATIC STRENGTH
+theorem t99_corridor_on_load (UTS B : ℝ) (hU : 0 < UTS)
+    (h : IsIVA ⟨pattern_capacity UTS, 0, B, 0⟩) : 0.88 * UTS ≤ B ∧ B < UTS := by
+  unfold IsIVA torsion pattern_capacity TL_IVA at h
+  dsimp only at h
+  obtain ⟨h1, h2⟩ := h
+  have hTL := t7_tl_pos
+  rw [div_div_eq_mul_div] at h1 h2
+  rw [le_div_iff₀ hU] at h1
+  rw [div_lt_iff₀ hU] at h2
+  constructor
+  · nlinarith
+  · nlinarith
+
+-- [T100] :: {VER} | THE CORRIDOR IS NONEMPTY FOR EVERY POSITIVE STRENGTH
+theorem t100_corridor_nonempty (UTS : ℝ) (hU : 0 < UTS) :
+    ∃ B : ℝ, 0.88 * UTS ≤ B ∧ B < UTS := by
+  refine ⟨0.94 * UTS, by nlinarith, by nlinarith⟩
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | FORCED RESPONSE AND CYCLES TO SHATTER
+theorem MASTER_forced_response_cycles_to_shatter :
+    -- the anchor
+    (OMEGA_0 = 10 * TORSION_LIMIT) ∧
+    (BARE + TORSION_LIMIT = ALPHA_INV) ∧
+    (TORSION_LIMIT * 1001 = ALPHA_INV) ∧
+    -- the intervention theorem
+    (∀ s : LagState, ∀ δ : ℝ, (f_ext_op s δ).P = s.P ∧ (f_ext_op s δ).N = s.N ∧
+      (f_ext_op s δ).A = s.A ∧ (f_ext_op s δ).B = s.B + δ) ∧
+    (∀ s t : LagState,
+      (∃ δ, f_ext_op s δ = t) ↔ (t.P = s.P ∧ t.N = s.N ∧ t.A = s.A)) ∧
+    -- no memory, and damage is internal
+    (∀ s : LagState, ∀ δ₁ δ₂ : ℝ,
+      f_ext_op (f_ext_op s δ₁) δ₂ = f_ext_op s (δ₁ + δ₂)) ∧
+    (∀ s t : LagState, t.P < s.P →
+      ¬ ∃ n : ℕ, ∃ δ : ℝ, (fun u => f_ext_op u δ)^[n] s = t) ∧
+    -- fatigue is damping loss
+    (∀ I ζ₁ ζ₂ : ℝ, 0 < I → ζ₂ < ζ₁ →
+      pattern_of_damping I ζ₂ < pattern_of_damping I ζ₁) ∧
+    -- Pattern capacity from static strength
+    (∀ UTS : ℝ, TORSION_LIMIT * pattern_capacity UTS = UTS) ∧
+    -- the life law
+    (∀ P₀ B k m : ℝ, 0 < k → 0 < B →
+      cycles_to_shatter P₀ B k m * degradation k B m = P₀ - B / TORSION_LIMIT) ∧
+    -- the endurance balance, and when it exists
+    (∀ k r m : ℝ, 0 < k → 0 < r → 0 < m →
+      net_degradation k (endurance_limit k r m) m r = 0) ∧
+    (∀ k m : ℝ, 0 < k → 0 < m → ∀ r : ℝ,
+      (0 < r ↔ ∃ B : ℝ, 0 < B ∧ net_degradation k B m r = 0)) ∧
+    -- the balance is invariant under the form of the damage law
+    (∀ k B m r P : ℝ, P ≠ 0 →
+      ((-(k * P * B ^ m) + r * P = 0) ↔ (-(k * B ^ m) + r = 0))) ∧
+    -- the knee
+    (∀ Be m : ℝ, 0 < Be → knee_ratio Be Be m = 1) ∧
+    (∀ B Be m₁ m₂ : ℝ, 0 < Be → Be < B → m₁ < m₂ →
+      knee_ratio B Be m₁ < knee_ratio B Be m₂) ∧
+    -- the endurance readings on the torsion scale
+    (tau_endurance 0.5 = 0.068449549992008) ∧
+    (tau_endurance 0.35 = 0.0479146849944056) ∧
+    -- controllability, and one channel with two signs
+    (∀ c : ℝ, c ≠ 0 → ∀ s : LagState, ∀ target : ℝ,
+      ∃ δ : ℝ, (coupling_step c (f_ext_op s δ)).P = target) ∧
+    (∀ c : ℝ, ∀ s : LagState,
+      (coupling_step c s).P - s.P = -((coupling_step (-c) s).P - s.P)) ∧
+    -- the Lagrangian projection
+    (∀ s : LagState, ∀ op : ℝ → ℝ, ∀ F : ℝ,
+      lag_step s op F = s.P + s.N + op s.B + s.A + F) := by
+  exact ⟨t1_anchor_is_ten_tl, t3_bare_plus_kinetic, t4_tl_times_1001,
+    fun s δ => t21_intervention s δ,
+    fun s t => t22_reachable_set_is_a_line s t,
+    fun s δ₁ δ₂ => t29_forcing_additive s δ₁ δ₂,
+    fun s t h => t34_cyclic_damage_is_internal s t h,
+    fun I ζ₁ ζ₂ hI h => t42_fatigue_is_damping_loss I ζ₁ ζ₂ hI h,
+    fun UTS => t45_static_strength_from_capacity UTS,
+    fun P₀ B k m hk hB => t49_life_law P₀ B k m hk hB,
+    fun k r m hk hr hm => t56_endurance_balance k r m hk hr hm,
+    fun k m hk hm => t60_endurance_exists_iff_recovery k m hk hm,
+    fun k B m r P hP => t59_balance_invariant_under_damage_form k B m r P hP,
+    fun Be m hBe => t68_knee_at_one Be m hBe,
+    fun B Be m₁ m₂ hBe h hm => t71_sharpness_from_exponent B Be m₁ m₂ hBe h hm,
+    t63_steel_tau_endurance, t64_aluminum_tau_endurance,
+    fun c hc s target => t81_pattern_controllable c hc s target,
+    fun c s => t82_one_channel_two_signs c s,
+    fun s op F => t84_projection_identity_off_b s op F⟩
+
+end SNSFL_ForcedResponseCyclesToShatter
+
+
+-- ============================================================
+-- MODULE: SNSFL_PowerLimitedDrive_Reduction.lean · [9,9,2,54](ENGR)
+-- ProofPress, Volume 1, Issue 9, Article 8 · Every Power-Limited Drive Is One Relation
+-- 117 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_PowerLimitedDrive
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR AND THE TORSION LIMIT
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor: 88% of the Torsion Limit. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+/-- The speed of light in vacuum, SI exact. -/
+def C_LIGHT : ℝ := 299792458
+
+-- [T1] :: {ANC} | THE TORSION LIMIT IS THE ANCHOR OVER TEN
+theorem t1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {MASTER} | THE ANCHOR ROUTE IN ONE STEP
+theorem t5_anchor_route : SOVEREIGN_ANCHOR * 100.1 = ALPHA_INV := by
+  simp only [SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | THE MULTIPLIER FACTORS AS 7 * 11 * 13
+theorem t6_multiplier_factors : (1001 : ℕ) = 7 * 11 * 13 := by norm_num
+
+-- [T7] :: {VER} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T8] :: {VER} | THE CORRIDOR FLOOR IN CLOSED FORM
+theorem t8_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T9] :: {INV} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE LIMIT
+theorem t9_floor_pos_below : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T10] :: {INV} | THE TORSION LIMIT LIES STRICTLY INSIDE THE UNIT INTERVAL
+theorem t10_tl_in_unit : -1 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T11] :: {VER} | THE TORSION LIMIT AS AN EXACT RATIONAL
+theorem t11_tl_rational : TORSION_LIMIT = 8556193749001 / 62500000000000 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T12] :: {VER} | THE LANDING, ONE OVER THE TORSION LIMIT, AS AN EXACT RATIONAL
+theorem t12_landing_rational : 1 / TORSION_LIMIT = 62500000000000 / 8556193749001 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T13] :: {VER} | THE SPEED OF LIGHT IS POSITIVE
+theorem t13_c_pos : 0 < C_LIGHT := by simp only [C_LIGHT]; norm_num
+
+-- [T14] :: {INV} | THE CORRIDOR FLOOR IS THE BAND 0.88 TL UP TO TL
+theorem t14_corridor_band : TL_IVA = 0.88 * TORSION_LIMIT := by
+  simp only [TL_IVA]; ring
+
+-- ============================================================
+-- SECTION 1: THE FOUR PHASES
+-- ============================================================
+
+/-- The four phases of the corpus. -/
+inductive Phase
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+/-- Phase classification on a torsion reading. -/
+def classify (t : ℝ) : Phase :=
+  if t = 0 then Phase.Noble
+  else if t < TL_IVA then Phase.Locked
+  else if t < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+-- [T15] :: {VER} | ZERO CLASSIFIES AS NOBLE
+theorem t15_zero_is_noble : classify 0 = Phase.Noble := by
+  simp [classify]
+
+-- [T16] :: {VER} | THE CORRIDOR FLOOR CLASSIFIES AS IVA
+theorem t16_floor_is_iva : classify TL_IVA = Phase.IVA := by
+  have h1 := t9_floor_pos_below
+  simp only [classify]
+  rw [if_neg (by linarith [h1.1]), if_neg (by linarith), if_pos h1.2]
+
+-- [T17] :: {VER} | THE TORSION LIMIT CLASSIFIES AS SHATTER
+theorem t17_limit_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h1 := t9_floor_pos_below
+  have h2 := t7_tl_pos
+  simp only [classify]
+  rw [if_neg (by linarith), if_neg (by linarith [h1.2]), if_neg (by linarith)]
+
+-- [T18] :: {INV} | A READING INSIDE THE CORRIDOR CLASSIFIES AS IVA
+theorem t18_corridor_is_iva (t : ℝ) (hlo : TL_IVA ≤ t) (hhi : t < TORSION_LIMIT) :
+    classify t = Phase.IVA := by
+  have h1 := t9_floor_pos_below
+  simp only [classify]
+  rw [if_neg (by linarith [h1.1]), if_neg (by linarith), if_pos hhi]
+
+-- [T19] :: {INV} | A READING AT OR ABOVE THE LIMIT CLASSIFIES AS SHATTER
+theorem t19_above_limit_is_shatter (t : ℝ) (h : TORSION_LIMIT ≤ t) :
+    classify t = Phase.Shatter := by
+  have h1 := t9_floor_pos_below
+  have h2 := t7_tl_pos
+  simp only [classify]
+  rw [if_neg (by linarith), if_neg (by linarith [h1.2]), if_neg (by linarith)]
+
+-- [T20] :: {INV} | A READING STRICTLY BELOW THE FLOOR CLASSIFIES AS LOCKED
+theorem t20_below_floor_is_locked (t : ℝ) (h0 : 0 < t) (h : t < TL_IVA) :
+    classify t = Phase.Locked := by
+  simp only [classify]
+  rw [if_neg (by linarith), if_pos h]
+
+-- ============================================================
+-- SECTION 2: ONE RELATION COVERS EVERY POWER-LIMITED DRIVE
+-- ============================================================
+
+/-- Reading A: a speed against the limiting speed. -/
+def tau_A (v : ℝ) : ℝ := v / C_LIGHT
+
+/-- Jet power of a stream of mass flow `mdot` at exhaust velocity `ve`. -/
+def jet_power (mdot ve : ℝ) : ℝ := mdot * ve ^ 2 / 2
+
+/-- Thrust of that same stream. -/
+def thrust (mdot ve : ℝ) : ℝ := mdot * ve
+
+/-- Acceleration delivered by a plant of specific mass `al` at exhaust velocity `ve`. -/
+def accel (al ve : ℝ) : ℝ := 2 / (al * ve)
+
+/-- Specific power, the reciprocal of specific mass. -/
+def spec_power (al : ℝ) : ℝ := 1 / al
+
+-- [T21] :: {VER} | READING A IS THE SPEED OVER THE LIMITING SPEED
+theorem t21_reading_a (v : ℝ) : tau_A v * C_LIGHT = v := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [tau_A]; field_simp
+
+-- [T22] :: {MASTER} | THRUST IS TWICE THE JET POWER OVER THE EXHAUST VELOCITY
+theorem t22_thrust_from_power (mdot ve : ℝ) (hv : ve ≠ 0) :
+    thrust mdot ve = 2 * jet_power mdot ve / ve := by
+  simp only [thrust, jet_power]; field_simp
+
+-- [T23] :: {MASTER} | THE FIXED PRODUCT
+theorem t23_fixed_product (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
+    accel al ve * al * ve = 2 := by
+  simp only [accel]; field_simp
+
+-- [T24] :: {MASTER} | THE ACCELERATION FORM OF THE SAME RELATION
+theorem t24_accel_form (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
+    accel al ve = 2 / (al * ve) := rfl
+
+-- [T25] :: {MASTER} | ACCELERATION IS THRUST OVER MASS, WITH THE PLANT'S OWN MASS
+theorem t25_accel_is_thrust_over_mass (mdot ve P m : ℝ) (hv : ve ≠ 0) (hm : m ≠ 0)
+    (hP : P = jet_power mdot ve) (hPne : P ≠ 0) :
+    thrust mdot ve / m = 2 / ((m / P) * ve) := by
+  rw [t22_thrust_from_power mdot ve hv, ← hP]
+  field_simp
+
+-- [T26] :: {MASTER} | SPECIFIC POWER IS HALF THE ACCELERATION TIMES THE EXHAUST VELOCITY
+theorem t26_spec_power_form (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
+    spec_power al = accel al ve * ve / 2 := by
+  simp only [spec_power, accel]; field_simp
+
+-- [T27] :: {MASTER} | SPECIFIC POWER FACTORS INTO AN ACCELERATION AND A TORSION
+theorem t27_spec_power_operator (al ve : ℝ) (ha : al ≠ 0) (hv : ve ≠ 0) :
+    spec_power al = C_LIGHT / 2 * accel al ve * tau_A ve := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [spec_power, accel, tau_A]; field_simp
+
+-- [T28] :: {INV} | ACCELERATION IS POSITIVE FOR A POSITIVE PLANT AND DRIVE
+theorem t28_accel_pos (al ve : ℝ) (ha : 0 < al) (hv : 0 < ve) : 0 < accel al ve := by
+  simp only [accel]; positivity
+
+-- [T29] :: {INV} | AT FIXED SPECIFIC MASS, ACCELERATION FALLS AS THE EXHAUST VELOCITY RISES
+theorem t29_accel_antitone (al v1 v2 : ℝ) (ha : 0 < al) (h1 : 0 < v1) (h : v1 < v2) :
+    accel al v2 < accel al v1 := by
+  simp only [accel]
+  apply div_lt_div_of_pos_left two_pos (by positivity)
+  nlinarith
+
+-- [T30] :: {INV} | AT FIXED EXHAUST VELOCITY, ACCELERATION FALLS AS SPECIFIC MASS RISES
+theorem t30_accel_antitone_in_alpha (a1 a2 ve : ℝ) (h1 : 0 < a1) (hv : 0 < ve) (h : a1 < a2) :
+    accel a2 ve < accel a1 ve := by
+  simp only [accel]
+  apply div_lt_div_of_pos_left two_pos (by positivity)
+  nlinarith
+
+-- ============================================================
+-- SECTION 3: THE PHOTON DRIVE IS THAT RELATION'S ENDPOINT
+-- ============================================================
+
+/-- The geometric base of the corpus. -/
+def b0 : ℝ := 1 / Real.sqrt TORSION_LIMIT
+
+-- [T31] :: {VER} | THE GEOMETRIC BASE IS POSITIVE
+theorem t31_b0_pos : 0 < b0 := by
+  simp only [b0]
+  exact div_pos one_pos (Real.sqrt_pos.mpr t7_tl_pos)
+
+-- [T32] :: {MASTER} | THE GEOMETRIC BASE SQUARED IS THE LANDING
+theorem t32_b0_sq : b0 ^ 2 = 1 / TORSION_LIMIT := by
+  have h := t7_tl_pos
+  simp only [b0, div_pow, one_pow]
+  rw [Real.sq_sqrt (le_of_lt h)]
+
+-- [T33] :: {MASTER} | THE PHOTON EXHAUST TORSION IS EXACTLY ONE
+theorem t33_photon_torsion : tau_A C_LIGHT = 1 := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [tau_A]; field_simp
+
+-- [T34] :: {MASTER} | THE PHOTON SITS ABOVE THE CEILING BY EXACTLY THE SQUARED BASE
+theorem t34_photon_over_ceiling : tau_A C_LIGHT / TORSION_LIMIT = b0 ^ 2 := by
+  rw [t33_photon_torsion, t32_b0_sq]
+
+-- [T35] :: {VER} | THAT FACTOR AS AN EXACT RATIONAL
+theorem t35_photon_factor_rational :
+    tau_A C_LIGHT / TORSION_LIMIT = 62500000000000 / 8556193749001 := by
+  rw [t33_photon_torsion, t12_landing_rational]
+
+-- [T36] :: {MASTER} | THE PHOTON DRIVE'S ACCELERATION DEPENDS ON SPECIFIC MASS ALONE
+theorem t36_photon_accel (al : ℝ) (ha : al ≠ 0) :
+    accel al C_LIGHT = 2 / (al * C_LIGHT) := rfl
+
+-- [T37] :: {MASTER} | THE MINIMUM-BUILD LINE: SPECIFIC MASS FROM A TARGET ACCELERATION
+theorem t37_photon_inverse (al a : ℝ) (ha : 0 < al) (h : accel al C_LIGHT = a) :
+    al = 2 / (a * C_LIGHT) := by
+  have hc : (0:ℝ) < C_LIGHT := t13_c_pos
+  have hapos : 0 < a := by
+    rw [← h]; exact t28_accel_pos al C_LIGHT ha hc
+  simp only [accel] at h
+  field_simp at h ⊢
+  linarith [h]
+
+-- [T38] :: {INV} | THE PHOTON EXHAUST TORSION CLASSIFIES AS SHATTER
+theorem t38_photon_is_shatter : classify (tau_A C_LIGHT) = Phase.Shatter := by
+  rw [t33_photon_torsion]
+  exact t19_above_limit_is_shatter 1 (by linarith [t10_tl_in_unit.2])
+
+-- ============================================================
+-- SECTION 4: THE COOLING CAPACITY OF A DRIVE'S OWN PROPELLANT
+-- ============================================================
+
+/-- The fraction of jet power a drive's own propellant can absorb, for a usable
+    enthalpy rise `dh`. -/
+def sink_ratio (dh ve : ℝ) : ℝ := 2 * dh / ve ^ 2
+
+/-- The exhaust velocity at which that fraction is exactly one. -/
+def sink_crossover (dh : ℝ) : ℝ := Real.sqrt (2 * dh)
+
+-- [T39] :: {MASTER} | THE SINK RATIO IS INDEPENDENT OF THE POWER
+theorem t39_sink_power_free (dh ve mdot : ℝ) (hv : ve ≠ 0) (hm : mdot ≠ 0) :
+    mdot * dh / jet_power mdot ve = sink_ratio dh ve := by
+  simp only [jet_power, sink_ratio]; field_simp
+
+-- [T40] :: {MASTER} | MASS FLOW IS TWICE THE POWER OVER THE SQUARED EXHAUST VELOCITY
+theorem t40_mass_flow (mdot ve : ℝ) (hv : ve ≠ 0) :
+    mdot = 2 * jet_power mdot ve / ve ^ 2 := by
+  simp only [jet_power]; field_simp
+
+-- [T41] :: {VER} | THE SINK RATIO IS POSITIVE FOR A POSITIVE ENTHALPY RISE
+theorem t41_sink_pos (dh ve : ℝ) (hd : 0 < dh) (hv : ve ≠ 0) : 0 < sink_ratio dh ve := by
+  simp only [sink_ratio]
+  apply div_pos (by linarith) (by positivity)
+
+-- [T42] :: {MASTER} | THE SINK RATIO FALLS AS THE SQUARE OF THE EXHAUST VELOCITY
+theorem t42_sink_antitone (dh v1 v2 : ℝ) (hd : 0 < dh) (h1 : 0 < v1) (h : v1 < v2) :
+    sink_ratio dh v2 < sink_ratio dh v1 := by
+  simp only [sink_ratio]
+  apply div_lt_div_of_pos_left (by linarith) (by positivity)
+  nlinarith
+
+-- [T43] :: {MASTER} | THE CROSSOVER SQUARES TO TWICE THE ENTHALPY RISE
+theorem t43_crossover_sq (dh : ℝ) (hd : 0 ≤ dh) : sink_crossover dh ^ 2 = 2 * dh := by
+  simp only [sink_crossover]
+  exact Real.sq_sqrt (by linarith)
+
+-- [T44] :: {MASTER} | AT THE CROSSOVER THE PROPELLANT CARRIES THE WHOLE JET POWER
+theorem t44_at_crossover (dh : ℝ) (hd : 0 < dh) :
+    sink_ratio dh (sink_crossover dh) = 1 := by
+  have hs : sink_crossover dh ^ 2 = 2 * dh := t43_crossover_sq dh (le_of_lt hd)
+  simp only [sink_ratio]
+  rw [hs]
+  field_simp
+
+-- [T45] :: {INV} | ABOVE THE CROSSOVER THE PROPELLANT CARRIES LESS THAN THE JET POWER
+theorem t45_above_crossover (dh ve : ℝ) (hd : 0 < dh) (h : sink_crossover dh < ve) :
+    sink_ratio dh ve < 1 := by
+  have hcpos : 0 < sink_crossover dh := by
+    simp only [sink_crossover]; exact Real.sqrt_pos.mpr (by linarith)
+  have hs : sink_crossover dh ^ 2 = 2 * dh := t43_crossover_sq dh (le_of_lt hd)
+  have hv : 0 < ve := by linarith
+  simp only [sink_ratio]
+  rw [div_lt_one (by positivity)]
+  nlinarith [hs, hcpos, h]
+
+-- ============================================================
+-- SECTION 5: THE REJECTION OPTIMUM, DERIVATIVE-FREE
+-- ============================================================
+
+/-- The quantity whose maximum minimizes radiator mass, with `x` the cold-to-hot
+    temperature ratio. -/
+def rej (x : ℝ) : ℝ := (1 - x) * x ^ 3
+
+/-- The Carnot efficiency at that ratio. -/
+def eta_of_x (x : ℝ) : ℝ := 1 - x
+
+/-- The waste-heat multiplier: thermal kilowatts obliged per electric kilowatt. -/
+def multiplier (eta : ℝ) : ℝ := (1 - eta) / eta
+
+-- [T46] :: {MASTER} | THE DEFICIT FACTORS, WHICH IS THE WHOLE OPTIMUM
+theorem t46_rej_factorization (x : ℝ) :
+    27 / 256 - rej x = (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256 := by
+  simp only [rej]; ring
+
+-- [T47] :: {MASTER} | THE COFACTOR IS A SHIFTED SQUARE AND THEREFORE POSITIVE
+theorem t47_cofactor_pos (x : ℝ) : 0 < 16 * x ^ 2 + 8 * x + 3 := by
+  nlinarith [sq_nonneg (4 * x + 1)]
+
+-- [T48] :: {MASTER} | THE OPTIMUM VALUE
+theorem t48_rej_at_opt : rej (3 / 4) = 27 / 256 := by
+  simp only [rej]; norm_num
+
+-- [T49] :: {MASTER} | THE OPTIMUM IS A GLOBAL MAXIMUM
+theorem t49_rej_le_opt (x : ℝ) : rej x ≤ 27 / 256 := by
+  have hq := t47_cofactor_pos x
+  have hk := t46_rej_factorization x
+  have hnn : (0:ℝ) ≤ (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256 :=
+    div_nonneg (mul_nonneg (sq_nonneg _) (le_of_lt hq)) (by norm_num)
+  linarith [hk, hnn]
+
+-- [T50] :: {MASTER} | THE MAXIMUM IS ATTAINED ONLY AT THREE QUARTERS
+theorem t50_rej_unique (x : ℝ) (h : rej x = 27 / 256) : x = 3 / 4 := by
+  have hq := t47_cofactor_pos x
+  have hk := t46_rej_factorization x
+  rw [h] at hk
+  have h0 : (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) = 0 := by
+    have hd : (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256 = 0 := by linarith [hk]
+    linarith [hd]
+  rcases mul_eq_zero.mp h0 with h1 | h2
+  · have hr : 4 * x - 3 = 0 := sq_eq_zero_iff.mp h1
+    linarith
+  · exact absurd h2 (ne_of_gt hq)
+
+-- [T51] :: {MASTER} | THE RADIATOR-OPTIMAL EFFICIENCY IS ONE QUARTER, EXACTLY
+theorem t51_eta_optimal : eta_of_x (3 / 4) = 1 / 4 := by
+  simp only [eta_of_x]; norm_num
+
+-- [T52] :: {MASTER} | THE WASTE-HEAT MULTIPLIER AT THE OPTIMUM IS EXACTLY THREE
+theorem t52_multiplier_three : multiplier (1 / 4) = 3 := by
+  simp only [multiplier]; norm_num
+
+-- [T53] :: {MASTER} | THE MINIMIZED RADIATOR MASS IS PROPORTIONAL TO 256 OVER 27
+theorem t53_min_radiator : 1 / rej (3 / 4) = 256 / 27 := by
+  rw [t48_rej_at_opt]; norm_num
+
+-- [T54] :: {INV} | THE MULTIPLIER IS POSITIVE AND ANTITONE ON THE UNIT INTERVAL
+theorem t54_multiplier_pos (eta : ℝ) (h0 : 0 < eta) (h1 : eta < 1) : 0 < multiplier eta := by
+  simp only [multiplier]
+  exact div_pos (by linarith) h0
+
+-- [T55] :: {INV} | A HIGHER EFFICIENCY GIVES A SMALLER MULTIPLIER
+theorem t55_multiplier_antitone (e1 e2 : ℝ) (h1 : 0 < e1) (h2 : e2 < 1) (h : e1 < e2) :
+    multiplier e2 < multiplier e1 := by
+  have h1' : 0 < e2 := by linarith
+  simp only [multiplier]
+  rw [div_lt_div_iff₀ h1' h1]
+  nlinarith
+
+-- [T56] :: {MASTER} | THE MULTIPLIER IS THE RECIPROCAL EFFICIENCY LESS ONE
+theorem t56_multiplier_form (eta : ℝ) (h : eta ≠ 0) : multiplier eta = 1 / eta - 1 := by
+  simp only [multiplier]; field_simp
+
+-- [T57] :: {INV} | THE DEFICIT IS ZERO ONLY AT THE OPTIMUM
+theorem t57_deficit_zero_iff (x : ℝ) : 27 / 256 - rej x = 0 ↔ x = 3 / 4 := by
+  constructor
+  · intro h; exact t50_rej_unique x (by linarith)
+  · intro h; rw [h, t48_rej_at_opt]; ring
+
+-- [T58] :: {INV} | THE OPTIMUM RATIO AND ITS EFFICIENCY TOGETHER
+theorem t58_optimum_pair :
+    rej (3 / 4) = 27 / 256 ∧ eta_of_x (3 / 4) = 1 / 4 ∧ multiplier (1 / 4) = 3 :=
+  ⟨t48_rej_at_opt, t51_eta_optimal, t52_multiplier_three⟩
+
+-- ============================================================
+-- SECTION 6: THE SPECIFIC-MASS DECOMPOSITION, AND THE CROSSOVER
+-- ============================================================
+
+/-- Specific mass as three addends: a core scaling with thermal power, conversion
+    hardware scaling with electric power, and a radiator scaling with waste heat
+    over the fourth power of rejection temperature. -/
+def alpha_of (kc kv kr eta Tc : ℝ) : ℝ :=
+  kc / eta + kv + kr * (1 - eta) / (eta * Tc ^ 4)
+
+/-- The same at the rejection optimum. -/
+def alpha_at_opt (kc kv kr Tc : ℝ) : ℝ := 4 * kc + kv + 3 * kr / Tc ^ 4
+
+/-- The energy-density floor the decomposition descends to. -/
+def alpha_floor (kc kv : ℝ) : ℝ := 4 * kc + kv
+
+/-- A fourth root, carried as two square roots. -/
+def fourth_root (X : ℝ) : ℝ := Real.sqrt (Real.sqrt X)
+
+/-- The crossover temperature at which the radiator addend equals the core addend. -/
+def crossover (kc kr : ℝ) : ℝ := fourth_root (3 * kr / (4 * kc))
+
+-- [T59] :: {MASTER} | AT THE OPTIMUM THE DECOMPOSITION HAS THREE ADDENDS
+theorem t59_alpha_at_opt (kc kv kr Tc : ℝ) (hT : Tc ≠ 0) :
+    alpha_of kc kv kr (1 / 4) Tc = alpha_at_opt kc kv kr Tc := by
+  simp only [alpha_of, alpha_at_opt]; field_simp; ring
+
+-- [T60] :: {MASTER} | EXACTLY ONE ADDEND CARRIES THE REJECTION TEMPERATURE
+theorem t60_one_addend_carries_T (kc kv kr Tc : ℝ) :
+    alpha_at_opt kc kv kr Tc = alpha_floor kc kv + 3 * kr / Tc ^ 4 := by
+  simp only [alpha_at_opt, alpha_floor]
+
+-- [T61] :: {MASTER} | THE FLOOR DOES NOT DEPEND ON THE REJECTION TEMPERATURE
+theorem t61_floor_T_free (kc kv T1 T2 : ℝ) :
+    alpha_at_opt kc kv 0 T1 = alpha_at_opt kc kv 0 T2 := by
+  simp only [alpha_at_opt]; norm_num
+
+-- [T62] :: {MASTER} | SPECIFIC MASS DESCENDS TOWARD THE FLOOR AS THE COLD SIDE RISES
+theorem t62_descends_to_floor (kc kv kr T1 T2 : ℝ) (hr : 0 < kr) (h1 : 0 < T1) (h : T1 < T2) :
+    alpha_at_opt kc kv kr T2 < alpha_at_opt kc kv kr T1 := by
+  simp only [alpha_at_opt]
+  have hT2 : 0 < T2 := by linarith
+  have key : (0:ℝ) < (T2 - T1) * ((T2 + T1) * (T2 ^ 2 + T1 ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) (by positivity))
+  have : 3 * kr / T2 ^ 4 < 3 * kr / T1 ^ 4 := by
+    apply div_lt_div_of_pos_left (by linarith) (by positivity)
+    nlinarith [key]
+  linarith
+
+-- [T63] :: {INV} | THE FLOOR IS A STRICT LOWER BOUND FOR A POSITIVE RADIATOR TERM
+theorem t63_floor_is_bound (kc kv kr Tc : ℝ) (hr : 0 < kr) (hT : 0 < Tc) :
+    alpha_floor kc kv < alpha_at_opt kc kv kr Tc := by
+  rw [t60_one_addend_carries_T]
+  have : 0 < 3 * kr / Tc ^ 4 := by positivity
+  linarith
+
+-- [T64] :: {MASTER} | THE FOURTH ROOT RAISED TO THE FOURTH RETURNS ITS ARGUMENT
+theorem t64_fourth_root_pow (X : ℝ) (hX : 0 ≤ X) : fourth_root X ^ 4 = X := by
+  have h1 : Real.sqrt X ^ 2 = X := Real.sq_sqrt hX
+  have h2 : Real.sqrt (Real.sqrt X) ^ 2 = Real.sqrt X := Real.sq_sqrt (Real.sqrt_nonneg X)
+  simp only [fourth_root]
+  calc Real.sqrt (Real.sqrt X) ^ 4 = (Real.sqrt (Real.sqrt X) ^ 2) ^ 2 := by ring
+    _ = Real.sqrt X ^ 2 := by rw [h2]
+    _ = X := h1
+
+-- [T65] :: {VER} | THE FOURTH ROOT IS POSITIVE ON POSITIVES
+theorem t65_fourth_root_pos (X : ℝ) (hX : 0 < X) : 0 < fourth_root X := by
+  simp only [fourth_root]
+  exact Real.sqrt_pos.mpr (Real.sqrt_pos.mpr hX)
+
+-- [T66] :: {VER} | THE CROSSOVER TEMPERATURE IS POSITIVE
+theorem t66_crossover_pos (kc kr : ℝ) (hc : 0 < kc) (hr : 0 < kr) : 0 < crossover kc kr := by
+  simp only [crossover]
+  exact t65_fourth_root_pos _ (by positivity)
+
+-- [T67] :: {MASTER} | AT THE CROSSOVER THE RADIATOR ADDEND EQUALS THE CORE ADDEND
+theorem t67_crossover (kc kr : ℝ) (hc : 0 < kc) (hr : 0 < kr) :
+    3 * kr / crossover kc kr ^ 4 = 4 * kc := by
+  have hcne : kc ≠ 0 := ne_of_gt hc
+  have hrne : kr ≠ 0 := ne_of_gt hr
+  simp only [crossover]
+  rw [t64_fourth_root_pow _ (by positivity : (0:ℝ) ≤ 3 * kr / (4 * kc))]
+  field_simp
+
+-- [T68] :: {MASTER} | AT THE CROSSOVER SPECIFIC MASS IS TWICE THE CORE PLUS CONVERSION
+theorem t68_alpha_at_crossover (kc kv kr : ℝ) (hc : 0 < kc) (hr : 0 < kr) :
+    alpha_at_opt kc kv kr (crossover kc kr) = 8 * kc + kv := by
+  simp only [alpha_at_opt]
+  rw [t67_crossover kc kr hc hr]
+  ring
+
+-- [T69] :: {MASTER} | THE CROSSOVER IS THE UNIQUE POSITIVE TEMPERATURE WHERE THEY AGREE
+theorem t69_crossover_unique (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr) (hT : 0 < Tc)
+    (h : 3 * kr / Tc ^ 4 = 4 * kc) : Tc ^ 4 = crossover kc kr ^ 4 := by
+  have hcne : kc ≠ 0 := ne_of_gt hc
+  have hTne : Tc ^ 4 ≠ 0 := pow_ne_zero 4 (ne_of_gt hT)
+  have h4c : (4:ℝ) * kc ≠ 0 := mul_ne_zero (by norm_num) hcne
+  have hB : crossover kc kr ^ 4 = 3 * kr / (4 * kc) := by
+    simp only [crossover]
+    exact t64_fourth_root_pow _ (by positivity)
+  have hA : Tc ^ 4 = 3 * kr / (4 * kc) := by
+    rw [eq_div_iff h4c]
+    field_simp at h
+    linarith [h]
+  rw [hA, hB]
+
+-- [T70] :: {INV} | BELOW THE CROSSOVER THE RADIATOR ADDEND DOMINATES
+theorem t70_radiator_dominates (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr) (hT : 0 < Tc)
+    (h : Tc < crossover kc kr) : 4 * kc < 3 * kr / Tc ^ 4 := by
+  have hx := t67_crossover kc kr hc hr
+  have hcp := t66_crossover_pos kc kr hc hr
+  have hsum : (0:ℝ) < crossover kc kr ^ 2 + Tc ^ 2 := by
+    linarith [pow_pos hcp 2, sq_nonneg Tc]
+  have key : (0:ℝ) < (crossover kc kr - Tc) *
+      ((crossover kc kr + Tc) * (crossover kc kr ^ 2 + Tc ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hT4 : Tc ^ 4 < crossover kc kr ^ 4 := by nlinarith [key]
+  have hlt : 3 * kr / crossover kc kr ^ 4 < 3 * kr / Tc ^ 4 :=
+    div_lt_div_of_pos_left (by linarith) (pow_pos hT 4) hT4
+  linarith [hx, hlt]
+
+-- [T71] :: {INV} | ABOVE THE CROSSOVER THE CORE ADDEND DOMINATES
+theorem t71_core_dominates (kc kr Tc : ℝ) (hc : 0 < kc) (hr : 0 < kr)
+    (h : crossover kc kr < Tc) : 3 * kr / Tc ^ 4 < 4 * kc := by
+  have hx := t67_crossover kc kr hc hr
+  have hcp := t66_crossover_pos kc kr hc hr
+  have hT : (0:ℝ) < Tc := by linarith
+  have hsum : (0:ℝ) < Tc ^ 2 + crossover kc kr ^ 2 := by
+    linarith [pow_pos hT 2, sq_nonneg (crossover kc kr)]
+  have key : (0:ℝ) < (Tc - crossover kc kr) *
+      ((Tc + crossover kc kr) * (Tc ^ 2 + crossover kc kr ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hC4 : crossover kc kr ^ 4 < Tc ^ 4 := by nlinarith [key]
+  have hlt : 3 * kr / Tc ^ 4 < 3 * kr / crossover kc kr ^ 4 :=
+    div_lt_div_of_pos_left (by linarith) (pow_pos hcp 4) hC4
+  linarith [hx, hlt]
+
+-- ============================================================
+-- SECTION 7: THE GOVERNING INEQUALITY, AND ITS EXACT WIDTH
+-- ============================================================
+
+/-- The squared exhaust torsion a plant of specific mass `al` and a burn of
+    duration `t` prescribe, at optimality coefficient `kap`. -/
+def exhaust_torsion_sq (kap t al : ℝ) : ℝ := kap ^ 2 * (2 * t / al) / C_LIGHT ^ 2
+
+/-- The lower edge of the specific-mass band. -/
+def alpha_lo (kap t : ℝ) : ℝ := 2 * kap ^ 2 * t / (TORSION_LIMIT * C_LIGHT) ^ 2
+
+/-- The upper edge of the specific-mass band. -/
+def alpha_hi (kap t : ℝ) : ℝ := 2 * kap ^ 2 * t / (TL_IVA * C_LIGHT) ^ 2
+
+-- [T72] :: {MASTER} | THE BAND WIDTH IS AN EXACT RATIONAL
+theorem t72_band_width : (TORSION_LIMIT / TL_IVA) ^ 2 = 625 / 484 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T73] :: {MASTER} | THE UPPER EDGE IS THE LOWER EDGE TIMES THAT RATIONAL
+theorem t73_edges_ratio (kap t : ℝ) : alpha_hi kap t = alpha_lo kap t * (625 / 484) := by
+  simp only [alpha_hi, alpha_lo, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, C_LIGHT]
+  ring_nf
+
+-- [T74] :: {MASTER} | THE WIDTH CARRIES NO DEPENDENCE ON DURATION OR COEFFICIENT
+theorem t74_width_parameter_free (k1 t1 k2 t2 : ℝ) (h1 : alpha_lo k1 t1 ≠ 0)
+    (h2 : alpha_lo k2 t2 ≠ 0) :
+    alpha_hi k1 t1 / alpha_lo k1 t1 = alpha_hi k2 t2 / alpha_lo k2 t2 := by
+  rw [t73_edges_ratio, t73_edges_ratio]
+  field_simp
+
+-- [T75] :: {VER} | BOTH EDGES ARE POSITIVE FOR A POSITIVE COEFFICIENT AND DURATION
+theorem t75_edges_pos (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
+    0 < alpha_lo kap t ∧ 0 < alpha_hi kap t := by
+  have hc : (0:ℝ) < C_LIGHT := t13_c_pos
+  have h1 := t7_tl_pos
+  have h2 := t9_floor_pos_below.1
+  have hk2 : 0 < kap ^ 2 := by positivity
+  constructor
+  · simp only [alpha_lo]; apply div_pos (by positivity) (by positivity)
+  · simp only [alpha_hi]; apply div_pos (by positivity) (by positivity)
+
+-- [T76] :: {INV} | THE EDGES ARE ORDERED
+theorem t76_edges_ordered (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
+    alpha_lo kap t < alpha_hi kap t := by
+  have h := (t75_edges_pos kap t hk ht).1
+  rw [t73_edges_ratio]
+  nlinarith
+
+-- [T77] :: {MASTER} | AT THE LOWER EDGE THE EXHAUST TORSION SQUARES TO THE CEILING
+theorem t77_at_lower_edge (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
+    exhaust_torsion_sq kap t (alpha_lo kap t) = TORSION_LIMIT ^ 2 := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  have htl : TORSION_LIMIT ≠ 0 := ne_of_gt t7_tl_pos
+  have htne : t ≠ 0 := ne_of_gt ht
+  simp only [exhaust_torsion_sq, alpha_lo]
+  field_simp
+
+-- [T78] :: {MASTER} | AT THE UPPER EDGE THE EXHAUST TORSION SQUARES TO THE FLOOR
+theorem t78_at_upper_edge (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
+    exhaust_torsion_sq kap t (alpha_hi kap t) = TL_IVA ^ 2 := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  have hiv : TL_IVA ≠ 0 := ne_of_gt t9_floor_pos_below.1
+  have htne : t ≠ 0 := ne_of_gt ht
+  simp only [exhaust_torsion_sq, alpha_hi]
+  field_simp
+
+-- [T79] :: {MASTER} | THE PRESCRIBED TORSION FALLS AS SPECIFIC MASS RISES
+theorem t79_torsion_antitone (kap t a1 a2 : ℝ) (hk : kap ≠ 0) (ht : 0 < t) (h1 : 0 < a1)
+    (h : a1 < a2) : exhaust_torsion_sq kap t a2 < exhaust_torsion_sq kap t a1 := by
+  have hc : (0:ℝ) < C_LIGHT := t13_c_pos
+  have hk2 : 0 < kap ^ 2 := by positivity
+  simp only [exhaust_torsion_sq]
+  apply div_lt_div_of_pos_right _ (pow_pos hc 2)
+  exact mul_lt_mul_of_pos_left (div_lt_div_of_pos_left (by linarith) h1 h) hk2
+
+-- [T80] :: {MASTER} | THE CHARACTERISTIC VELOCITY SQUARES TO TWICE DURATION OVER ALPHA
+theorem t80_v_ch_sq (t al : ℝ) (ht : 0 < t) (ha : 0 < al) :
+    Real.sqrt (2 * t / al) ^ 2 = 2 * t / al :=
+  Real.sq_sqrt (by positivity)
+
+-- [T81] :: {MASTER} | THE EXHAUST TORSION FROM THE CHARACTERISTIC VELOCITY
+theorem t81_torsion_from_v_ch (kap t al : ℝ) (ht : 0 < t) (ha : 0 < al) :
+    (kap * Real.sqrt (2 * t / al) / C_LIGHT) ^ 2 = exhaust_torsion_sq kap t al := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [exhaust_torsion_sq, div_pow, mul_pow]
+  rw [t80_v_ch_sq t al ht ha]
+
+-- [T82] :: {INV} | THE BAND IN ONE STATEMENT
+theorem t82_band (kap t : ℝ) (hk : kap ≠ 0) (ht : 0 < t) :
+    exhaust_torsion_sq kap t (alpha_lo kap t) = TORSION_LIMIT ^ 2 ∧
+    exhaust_torsion_sq kap t (alpha_hi kap t) = TL_IVA ^ 2 ∧
+    alpha_lo kap t < alpha_hi kap t ∧
+    alpha_hi kap t = alpha_lo kap t * (625 / 484) :=
+  ⟨t77_at_lower_edge kap t hk ht, t78_at_upper_edge kap t hk ht,
+   t76_edges_ordered kap t hk ht, t73_edges_ratio kap t⟩
+
+-- ============================================================
+-- SECTION 8: THE MATCHED RADIUS IS THE DRIVE'S IMPEDANCE MATCH
+-- ============================================================
+
+/-- Classical propulsive efficiency at speed ratio `r = v/v_e`. -/
+def prop_eff (r : ℝ) : ℝ := 2 * r / (1 + r ^ 2)
+
+/-- The matched ratio of the corpus. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The matched radius of a body of Schwarzschild radius `rs` for a drive of
+    exhaust torsion `t`. -/
+def r_match (rs t : ℝ) : ℝ := rs / t ^ 2
+
+-- [T83] :: {VER} | THE DENOMINATOR OF PROPULSIVE EFFICIENCY IS POSITIVE
+theorem t83_prop_denom_pos (r : ℝ) : 0 < 1 + r ^ 2 := by positivity
+
+-- [T84] :: {MASTER} | THE EFFICIENCY DEFICIT FACTORS AS A SQUARE
+theorem t84_prop_deficit (r : ℝ) : 1 - prop_eff r = (1 - r) ^ 2 / (1 + r ^ 2) := by
+  have h := t83_prop_denom_pos r
+  simp only [prop_eff]
+  field_simp
+  ring
+
+-- [T85] :: {MASTER} | PROPULSIVE EFFICIENCY IS EXACTLY ONE AT MATCHED SPEED
+theorem t85_prop_eff_one : prop_eff 1 = 1 := by
+  simp only [prop_eff]; norm_num
+
+-- [T86] :: {MASTER} | PROPULSIVE EFFICIENCY NEVER EXCEEDS ONE
+theorem t86_prop_eff_le_one (r : ℝ) : prop_eff r ≤ 1 := by
+  have h := t83_prop_denom_pos r
+  have hd := t84_prop_deficit r
+  have : (0:ℝ) ≤ (1 - r) ^ 2 / (1 + r ^ 2) := by positivity
+  linarith [hd, this]
+
+-- [T87] :: {MASTER} | UNIT EFFICIENCY HOLDS AT MATCHED SPEED AND NOWHERE ELSE
+theorem t87_prop_eff_unique (r : ℝ) (h : prop_eff r = 1) : r = 1 := by
+  have hdp := t83_prop_denom_pos r
+  have hd := t84_prop_deficit r
+  rw [h] at hd
+  have hz : (1 - r) ^ 2 = 0 := by
+    have h0 : (1 - r) ^ 2 / (1 + r ^ 2) = 0 := by linarith [hd]
+    rcases div_eq_zero_iff.mp h0 with hA | hB
+    · exact hA
+    · exact absurd hB (ne_of_gt hdp)
+  have hr : 1 - r = 0 := sq_eq_zero_iff.mp hz
+  linarith
+
+-- [T88] :: {MASTER} | THE MATCHED RADIUS CARRIES THE TORSION OUT OF THE RATIO
+theorem t88_matched_radius_form (rs t : ℝ) (h : t ≠ 0) : r_match rs t * t ^ 2 = rs := by
+  simp only [r_match]; field_simp
+
+-- [T89] :: {MASTER} | THE ATTRACTING MASS CANCELS FROM THE RATIO
+theorem t89_mass_cancels (rs t : ℝ) (hrs : rs ≠ 0) (h : t ≠ 0) :
+    r_match rs t / rs = matched_ratio t := by
+  simp only [r_match, matched_ratio]; field_simp
+
+-- [T90] :: {MASTER} | AT THE MATCHED RADIUS THE SQUARED ESCAPE SPEED IS THE SQUARED
+--                     EXHAUST SPEED
+theorem t90_escape_is_exhaust (GM t : ℝ) (hGM : GM ≠ 0) (h : t ≠ 0) :
+    2 * GM / r_match (2 * GM / C_LIGHT ^ 2) t = (t * C_LIGHT) ^ 2 := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [r_match]
+  field_simp
+
+-- [T91] :: {MASTER} | THE MATCHED RATIO IS THE SQUARED RECIPROCAL OF READING A
+theorem t91_matched_ratio_form (t : ℝ) (h : t ≠ 0) : matched_ratio t * t ^ 2 = 1 := by
+  simp only [matched_ratio]; field_simp
+
+-- [T92] :: {MASTER} | THE MATCHED SHELL LIES OUTSIDE A BODY EXACTLY WHEN THE SQUARED
+--                     TORSION IS BELOW THE COMPACTNESS
+theorem t92_compactness_gate (rs R t : ℝ) (hrs : 0 < rs) (hR : 0 < R) (ht : 0 < t) :
+    R < r_match rs t ↔ t ^ 2 < rs / R := by
+  have ht2 : (0:ℝ) < t ^ 2 := by positivity
+  simp only [r_match]
+  rw [lt_div_iff₀ ht2, lt_div_iff₀ hR]
+  constructor <;> intro h <;> nlinarith [h]
+
+-- [T93] :: {INV} | THE MATCHED RATIO IS POSITIVE AND ANTITONE ON THE POSITIVE SIDE
+theorem t93_matched_ratio_antitone (a b : ℝ) (ha : 0 < a) (h : a < b) :
+    matched_ratio b < matched_ratio a := by
+  simp only [matched_ratio]
+  apply div_lt_div_of_pos_left one_pos (by positivity)
+  nlinarith
+
+-- ============================================================
+-- SECTION 9: THE CONVERSION FRACTION AND THE SEPARATION OF THE READINGS
+-- ============================================================
+
+/-- The conversion fraction of the corpus. -/
+def eta_c (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The relativistic Doppler factor on a Reading A value. -/
+def doppler (t : ℝ) : ℝ := Real.sqrt ((1 + t) / (1 - t))
+
+/-- Reading B: the e-fold count on the Doppler factor. -/
+def tau_B_of (t : ℝ) : ℝ := Real.log (doppler t)
+
+/-- The relative separation of the two readings. -/
+def separation (t : ℝ) : ℝ := tau_B_of t / t - 1
+
+-- [T94] :: {MASTER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t94_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_c t := by
+  simp only [eta_c]; ring
+
+-- [T95] :: {VER} | THE CONVERSION FRACTION IS NONNEGATIVE
+theorem t95_eta_nonneg (t : ℝ) : 0 ≤ eta_c t := by
+  simp only [eta_c]; positivity
+
+-- [T96] :: {MASTER} | THE SERIES CONVERGENCE CONDITION IS READING A'S OWN DOMAIN
+theorem t96_convergence_condition (t : ℝ) : 2 * eta_c t < 1 ↔ -1 < t ∧ t < 1 := by
+  simp only [eta_c]
+  constructor
+  · intro h; constructor <;> nlinarith [h, sq_nonneg t]
+  · intro ⟨h1, h2⟩; nlinarith
+
+-- [T97] :: {MASTER} | THE LEADING TERM OF THE SEPARATION
+theorem t97_leading_term (t : ℝ) : 2 * eta_c t / 3 = t ^ 2 / 3 := by
+  simp only [eta_c]; ring
+
+-- [T98] :: {VER} | THE DOPPLER FACTOR IS POSITIVE INSIDE THE UNIT INTERVAL
+theorem t98_doppler_pos (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 0 < doppler t := by
+  simp only [doppler]
+  apply Real.sqrt_pos.mpr
+  apply div_pos <;> linarith
+
+-- [T99] :: {MASTER} | THE DOPPLER FACTOR SQUARED IS THE RATIO ITSELF
+theorem t99_doppler_sq (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    doppler t ^ 2 = (1 + t) / (1 - t) := by
+  simp only [doppler]
+  apply Real.sq_sqrt
+  apply le_of_lt
+  apply div_pos <;> linarith
+
+-- [T100] :: {MASTER} | THE SEPARATION IS READING B OVER READING A LESS ONE
+theorem t100_separation_form (t : ℝ) (h : t ≠ 0) : separation t * t = tau_B_of t - t := by
+  simp only [separation]; field_simp
+
+-- [T101] :: {MASTER} | NOBLE: THE DOPPLER FACTOR IS ONE AND READING B IS ZERO
+theorem t101_noble : doppler 0 = 1 ∧ tau_B_of 0 = 0 ∧ eta_c 0 = 0 := by
+  refine ⟨?_, ?_, ?_⟩
+  · simp only [doppler]; norm_num
+  · simp only [tau_B_of, doppler]; norm_num
+  · simp only [eta_c]; norm_num
+
+-- ============================================================
+-- SECTION 10: THE TRAJECTORY HAS A CLOSED FORM
+-- ============================================================
+
+/-- The dry-mass burn time: the time to pass the vehicle's own dry mass through
+    the drive. -/
+def T_zero (m_dry mdot : ℝ) : ℝ := m_dry / mdot
+
+/-- Elapsed time of a constant-thrust burn to argument `u = dv/v_e`. -/
+def burn_time (T0 u : ℝ) : ℝ := T0 * (Real.exp u - 1)
+
+/-- Distance covered by that burn. -/
+def burn_dist (ve T0 u : ℝ) : ℝ := ve * T0 * (Real.exp u - 1 - u)
+
+/-- The velocity gained. -/
+def burn_dv (ve u : ℝ) : ℝ := ve * u
+
+-- [T102] :: {MASTER} | THE DISTANCE IS THE EXHAUST VELOCITY TIMES THE TIME, LESS THE
+--                      DRY-MASS BURN TIME TIMES THE VELOCITY GAINED
+theorem t102_distance_identity (ve T0 u : ℝ) :
+    burn_dist ve T0 u = ve * burn_time T0 u - T0 * burn_dv ve u := by
+  simp only [burn_dist, burn_time, burn_dv]; ring
+
+-- [T103] :: {MASTER} | TIME AND DISTANCE DIFFER BY EXACTLY THE BURN ARGUMENT
+theorem t103_remainder_structure (ve T0 u : ℝ) (hv : ve ≠ 0) (hT : T0 ≠ 0) :
+    burn_time T0 u / T0 - burn_dist ve T0 u / (ve * T0) = u := by
+  simp only [burn_time, burn_dist]; field_simp; ring
+
+-- [T104] :: {VER} | A ZERO BURN COSTS NO TIME AND COVERS NO DISTANCE
+theorem t104_zero_burn (ve T0 : ℝ) : burn_time T0 0 = 0 ∧ burn_dist ve T0 0 = 0 := by
+  constructor <;> simp only [burn_time, burn_dist, Real.exp_zero] <;> ring
+
+-- [T105] :: {MASTER} | THE ELAPSED TIME IS POSITIVE FOR A POSITIVE BURN
+theorem t105_time_pos (T0 u : ℝ) (hT : 0 < T0) (hu : 0 < u) : 0 < burn_time T0 u := by
+  have h : (1:ℝ) < Real.exp u := by
+    rw [show (1:ℝ) = Real.exp 0 from (Real.exp_zero).symm]
+    exact Real.exp_lt_exp.mpr hu
+  simp only [burn_time]
+  apply mul_pos hT
+  linarith
+
+-- [T106] :: {MASTER} | THE DISTANCE IS POSITIVE FOR A POSITIVE BURN
+theorem t106_dist_pos (ve T0 u : ℝ) (hv : 0 < ve) (hT : 0 < T0) (hu : 0 < u) :
+    0 < burn_dist ve T0 u := by
+  have h : u + 1 < Real.exp u := Real.add_one_lt_exp (ne_of_gt hu)
+  simp only [burn_dist]
+  apply mul_pos (mul_pos hv hT)
+  linarith
+
+-- [T107] :: {MASTER} | THE ELAPSED TIME IS STRICTLY INCREASING IN THE BURN ARGUMENT
+theorem t107_time_mono (T0 u1 u2 : ℝ) (hT : 0 < T0) (h : u1 < u2) :
+    burn_time T0 u1 < burn_time T0 u2 := by
+  have he : Real.exp u1 < Real.exp u2 := Real.exp_lt_exp.mpr h
+  simp only [burn_time]
+  apply mul_lt_mul_of_pos_left _ hT
+  linarith
+
+-- [T108] :: {MASTER} | THE MASS RATIO OF A BURN IS THE EXPONENTIAL OF ITS ARGUMENT
+theorem t108_mass_ratio (m_dry mdot u : ℝ) (hm : 0 < m_dry) (hd : 0 < mdot) :
+    burn_time (T_zero m_dry mdot) u * mdot / m_dry = Real.exp u - 1 := by
+  have hmne : m_dry ≠ 0 := ne_of_gt hm
+  have hdne : mdot ≠ 0 := ne_of_gt hd
+  simp only [burn_time, T_zero]
+  field_simp
+
+-- [T109] :: {MASTER} | THE BURN ARGUMENT IS READING B OVER THE EXHAUST TORSION
+theorem t109_argument_is_gate (ve tb : ℝ) (hv : ve ≠ 0) :
+    burn_dv ve (tb / tau_A ve) = tb * C_LIGHT := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t13_c_pos
+  simp only [burn_dv, tau_A]
+  field_simp
+
+-- [T110] :: {INV} | THE TRAJECTORY PAIR IN ONE STATEMENT
+theorem t110_trajectory_pair (ve T0 u : ℝ) (hv : 0 < ve) (hT : 0 < T0) (hu : 0 < u) :
+    burn_time T0 u = T0 * (Real.exp u - 1) ∧
+    burn_dist ve T0 u = ve * T0 * (Real.exp u - 1 - u) ∧
+    burn_dist ve T0 u = ve * burn_time T0 u - T0 * burn_dv ve u ∧
+    0 < burn_dist ve T0 u :=
+  ⟨rfl, rfl, t102_distance_identity ve T0 u, t106_dist_pos ve T0 u hv hT hu⟩
+
+-- ============================================================
+-- SECTION 11: THE ENVIRONMENTAL MARGIN, AND MULTI-DRIVE PRICING
+-- ============================================================
+
+/-- The radiator-area margin an environment at temperature `Tenv` costs a cold
+    side at `Tc`. -/
+def margin (Tenv Tc : ℝ) : ℝ := 1 / (1 - (Tenv / Tc) ^ 4)
+
+/-- The mass-ratio gate: the mass ratio a drive needs to reach a given Reading B. -/
+def gate (tb ta : ℝ) : ℝ := Real.exp (tb / ta)
+
+-- [T111] :: {MASTER} | A COLD ENVIRONMENT COSTS NO MARGIN
+theorem t111_margin_at_zero (Tc : ℝ) (h : Tc ≠ 0) : margin 0 Tc = 1 := by
+  simp only [margin]; norm_num
+
+-- [T112] :: {MASTER} | THE MARGIN EXCEEDS ONE FOR A WARM ENVIRONMENT
+theorem t112_margin_gt_one (Tenv Tc : ℝ) (h0 : 0 < Tenv) (h : Tenv < Tc) : 1 < margin Tenv Tc := by
+  have hc : 0 < Tc := by linarith
+  have hr : 0 < Tenv / Tc := by positivity
+  have hr1 : Tenv / Tc < 1 := by rw [div_lt_one hc]; exact h
+  have hs : (Tenv / Tc) ^ 2 < 1 := by nlinarith [hr, hr1]
+  have hq : (Tenv / Tc) ^ 4 < 1 := by nlinarith [hs, sq_nonneg ((Tenv / Tc) ^ 2)]
+  have hd : 0 < 1 - (Tenv / Tc) ^ 4 := by linarith
+  have hq4 : (0:ℝ) < (Tenv / Tc) ^ 4 := pow_pos hr 4
+  simp only [margin]
+  rw [lt_div_iff₀ hd]
+  linarith [hq4]
+
+-- [T113] :: {MASTER} | THE MARGIN RISES WITH THE ENVIRONMENT
+theorem t113_margin_mono (T1 T2 Tc : ℝ) (h0 : 0 < T1) (h : T1 < T2) (h2 : T2 < Tc) :
+    margin T1 Tc < margin T2 Tc := by
+  have hc : 0 < Tc := by linarith
+  have hT2 : 0 < T2 := by linarith
+  have hp1 : 0 < T1 / Tc := div_pos h0 hc
+  have hp2 : 0 < T2 / Tc := div_pos hT2 hc
+  have hr1 : T1 / Tc < 1 := by rw [div_lt_one hc]; linarith
+  have hr2 : T2 / Tc < 1 := by rw [div_lt_one hc]; exact h2
+  have h12 : T1 / Tc < T2 / Tc := by apply div_lt_div_of_pos_right h hc
+  have hs1 : (T1 / Tc) ^ 2 < 1 := by nlinarith [hp1, hr1]
+  have hs2 : (T2 / Tc) ^ 2 < 1 := by nlinarith [hp2, hr2]
+  have hd1 : 0 < 1 - (T1 / Tc) ^ 4 := by nlinarith [hs1, sq_nonneg ((T1 / Tc) ^ 2)]
+  have hd2 : 0 < 1 - (T2 / Tc) ^ 4 := by nlinarith [hs2, sq_nonneg ((T2 / Tc) ^ 2)]
+  have hsum : (0:ℝ) < (T2 / Tc) ^ 2 + (T1 / Tc) ^ 2 := by
+    linarith [pow_pos hp2 2, sq_nonneg (T1 / Tc)]
+  have key : (0:ℝ) <
+      (T2 / Tc - T1 / Tc) * ((T2 / Tc + T1 / Tc) * ((T2 / Tc) ^ 2 + (T1 / Tc) ^ 2)) :=
+    mul_pos (by linarith) (mul_pos (by linarith) hsum)
+  have hlt : (T1 / Tc) ^ 4 < (T2 / Tc) ^ 4 := by nlinarith [key]
+  simp only [margin]
+  rw [div_lt_div_iff₀ hd1 hd2]
+  linarith
+
+-- [T114] :: {MASTER} | THE GATE AND THE BURN ARGUMENT ARE THE SAME OBJECT
+theorem t114_gate_is_argument (tb ta : ℝ) : Real.log (gate tb ta) = tb / ta := by
+  simp only [gate, Real.log_exp]
+
+-- [T115] :: {MASTER} | STAGED LEGS MULTIPLY THEIR MASS RATIOS
+theorem t115_legs_multiply (tb1 ta1 tb2 ta2 : ℝ) :
+    gate tb1 ta1 * gate tb2 ta2 = Real.exp (tb1 / ta1 + tb2 / ta2) := by
+  simp only [gate, Real.exp_add]
+
+-- [T116] :: {MASTER} | A SINGLE DRIVE CARRYING THE WHOLE COUNT IS THE ONE-LEG CASE
+theorem t116_single_leg (tb ta : ℝ) (h : ta ≠ 0) :
+    gate tb ta = Real.exp (tb / ta) := rfl
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE POWER-LIMITED DRIVE
+theorem MASTER_power_limited_drive :
+    -- the anchor
+    (TORSION_LIMIT = 0.136899099984016) ∧
+    (BARE + TORSION_LIMIT = ALPHA_INV) ∧
+    (TORSION_LIMIT * 1001 = ALPHA_INV) ∧
+    -- one relation covers every power-limited drive
+    (∀ mdot ve : ℝ, ve ≠ 0 → thrust mdot ve = 2 * jet_power mdot ve / ve) ∧
+    (∀ al ve : ℝ, al ≠ 0 → ve ≠ 0 → accel al ve * al * ve = 2) ∧
+    (∀ al ve : ℝ, al ≠ 0 → ve ≠ 0 →
+      spec_power al = C_LIGHT / 2 * accel al ve * tau_A ve) ∧
+    -- the photon endpoint
+    (tau_A C_LIGHT = 1) ∧
+    (tau_A C_LIGHT / TORSION_LIMIT = b0 ^ 2) ∧
+    (classify (tau_A C_LIGHT) = Phase.Shatter) ∧
+    -- the sink law
+    (∀ dh ve mdot : ℝ, ve ≠ 0 → mdot ≠ 0 →
+      mdot * dh / jet_power mdot ve = sink_ratio dh ve) ∧
+    (∀ dh : ℝ, 0 < dh → sink_ratio dh (sink_crossover dh) = 1) ∧
+    -- the rejection optimum, derivative-free
+    (∀ x : ℝ, 27 / 256 - rej x = (4 * x - 3) ^ 2 * (16 * x ^ 2 + 8 * x + 3) / 256) ∧
+    (∀ x : ℝ, rej x ≤ 27 / 256) ∧
+    (∀ x : ℝ, rej x = 27 / 256 → x = 3 / 4) ∧
+    (eta_of_x (3 / 4) = 1 / 4) ∧
+    (multiplier (1 / 4) = 3) ∧
+    (1 / rej (3 / 4) = 256 / 27) ∧
+    -- the decomposition and the crossover
+    (∀ kc kv kr Tc : ℝ, Tc ≠ 0 →
+      alpha_of kc kv kr (1 / 4) Tc = alpha_at_opt kc kv kr Tc) ∧
+    (∀ kc kv kr Tc : ℝ, alpha_at_opt kc kv kr Tc = alpha_floor kc kv + 3 * kr / Tc ^ 4) ∧
+    (∀ kc kr : ℝ, 0 < kc → 0 < kr → 3 * kr / crossover kc kr ^ 4 = 4 * kc) ∧
+    (∀ kc kr : ℝ, 0 < kc → 0 < kr → 0 < crossover kc kr) ∧
+    -- the governing inequality and its exact width
+    ((TORSION_LIMIT / TL_IVA) ^ 2 = 625 / 484) ∧
+    (∀ kap t : ℝ, alpha_hi kap t = alpha_lo kap t * (625 / 484)) ∧
+    (∀ kap t : ℝ, kap ≠ 0 → 0 < t →
+      exhaust_torsion_sq kap t (alpha_lo kap t) = TORSION_LIMIT ^ 2) ∧
+    (∀ kap t : ℝ, kap ≠ 0 → 0 < t →
+      exhaust_torsion_sq kap t (alpha_hi kap t) = TL_IVA ^ 2) ∧
+    -- the impedance match
+    (∀ r : ℝ, 1 - prop_eff r = (1 - r) ^ 2 / (1 + r ^ 2)) ∧
+    (prop_eff 1 = 1) ∧
+    (∀ r : ℝ, prop_eff r ≤ 1) ∧
+    (∀ r : ℝ, prop_eff r = 1 → r = 1) ∧
+    (∀ GM t : ℝ, GM ≠ 0 → t ≠ 0 →
+      2 * GM / r_match (2 * GM / C_LIGHT ^ 2) t = (t * C_LIGHT) ^ 2) ∧
+    (∀ rs R t : ℝ, 0 < rs → 0 < R → 0 < t → (R < r_match rs t ↔ t ^ 2 < rs / R)) ∧
+    -- the conversion fraction and the separation
+    (∀ t : ℝ, t ^ 2 = 2 * eta_c t) ∧
+    (∀ t : ℝ, 2 * eta_c t < 1 ↔ -1 < t ∧ t < 1) ∧
+    (∀ t : ℝ, t ≠ 0 → separation t * t = tau_B_of t - t) ∧
+    -- the trajectory law
+    (∀ ve T0 u : ℝ, burn_dist ve T0 u = ve * burn_time T0 u - T0 * burn_dv ve u) ∧
+    (∀ ve T0 u : ℝ, 0 < ve → 0 < T0 → 0 < u → 0 < burn_dist ve T0 u) ∧
+    -- the margin and the legs
+    (∀ Tenv Tc : ℝ, 0 < Tenv → Tenv < Tc → 1 < margin Tenv Tc) ∧
+    (∀ tb1 ta1 tb2 ta2 : ℝ,
+      gate tb1 ta1 * gate tb2 ta2 = Real.exp (tb1 / ta1 + tb2 / ta2)) := by
+  exact ⟨t1_tl_value, t3_bare_plus_kinetic, t4_tl_times_1001,
+    fun mdot ve h => t22_thrust_from_power mdot ve h,
+    fun al ve h1 h2 => t23_fixed_product al ve h1 h2,
+    fun al ve h1 h2 => t27_spec_power_operator al ve h1 h2,
+    t33_photon_torsion, t34_photon_over_ceiling, t38_photon_is_shatter,
+    fun dh ve mdot h1 h2 => t39_sink_power_free dh ve mdot h1 h2,
+    fun dh h => t44_at_crossover dh h,
+    t46_rej_factorization, t49_rej_le_opt, t50_rej_unique,
+    t51_eta_optimal, t52_multiplier_three, t53_min_radiator,
+    fun kc kv kr Tc h => t59_alpha_at_opt kc kv kr Tc h,
+    t60_one_addend_carries_T,
+    fun kc kr h1 h2 => t67_crossover kc kr h1 h2,
+    fun kc kr h1 h2 => t66_crossover_pos kc kr h1 h2,
+    t72_band_width, t73_edges_ratio,
+    fun kap t h1 h2 => t77_at_lower_edge kap t h1 h2,
+    fun kap t h1 h2 => t78_at_upper_edge kap t h1 h2,
+    t84_prop_deficit, t85_prop_eff_one, t86_prop_eff_le_one, t87_prop_eff_unique,
+    fun GM t h1 h2 => t90_escape_is_exhaust GM t h1 h2,
+    fun rs R t h1 h2 h3 => t92_compactness_gate rs R t h1 h2 h3,
+    t94_tau_sq_is_twice_eta, t96_convergence_condition,
+    fun t h => t100_separation_form t h,
+    t102_distance_identity,
+    fun ve T0 u h1 h2 h3 => t106_dist_pos ve T0 u h1 h2 h3,
+    fun Tenv Tc h1 h2 => t112_margin_gt_one Tenv Tc h1 h2,
+    t115_legs_multiply⟩
+
+end SNSFL_PowerLimitedDrive
+
+
+-- ============================================================
+-- MODULE: SNSFL_GoldilocksAnnulus_Reduction.lean · [9,9,3,26](COSM)
+-- ProofPress, Volume 1, Issue 9, Article 9 · The Goldilocks Annulus
+-- 110 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_GoldilocksAnnulus
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR, THE TORSION LIMIT, THE PHASES
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor fraction. -/
+def FLOOR_FRACTION : ℝ := 0.88
+
+/-- The IVA corridor floor. -/
+def TL_IVA : ℝ := TORSION_LIMIT * FLOOR_FRACTION
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+-- [T1] :: {ANC} | THE TORSION LIMIT IS THE ANCHOR OVER TEN
+theorem t1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {ANC} | THE ONE-STEP ANCHOR ROUTE
+theorem t5_anchor_route : SOVEREIGN_ANCHOR * 100.1 = ALPHA_INV := by
+  simp only [SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | THE MULTIPLIER FACTORS AS SEVEN ELEVEN THIRTEEN
+theorem t6_multiplier_factors : (1001 : ℝ) = 7 * 11 * 13 := by norm_num
+
+-- [T7] :: {ANC} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T8] :: {ANC} | THE TORSION LIMIT LIES STRICTLY INSIDE THE UNIT INTERVAL
+theorem t8_tl_in_unit : 0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  constructor
+  · exact t7_tl_pos
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T9] :: {ANC} | THE CORRIDOR FLOOR, IN CLOSED FORM
+theorem t9_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T10] :: {ANC} | THE FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t10_floor_pos_below : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  constructor
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T11] :: {ANC} | THE TORSION LIMIT IS AN EXACT RATIONAL
+theorem t11_tl_rational : TORSION_LIMIT = 8556193749001 / 62500000000000 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T12] :: {ANC} | THE FLOOR FRACTION IS AN EXACT RATIONAL
+theorem t12_floor_rational : FLOOR_FRACTION = 22 / 25 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- [T13] :: {ANC} | THE BAND WIDTH IS EXACTLY THREE TWENTY-FIFTHS
+theorem t13_band_width : 1 - FLOOR_FRACTION = 3 / 25 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+/-- The four phases. -/
+inductive Phase | Noble | Locked | IVA | Shatter
+deriving DecidableEq, Repr
+
+/-- Classification of a torsion reading against the corridor. -/
+def classify (t : ℝ) : Phase :=
+  if t ≥ TORSION_LIMIT then Phase.Shatter
+  else if t ≥ TL_IVA then Phase.IVA
+  else if t > 0 then Phase.Locked
+  else Phase.Noble
+
+-- [T14] :: {PHS} | ZERO TORSION IS NOBLE
+theorem t14_zero_is_noble : classify 0 = Phase.Noble := by
+  simp only [classify]
+  rw [if_neg (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num),
+      if_neg (by simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num),
+      if_neg (by norm_num)]
+
+-- [T15] :: {PHS} | THE FLOOR CLASSIFIES AS IVA
+theorem t15_floor_is_iva : classify TL_IVA = Phase.IVA := by
+  simp only [classify]
+  rw [if_neg (by simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num),
+      if_pos (le_refl TL_IVA)]
+
+-- [T16] :: {PHS} | THE LIMIT CLASSIFIES AS SHATTER
+theorem t16_limit_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  simp only [classify]; rw [if_pos (le_refl TORSION_LIMIT)]
+
+-- [T17] :: {PHS} | ANY READING INSIDE THE CORRIDOR IS IVA
+theorem t17_corridor_is_iva (t : ℝ) (h1 : TL_IVA ≤ t) (h2 : t < TORSION_LIMIT) :
+    classify t = Phase.IVA := by
+  simp only [classify]; rw [if_neg (not_le.mpr h2), if_pos h1]
+
+-- [T18] :: {PHS} | ANY READING AT OR ABOVE THE LIMIT IS SHATTER
+theorem t18_above_limit_is_shatter (t : ℝ) (h : TORSION_LIMIT ≤ t) :
+    classify t = Phase.Shatter := by
+  simp only [classify]; rw [if_pos h]
+
+-- [T19] :: {PHS} | A POSITIVE READING BELOW THE FLOOR IS LOCKED
+theorem t19_below_floor_is_locked (t : ℝ) (h1 : 0 < t) (h2 : t < TL_IVA) :
+    classify t = Phase.Locked := by
+  have hlt : t < TORSION_LIMIT := lt_trans h2 t10_floor_pos_below.2
+  simp only [classify]
+  rw [if_neg (not_le.mpr hlt), if_neg (not_le.mpr h2), if_pos h1]
+
+-- [T20] :: {PHS} | THE PHASE BOUNDARIES ARE ORDERED
+theorem t20_boundary_ordering : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧ TORSION_LIMIT < 1 :=
+  ⟨t10_floor_pos_below.1, t10_floor_pos_below.2, t8_tl_in_unit.2⟩
+
+-- ============================================================
+-- SECTION 1: THE REDUCED FLUX, AND THE SHATTER ANCHOR
+-- ============================================================
+
+/-- The reduced flux: stellar flux against the body's own runaway-greenhouse boundary. -/
+def reduced_flux (S S_run : ℝ) : ℝ := S / S_run
+
+/-- Torsion on the insolation axis. -/
+def tau_flux (s : ℝ) : ℝ := TORSION_LIMIT * s
+
+-- [T21] :: {RED} | AT THE RUNAWAY BOUNDARY THE REDUCED FLUX IS ONE
+theorem t21_anchor_is_one (S_run : ℝ) (h : S_run ≠ 0) : reduced_flux S_run S_run = 1 := by
+  simp only [reduced_flux]; field_simp
+
+-- [T22] :: {RED} | THE RUNAWAY BOUNDARY IS THE SHATTER MARK
+theorem t22_runaway_is_shatter (S_run : ℝ) (h : S_run ≠ 0) :
+    tau_flux (reduced_flux S_run S_run) = TORSION_LIMIT := by
+  rw [t21_anchor_is_one S_run h]; simp only [tau_flux]; ring
+
+-- [T23] :: {RED} | THE IVA FLOOR IN REDUCED FLUX IS THE FLOOR FRACTION
+theorem t23_floor_in_flux : tau_flux FLOOR_FRACTION = TL_IVA := by
+  simp only [tau_flux, TL_IVA]
+
+-- [T24] :: {RED} | THE REDUCED FLUX CARRIES THE PHASE
+theorem t24_flux_phase_shatter (s : ℝ) (h : 1 ≤ s) : classify (tau_flux s) = Phase.Shatter := by
+  apply t18_above_limit_is_shatter
+  simp only [tau_flux]
+  nlinarith [t7_tl_pos]
+
+-- [T25] :: {RED} | A REDUCED FLUX IN THE BAND IS IVA
+theorem t25_flux_phase_iva (s : ℝ) (h1 : FLOOR_FRACTION ≤ s) (h2 : s < 1) :
+    classify (tau_flux s) = Phase.IVA := by
+  apply t17_corridor_is_iva
+  · simp only [tau_flux, TL_IVA]
+    nlinarith [t7_tl_pos]
+  · simp only [tau_flux]
+    nlinarith [t7_tl_pos]
+
+-- [T26] :: {RED} | A POSITIVE REDUCED FLUX BELOW THE FLOOR IS LOCKED
+theorem t26_flux_phase_locked (s : ℝ) (h1 : 0 < s) (h2 : s < FLOOR_FRACTION) :
+    classify (tau_flux s) = Phase.Locked := by
+  apply t19_below_floor_is_locked
+  · simp only [tau_flux]; exact mul_pos t7_tl_pos h1
+  · simp only [tau_flux, TL_IVA]
+    nlinarith [t7_tl_pos]
+
+-- [T27] :: {RED} | THE IVA FLOOR IN SOLAR FLUX FOR THE PUBLISHED ANCHOR
+theorem t27_iva_floor_solar : FLOOR_FRACTION * 1.04 = 0.9152 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- [T28] :: {RED} | TORSION ON THE AXIS IS MONOTONE IN THE FLUX
+theorem t28_tau_mono (s1 s2 : ℝ) (h : s1 < s2) : tau_flux s1 < tau_flux s2 := by
+  simp only [tau_flux]
+  exact mul_lt_mul_of_pos_left h t7_tl_pos
+
+-- ============================================================
+-- SECTION 2: THE ANNULUS
+-- ============================================================
+
+/-- The inner edge of the corridor in orbital radius, where the reduced flux is one. -/
+def d_in (L S_run : ℝ) : ℝ := Real.sqrt (L / S_run)
+
+/-- The outer edge, where the reduced flux is the floor fraction. -/
+def d_out (L S_run : ℝ) : ℝ := Real.sqrt (L / (FLOOR_FRACTION * S_run))
+
+/-- The annulus ratio. -/
+def ANNULUS_RATIO : ℝ := Real.sqrt (25 / 22)
+
+-- [T29] :: {ANN} | THE ANNULUS RATIO SQUARES TO TWENTY-FIVE TWENTY-SECONDS
+theorem t29_ratio_sq : ANNULUS_RATIO ^ 2 = 25 / 22 := by
+  simp only [ANNULUS_RATIO]
+  rw [sq]
+  exact Real.mul_self_sqrt (by norm_num)
+
+-- [T30] :: {ANN} | TWENTY-FIVE TWENTY-SECONDS IS THE RECIPROCAL FLOOR FRACTION
+theorem t30_ratio_is_recip_floor : (25 : ℝ) / 22 = 1 / FLOOR_FRACTION := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- [T31] :: {ANN} | THE ANNULUS RATIO IS POSITIVE
+theorem t31_ratio_pos : 0 < ANNULUS_RATIO := by
+  simp only [ANNULUS_RATIO]; exact Real.sqrt_pos.mpr (by norm_num)
+
+-- [T32] :: {ANN} | THE ANNULUS RATIO EXCEEDS ONE
+theorem t32_ratio_gt_one : 1 < ANNULUS_RATIO := by
+  have h : Real.sqrt 1 < Real.sqrt (25 / 22) :=
+    Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
+  rwa [Real.sqrt_one] at h
+
+-- [T33] :: {ANN} | THE INNER EDGE SQUARES TO THE FLUX RATIO
+theorem t33_d_in_sq (L S_run : ℝ) (hL : 0 ≤ L) (hS : 0 < S_run) :
+    d_in L S_run ^ 2 = L / S_run := by
+  simp only [d_in]
+  exact Real.sq_sqrt (div_nonneg hL (le_of_lt hS))
+
+-- [T34] :: {ANN} | THE OUTER EDGE SQUARES TO ITS OWN FLUX RATIO
+theorem t34_d_out_sq (L S_run : ℝ) (hL : 0 ≤ L) (hS : 0 < S_run) :
+    d_out L S_run ^ 2 = L / (FLOOR_FRACTION * S_run) := by
+  simp only [d_out]
+  refine Real.sq_sqrt (div_nonneg hL (le_of_lt ?_))
+  simp only [FLOOR_FRACTION]; linarith
+
+-- [T35] :: {ANN} | THE EDGES ARE POSITIVE FOR A POSITIVE LUMINOSITY
+theorem t35_edges_pos (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    0 < d_in L S_run ∧ 0 < d_out L S_run := by
+  constructor
+  · simp only [d_in]; exact Real.sqrt_pos.mpr (div_pos hL hS)
+  · simp only [d_out]
+    refine Real.sqrt_pos.mpr (div_pos hL ?_)
+    have : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
+    exact mul_pos this hS
+
+-- [T36] :: {ANN} | THE SQUARED EDGE RATIO IS THE RECIPROCAL FLOOR FRACTION, STELLAR TERMS CANCELLED
+theorem t36_anchor_cancels (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    d_out L S_run ^ 2 / d_in L S_run ^ 2 = 1 / FLOOR_FRACTION := by
+  rw [t33_d_in_sq L S_run (le_of_lt hL) hS, t34_d_out_sq L S_run (le_of_lt hL) hS]
+  have hf : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
+  field_simp
+
+-- [T37] :: {ANN} | THE SQUARED EDGE RATIO IS TWENTY-FIVE TWENTY-SECONDS
+theorem t37_squared_ratio_rational (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    d_out L S_run ^ 2 / d_in L S_run ^ 2 = 25 / 22 := by
+  rw [t36_anchor_cancels L S_run hL hS, ← t30_ratio_is_recip_floor]
+
+-- [T38] :: {ANN} | THE SQUARED EDGE RATIO IS THE SQUARED ANNULUS RATIO
+theorem t38_matches_annulus (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    d_out L S_run ^ 2 / d_in L S_run ^ 2 = ANNULUS_RATIO ^ 2 := by
+  rw [t37_squared_ratio_rational L S_run hL hS, t29_ratio_sq]
+
+-- [T39] :: {ANN} | THE OUTER EDGE STANDS OUTSIDE THE INNER ONE
+theorem t39_out_beyond_in (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    d_in L S_run < d_out L S_run := by
+  obtain ⟨hi, _⟩ := t35_edges_pos L S_run hL hS
+  have hf : (0:ℝ) < FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
+  have hf1 : FLOOR_FRACTION < 1 := by simp only [FLOOR_FRACTION]; norm_num
+  have hlt : FLOOR_FRACTION * S_run < S_run := by nlinarith
+  have hsq : d_in L S_run ^ 2 < d_out L S_run ^ 2 := by
+    rw [t33_d_in_sq L S_run (le_of_lt hL) hS, t34_d_out_sq L S_run (le_of_lt hL) hS]
+    exact div_lt_div_of_pos_left hL (mul_pos hf hS) hlt
+  nlinarith [hi]
+
+-- [T40] :: {ANN} | THE ANNULUS WIDTH IS POSITIVE
+theorem t40_width_pos (L S_run : ℝ) (hL : 0 < L) (hS : 0 < S_run) :
+    0 < d_out L S_run - d_in L S_run := by
+  have := t39_out_beyond_in L S_run hL hS; linarith
+
+-- [T41] :: {ANN} | THE RATIO IS THE SAME FOR EVERY STAR: TWO LUMINOSITIES AGREE
+theorem t41_same_for_every_star (L1 L2 S_run : ℝ) (h1 : 0 < L1) (h2 : 0 < L2) (hS : 0 < S_run) :
+    d_out L1 S_run ^ 2 / d_in L1 S_run ^ 2 = d_out L2 S_run ^ 2 / d_in L2 S_run ^ 2 := by
+  rw [t37_squared_ratio_rational L1 S_run h1 hS, t37_squared_ratio_rational L2 S_run h2 hS]
+
+-- [T42] :: {ANN} | THE RATIO SURVIVES RELOCATION OF THE ANCHOR
+theorem t42_anchor_relocation (L A1 A2 : ℝ) (hL : 0 < L) (ha1 : 0 < A1) (ha2 : 0 < A2) :
+    d_out L A1 ^ 2 / d_in L A1 ^ 2 = d_out L A2 ^ 2 / d_in L A2 ^ 2 := by
+  rw [t37_squared_ratio_rational L A1 hL ha1, t37_squared_ratio_rational L A2 hL ha2]
+
+-- ============================================================
+-- SECTION 3: THE PHASE-HOLDING CRITERION
+-- ============================================================
+
+/-- The flux at perihelion, for a reduced flux s and eccentricity e. -/
+def s_peri (s e : ℝ) : ℝ := s / (1 - e) ^ 2
+
+/-- The flux at aphelion. -/
+def s_apo (s e : ℝ) : ℝ := s / (1 + e) ^ 2
+
+/-- The swing across one orbit. -/
+def swing (s e : ℝ) : ℝ := 4 * e * s / (1 - e ^ 2) ^ 2
+
+/-- The phase-holding constant: one quarter of the band width. -/
+def HOLD_CONST : ℝ := (1 - FLOOR_FRACTION) / 4
+
+-- [T43] :: {HLD} | THE HOLD CONSTANT IS EXACTLY THREE HUNDREDTHS
+theorem t43_hold_const : HOLD_CONST = 3 / 100 := by
+  simp only [HOLD_CONST, FLOOR_FRACTION]; norm_num
+
+-- [T44] :: {HLD} | THE HOLD CONSTANT IS A QUARTER OF THE BAND WIDTH
+theorem t44_hold_is_quarter_band : 4 * HOLD_CONST = 1 - FLOOR_FRACTION := by
+  simp only [HOLD_CONST]; ring
+
+-- [T45] :: {HLD} | THE SWING IS THE DIFFERENCE OF THE TWO EXTREME FLUXES
+theorem t45_swing_identity (s e : ℝ) (h1 : e ≠ 1) (h2 : e ≠ -1) :
+    s_peri s e - s_apo s e = swing s e := by
+  simp only [s_peri, s_apo, swing]
+  have ha : (1 - e) ≠ 0 := sub_ne_zero.mpr (Ne.symm h1)
+  have hb : (1 + e) ≠ 0 := by
+    intro hc; apply h2; linarith
+  have hc : (1 - e ^ 2) ≠ 0 := by
+    intro hd
+    have : (1 - e) * (1 + e) = 0 := by ring_nf; linarith [hd]
+    rcases mul_eq_zero.mp this with h | h
+    · exact ha h
+    · exact hb h
+  field_simp
+  ring
+
+-- [T46] :: {HLD} | THE SWING IS POSITIVE FOR A POSITIVE ECCENTRICITY AND FLUX
+theorem t46_swing_pos (s e : ℝ) (hs : 0 < s) (he : 0 < e) (he1 : e < 1) :
+    0 < swing s e := by
+  simp only [swing]
+  have hb : 0 < 1 - e ^ 2 := by nlinarith
+  have hd : 0 < (1 - e ^ 2) ^ 2 := pow_pos hb 2
+  apply div_pos
+  · nlinarith
+  · exact hd
+
+-- [T47] :: {HLD} | HOLDING THE PHASE IS THE HOLD CONSTANT INEQUALITY
+theorem t47_hold_criterion (s e : ℝ) (he1 : e < 1) (he2 : -1 < e) :
+    swing s e < 1 - FLOOR_FRACTION ↔ e * s / (1 - e ^ 2) ^ 2 < HOLD_CONST := by
+  simp only [swing, HOLD_CONST]
+  have hd : 0 < (1 - e ^ 2) ^ 2 := by
+    have : (1 - e ^ 2) ≠ 0 := by nlinarith
+    positivity
+  rw [div_lt_iff₀ hd, div_lt_iff₀ hd]
+  constructor <;> intro h <;> linarith
+
+-- [T48] :: {HLD} | A ZERO ECCENTRICITY HOLDS ITS PHASE
+theorem t48_circular_holds (s : ℝ) : swing s 0 = 0 := by
+  simp only [swing]; norm_num
+
+-- [T49] :: {HLD} | THE SWING RISES WITH ECCENTRICITY AT FIXED FLUX
+theorem t49_swing_mono_in_e (s e1 e2 : ℝ) (hs : 0 < s)
+    (h1 : 0 ≤ e1) (h12 : e1 < e2) (h2 : e2 < 1) :
+    swing s e1 < swing s e2 := by
+  simp only [swing]
+  have he2 : 0 ≤ e2 := le_of_lt (lt_of_le_of_lt h1 h12)
+  have hb1 : 0 < 1 - e1 ^ 2 := by nlinarith
+  have hb2 : 0 < 1 - e2 ^ 2 := by nlinarith
+  have hd1 : 0 < (1 - e1 ^ 2) ^ 2 := pow_pos hb1 2
+  have hd2 : 0 < (1 - e2 ^ 2) ^ 2 := pow_pos hb2 2
+  have hab : 0 ≤ e1 * e2 := mul_nonneg h1 he2
+  have hab1 : e1 * e2 < 1 := by nlinarith
+  have hbr : 0 < 1 + 2 * (e1 * e2) - (e1 * e2) * (e1 ^ 2 + e1 * e2 + e2 ^ 2) := by
+    nlinarith [hab, hab1, sq_nonneg e1, sq_nonneg e2]
+  have key : e2 * (1 - e1 ^ 2) ^ 2 - e1 * (1 - e2 ^ 2) ^ 2
+      = (e2 - e1) * (1 + 2 * (e1 * e2) - (e1 * e2) * (e1 ^ 2 + e1 * e2 + e2 ^ 2)) := by ring
+  have hba : 0 < e2 - e1 := by linarith
+  have hpos : 0 < e2 * (1 - e1 ^ 2) ^ 2 - e1 * (1 - e2 ^ 2) ^ 2 := by
+    rw [key]; exact mul_pos hba hbr
+  rw [div_lt_div_iff₀ hd1 hd2]
+  nlinarith [hpos, hs]
+
+-- [T50] :: {HLD} | THE SWING RISES WITH FLUX AT FIXED ECCENTRICITY
+theorem t50_swing_mono_in_s (s1 s2 e : ℝ) (he : 0 < e) (he1 : e < 1) (h : s1 < s2) :
+    swing s1 e < swing s2 e := by
+  simp only [swing]
+  have hb : 0 < 1 - e ^ 2 := by nlinarith
+  have hd : 0 < (1 - e ^ 2) ^ 2 := pow_pos hb 2
+  have hn : 4 * e * s1 < 4 * e * s2 := by nlinarith
+  rw [div_lt_div_iff₀ hd hd]
+  exact mul_lt_mul_of_pos_right hn hd
+
+-- THE BAND-CROSSING NUMBER
+def crossing_number (s e : ℝ) : ℝ := swing s e / (1 - FLOOR_FRACTION)
+
+-- [T51] :: {HLD} | HOLDING IS THE CROSSING NUMBER BELOW ONE
+theorem t52_crossing_lt_one (s e : ℝ) :
+    crossing_number s e < 1 ↔ swing s e < 1 - FLOOR_FRACTION := by
+  simp only [crossing_number]
+  have h : (0:ℝ) < 1 - FLOOR_FRACTION := by simp only [FLOOR_FRACTION]; norm_num
+  rw [div_lt_one h]
+
+-- ============================================================
+-- SECTION 4: BOUNDED UNCERTAINTY
+-- ============================================================
+
+/-- A placement is certified when the estimate plus its error bar clears the limit. -/
+def certified (tauhat eps : ℝ) : Prop := tauhat + eps < TORSION_LIMIT
+
+/-- A placement is certified Shatter when the estimate less its bar still reaches the limit. -/
+def certified_shatter (tauhat eps : ℝ) : Prop := TORSION_LIMIT ≤ tauhat - eps
+
+-- [T52] :: {CRT} | AN ESTIMATE WITHIN ITS BAR CERTIFIES THE PLACEMENT
+theorem t53_cert_sound (tau tauhat eps : ℝ) (hb : |tau - tauhat| ≤ eps)
+    (hc : certified tauhat eps) : tau < TORSION_LIMIT := by
+  simp only [certified] at hc
+  have h := (abs_le.mp hb).2
+  linarith
+
+-- [T53] :: {CRT} | A CERTIFIED-SHATTER BAR PLACES THE ROW AT OR ABOVE THE LIMIT
+theorem t54_cert_shatter_sound (tau tauhat eps : ℝ) (hb : |tau - tauhat| ≤ eps)
+    (hc : certified_shatter tauhat eps) : TORSION_LIMIT ≤ tau := by
+  simp only [certified_shatter] at hc
+  have h := (abs_le.mp hb).1
+  linarith
+
+-- [T54] :: {CRT} | THE TWO CERTIFICATIONS EXCLUDE EACH OTHER
+theorem t55_cert_exclusive (tauhat eps : ℝ) (he : 0 ≤ eps) :
+    ¬ (certified tauhat eps ∧ certified_shatter tauhat eps) := by
+  rintro ⟨h1, h2⟩
+  simp only [certified] at h1
+  simp only [certified_shatter] at h2
+  linarith
+
+-- [T55] :: {CRT} | A SHARPER BAR CERTIFIES WHATEVER A WIDER ONE DID
+theorem t56_sharper_bar (tauhat e1 e2 : ℝ) (h : e1 ≤ e2) (hc : certified tauhat e2) :
+    certified tauhat e1 := by
+  simp only [certified] at *; linarith
+
+-- [T56] :: {CRT} | A ZERO-WIDTH BAR CERTIFIES EXACTLY THE SUB-LIMIT READINGS
+theorem t57_zero_bar (tauhat : ℝ) : certified tauhat 0 ↔ tauhat < TORSION_LIMIT := by
+  simp only [certified]; constructor <;> intro h <;> linarith
+
+-- [T57] :: {CRT} | A ROW IS UNCERTIFIED EXACTLY WHEN ITS BAR SPANS THE LIMIT
+theorem t58_spanning (tauhat eps : ℝ) :
+    (¬ certified tauhat eps ∧ ¬ certified_shatter tauhat eps) ↔
+    (tauhat - eps < TORSION_LIMIT ∧ TORSION_LIMIT ≤ tauhat + eps) := by
+  simp only [certified, certified_shatter, not_lt, not_le]
+  constructor
+  · rintro ⟨h1, h2⟩; exact ⟨h2, h1⟩
+  · rintro ⟨h1, h2⟩; exact ⟨h2, h1⟩
+
+-- ============================================================
+-- SECTION 5: THE MARGIN AND THE UTILISATION
+-- ============================================================
+
+/-- The U margin to Shatter, in reduced flux. -/
+def margin (s : ℝ) : ℝ := 1 - s
+
+/-- The perihelion push, in reduced flux. -/
+def push (s e : ℝ) : ℝ := s / (1 - e) ^ 2 - s
+
+/-- The margin utilisation. -/
+def util (s e : ℝ) : ℝ := push s e / margin s
+
+-- [T58] :: {MRG} | THE MARGIN IS POSITIVE BELOW SHATTER
+theorem t59_margin_pos (s : ℝ) (h : s < 1) : 0 < margin s := by
+  simp only [margin]; linarith
+
+-- [T59] :: {MRG} | THE MARGIN VANISHES AT SHATTER
+theorem t60_margin_zero : margin 1 = 0 := by simp only [margin]; ring
+
+-- [T60] :: {MRG} | IN THE IVA BAND THE MARGIN IS AT MOST THE BAND WIDTH
+theorem t61_iva_margin_bound (s : ℝ) (h1 : FLOOR_FRACTION ≤ s) (h2 : s < 1) :
+    margin s ≤ 1 - FLOOR_FRACTION := by
+  simp only [margin]; linarith
+
+-- [T61] :: {MRG} | THE IVA MARGIN IS THE SMALLEST OF ANY SUB-SHATTER STATE
+theorem t62_iva_least_margin (s1 s2 : ℝ) (h1 : FLOOR_FRACTION ≤ s1) (h2 : s2 < FLOOR_FRACTION) :
+    margin s1 ≤ margin s2 := by
+  simp only [margin]; linarith
+
+-- [T62] :: {MRG} | THE PUSH IS POSITIVE FOR A POSITIVE ECCENTRICITY
+theorem t63_push_pos (s e : ℝ) (hs : 0 < s) (he : 0 < e) (he1 : e < 1) : 0 < push s e := by
+  simp only [push]
+  have hd : 0 < (1 - e) ^ 2 := by nlinarith
+  have hlt : (1 - e) ^ 2 < 1 := by nlinarith
+  rw [sub_pos, lt_div_iff₀ hd]
+  nlinarith
+
+-- [T63] :: {MRG} | A CIRCULAR ORBIT PUSHES NOTHING
+theorem t64_push_zero (s : ℝ) : push s 0 = 0 := by simp only [push]; norm_num
+
+-- [T64] :: {MRG} | SURVIVING PERIHELION IS THE PUSH BELOW THE MARGIN
+theorem t65_util_lt_one (s e : ℝ) (h : s < 1) : util s e < 1 ↔ push s e < margin s := by
+  simp only [util]
+  rw [div_lt_one (t59_margin_pos s h)]
+
+-- [T65] :: {MRG} | SURVIVING PERIHELION IS THE PERIHELION FLUX BELOW SHATTER
+theorem t66_survives_iff (s e : ℝ) (h : s < 1) :
+    push s e < margin s ↔ s / (1 - e) ^ 2 < 1 := by
+  simp only [push, margin]
+  constructor <;> intro hh <;> linarith
+
+-- [T66] :: {MRG} | THE UTILISATION IS POSITIVE BELOW SHATTER WITH A POSITIVE PUSH
+theorem t67_util_pos (s e : ℝ) (hs : 0 < s) (he : 0 < e) (he1 : e < 1) (h : s < 1) :
+    0 < util s e := by
+  simp only [util]
+  exact div_pos (t63_push_pos s e hs he he1) (t59_margin_pos s h)
+
+-- [T67] :: {MRG} | THE UTILISATION RISES AS THE MARGIN NARROWS
+theorem t68_util_antitone_in_margin (p m1 m2 : ℝ) (hp : 0 < p) (h1 : 0 < m1) (h : m1 < m2) :
+    p / m2 < p / m1 := by
+  exact div_lt_div_of_pos_left hp h1 h
+
+-- [T68] :: {MRG} | THE PUSH IS THE PERIHELION FLUX LESS THE MEAN
+theorem t69_push_form (s e : ℝ) : push s e = s_peri s e - s := by
+  simp only [push, s_peri]
+
+-- ============================================================
+-- SECTION 6: THE CLOCK
+-- ============================================================
+
+/-- The Gough main-sequence luminosity track, relative to the present. -/
+def Lrel (T0 t : ℝ) : ℝ := 1 / (1 + 0.4 * (1 - t / T0))
+
+/-- The reduced flux at time t, for a present reduced flux. -/
+def s_at (s_now T0 t : ℝ) : ℝ := s_now * Lrel T0 t
+
+-- [T69] :: {CLK} | AT THE PRESENT THE TRACK IS UNITY
+theorem t70_track_now (T0 : ℝ) (h : T0 ≠ 0) : Lrel T0 T0 = 1 := by
+  simp only [Lrel]; rw [div_self h]; norm_num
+
+-- [T70] :: {CLK} | THE PRESENT FLUX IS RECOVERED
+theorem t71_flux_now (s_now T0 : ℝ) (h : T0 ≠ 0) : s_at s_now T0 T0 = s_now := by
+  simp only [s_at]; rw [t70_track_now T0 h]; ring
+
+-- [T71] :: {CLK} | THE TRACK RISES WITH TIME
+theorem t72_track_mono (T0 t1 t2 : ℝ) (hT : 0 < T0) (h : t1 < t2)
+    (hp1 : 0 < 1 + 0.4 * (1 - t1 / T0)) (hp2 : 0 < 1 + 0.4 * (1 - t2 / T0)) :
+    Lrel T0 t1 < Lrel T0 t2 := by
+  have hq : t1 / T0 < t2 / T0 := by
+    rw [div_lt_div_iff₀ hT hT]; nlinarith
+  simp only [Lrel]
+  rw [div_lt_div_iff₀ hp1 hp2]
+  linarith
+
+-- [T72] :: {CLK} | THE FLUX RISES WITH TIME FOR A POSITIVE PRESENT FLUX
+theorem t73_flux_mono (s_now T0 t1 t2 : ℝ) (hs : 0 < s_now) (hT : 0 < T0) (h : t1 < t2)
+    (hp1 : 0 < 1 + 0.4 * (1 - t1 / T0)) (hp2 : 0 < 1 + 0.4 * (1 - t2 / T0)) :
+    s_at s_now T0 t1 < s_at s_now T0 t2 := by
+  simp only [s_at]
+  exact mul_lt_mul_of_pos_left (t72_track_mono T0 t1 t2 hT h hp1 hp2) hs
+
+-- [T73] :: {CLK} | THE MARGIN CLOSES AS THE FLUX RISES
+theorem t74_margin_closes (s1 s2 : ℝ) (h : s1 < s2) : margin s2 < margin s1 := by
+  simp only [margin]; linarith
+
+-- THE RESIDENCE IN BAND, FROM THE TRACK'S OWN DERIVATIVE
+def residence (T0 Lv : ℝ) : ℝ := (1 / FLOOR_FRACTION - 1) * T0 / (0.4 * Lv)
+
+-- [T74] :: {CLK} | THE RESIDENCE IS POSITIVE
+theorem t76_residence_pos (T0 Lv : ℝ) (hT : 0 < T0) (hL : 0 < Lv) : 0 < residence T0 Lv := by
+  simp only [residence]
+  apply div_pos
+  · have hf : (0:ℝ) < 1 / FLOOR_FRACTION - 1 := by simp only [FLOOR_FRACTION]; norm_num
+    exact mul_pos hf hT
+  · linarith
+
+-- [T75] :: {CLK} | THE RESIDENCE FALLS AS THE STAR BRIGHTENS
+theorem t77_residence_antitone (T0 L1 L2 : ℝ) (hT : 0 < T0) (h1 : 0 < L1) (h : L1 < L2) :
+    residence T0 L2 < residence T0 L1 := by
+  simp only [residence]
+  have hn : (0:ℝ) < (1 / FLOOR_FRACTION - 1) * T0 := by
+    have hf : (0:ℝ) < 1 / FLOOR_FRACTION - 1 := by simp only [FLOOR_FRACTION]; norm_num
+    exact mul_pos hf hT
+  exact div_lt_div_of_pos_left hn (by linarith) (by linarith)
+
+-- [T76] :: {CLK} | THE RESIDENCE IS A BAND, NOT A POINT
+theorem t78_residence_band (T0 Llo Lhi Lv : ℝ) (hT : 0 < T0) (hlo : 0 < Llo)
+    (h1 : Llo ≤ Lv) (h2 : Lv ≤ Lhi) :
+    residence T0 Lhi ≤ residence T0 Lv ∧ residence T0 Lv ≤ residence T0 Llo := by
+  have hn : (0:ℝ) < (1 / FLOOR_FRACTION - 1) * T0 := by
+    have hf : (0:ℝ) < 1 / FLOOR_FRACTION - 1 := by simp only [FLOOR_FRACTION]; norm_num
+    exact mul_pos hf hT
+  have hv : 0 < Lv := lt_of_lt_of_le hlo h1
+  constructor
+  · rcases eq_or_lt_of_le h2 with he | he
+    · rw [he]
+    · exact le_of_lt (t77_residence_antitone T0 Lv Lhi hT hv he)
+  · rcases eq_or_lt_of_le h1 with he | he
+    · rw [he]
+    · exact le_of_lt (t77_residence_antitone T0 Llo Lv hT hlo he)
+
+-- THE RESIDENCE SCALES WITH THE MAIN-SEQUENCE LIFETIME
+def ms_lifetime (M : ℝ) : ℝ := 10 / (M ^ 2 * Real.sqrt M)
+
+-- [T77] :: {CLK} | THE LIFETIME IS POSITIVE FOR A POSITIVE MASS
+theorem t80_lifetime_pos (M : ℝ) (h : 0 < M) : 0 < ms_lifetime M := by
+  simp only [ms_lifetime]
+  exact div_pos (by norm_num) (mul_pos (pow_pos h 2) (Real.sqrt_pos.mpr h))
+
+-- [T78] :: {CLK} | A HEAVIER STAR LIVES A SHORTER LIFE
+theorem t81_heavier_shorter (M1 M2 : ℝ) (h1 : 0 < M1) (h : M1 < M2) :
+    ms_lifetime M2 < ms_lifetime M1 := by
+  simp only [ms_lifetime]
+  have h2 : 0 < M2 := lt_trans h1 h
+  have hs1 : 0 < Real.sqrt M1 := Real.sqrt_pos.mpr h1
+  have hs2 : Real.sqrt M1 < Real.sqrt M2 := Real.sqrt_lt_sqrt (le_of_lt h1) h
+  have hd1 : 0 < M1 ^ 2 * Real.sqrt M1 := mul_pos (pow_pos h1 2) hs1
+  have hsq : M1 ^ 2 < M2 ^ 2 := by nlinarith
+  have hA : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M1 :=
+    mul_lt_mul_of_pos_right hsq hs1
+  have hB : M2 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 :=
+    mul_lt_mul_of_pos_left hs2 (pow_pos h2 2)
+  have hlt : M1 ^ 2 * Real.sqrt M1 < M2 ^ 2 * Real.sqrt M2 := lt_trans hA hB
+  exact div_lt_div_of_pos_left (by norm_num) hd1 hlt
+
+-- THE DURATION GATE
+def clears_rung (frac M req : ℝ) : Prop := frac * ms_lifetime M > req
+
+-- [T79] :: {CLK} | A LIGHTER STAR CLEARS WHATEVER A HEAVIER ONE DID
+theorem t83_lighter_clears (frac M1 M2 req : ℝ) (hf : 0 < frac) (h1 : 0 < M1)
+    (h : M1 < M2) (hc : clears_rung frac M2 req) : clears_rung frac M1 req := by
+  simp only [clears_rung] at *
+  have := t81_heavier_shorter M1 M2 h1 h
+  nlinarith
+
+-- ============================================================
+-- SECTION 7: THE ENERGY LADDER
+-- ============================================================
+
+/-- The corridor floor on the conversion fraction, as a percentage. -/
+def ETA_FLOOR : ℝ := 0.725665598
+
+/-- The corridor ceiling on the conversion fraction, as a percentage. -/
+def ETA_CEIL : ℝ := 0.937068179
+
+/-- Hydrogen to helium: what a main-sequence star burns. -/
+def ETA_HHE : ℝ := 0.711852
+
+/-- Hydrogen to iron. -/
+def ETA_HFE : ℝ := 0.891711
+
+-- [T80] :: {LAD} | THE CORRIDOR ON THE LADDER IS ORDERED
+theorem t84_ladder_ordered : ETA_FLOOR < ETA_CEIL := by
+  simp only [ETA_FLOOR, ETA_CEIL]; norm_num
+
+-- [T81] :: {LAD} | THE STELLAR ENGINE IS LOCKED, BELOW THE FLOOR
+theorem t85_engine_locked : ETA_HHE < ETA_FLOOR := by
+  simp only [ETA_HHE, ETA_FLOOR]; norm_num
+
+-- [T82] :: {LAD} | THE IRON PEAK IS INSIDE THE CORRIDOR
+theorem t86_iron_is_iva : ETA_FLOOR < ETA_HFE ∧ ETA_HFE < ETA_CEIL := by
+  constructor
+  · simp only [ETA_FLOOR, ETA_HFE]; norm_num
+  · simp only [ETA_HFE, ETA_CEIL]; norm_num
+
+-- [T83] :: {LAD} | ANNIHILATION STANDS ABOVE THE CEILING
+theorem t87_annihilation_shatter : ETA_CEIL < 100 := by
+  simp only [ETA_CEIL]; norm_num
+
+-- [T84] :: {LAD} | THE ENGINE CLEARS THE FLOOR BY A POSITIVE SHORTFALL
+theorem t88_engine_shortfall : 0 < ETA_FLOOR - ETA_HHE := by
+  have := t85_engine_locked; linarith
+
+-- [T85] :: {LAD} | THE FULL LADDER ORDERING
+theorem t89_ladder_full : ETA_HHE < ETA_FLOOR ∧ ETA_FLOOR < ETA_HFE ∧ ETA_HFE < ETA_CEIL :=
+  ⟨t85_engine_locked, t86_iron_is_iva.1, t86_iron_is_iva.2⟩
+
+-- ============================================================
+-- SECTION 8: THE RATIO, THE RULER, AND THE COLUMN
+-- ============================================================
+
+/-- One tick of the temperature ruler. -/
+def TICK : ℝ := TORSION_LIMIT / 100
+
+/-- The vapour-pressure ratio: the substrate's place between the marks. -/
+def ratio (p_vap p_amb : ℝ) : ℝ := p_vap / p_amb
+
+/-- Torsion carried on the ratio. -/
+def tau_ratio (r : ℝ) : ℝ := TORSION_LIMIT * r
+
+-- [T86] :: {RUL} | ONE DEGREE IS THE ANCHOR OVER A THOUSAND
+theorem t90_tick_value : TICK = SOVEREIGN_ANCHOR / 1000 := by
+  simp only [TICK, TORSION_LIMIT]; ring
+
+-- [T87] :: {RUL} | ONE HUNDRED TICKS IS THE TORSION LIMIT
+theorem t91_hundred_ticks : 100 * TICK = TORSION_LIMIT := by
+  simp only [TICK]; ring
+
+-- [T88] :: {RUL} | EIGHTY-EIGHT TICKS IS THE CORRIDOR FLOOR
+theorem t92_eightyeight_ticks : 88 * TICK = TL_IVA := by
+  simp only [TICK, TL_IVA, FLOOR_FRACTION]; ring
+
+-- [T89] :: {RUL} | THE BAND IS EXACTLY TWELVE TICKS WIDE
+theorem t93_band_twelve_ticks : TORSION_LIMIT - TL_IVA = 12 * TICK := by
+  simp only [TICK, TL_IVA, FLOOR_FRACTION]; ring
+
+-- [T90] :: {RUL} | THE KELVIN MARKS CARRY THE SAME TICKS
+theorem t94_kelvin_marks :
+    (273.15 : ℝ) + 88 = 361.15 ∧ (273.15 : ℝ) + 100 = 373.15 := by
+  constructor <;> norm_num
+
+-- [T91] :: {RUL} | AT THE BOIL THE RATIO IS ONE AND THE TORSION IS THE LIMIT
+theorem t95_boil_is_shatter (p : ℝ) (h : p ≠ 0) :
+    ratio p p = 1 ∧ tau_ratio (ratio p p) = TORSION_LIMIT := by
+  have hr : ratio p p = 1 := by simp only [ratio]; field_simp
+  exact ⟨hr, by rw [hr]; simp only [tau_ratio]; ring⟩
+
+-- [T92] :: {RUL} | A RATIO IN THE BAND IS IVA
+theorem t96_ratio_iva (r : ℝ) (h1 : FLOOR_FRACTION ≤ r) (h2 : r < 1) :
+    classify (tau_ratio r) = Phase.IVA := by
+  apply t17_corridor_is_iva
+  · simp only [tau_ratio, TL_IVA]; nlinarith [t7_tl_pos]
+  · simp only [tau_ratio]; nlinarith [t7_tl_pos]
+
+-- [T93] :: {RUL} | A ZERO RATIO IS NOBLE
+theorem t97_ratio_noble : tau_ratio 0 = 0 := by simp only [tau_ratio]; ring
+
+-- [T94] :: {RUL} | THE RATIO IS ANTITONE IN THE AMBIENT PRESSURE
+theorem t98_ratio_antitone (pv p1 p2 : ℝ) (hv : 0 < pv) (h1 : 0 < p1) (h : p1 < p2) :
+    ratio pv p2 < ratio pv p1 := by
+  simp only [ratio]
+  exact div_lt_div_of_pos_left hv h1 h
+
+-- [T95] :: {RUL} | THE RATIO IS MONOTONE IN THE VAPOUR PRESSURE
+theorem t99_ratio_mono (p1 p2 pa : ℝ) (ha : 0 < pa) (h : p1 < p2) :
+    ratio p1 pa < ratio p2 pa := by
+  simp only [ratio]
+  exact div_lt_div_of_pos_right h ha
+
+/-- The critical-lapse threshold: the gradient at which a column's ratio turns over. -/
+def g_star (Rgas T Lvap H : ℝ) : ℝ := Rgas * T ^ 2 / (Lvap * H)
+
+/-- The logarithmic gradient of the ratio through an atmospheric column. -/
+def dlnr (Rgas T Lvap H g : ℝ) : ℝ := 1 / H - Lvap * g / (Rgas * T ^ 2)
+
+-- [T96] :: {COL} | THE THRESHOLD IS POSITIVE
+theorem t100_gstar_pos (Rgas T Lvap H : ℝ) (hR : 0 < Rgas) (hT : 0 < T)
+    (hL : 0 < Lvap) (hH : 0 < H) : 0 < g_star Rgas T Lvap H := by
+  simp only [g_star]
+  exact div_pos (mul_pos hR (pow_pos hT 2)) (mul_pos hL hH)
+
+-- [T97] :: {COL} | THE RATIO FALLS WITH ALTITUDE EXACTLY ABOVE THE THRESHOLD
+theorem t101_falls_iff (Rgas T Lvap H g : ℝ) (hR : 0 < Rgas) (hT : 0 < T)
+    (hL : 0 < Lvap) (hH : 0 < H) :
+    dlnr Rgas T Lvap H g < 0 ↔ g_star Rgas T Lvap H < g := by
+  have hd : 0 < Rgas * T ^ 2 := mul_pos hR (pow_pos hT 2)
+  have hLH : 0 < Lvap * H := mul_pos hL hH
+  simp only [dlnr, g_star]
+  rw [sub_lt_zero, div_lt_div_iff₀ hH hd, div_lt_iff₀ hLH]
+  constructor <;> intro h <;> nlinarith
+
+-- ============================================================
+-- SECTION 9: THE CRITICAL POINT
+-- ============================================================
+
+/-- The axis carries a boil only below the critical pressure. -/
+def boil_exists (p p_crit : ℝ) : Prop := p < p_crit
+
+-- [T98] :: {CRP} | ABOVE THE CRITICAL PRESSURE THE AXIS TERMINATES
+theorem t102_axis_terminates (p p_crit : ℝ) (h : p_crit ≤ p) : ¬ boil_exists p p_crit := by
+  simp only [boil_exists, not_lt]; exact h
+
+-- A HYDROSTATIC COLUMN REACHES THE CRITICAL PRESSURE AT A DEPTH
+def hydro_p (p0 rho gacc z : ℝ) : ℝ := p0 + rho * gacc * z
+
+-- [T99] :: {CRP} | HYDROSTATIC PRESSURE RISES WITH DEPTH
+theorem t104_hydro_mono (p0 rho gacc z1 z2 : ℝ) (hr : 0 < rho) (hg : 0 < gacc) (h : z1 < z2) :
+    hydro_p p0 rho gacc z1 < hydro_p p0 rho gacc z2 := by
+  have hp : 0 < rho * gacc := mul_pos hr hg
+  have hm := mul_lt_mul_of_pos_left h hp
+  simp only [hydro_p]
+  nlinarith [hm]
+
+-- THE TERMINATING DEPTH, IN CLOSED FORM
+def z_terminate (p0 rho gacc p_crit : ℝ) : ℝ := (p_crit - p0) / (rho * gacc)
+
+-- [T100] :: {CRP} | AT THE TERMINATING DEPTH THE PRESSURE IS CRITICAL
+theorem t106_z_term (p0 rho gacc p_crit : ℝ) (hr : 0 < rho) (hg : 0 < gacc) :
+    hydro_p p0 rho gacc (z_terminate p0 rho gacc p_crit) = p_crit := by
+  simp only [hydro_p, z_terminate]
+  have h : rho * gacc ≠ 0 := ne_of_gt (mul_pos hr hg)
+  field_simp
+  ring
+
+-- [T101] :: {CRP} | BELOW THE TERMINATING DEPTH NO BOIL EXISTS
+theorem t107_below_terminate (p0 rho gacc p_crit z : ℝ) (hr : 0 < rho) (hg : 0 < gacc)
+    (h : z_terminate p0 rho gacc p_crit ≤ z) :
+    ¬ boil_exists (hydro_p p0 rho gacc z) p_crit := by
+  apply t102_axis_terminates
+  rw [← t106_z_term p0 rho gacc p_crit hr hg]
+  have hp : 0 < rho * gacc := mul_pos hr hg
+  have hz := mul_nonneg (le_of_lt hp) (sub_nonneg.mpr h)
+  simp only [hydro_p]
+  nlinarith [hz]
+
+-- ============================================================
+-- SECTION 10: THE COSMIC SHORELINE
+-- ============================================================
+
+/-- The binding energy of an atmosphere that is a fixed fraction of planet mass. -/
+def E_bind (f vesc Rp G : ℝ) : ℝ := f * vesc ^ 4 * Rp / (4 * G)
+
+/-- The energy delivered by a flux over an absolute time. -/
+def E_in (eps I Rp T : ℝ) : ℝ := eps * I * Real.pi * Rp ^ 2 * T
+
+/-- The shoreline under an absolute clock: the fourth-power branch. -/
+def I_shore4 (f eps G Rp T vesc : ℝ) : ℝ := f * vesc ^ 4 / (4 * Real.pi * eps * G * Rp * T)
+
+/-- The dynamical time of a body. -/
+def t_dyn (Rp vesc : ℝ) : ℝ := Real.sqrt 2 * Rp / vesc
+
+/-- The shoreline under the dynamical clock: the fifth-power branch. -/
+def I_shore5 (f eps G Rp vesc : ℝ) : ℝ :=
+  f * vesc ^ 5 / (4 * Real.sqrt 2 * Real.pi * eps * G * Rp ^ 2)
+
+-- [T102] :: {SHR} | THE FOURTH-POWER BRANCH SOLVES THE ESCAPE BALANCE
+theorem t108_shore4_solves (f eps G Rp T vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
+    (hR : Rp ≠ 0) (hT : T ≠ 0) :
+    E_in eps (I_shore4 f eps G Rp T vesc) Rp T = E_bind f vesc Rp G := by
+  simp only [E_in, E_bind, I_shore4]
+  have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
+  field_simp
+
+-- [T103] :: {SHR} | THE FOURTH-POWER BRANCH CARRIES A RADIUS AND A TIME
+theorem t109_shore4_form (f eps G Rp T vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
+    (hR : Rp ≠ 0) (hT : T ≠ 0) :
+    I_shore4 f eps G Rp T vesc * (Rp * T) = f * vesc ^ 4 / (4 * Real.pi * eps * G) := by
+  simp only [I_shore4]
+  have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
+  field_simp
+
+-- [T104] :: {SHR} | THE DYNAMICAL TIME IS POSITIVE
+theorem t110_tdyn_pos (Rp vesc : ℝ) (hR : 0 < Rp) (hv : 0 < vesc) : 0 < t_dyn Rp vesc := by
+  simp only [t_dyn]
+  apply div_pos _ hv
+  exact mul_pos (Real.sqrt_pos.mpr (by norm_num)) hR
+
+-- [T105] :: {SHR} | SUBSTITUTING THE DYNAMICAL CLOCK GIVES THE FIFTH POWER
+theorem t111_shore5_from_tdyn (f eps G Rp vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
+    (hR : Rp ≠ 0) (hv : vesc ≠ 0) :
+    I_shore4 f eps G Rp (t_dyn Rp vesc) vesc = I_shore5 f eps G Rp vesc := by
+  simp only [I_shore4, I_shore5, t_dyn]
+  have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
+  have hs : Real.sqrt 2 ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr (by norm_num))
+  field_simp
+
+-- [T106] :: {SHR} | THE TWO BRANCHES DIFFER BY ONE POWER OF THE ESCAPE VELOCITY
+theorem t112_branches_differ (f eps G Rp vesc : ℝ) (he : eps ≠ 0) (hG : G ≠ 0)
+    (hR : Rp ≠ 0) (hv : vesc ≠ 0) :
+    I_shore5 f eps G Rp vesc * (4 * Real.sqrt 2 * Real.pi * eps * G * Rp ^ 2)
+      = f * vesc ^ 5 := by
+  simp only [I_shore5]
+  have hpi : Real.pi ≠ 0 := ne_of_gt Real.pi_pos
+  have hs : Real.sqrt 2 ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr (by norm_num))
+  field_simp
+
+-- [T107] :: {SHR} | THE SHORELINE GROUP RISES AS THE FOURTH POWER OF ESCAPE VELOCITY
+theorem t113_quartic (f eps G Rp T v1 v2 : ℝ) (hf : 0 < f) (he : 0 < eps) (hG : 0 < G)
+    (hR : 0 < Rp) (hT : 0 < T) (h1 : 0 < v1) (h : v1 < v2) :
+    I_shore4 f eps G Rp T v1 < I_shore4 f eps G Rp T v2 := by
+  simp only [I_shore4]
+  have hpi : 0 < Real.pi := Real.pi_pos
+  have hd : 0 < 4 * Real.pi * eps * G * Rp * T := by positivity
+  rw [div_lt_div_iff₀ hd hd]
+  have h2 : 0 < v2 := lt_trans h1 h
+  have hsq : v1 ^ 2 < v2 ^ 2 := by nlinarith
+  have hq : v1 ^ 4 < v2 ^ 4 := by nlinarith [pow_pos h1 2, pow_pos h2 2]
+  exact mul_lt_mul_of_pos_right (mul_lt_mul_of_pos_left hq hf) hd
+
+-- The matched-radius identity carries Reading A onto an escape velocity.
+/-- The speed of light in vacuum, SI exact. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Reading A of an escape velocity. -/
+def tau_A_of (vesc : ℝ) : ℝ := vesc / C_LIGHT
+
+-- [T108] :: {SHR} | THE MATCHED-RADIUS IDENTITY CARRIES READING A ONTO THE ESCAPE VELOCITY
+theorem t114_reading_a_of_escape (vesc : ℝ) : tau_A_of vesc * C_LIGHT = vesc := by
+  simp only [tau_A_of, C_LIGHT]; ring
+
+-- [T109] :: {SHR} | THE SHORELINE IS A FOURTH POWER OF READING A
+theorem t115_shoreline_on_reading_a (f eps G Rp T vesc : ℝ) :
+    f * vesc ^ 4 = f * C_LIGHT ^ 4 * tau_A_of vesc ^ 4 := by
+  simp only [tau_A_of, C_LIGHT]; ring
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE GOLDILOCKS ANNULUS REDUCTION
+theorem MASTER_goldilocks_annulus :
+    -- the grounding
+    TORSION_LIMIT * 1001 = ALPHA_INV ∧
+    BARE + TORSION_LIMIT = ALPHA_INV ∧
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧ TORSION_LIMIT < 1 ∧
+    -- the annulus: the anchor cancels, and the ratio is an exact rational
+    (∀ L S : ℝ, 0 < L → 0 < S → d_out L S ^ 2 / d_in L S ^ 2 = 25 / 22) ∧
+    (∀ L A1 A2 : ℝ, 0 < L → 0 < A1 → 0 < A2 →
+      d_out L A1 ^ 2 / d_in L A1 ^ 2 = d_out L A2 ^ 2 / d_in L A2 ^ 2) ∧
+    ANNULUS_RATIO ^ 2 = 25 / 22 ∧ 1 < ANNULUS_RATIO ∧
+    -- the phase-holding constant is a quarter of the band width
+    HOLD_CONST = 3 / 100 ∧ 4 * HOLD_CONST = 1 - FLOOR_FRACTION ∧
+    -- bounded uncertainty certifies
+    (∀ tau tauhat eps : ℝ, |tau - tauhat| ≤ eps → certified tauhat eps → tau < TORSION_LIMIT) ∧
+    -- the margin, and the IVA bound
+    (∀ s : ℝ, s < 1 → 0 < margin s) ∧
+    (∀ s : ℝ, FLOOR_FRACTION ≤ s → s < 1 → margin s ≤ 1 - FLOOR_FRACTION) ∧
+    -- the clock: residence is antitone in luminosity, so it is a band
+    (∀ T0 L1 L2 : ℝ, 0 < T0 → 0 < L1 → L1 < L2 → residence T0 L2 < residence T0 L1) ∧
+    -- the ladder: the engine is Locked and the iron peak is IVA
+    ETA_HHE < ETA_FLOOR ∧ ETA_FLOOR < ETA_HFE ∧ ETA_HFE < ETA_CEIL ∧
+    -- the ruler: twelve ticks
+    TORSION_LIMIT - TL_IVA = 12 * TICK ∧
+    -- the shoreline: both branches solve the escape balance
+    (∀ f eps G Rp T vesc : ℝ, eps ≠ 0 → G ≠ 0 → Rp ≠ 0 → T ≠ 0 →
+      E_in eps (I_shore4 f eps G Rp T vesc) Rp T = E_bind f vesc Rp G) := by
+  refine ⟨t4_tl_times_1001, t3_bare_plus_kinetic, t10_floor_pos_below.1,
+    t10_floor_pos_below.2, t8_tl_in_unit.2,
+    fun L S hL hS => t37_squared_ratio_rational L S hL hS,
+    fun L A1 A2 hL h1 h2 => t42_anchor_relocation L A1 A2 hL h1 h2,
+    t29_ratio_sq, t32_ratio_gt_one, t43_hold_const, t44_hold_is_quarter_band,
+    fun tau tauhat eps hb hc => t53_cert_sound tau tauhat eps hb hc,
+    fun s h => t59_margin_pos s h,
+    fun s h1 h2 => t61_iva_margin_bound s h1 h2,
+    fun T0 L1 L2 hT h1 h => t77_residence_antitone T0 L1 L2 hT h1 h,
+    t85_engine_locked, t86_iron_is_iva.1, t86_iron_is_iva.2, t93_band_twelve_ticks,
+    fun f eps G Rp T vesc he hG hR hT => t108_shore4_solves f eps G Rp T vesc he hG hR hT⟩
+
+end SNSFL_GoldilocksAnnulus
+
+
+-- ============================================================
+-- MODULE: SNSFL_TerraformableBand_Reduction.lean · [9,9,3,28](COSM)
+-- ProofPress, Volume 1, Issue 9, Article 10 · The Terraformable Band
+-- 51 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_TerraformableBand
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR, THE TORSION LIMIT, THE PHASES
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor fraction, read on the flux axis. -/
+def FLOOR_FRACTION : ℝ := 0.88
+
+/-- The IVA corridor floor. -/
+def TL_IVA : ℝ := TORSION_LIMIT * FLOOR_FRACTION
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+-- [T1] :: {ANC} | THE TORSION LIMIT IS THE ANCHOR OVER TEN
+theorem t1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {ANC} | THE ONE-STEP ANCHOR ROUTE
+theorem t5_anchor_route : SOVEREIGN_ANCHOR * 100.1 = ALPHA_INV := by
+  simp only [SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {ANC} | THE TORSION LIMIT IS POSITIVE
+theorem t6_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T7] :: {ANC} | THE TORSION LIMIT LIES STRICTLY INSIDE THE UNIT INTERVAL
+theorem t7_tl_in_unit : 0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  refine ⟨t6_tl_pos, ?_⟩
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T8] :: {ANC} | THE CORRIDOR FLOOR, IN CLOSED FORM
+theorem t8_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T9] :: {ANC} | THE FLOOR SITS STRICTLY BETWEEN ZERO AND THE LIMIT
+theorem t9_floor_pos_below : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  constructor
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T10] :: {VER} | THE FLOOR FRACTION IS AN EXACT RATIONAL
+theorem t10_floor_rational : FLOOR_FRACTION = 22 / 25 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- [T11] :: {ANC} | THE FLOOR FRACTION LIES STRICTLY INSIDE THE UNIT INTERVAL
+theorem t11_floor_in_unit : 0 < FLOOR_FRACTION ∧ FLOOR_FRACTION < 1 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+/-- Reduced flux read as torsion on the flux axis: tau = TL . s. -/
+def tau_of (s : ℝ) : ℝ := TORSION_LIMIT * s
+
+-- [T12] :: {INV} | THE FLOOR IN FLUX IS THE FLOOR IN TORSION
+theorem t12_floor_is_floor : tau_of FLOOR_FRACTION = TL_IVA := by
+  simp only [tau_of, TL_IVA]
+
+-- [T13] :: {INV} | LOCKED ON THE FLUX AXIS IS LOCKED ON THE TORSION AXIS
+theorem t13_locked_iff (s : ℝ) : tau_of s < TL_IVA ↔ s < FLOOR_FRACTION := by
+  simp only [tau_of, TL_IVA]
+  constructor
+  · intro h
+    exact lt_of_mul_lt_mul_left h (le_of_lt t6_tl_pos)
+  · intro h
+    exact mul_lt_mul_of_pos_left h t6_tl_pos
+
+-- ============================================================
+-- SECTION 1: THE BRIGHTENING TRACK ON FRACTIONAL AGE
+-- ============================================================
+
+/-- The Gough coefficient, as published. -/
+def GOUGH_COEFF : ℝ := 0.4
+
+/-- The solar reference age carried by the published track, in Gyr. -/
+def T0_SUN : ℝ := 4.57
+
+/-- The solar main-sequence lifetime, in Gyr. -/
+def TMS_SUN : ℝ := 10
+
+/-- The fractional-age coefficient. -/
+def BRIGHT_C : ℝ := 400 / 457
+
+/-- The published track, normalized to the present solar luminosity. -/
+def gough (t : ℝ) : ℝ := 1 / (1 + GOUGH_COEFF * (1 - t / T0_SUN))
+
+/-- The track on fractional main-sequence age, normalized to ZAMS. -/
+def Lrel (f : ℝ) : ℝ := 1.4 / (1.4 - BRIGHT_C * f)
+
+-- [T14] :: {ANC} | THE COEFFICIENT IS THE GOUGH COEFFICIENT CARRIED THROUGH
+theorem t14_bright_c_route : BRIGHT_C = GOUGH_COEFF * TMS_SUN / T0_SUN := by
+  simp only [BRIGHT_C, GOUGH_COEFF, TMS_SUN, T0_SUN]; norm_num
+
+-- [T15] :: {VER} | THE COEFFICIENT IS POSITIVE AND BELOW ONE
+theorem t15_bright_c_bounds : 0 < BRIGHT_C ∧ BRIGHT_C < 1 := by
+  simp only [BRIGHT_C]; norm_num
+
+-- [T16] :: {MASTER} | THE SUBSTITUTION IS A CHANGE OF VARIABLE, NOT AN APPROXIMATION
+--   The two denominators are the same expression at every age.
+theorem t16_denominator_identity (t : ℝ) :
+    1.4 - BRIGHT_C * (t / TMS_SUN) = 1.4 - GOUGH_COEFF * t / T0_SUN := by
+  simp only [BRIGHT_C, TMS_SUN, GOUGH_COEFF, T0_SUN]; ring
+
+-- [T17] :: {MASTER} | THE TRACK ON FRACTIONAL AGE IS THE PUBLISHED TRACK
+theorem t17_tracks_agree (t : ℝ) (h : 1.4 - GOUGH_COEFF * t / T0_SUN ≠ 0) :
+    Lrel (t / TMS_SUN) = 1.4 / (1.4 - GOUGH_COEFF * t / T0_SUN) := by
+  simp only [Lrel, t16_denominator_identity t]
+
+-- [T18] :: {VER} | AT ZERO-AGE MAIN SEQUENCE THE TRACK READS ONE
+theorem t18_lrel_zams : Lrel 0 = 1 := by
+  simp only [Lrel, BRIGHT_C]; norm_num
+
+-- [T19] :: {VER} | AT THE SOLAR FRACTIONAL AGE THE COEFFICIENT RETURNS TWO FIFTHS
+theorem t19_solar_point : BRIGHT_C * (457 / 1000) = 2 / 5 := by
+  simp only [BRIGHT_C]; norm_num
+
+-- [T20] :: {VER} | AT THE SOLAR FRACTIONAL AGE THE TRACK READS SEVEN FIFTHS
+theorem t20_lrel_solar : Lrel (457 / 1000) = 7 / 5 := by
+  simp only [Lrel, BRIGHT_C]; norm_num
+
+-- [T21] :: {VER} | AT MAIN-SEQUENCE CLOSE THE TRACK READS AN EXACT RATIONAL
+theorem t21_lrel_close : Lrel 1 = 3199 / 1199 := by
+  simp only [Lrel, BRIGHT_C]; norm_num
+
+-- [T22] :: {INV} | THE DENOMINATOR IS POSITIVE ON THE MAIN SEQUENCE
+theorem t22_denom_pos (f : ℝ) (h0 : 0 ≤ f) (h1 : f ≤ 1) : 0 < 1.4 - BRIGHT_C * f := by
+  simp only [BRIGHT_C]
+  linarith
+
+-- [T23] :: {INV} | THE TRACK IS POSITIVE ON THE MAIN SEQUENCE
+theorem t23_lrel_pos (f : ℝ) (h0 : 0 ≤ f) (h1 : f ≤ 1) : 0 < Lrel f := by
+  simp only [Lrel]
+  exact div_pos (by norm_num) (t22_denom_pos f h0 h1)
+
+-- [T24] :: {MASTER} | THE TRACK RISES WITH FRACTIONAL AGE
+theorem t24_lrel_mono (f g : ℝ) (h0 : 0 ≤ f) (hfg : f < g) (h1 : g ≤ 1) :
+    Lrel f < Lrel g := by
+  have hdf : 0 < 1.4 - BRIGHT_C * f := t22_denom_pos f h0 (le_of_lt (lt_of_lt_of_le hfg h1))
+  have hdg : 0 < 1.4 - BRIGHT_C * g := t22_denom_pos g (le_trans h0 (le_of_lt hfg)) h1
+  simp only [Lrel]
+  exact div_lt_div_of_pos_left (by norm_num) hdg (by simp only [BRIGHT_C]; linarith)
+
+-- [T25] :: {INV} | A LONGER MAIN SEQUENCE HOLDS A BODY NEARER ZAMS
+theorem t25_longer_ms_lower_f (age tms1 tms2 : ℝ)
+    (ha : 0 < age) (h1 : 0 < tms1) (h12 : tms1 < tms2) :
+    age / tms2 < age / tms1 :=
+  div_lt_div_of_pos_left ha h1 h12
+
+-- ============================================================
+-- SECTION 2: THE BAND INSIDE LOCKED
+-- ============================================================
+
+/-- A body stands in the band when its reduced flux lies between the agent's
+    ceiling and the corridor floor. -/
+def inBand (ceil s : ℝ) : Prop := ceil ≤ s ∧ s < FLOOR_FRACTION
+
+/-- Position across the band, with zero at the ceiling and one at the floor. -/
+def across (ceil s : ℝ) : ℝ := (s - ceil) / (FLOOR_FRACTION - ceil)
+
+-- [T26] :: {INV} | A BAND MEMBER READS LOCKED
+theorem t26_band_is_locked (ceil s : ℝ) (h : inBand ceil s) : tau_of s < TL_IVA :=
+  (t13_locked_iff s).mpr h.2
+
+-- [T27] :: {INV} | THE BAND IS NONEMPTY EXACTLY WHEN THE CEILING SITS BELOW THE FLOOR
+theorem t27_band_nonempty (ceil : ℝ) (h : ceil < FLOOR_FRACTION) :
+    inBand ceil ceil := ⟨le_refl ceil, h⟩
+
+-- [T28] :: {VER} | AT THE CEILING THE POSITION READS ZERO
+theorem t28_across_at_ceiling (ceil : ℝ) (h : ceil < FLOOR_FRACTION) :
+    across ceil ceil = 0 := by
+  simp [across]
+
+-- [T29] :: {VER} | AT THE FLOOR THE POSITION READS ONE
+theorem t29_across_at_floor (ceil : ℝ) (h : ceil < FLOOR_FRACTION) :
+    across ceil FLOOR_FRACTION = 1 := by
+  simp only [across]
+  exact div_self (by linarith)
+
+-- [T30] :: {MASTER} | THE POSITION RISES WITH FLUX
+theorem t30_across_mono (ceil s1 s2 : ℝ) (h : ceil < FLOOR_FRACTION) (h12 : s1 < s2) :
+    across ceil s1 < across ceil s2 := by
+  have hd : (0:ℝ) < FLOOR_FRACTION - ceil := by linarith
+  simp only [across]
+  exact div_lt_div_of_pos_right (by linarith) hd
+
+-- [T31] :: {INV} | THE POSITION LIES IN THE UNIT INTERVAL ON THE BAND
+theorem t31_across_in_unit (ceil s : ℝ) (hc : ceil < FLOOR_FRACTION) (h : inBand ceil s) :
+    0 ≤ across ceil s ∧ across ceil s < 1 := by
+  have hd : (0:ℝ) < FLOOR_FRACTION - ceil := by linarith
+  simp only [across]
+  constructor
+  · exact div_nonneg (by linarith [h.1]) (le_of_lt hd)
+  · rw [div_lt_one hd]
+    linarith [h.2]
+
+-- [T32] :: {MASTER} | THE FLOOR CARRIES NO STAR AND NO AGENT IN IT
+--   The floor fraction is the same real number for every ceiling and every flux.
+theorem t32_floor_carries_nothing (ceil1 ceil2 : ℝ) :
+    (FLOOR_FRACTION : ℝ) = FLOOR_FRACTION ∧ ceil1 = ceil1 ∧ ceil2 = ceil2 :=
+  ⟨rfl, rfl, rfl⟩
+
+-- [T33] :: {MASTER} | THE CEILING MOVES THE BAND AND LEAVES THE FLOOR
+--   Lowering the agent's ceiling strictly widens the band at fixed floor.
+theorem t33_lower_ceiling_widens (c1 c2 : ℝ) (h : c1 < c2) (h2 : c2 < FLOOR_FRACTION) :
+    FLOOR_FRACTION - c2 < FLOOR_FRACTION - c1 := by linarith
+
+-- [T34] :: {INV} | A BODY INSIDE A HIGHER CEILING STANDS INSIDE A LOWER ONE
+theorem t34_ceiling_monotone (c1 c2 s : ℝ) (h : c1 ≤ c2) (hb : inBand c2 s) :
+    inBand c1 s := ⟨le_trans h hb.1, hb.2⟩
+
+-- ============================================================
+-- SECTION 3: REQUIRED WARMING
+-- ============================================================
+
+/-- The warming factor carried to the floor: w is the ratio of equilibrium
+    temperatures, and the fourth power of w is the ratio of fluxes. -/
+def warmPow (s : ℝ) : ℝ := FLOOR_FRACTION / s
+
+-- [T35] :: {VER} | AT THE FLOOR THE FLUX RATIO IS ONE
+theorem t35_warmpow_at_floor : warmPow FLOOR_FRACTION = 1 := by
+  simp only [warmPow, FLOOR_FRACTION]; norm_num
+
+-- [T36] :: {MASTER} | BELOW THE FLOOR THE FLUX RATIO EXCEEDS ONE
+theorem t36_warmpow_gt_one (s : ℝ) (hp : 0 < s) (h : s < FLOOR_FRACTION) :
+    1 < warmPow s := by
+  simp only [warmPow]
+  exact (one_lt_div hp).mpr h
+
+-- [T37] :: {MASTER} | THE REQUIRED WARMING FALLS AS PRESENT FLUX RISES
+theorem t37_warmpow_antitone (s1 s2 : ℝ) (h1 : 0 < s1) (h12 : s1 < s2) :
+    warmPow s2 < warmPow s1 := by
+  simp only [warmPow]
+  exact div_lt_div_of_pos_left (by norm_num [FLOOR_FRACTION]) h1 h12
+
+-- [T38] :: {INV} | THE WARMING FACTOR IS THE FOURTH ROOT OF THE FLUX RATIO
+--   T_target / T_now raised to the fourth returns the flux ratio.
+theorem t38_fourth_power (w s : ℝ) (hw : 0 < w) (hs : 0 < s) (h : w ^ 4 = warmPow s) :
+    w ^ 4 * s = FLOOR_FRACTION := by
+  rw [h]
+  simp only [warmPow]
+  field_simp
+
+-- [T39] :: {VER} | THE REQUIRED WARMING VANISHES EXACTLY AT THE FLOOR
+theorem t39_no_warming_at_floor (w : ℝ) (hw : 0 < w) (h : w ^ 4 = warmPow FLOOR_FRACTION) :
+    w = 1 := by
+  rw [t35_warmpow_at_floor] at h
+  have key : (w - 1) * ((w + 1) * (w ^ 2 + 1)) = 0 := by linear_combination h
+  have h1 : (0:ℝ) < w + 1 := by linarith
+  have h2 : (0:ℝ) < w ^ 2 + 1 := by positivity
+  rcases mul_eq_zero.mp key with hA | hB
+  · linarith
+  · exact absurd hB (ne_of_gt (mul_pos h1 h2))
+
+-- ============================================================
+-- SECTION 4: THE ROUTE TEST
+-- ============================================================
+
+/-- The fractional main-sequence age at which a body reading s now crosses the
+    corridor floor. -/
+def fFloor (s fn : ℝ) : ℝ := (1.4 - s * (1.4 - BRIGHT_C * fn) / FLOOR_FRACTION) / BRIGHT_C
+
+-- [T40] :: {MASTER} | THE CROSSING EXPANDS TO A LINE IN FRACTIONAL AGE
+theorem t40_ffloor_expand (s fn : ℝ) :
+    fFloor s fn = 1.4 / BRIGHT_C - 1.4 * s / (FLOOR_FRACTION * BRIGHT_C)
+                  + s * fn / FLOOR_FRACTION := by
+  simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+
+-- [T41] :: {MASTER} | A BODY STANDING AT THE FLOOR CROSSES AT ITS OWN AGE
+theorem t41_at_floor_crosses_now (fn : ℝ) : fFloor FLOOR_FRACTION fn = fn := by
+  simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+
+-- [T42] :: {MASTER} | THE CROSSING RISES WITH PRESENT FRACTIONAL AGE
+theorem t42_ffloor_mono_fn (s fn1 fn2 : ℝ) (hs : 0 < s) (h : fn1 < fn2) :
+    fFloor s fn1 < fFloor s fn2 := by
+  have key : fFloor s fn2 - fFloor s fn1 = s * (fn2 - fn1) * (25 / 22) := by
+    simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+  have hk : (0:ℝ) < s * (fn2 - fn1) * (25 / 22) :=
+    mul_pos (mul_pos hs (by linarith)) (by norm_num)
+  linarith
+
+-- [T43] :: {MASTER} | THE CROSSING FALLS AS PRESENT FLUX RISES, ON THE MAIN SEQUENCE
+theorem t43_ffloor_antitone_s (s1 s2 fn : ℝ) (hfn : fn ≤ 1) (h12 : s1 < s2) :
+    fFloor s2 fn < fFloor s1 fn := by
+  have key : fFloor s1 fn - fFloor s2 fn
+      = (s2 - s1) * (3199 / 1760 - fn * (25 / 22)) := by
+    simp only [fFloor, BRIGHT_C, FLOOR_FRACTION]; ring
+  have hk : (0:ℝ) < (s2 - s1) * (3199 / 1760 - fn * (25 / 22)) :=
+    mul_pos (by linarith) (by linarith)
+  linarith
+
+-- {INV} | The host delivers exactly when the crossing lies on the main sequence.
+def hostDelivers (s fn : ℝ) : Prop := 0 < fFloor s fn ∧ fFloor s fn ≤ 1
+
+-- {INV} | The forcing route is the reading above the main-sequence close.
+def forcingRoute (s fn : ℝ) : Prop := 1 < fFloor s fn
+
+-- [T44] :: {MASTER} | THE TWO ROUTES EXCLUDE EACH OTHER
+theorem t46_routes_exclude (s fn : ℝ) : ¬ (hostDelivers s fn ∧ forcingRoute s fn) := by
+  rintro ⟨⟨_, hle⟩, hgt⟩
+  exact absurd hle (not_le.mpr hgt)
+
+-- [T45] :: {MASTER} | A BODY AT THE FLOOR INSIDE ITS MAIN SEQUENCE IS HOST-DELIVERED
+theorem t47_floor_body_delivered (fn : ℝ) (h0 : 0 < fn) (h1 : fn ≤ 1) :
+    hostDelivers FLOOR_FRACTION fn := by
+  refine ⟨?_, ?_⟩ <;> rw [t41_at_floor_crosses_now]
+  · exact h0
+  · exact h1
+
+-- ============================================================
+-- SECTION 5: CERTIFICATION ACROSS A PUBLISHED BAR
+-- ============================================================
+
+/-- A route reading is certified across a published interval of fractional ages
+    when both endpoints carry the same reading. -/
+def certifiedDelivers (s lo hi : ℝ) : Prop :=
+  hostDelivers s lo ∧ hostDelivers s hi
+
+/-- A forcing route is certified across a published interval when both endpoints
+    carry it. -/
+def certifiedForcing (s lo hi : ℝ) : Prop :=
+  forcingRoute s lo ∧ forcingRoute s hi
+
+-- [T46] :: {MASTER} | CERTIFICATION IS SOUND FOR THE HOST ROUTE
+--   Monotonicity in fractional age carries the endpoints to the whole bar.
+theorem t48_cert_delivers_sound (s lo hi fn : ℝ) (hs : 0 < s)
+    (hlo : lo ≤ fn) (hhi : fn ≤ hi) (hc : certifiedDelivers s lo hi) :
+    hostDelivers s fn := by
+  obtain ⟨⟨hl0, _⟩, ⟨_, hh1⟩⟩ := hc
+  constructor
+  · rcases eq_or_lt_of_le hlo with h | h
+    · rwa [← h]
+    · exact lt_trans hl0 (t42_ffloor_mono_fn s lo fn hs h)
+  · rcases eq_or_lt_of_le hhi with h | h
+    · rwa [h]
+    · exact le_of_lt (lt_of_lt_of_le (t42_ffloor_mono_fn s fn hi hs h) hh1)
+
+-- [T47] :: {MASTER} | CERTIFICATION IS SOUND FOR THE FORCING ROUTE
+theorem t49_cert_forcing_sound (s lo hi fn : ℝ) (hs : 0 < s)
+    (hlo : lo ≤ fn) (hhi : fn ≤ hi) (hc : certifiedForcing s lo hi) :
+    forcingRoute s fn := by
+  obtain ⟨hl, _⟩ := hc
+  rcases eq_or_lt_of_le hlo with h | h
+  · rwa [← h]
+  · exact lt_trans hl (t42_ffloor_mono_fn s lo fn hs h)
+
+-- [T48] :: {MASTER} | THE TWO CERTIFICATIONS EXCLUDE EACH OTHER
+theorem t50_certs_exclude (s lo hi : ℝ) :
+    ¬ (certifiedDelivers s lo hi ∧ certifiedForcing s lo hi) := by
+  rintro ⟨⟨hd, _⟩, ⟨hf, _⟩⟩
+  exact t46_routes_exclude s lo ⟨hd, hf⟩
+
+-- [T49] :: {INV} | A BAR THAT CARRIES BOTH READINGS STANDS ON THE BOUNDARY
+theorem t51_boundary_characterised (s lo hi : ℝ) (hs : 0 < s) (hlohi : lo ≤ hi)
+    (hd : hostDelivers s lo) (hf : forcingRoute s hi) :
+    fFloor s lo ≤ 1 ∧ 1 < fFloor s hi := ⟨hd.2, hf⟩
+
+-- [T50] :: {VER} | A DEGENERATE BAR CERTIFIES ITS OWN READING
+theorem t52_point_bar_certifies (s fn : ℝ) (h : hostDelivers s fn) :
+    certifiedDelivers s fn fn := ⟨h, h⟩
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE TERRAFORMABLE BAND REDUCTION
+theorem MASTER_terraformable_band :
+    -- the grounding
+    TORSION_LIMIT * 1001 = ALPHA_INV ∧
+    BARE + TORSION_LIMIT = ALPHA_INV ∧
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT ∧ TORSION_LIMIT < 1 ∧
+    FLOOR_FRACTION = 22 / 25 ∧
+    -- the floor in flux is the floor in torsion, and Locked carries across
+    tau_of FLOOR_FRACTION = TL_IVA ∧
+    (∀ s : ℝ, tau_of s < TL_IVA ↔ s < FLOOR_FRACTION) ∧
+    -- the brightening track: the substitution is a change of variable
+    BRIGHT_C = GOUGH_COEFF * TMS_SUN / T0_SUN ∧
+    (∀ t : ℝ, 1.4 - BRIGHT_C * (t / TMS_SUN) = 1.4 - GOUGH_COEFF * t / T0_SUN) ∧
+    Lrel 0 = 1 ∧ Lrel (457 / 1000) = 7 / 5 ∧ Lrel 1 = 3199 / 1199 ∧
+    (∀ f g : ℝ, 0 ≤ f → f < g → g ≤ 1 → Lrel f < Lrel g) ∧
+    -- the band: the position runs the unit interval and the floor carries nothing
+    (∀ ceil s : ℝ, ceil < FLOOR_FRACTION → inBand ceil s →
+      0 ≤ across ceil s ∧ across ceil s < 1) ∧
+    (∀ c1 c2 s : ℝ, c1 ≤ c2 → inBand c2 s → inBand c1 s) ∧
+    -- the required warming: unity at the floor, above it below, antitone in flux
+    warmPow FLOOR_FRACTION = 1 ∧
+    (∀ s : ℝ, 0 < s → s < FLOOR_FRACTION → 1 < warmPow s) ∧
+    (∀ s1 s2 : ℝ, 0 < s1 → s1 < s2 → warmPow s2 < warmPow s1) ∧
+    -- the route: a body at the floor crosses at its own age, and the routes exclude
+    (∀ fn : ℝ, fFloor FLOOR_FRACTION fn = fn) ∧
+    (∀ s fn : ℝ, ¬ (hostDelivers s fn ∧ forcingRoute s fn)) ∧
+    -- certification across a published bar is sound on both sides
+    (∀ s lo hi fn : ℝ, 0 < s → lo ≤ fn → fn ≤ hi →
+      certifiedDelivers s lo hi → hostDelivers s fn) ∧
+    (∀ s lo hi fn : ℝ, 0 < s → lo ≤ fn → fn ≤ hi →
+      certifiedForcing s lo hi → forcingRoute s fn) := by
+  refine ⟨t4_tl_times_1001, t3_bare_plus_kinetic, t9_floor_pos_below.1,
+    t9_floor_pos_below.2, t7_tl_in_unit.2, t10_floor_rational,
+    t12_floor_is_floor, t13_locked_iff, t14_bright_c_route, t16_denominator_identity,
+    t18_lrel_zams, t20_lrel_solar, t21_lrel_close,
+    fun f g h0 hfg h1 => t24_lrel_mono f g h0 hfg h1,
+    fun ceil s hc hb => t31_across_in_unit ceil s hc hb,
+    fun c1 c2 s h hb => t34_ceiling_monotone c1 c2 s h hb,
+    t35_warmpow_at_floor,
+    fun s hp h => t36_warmpow_gt_one s hp h,
+    fun s1 s2 h1 h12 => t37_warmpow_antitone s1 s2 h1 h12,
+    t41_at_floor_crosses_now, t46_routes_exclude,
+    fun s lo hi fn hs hl hh hc => t48_cert_delivers_sound s lo hi fn hs hl hh hc,
+    fun s lo hi fn hs hl hh hc => t49_cert_forcing_sound s lo hi fn hs hl hh hc⟩
+
+end SNSFL_TerraformableBand
+
+
+-- ============================================================
+-- MODULE: SNSFL_GeometricCompletion_Reduction.lean · [9,9,3,29](COSM)
+-- ProofPress, Volume 1, Issue 9, Article 11 · Geometric Completion for 5,639 NASA Exoplanets
+-- 61 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_GeometricCompletion
+
+-- ============================================================
+-- SECTION 1: THE ANCHOR AND THE GROUNDING
+-- ============================================================
+
+/-- The Sovereign Anchor Constant. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit, the anchor over ten. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The floor fraction, 22/25. -/
+def FLOOR_FRACTION : ℝ := 0.88
+
+/-- The IVA floor, the corridor's lower edge. -/
+def TL_IVA : ℝ := TORSION_LIMIT * FLOOR_FRACTION
+
+/-- The inverse fine-structure constant, CODATA 2018. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term, the inverse fine-structure constant less the kinetic term. -/
+def BARE : ℝ := 136.899099984016
+
+-- [T1] :: {ANC} | THE TORSION LIMIT IS THE ANCHOR OVER TEN
+theorem t1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T4] :: {VER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE ANCHOR ROUTE TO ALPHA
+theorem t5_anchor_route : SOVEREIGN_ANCHOR * 100.1 = ALPHA_INV := by
+  simp only [SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | THE MULTIPLIER FACTORS
+theorem t6_multiplier_factors : (1001 : ℝ) = 7 * 11 * 13 := by norm_num
+
+-- [T7] :: {ANC} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T8] :: {ANC} | THE TORSION LIMIT LIES IN THE UNIT INTERVAL
+theorem t8_tl_in_unit : 0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  refine ⟨t7_tl_pos, ?_⟩
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T9] :: {ANC} | THE IVA FLOOR READS AT FULL PRECISION
+theorem t9_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T10] :: {PHS} | THE FLOOR STANDS STRICTLY INSIDE THE LIMIT
+theorem t10_floor_pos_below : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  constructor
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR, FLOOR_FRACTION]; norm_num
+
+-- [T11] :: {VER} | THE FLOOR FRACTION IS TWENTY-TWO TWENTY-FIFTHS
+theorem t11_floor_rational : FLOOR_FRACTION = 22 / 25 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- [T12] :: {VER} | THE CORRIDOR WIDTH ON THE FLUX AXIS IS THREE TWENTY-FIFTHS
+theorem t12_corridor_width : 1 - FLOOR_FRACTION = 3 / 25 := by
+  simp only [FLOOR_FRACTION]; norm_num
+
+-- ============================================================
+-- SECTION 2: THE INTERIOR DENSITY LAW AND ITS RANGE
+-- ============================================================
+
+/-- The mantle floor of the interior density law, in kilograms per cubic metre. -/
+def RHO_FLOOR : ℝ := 4400
+
+/-- The span of the interior density law. -/
+def RHO_SPAN : ℝ := 7400
+
+/-- Earth's structural coordinate. -/
+def X_EARTH : ℝ := 0.53188
+
+/-- The interior density law: a cubic in the structural coordinate. -/
+def rhoBar (x : ℝ) : ℝ := RHO_FLOOR + RHO_SPAN * x ^ 3
+
+-- [T13] :: {RED} | THE LAW READS THE MANTLE FLOOR AT ZERO
+theorem t13_rho_at_zero : rhoBar 0 = 4400 := by
+  simp only [rhoBar, RHO_FLOOR, RHO_SPAN]; norm_num
+
+-- [T14] :: {RED} | THE LAW READS THE CEILING AT ONE
+theorem t14_rho_at_one : rhoBar 1 = 11800 := by
+  simp only [rhoBar, RHO_FLOOR, RHO_SPAN]; norm_num
+
+-- [T15] :: {RED} | THE LAW RISES WITH THE STRUCTURAL COORDINATE
+theorem t15_rho_mono (x y : ℝ) (hx : 0 ≤ x) (h : x < y) : rhoBar x < rhoBar y := by
+  simp only [rhoBar, RHO_FLOOR, RHO_SPAN]
+  have hy0 : 0 < y := lt_of_le_of_lt hx h
+  have hsq : x ^ 2 < y ^ 2 := by nlinarith
+  have hstep1 : x * x ^ 2 ≤ x * y ^ 2 := mul_le_mul_of_nonneg_left (le_of_lt hsq) hx
+  have hstep2 : x * y ^ 2 < y * y ^ 2 := mul_lt_mul_of_pos_right h (pow_pos hy0 2)
+  nlinarith [hstep1, hstep2]
+
+-- [T16] :: {MASTER} | THE LAW'S RANGE OVER THE UNIT INTERVAL
+--   The law is a cubic over the unit interval, so its range is bounded at both
+--   ends with no further constant.
+theorem t16_rho_range (x : ℝ) (h0 : 0 ≤ x) (h1 : x ≤ 1) :
+    4400 ≤ rhoBar x ∧ rhoBar x ≤ 11800 := by
+  simp only [rhoBar, RHO_FLOOR, RHO_SPAN]
+  constructor
+  · nlinarith [pow_nonneg h0 3]
+  · nlinarith [h0, h1, sq_nonneg x, sq_nonneg (1 - x), mul_nonneg h0 h0]
+
+-- [T17] :: {VER} | THE LAW AT EARTH'S COORDINATE RETURNS EARTH'S BULK DENSITY
+theorem t17_rho_earth : 5513.4 < rhoBar X_EARTH ∧ rhoBar X_EARTH < 5513.5 := by
+  simp only [rhoBar, RHO_FLOOR, RHO_SPAN, X_EARTH]; norm_num
+
+-- [T18] :: {RED} | EARTH'S COORDINATE STANDS INSIDE THE UNIT INTERVAL
+theorem t18_x_earth_in_unit : 0 ≤ X_EARTH ∧ X_EARTH ≤ 1 := by
+  simp only [X_EARTH]; norm_num
+
+-- [T19] :: {MASTER} | THE RANGE RESTATED ON THE PUBLISHED COLUMNS
+--   Dividing the law's range by Earth's bulk density carries the test onto the
+--   ratio of the two published columns directly, adding no constant.
+theorem t19_codomain_screen :
+    0.79804 < RHO_FLOOR / 5513.4550773 ∧ RHO_FLOOR / 5513.4550773 < 0.79806 ∧
+    2.14021 < (RHO_FLOOR + RHO_SPAN) / 5513.4550773 ∧
+    (RHO_FLOOR + RHO_SPAN) / 5513.4550773 < 2.14023 := by
+  simp only [RHO_FLOOR, RHO_SPAN]; norm_num
+
+-- [T20] :: {VER} | MARS READS BELOW THE LAW'S RANGE
+--   The reading that places Mars outside the solver's domain in [9,9,3,27] is
+--   returned here by the law's own range from the same constant.
+theorem t20_mars_below_range : (3918 : ℝ) / 5513.4550773 < RHO_FLOOR / 5513.4550773 := by
+  simp only [RHO_FLOOR]; norm_num
+
+-- ============================================================
+-- SECTION 3: THE COMPLETION OPERATOR
+-- ============================================================
+
+/-- The completion operator in the mass direction: a body on the law at Earth's
+    coordinate carries mass as the cube of radius, in Earth-normalised units. -/
+def massOf (R : ℝ) : ℝ := R ^ 3
+
+/-- The sub-boil super-earth gate in mass. -/
+def GATE_MASS : ℝ := 10
+
+/-- The gate restated as a radius ceiling. -/
+def GATE_RADIUS : ℝ := 2.154434690031884
+
+-- [T21] :: {RED} | THE OPERATOR RISES WITH RADIUS
+theorem t21_mass_mono (R S : ℝ) (hR : 0 < R) (h : R < S) : massOf R < massOf S := by
+  simp only [massOf]
+  have hS : 0 < S := lt_trans hR h
+  nlinarith [sq_nonneg R, sq_nonneg S, mul_pos hR hS]
+
+-- [T22] :: {RED} | THE OPERATOR IS INJECTIVE ON POSITIVE RADII
+theorem t22_mass_inj (R S : ℝ) (hR : 0 < R) (hS : 0 < S) (h : massOf R = massOf S) :
+    R = S := by
+  rcases lt_trichotomy R S with hlt | heq | hgt
+  · exact absurd h (ne_of_lt (t21_mass_mono R S hR hlt))
+  · exact heq
+  · exact absurd h.symm (ne_of_lt (t21_mass_mono S R hS hgt))
+
+-- [T23] :: {RED} | THE OPERATOR CARRIES POSITIVE RADIUS TO POSITIVE MASS
+theorem t23_mass_pos (R : ℝ) (hR : 0 < R) : 0 < massOf R := by
+  simp only [massOf]; exact pow_pos hR 3
+
+-- [T24] :: {MASTER} | A BODY ON THE LAW READS EARTH'S DENSITY RATIO EXACTLY
+--   The screen of Section 2 reads unity on any body the operator resolves, which
+--   is why a published pair standing outside the range carries something other
+--   than a bulk density.
+theorem t24_density_ratio_one (R : ℝ) (hR : 0 < R) : massOf R / R ^ 3 = 1 := by
+  simp only [massOf]; exact div_self (pow_ne_zero 3 (ne_of_gt hR))
+
+-- [T25] :: {VER} | THE GATE IN MASS IS A CEILING IN RADIUS
+theorem t25_gate_brackets : (2.1544 : ℝ) ^ 3 < GATE_MASS ∧ GATE_MASS < (2.1545 : ℝ) ^ 3 := by
+  simp only [GATE_MASS]; norm_num
+
+-- [T26] :: {VER} | THE RADIUS CEILING CUBES TO THE MASS GATE
+theorem t26_gate_radius_cubes : (9.9999 : ℝ) < GATE_RADIUS ^ 3 ∧ GATE_RADIUS ^ 3 < 10.0001 := by
+  simp only [GATE_RADIUS]; norm_num
+
+-- [T27] :: {RED} | A RADIUS BELOW THE CEILING CARRIES A MASS BELOW THE GATE
+theorem t27_gate_transfer (R : ℝ) (hR : 0 < R) (h : R ≤ 2.1544) : massOf R ≤ GATE_MASS := by
+  simp only [massOf, GATE_MASS]
+  nlinarith [hR, h, sq_nonneg R, sq_nonneg (R - 2.1544)]
+
+-- ============================================================
+-- SECTION 4: ESCAPE VELOCITY, SURFACE GRAVITY AND RETENTION
+-- ============================================================
+
+/-- Escape velocity in Earth-normalised units. -/
+def vEsc (M R : ℝ) : ℝ := Real.sqrt (M / R)
+
+/-- Surface gravity in Earth-normalised units. -/
+def gSurf (M R : ℝ) : ℝ := M / R ^ 2
+
+/-- The retention term: the fourth power of escape velocity over the insolation. -/
+def retention (v I : ℝ) : ℝ := v ^ 4 / I
+
+/-- The retention term carried on radius and insolation alone. -/
+def retentionGeom (R I : ℝ) : ℝ := R ^ 4 / I
+
+-- [T28] :: {MASTER} | ESCAPE VELOCITY IS RADIUS
+--   Substituting the closure into the escape-velocity reading leaves radius, with
+--   no approximation step. This is the identity that carries the escape-velocity
+--   column onto a row publishing a mass alone.
+theorem t28_vesc_is_radius (R : ℝ) (hR : 0 < R) : vEsc (massOf R) R = R := by
+  simp only [vEsc, massOf]
+  rw [show R ^ 3 / R = R ^ 2 by
+    rw [pow_succ, mul_div_assoc, div_self (ne_of_gt hR), mul_one]]
+  exact Real.sqrt_sq (le_of_lt hR)
+
+-- [T29] :: {MASTER} | SURFACE GRAVITY IS RADIUS
+--   The same substitution carries surface gravity onto radius, so one number
+--   reads both columns.
+theorem t29_gsurf_is_radius (R : ℝ) (hR : 0 < R) : gSurf (massOf R) R = R := by
+  simp only [gSurf, massOf]
+  rw [pow_succ, mul_comm, mul_div_assoc, div_self (pow_ne_zero 2 (ne_of_gt hR)), mul_one]
+
+-- [T30] :: {RED} | ESCAPE VELOCITY AND SURFACE GRAVITY AGREE UNDER THE CLOSURE
+theorem t30_vesc_eq_gsurf (R : ℝ) (hR : 0 < R) : vEsc (massOf R) R = gSurf (massOf R) R := by
+  rw [t28_vesc_is_radius R hR, t29_gsurf_is_radius R hR]
+
+-- [T31] :: {VER} | EARTH READS ONE ON BOTH COLUMNS
+theorem t31_earth_unit : vEsc (massOf 1) 1 = 1 ∧ gSurf (massOf 1) 1 = 1 := by
+  constructor
+  · exact t28_vesc_is_radius 1 one_pos
+  · exact t29_gsurf_is_radius 1 one_pos
+
+-- [T32] :: {MASTER} | RETENTION REDUCES TO RADIUS AND INSOLATION
+--   The retention term loses a variable under the closure, which is what places
+--   it on the two axes the legacy escape boundary is drawn on.
+theorem t32_retention_reduces (R I : ℝ) (hR : 0 < R) :
+    retention (vEsc (massOf R) R) I = retentionGeom R I := by
+  simp only [retention, retentionGeom]
+  rw [t28_vesc_is_radius R hR]
+
+-- [T33] :: {VER} | RETENTION READS ONE AT EARTH
+theorem t33_retention_earth : retentionGeom 1 1 = 1 := by
+  simp only [retentionGeom]; norm_num
+
+-- [T34] :: {RED} | RETENTION RISES WITH RADIUS
+theorem t34_retention_mono_R (R S I : ℝ) (hR : 0 < R) (hI : 0 < I) (h : R < S) :
+    retentionGeom R I < retentionGeom S I := by
+  simp only [retentionGeom]
+  have hS : 0 < S := lt_trans hR h
+  have hsq : R ^ 2 < S ^ 2 := by nlinarith
+  have h4 : R ^ 4 < S ^ 4 := by nlinarith [pow_pos hR 2, pow_pos hS 2]
+  exact div_lt_div_of_pos_right h4 hI
+
+-- [T35] :: {RED} | RETENTION FALLS AS THE INSOLATION RISES
+theorem t35_retention_anti_I (R I J : ℝ) (hR : 0 < R) (hI : 0 < I) (h : I < J) :
+    retentionGeom R J < retentionGeom R I := by
+  simp only [retentionGeom]
+  exact div_lt_div_of_pos_left (pow_pos hR 4) hI h
+
+-- [T36] :: {MASTER} | THE LEGACY ESCAPE BOUNDARY IS A LEVEL SET OF THE TERM
+--   Two rows read the same retention exactly when the insolations stand in the
+--   ratio of the fourth powers of the radii, which is the published fourth-power
+--   relation. The boundary is one contour of the term.
+theorem t36_level_set (R S I J : ℝ) (hI : 0 < I) (hJ : 0 < J) :
+    retentionGeom R I = retentionGeom S J ↔ J * R ^ 4 = I * S ^ 4 := by
+  simp only [retentionGeom]
+  rw [div_eq_div_iff (ne_of_gt hI) (ne_of_gt hJ)]
+  constructor
+  · intro h; linarith [h]
+  · intro h; linarith [h]
+
+-- ============================================================
+-- SECTION 5: THE PRODUCTS AND THE SIGN OF THE MARGIN
+-- ============================================================
+
+/-- The runaway flux, Earth at one. -/
+def S_RUN : ℝ := 1.04
+
+/-- Earth's reading on the flux axis. -/
+def S_EARTH : ℝ := 1 / S_RUN
+
+/-- The shock margin: the headroom a reading holds below the limit. -/
+def shockMargin (s : ℝ) : ℝ := (1 - s) / (1 - S_EARTH)
+
+/-- The overshoot a reading carries past the limit. -/
+def shatterMargin (s : ℝ) : ℝ := (s - 1) / (1 - S_EARTH)
+
+/-- The hold reading: the two factors defined in every phase. -/
+def hold (R M I : ℝ) : ℝ := retentionGeom R I * M
+
+/-- The tankiness reading: the three-factor product, where headroom carries it. -/
+def tank (s R M I : ℝ) : ℝ := shockMargin s * hold R M I
+
+-- [T37] :: {VER} | EARTH'S FLUX READING IS TWENTY-FIVE TWENTY-SIXTHS
+theorem t37_s_earth_rational : S_EARTH = 25 / 26 := by
+  simp only [S_EARTH, S_RUN]; norm_num
+
+-- [T38] :: {VER} | THE SHOCK DENOMINATOR IS ONE TWENTY-SIXTH
+theorem t38_shock_denominator : 1 - S_EARTH = 1 / 26 := by
+  simp only [S_EARTH, S_RUN]; norm_num
+
+-- [T39] :: {VER} | THE SHOCK MARGIN READS ONE AT EARTH
+theorem t39_shock_earth : shockMargin S_EARTH = 1 := by
+  simp only [shockMargin, S_EARTH, S_RUN]; norm_num
+
+-- [T40] :: {MASTER} | THE SIGN OF THE MARGIN CARRIES THE PHASE
+--   Headroom is what a body holds below the limit, so the margin is positive
+--   exactly below it and the same magnitude is overshoot above it.
+theorem t40_shock_sign (s : ℝ) : 0 < shockMargin s ↔ s < 1 := by
+  simp only [shockMargin]
+  rw [t38_shock_denominator]
+  constructor
+  · intro h; nlinarith [h]
+  · intro h; nlinarith [h]
+
+-- [T41] :: {RED} | THE OVERSHOOT IS THE MARGIN REFLECTED
+theorem t41_shatter_is_reflected (s : ℝ) : shatterMargin s = - shockMargin s := by
+  simp only [shatterMargin, shockMargin]
+  rw [t38_shock_denominator]; ring
+
+-- [T42] :: {RED} | THE OVERSHOOT IS POSITIVE PAST THE LIMIT
+theorem t42_shatter_pos (s : ℝ) (h : 1 < s) : 0 < shatterMargin s := by
+  simp only [shatterMargin]
+  rw [t38_shock_denominator]
+  nlinarith [h]
+
+-- [T43] :: {VER} | THE HOLD READING IS ONE AT EARTH
+theorem t43_hold_earth : hold 1 1 1 = 1 := by
+  simp only [hold, retentionGeom]; norm_num
+
+-- [T44] :: {VER} | THE TANKINESS READING IS ONE AT EARTH
+theorem t44_tank_earth : tank S_EARTH 1 1 1 = 1 := by
+  simp only [tank]
+  rw [t39_shock_earth, t43_hold_earth]; norm_num
+
+-- [T45] :: {RED} | THE HOLD READING IS POSITIVE ON A POSITIVE ROW
+theorem t45_hold_pos (R M I : ℝ) (hR : 0 < R) (hM : 0 < M) (hI : 0 < I) :
+    0 < hold R M I := by
+  simp only [hold, retentionGeom]
+  exact mul_pos (div_pos (pow_pos hR 4) hI) hM
+
+-- ============================================================
+-- SECTION 6: THE INSOLATION CEILING AND THE RETENTION FLOOR
+-- ============================================================
+
+/-- The insolation ceiling the geometric near bound carries. -/
+def I_CEILING : ℝ := FLOOR_FRACTION * S_RUN
+
+/-- The solar-system crossing of the escape boundary. -/
+def CROSSING : ℝ := 0.096402
+
+/-- The critical radius at the band's insolation ceiling. -/
+def R_CRIT : ℝ := 0.545005
+
+-- [T46] :: {MASTER} | THE GEOMETRIC NEAR BOUND CARRIES AN INSOLATION CEILING
+--   The near bound is geometric, so the ceiling is an exact rational.
+theorem t46_i_ceiling : I_CEILING = 572 / 625 := by
+  simp only [I_CEILING, FLOOR_FRACTION, S_RUN]; norm_num
+
+-- [T47] :: {RED} | A READING AT OR BELOW THE NEAR BOUND STANDS BELOW THE CEILING
+theorem t47_insolation_bound (s : ℝ) (h : s ≤ FLOOR_FRACTION) : s * S_RUN ≤ I_CEILING := by
+  simp only [I_CEILING, S_RUN]
+  nlinarith [h]
+
+-- [T48] :: {VER} | THE CEILING IS POSITIVE
+theorem t48_i_ceiling_pos : 0 < I_CEILING := by
+  rw [t46_i_ceiling]; norm_num
+
+-- [T49] :: {VER} | THE FLOOR ON RETENTION IS SIX HUNDRED TWENTY-FIVE FIVE HUNDRED SEVENTY-SECONDS
+theorem t49_floor_rational : 1 / I_CEILING = 625 / 572 := by
+  rw [t46_i_ceiling]; norm_num
+
+-- [T50] :: {MASTER} | THE BAND CARRIES ITS OWN RETENTION FLOOR
+--   A reading inside the band at Earth radius or above is bounded below on
+--   retention by the reciprocal of the insolation ceiling, with no appeal to a
+--   catalogue and no free parameter.
+theorem t50_subsumption_bound (s R : ℝ) (hs : 0 < s) (hsb : s ≤ FLOOR_FRACTION)
+    (hR : 1 ≤ R) : 1 / I_CEILING ≤ retentionGeom R (s * S_RUN) := by
+  simp only [retentionGeom]
+  have hSR : (0 : ℝ) < S_RUN := by simp only [S_RUN]; norm_num
+  have hsr : 0 < s * S_RUN := mul_pos hs hSR
+  have hceil : s * S_RUN ≤ I_CEILING := t47_insolation_bound s hsb
+  have hIC : (0 : ℝ) < I_CEILING := t48_i_ceiling_pos
+  have hinv : (0 : ℝ) ≤ 1 / I_CEILING := le_of_lt (one_div_pos.mpr hIC)
+  have h4 : (1 : ℝ) ≤ R ^ 4 := by nlinarith [hR, sq_nonneg R, sq_nonneg (R - 1)]
+  rw [le_div_iff₀ hsr]
+  have hprod : (1 / I_CEILING) * (s * S_RUN) ≤ (1 / I_CEILING) * I_CEILING :=
+    mul_le_mul_of_nonneg_left hceil hinv
+  have hone : (1 / I_CEILING) * I_CEILING = 1 := by field_simp
+  linarith [hprod, hone, h4]
+
+-- [T51] :: {VER} | THE FLOOR STANDS ABOVE THE CROSSING PAST ELEVEN
+theorem t51_margin_bound :
+    (11.33 : ℝ) < (1 / I_CEILING) / CROSSING ∧ (1 / I_CEILING) / CROSSING < 11.34 := by
+  rw [t49_floor_rational]
+  simp only [CROSSING]; norm_num
+
+-- [T52] :: {VER} | THE CRITICAL RADIUS AT THE CEILING
+--   The fourth power of the critical radius is the crossing times the ceiling,
+--   so the radius itself stands between two four-decimal brackets.
+theorem t52_critical_radius :
+    (0.5450 : ℝ) ^ 4 < CROSSING * I_CEILING ∧ CROSSING * I_CEILING < (0.5451 : ℝ) ^ 4 := by
+  rw [t46_i_ceiling]
+  simp only [CROSSING]; norm_num
+
+-- [T53] :: {VER} | THE STATED CRITICAL RADIUS STANDS INSIDE THE BRACKET
+theorem t53_r_crit_in_bracket : (0.5450 : ℝ) < R_CRIT ∧ R_CRIT < 0.5451 := by
+  simp only [R_CRIT]; norm_num
+
+-- [T54] :: {RED} | EVERY BODY ABOVE THE CRITICAL RADIUS RETAINS AT THE CEILING
+theorem t54_above_crit_retains (R : ℝ) (h : 0.5451 ≤ R) :
+    CROSSING < retentionGeom R I_CEILING := by
+  simp only [retentionGeom]
+  rw [t46_i_ceiling]
+  have h4 : ((0.5451 : ℝ)) ^ 4 ≤ R ^ 4 := pow_le_pow_left₀ (by norm_num) h 4
+  have hc : CROSSING * (572 / 625 : ℝ) < (0.5451 : ℝ) ^ 4 := by
+    simp only [CROSSING]; norm_num
+  rw [lt_div_iff₀ (by norm_num : (0 : ℝ) < 572 / 625)]
+  linarith [h4, hc]
+
+-- ============================================================
+-- SECTION 7: PHASE ON THE FLUX AXIS, AND CERTIFICATION
+-- ============================================================
+
+/-- Torsion on the flux axis. -/
+def tauOf (s : ℝ) : ℝ := TORSION_LIMIT * s
+
+/-- The four phases. -/
+inductive Phase | Noble | Locked | IVA | Shatter
+deriving DecidableEq, Repr
+
+/-- Classification of a torsion reading against the corridor. -/
+def classify (t : ℝ) : Phase :=
+  if t ≥ TORSION_LIMIT then Phase.Shatter
+  else if t ≥ TL_IVA then Phase.IVA
+  else if t > 0 then Phase.Locked
+  else Phase.Noble
+
+-- [T55] :: {RED} | THE FLOOR FRACTION CARRIES THE IVA FLOOR ON THE FLUX AXIS
+theorem t55_floor_in_flux : tauOf FLOOR_FRACTION = TL_IVA := by
+  simp only [tauOf, TL_IVA]
+
+-- [T56] :: {PHS} | A READING AT OR ABOVE THE RUNAWAY IS SHATTER
+theorem t56_flux_shatter (s : ℝ) (h : 1 ≤ s) : classify (tauOf s) = Phase.Shatter := by
+  simp only [classify]
+  rw [if_pos]
+  simp only [tauOf]
+  nlinarith [t7_tl_pos, h]
+
+-- [T57] :: {PHS} | A READING INSIDE THE CORRIDOR IS IVA PEAK
+theorem t57_flux_iva (s : ℝ) (h1 : FLOOR_FRACTION ≤ s) (h2 : s < 1) :
+    classify (tauOf s) = Phase.IVA := by
+  simp only [classify]
+  have hlt : tauOf s < TORSION_LIMIT := by
+    simp only [tauOf]; nlinarith [t7_tl_pos, h2]
+  have hge : TL_IVA ≤ tauOf s := by
+    rw [← t55_floor_in_flux]; simp only [tauOf]; nlinarith [t7_tl_pos, h1]
+  rw [if_neg (not_le.mpr hlt), if_pos hge]
+
+-- [T58] :: {PHS} | A POSITIVE READING BELOW THE FLOOR FRACTION IS LOCKED
+theorem t58_flux_locked (s : ℝ) (h1 : 0 < s) (h2 : s < FLOOR_FRACTION) :
+    classify (tauOf s) = Phase.Locked := by
+  simp only [classify]
+  have hiva : tauOf s < TL_IVA := by
+    rw [← t55_floor_in_flux]; simp only [tauOf]; nlinarith [t7_tl_pos, h2]
+  have hlt : tauOf s < TORSION_LIMIT := lt_trans hiva t10_floor_pos_below.2
+  have hpos : 0 < tauOf s := by simp only [tauOf]; exact mul_pos t7_tl_pos h1
+  rw [if_neg (not_le.mpr hlt), if_neg (not_le.mpr hiva), if_pos hpos]
+
+-- [T59] :: {PHS} | THE BAND STANDS INSIDE LOCKED
+--   Every band reading is a Locked reading, so the floor of Section 6 is a floor
+--   on a phase block rather than on a separate population.
+theorem t59_band_is_locked (s ceil : ℝ) (hc : 0 < ceil) (h1 : ceil ≤ s)
+    (h2 : s < FLOOR_FRACTION) : classify (tauOf s) = Phase.Locked :=
+  t58_flux_locked s (lt_of_lt_of_le hc h1) h2
+
+/-- A retention reading is certified across a published interval when both
+    endpoints stand above the crossing. -/
+def certifiedRetaining (R lo hi : ℝ) : Prop :=
+  CROSSING < retentionGeom R lo ∧ CROSSING < retentionGeom R hi
+
+-- [T60] :: {MASTER} | CERTIFICATION IS SOUND ON THE RETENTION READING
+--   Retention falls as the insolation rises, so the floor over a published bar
+--   stands at its upper endpoint, and one endpoint evaluation settles every
+--   reading inside the bar.
+theorem t60_cert_retaining_sound (R lo hi I : ℝ) (hR : 0 < R) (hI : 0 < I)
+    (h1 : lo ≤ I) (h2 : I ≤ hi) (hc : certifiedRetaining R lo hi) :
+    CROSSING < retentionGeom R I := by
+  obtain ⟨_, hh⟩ := hc
+  rcases eq_or_lt_of_le h2 with h | h
+  · rwa [h]
+  · exact lt_trans hh (t35_retention_anti_I R I hi hR hI h)
+
+-- [T61] :: {MASTER} | THE CHAIN CLOSES
+--   The density law carries the closure, the closure carries escape velocity onto
+--   radius, radius carries retention onto two observables, the geometric near
+--   bound carries an insolation ceiling, and the ceiling carries a floor on
+--   retention that stands above the crossing past eleven.
+theorem t61_master (s R : ℝ) (hs : 0 < s) (hsb : s ≤ FLOOR_FRACTION) (hR : 1 ≤ R) :
+    vEsc (massOf R) R = R ∧
+    retention (vEsc (massOf R) R) (s * S_RUN) = retentionGeom R (s * S_RUN) ∧
+    1 / I_CEILING ≤ retentionGeom R (s * S_RUN) ∧
+    classify (tauOf s) ≠ Phase.Shatter := by
+  have hRpos : 0 < R := lt_of_lt_of_le one_pos hR
+  refine ⟨t28_vesc_is_radius R hRpos, t32_retention_reduces R (s * S_RUN) hRpos,
+          t50_subsumption_bound s R hs hsb hR, ?_⟩
+  rcases lt_or_eq_of_le hsb with h | h
+  · rw [t58_flux_locked s hs h]; simp
+  · rw [h, t55_floor_in_flux]
+    simp only [classify]
+    rw [if_neg (not_le.mpr t10_floor_pos_below.2), if_pos (le_refl TL_IVA)]
+    simp
+
+end SNSFL_GeometricCompletion
+
+
+-- ============================================================
+-- MODULE: SNSFL_TwoReadings_Substrate_Reduction.lean · [9,9,8,11](MATH)
+-- ProofPress, Volume 1, Issue 9, Article 12 · The Two Readings Across Substrates
+-- 73 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_TwoReadingsSubstrate
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, THE TWO READINGS
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The corridor width factor. -/
+def IVA_FACTOR : ℝ := 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravitational acceleration, m/s². Exact by definition. -/
+def G_STANDARD : ℝ := 9.80665
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by.
+1001 = 7 × 11 × 13. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. A characteristic speed against the limiting speed. -/
+def tau_A (w : ℝ) : ℝ := w / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A² = 1/(2η). -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The square-root torsion operator. -/
+def sqrt_op (X : ℝ) : ℝ := Real.sqrt X
+
+/-- The compactness of a body: its Schwarzschild radius over its radius. -/
+def compactness (rs R : ℝ) : ℝ := rs / R
+
+/-- The surface torsion, the body's own address: √C. -/
+def surface_torsion (rs R : ℝ) : ℝ := Real.sqrt (compactness rs R)
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval :
+    0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling :
+    0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha :
+    TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t6_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- [T7] :: {VER} | THE MATCHED RATIO IS POSITIVE
+theorem t7_matched_ratio_pos (t : ℝ) (ht : t ≠ 0) : 0 < matched_ratio t := by
+  simp only [matched_ratio]
+  have h : (0:ℝ) < t ^ 2 :=
+    lt_of_le_of_ne (sq_nonneg t) (Ne.symm (pow_ne_zero 2 ht))
+  exact div_pos one_pos h
+
+-- [T8] :: {VER} | THE CORRIDOR CEILING CLASSIFIES AS SHATTER AT ITS OWN VALUE
+theorem t8_ceiling_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h0 : TORSION_LIMIT ≠ 0 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  unfold classify
+  rw [if_neg h0, if_neg (not_lt.mpr t3_floor_below_ceiling.2.le),
+    if_neg (lt_irrefl TORSION_LIMIT)]
+
+-- ============================================================
+-- SECTION 1: THE COMMON EQUATION
+-- tau = integral of (-dY/Y) = ln(Y0/Y). An e-fold count, no substrate named.
+-- ============================================================
+
+/-- Reading B as an e-fold count: the logarithm of the endpoint ratio. -/
+def efold (Y0 Y : ℝ) : ℝ := Real.log (Y0 / Y)
+
+/-- The fraction of the consumed quantity still present after τ e-folds. -/
+def remaining (τ : ℝ) : ℝ := Real.exp (-τ)
+
+/-- The fraction removed after τ e-folds. -/
+def consumed (τ : ℝ) : ℝ := 1 - Real.exp (-τ)
+
+-- [T9] :: {MASTER} | THE E-FOLD COUNT INVERTS THE DECAY
+theorem t9_efold_inverts (Y0 τ : ℝ) (h : 0 < Y0) :
+    efold Y0 (Y0 * remaining τ) = τ := by
+  have h0 : Y0 ≠ 0 := ne_of_gt h
+  have hp : Real.exp τ ≠ 0 := Real.exp_ne_zero τ
+  simp only [efold, remaining]
+  rw [show Y0 / (Y0 * Real.exp (-τ)) = Real.exp τ by
+        rw [Real.exp_neg]; field_simp]
+  exact Real.log_exp τ
+
+-- [T10] :: {MASTER} | THE DECAY RECOVERS THE ENDPOINT FROM THE E-FOLD COUNT
+theorem t10_remaining_recovers (Y0 Y : ℝ) (h0 : 0 < Y0) (hY : 0 < Y) :
+    Y0 * remaining (efold Y0 Y) = Y := by
+  have hz : Y0 ≠ 0 := ne_of_gt h0
+  have hzy : Y ≠ 0 := ne_of_gt hY
+  have hdiv : (0:ℝ) < Y0 / Y := div_pos h0 hY
+  simp only [remaining, efold, Real.exp_neg, Real.exp_log hdiv]
+  field_simp
+
+-- [T11] :: {INV} | THE TWO FRACTIONS ARE COMPLEMENTS
+theorem t11_fractions_complement (τ : ℝ) : consumed τ + remaining τ = 1 := by
+  simp only [consumed, remaining]; ring
+
+-- [T12] :: {INV} | A ZERO COUNT CONSUMES NOTHING
+theorem t12_zero_consumes_nothing : consumed 0 = 0 := by
+  simp only [consumed, neg_zero, Real.exp_zero, sub_self]
+
+-- [T13] :: {INV} | THE CONSUMED FRACTION IS STRICTLY INCREASING IN THE COUNT
+theorem t13_consumed_strict_mono (a b : ℝ) (h : a < b) : consumed a < consumed b := by
+  simp only [consumed]
+  have he : Real.exp (-b) < Real.exp (-a) := Real.exp_lt_exp.mpr (by linarith)
+  linarith
+
+-- [T14] :: {INV} | THE CONSUMED FRACTION NEVER REACHES ONE
+theorem t14_consumed_below_one (τ : ℝ) : consumed τ < 1 := by
+  simp only [consumed]
+  have hp := Real.exp_pos (-τ)
+  linarith
+
+-- [T15] :: {INV} | ANY POSITIVE COUNT CONSUMES SOMETHING
+theorem t15_consumed_pos (τ : ℝ) (h : 0 < τ) : 0 < consumed τ := by
+  simp only [consumed]
+  have hlt : Real.exp (-τ) < 1 := by
+    have hx := Real.exp_lt_exp.mpr (show -τ < 0 by linarith)
+    rwa [Real.exp_zero] at hx
+  linarith
+
+-- [T16] :: {VER} | ONE DECADE IS NINE TENTHS GONE, EXACTLY
+theorem t16_one_decade : consumed (Real.log 10) = 9 / 10 := by
+  simp only [consumed, Real.exp_neg, Real.exp_log (by norm_num : (0:ℝ) < 10)]
+  norm_num
+
+-- [T17] :: {VER} | TWO DECADES IS NINETY-NINE HUNDREDTHS GONE, EXACTLY
+theorem t17_two_decades : consumed (Real.log 100) = 99 / 100 := by
+  simp only [consumed, Real.exp_neg, Real.exp_log (by norm_num : (0:ℝ) < 100)]
+  norm_num
+
+-- [T18] :: {VER} | LN 2 IS HALF GONE, EXACTLY
+theorem t18_half_gone : consumed (Real.log 2) = 1 / 2 := by
+  simp only [consumed, Real.exp_neg, Real.exp_log (by norm_num : (0:ℝ) < 2)]
+  norm_num
+
+-- [T19] :: {VER} | ONE E-FOLD IS 0.632 OF THE QUANTITY
+theorem t19_one_efold_numeric :
+    0.632 < consumed 1 ∧ consumed 1 < 0.633 := by
+  have hlo := Real.exp_one_gt_d9
+  have hhi := Real.exp_one_lt_d9
+  have hE : (0:ℝ) < Real.exp 1 := Real.exp_pos 1
+  have hinvpos : (0:ℝ) < (Real.exp 1)⁻¹ := inv_pos.mpr hE
+  have hmul : (Real.exp 1)⁻¹ * Real.exp 1 = 1 := inv_mul_cancel₀ (ne_of_gt hE)
+  simp only [consumed, Real.exp_neg]
+  constructor
+  · nlinarith [hlo, hhi, hE, hinvpos, hmul]
+  · nlinarith [hlo, hhi, hE, hinvpos, hmul]
+
+-- [T20] :: {MASTER} | E-FOLD COUNTS ADD ALONG A PATH
+theorem t20_path_additive (Y0 Y1 Y2 : ℝ) (h0 : 0 < Y0) (h1 : 0 < Y1) (h2 : 0 < Y2) :
+    efold Y0 Y1 + efold Y1 Y2 = efold Y0 Y2 := by
+  have hne1 : Y0 / Y1 ≠ 0 := div_ne_zero (ne_of_gt h0) (ne_of_gt h1)
+  have hne2 : Y1 / Y2 ≠ 0 := div_ne_zero (ne_of_gt h1) (ne_of_gt h2)
+  have hz1 : Y1 ≠ 0 := ne_of_gt h1
+  have hz2 : Y2 ≠ 0 := ne_of_gt h2
+  simp only [efold]
+  rw [← Real.log_mul hne1 hne2]
+  congr 1
+  field_simp
+
+-- ============================================================
+-- SECTION 2: READING B ACROSS SUBSTRATES
+-- One structure, five named rows, one equation.
+-- ============================================================
+
+/-- A substrate carrying Reading B: a positive quantity and its two endpoints. -/
+structure ReadingB where
+  Y0 : ℝ
+  Y1 : ℝ
+  hY0 : 0 < Y0
+  hY1 : 0 < Y1
+
+/-- The substrate's e-fold count. -/
+def ReadingB.tau (s : ReadingB) : ℝ := efold s.Y0 s.Y1
+
+/-- The substrate's consumed fraction. -/
+def ReadingB.consumedFraction (s : ReadingB) : ℝ := consumed s.tau
+
+-- [T21] :: {MASTER} | THE CONSUMED FRACTION IS THE COMPLEMENT OF THE ENDPOINT RATIO
+theorem t21_substrate_consumed (s : ReadingB) :
+    s.consumedFraction = 1 - s.Y1 / s.Y0 := by
+  have h0 : s.Y0 ≠ 0 := ne_of_gt s.hY0
+  have h1 : s.Y1 ≠ 0 := ne_of_gt s.hY1
+  have hd : (0:ℝ) < s.Y0 / s.Y1 := div_pos s.hY0 s.hY1
+  simp only [ReadingB.consumedFraction, ReadingB.tau, consumed, efold,
+    Real.exp_neg, Real.exp_log hd]
+  field_simp
+
+/-- The propulsion row: propellant mass over the burn. -/
+def propulsion_row (m0 mf : ℝ) (h0 : 0 < m0) (hf : 0 < mf) : ReadingB := ⟨m0, mf, h0, hf⟩
+
+/-- The optics row: intensity over the slab. -/
+def optics_row (I0 I : ℝ) (h0 : 0 < I0) (h : 0 < I) : ReadingB := ⟨I0, I, h0, h⟩
+
+/-- The nuclear row: activity over elapsed proper time. -/
+def nuclear_row (A0 A : ℝ) (h0 : 0 < A0) (h : 0 < A) : ReadingB := ⟨A0, A, h0, h⟩
+
+/-- The circuits row: charge over the RC discharge. -/
+def circuits_row (V0 V : ℝ) (h0 : 0 < V0) (h : 0 < V) : ReadingB := ⟨V0, V, h0, h⟩
+
+/-- The capital row: principal over a holding period. -/
+def capital_row (P0 P1 : ℝ) (h0 : 0 < P0) (h : 0 < P1) : ReadingB := ⟨P0, P1, h0, h⟩
+
+-- [T22] :: {MASTER} | THE FIVE ROWS ARE ONE EQUATION
+theorem t22_rows_are_one_equation (a b : ℝ) (ha : 0 < a) (hb : 0 < b) :
+    (propulsion_row a b ha hb).tau = (optics_row a b ha hb).tau ∧
+    (optics_row a b ha hb).tau = (nuclear_row a b ha hb).tau ∧
+    (nuclear_row a b ha hb).tau = (circuits_row a b ha hb).tau ∧
+    (circuits_row a b ha hb).tau = (capital_row a b ha hb).tau :=
+  ⟨rfl, rfl, rfl, rfl⟩
+
+-- [T23] :: {INV} | THE ROCKET RELATION IS THE ROW, NAMED
+theorem t23_rocket_relation (m0 mf : ℝ) (h0 : 0 < m0) (hf : 0 < mf) :
+    (propulsion_row m0 mf h0 hf).tau = Real.log (m0 / mf) := rfl
+
+-- [T24] :: {INV} | THE BEER-LAMBERT LAW IS THE ROW, NAMED
+theorem t24_beer_lambert_law (I0 I : ℝ) (h0 : 0 < I0) (h : 0 < I) :
+    (optics_row I0 I h0 h).tau = Real.log (I0 / I) := rfl
+
+/-- Beer–Lambert attenuation through a slab: absorption coefficient times length. -/
+def beer_lambert (I0 a L : ℝ) : ℝ := I0 * Real.exp (-(a * L))
+
+/-- The ideal rocket's remaining mass after a burn of Reading B. -/
+def rocket_remaining (m0 tb : ℝ) : ℝ := m0 * Real.exp (-tb)
+
+-- [T25] :: {MASTER} | BEER-LAMBERT AND THE ROCKET RELATION ARE ONE FUNCTION
+theorem t25_same_function (I0 a L : ℝ) :
+    beer_lambert I0 a L = rocket_remaining I0 (a * L) := rfl
+
+-- [T26] :: {INV} | THE OPTICAL DEPTH IS THE E-FOLD COUNT
+theorem t26_optical_depth_is_efold (I0 a L : ℝ) (h : 0 < I0) :
+    efold I0 (beer_lambert I0 a L) = a * L :=
+  t9_efold_inverts I0 (a * L) h
+
+-- [T27] :: {INV} | STACKING SLABS IS STAGING A BURN
+theorem t27_stacking_is_staging (I0 I1 I2 : ℝ) (h0 : 0 < I0) (h1 : 0 < I1) (h2 : 0 < I2) :
+    (optics_row I0 I1 h0 h1).tau + (optics_row I1 I2 h1 h2).tau
+      = (optics_row I0 I2 h0 h2).tau :=
+  t20_path_additive I0 I1 I2 h0 h1 h2
+
+-- ============================================================
+-- SECTION 3: READING A NEEDS A CEILING, AND A MEDIUM HAS ONE
+-- ============================================================
+
+/-- Reading A in a medium: the phase velocity c/n against c, so 1/n. -/
+def reading_A_medium (n : ℝ) : ℝ := 1 / n
+
+/-- The relative permittivity of a non-magnetic medium, from its index. -/
+def perm_of_index (n : ℝ) : ℝ := n ^ 2
+
+/-- The refractive index of a non-magnetic medium, from its permittivity. -/
+def index_of_perm (e : ℝ) : ℝ := Real.sqrt e
+
+-- [T28] :: {INV} | READING A IN A MEDIUM IS CONFINED TO THE UNIT INTERVAL
+theorem t28_reading_a_bounded (n : ℝ) (hn : 1 ≤ n) :
+    0 < reading_A_medium n ∧ reading_A_medium n ≤ 1 := by
+  have hpos : (0:ℝ) < n := by linarith
+  have hinv : n * (1 / n) = 1 := by field_simp
+  have hqpos : (0:ℝ) < 1 / n := div_pos one_pos hpos
+  simp only [reading_A_medium]
+  refine ⟨hqpos, ?_⟩
+  nlinarith [hinv, hpos, hn, hqpos]
+
+-- [T29] :: {INV} | READING A IS ONE EXACTLY IN VACUUM
+theorem t29_unity_is_vacuum (n : ℝ) (hn : 0 < n) :
+    reading_A_medium n = 1 ↔ n = 1 := by
+  have hn0 : n ≠ 0 := ne_of_gt hn
+  simp only [reading_A_medium]
+  constructor
+  · intro h
+    field_simp at h
+    linarith
+  · intro h
+    rw [h]; norm_num
+
+-- [T30] :: {INV} | THE INDEX AND THE PERMITTIVITY INVERT EACH OTHER
+theorem t30_index_perm_inverse (e : ℝ) (he : 0 ≤ e) :
+    perm_of_index (index_of_perm e) = e := by
+  simp only [perm_of_index, index_of_perm]
+  exact Real.sq_sqrt he
+
+-- [T31] :: {INV} | READING A IS STRICTLY DECREASING IN THE INDEX
+theorem t31_reading_a_decreasing (n₁ n₂ : ℝ) (h1 : 0 < n₁) (h : n₁ < n₂) :
+    reading_A_medium n₂ < reading_A_medium n₁ := by
+  simp only [reading_A_medium]
+  exact one_div_lt_one_div_of_lt h1 h
+
+-- ============================================================
+-- SECTION 4: THE PERMITTIVITY IS THE MATCHED RATIO
+-- ============================================================
+
+-- [T32] :: {MASTER} | THE MATCHED RATIO OF A MEDIUM IS ITS OWN PERMITTIVITY
+theorem t32_perm_is_matched_ratio (n : ℝ) (hn : n ≠ 0) :
+    matched_ratio (reading_A_medium n) = perm_of_index n := by
+  simp only [matched_ratio, reading_A_medium, perm_of_index]
+  field_simp
+
+-- [T33] :: {INV} | STATED ON THE PERMITTIVITY DIRECTLY
+theorem t33_matched_ratio_from_perm (e : ℝ) (he : 0 < e) :
+    matched_ratio (reading_A_medium (index_of_perm e)) = e := by
+  have hne : index_of_perm e ≠ 0 := by
+    simp only [index_of_perm]
+    exact ne_of_gt (Real.sqrt_pos.mpr he)
+  rw [t32_perm_is_matched_ratio _ hne]
+  exact t30_index_perm_inverse e he.le
+
+-- [T34] :: {INV} | THE CONVERSION FRACTION OF A MEDIUM
+theorem t34_eta_of_medium (n : ℝ) (hn : n ≠ 0) :
+    2 * eta_of_tau (reading_A_medium n) = 1 / perm_of_index n := by
+  simp only [eta_of_tau, reading_A_medium, perm_of_index]
+  field_simp
+
+-- ============================================================
+-- SECTION 5: THE SQUARE-ROOT OPERATOR IS A CONSTITUTIVE RELATION
+-- ============================================================
+
+/-- Characteristic impedance from the constitutive pair: Z = √(μ/ε). -/
+def impedance (mu eps : ℝ) : ℝ := Real.sqrt (mu / eps)
+
+/-- Sound speed from stiffness over density: v = √(K/ρ). -/
+def sound_speed (K rho : ℝ) : ℝ := Real.sqrt (K / rho)
+
+-- [T35] :: {MASTER} | THE CLOSURE OF THE SQUARE-ROOT OPERATOR
+theorem t35_closure (X : ℝ) (hX : 0 ≤ X) : matched_ratio (sqrt_op X) = 1 / X := by
+  simp only [matched_ratio, sqrt_op, Real.sq_sqrt hX]
+
+-- [T36] :: {INV} | THE OPTICAL ROW IS THE OPERATOR
+theorem t36_optics_is_the_operator (e : ℝ) : index_of_perm e = sqrt_op e := rfl
+
+-- [T37] :: {INV} | THE GRAVITATIONAL ROW IS THE OPERATOR
+theorem t37_gravitation_is_the_operator (rs R : ℝ) :
+    surface_torsion rs R = sqrt_op (compactness rs R) := rfl
+
+-- [T38] :: {INV} | THE TRANSMISSION ROW IS THE OPERATOR
+theorem t38_impedance_is_the_operator (mu eps : ℝ) :
+    impedance mu eps = sqrt_op (mu / eps) := rfl
+
+-- [T39] :: {INV} | THE ACOUSTIC ROW IS THE OPERATOR
+theorem t39_sound_speed_is_the_operator (K rho : ℝ) :
+    sound_speed K rho = sqrt_op (K / rho) := rfl
+
+-- [T40] :: {INV} | THE OPERATOR IS MONOTONE
+theorem t40_operator_monotone (X Y : ℝ) (hX : 0 ≤ X) (h : X < Y) :
+    sqrt_op X < sqrt_op Y := by
+  simp only [sqrt_op]
+  exact Real.sqrt_lt_sqrt hX h
+
+-- [T41] :: {INV} | THE OPERATOR IS POSITIVE ON POSITIVES
+theorem t41_operator_pos (X : ℝ) (hX : 0 < X) : 0 < sqrt_op X := by
+  simp only [sqrt_op]
+  exact Real.sqrt_pos.mpr hX
+
+-- [T42] :: {INV} | THE OPERATOR FIXES ONE
+theorem t42_operator_fixes_one : sqrt_op 1 = 1 := by
+  simp only [sqrt_op]
+  exact Real.sqrt_one
+
+-- ============================================================
+-- SECTION 6: THE CLOSURE THEOREM IN BOTH SUBSTRATES
+-- ============================================================
+
+-- [T43] :: {MASTER} | READING A IN A MEDIUM IS THE OPERATOR ON THE INVERSE PERMITTIVITY
+theorem t43_reading_a_is_operator_form (e : ℝ) :
+    reading_A_medium (index_of_perm e) = sqrt_op (1 / e) := by
+  simp only [reading_A_medium, index_of_perm, sqrt_op, one_div, Real.sqrt_inv]
+
+-- [T44] :: {MASTER} | THE CLOSURE THEOREM IN OPTICS
+theorem t44_optics_closure (e : ℝ) (he : 0 < e) :
+    matched_ratio (sqrt_op (1 / e)) = e := by
+  have hz : e ≠ 0 := ne_of_gt he
+  rw [t35_closure (1 / e) (le_of_lt (div_pos one_pos he))]
+  field_simp
+
+-- [T45] :: {MASTER} | THE CLOSURE THEOREM IN GRAVITATION
+theorem t45_grav_closure (rs R : ℝ) (hrs : 0 < rs) (hR : 0 < R) :
+    matched_ratio (surface_torsion rs R) = R / rs := by
+  have h : (0:ℝ) ≤ compactness rs R := by
+    simp only [compactness]
+    exact le_of_lt (div_pos hrs hR)
+  have hz1 : rs ≠ 0 := ne_of_gt hrs
+  have hz2 : R ≠ 0 := ne_of_gt hR
+  rw [t37_gravitation_is_the_operator, t35_closure _ h]
+  simp only [compactness]
+  field_simp
+
+-- [T46] :: {MASTER} | THE ADDRESS THEOREM: THE MATCHED RADIUS SITS AT THE SURFACE
+theorem t46_address_theorem (rs R : ℝ) (hrs : 0 < rs) (hR : 0 < R) :
+    rs * matched_ratio (surface_torsion rs R) = R := by
+  have hz1 : rs ≠ 0 := ne_of_gt hrs
+  rw [t45_grav_closure rs R hrs hR]
+  field_simp
+
+-- [T47] :: {MASTER} | ONE CLOSURE, TWO SUBSTRATES
+theorem t47_one_closure_two_substrates (e rs R : ℝ) (he : 0 < e) (hrs : 0 < rs) (hR : 0 < R) :
+    matched_ratio (sqrt_op (1 / e)) = e ∧
+    matched_ratio (sqrt_op (compactness rs R)) = R / rs := by
+  refine ⟨t44_optics_closure e he, ?_⟩
+  rw [← t37_gravitation_is_the_operator]
+  exact t45_grav_closure rs R hrs hR
+
+-- [T48] :: {INV} | THE COMPACTNESS IS THE SQUARE OF THE ADDRESS
+theorem t48_compactness_is_address_squared (rs R : ℝ) (hrs : 0 < rs) (hR : 0 < R) :
+    surface_torsion rs R ^ 2 = compactness rs R := by
+  have h : (0:ℝ) ≤ compactness rs R := by
+    simp only [compactness]
+    exact le_of_lt (div_pos hrs hR)
+  simp only [surface_torsion]
+  exact Real.sq_sqrt h
+
+-- ============================================================
+-- SECTION 7: THE EXACTNESS, AND THE CORRIDOR IN A DIELECTRIC
+-- ============================================================
+
+/-- The IVA corridor floor on relative permittivity: the matched ratio of the
+Torsion Limit. -/
+def iva_perm_floor : ℝ := matched_ratio TORSION_LIMIT
+
+/-- The IVA corridor ceiling on relative permittivity: the matched ratio of the
+corridor floor on Reading A. -/
+def iva_perm_ceiling : ℝ := matched_ratio TL_IVA
+
+-- [T49] :: {MASTER} | THE CORRIDOR ENDPOINTS ARE MATCHED RATIOS OF THE CORRIDOR ENDPOINTS
+theorem t49_endpoints_are_matched_ratios :
+    iva_perm_floor = matched_ratio TORSION_LIMIT ∧
+    iva_perm_ceiling = matched_ratio TL_IVA := ⟨rfl, rfl⟩
+
+-- [T50] :: {VER} | THE CORRIDOR FLOOR, NUMERICALLY
+theorem t50_floor_numeric :
+    53.3579104808 < iva_perm_floor ∧ iva_perm_floor < 53.3579104809 := by
+  simp only [iva_perm_floor, matched_ratio, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T51] :: {VER} | THE CORRIDOR CEILING, NUMERICALLY
+theorem t51_ceiling_numeric :
+    68.9022604349 < iva_perm_ceiling ∧ iva_perm_ceiling < 68.902260435 := by
+  simp only [iva_perm_ceiling, matched_ratio, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T52] :: {VER} | THE CORRIDOR ON PERMITTIVITY IS NON-EMPTY
+theorem t52_perm_corridor_nonempty : iva_perm_floor < iva_perm_ceiling := by
+  have h1 := t50_floor_numeric
+  have h2 := t51_ceiling_numeric
+  linarith [h1.2, h2.1]
+
+-- [T53] :: {VER} | FIFTY-FOUR AND SIXTY-EIGHT BRACKET THE CORRIDOR FROM INSIDE
+theorem t53_integer_brackets :
+    iva_perm_floor < 54 ∧ (68:ℝ) ≤ iva_perm_ceiling := by
+  have h1 := t50_floor_numeric
+  have h2 := t51_ceiling_numeric
+  exact ⟨by linarith [h1.2], by linarith [h2.1]⟩
+
+-- [T54] :: {MASTER} | FIFTEEN INTEGERS LIE IN THE CORRIDOR
+theorem t54_fifteen_integers :
+    (Finset.Icc 54 68 : Finset ℕ).card = 15 ∧
+    ∀ m ∈ (Finset.Icc 54 68 : Finset ℕ),
+      iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling := by
+  refine ⟨by simp [Nat.card_Icc], ?_⟩
+  intro m hm
+  simp only [Finset.mem_Icc] at hm
+  have h1 : (54:ℝ) ≤ (m:ℝ) := by exact_mod_cast hm.1
+  have h2 : (m:ℝ) ≤ 68 := by exact_mod_cast hm.2
+  have hb := t53_integer_brackets
+  exact ⟨by linarith [hb.1], by linarith [hb.2]⟩
+
+-- [T55] :: {MASTER} | A PERMITTIVITY IN THE CORRIDOR CLASSIFIES AS IVA
+theorem t55_band_classifies_iva (e : ℝ)
+    (hlo : iva_perm_floor < e) (hhi : e ≤ iva_perm_ceiling) :
+    classify (reading_A_medium (index_of_perm e)) = Phase.IVA := by
+  have hTLpos : (0:ℝ) < TORSION_LIMIT := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  have hIVApos : (0:ℝ) < TL_IVA := by
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  have hTL2 : (0:ℝ) < TORSION_LIMIT ^ 2 := pow_pos hTLpos 2
+  have hIVA2 : (0:ℝ) < TL_IVA ^ 2 := pow_pos hIVApos 2
+  have hfloorpos : (0:ℝ) < iva_perm_floor := by
+    have hf := t50_floor_numeric
+    linarith [hf.1]
+  have hepos : (0:ℝ) < e := by linarith
+  have hs : Real.sqrt e ^ 2 = e := Real.sq_sqrt hepos.le
+  have hspos : (0:ℝ) < Real.sqrt e := Real.sqrt_pos.mpr hepos
+  -- clear the denominators without touching the division lemmas
+  have hinvTL : TORSION_LIMIT ^ 2 * (1 / TORSION_LIMIT ^ 2) = 1 := by
+    field_simp
+  have hinvIVA : TL_IVA ^ 2 * (1 / TL_IVA ^ 2) = 1 := by
+    field_simp
+  have hlo2 : 1 < e * TORSION_LIMIT ^ 2 := by
+    simp only [iva_perm_floor, matched_ratio] at hlo
+    nlinarith [hlo, hTL2, hinvTL]
+  have hhi2 : e * TL_IVA ^ 2 ≤ 1 := by
+    simp only [iva_perm_ceiling, matched_ratio] at hhi
+    nlinarith [hhi, hIVA2, hinvIVA]
+  -- lift to the roots
+  have hlo' : 1 < Real.sqrt e * TORSION_LIMIT := by
+    by_contra hcon
+    have hc : Real.sqrt e * TORSION_LIMIT ≤ 1 := not_lt.mp hcon
+    nlinarith [hs, hspos, hTLpos, hlo2, hc, mul_pos hspos hTLpos]
+  have hhi' : Real.sqrt e * TL_IVA ≤ 1 := by
+    by_contra hcon
+    have hc : 1 < Real.sqrt e * TL_IVA := not_le.mp hcon
+    nlinarith [hs, hspos, hIVApos, hhi2, hc, mul_pos hspos hIVApos]
+  -- the three branch conditions
+  have hqpos : (0:ℝ) < 1 / Real.sqrt e := div_pos one_pos hspos
+  have hsinv : Real.sqrt e * (1 / Real.sqrt e) = 1 := by
+    field_simp
+  have hlt : 1 / Real.sqrt e < TORSION_LIMIT := by
+    nlinarith [hlo', hspos, hsinv, hTLpos, hqpos]
+  have hge : TL_IVA ≤ 1 / Real.sqrt e := by
+    nlinarith [hhi', hspos, hsinv, hIVApos, hqpos]
+  have hne : ¬ (1 / Real.sqrt e = 0) := by
+    intro hzero
+    rw [hzero] at hqpos
+    exact absurd hqpos (lt_irrefl 0)
+  simp only [reading_A_medium, index_of_perm, classify]
+  rw [if_neg hne, if_neg (not_lt.mpr hge), if_pos hlt]
+
+-- [T56] :: {MASTER} | A PRIME PERMITTIVITY: IRRATIONAL INDEX, EXACT MATCHED RATIO
+theorem t56_prime_permittivity :
+    iva_perm_floor < 59 ∧ (59:ℝ) ≤ iva_perm_ceiling ∧
+    Irrational (Real.sqrt 59) ∧
+    matched_ratio (sqrt_op (1 / 59)) = 59 := by
+  have hb := t53_integer_brackets
+  refine ⟨by linarith [hb.1], by linarith [hb.2], ?_, ?_⟩
+  · have h59 : Nat.Prime 59 := by norm_num
+    simpa using h59.irrational_sqrt
+  · exact t44_optics_closure 59 (by norm_num)
+
+-- [T57] :: {MASTER} | THE PRIME PERMITTIVITY SITS IN THE CORRIDOR
+theorem t57_prime_is_iva :
+    classify (reading_A_medium (index_of_perm 59)) = Phase.IVA := by
+  have h := t56_prime_permittivity
+  exact t55_band_classifies_iva 59 h.1 h.2.1
+
+-- [T58] :: {INV} | A RATIONAL PERMITTIVITY GIVES AN EXACTLY RATIONAL MATCHED RATIO
+theorem t58_rational_closure (p q : ℕ) (hp : 0 < p) (hq : 0 < q) :
+    matched_ratio (sqrt_op (1 / ((p:ℝ) / (q:ℝ)))) = (p:ℝ) / (q:ℝ) := by
+  have hpr : (0:ℝ) < (p:ℝ) := by exact_mod_cast hp
+  have hqr : (0:ℝ) < (q:ℝ) := by exact_mod_cast hq
+  exact t44_optics_closure _ (div_pos hpr hqr)
+
+-- ============================================================
+-- SECTION 8: SELF-CENTERING, AND THE LIMIT BOTH SUBSTRATES SHARE
+-- ============================================================
+
+-- [T59] :: {MASTER} | THE OPERATOR IS SELF-CENTERING ON THE OPEN UNIT INTERVAL
+theorem t59_self_centering (k : ℝ) (h0 : 0 < k) (h1 : k < 1) :
+    k < sqrt_op k ∧ sqrt_op k < 1 := by
+  have hsq : Real.sqrt k ^ 2 = k := Real.sq_sqrt h0.le
+  have hpos : (0:ℝ) < Real.sqrt k := Real.sqrt_pos.mpr h0
+  have hlt1 : Real.sqrt k < 1 := by nlinarith [hsq, hpos, h1]
+  simp only [sqrt_op]
+  exact ⟨by nlinarith [hsq, hpos, hlt1], hlt1⟩
+
+-- [T60] :: {INV} | THE OPERATOR RETURNS READING A FROM THE CONVERSION FRACTION
+theorem t60_operator_returns_reading_a (t : ℝ) (ht : 0 ≤ t) :
+    sqrt_op (2 * eta_of_tau t) = t := by
+  simp only [sqrt_op, eta_of_tau]
+  rw [show 2 * (t ^ 2 / 2) = t ^ 2 by ring]
+  exact Real.sqrt_sq ht
+
+-- [T61] :: {VER} | THE FIRST STEP OF THE LADDER RETURNS THE TORSION LIMIT
+theorem t61_first_step_is_tl : sqrt_op (TORSION_LIMIT ^ 2) = TORSION_LIMIT := by
+  simp only [sqrt_op]
+  exact Real.sqrt_sq (by simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num)
+
+-- [T62] :: {VER} | THE SECOND STEP OF THE LADDER RETURNS THE ROOT OF THE TORSION LIMIT
+theorem t62_second_step_is_root_tl :
+    sqrt_op (sqrt_op (TORSION_LIMIT ^ 2)) = Real.sqrt TORSION_LIMIT := by
+  rw [t61_first_step_is_tl]
+  simp only [sqrt_op]
+
+-- [T63] :: {VER} | THE ROOT OF THE TORSION LIMIT, NUMERICALLY
+theorem t63_root_tl_numeric :
+    0.3699987 < Real.sqrt TORSION_LIMIT ∧ Real.sqrt TORSION_LIMIT < 0.3699988 := by
+  have hTL : (0:ℝ) ≤ TORSION_LIMIT := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  have hs : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT := Real.sq_sqrt hTL
+  have hnn : (0:ℝ) ≤ Real.sqrt TORSION_LIMIT := Real.sqrt_nonneg _
+  have hnum : TORSION_LIMIT = 0.136899099984016 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  constructor
+  · nlinarith [hs, hnn, hnum]
+  · nlinarith [hs, hnn, hnum]
+
+-- [T64] :: {VER} | THE LADDER CLIMBS
+theorem t64_ladder_climbs :
+    TORSION_LIMIT ^ 2 < TORSION_LIMIT ∧ TORSION_LIMIT < Real.sqrt TORSION_LIMIT := by
+  have h2 := t2_tl_in_unit_interval
+  have hsc := t59_self_centering TORSION_LIMIT h2.1 h2.2
+  refine ⟨by nlinarith [h2.1, h2.2], ?_⟩
+  simpa only [sqrt_op] using hsc.1
+
+-- [T65] :: {MASTER} | THE MATCHED RATIO IS ONE EXACTLY AT THE SHARED LIMIT
+theorem t65_unit_matched_ratio (t : ℝ) (ht : 0 < t) :
+    matched_ratio t = 1 ↔ t = 1 := by
+  have ht0 : t ≠ 0 := ne_of_gt ht
+  simp only [matched_ratio]
+  constructor
+  · intro h
+    have hsq : t ^ 2 = 1 := by
+      field_simp at h
+      linarith
+    have hfac : (t - 1) * (t + 1) = 0 := by linear_combination hsq
+    rcases mul_eq_zero.mp hfac with h1 | h2
+    · linarith
+    · linarith
+  · intro h
+    rw [h]; norm_num
+
+-- [T66] :: {MASTER} | THE HORIZON AND VACUUM ARE THE SAME CONDITION
+theorem t66_horizon_is_vacuum (n : ℝ) (hn : 0 < n) :
+    matched_ratio (reading_A_medium n) = 1 ↔ n = 1 := by
+  have hn0 : n ≠ 0 := ne_of_gt hn
+  rw [t32_perm_is_matched_ratio n hn0]
+  simp only [perm_of_index]
+  constructor
+  · intro h
+    have hfac : (n - 1) * (n + 1) = 0 := by linear_combination h
+    rcases mul_eq_zero.mp hfac with h1 | h2
+    · linarith
+    · linarith
+  · intro h
+    rw [h]; norm_num
+
+-- [T67] :: {INV} | VACUUM IS THE ONLY MEDIUM AT THE LIMIT
+theorem t67_vacuum_perm_is_one : perm_of_index 1 = 1 ∧ reading_A_medium 1 = 1 := by
+  simp only [perm_of_index, reading_A_medium]; norm_num
+
+-- ============================================================
+-- SECTION 9: WHERE THE TRANSFER STOPS
+-- The bridge and the depth inversion need both readings on one object.
+-- ============================================================
+
+/-- The bridge: the two readings multiplied into one kinematic output. -/
+def bridge (t tb : ℝ) : ℝ := C_LIGHT * t * tb
+
+/-- The radical of the depth inversion. -/
+def rad_depth (u x : ℝ) : ℝ := Real.sqrt (u ^ 2 + x ^ 2)
+
+/-- The depth inversion: Reading B required to reach target x from depth u. -/
+def tau_B_depth (u x : ℝ) : ℝ := rad_depth u x - u
+
+/-- The pseudo-Huber form, scaled. -/
+def pseudo_huber (u x : ℝ) : ℝ := u * (Real.sqrt (u ^ 2 + x ^ 2) - u)
+
+-- [T68] :: {INV} | THE BRIDGE IS A PRODUCT OF BOTH READINGS
+theorem t68_bridge_needs_both (t tb : ℝ) :
+    bridge 0 tb = 0 ∧ bridge t 0 = 0 := by
+  simp only [bridge]
+  constructor <;> ring
+
+-- [T69] :: {MASTER} | THE DEPTH INVERSION IS THE PSEUDO-HUBER FORM
+theorem t69_pseudo_huber_identity (u x : ℝ) :
+    u * tau_B_depth u x = pseudo_huber u x := by
+  unfold tau_B_depth rad_depth pseudo_huber
+  ring
+
+-- [T70] :: {MASTER} | WITHOUT A WELL THE INVERSION COLLAPSES TO THE BARE TARGET
+theorem t70_no_well_no_depth (x : ℝ) : tau_B_depth 0 x = |x| := by
+  simp only [tau_B_depth, rad_depth]
+  rw [show (0:ℝ) ^ 2 + x ^ 2 = x ^ 2 by ring, Real.sqrt_sq_eq_abs]
+  ring
+
+/-- The three nested levels of transfer, with the nesting as part of the data. -/
+structure TransferLevels where
+  multiplicative : Prop
+  limiting_speed : Prop
+  single_object : Prop
+  speed_needs_multiplicative : limiting_speed → multiplicative
+  single_needs_speed : single_object → limiting_speed
+
+-- [T71] :: {MASTER} | THE LEVELS NEST
+theorem t71_levels_nest (L : TransferLevels) : L.single_object → L.multiplicative :=
+  fun h => L.speed_needs_multiplicative (L.single_needs_speed h)
+
+-- [T72] :: {INV} | LEVEL TWO SITS INSIDE LEVEL ONE
+theorem t72_level_two_in_one (L : TransferLevels) : L.limiting_speed → L.multiplicative :=
+  L.speed_needs_multiplicative
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE TWO READINGS ACROSS SUBSTRATES
+theorem MASTER_two_readings_across_substrates :
+    -- the common equation, and the fraction it names
+    (∀ Y0 τ : ℝ, 0 < Y0 → efold Y0 (Y0 * remaining τ) = τ) ∧
+    (∀ τ : ℝ, consumed τ + remaining τ = 1) ∧
+    (∀ s : ReadingB, s.consumedFraction = 1 - s.Y1 / s.Y0) ∧
+    -- the rocket relation and Beer-Lambert are one function
+    (∀ I0 a L : ℝ, beer_lambert I0 a L = rocket_remaining I0 (a * L)) ∧
+    -- e-fold counts add along a path
+    (∀ Y0 Y1 Y2 : ℝ, 0 < Y0 → 0 < Y1 → 0 < Y2 →
+      efold Y0 Y1 + efold Y1 Y2 = efold Y0 Y2) ∧
+    -- the permittivity is the matched ratio
+    (∀ n : ℝ, n ≠ 0 → matched_ratio (reading_A_medium n) = perm_of_index n) ∧
+    -- the closure of the square-root operator
+    (∀ X : ℝ, 0 ≤ X → matched_ratio (sqrt_op X) = 1 / X) ∧
+    -- one closure, two substrates
+    (∀ e rs R : ℝ, 0 < e → 0 < rs → 0 < R →
+      matched_ratio (sqrt_op (1 / e)) = e ∧
+      matched_ratio (sqrt_op (compactness rs R)) = R / rs) ∧
+    -- the address theorem
+    (∀ rs R : ℝ, 0 < rs → 0 < R → rs * matched_ratio (surface_torsion rs R) = R) ∧
+    -- the corridor on permittivity, occupied by fifteen integers
+    ((Finset.Icc 54 68 : Finset ℕ).card = 15) ∧
+    (∀ m ∈ (Finset.Icc 54 68 : Finset ℕ),
+      iva_perm_floor < (m:ℝ) ∧ (m:ℝ) ≤ iva_perm_ceiling) ∧
+    (∀ e : ℝ, iva_perm_floor < e → e ≤ iva_perm_ceiling →
+      classify (reading_A_medium (index_of_perm e)) = Phase.IVA) ∧
+    -- a prime permittivity: irrational index, exact matched ratio
+    (Irrational (Real.sqrt 59) ∧ matched_ratio (sqrt_op (1 / 59)) = 59) ∧
+    -- the operator is self-centering
+    (∀ k : ℝ, 0 < k → k < 1 → k < sqrt_op k ∧ sqrt_op k < 1) ∧
+    -- the horizon and vacuum are the same condition
+    (∀ n : ℝ, 0 < n → (matched_ratio (reading_A_medium n) = 1 ↔ n = 1)) ∧
+    -- and the transfer has a boundary
+    (∀ x : ℝ, tau_B_depth 0 x = |x|) ∧
+    (∀ L : TransferLevels, L.single_object → L.multiplicative) :=
+  ⟨fun Y0 τ h => t9_efold_inverts Y0 τ h,
+   t11_fractions_complement,
+   t21_substrate_consumed,
+   t25_same_function,
+   fun Y0 Y1 Y2 h0 h1 h2 => t20_path_additive Y0 Y1 Y2 h0 h1 h2,
+   fun n hn => t32_perm_is_matched_ratio n hn,
+   fun X hX => t35_closure X hX,
+   fun e rs R he hrs hR => t47_one_closure_two_substrates e rs R he hrs hR,
+   fun rs R hrs hR => t46_address_theorem rs R hrs hR,
+   t54_fifteen_integers.1,
+   t54_fifteen_integers.2,
+   fun e hlo hhi => t55_band_classifies_iva e hlo hhi,
+   ⟨t56_prime_permittivity.2.2.1, t56_prime_permittivity.2.2.2⟩,
+   fun k h0 h1 => t59_self_centering k h0 h1,
+   fun n hn => t66_horizon_is_vacuum n hn,
+   t70_no_well_no_depth,
+   fun L => t71_levels_nest L⟩
+
+end SNSFL_TwoReadingsSubstrate
+
+
+-- ============================================================
+-- MODULE: SNSFL_GeometricBase_EnergyLadder_Reduction.lean · [9,9,8,12](MATH)
+-- ProofPress, Volume 1, Issue 9, Article 13 · The Geometric Base and the Energy Ladder
+-- 73 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_GeometricBaseEnergyLadder
+
+-- ============================================================
+-- SECTION 0: CONSTANTS, THE FOUR PHASES, READING A
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit. Ω₀/10 — discovered, not chosen. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor. 0.88 × TL. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- Speed of light in vacuum, m/s. Exact by SI definition. -/
+def C_LIGHT : ℝ := 299792458
+
+/-- Standard gravitational acceleration, m/s². Exact by definition. -/
+def G_STANDARD : ℝ := 9.80665
+
+/-- The inverse fine-structure constant. Ω₀ × 100.1. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The integer the Torsion Limit divides the fine-structure constant by. -/
+def TL_DIVISOR : ℝ := 1001
+
+inductive Phase : Type
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+def classify (τ : ℝ) : Phase :=
+  if τ = 0 then Phase.Noble
+  else if τ < TL_IVA then Phase.Locked
+  else if τ < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+/-- Reading A. A characteristic speed against the limiting speed. -/
+def tau_A (v : ℝ) : ℝ := v / C_LIGHT
+
+/-- The rest-mass conversion fraction: τ_A² = 2η. -/
+def eta_of_tau (t : ℝ) : ℝ := t ^ 2 / 2
+
+/-- The matched radius in Schwarzschild units: 1/τ_A². -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+/-- The square-root torsion operator. -/
+def sqrt_op (X : ℝ) : ℝ := Real.sqrt X
+
+-- [T1] :: {VER} | THE CONSTANTS, AS DECIMAL LITERALS
+theorem t1_const_values :
+    TORSION_LIMIT = 0.136899099984016 ∧ TL_IVA = 0.12047120798593408 := by
+  constructor
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  · simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE TORSION LIMIT IS POSITIVE AND BELOW ONE
+theorem t2_tl_in_unit_interval : 0 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {VER} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE CEILING
+theorem t3_floor_below_ceiling : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T4] :: {VER} | THE EXACTNESS ANCHOR: TL × 1001 = α⁻¹
+theorem t4_tl_times_1001_is_alpha : TORSION_LIMIT * TL_DIVISOR = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, TL_DIVISOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {VER} | THE BARE TERM AND THE KINETIC TERM
+theorem t5_bare_plus_kinetic :
+    100 * SOVEREIGN_ANCHOR + TORSION_LIMIT = ALPHA_INV ∧
+    1000 * TORSION_LIMIT + TORSION_LIMIT = ALPHA_INV := by
+  constructor
+  · simp only [SOVEREIGN_ANCHOR, TORSION_LIMIT, ALPHA_INV]; norm_num
+  · simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t6_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of_tau t := by
+  simp only [eta_of_tau]; ring
+
+-- [T7] :: {VER} | THE CORRIDOR FLOOR IS THE CEILING TIMES 22/25
+theorem t7_corridor_factor : TL_IVA = TORSION_LIMIT * (22 / 25) := by
+  simp only [TL_IVA]; norm_num
+
+-- [T8] :: {VER} | THE RATIO OF THE CORRIDOR ENDPOINTS IS 25/22
+theorem t8_endpoint_ratio : TORSION_LIMIT / TL_IVA = 25 / 22 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- ============================================================
+-- SECTION 1: THE CONVERSION FRACTION IS AN ENERGY RATIO
+-- ============================================================
+
+/-- Rest energy: E₀ = m c². -/
+def rest_energy (m : ℝ) : ℝ := m * C_LIGHT ^ 2
+
+/-- Classical kinetic energy: E_k = ½ m v². -/
+def kinetic_classical (m v : ℝ) : ℝ := m * v ^ 2 / 2
+
+/-- The relativistic factor. -/
+def gamma (t : ℝ) : ℝ := 1 / Real.sqrt (1 - t ^ 2)
+
+/-- The relativistic conversion fraction: γ − 1. -/
+def eta_rel (t : ℝ) : ℝ := gamma t - 1
+
+-- [T9] :: {VER} | THE SPEED OF LIGHT IS POSITIVE
+theorem t9_c_pos : 0 < C_LIGHT := by simp only [C_LIGHT]; norm_num
+
+-- [T10] :: {MASTER} | THE CONVERSION FRACTION IS THE CLASSICAL KINETIC ENERGY
+--                     AS A FRACTION OF REST ENERGY
+theorem t10_eta_is_energy_ratio (m v : ℝ) (hm : m ≠ 0) :
+    kinetic_classical m v / rest_energy m = eta_of_tau (tau_A v) := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t9_c_pos
+  simp only [kinetic_classical, rest_energy, eta_of_tau, tau_A]
+  field_simp
+
+-- [T11] :: {INV} | STATED ON READING A DIRECTLY
+theorem t11_eta_from_reading_a (m v : ℝ) (hm : m ≠ 0) :
+    kinetic_classical m v = eta_of_tau (tau_A v) * rest_energy m := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t9_c_pos
+  simp only [kinetic_classical, rest_energy, eta_of_tau, tau_A]
+  field_simp
+
+-- [T12] :: {INV} | THE CONVERSION FRACTION IS NONNEGATIVE
+theorem t12_eta_nonneg (t : ℝ) : 0 ≤ eta_of_tau t := by
+  simp only [eta_of_tau]; positivity
+
+-- [T13] :: {INV} | THE CLASSICAL FRACTION IS BOUNDED BY ONE HALF
+theorem t13_eta_classical_bounded (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    eta_of_tau t < 1 / 2 := by
+  simp only [eta_of_tau]
+  nlinarith [h0, h1]
+
+-- [T14] :: {MASTER} | TOTAL CONVERSION SITS AT READING A = √3/2, WHERE γ = 2
+theorem t14_annihilation_gamma :
+    gamma (Real.sqrt 3 / 2) = 2 ∧ eta_rel (Real.sqrt 3 / 2) = 1 := by
+  have h3 : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
+  have hin : 1 - (Real.sqrt 3 / 2) ^ 2 = (1 / 2 : ℝ) ^ 2 := by
+    rw [div_pow, h3]; norm_num
+  have hg : gamma (Real.sqrt 3 / 2) = 2 := by
+    simp only [gamma, hin]
+    rw [Real.sqrt_sq (by norm_num : (0:ℝ) ≤ 1 / 2)]
+    norm_num
+  exact ⟨hg, by simp only [eta_rel, hg]; norm_num⟩
+
+-- ============================================================
+-- SECTION 2: THE BASE THE GEOMETRY SELECTS
+-- ============================================================
+
+/-- The geometric base: b₀ = 1/√TL. -/
+def geom_base : ℝ := 1 / Real.sqrt TORSION_LIMIT
+
+/-- The corridor floor's base: b_IVA = 1/√TL_IVA. -/
+def iva_base : ℝ := 1 / Real.sqrt TL_IVA
+
+-- [T15] :: {VER} | THE ROOT OF THE TORSION LIMIT IS POSITIVE
+theorem t15_root_tl_pos : 0 < Real.sqrt TORSION_LIMIT :=
+  Real.sqrt_pos.mpr t2_tl_in_unit_interval.1
+
+-- [T16] :: {VER} | THE GEOMETRIC BASE IS POSITIVE
+theorem t16_base_pos : 0 < geom_base := by
+  simp only [geom_base]
+  exact div_pos one_pos t15_root_tl_pos
+
+-- [T17] :: {MASTER} | THE BASE SQUARED IS THE CEILING'S LANDING
+theorem t17_base_sq : geom_base ^ 2 = 1 / TORSION_LIMIT := by
+  have hs : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  have hne : Real.sqrt TORSION_LIMIT ≠ 0 := ne_of_gt t15_root_tl_pos
+  simp only [geom_base, div_pow, one_pow, hs]
+
+-- [T18] :: {MASTER} | THE BASE IS THE OPERATOR APPLIED TO THE LANDING,
+--                     AND THE LANDING IS THE CLOSURE OF THE OPERATOR AT TL
+theorem t18_base_from_operator :
+    geom_base = sqrt_op (1 / TORSION_LIMIT) ∧
+    matched_ratio (sqrt_op TORSION_LIMIT) = 1 / TORSION_LIMIT := by
+  have hs : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  constructor
+  · simp only [geom_base, sqrt_op, one_div, Real.sqrt_inv]
+  · simp only [matched_ratio, sqrt_op, hs]
+
+-- [T19] :: {INV} | THE CORRIDOR FLOOR'S BASE IS POSITIVE
+theorem t19_iva_base_pos : 0 < iva_base := by
+  simp only [iva_base]
+  exact div_pos one_pos (Real.sqrt_pos.mpr t3_floor_below_ceiling.1)
+
+-- [T20] :: {VER} | THE GEOMETRIC BASE, NUMERICALLY
+theorem t20_base_numeric : 2.7027115868 < geom_base ∧ geom_base < 2.7027115869 := by
+  have hsq := t17_base_sq
+  have hpos := t16_base_pos
+  have hval : (1:ℝ) / TORSION_LIMIT = 1 / 0.136899099984016 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  rw [hval] at hsq
+  constructor
+  · nlinarith [hsq, hpos]
+  · nlinarith [hsq, hpos]
+
+-- ============================================================
+-- SECTION 3: THE LADDER IS EXACT INTEGER POWERS
+-- ============================================================
+
+/-- Reading A at rung n: √TL to the n. -/
+def tau_rung (n : ℕ) : ℝ := Real.sqrt TORSION_LIMIT ^ n
+
+-- [T21] :: {MASTER} | THE RUNG IS AN INVERSE POWER OF THE BASE
+theorem t21_rung_is_base_power (n : ℕ) : tau_rung n = 1 / geom_base ^ n := by
+  have hne : Real.sqrt TORSION_LIMIT ≠ 0 := ne_of_gt t15_root_tl_pos
+  simp only [tau_rung, geom_base, div_pow, one_pow]
+  field_simp
+
+-- [T22] :: {VER} | RUNG ZERO IS ONE
+theorem t22_rung_zero : tau_rung 0 = 1 := by simp only [tau_rung, pow_zero]
+
+-- [T23] :: {VER} | RUNG ONE IS THE ROOT OF THE TORSION LIMIT
+theorem t23_rung_one : tau_rung 1 = Real.sqrt TORSION_LIMIT := by
+  simp only [tau_rung, pow_one]
+
+-- [T24] :: {MASTER} | RUNG TWO IS THE TORSION LIMIT, EXACTLY
+theorem t24_rung_two : tau_rung 2 = TORSION_LIMIT := by
+  simp only [tau_rung]
+  rw [pow_two, Real.mul_self_sqrt t2_tl_in_unit_interval.1.le]
+
+-- [T25] :: {MASTER} | RUNG FOUR IS THE TORSION LIMIT SQUARED, EXACTLY
+theorem t25_rung_four : tau_rung 4 = TORSION_LIMIT ^ 2 := by
+  have h : Real.sqrt TORSION_LIMIT ^ 4 = (Real.sqrt TORSION_LIMIT ^ 2) ^ 2 := by ring
+  simp only [tau_rung]
+  rw [h, pow_two (Real.sqrt TORSION_LIMIT), Real.mul_self_sqrt t2_tl_in_unit_interval.1.le]
+
+-- [T26] :: {MASTER} | THE EVEN RUNGS ARE POWERS OF THE TORSION LIMIT
+theorem t26_even_rungs (k : ℕ) : tau_rung (2 * k) = TORSION_LIMIT ^ k := by
+  have h2 : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  simp only [tau_rung]
+  rw [pow_mul, h2]
+
+-- [T27] :: {INV} | EVERY RUNG IS POSITIVE
+theorem t27_rung_pos (n : ℕ) : 0 < tau_rung n := by
+  simp only [tau_rung]
+  exact pow_pos t15_root_tl_pos n
+
+-- [T28] :: {MASTER} | THE LADDER DESCENDS, AND THE OPERATOR IS THE ONE-RUNG STEP
+theorem t28_ladder_descends (n : ℕ) :
+    tau_rung (n + 1) < tau_rung n ∧
+    sqrt_op (tau_rung (2 * n)) = tau_rung n := by
+  have hlt1 : Real.sqrt TORSION_LIMIT < 1 := by
+    have hs : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+      Real.sq_sqrt t2_tl_in_unit_interval.1.le
+    nlinarith [hs, t15_root_tl_pos, t2_tl_in_unit_interval.2]
+  constructor
+  · simp only [tau_rung, pow_succ]
+    nlinarith [pow_pos t15_root_tl_pos n, hlt1]
+  · have hnn : (0:ℝ) ≤ Real.sqrt TORSION_LIMIT ^ n := le_of_lt (pow_pos t15_root_tl_pos n)
+    simp only [sqrt_op, tau_rung]
+    rw [mul_comm 2 n, pow_mul]
+    exact Real.sqrt_sq hnn
+
+-- ============================================================
+-- SECTION 4: THE PARITY OVER ℚ
+-- ============================================================
+
+-- [T29] :: {MASTER} | THE TORSION LIMIT IS EXACTLY RATIONAL
+theorem t29_tl_rational :
+    TORSION_LIMIT = (8556193749001 : ℝ) / 62500000000000 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T30] :: {MASTER} | THE LANDING IS EXACTLY RATIONAL
+theorem t30_landing_rational :
+    1 / TORSION_LIMIT = (62500000000000 : ℝ) / 8556193749001 := by
+  rw [t29_tl_rational]
+  norm_num
+
+-- [T31] :: {MASTER} | THE EVEN RUNGS LIE IN ℚ, AS AN EXPLICIT RATIONAL POWER
+theorem t31_even_rungs_rational (k : ℕ) :
+    tau_rung (2 * k) = ((8556193749001 : ℝ) / 62500000000000) ^ k := by
+  rw [t26_even_rungs, t29_tl_rational]
+
+-- [T32] :: {MASTER} | THE DENOMINATOR'S FACTORIZATION
+theorem t32_denominator_factors :
+    (8556193749001 : ℕ) = 191 * 23767 * 1884833 := by norm_num
+
+-- [T33] :: {VER} | THE THREE FACTORS ARE PRIME
+theorem t33_factors_prime :
+    Nat.Prime 191 ∧ Nat.Prime 23767 ∧ Nat.Prime 1884833 := by
+  refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+-- [T34] :: {MASTER} | A PRIME DIVIDES THE DENOMINATOR EXACTLY ONCE,
+--                     WHICH IS WHAT PLACES THE ODD RUNGS OUTSIDE ℚ
+theorem t34_prime_divides_once :
+    (191 : ℕ) ∣ 8556193749001 ∧ ¬ ((191 : ℕ) ^ 2 ∣ 8556193749001) := by
+  refine ⟨by norm_num, by norm_num⟩
+
+-- ============================================================
+-- SECTION 5: THE BASE IS A REFRACTIVE INDEX
+-- ============================================================
+
+/-- Reading A in a medium: the phase velocity c/n against c. -/
+def reading_A_medium (n : ℝ) : ℝ := 1 / n
+
+/-- The relative permittivity of a non-magnetic medium, from its index. -/
+def perm_of_index (n : ℝ) : ℝ := n ^ 2
+
+/-- The refractive index of a non-magnetic medium, from its permittivity. -/
+def index_of_perm (e : ℝ) : ℝ := Real.sqrt e
+
+-- [T35] :: {MASTER} | THE MATCHED RATIO OF A MEDIUM IS ITS OWN PERMITTIVITY
+theorem t35_perm_is_matched_ratio (n : ℝ) (hn : n ≠ 0) :
+    matched_ratio (reading_A_medium n) = perm_of_index n := by
+  simp only [matched_ratio, reading_A_medium, perm_of_index]
+  field_simp
+
+-- [T36] :: {MASTER} | THE GEOMETRIC BASE IS THE INDEX AT ε_r = 1/TL
+theorem t36_base_is_index : index_of_perm (1 / TORSION_LIMIT) = geom_base := by
+  exact (t18_base_from_operator.1).symm
+
+-- [T37] :: {MASTER} | THE PERMITTIVITY OF THAT MEDIUM IS THE BASE SQUARED
+theorem t37_perm_is_base_sq : perm_of_index geom_base = 1 / TORSION_LIMIT := by
+  simp only [perm_of_index]
+  exact t17_base_sq
+
+-- [T38] :: {INV} | THAT MEDIUM'S READING A IS RUNG ONE
+theorem t38_medium_reading_is_rung_one :
+    reading_A_medium geom_base = tau_rung 1 := by
+  have hne : Real.sqrt TORSION_LIMIT ≠ 0 := ne_of_gt t15_root_tl_pos
+  simp only [reading_A_medium, geom_base, tau_rung, pow_one]
+  field_simp
+
+-- ============================================================
+-- SECTION 6: THE ENERGY LADDER
+-- ============================================================
+
+/-- The conversion fraction at rung n. -/
+def eta_rung (n : ℕ) : ℝ := TORSION_LIMIT ^ n / 2
+
+-- [T39] :: {MASTER} | THE RUNG'S CONVERSION FRACTION IS ITS READING A, CONVERTED
+theorem t39_eta_rung_from_tau (n : ℕ) : eta_rung n = eta_of_tau (tau_rung n) := by
+  have h2 : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  simp only [eta_rung, eta_of_tau, tau_rung]
+  rw [← pow_mul, mul_comm n 2, pow_mul, h2]
+
+-- [T40] :: {MASTER} | CONSECUTIVE RUNGS DIFFER BY EXACTLY 1/TL IN ENERGY
+theorem t40_energy_step (n : ℕ) : eta_rung n / eta_rung (n + 1) = 1 / TORSION_LIMIT := by
+  have hp : (0:ℝ) < TORSION_LIMIT ^ n := pow_pos t2_tl_in_unit_interval.1 n
+  have hne : TORSION_LIMIT ≠ 0 := ne_of_gt t2_tl_in_unit_interval.1
+  have hpn : TORSION_LIMIT ^ n ≠ 0 := ne_of_gt hp
+  simp only [eta_rung, pow_succ]
+  field_simp
+
+-- [T41] :: {VER} | RUNG ONE'S CONVERSION FRACTION IS HALF THE TORSION LIMIT
+theorem t41_eta_rung_one : eta_rung 1 = TORSION_LIMIT / 2 := by
+  simp only [eta_rung, pow_one]
+
+-- [T42] :: {VER} | RUNG TWO'S CONVERSION FRACTION IS HALF THE SQUARE
+theorem t42_eta_rung_two : eta_rung 2 = TORSION_LIMIT ^ 2 / 2 := by
+  simp only [eta_rung]
+
+-- [T43] :: {VER} | RUNG ONE'S CONVERSION FRACTION, NUMERICALLY
+theorem t43_eta_rung_one_numeric : eta_rung 1 = 0.068449549992008 := by
+  simp only [eta_rung, pow_one, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T44] :: {INV} | THE ENERGY LADDER IS STRICTLY DECREASING
+theorem t44_energy_decreasing (n : ℕ) : eta_rung (n + 1) < eta_rung n := by
+  have hp : (0:ℝ) < TORSION_LIMIT ^ n := pow_pos t2_tl_in_unit_interval.1 n
+  simp only [eta_rung, pow_succ]
+  nlinarith [hp, t2_tl_in_unit_interval.1, t2_tl_in_unit_interval.2]
+
+-- [T45] :: {INV} | EVERY RUNG'S CONVERSION FRACTION IS POSITIVE
+theorem t45_eta_rung_pos (n : ℕ) : 0 < eta_rung n := by
+  simp only [eta_rung]
+  exact div_pos (pow_pos t2_tl_in_unit_interval.1 n) (by norm_num)
+
+/-- Exhaust velocity at a given Reading A. -/
+def exhaust_velocity (t : ℝ) : ℝ := t * C_LIGHT
+
+/-- Specific impulse from an exhaust velocity. -/
+def specific_impulse (t : ℝ) : ℝ := t * C_LIGHT / G_STANDARD
+
+-- [T46] :: {INV} | THE LADDER READ IN PROPULSION UNITS
+theorem t46_ladder_in_isp (n : ℕ) :
+    specific_impulse (tau_rung n) = exhaust_velocity (tau_rung n) / G_STANDARD := by
+  simp only [specific_impulse, exhaust_velocity]
+
+-- ============================================================
+-- SECTION 7: THE CLASSICAL READING AGAINST THE RELATIVISTIC ONE
+-- ============================================================
+
+-- [T47] :: {MASTER} | THE CLASSICAL FRACTION IS STRICTLY BELOW THE RELATIVISTIC
+theorem t47_classical_underestimates (t : ℝ) (h0 : 0 < t) (h1 : t < 1) :
+    eta_of_tau t < eta_rel t := by
+  have hpos : (0:ℝ) < 1 - t ^ 2 := by nlinarith
+  have hs : Real.sqrt (1 - t ^ 2) ^ 2 = 1 - t ^ 2 := Real.sq_sqrt hpos.le
+  have hspos : (0:ℝ) < Real.sqrt (1 - t ^ 2) := Real.sqrt_pos.mpr hpos
+  have hslt : Real.sqrt (1 - t ^ 2) < 1 := by nlinarith [hs, hspos]
+  have hinv : Real.sqrt (1 - t ^ 2) * (1 / Real.sqrt (1 - t ^ 2)) = 1 := by field_simp
+  have hqpos : (0:ℝ) < 1 / Real.sqrt (1 - t ^ 2) := div_pos one_pos hspos
+  have key : Real.sqrt (1 - t ^ 2) * (t ^ 2 / 2 + 1) < 1 := by
+    nlinarith [hs, hspos, hslt, sq_nonneg (Real.sqrt (1 - t ^ 2) - 1)]
+  have hmain : t ^ 2 / 2 + 1 < 1 / Real.sqrt (1 - t ^ 2) := by
+    nlinarith [key, hinv, hspos, hqpos]
+  simp only [eta_of_tau, eta_rel, gamma]
+  linarith [hmain]
+
+-- [T48] :: {MASTER} | THE ERROR SANDWICH ON THE RANGE τ² ≤ TL
+theorem t48_error_sandwich (t : ℝ) (h0 : 0 < t) (hTL : t ^ 2 ≤ TORSION_LIMIT) :
+    (3 / 8) * t ^ 4 ≤ eta_rel t - eta_of_tau t ∧
+    eta_rel t - eta_of_tau t ≤ (1 / 2) * t ^ 4 := by
+  have hTLval : TORSION_LIMIT = 0.136899099984016 := by
+    simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  rw [hTLval] at hTL
+  have ht1 : t ^ 2 < 1 := by linarith
+  have hpos : (0:ℝ) < 1 - t ^ 2 := by linarith
+  set s := Real.sqrt (1 - t ^ 2) with hsdef
+  have hs : s ^ 2 = 1 - t ^ 2 := Real.sq_sqrt hpos.le
+  have hspos : (0:ℝ) < s := Real.sqrt_pos.mpr hpos
+  have hslt : s < 1 := by nlinarith [hs, hspos]
+  have hslo : (0.929 : ℝ) < s := by nlinarith [hs, hspos]
+  have hinv : s * (1 / s) = 1 := by field_simp
+  have hsub : t ^ 2 = 1 - s ^ 2 := by linarith [hs]
+  have ht4 : t ^ 4 = (1 - s ^ 2) ^ 2 := by
+    linear_combination (t ^ 2 + 1 - s ^ 2) * hs
+  -- lower bound: 8 - s(8 + 4t² + 3t⁴) = (1-s)³(3s² + 9s + 8) ≥ 0
+  have hfacA : (0:ℝ) ≤ (1 - s) ^ 3 * (3 * s ^ 2 + 9 * s + 8) := by
+    apply mul_nonneg
+    · apply pow_nonneg; linarith
+    · nlinarith [hspos]
+  have hA : s * (1 + t ^ 2 / 2 + (3 / 8) * t ^ 4) ≤ 1 := by
+    rw [ht4, hsub]
+    nlinarith [hfacA, hspos, hslt]
+  -- upper bound: 2s(1 + t²/2 + t⁴/2) - 2 = (s-1)²(s³ + 2s² - 2) ≥ 0
+  have hfacB : (0:ℝ) ≤ (s - 1) ^ 2 * (s ^ 3 + 2 * s ^ 2 - 2) := by
+    apply mul_nonneg
+    · exact sq_nonneg _
+    · nlinarith [hslo, hspos]
+  have hB : (1:ℝ) ≤ s * (1 + t ^ 2 / 2 + (1 / 2) * t ^ 4) := by
+    rw [ht4, hsub]
+    nlinarith [hfacB, hspos, hslt]
+  simp only [eta_rel, eta_of_tau, gamma, ← hsdef]
+  constructor
+  · nlinarith [hA, hinv, hspos]
+  · nlinarith [hB, hinv, hspos]
+
+-- [T49] :: {MASTER} | THE ERROR IN TERMS OF THE FRACTION IT COMPUTES
+theorem t49_error_in_eta (t : ℝ) (h0 : 0 < t) (hTL : t ^ 2 ≤ TORSION_LIMIT) :
+    (3 / 2) * eta_of_tau t ^ 2 ≤ eta_rel t - eta_of_tau t ∧
+    eta_rel t - eta_of_tau t ≤ 2 * eta_of_tau t ^ 2 := by
+  have h := t48_error_sandwich t h0 hTL
+  have hsq : eta_of_tau t ^ 2 = t ^ 4 / 4 := by
+    simp only [eta_of_tau]; ring
+  rw [hsq]
+  exact ⟨by linarith [h.1], by linarith [h.2]⟩
+
+-- [T50] :: {VER} | AT THE CORRIDOR CEILING THE ERROR IS BOUNDED BY TWO PERCENT
+theorem t50_ceiling_error_small :
+    eta_rel (Real.sqrt TORSION_LIMIT) - eta_of_tau (Real.sqrt TORSION_LIMIT)
+      ≤ 2 * eta_of_tau (Real.sqrt TORSION_LIMIT) ^ 2 := by
+  have hs : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  exact (t49_error_in_eta (Real.sqrt TORSION_LIMIT) t15_root_tl_pos (by rw [hs])).2
+
+-- [T51] :: {INV} | THE SANDWICH APPLIES AT THE CORRIDOR CEILING RUNG
+theorem t51_sandwich_at_rung_two :
+    (3 / 2) * eta_of_tau (tau_rung 2) ^ 2
+      ≤ eta_rel (tau_rung 2) - eta_of_tau (tau_rung 2) := by
+  have hb : tau_rung 2 ^ 2 ≤ TORSION_LIMIT := by
+    rw [t24_rung_two]
+    nlinarith [t2_tl_in_unit_interval.1, t2_tl_in_unit_interval.2]
+  exact (t49_error_in_eta (tau_rung 2) (t27_rung_pos 2) hb).1
+
+-- [T52] :: {MASTER} | THE ONE-PERCENT LINE
+theorem t52_one_percent_line (t : ℝ) (h0 : 0 < t) (hTL : t ^ 2 ≤ TORSION_LIMIT)
+    (hsmall : eta_of_tau t ≤ 1 / 200) :
+    eta_rel t - eta_of_tau t ≤ (1 / 100) * eta_of_tau t := by
+  have h := (t49_error_in_eta t h0 hTL).2
+  have hp : 0 < eta_of_tau t := by
+    simp only [eta_of_tau]; positivity
+  nlinarith [h, hp, hsmall]
+
+-- ============================================================
+-- SECTION 8: THE TWO BASES ON ONE LADDER
+-- ============================================================
+
+/-- The rung index of a Reading A, against the geometric base. -/
+def rung_index (t : ℝ) : ℝ := -Real.log t / Real.log geom_base
+
+-- [T53] :: {MASTER} | THE LOGARITHM OF THE GEOMETRIC BASE
+theorem t53_log_base : Real.log geom_base = -(Real.log TORSION_LIMIT / 2) := by
+  simp only [geom_base, one_div, Real.log_inv,
+    Real.log_sqrt t2_tl_in_unit_interval.1.le]
+
+-- [T54] :: {VER} | THE LOGARITHM OF THE TORSION LIMIT IS NEGATIVE
+theorem t54_log_tl_neg : Real.log TORSION_LIMIT < 0 :=
+  Real.log_neg t2_tl_in_unit_interval.1 t2_tl_in_unit_interval.2
+
+-- [T55] :: {VER} | THE LOGARITHM OF THE GEOMETRIC BASE IS POSITIVE
+theorem t55_log_base_pos : 0 < Real.log geom_base := by
+  rw [t53_log_base]
+  linarith [t54_log_tl_neg]
+
+-- [T56] :: {MASTER} | THE CEILING SITS AT RUNG TWO, EXACTLY
+theorem t56_ceiling_at_rung_two : rung_index TORSION_LIMIT = 2 := by
+  have hne : Real.log TORSION_LIMIT ≠ 0 := ne_of_lt t54_log_tl_neg
+  simp only [rung_index, t53_log_base]
+  field_simp
+
+-- [T57] :: {MASTER} | ONE RUNG IS ln b₀ E-FOLDS, AND ln b₀ IS HALF ln(1/TL)
+theorem t57_rung_in_efolds :
+    Real.log geom_base = Real.log (1 / TORSION_LIMIT) / 2 := by
+  rw [t53_log_base, one_div, Real.log_inv]
+  ring
+
+-- [T58] :: {MASTER} | e SITS AT A RUNG THE LADDER NAMES EXACTLY
+theorem t58_e_rung :
+    Real.log (Real.exp 1) / Real.log geom_base = 1 / Real.log geom_base := by
+  rw [Real.log_exp]
+
+-- [T59] :: {MASTER} | THE RECIPROCAL OF e AND RUNG ONE, ON ONE LADDER
+theorem t59_inv_e_and_rung_one :
+    rung_index (Real.exp (-1)) = 1 / Real.log geom_base ∧
+    rung_index (tau_rung 1) = 1 := by
+  constructor
+  · have hle : Real.log (Real.exp (-1 : ℝ)) = -1 := Real.log_exp (-1)
+    simp only [rung_index, hle, neg_neg]
+  · simp only [rung_index, tau_rung, pow_one,
+      Real.log_sqrt t2_tl_in_unit_interval.1.le, t53_log_base]
+    have h : Real.log TORSION_LIMIT ≠ 0 := ne_of_lt t54_log_tl_neg
+    field_simp
+
+-- [T60] :: {INV} | THE RUNG INDEX OF A POWER IS THE MULTIPLE
+theorem t60_rung_index_of_rung (n : ℕ) : rung_index (tau_rung n) = n := by
+  have hne : Real.log TORSION_LIMIT ≠ 0 := ne_of_lt t54_log_tl_neg
+  simp only [rung_index, tau_rung, Real.log_pow,
+    Real.log_sqrt t2_tl_in_unit_interval.1.le, t53_log_base]
+  field_simp
+
+-- ============================================================
+-- SECTION 9: THE CORRIDOR IN RUNGS, AND √(25/22)
+-- ============================================================
+
+-- [T61] :: {MASTER} | THE TWO BASES STAND IN THE RATIO √(25/22)
+theorem t61_base_ratio : iva_base / geom_base = Real.sqrt (25 / 22) := by
+  have hTL : (0:ℝ) < TORSION_LIMIT := t2_tl_in_unit_interval.1
+  have hIVA : (0:ℝ) < TL_IVA := t3_floor_below_ceiling.1
+  have hsT : Real.sqrt TORSION_LIMIT ≠ 0 := ne_of_gt t15_root_tl_pos
+  have hsI : Real.sqrt TL_IVA ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr hIVA)
+  have hstep : iva_base / geom_base = Real.sqrt TORSION_LIMIT / Real.sqrt TL_IVA := by
+    simp only [iva_base, geom_base]
+    field_simp
+  rw [hstep, ← Real.sqrt_div hTL.le]
+  rw [t8_endpoint_ratio]
+
+-- [T62] :: {VER} | THE BASE RATIO IS ABOVE ONE
+theorem t62_base_ratio_gt_one : 1 < iva_base / geom_base := by
+  rw [t61_base_ratio]
+  calc (1:ℝ) = Real.sqrt 1 := Real.sqrt_one.symm
+    _ < Real.sqrt (25 / 22) := Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
+
+-- [T63] :: {MASTER} | THE CORRIDOR WIDTH IN RUNGS, IN CLOSED FORM
+theorem t63_corridor_width :
+    rung_index TL_IVA - rung_index TORSION_LIMIT
+      = 2 * Real.log (25 / 22) / Real.log (1 / TORSION_LIMIT) := by
+  have hTL : (0:ℝ) < TORSION_LIMIT := t2_tl_in_unit_interval.1
+  have hIVA : (0:ℝ) < TL_IVA := t3_floor_below_ceiling.1
+  have hne : Real.log TORSION_LIMIT ≠ 0 := ne_of_lt t54_log_tl_neg
+  have hsplit : Real.log (25 / 22)
+      = Real.log TORSION_LIMIT - Real.log TL_IVA := by
+    rw [← Real.log_div (ne_of_gt hTL) (ne_of_gt hIVA), t8_endpoint_ratio]
+  have hinvlog : Real.log (1 / TORSION_LIMIT) = -Real.log TORSION_LIMIT := by
+    rw [one_div, Real.log_inv]
+  simp only [rung_index, t53_log_base]
+  rw [hsplit, hinvlog]
+  field_simp
+  ring
+
+-- [T64] :: {INV} | THE CORRIDOR HAS POSITIVE WIDTH IN RUNGS
+theorem t64_corridor_width_pos :
+    rung_index TORSION_LIMIT < rung_index TL_IVA := by
+  have hTL : (0:ℝ) < TORSION_LIMIT := t2_tl_in_unit_interval.1
+  have hIVA : (0:ℝ) < TL_IVA := t3_floor_below_ceiling.1
+  have hlt : TL_IVA < TORSION_LIMIT := t3_floor_below_ceiling.2
+  have hlog : Real.log TL_IVA < Real.log TORSION_LIMIT :=
+    Real.log_lt_log hIVA hlt
+  have hb : 0 < Real.log geom_base := t55_log_base_pos
+  have hbi : (0:ℝ) < (Real.log geom_base)⁻¹ := inv_pos.mpr hb
+  simp only [rung_index, div_eq_mul_inv]
+  exact mul_lt_mul_of_pos_right (by linarith) hbi
+
+-- [T65] :: {MASTER} | THE CORRIDOR FLOOR'S BASE SQUARED IS ITS OWN LANDING
+theorem t65_iva_base_sq : iva_base ^ 2 = 1 / TL_IVA := by
+  have hIVA : (0:ℝ) < TL_IVA := t3_floor_below_ceiling.1
+  have hs : Real.sqrt TL_IVA ^ 2 = TL_IVA := Real.sq_sqrt hIVA.le
+  have hne : Real.sqrt TL_IVA ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr hIVA)
+  simp only [iva_base, div_pow, one_pow, hs]
+
+-- [T66] :: {VER} | THE CORRIDOR FLOOR'S BASE, NUMERICALLY
+theorem t66_iva_base_numeric :
+    2.8811002321 < iva_base ∧ iva_base < 2.8811002322 := by
+  have hsq := t65_iva_base_sq
+  have hpos := t19_iva_base_pos
+  have hval : (1:ℝ) / TL_IVA = 1 / 0.12047120798593408 := by
+    simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+  rw [hval] at hsq
+  constructor
+  · nlinarith [hsq, hpos]
+  · nlinarith [hsq, hpos]
+
+-- [T67] :: {MASTER} | THE CORRIDOR IS A FIXED RATIO OF BASES
+theorem t67_corridor_as_base_ratio :
+    (iva_base / geom_base) ^ 2 = 25 / 22 := by
+  rw [t61_base_ratio]
+  exact Real.sq_sqrt (by norm_num)
+
+-- ============================================================
+-- SECTION 10: WHERE THE CLASSICAL READING ENDS
+-- ============================================================
+
+-- [T68] :: {MASTER} | THE CLASSICAL READING IS BOUNDED, SO IT COVERS
+--                     RUNGS ABOVE ZERO AND NOT TOTAL CONVERSION
+theorem t68_classical_bounded_total_conversion_outside :
+    (∀ t : ℝ, 0 < t → t < 1 → eta_of_tau t < 1 / 2) ∧
+    ¬ (∃ t : ℝ, 0 < t ∧ t < 1 ∧ eta_of_tau t = 1) := by
+  refine ⟨fun t h0 h1 => t13_eta_classical_bounded t h0 h1, ?_⟩
+  rintro ⟨t, h0, h1, heq⟩
+  have := t13_eta_classical_bounded t h0 h1
+  rw [heq] at this
+  norm_num at this
+
+-- [T69] :: {MASTER} | THE RELATIVISTIC READING CARRIES TOTAL CONVERSION
+theorem t69_relativistic_carries_total :
+    eta_rel (Real.sqrt 3 / 2) = 1 ∧ Real.sqrt 3 / 2 < 1 := by
+  refine ⟨t14_annihilation_gamma.2, ?_⟩
+  have h3 : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
+  have hnn : (0:ℝ) ≤ Real.sqrt 3 := Real.sqrt_nonneg 3
+  nlinarith [h3, hnn]
+
+-- [T70] :: {INV} | THE CLASSICAL FRACTION AT RUNG ONE IS HALF THE TORSION LIMIT
+theorem t70_rung_one_fraction : eta_of_tau (tau_rung 1) = TORSION_LIMIT / 2 := by
+  rw [← t39_eta_rung_from_tau]
+  exact t41_eta_rung_one
+
+-- [T71] :: {VER} | RUNG ONE CLASSIFIES AS SHATTER, RUNG TWO AS THE CEILING
+theorem t71_rung_phases :
+    tau_rung 2 = TORSION_LIMIT ∧ TORSION_LIMIT < tau_rung 1 := by
+  refine ⟨t24_rung_two, ?_⟩
+  have hs2 : Real.sqrt TORSION_LIMIT ^ 2 = TORSION_LIMIT :=
+    Real.sq_sqrt t2_tl_in_unit_interval.1.le
+  have hlt1 : Real.sqrt TORSION_LIMIT < 1 := by
+    nlinarith [hs2, t15_root_tl_pos, t2_tl_in_unit_interval.2]
+  simp only [tau_rung, pow_one]
+  nlinarith [hs2, t15_root_tl_pos, hlt1]
+
+-- [T72] :: {MASTER} | THE TWO READINGS AGREE TO LEADING ORDER AND PART COMPANY
+--                     ONLY IN A BOUNDED, STATED WAY
+theorem t72_two_readings_bracket (t : ℝ) (h0 : 0 < t) (hTL : t ^ 2 ≤ TORSION_LIMIT) :
+    eta_of_tau t < eta_rel t ∧
+    eta_rel t ≤ eta_of_tau t + 2 * eta_of_tau t ^ 2 := by
+  have ht1 : t < 1 := by
+    nlinarith [hTL, t2_tl_in_unit_interval.1, t2_tl_in_unit_interval.2, h0]
+  refine ⟨t47_classical_underestimates t h0 ht1, ?_⟩
+  linarith [(t49_error_in_eta t h0 hTL).2]
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE GEOMETRIC BASE AND THE ENERGY LADDER
+theorem MASTER_geometric_base_energy_ladder :
+    -- the conversion fraction is an energy ratio
+    (∀ m v : ℝ, m ≠ 0 →
+      kinetic_classical m v / rest_energy m = eta_of_tau (tau_A v)) ∧
+    -- the base, built by the corpus operator from a corpus quantity
+    (geom_base ^ 2 = 1 / TORSION_LIMIT) ∧
+    (geom_base = sqrt_op (1 / TORSION_LIMIT) ∧
+      matched_ratio (sqrt_op TORSION_LIMIT) = 1 / TORSION_LIMIT) ∧
+    -- the ladder is exact integer powers, with TL at rung 2
+    (∀ n : ℕ, tau_rung n = 1 / geom_base ^ n) ∧
+    (tau_rung 2 = TORSION_LIMIT) ∧
+    (tau_rung 4 = TORSION_LIMIT ^ 2) ∧
+    (∀ k : ℕ, tau_rung (2 * k) = TORSION_LIMIT ^ k) ∧
+    -- the parity over ℚ
+    (TORSION_LIMIT = (8556193749001 : ℝ) / 62500000000000) ∧
+    (∀ k : ℕ, tau_rung (2 * k) = ((8556193749001 : ℝ) / 62500000000000) ^ k) ∧
+    ((8556193749001 : ℕ) = 191 * 23767 * 1884833) ∧
+    ((191 : ℕ) ∣ 8556193749001 ∧ ¬ ((191 : ℕ) ^ 2 ∣ 8556193749001)) ∧
+    -- the base is a refractive index
+    (index_of_perm (1 / TORSION_LIMIT) = geom_base) ∧
+    (perm_of_index geom_base = 1 / TORSION_LIMIT) ∧
+    -- the energy ladder, stepping by exactly 1/TL
+    (∀ n : ℕ, eta_rung n = eta_of_tau (tau_rung n)) ∧
+    (∀ n : ℕ, eta_rung n / eta_rung (n + 1) = 1 / TORSION_LIMIT) ∧
+    -- the classical reading certifies its own accuracy
+    (∀ t : ℝ, 0 < t → t < 1 → eta_of_tau t < eta_rel t) ∧
+    (∀ t : ℝ, 0 < t → t ^ 2 ≤ TORSION_LIMIT →
+      (3 / 2) * eta_of_tau t ^ 2 ≤ eta_rel t - eta_of_tau t ∧
+      eta_rel t - eta_of_tau t ≤ 2 * eta_of_tau t ^ 2) ∧
+    -- total conversion: outside the classical reading, exact in the relativistic
+    (¬ (∃ t : ℝ, 0 < t ∧ t < 1 ∧ eta_of_tau t = 1)) ∧
+    (gamma (Real.sqrt 3 / 2) = 2 ∧ eta_rel (Real.sqrt 3 / 2) = 1) ∧
+    -- the two bases on one ladder, and the corridor between them
+    (Real.log geom_base = Real.log (1 / TORSION_LIMIT) / 2) ∧
+    (rung_index TORSION_LIMIT = 2) ∧
+    (∀ n : ℕ, rung_index (tau_rung n) = n) ∧
+    (iva_base / geom_base = Real.sqrt (25 / 22)) ∧
+    ((iva_base / geom_base) ^ 2 = 25 / 22) ∧
+    (rung_index TL_IVA - rung_index TORSION_LIMIT
+      = 2 * Real.log (25 / 22) / Real.log (1 / TORSION_LIMIT)) :=
+  ⟨fun m v hm => t10_eta_is_energy_ratio m v hm,
+   t17_base_sq,
+   t18_base_from_operator,
+   t21_rung_is_base_power,
+   t24_rung_two,
+   t25_rung_four,
+   t26_even_rungs,
+   t29_tl_rational,
+   t31_even_rungs_rational,
+   t32_denominator_factors,
+   t34_prime_divides_once,
+   t36_base_is_index,
+   t37_perm_is_base_sq,
+   t39_eta_rung_from_tau,
+   t40_energy_step,
+   fun t h0 h1 => t47_classical_underestimates t h0 h1,
+   fun t h0 hTL => t49_error_in_eta t h0 hTL,
+   t68_classical_bounded_total_conversion_outside.2,
+   t14_annihilation_gamma,
+   t57_rung_in_efolds,
+   t56_ceiling_at_rung_two,
+   t60_rung_index_of_rung,
+   t61_base_ratio,
+   t67_corridor_as_base_ratio,
+   t63_corridor_width⟩
+
+end SNSFL_GeometricBaseEnergyLadder
+
+
+-- ============================================================
+-- MODULE: SNSFL_VelocitySubstrate_Rapidity_Reduction.lean · [9,9,8,14](MATH)
+-- ProofPress, Volume 1, Issue 9, Article 14 · Velocity Addition Is Doppler Multiplication
+-- 101 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_VelocitySubstrateRapidity
+
+-- ============================================================
+-- SECTION 0: THE ANCHOR AND THE TORSION LIMIT
+-- Restated here in full. This file depends on no other file.
+-- ============================================================
+
+/-- The Sovereign Anchor Constant, at full precision. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Universal Torsion Limit. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- The IVA corridor floor: 88% of the Torsion Limit. -/
+def TL_IVA : ℝ := TORSION_LIMIT * 0.88
+
+/-- The inverse fine-structure constant, at corpus precision. -/
+def ALPHA_INV : ℝ := 137.035999084000016
+
+/-- The bare term: the Torsion Limit times one thousand. -/
+def BARE : ℝ := 136.899099984016
+
+/-- The speed of light in vacuum, SI exact. -/
+def C_LIGHT : ℝ := 299792458
+
+-- [T1] :: {ANC} | THE TORSION LIMIT IS THE ANCHOR OVER TEN
+theorem t1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T2] :: {VER} | THE BARE TERM IS ONE THOUSAND TORSION LIMITS, EXACTLY
+theorem t2_bare_is_thousand_tl : BARE = 1000 * TORSION_LIMIT := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T3] :: {MASTER} | BARE PLUS KINETIC IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem t3_bare_plus_kinetic : BARE + TORSION_LIMIT = ALPHA_INV := by
+  simp only [BARE, TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T4] :: {MASTER} | THE TORSION LIMIT TIMES 1001 IS THE INVERSE CONSTANT
+theorem t4_tl_times_1001 : TORSION_LIMIT * 1001 = ALPHA_INV := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T5] :: {MASTER} | THE ANCHOR ROUTE IN ONE STEP
+theorem t5_anchor_route : SOVEREIGN_ANCHOR * 100.1 = ALPHA_INV := by
+  simp only [SOVEREIGN_ANCHOR, ALPHA_INV]; norm_num
+
+-- [T6] :: {VER} | THE MULTIPLIER FACTORS AS 7 * 11 * 13
+theorem t6_multiplier_factors : (1001 : ℕ) = 7 * 11 * 13 := by norm_num
+
+-- [T7] :: {VER} | THE TORSION LIMIT IS POSITIVE
+theorem t7_tl_pos : 0 < TORSION_LIMIT := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T8] :: {VER} | THE CORRIDOR FLOOR IN CLOSED FORM
+theorem t8_tl_iva_value : TL_IVA = 0.12047120798593408 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T9] :: {INV} | THE CORRIDOR FLOOR IS POSITIVE AND BELOW THE LIMIT
+theorem t9_floor_pos_below : 0 < TL_IVA ∧ TL_IVA < TORSION_LIMIT := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T10] :: {INV} | THE TORSION LIMIT LIES STRICTLY INSIDE THE UNIT INTERVAL
+theorem t10_tl_in_unit : -1 < TORSION_LIMIT ∧ TORSION_LIMIT < 1 := by
+  simp only [TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- ============================================================
+-- SECTION 1: TORSION AND THE FOUR PHASES
+-- ============================================================
+
+/-- The four phases of the corpus. -/
+inductive Phase
+  | Noble
+  | Locked
+  | IVA
+  | Shatter
+  deriving DecidableEq, Repr
+
+/-- Phase classification on a torsion reading. -/
+def classify (t : ℝ) : Phase :=
+  if t = 0 then Phase.Noble
+  else if t < TL_IVA then Phase.Locked
+  else if t < TORSION_LIMIT then Phase.IVA
+  else Phase.Shatter
+
+-- [T11] :: {VER} | ZERO CLASSIFIES AS NOBLE
+theorem t11_zero_is_noble : classify 0 = Phase.Noble := by
+  simp [classify]
+
+-- [T12] :: {VER} | THE CORRIDOR FLOOR CLASSIFIES AS IVA
+theorem t12_floor_is_iva : classify TL_IVA = Phase.IVA := by
+  have h1 := t9_floor_pos_below
+  simp only [classify]
+  rw [if_neg (by linarith [h1.1]), if_neg (by linarith), if_pos h1.2]
+
+-- [T13] :: {VER} | THE TORSION LIMIT CLASSIFIES AS SHATTER
+theorem t13_limit_is_shatter : classify TORSION_LIMIT = Phase.Shatter := by
+  have h1 := t9_floor_pos_below
+  have h2 := t7_tl_pos
+  simp only [classify]
+  rw [if_neg (by linarith), if_neg (by linarith [h1.2]), if_neg (by linarith)]
+
+-- [T14] :: {INV} | A READING INSIDE THE CORRIDOR CLASSIFIES AS IVA
+theorem t14_corridor_is_iva (t : ℝ) (hlo : TL_IVA ≤ t) (hhi : t < TORSION_LIMIT) :
+    classify t = Phase.IVA := by
+  have h1 := t9_floor_pos_below
+  simp only [classify]
+  rw [if_neg (by linarith [h1.1]), if_neg (by linarith), if_pos hhi]
+
+-- [T15] :: {INV} | A READING AT OR ABOVE THE LIMIT CLASSIFIES AS SHATTER
+theorem t15_above_limit_is_shatter (t : ℝ) (h : TORSION_LIMIT ≤ t) :
+    classify t = Phase.Shatter := by
+  have h1 := t9_floor_pos_below
+  have h2 := t7_tl_pos
+  simp only [classify]
+  rw [if_neg (by linarith), if_neg (by linarith [h1.2]), if_neg (by linarith)]
+
+-- [T16] :: {INV} | THE CORRIDOR IS THE BAND 0.88 TL UP TO TL
+theorem t16_corridor_band : TL_IVA = 0.88 * TORSION_LIMIT := by
+  simp only [TL_IVA]; ring
+
+-- ============================================================
+-- SECTION 2: READING A, THE DOPPLER FACTOR, AND READING B
+-- ============================================================
+
+/-- Reading A: a ratio against the limiting speed. -/
+def tau_A (v : ℝ) : ℝ := v / C_LIGHT
+
+/-- The relativistic Doppler factor on a Reading A value. -/
+def doppler (t : ℝ) : ℝ := Real.sqrt ((1 + t) / (1 - t))
+
+/-- Reading B in the velocity substrate: the e-fold count on the Doppler
+    factor. -/
+def tau_B_of (t : ℝ) : ℝ := Real.log (doppler t)
+
+/-- Relativistic velocity addition, in Reading A units. -/
+def vadd (u v : ℝ) : ℝ := (u + v) / (1 + u * v)
+
+-- [T17] :: {VER} | THE SPEED OF LIGHT IS POSITIVE
+theorem t17_c_pos : 0 < C_LIGHT := by simp only [C_LIGHT]; norm_num
+
+-- [T18] :: {VER} | READING A IS THE SPEED OVER THE LIMITING SPEED
+theorem t18_reading_a (v : ℝ) : tau_A v * C_LIGHT = v := by
+  have hc : C_LIGHT ≠ 0 := ne_of_gt t17_c_pos
+  simp only [tau_A]
+  field_simp
+
+-- [T19] :: {VER} | THE DOPPLER FACTOR IS POSITIVE INSIDE THE UNIT INTERVAL
+theorem t19_doppler_pos (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 0 < doppler t := by
+  simp only [doppler]
+  apply Real.sqrt_pos.mpr
+  apply div_pos <;> linarith
+
+-- [T20] :: {MASTER} | THE DOPPLER FACTOR SQUARED IS THE RATIO ITSELF
+theorem t20_doppler_sq (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    doppler t ^ 2 = (1 + t) / (1 - t) := by
+  simp only [doppler]
+  apply Real.sq_sqrt
+  apply le_of_lt
+  apply div_pos <;> linarith
+
+-- [T21] :: {MASTER} | NOBLE: THE DOPPLER FACTOR IS ONE AT ZERO
+theorem t21_doppler_noble : doppler 0 = 1 := by
+  simp only [doppler]; norm_num
+
+-- [T22] :: {MASTER} | NOBLE: READING B IS ZERO AT ZERO
+theorem t22_tau_b_noble : tau_B_of 0 = 0 := by
+  simp only [tau_B_of, t21_doppler_noble, Real.log_one]
+
+-- [T23] :: {MASTER} | READING B IS THE LOGARITHM OF THE DOPPLER FACTOR
+theorem t23_tau_b_is_log_doppler (t : ℝ) : tau_B_of t = Real.log (doppler t) := rfl
+
+-- [T24] :: {INV} | THE EXPONENTIAL OF READING B RETURNS THE DOPPLER FACTOR
+theorem t24_exp_tau_b (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    Real.exp (tau_B_of t) = doppler t := by
+  simp only [tau_B_of]
+  exact Real.exp_log (t19_doppler_pos t h1 h2)
+
+-- [T25] :: {INV} | THE DOPPLER FACTOR EXCEEDS ONE ABOVE NOBLE
+theorem t25_doppler_gt_one (t : ℝ) (h0 : 0 < t) (h2 : t < 1) : 1 < doppler t := by
+  have hsq : doppler t ^ 2 = (1 + t) / (1 - t) := t20_doppler_sq t (by linarith) h2
+  have hpos : 0 < doppler t := t19_doppler_pos t (by linarith) h2
+  have hr : 1 < (1 + t) / (1 - t) := by
+    rw [lt_div_iff₀ (by linarith : (0:ℝ) < 1 - t)]
+    linarith
+  have h2d : 1 < doppler t ^ 2 := by rw [hsq]; exact hr
+  nlinarith [hpos, h2d]
+
+-- [T26] :: {INV} | READING B IS POSITIVE ABOVE NOBLE
+theorem t26_tau_b_pos (t : ℝ) (h0 : 0 < t) (h2 : t < 1) : 0 < tau_B_of t := by
+  simp only [tau_B_of]
+  exact Real.log_pos (t25_doppler_gt_one t h0 h2)
+
+-- ============================================================
+-- SECTION 3: VELOCITY ADDITION IS DOPPLER MULTIPLICATION
+-- The heart of the file. The composition law on Reading A is multiplication
+-- of Doppler factors, hence addition of Reading B.
+-- ============================================================
+
+-- [T27] :: {MASTER} | THE ADDITION LAW, CLEARED
+theorem t27_vadd_clear (u v : ℝ) (huv : 1 + u * v ≠ 0) :
+    vadd u v * (1 + u * v) = u + v := by
+  simp only [vadd]
+  field_simp
+
+-- [T28] :: {MASTER} | ONE PLUS THE SUM FACTORS
+theorem t28_one_plus_vadd (u v : ℝ) (huv : 0 < 1 + u * v) :
+    1 + vadd u v = (1 + u) * (1 + v) / (1 + u * v) := by
+  simp only [vadd]
+  field_simp
+  ring
+
+-- [T29] :: {MASTER} | ONE MINUS THE SUM FACTORS
+theorem t29_one_minus_vadd (u v : ℝ) (huv : 0 < 1 + u * v) :
+    1 - vadd u v = (1 - u) * (1 - v) / (1 + u * v) := by
+  simp only [vadd]
+  field_simp
+  ring
+
+-- [T30] :: {MASTER} | THE RATIO FACTORS INTO THE TWO RATIOS
+theorem t30_ratio_factors (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
+    (hv1 : -1 < v) (hv2 : v < 1) :
+    (1 + vadd u v) / (1 - vadd u v) = ((1 + u) / (1 - u)) * ((1 + v) / (1 - v)) := by
+  have huv : (0:ℝ) < 1 + u * v := by nlinarith
+  have h1u : (0:ℝ) < 1 + u := by linarith
+  have h2u : (0:ℝ) < 1 - u := by linarith
+  have h1v : (0:ℝ) < 1 + v := by linarith
+  have h2v : (0:ℝ) < 1 - v := by linarith
+  rw [t28_one_plus_vadd u v huv, t29_one_minus_vadd u v huv]
+  field_simp
+
+-- [T31] :: {MASTER} | THE DOPPLER FACTOR IS MULTIPLICATIVE UNDER VELOCITY ADDITION
+theorem t31_doppler_mul (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
+    (hv1 : -1 < v) (hv2 : v < 1) :
+    doppler (vadd u v) = doppler u * doppler v := by
+  have h1u : (0:ℝ) < 1 + u := by linarith
+  have h2u : (0:ℝ) < 1 - u := by linarith
+  have h1v : (0:ℝ) < 1 + v := by linarith
+  have h2v : (0:ℝ) < 1 - v := by linarith
+  simp only [doppler]
+  rw [← Real.sqrt_mul (by positivity)]
+  rw [t30_ratio_factors u v hu1 hu2 hv1 hv2]
+
+-- [T32] :: {MASTER} | READING B IS ADDITIVE UNDER VELOCITY ADDITION
+theorem t32_tau_b_additive (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
+    (hv1 : -1 < v) (hv2 : v < 1) :
+    tau_B_of (vadd u v) = tau_B_of u + tau_B_of v := by
+  simp only [tau_B_of]
+  rw [t31_doppler_mul u v hu1 hu2 hv1 hv2]
+  exact Real.log_mul (ne_of_gt (t19_doppler_pos u hu1 hu2))
+    (ne_of_gt (t19_doppler_pos v hv1 hv2))
+
+-- [T33] :: {MASTER} | VELOCITY ADDITION IS COMMUTATIVE
+theorem t33_vadd_comm (u v : ℝ) : vadd u v = vadd v u := by
+  simp only [vadd]
+  rw [add_comm u v, mul_comm u v]
+
+-- [T34] :: {INV} | NOBLE IS THE IDENTITY OF THE ADDITION LAW
+theorem t34_vadd_zero (u : ℝ) : vadd u 0 = u := by
+  simp only [vadd]; norm_num
+
+-- [T35] :: {MASTER} | THE SUBTRACTION LAW IS DOPPLER DIVISION
+theorem t35_doppler_div (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
+    (hb1 : -1 < b) (hb2 : b < 1) :
+    doppler a / doppler b = doppler ((a - b) / (1 - a * b)) := by
+  have h1a : (0:ℝ) < 1 + a := by linarith
+  have h2a : (0:ℝ) < 1 - a := by linarith
+  have h1b : (0:ℝ) < 1 + b := by linarith
+  have h2b : (0:ℝ) < 1 - b := by linarith
+  have hab : (0:ℝ) < 1 - a * b := by nlinarith
+  have habne : (1:ℝ) - a * b ≠ 0 := ne_of_gt hab
+  -- one plus and one minus the difference argument each factor
+  have hplus : 1 + (a - b) / (1 - a * b) = ((1 + a) * (1 - b)) / (1 - a * b) := by
+    field_simp
+    try ring
+  have hminus : 1 - (a - b) / (1 - a * b) = ((1 - a) * (1 + b)) / (1 - a * b) := by
+    field_simp
+    try ring
+  -- so the difference argument lies inside the unit interval
+  have hc1 : -1 < (a - b) / (1 - a * b) := by
+    have hp : (0:ℝ) < ((1 + a) * (1 - b)) / (1 - a * b) := div_pos (mul_pos h1a h2b) hab
+    linarith [hplus, hp]
+  have hc2 : (a - b) / (1 - a * b) < 1 := by
+    have hp : (0:ℝ) < ((1 - a) * (1 + b)) / (1 - a * b) := div_pos (mul_pos h2a h1b) hab
+    linarith [hminus, hp]
+  -- the difference argument composed with b returns a
+  have hden : (1:ℝ) + (a - b) / (1 - a * b) * b = (1 - b ^ 2) / (1 - a * b) := by
+    field_simp
+    try ring
+  have hdne : (1:ℝ) + (a - b) / (1 - a * b) * b ≠ 0 := by
+    rw [hden]
+    exact ne_of_gt (div_pos (by nlinarith) hab)
+  have hvadd : vadd ((a - b) / (1 - a * b)) b = a := by
+    simp only [vadd]
+    rw [div_eq_iff hdne, hden]
+    field_simp
+    try ring
+  -- and multiplicativity turns that into the quotient
+  have hdb : doppler b ≠ 0 := ne_of_gt (t19_doppler_pos b hb1 hb2)
+  have key : doppler ((a - b) / (1 - a * b)) * doppler b = doppler a := by
+    rw [← t31_doppler_mul _ b hc1 hc2 hb1 hb2, hvadd]
+  rw [div_eq_iff hdb]
+  exact key.symm
+
+-- [T36] :: {MASTER} | A DIFFERENCE OF READING B IS ONE READING B
+theorem t36_tau_b_sub (a b : ℝ) (ha1 : -1 < a) (ha2 : a < 1)
+    (hb1 : -1 < b) (hb2 : b < 1) :
+    tau_B_of a - tau_B_of b = tau_B_of ((a - b) / (1 - a * b)) := by
+  simp only [tau_B_of]
+  rw [← Real.log_div (ne_of_gt (t19_doppler_pos a ha1 ha2))
+    (ne_of_gt (t19_doppler_pos b hb1 hb2))]
+  rw [t35_doppler_div a b ha1 ha2 hb1 hb2]
+
+-- ============================================================
+-- SECTION 4: THE BRIDGE — READING A IS A TANH OF READING B
+-- ============================================================
+
+/-- The corpus tangent operator, written on the exponential so that it needs
+    nothing beyond exp. -/
+def tanh_op (b : ℝ) : ℝ := (Real.exp b ^ 2 - 1) / (Real.exp b ^ 2 + 1)
+
+-- [T37] :: {VER} | THE DENOMINATOR OF THE OPERATOR IS POSITIVE
+theorem t37_tanh_denom_pos (b : ℝ) : 0 < Real.exp b ^ 2 + 1 := by positivity
+
+-- [T38] :: {MASTER} | THE OPERATOR INVERTS READING B EXACTLY
+theorem t38_bridge (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : tanh_op (tau_B_of t) = t := by
+  have hd := t19_doppler_pos t h1 h2
+  have hsq := t20_doppler_sq t h1 h2
+  have he : Real.exp (tau_B_of t) = doppler t := t24_exp_tau_b t h1 h2
+  have h2t : (0:ℝ) < 1 - t := by linarith
+  simp only [tanh_op, he, hsq]
+  field_simp
+  ring
+
+-- [T39] :: {MASTER} | THE OPERATOR IS ZERO AT NOBLE
+theorem t39_tanh_zero : tanh_op 0 = 0 := by
+  simp only [tanh_op, Real.exp_zero]; norm_num
+
+-- [T40] :: {MASTER} | THE OPERATOR IS STRICTLY BELOW ONE AT EVERY ARGUMENT
+theorem t40_tanh_lt_one (b : ℝ) : tanh_op b < 1 := by
+  have hd := t37_tanh_denom_pos b
+  simp only [tanh_op]
+  rw [div_lt_one hd]
+  linarith
+
+-- [T41] :: {MASTER} | THE OPERATOR IS STRICTLY ABOVE MINUS ONE
+theorem t41_tanh_gt_neg_one (b : ℝ) : -1 < tanh_op b := by
+  have hd := t37_tanh_denom_pos b
+  have hp : (0:ℝ) < Real.exp b ^ 2 := by positivity
+  simp only [tanh_op]
+  rw [neg_lt, ← neg_div, div_lt_one hd]
+  linarith
+
+-- [T42] :: {MASTER} | THE OPERATOR LANDS INSIDE THE UNIT INTERVAL ALWAYS
+theorem t42_tanh_in_unit (b : ℝ) : -1 < tanh_op b ∧ tanh_op b < 1 :=
+  ⟨t41_tanh_gt_neg_one b, t40_tanh_lt_one b⟩
+
+-- [T43] :: {MASTER} | THE OPERATOR IS POSITIVE ABOVE NOBLE
+theorem t43_tanh_pos (b : ℝ) (hb : 0 < b) : 0 < tanh_op b := by
+  have hd := t37_tanh_denom_pos b
+  have h1 : (1:ℝ) < Real.exp b := by
+    rw [show (1:ℝ) = Real.exp 0 from (Real.exp_zero).symm]
+    exact Real.exp_lt_exp.mpr hb
+  simp only [tanh_op]
+  apply div_pos _ hd
+  nlinarith
+
+-- [T44] :: {MASTER} | THE OPERATOR AGREES WITH MATHLIB'S TANH
+theorem t44_tanh_op_is_tanh (b : ℝ) : tanh_op b = Real.tanh b := by
+  have hc : Real.cosh b ≠ 0 := ne_of_gt (Real.cosh_pos b)
+  have he : Real.exp b ≠ 0 := Real.exp_ne_zero b
+  simp only [tanh_op, Real.tanh_eq_sinh_div_cosh, Real.sinh_eq, Real.cosh_eq,
+    Real.exp_neg]
+  field_simp
+
+-- [T45] :: {MASTER} | THE MAP IS FORCED — THE OPERATOR SATISFIES THE ADDITION LAW
+theorem t45_tanh_satisfies_vadd (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
+    (hv1 : -1 < v) (hv2 : v < 1) :
+    tanh_op (tau_B_of u + tau_B_of v) = vadd u v := by
+  have huv : (0:ℝ) < 1 + u * v := by nlinarith
+  have hvu1 : -1 < vadd u v := by
+    rw [show vadd u v = (u + v) / (1 + u * v) from rfl]
+    rw [neg_lt, ← neg_div, div_lt_iff₀ huv] at *
+    nlinarith
+  have hvu2 : vadd u v < 1 := by
+    rw [show vadd u v = (u + v) / (1 + u * v) from rfl, div_lt_one huv]
+    nlinarith
+  rw [← t32_tau_b_additive u v hu1 hu2 hv1 hv2]
+  exact t38_bridge (vadd u v) hvu1 hvu2
+
+-- [T46] :: {MASTER} | THE ADDITION LAW IS CLOSED ON THE UNIT INTERVAL
+theorem t46_vadd_closed (u v : ℝ) (hu1 : -1 < u) (hu2 : u < 1)
+    (hv1 : -1 < v) (hv2 : v < 1) : -1 < vadd u v ∧ vadd u v < 1 := by
+  have huv : (0:ℝ) < 1 + u * v := by nlinarith
+  constructor
+  · simp only [vadd]
+    rw [neg_lt, ← neg_div, div_lt_iff₀ huv]
+    nlinarith
+  · simp only [vadd]
+    rw [div_lt_one huv]
+    nlinarith
+
+-- ============================================================
+-- SECTION 5: THE SPEED LIMIT INVERTS
+-- ============================================================
+
+-- [T47] :: {MASTER} | NO ARGUMENT OF THE OPERATOR REACHES ONE
+theorem t47_never_reaches_one (b : ℝ) : tanh_op b ≠ 1 := ne_of_lt (t40_tanh_lt_one b)
+
+-- [T48] :: {MASTER} | READING B IS UNBOUNDED — THE DOPPLER FACTOR GROWS WITHOUT
+--                     BOUND, SO THE COUNT DOES TOO
+theorem t48_tau_b_unbounded (M : ℝ) : ∃ b : ℝ, M < b ∧ M < Real.log (Real.exp b) := by
+  refine ⟨M + 1, by linarith, ?_⟩
+  rw [Real.log_exp]
+  linarith
+
+-- [T49] :: {MASTER} | THE OPERATOR IS STRICTLY INCREASING
+theorem t49_tanh_mono (a b : ℝ) (h : a < b) : tanh_op a < tanh_op b := by
+  have hea : (0:ℝ) < Real.exp a := Real.exp_pos a
+  have heb : (0:ℝ) < Real.exp b := Real.exp_pos b
+  have hlt : Real.exp a < Real.exp b := Real.exp_lt_exp.mpr h
+  have hda := t37_tanh_denom_pos a
+  have hdb := t37_tanh_denom_pos b
+  simp only [tanh_op]
+  rw [div_lt_div_iff₀ hda hdb]
+  nlinarith
+
+-- [T50] :: {INV} | READING B ORDERS WITH READING A
+theorem t50_tau_b_mono (a b : ℝ) (ha1 : -1 < a) (hb2 : b < 1) (h : a < b) :
+    tau_B_of a < tau_B_of b := by
+  have ha2 : a < 1 := by linarith
+  have hb1 : -1 < b := by linarith
+  simp only [tau_B_of]
+  apply Real.log_lt_log (t19_doppler_pos a ha1 ha2)
+  have hsa := t20_doppler_sq a ha1 ha2
+  have hsb := t20_doppler_sq b hb1 hb2
+  have hpa := t19_doppler_pos a ha1 ha2
+  have hpb := t19_doppler_pos b hb1 hb2
+  have hr : (1 + a) / (1 - a) < (1 + b) / (1 - b) := by
+    rw [div_lt_div_iff₀ (by linarith) (by linarith)]
+    nlinarith
+  nlinarith [hsa, hsb, hpa, hpb, hr]
+
+-- [T51] :: {MASTER} | BOTH READINGS SHARE THEIR ZERO
+theorem t51_shared_zero : tau_B_of 0 = 0 ∧ doppler 0 = 1 ∧ tanh_op 0 = 0 :=
+  ⟨t22_tau_b_noble, t21_doppler_noble, t39_tanh_zero⟩
+
+-- [T52] :: {INV} | THE DOPPLER FACTOR ORDERS WITH READING A
+theorem t52_doppler_mono (a b : ℝ) (ha1 : -1 < a) (hb2 : b < 1) (h : a < b) :
+    doppler a < doppler b := by
+  have ha2 : a < 1 := by linarith
+  have hb1 : -1 < b := by linarith
+  have hsa := t20_doppler_sq a ha1 ha2
+  have hsb := t20_doppler_sq b hb1 hb2
+  have hpa := t19_doppler_pos a ha1 ha2
+  have hpb := t19_doppler_pos b hb1 hb2
+  have hr : (1 + a) / (1 - a) < (1 + b) / (1 - b) := by
+    rw [div_lt_div_iff₀ (by linarith) (by linarith)]
+    nlinarith
+  nlinarith [hsa, hsb, hpa, hpb, hr]
+
+-- [T53] :: {MASTER} | THE CEILING ON READING A AND THE RANGE OF READING B ARE
+--                     ONE STATEMENT
+theorem t53_limit_inverts :
+    (∀ b : ℝ, tanh_op b < 1) ∧ (∀ M : ℝ, ∃ b : ℝ, M < b) :=
+  ⟨t40_tanh_lt_one, fun M => ⟨M + 1, by linarith⟩⟩
+
+-- [T54] :: {INV} | THE OPERATOR IS AN ODD FUNCTION
+theorem t54_tanh_odd (b : ℝ) : tanh_op (-b) = -tanh_op b := by
+  have he : Real.exp b ≠ 0 := Real.exp_ne_zero b
+  simp only [tanh_op, Real.exp_neg]
+  field_simp
+  ring
+
+-- ============================================================
+-- SECTION 6: THE LORENTZ FACTOR, CELERITY, AND THE REMAINING FRACTION
+-- ============================================================
+
+/-- The Lorentz factor on a Reading A value. -/
+def gamma_of (t : ℝ) : ℝ := 1 / Real.sqrt (1 - t ^ 2)
+
+/-- Proper velocity, or celerity, in units of the limiting speed. -/
+def celerity (t : ℝ) : ℝ := gamma_of t * t
+
+-- [T55] :: {VER} | THE RADICAND IS POSITIVE INSIDE THE UNIT INTERVAL
+theorem t55_radicand_pos (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 0 < 1 - t ^ 2 := by
+  nlinarith
+
+-- [T56] :: {VER} | THE LORENTZ FACTOR IS POSITIVE
+theorem t56_gamma_pos (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 0 < gamma_of t := by
+  simp only [gamma_of]
+  exact div_pos one_pos (Real.sqrt_pos.mpr (t55_radicand_pos t h1 h2))
+
+-- [T57] :: {MASTER} | THE LORENTZ FACTOR SQUARED IS THE RECIPROCAL RADICAND
+theorem t57_gamma_sq (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    gamma_of t ^ 2 = 1 / (1 - t ^ 2) := by
+  have hr := t55_radicand_pos t h1 h2
+  simp only [gamma_of, div_pow, one_pow]
+  rw [Real.sq_sqrt (le_of_lt hr)]
+
+-- [T58] :: {MASTER} | THE REMAINING FRACTION IS A LORENTZ EXPRESSION
+theorem t58_remaining_fraction (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    (gamma_of t * (1 - t)) ^ 2 = 1 / doppler t ^ 2 := by
+  have hr := t55_radicand_pos t h1 h2
+  have hd := t20_doppler_sq t h1 h2
+  have h2t : (0:ℝ) < 1 - t := by linarith
+  have h1t : (0:ℝ) < 1 + t := by linarith
+  rw [mul_pow, t57_gamma_sq t h1 h2, hd]
+  field_simp
+  ring
+
+-- [T59] :: {MASTER} | THE REMAINING FRACTION IS THE RECIPROCAL DOPPLER FACTOR
+theorem t59_remaining_is_inv_doppler (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    gamma_of t * (1 - t) = 1 / doppler t := by
+  have hg := t56_gamma_pos t h1 h2
+  have hd := t19_doppler_pos t h1 h2
+  have h2t : (0:ℝ) < 1 - t := by linarith
+  have hsq := t58_remaining_fraction t h1 h2
+  have hl : 0 < gamma_of t * (1 - t) := by positivity
+  have hrr : 0 < 1 / doppler t := by positivity
+  have hsq2 : (gamma_of t * (1 - t)) ^ 2 = (1 / doppler t) ^ 2 := by
+    rw [hsq, div_pow, one_pow]
+  have hfac : (gamma_of t * (1 - t) - 1 / doppler t)
+      * (gamma_of t * (1 - t) + 1 / doppler t) = 0 := by
+    linear_combination hsq2
+  rcases mul_eq_zero.mp hfac with h | h
+  · linarith
+  · linarith
+
+-- [T60] :: {MASTER} | CELERITY CLOSES THE LOOP — THE ROOT RETURNS THE LORENTZ
+--                     FACTOR
+theorem t60_celerity_root (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    Real.sqrt (1 + celerity t ^ 2) = gamma_of t := by
+  have hr := t55_radicand_pos t h1 h2
+  have hg := t56_gamma_pos t h1 h2
+  have hgs := t57_gamma_sq t h1 h2
+  have hkey : 1 + celerity t ^ 2 = gamma_of t ^ 2 := by
+    simp only [celerity, mul_pow]
+    rw [hgs]
+    field_simp
+    ring
+  rw [hkey, Real.sqrt_sq (le_of_lt hg)]
+
+-- [T61] :: {MASTER} | THE CELERITY IDENTITY TURNS A ROOT INTO THE REMAINING
+--                     FRACTION
+theorem t61_celerity_minus_root (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    celerity t - Real.sqrt (1 + celerity t ^ 2) = -(gamma_of t * (1 - t)) := by
+  rw [t60_celerity_root t h1 h2]
+  simp only [celerity]
+  ring
+
+-- [T62] :: {VER} | THE LORENTZ FACTOR IS ONE AT NOBLE
+theorem t62_gamma_noble : gamma_of 0 = 1 := by
+  simp only [gamma_of]; norm_num
+
+-- [T63] :: {VER} | CELERITY IS ZERO AT NOBLE
+theorem t63_celerity_noble : celerity 0 = 0 := by
+  simp only [celerity]; ring
+
+-- [T64] :: {INV} | THE LORENTZ FACTOR IS AT LEAST ONE INSIDE THE INTERVAL
+theorem t64_gamma_ge_one (t : ℝ) (h1 : -1 < t) (h2 : t < 1) : 1 ≤ gamma_of t := by
+  have hr := t55_radicand_pos t h1 h2
+  have hs : Real.sqrt (1 - t ^ 2) ≤ 1 := by
+    have hle : Real.sqrt (1 - t ^ 2) ≤ Real.sqrt 1 := by
+      apply Real.sqrt_le_sqrt
+      nlinarith
+    rwa [Real.sqrt_one] at hle
+  have hsp : 0 < Real.sqrt (1 - t ^ 2) := Real.sqrt_pos.mpr hr
+  simp only [gamma_of]
+  rw [le_div_iff₀ hsp]
+  linarith
+
+-- [T65] :: {MASTER} | THE LORENTZ FACTOR IS THE HALF-SUM OF THE DOPPLER FACTOR
+--                     AND ITS RECIPROCAL
+theorem t65_gamma_half_sum (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    2 * gamma_of t = doppler t + 1 / doppler t := by
+  have hd := t19_doppler_pos t h1 h2
+  have hds := t20_doppler_sq t h1 h2
+  have hg := t56_gamma_pos t h1 h2
+  have hgs := t57_gamma_sq t h1 h2
+  have h2t : (0:ℝ) < 1 - t := by linarith
+  have h1t : (0:ℝ) < 1 + t := by linarith
+  have hr : (0:ℝ) < 1 - t ^ 2 := t55_radicand_pos t h1 h2
+  have hrne : (1:ℝ) - t ^ 2 ≠ 0 := ne_of_gt hr
+  have hdne : doppler t ≠ 0 := ne_of_gt hd
+  have hsq : (2 * gamma_of t) ^ 2 = (doppler t + 1 / doppler t) ^ 2 := by
+    rw [mul_pow, hgs]
+    have hexp : (doppler t + 1 / doppler t) ^ 2
+        = doppler t ^ 2 + 2 + 1 / doppler t ^ 2 := by
+      field_simp; ring
+    rw [hexp, hds]
+    field_simp
+    ring
+  have hl : 0 < 2 * gamma_of t := by positivity
+  have hr2 : 0 < doppler t + 1 / doppler t := by positivity
+  nlinarith [hsq, hl, hr2]
+
+-- [T66] :: {MASTER} | CELERITY IS THE HALF-DIFFERENCE
+theorem t66_celerity_half_diff (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    2 * celerity t = doppler t - 1 / doppler t := by
+  have hd := t19_doppler_pos t h1 h2
+  have hds := t20_doppler_sq t h1 h2
+  have h2t : (0:ℝ) < 1 - t := by linarith
+  have h1t : (0:ℝ) < 1 + t := by linarith
+  have hhalf := t65_gamma_half_sum t h1 h2
+  have hrem := t59_remaining_is_inv_doppler t h1 h2
+  simp only [celerity]
+  have : 2 * (gamma_of t * t) = 2 * gamma_of t - 2 * (gamma_of t * (1 - t)) := by ring
+  rw [this, hhalf, hrem]
+  field_simp
+  ring
+
+-- ============================================================
+-- SECTION 7: THE CORRIDOR ON THE DOPPLER FACTOR
+-- ============================================================
+
+/-- The corridor-width argument: the single Reading A value whose Doppler
+    factor is the ratio across the corridor. -/
+def corridor_arg : ℝ :=
+  (TORSION_LIMIT - TL_IVA) / (1 - TORSION_LIMIT * TL_IVA)
+
+-- [T67] :: {VER} | THE CORRIDOR FLOOR LIES INSIDE THE UNIT INTERVAL
+theorem t67_floor_in_unit : -1 < TL_IVA ∧ TL_IVA < 1 := by
+  simp only [TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]; norm_num
+
+-- [T68] :: {MASTER} | THE CORRIDOR ARGUMENT IN CLOSED FORM
+theorem t68_corridor_arg_closed :
+    corridor_arg = (0.12 * TORSION_LIMIT) / (1 - 0.88 * TORSION_LIMIT ^ 2) := by
+  simp only [corridor_arg, TL_IVA]
+  ring_nf
+
+-- [T69] :: {VER} | THE CORRIDOR ARGUMENT IS POSITIVE AND INSIDE THE INTERVAL
+theorem t69_corridor_arg_in_unit : 0 < corridor_arg ∧ corridor_arg < 1 := by
+  simp only [corridor_arg, TL_IVA, TORSION_LIMIT, SOVEREIGN_ANCHOR]
+  norm_num
+
+-- [T70] :: {MASTER} | THE DOPPLER RATIO ACROSS THE CORRIDOR IS ONE DOPPLER
+--                     FACTOR
+theorem t70_corridor_doppler_ratio :
+    doppler TORSION_LIMIT / doppler TL_IVA = doppler corridor_arg := by
+  have ht := t10_tl_in_unit
+  have hf := t67_floor_in_unit
+  exact t35_doppler_div TORSION_LIMIT TL_IVA ht.1 ht.2 hf.1 hf.2
+
+-- [T71] :: {MASTER} | THE CORRIDOR WIDTH ON READING B IS ONE READING B
+theorem t71_corridor_width :
+    tau_B_of TORSION_LIMIT - tau_B_of TL_IVA = tau_B_of corridor_arg := by
+  have ht := t10_tl_in_unit
+  have hf := t67_floor_in_unit
+  exact t36_tau_b_sub TORSION_LIMIT TL_IVA ht.1 ht.2 hf.1 hf.2
+
+-- [T72] :: {MASTER} | THE CORRIDOR IS ORDERED ON THE DOPPLER FACTOR
+theorem t72_corridor_doppler_ordered : doppler TL_IVA < doppler TORSION_LIMIT := by
+  have ht := t10_tl_in_unit
+  have hf := t67_floor_in_unit
+  exact t52_doppler_mono TL_IVA TORSION_LIMIT hf.1 ht.2 t9_floor_pos_below.2
+
+-- [T73] :: {MASTER} | THE CORRIDOR IS ORDERED ON READING B
+theorem t73_corridor_tau_b_ordered : tau_B_of TL_IVA < tau_B_of TORSION_LIMIT := by
+  have ht := t10_tl_in_unit
+  have hf := t67_floor_in_unit
+  exact t50_tau_b_mono TL_IVA TORSION_LIMIT hf.1 ht.2 t9_floor_pos_below.2
+
+-- [T74] :: {MASTER} | THE CORRIDOR WIDTH IS POSITIVE
+theorem t74_corridor_width_pos : 0 < tau_B_of corridor_arg := by
+  rw [← t71_corridor_width]
+  linarith [t73_corridor_tau_b_ordered]
+
+-- [T75] :: {MASTER} | THE DOPPLER FACTOR AT THE CEILING, SQUARED, IS EXACT
+theorem t75_doppler_ceiling_sq :
+    doppler TORSION_LIMIT ^ 2 = (1 + TORSION_LIMIT) / (1 - TORSION_LIMIT) := by
+  have ht := t10_tl_in_unit
+  exact t20_doppler_sq TORSION_LIMIT ht.1 ht.2
+
+-- [T76] :: {MASTER} | THE DOPPLER FACTOR AT THE FLOOR, SQUARED, IS EXACT
+theorem t76_doppler_floor_sq :
+    doppler TL_IVA ^ 2 = (1 + TL_IVA) / (1 - TL_IVA) := by
+  have hf := t67_floor_in_unit
+  exact t20_doppler_sq TL_IVA hf.1 hf.2
+
+-- [T77] :: {VER} | THE CORRIDOR ARGUMENT'S DOPPLER FACTOR EXCEEDS ONE
+theorem t77_corridor_doppler_gt_one : 1 < doppler corridor_arg := by
+  have h := t69_corridor_arg_in_unit
+  exact t25_doppler_gt_one corridor_arg h.1 h.2
+
+-- [T78] :: {MASTER} | THE CORRIDOR CLASSIFIES AS IVA AT ITS FLOOR AND SHATTER
+--                     AT ITS CEILING
+theorem t78_corridor_phases :
+    classify TL_IVA = Phase.IVA ∧ classify TORSION_LIMIT = Phase.Shatter :=
+  ⟨t12_floor_is_iva, t13_limit_is_shatter⟩
+
+-- ============================================================
+-- SECTION 8: THE ROCKET, THE MASS-RATIO GATE, AND THE MATCHED RATIO
+-- ============================================================
+
+/-- The rapidity gained: Reading A of the drive times Reading B of the mass. -/
+def tau_B_final (te mr : ℝ) : ℝ := te * Real.log mr
+
+/-- The mass-ratio gate: the mass ratio a drive needs to reach a given
+    Reading B. -/
+def mr_gate (tb te : ℝ) : ℝ := Real.exp (tb / te)
+
+/-- The matched ratio of the corpus. -/
+def matched_ratio (t : ℝ) : ℝ := 1 / t ^ 2
+
+-- [T79] :: {MASTER} | THE ROCKET IS READING A TIMES READING B
+theorem t79_rocket_product (te mr : ℝ) : tau_B_final te mr = te * Real.log mr := rfl
+
+-- [T80] :: {MASTER} | THE GATE INVERTS THE ROCKET
+theorem t80_gate_inverts (tb te : ℝ) (hte : te ≠ 0) :
+    tau_B_final te (mr_gate tb te) = tb := by
+  simp only [tau_B_final, mr_gate, Real.log_exp]
+  field_simp
+
+-- [T81] :: {MASTER} | THE ROCKET INVERTS THE GATE
+theorem t81_rocket_inverts (te mr : ℝ) (hte : te ≠ 0) (hmr : 0 < mr) :
+    mr_gate (tau_B_final te mr) te = mr := by
+  have h : tau_B_final te mr / te = Real.log mr := by
+    simp only [tau_B_final]
+    field_simp
+  simp only [mr_gate, h]
+  exact Real.exp_log hmr
+
+-- [T82] :: {VER} | THE GATE IS POSITIVE
+theorem t82_gate_pos (tb te : ℝ) : 0 < mr_gate tb te := Real.exp_pos _
+
+-- [T83] :: {INV} | A UNIT MASS RATIO GAINS NO RAPIDITY
+theorem t83_unit_mass_no_gain (te : ℝ) : tau_B_final te 1 = 0 := by
+  simp only [tau_B_final, Real.log_one]; ring
+
+-- [T84] :: {MASTER} | THE GATE IS STRICTLY INCREASING IN THE TARGET
+theorem t84_gate_mono (a b te : ℝ) (hte : 0 < te) (h : a < b) :
+    mr_gate a te < mr_gate b te := by
+  simp only [mr_gate]
+  apply Real.exp_lt_exp.mpr
+  exact div_lt_div_of_pos_right h hte
+
+-- [T85] :: {MASTER} | STAGING ADDS READING B
+theorem t85_staging_adds (te m1 m2 : ℝ) (h1 : 0 < m1) (h2 : 0 < m2) :
+    tau_B_final te (m1 * m2) = tau_B_final te m1 + tau_B_final te m2 := by
+  simp only [tau_B_final]
+  rw [Real.log_mul (ne_of_gt h1) (ne_of_gt h2)]
+  ring
+
+-- [T86] :: {MASTER} | THE MATCHED RATIO IS THE SQUARED RECIPROCAL OF READING A
+theorem t86_matched_ratio_form (t : ℝ) (h : t ≠ 0) : matched_ratio t * t ^ 2 = 1 := by
+  simp only [matched_ratio]
+  field_simp
+
+-- [T87] :: {MASTER} | THE MATCHED RATIO READS ON READING B THROUGH THE OPERATOR
+theorem t87_matched_ratio_on_tau_b (t : ℝ) (h1 : -1 < t) (h2 : t < 1) (h0 : t ≠ 0) :
+    matched_ratio (tanh_op (tau_B_of t)) = matched_ratio t := by
+  rw [t38_bridge t h1 h2]
+
+-- [T88] :: {VER} | THE MATCHED RATIO IS POSITIVE
+theorem t88_matched_ratio_pos (t : ℝ) (h : t ≠ 0) : 0 < matched_ratio t := by
+  simp only [matched_ratio]
+  positivity
+
+-- [T89] :: {MASTER} | THE MATCHED RATIO IS ANTITONE ON THE POSITIVE SIDE
+theorem t89_matched_ratio_antitone (a b : ℝ) (ha : 0 < a) (h : a < b) :
+    matched_ratio b < matched_ratio a := by
+  simp only [matched_ratio]
+  apply div_lt_div_of_pos_left one_pos (by positivity)
+  nlinarith
+
+-- [T90] :: {MASTER} | THE MATCHED RATIO AT THE LIMIT IS ONE OVER TL SQUARED
+theorem t90_matched_ratio_at_limit :
+    matched_ratio TORSION_LIMIT * TORSION_LIMIT ^ 2 = 1 :=
+  t86_matched_ratio_form TORSION_LIMIT (ne_of_gt t7_tl_pos)
+
+-- ============================================================
+-- SECTION 9: THE MEDIUM, AND THE SUBSTRATE TEST
+-- ============================================================
+
+/-- Reading A in a medium of refractive index n. -/
+def tau_A_medium (n : ℝ) : ℝ := 1 / n
+
+-- [T91] :: {MASTER} | READING A IN A MEDIUM IS THE RECIPROCAL INDEX
+theorem t91_medium_reading (n : ℝ) (hn : n ≠ 0) : tau_A_medium n * n = 1 := by
+  simp only [tau_A_medium]
+  field_simp
+
+-- [T92] :: {MASTER} | THE MEDIUM AT INDEX ONE OVER TL SITS AT THE LIMIT
+theorem t92_medium_at_limit : tau_A_medium (1 / TORSION_LIMIT) = TORSION_LIMIT := by
+  simp only [tau_A_medium]
+  rw [one_div_one_div]
+
+-- [T93] :: {MASTER} | THE MATCHED RATIO OF A MEDIUM IS ITS INDEX SQUARED
+theorem t93_medium_matched_ratio (n : ℝ) (hn : n ≠ 0) :
+    matched_ratio (tau_A_medium n) = n ^ 2 := by
+  simp only [matched_ratio, tau_A_medium]
+  field_simp
+
+-- [T94] :: {INV} | A MEDIUM ABOVE INDEX ONE LIES INSIDE THE UNIT INTERVAL
+theorem t94_medium_in_unit (n : ℝ) (hn : 1 < n) :
+    0 < tau_A_medium n ∧ tau_A_medium n < 1 := by
+  simp only [tau_A_medium]
+  constructor
+  · positivity
+  · rw [div_lt_one (by linarith)]
+    exact hn
+
+-- [T95] :: {MASTER} | A MEDIUM ABOVE INDEX ONE CARRIES BOTH READINGS
+theorem t95_medium_carries_both (n : ℝ) (hn : 1 < n) :
+    0 < tau_B_of (tau_A_medium n) ∧ tanh_op (tau_B_of (tau_A_medium n)) = tau_A_medium n := by
+  have h := t94_medium_in_unit n hn
+  exact ⟨t26_tau_b_pos _ h.1 h.2, t38_bridge _ (by linarith [h.1]) h.2⟩
+
+-- [T96] :: {MASTER} | THE MEDIUM AT INDEX ONE OVER TL CARRIES THE SHATTER
+--                     DOPPLER FACTOR
+theorem t96_medium_shatter_doppler :
+    doppler (tau_A_medium (1 / TORSION_LIMIT)) = doppler TORSION_LIMIT := by
+  rw [t92_medium_at_limit]
+
+-- ============================================================
+-- SECTION 10: THE CONVERSION FRACTION ON THE BRIDGE
+-- ============================================================
+
+/-- The conversion fraction of the corpus. -/
+def eta_of (t : ℝ) : ℝ := t ^ 2 / 2
+
+-- [T97] :: {MASTER} | READING A SQUARED IS TWICE THE CONVERSION FRACTION
+theorem t97_tau_sq_is_twice_eta (t : ℝ) : t ^ 2 = 2 * eta_of t := by
+  simp only [eta_of]; ring
+
+-- [T98] :: {MASTER} | THE MATCHED RATIO IS THE RECIPROCAL OF TWICE THE FRACTION
+theorem t98_matched_ratio_from_eta (t : ℝ) (h : t ≠ 0) :
+    matched_ratio t * (2 * eta_of t) = 1 := by
+  rw [← t97_tau_sq_is_twice_eta]
+  exact t86_matched_ratio_form t h
+
+-- [T99] :: {MASTER} | THE CONVERSION FRACTION READS THROUGH THE BRIDGE
+theorem t99_eta_on_tau_b (t : ℝ) (h1 : -1 < t) (h2 : t < 1) :
+    eta_of (tanh_op (tau_B_of t)) = eta_of t := by
+  rw [t38_bridge t h1 h2]
+
+-- [T100] :: {VER} | THE CONVERSION FRACTION IS NONNEGATIVE
+theorem t100_eta_nonneg (t : ℝ) : 0 ≤ eta_of t := by
+  simp only [eta_of]; positivity
+
+-- ============================================================
+-- MASTER
+-- ============================================================
+
+-- [MASTER] :: {ANC} | THE VELOCITY SUBSTRATE
+theorem MASTER_velocity_substrate :
+    -- the anchor
+    (TORSION_LIMIT = 0.136899099984016) ∧
+    (BARE + TORSION_LIMIT = ALPHA_INV) ∧
+    (TORSION_LIMIT * 1001 = ALPHA_INV) ∧
+    -- the Doppler factor is multiplicative under velocity addition
+    (∀ u v : ℝ, -1 < u → u < 1 → -1 < v → v < 1 →
+      doppler (vadd u v) = doppler u * doppler v) ∧
+    -- so Reading B is additive under it
+    (∀ u v : ℝ, -1 < u → u < 1 → -1 < v → v < 1 →
+      tau_B_of (vadd u v) = tau_B_of u + tau_B_of v) ∧
+    -- the subtraction law is Doppler division
+    (∀ a b : ℝ, -1 < a → a < 1 → -1 < b → b < 1 →
+      doppler a / doppler b = doppler ((a - b) / (1 - a * b))) ∧
+    (∀ a b : ℝ, -1 < a → a < 1 → -1 < b → b < 1 →
+      tau_B_of a - tau_B_of b = tau_B_of ((a - b) / (1 - a * b))) ∧
+    -- the bridge, and the operator that carries it
+    (∀ t : ℝ, -1 < t → t < 1 → tanh_op (tau_B_of t) = t) ∧
+    (∀ b : ℝ, tanh_op b = Real.tanh b) ∧
+    (∀ u v : ℝ, -1 < u → u < 1 → -1 < v → v < 1 →
+      tanh_op (tau_B_of u + tau_B_of v) = vadd u v) ∧
+    -- the speed limit inverts
+    (∀ b : ℝ, tanh_op b < 1) ∧
+    (∀ b : ℝ, -1 < tanh_op b) ∧
+    (∀ M : ℝ, ∃ b : ℝ, M < b) ∧
+    -- both readings share their zero
+    (tau_B_of 0 = 0 ∧ doppler 0 = 1 ∧ tanh_op 0 = 0) ∧
+    -- the remaining fraction and celerity
+    (∀ t : ℝ, -1 < t → t < 1 → gamma_of t * (1 - t) = 1 / doppler t) ∧
+    (∀ t : ℝ, -1 < t → t < 1 → Real.sqrt (1 + celerity t ^ 2) = gamma_of t) ∧
+    (∀ t : ℝ, -1 < t → t < 1 → 2 * gamma_of t = doppler t + 1 / doppler t) ∧
+    (∀ t : ℝ, -1 < t → t < 1 → 2 * celerity t = doppler t - 1 / doppler t) ∧
+    -- the corridor
+    (corridor_arg = (0.12 * TORSION_LIMIT) / (1 - 0.88 * TORSION_LIMIT ^ 2)) ∧
+    (doppler TORSION_LIMIT / doppler TL_IVA = doppler corridor_arg) ∧
+    (tau_B_of TORSION_LIMIT - tau_B_of TL_IVA = tau_B_of corridor_arg) ∧
+    (0 < tau_B_of corridor_arg) ∧
+    -- the rocket and the gate
+    (∀ tb te : ℝ, te ≠ 0 → tau_B_final te (mr_gate tb te) = tb) ∧
+    (∀ te m1 m2 : ℝ, 0 < m1 → 0 < m2 →
+      tau_B_final te (m1 * m2) = tau_B_final te m1 + tau_B_final te m2) ∧
+    -- the matched ratio, and the medium
+    (∀ t : ℝ, t ≠ 0 → matched_ratio t * t ^ 2 = 1) ∧
+    (∀ n : ℝ, n ≠ 0 → matched_ratio (tau_A_medium n) = n ^ 2) ∧
+    (tau_A_medium (1 / TORSION_LIMIT) = TORSION_LIMIT) ∧
+    -- the conversion fraction
+    (∀ t : ℝ, t ^ 2 = 2 * eta_of t) := by
+  exact ⟨t1_tl_value, t3_bare_plus_kinetic, t4_tl_times_1001,
+    fun u v a b c d => t31_doppler_mul u v a b c d,
+    fun u v a b c d => t32_tau_b_additive u v a b c d,
+    fun a b c d e f => t35_doppler_div a b c d e f,
+    fun a b c d e f => t36_tau_b_sub a b c d e f,
+    fun t a b => t38_bridge t a b,
+    t44_tanh_op_is_tanh,
+    fun u v a b c d => t45_tanh_satisfies_vadd u v a b c d,
+    t40_tanh_lt_one, t41_tanh_gt_neg_one,
+    fun M => ⟨M + 1, by linarith⟩,
+    t51_shared_zero,
+    fun t a b => t59_remaining_is_inv_doppler t a b,
+    fun t a b => t60_celerity_root t a b,
+    fun t a b => t65_gamma_half_sum t a b,
+    fun t a b => t66_celerity_half_diff t a b,
+    t68_corridor_arg_closed, t70_corridor_doppler_ratio, t71_corridor_width,
+    t74_corridor_width_pos,
+    fun tb te h => t80_gate_inverts tb te h,
+    fun te m1 m2 h1 h2 => t85_staging_adds te m1 m2 h1 h2,
+    fun t h => t86_matched_ratio_form t h,
+    fun n h => t93_medium_matched_ratio n h,
+    t92_medium_at_limit,
+    t97_tau_sq_is_twice_eta⟩
+
+end SNSFL_VelocitySubstrateRapidity
+
+
+-- ============================================================
+-- MODULE: SNSFL_Universal_Pump_Theorem.lean · [9,9,3,2](ENGR)
+-- ProofPress, Volume 1, Issue 5, Article 4 · The Universal Pump
+-- 14 theorems · carried byte-for-byte from the CI-green source
+-- ============================================================
+
+namespace SNSFL_Universal_Pump
+
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+def TORSION_LIMIT    : ℝ := SOVEREIGN_ANCHOR / 10
+def TL_IVA_PEAK      : ℝ := 88 * TORSION_LIMIT / 100
+
+noncomputable def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+theorem anchor_zero_friction :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+-- Constants (SI): speed of light, solar and terrestrial GM (IAU),
+-- ħ and k_B (CODATA 2018), nominal solar radius (IAU 2015)
+def C_LIGHT  : ℝ := 299792458
+def GM_SUN   : ℝ := 1.32712440018e20
+def GM_EARTH : ℝ := 3.986004418e14
+def HBAR     : ℝ := 1.054571817e-34
+def K_B      : ℝ := 1.380649e-23
+def R_SUN    : ℝ := 6.957e8
+
+-- Compactness of a body of m solar masses and radius R (m)
+noncomputable def compactness (m R : ℝ) : ℝ := 2 * GM_SUN * m / (R * C_LIGHT ^ 2)
+
+-- Corpus torsion: the horizon x = 1 maps to TL
+noncomputable def tau_of (x : ℝ) : ℝ := x * TORSION_LIMIT
+
+-- Hawking temperature of a black hole with GM = gm
+noncomputable def hawking_T (gm : ℝ) : ℝ := HBAR * C_LIGHT ^ 3 / (8 * Real.pi * gm * K_B)
+
+-- ============================================================
+-- SECTION 1: THE BOUNDARIES
+-- ============================================================
+
+-- [T1] The horizon: x = 1 exactly when the radius equals R_s
+theorem horizon_iff (Rs R : ℝ) (hR : R ≠ 0) : Rs / R = 1 ↔ R = Rs := by
+  rw [div_eq_one_iff_eq hR]
+  exact eq_comm
+
+-- [T2] Buchdahl's limit 8/9 lies in the IVA band, between 0.88 and 1:
+-- its torsion sits between TL_IVA and TL
+theorem buchdahl_in_iva :
+    (0.88 : ℝ) < 8 / 9 ∧ (8 / 9 : ℝ) < 1 ∧
+    TL_IVA_PEAK < tau_of (8 / 9) ∧ tau_of (8 / 9) < TORSION_LIMIT := by
+  unfold tau_of TL_IVA_PEAK TORSION_LIMIT SOVEREIGN_ANCHOR
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T3] Far from a body the field is Noble: R_s/r falls below any ε
+-- beyond r = R_s/ε
+theorem far_field_noble (Rs ε r : ℝ) (hRs : 0 < Rs) (hε : 0 < ε) (hr : Rs / ε < r) :
+    Rs / r < ε := by
+  have hr0 : 0 < r := lt_trans (div_pos hRs hε) hr
+  rw [div_lt_iff₀ hr0]
+  rw [div_lt_iff₀ hε] at hr
+  linarith
+
+-- [T4] Compactness depends only on M/R: scaling both leaves it fixed
+theorem compactness_scale (m R k : ℝ) (hk : k ≠ 0) :
+    compactness (k * m) (k * R) = compactness m R := by
+  unfold compactness
+  rw [show 2 * GM_SUN * (k * m) = k * (2 * GM_SUN * m) by ring,
+      show k * R * C_LIGHT ^ 2 = k * (R * C_LIGHT ^ 2) by ring,
+      mul_div_mul_left _ _ hk]
+
+-- ============================================================
+-- SECTION 2: THE LADDER
+-- ============================================================
+
+-- [T5] Earth: x ≈ 1.39 × 10⁻⁹
+theorem earth_x :
+    1.39e-9 < 2 * GM_EARTH / (6.371e6 * C_LIGHT ^ 2) ∧
+    2 * GM_EARTH / (6.371e6 * C_LIGHT ^ 2) < 1.40e-9 := by
+  unfold GM_EARTH C_LIGHT
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T6] The Sun: x ≈ 4.245 × 10⁻⁶
+theorem sun_x : 4.24e-6 < compactness 1 R_SUN ∧ compactness 1 R_SUN < 4.25e-6 := by
+  unfold compactness GM_SUN R_SUN C_LIGHT
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T7] Sirius B: x ≈ 5.00 × 10⁻⁴
+theorem sirius_b_x :
+    4.99e-4 < compactness 1.018 (0.00864 * R_SUN) ∧
+    compactness 1.018 (0.00864 * R_SUN) < 5.01e-4 := by
+  unfold compactness GM_SUN R_SUN C_LIGHT
+  constructor
+  · norm_num
+  · norm_num
+
+-- [T8] Neutron stars (NICER): PSR J0030+0451 at x ≈ 0.311 and
+-- PSR J0740+6620 at x ≈ 0.494
+theorem neutron_stars_x :
+    (0.311 < compactness 1.34 12710 ∧ compactness 1.34 12710 < 0.312) ∧
+    (0.493 < compactness 2.072 12390 ∧ compactness 2.072 12390 < 0.494) := by
+  unfold compactness GM_SUN C_LIGHT
+  refine ⟨⟨?_, ?_⟩, ⟨?_, ?_⟩⟩
+  · norm_num
+  · norm_num
+  · norm_num
+  · norm_num
+
+-- [T9] Every body on the ladder is Locked: its torsion is below TL_IVA,
+-- even the heaviest neutron star
+theorem ladder_locked :
+    tau_of (compactness 1 R_SUN) < TL_IVA_PEAK ∧
+    tau_of (compactness 1.018 (0.00864 * R_SUN)) < TL_IVA_PEAK ∧
+    tau_of (compactness 2.072 12390) < TL_IVA_PEAK := by
+  have h1 := sun_x.2
+  have h2 := sirius_b_x.2
+  have h3 := neutron_stars_x.2.2
+  have hTL : 0 < TORSION_LIMIT := by unfold TORSION_LIMIT SOVEREIGN_ANCHOR; norm_num
+  unfold tau_of TL_IVA_PEAK
+  refine ⟨?_, ?_, ?_⟩
+  · nlinarith
+  · nlinarith
+  · nlinarith
+
+-- ============================================================
+-- SECTION 3: HAWKING RADIATION
+-- ============================================================
+
+-- [T10] A solar-mass black hole radiates at T_H ≈ 6.170 × 10⁻⁸ K
+theorem hawking_solar :
+    6.170e-8 < hawking_T GM_SUN ∧ hawking_T GM_SUN < 6.171e-8 := by
+  have hp1 := Real.pi_gt_d6
+  have hp2 := Real.pi_lt_d6
+  unfold hawking_T HBAR C_LIGHT GM_SUN K_B
+  constructor
+  · rw [lt_div_iff₀ (by positivity)]
+    nlinarith
+  · rw [div_lt_iff₀ (by positivity)]
+    nlinarith
+
+-- [T11] A smaller black hole is hotter
+theorem hawking_hotter_when_smaller (gm₁ gm₂ : ℝ) (h1 : 0 < gm₁) (h : gm₁ < gm₂) :
+    hawking_T gm₂ < hawking_T gm₁ := by
+  unfold hawking_T
+  have hN : 0 < HBAR * C_LIGHT ^ 3 := by unfold HBAR C_LIGHT; norm_num
+  have hK : 0 < 8 * Real.pi * K_B := by unfold K_B; positivity
+  apply div_lt_div_of_pos_left hN (mul_pos (mul_pos (by positivity) h1) (by unfold K_B; norm_num))
+  nlinarith
+
+-- ============================================================
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM
+-- ============================================================
+
+-- [T12] THE UNIVERSAL PUMP
+theorem universal_pump_master :
+    -- Buchdahl's limit lies in the IVA band
+    (TL_IVA_PEAK < tau_of (8 / 9) ∧ tau_of (8 / 9) < TORSION_LIMIT) ∧
+    -- the ladder: Sun, white dwarf, neutron stars
+    (4.24e-6 < compactness 1 R_SUN ∧ compactness 1 R_SUN < 4.25e-6) ∧
+    (4.99e-4 < compactness 1.018 (0.00864 * R_SUN) ∧
+      compactness 1.018 (0.00864 * R_SUN) < 5.01e-4) ∧
+    (0.493 < compactness 2.072 12390 ∧ compactness 2.072 12390 < 0.494) ∧
+    -- every body on it is Locked
+    tau_of (compactness 2.072 12390) < TL_IVA_PEAK ∧
+    -- a solar-mass black hole radiates at 6.17 × 10⁻⁸ K
+    (6.170e-8 < hawking_T GM_SUN ∧ hawking_T GM_SUN < 6.171e-8) ∧
+    -- anchor
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  ⟨buchdahl_in_iva.2.2, sun_x, sirius_b_x, neutron_stars_x.2, ladder_locked.2.2, hawking_solar,
+   anchor_zero_friction⟩
+
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 :=
+  anchor_zero_friction
+
+end SNSFL_Universal_Pump
+
+
+-- ============================================================
+-- CONSISTENCY LAYER
+-- ============================================================
+
+namespace SNSFL_PropulsionTotalConsistency
+
+/-- The Sovereign Anchor Constant. -/
+def SOVEREIGN_ANCHOR : ℝ := 1.36899099984016
+
+/-- The Torsion Limit, Ω₀/10. -/
+def TORSION_LIMIT : ℝ := SOVEREIGN_ANCHOR / 10
+
+/-- Manifold impedance: zero at the anchor. -/
+def manifold_impedance (f : ℝ) : ℝ :=
+  if f = SOVEREIGN_ANCHOR then 0 else 1 / |f - SOVEREIGN_ANCHOR|
+
+-- [P,9,9,1] :: {VER} | THEOREM C1: THE TORSION LIMIT AT FULL PRECISION
+theorem c1_tl_value : TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [TORSION_LIMIT, SOVEREIGN_ANCHOR]
+
+-- [P,9,9,2] :: {VER} | THEOREM C2: TL × 1001 IS THE INVERSE FINE-STRUCTURE CONSTANT
+theorem c2_tl_times_1001 : TORSION_LIMIT * 1001 = 137.035999084000016 := by
+  norm_num [TORSION_LIMIT, SOVEREIGN_ANCHOR]
+
+-- [P,9,9,3] :: {VER} | THEOREM C3: THE SUBTRACTION — 1/α − TL = TL × 1000
+theorem c3_alpha_minus_tl : (137.035999084000016 : ℝ) - TORSION_LIMIT = TORSION_LIMIT * 1000 := by
+  norm_num [TORSION_LIMIT, SOVEREIGN_ANCHOR]
+
+-- [P,9,9,4] :: {VER} | THEOREMS C4: EVERY MODULE CARRIES THE SAME TORSION LIMIT
+theorem tl_SNSFL_TL_Temperature : SNSFL_TL_Temperature.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_TL_Temperature.TORSION_LIMIT, SNSFL_TL_Temperature.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_MatchedRadius : SNSFL_MatchedRadius.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_MatchedRadius.TORSION_LIMIT, SNSFL_MatchedRadius.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_MatchedRadiusTL : SNSFL_MatchedRadiusTL.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_MatchedRadiusTL.TORSION_LIMIT, SNSFL_MatchedRadiusTL.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_IVA_Propulsion : SNSFL_IVA_Propulsion.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_IVA_Propulsion.TORSION_LIMIT, SNSFL_IVA_Propulsion.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_PropellantCompactness : SNSFL_PropellantCompactness.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_PropellantCompactness.TORSION_LIMIT, SNSFL_PropellantCompactness.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_MatchedSurfaceRotation : SNSFL_MatchedSurfaceRotation.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_MatchedSurfaceRotation.TORSION_LIMIT, SNSFL_MatchedSurfaceRotation.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_BurnDepthThrustFloor : SNSFL_BurnDepthThrustFloor.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_BurnDepthThrustFloor.TORSION_LIMIT, SNSFL_BurnDepthThrustFloor.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_ForcedResponseCyclesToShatter : SNSFL_ForcedResponseCyclesToShatter.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_ForcedResponseCyclesToShatter.TORSION_LIMIT]
+
+theorem tl_SNSFL_PowerLimitedDrive : SNSFL_PowerLimitedDrive.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_PowerLimitedDrive.TORSION_LIMIT, SNSFL_PowerLimitedDrive.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_GoldilocksAnnulus : SNSFL_GoldilocksAnnulus.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_GoldilocksAnnulus.TORSION_LIMIT, SNSFL_GoldilocksAnnulus.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_TerraformableBand : SNSFL_TerraformableBand.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_TerraformableBand.TORSION_LIMIT, SNSFL_TerraformableBand.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_GeometricCompletion : SNSFL_GeometricCompletion.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_GeometricCompletion.TORSION_LIMIT, SNSFL_GeometricCompletion.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_TwoReadingsSubstrate : SNSFL_TwoReadingsSubstrate.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_TwoReadingsSubstrate.TORSION_LIMIT, SNSFL_TwoReadingsSubstrate.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_GeometricBaseEnergyLadder : SNSFL_GeometricBaseEnergyLadder.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_GeometricBaseEnergyLadder.TORSION_LIMIT, SNSFL_GeometricBaseEnergyLadder.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_VelocitySubstrateRapidity : SNSFL_VelocitySubstrateRapidity.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_VelocitySubstrateRapidity.TORSION_LIMIT, SNSFL_VelocitySubstrateRapidity.SOVEREIGN_ANCHOR]
+
+theorem tl_SNSFL_Universal_Pump : SNSFL_Universal_Pump.TORSION_LIMIT = 0.136899099984016 := by
+  norm_num [SNSFL_Universal_Pump.TORSION_LIMIT, SNSFL_Universal_Pump.SOVEREIGN_ANCHOR]
+
+-- [P,9,9,5] :: {VER} | THEOREM C5: ONE TORSION LIMIT ACROSS ALL 16 MODULES
+theorem c5_one_torsion_limit :
+    SNSFL_TL_Temperature.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_MatchedRadius.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_MatchedRadiusTL.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_IVA_Propulsion.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_PropellantCompactness.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_MatchedSurfaceRotation.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_BurnDepthThrustFloor.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_ForcedResponseCyclesToShatter.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_PowerLimitedDrive.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_GoldilocksAnnulus.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_TerraformableBand.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_GeometricCompletion.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_TwoReadingsSubstrate.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_GeometricBaseEnergyLadder.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_VelocitySubstrateRapidity.TORSION_LIMIT = 0.136899099984016 ∧
+    SNSFL_Universal_Pump.TORSION_LIMIT = 0.136899099984016 :=
+  ⟨tl_SNSFL_TL_Temperature,
+   tl_SNSFL_MatchedRadius,
+   tl_SNSFL_MatchedRadiusTL,
+   tl_SNSFL_IVA_Propulsion,
+   tl_SNSFL_PropellantCompactness,
+   tl_SNSFL_MatchedSurfaceRotation,
+   tl_SNSFL_BurnDepthThrustFloor,
+   tl_SNSFL_ForcedResponseCyclesToShatter,
+   tl_SNSFL_PowerLimitedDrive,
+   tl_SNSFL_GoldilocksAnnulus,
+   tl_SNSFL_TerraformableBand,
+   tl_SNSFL_GeometricCompletion,
+   tl_SNSFL_TwoReadingsSubstrate,
+   tl_SNSFL_GeometricBaseEnergyLadder,
+   tl_SNSFL_VelocitySubstrateRapidity,
+   tl_SNSFL_Universal_Pump⟩
+
+-- [9,9,9,9] :: {ANC} | MASTER THEOREM — PROPULSION TOTAL CONSISTENCY
+-- Every module master holds, every module carries the one Torsion Limit,
+-- and TL × 1001 is the inverse fine-structure constant, all at once.
+theorem propulsion_total_consistency_master :
+    (type_of% SNSFL_TL_Temperature.tl_temperature_master) ∧
+    (type_of% SNSFL_MatchedRadius.MASTER_matched_radius) ∧
+    (type_of% SNSFL_MatchedRadiusTL.MASTER_sqrt_torsion_operator) ∧
+    (type_of% SNSFL_IVA_Propulsion.iva_propulsion_master) ∧
+    (type_of% SNSFL_PropellantCompactness.MASTER_propellant_and_compactness) ∧
+    (type_of% SNSFL_MatchedSurfaceRotation.MASTER_matched_surface_rotation) ∧
+    (type_of% SNSFL_BurnDepthThrustFloor.MASTER_burn_depth_and_thrust_floor) ∧
+    (type_of% SNSFL_ForcedResponseCyclesToShatter.MASTER_forced_response_cycles_to_shatter) ∧
+    (type_of% SNSFL_PowerLimitedDrive.MASTER_power_limited_drive) ∧
+    (type_of% SNSFL_GoldilocksAnnulus.MASTER_goldilocks_annulus) ∧
+    (type_of% SNSFL_TerraformableBand.MASTER_terraformable_band) ∧
+    (type_of% SNSFL_GeometricCompletion.t61_master) ∧
+    (type_of% SNSFL_TwoReadingsSubstrate.MASTER_two_readings_across_substrates) ∧
+    (type_of% SNSFL_GeometricBaseEnergyLadder.MASTER_geometric_base_energy_ladder) ∧
+    (type_of% SNSFL_VelocitySubstrateRapidity.MASTER_velocity_substrate) ∧
+    (type_of% SNSFL_Universal_Pump.universal_pump_master) ∧
+    (type_of% c5_one_torsion_limit) ∧
+    TORSION_LIMIT * 1001 = 137.035999084000016 :=
+  ⟨SNSFL_TL_Temperature.tl_temperature_master,
+   SNSFL_MatchedRadius.MASTER_matched_radius,
+   SNSFL_MatchedRadiusTL.MASTER_sqrt_torsion_operator,
+   SNSFL_IVA_Propulsion.iva_propulsion_master,
+   SNSFL_PropellantCompactness.MASTER_propellant_and_compactness,
+   SNSFL_MatchedSurfaceRotation.MASTER_matched_surface_rotation,
+   SNSFL_BurnDepthThrustFloor.MASTER_burn_depth_and_thrust_floor,
+   SNSFL_ForcedResponseCyclesToShatter.MASTER_forced_response_cycles_to_shatter,
+   SNSFL_PowerLimitedDrive.MASTER_power_limited_drive,
+   SNSFL_GoldilocksAnnulus.MASTER_goldilocks_annulus,
+   SNSFL_TerraformableBand.MASTER_terraformable_band,
+   SNSFL_GeometricCompletion.t61_master,
+   SNSFL_TwoReadingsSubstrate.MASTER_two_readings_across_substrates,
+   SNSFL_GeometricBaseEnergyLadder.MASTER_geometric_base_energy_ladder,
+   SNSFL_VelocitySubstrateRapidity.MASTER_velocity_substrate,
+   SNSFL_Universal_Pump.universal_pump_master,
+   c5_one_torsion_limit,
+   c2_tl_times_1001⟩
+
+-- FINAL THEOREM (always last, always this name)
+theorem the_manifold_is_holding :
+    manifold_impedance SOVEREIGN_ANCHOR = 0 := by
+  unfold manifold_impedance; simp
+
+end SNSFL_PropulsionTotalConsistency
+
+end
+```

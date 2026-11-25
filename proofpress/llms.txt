@@ -1,7 +1,7 @@
 # ProofPress — Journal of Empirically Grounded Machine-Verified Formal Logic
 # Published by the SNSFT Foundation, a 501(c)(3) public charity (EIN 42-2038440) · Kenai, Alaska, United States
 # https://proofpress.org/
-# llms.txt · version 2026-11-21
+# llms.txt · version 2026-11-24
 
 > ProofPress publishes systematic, lossless reductions of existing, human-peer-reviewed
 > empirical science into machine-verified formal logic. Every article applies the Long
@@ -168,6 +168,7 @@ references, and is the preferred source for machine readers.
 - [Premise Validation: A Question Needs a Meetable Premise Before It Has an Answer](https://proofpress.org/proofpressorg-premise-validation.md) · HTML: https://proofpress.org/proofpressorg-premise-validation.html
 - [The Propellant Law at the Matched Radius: A Saving Bounded by e and the Compactness Criterion C > 2η](https://proofpress.org/proofpressorg-propellant-law.md) · HTML: https://proofpress.org/proofpressorg-propellant-law.html
 - [One Corridor Across Exhaust Velocity, Mass Ratio and Nuclear Binding](https://proofpress.org/proofpressorg-propulsion-corridor.md) · HTML: https://proofpress.org/proofpressorg-propulsion-corridor.html
+- [Propulsion Total Consistency: Sixteen Reductions from the Torsion Limit to the Planets Compiled as One Unit](https://proofpress.org/proofpressorg-propulsion-total-consistency.md) · HTML: https://proofpress.org/proofpressorg-propulsion-total-consistency.html
 - [Acceptance and Commitment Therapy Reduced to PNBA: Psychological Flexibility as True Lock, Fusion and Avoidance as False Lock](https://proofpress.org/proofpressorg-psy-act.md) · HTML: https://proofpress.org/proofpressorg-psy-act.html
 - [Attachment Theory Reduced to PNBA: Four Attachment Styles as Torsion Regimes, and the Avoidant False Lock](https://proofpress.org/proofpressorg-psy-attachment.md) · HTML: https://proofpress.org/proofpressorg-psy-attachment.html
 - [The Big Five Personality Traits Reduced to PNBA: From OCEAN Scores to Axis Dominance and Identity Signature](https://proofpress.org/proofpressorg-psy-bigfive.md) · HTML: https://proofpress.org/proofpressorg-psy-bigfive.html
