@@ -1303,12 +1303,12 @@
        "count": 1
       },
       {
-       "path": "/proofpressorg-mathematics-master.html",
+       "path": "/proofpressorg-calculus.html",
        "crawler": "meta-externalagent",
        "count": 1
       },
       {
-       "path": "/proofpressorg-calculus.html",
+       "path": "/proofpressorg-mathematics-master.html",
        "crawler": "meta-externalagent",
        "count": 1
       },
@@ -1426,7 +1426,7 @@
        "visits": 1
       },
       {
-       "k": "PT",
+       "k": "CA",
        "n": 2,
        "visits": 1
       }
@@ -2517,11 +2517,6 @@
        "count": 1
       },
       {
-       "path": "/proofpressorg-qt-reduction.md",
-       "crawler": "GPTBot",
-       "count": 1
-      },
-      {
        "path": "/proofpressorg-psy-bigfive.md",
        "crawler": "GPTBot",
        "count": 1
@@ -2547,17 +2542,22 @@
        "count": 1
       },
       {
-       "path": "/proofpressorg-qm-mag-reduction.md",
-       "crawler": "GPTBot",
-       "count": 1
-      },
-      {
        "path": "/proofpressorg-psy-functional-emotions.md",
        "crawler": "GPTBot",
        "count": 1
       },
       {
+       "path": "/proofpressorg-qm-mag-reduction.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
        "path": "/proofpressorg-set-theory.md",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qt-reduction.md",
        "crawler": "GPTBot",
        "count": 1
       },
@@ -3374,7 +3374,7 @@
      "devices": [
       {
        "k": "mobile",
-       "n": 1151,
+       "n": 1152,
        "visits": 24
       },
       {
@@ -3701,9 +3701,636 @@
        "count": 1
       }
      ]
+    },
+    "2026-11-25": {
+     "pageviews": 332,
+     "uniques": 457,
+     "cached": 29,
+     "threats": 103,
+     "countries": [
+      {
+       "k": "BE",
+       "n": 660,
+       "visits": 1
+      },
+      {
+       "k": "US",
+       "n": 429,
+       "visits": 226
+      },
+      {
+       "k": "SG",
+       "n": 153,
+       "visits": 9
+      },
+      {
+       "k": "CN",
+       "n": 127,
+       "visits": 44
+      },
+      {
+       "k": "IN",
+       "n": 26,
+       "visits": 1
+      },
+      {
+       "k": "SE",
+       "n": 22,
+       "visits": 0
+      },
+      {
+       "k": "MX",
+       "n": 17,
+       "visits": 8
+      },
+      {
+       "k": "IE",
+       "n": 12,
+       "visits": 0
+      },
+      {
+       "k": "GB",
+       "n": 11,
+       "visits": 1
+      },
+      {
+       "k": "HK",
+       "n": 11,
+       "visits": 7
+      },
+      {
+       "k": "DE",
+       "n": 11,
+       "visits": 3
+      },
+      {
+       "k": "KR",
+       "n": 10,
+       "visits": 6
+      },
+      {
+       "k": "MY",
+       "n": 6,
+       "visits": 1
+      },
+      {
+       "k": "FI",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "JP",
+       "n": 4,
+       "visits": 1
+      },
+      {
+       "k": "BR",
+       "n": 3,
+       "visits": 1
+      },
+      {
+       "k": "CA",
+       "n": 3,
+       "visits": 2
+      },
+      {
+       "k": "PE",
+       "n": 3,
+       "visits": 1
+      },
+      {
+       "k": "NL",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "EC",
+       "n": 3,
+       "visits": 1
+      }
+     ],
+     "browsers": [
+      {
+       "k": "Unknown",
+       "n": 1082,
+       "visits": 160
+      },
+      {
+       "k": "Chrome",
+       "n": 221,
+       "visits": 64
+      },
+      {
+       "k": "MobileSafari",
+       "n": 112,
+       "visits": 53
+      },
+      {
+       "k": "ChromeMobile",
+       "n": 77,
+       "visits": 25
+      },
+      {
+       "k": "BingBot",
+       "n": 10,
+       "visits": 9
+      },
+      {
+       "k": "Firefox",
+       "n": 9,
+       "visits": 2
+      },
+      {
+       "k": "GoogleBot",
+       "n": 6,
+       "visits": 2
+      },
+      {
+       "k": "OperaMobile",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "AppleBot",
+       "n": 4,
+       "visits": 1
+      },
+      {
+       "k": "Yandex",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "Edge",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "os": [
+      {
+       "k": "Unknown",
+       "n": 1107,
+       "visits": 170
+      },
+      {
+       "k": "Windows",
+       "n": 175,
+       "visits": 51
+      },
+      {
+       "k": "iOS",
+       "n": 114,
+       "visits": 53
+      },
+      {
+       "k": "Android",
+       "n": 82,
+       "visits": 26
+      },
+      {
+       "k": "ChromeOS",
+       "n": 26,
+       "visits": 1
+      },
+      {
+       "k": "Linux",
+       "n": 20,
+       "visits": 5
+      },
+      {
+       "k": "MacOSX",
+       "n": 15,
+       "visits": 10
+      }
+     ],
+     "devices": [
+      {
+       "k": "desktop",
+       "n": 1333,
+       "visits": 237
+      },
+      {
+       "k": "mobile",
+       "n": 196,
+       "visits": 79
+      }
+     ],
+     "status": [
+      {
+       "k": "200",
+       "n": 556,
+       "visits": 316
+      },
+      {
+       "k": "301",
+       "n": 397,
+       "visits": 0
+      },
+      {
+       "k": "404",
+       "n": 328,
+       "visits": 0
+      },
+      {
+       "k": "204",
+       "n": 121,
+       "visits": 0
+      },
+      {
+       "k": "403",
+       "n": 105,
+       "visits": 0
+      },
+      {
+       "k": "405",
+       "n": 7,
+       "visits": 0
+      },
+      {
+       "k": "499",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "206",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "304",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "503",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "522",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "cache": [
+      {
+       "k": "dynamic",
+       "n": 1144,
+       "visits": 316
+      },
+      {
+       "k": "none",
+       "n": 233,
+       "visits": 0
+      },
+      {
+       "k": "miss",
+       "n": 77,
+       "visits": 0
+      },
+      {
+       "k": "expired",
+       "n": 38,
+       "visits": 0
+      },
+      {
+       "k": "hit",
+       "n": 29,
+       "visits": 0
+      },
+      {
+       "k": "revalidated",
+       "n": 8,
+       "visits": 0
+      }
+     ],
+     "probes": [
+      {
+       "k": "/.aws/credentials",
+       "n": 12,
+       "visits": 0
+      },
+      {
+       "k": "/.env.txt",
+       "n": 11,
+       "visits": 0
+      },
+      {
+       "k": "/.git/HEAD",
+       "n": 7,
+       "visits": 0
+      },
+      {
+       "k": "/.env.dev",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "/.aws/config",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/.env~",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/api/.env",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/.env.sample",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "/wp-config.php.save",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/.env.local",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/.env.shared",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/.git/config",
+       "n": 3,
+       "visits": 0
+      },
+      {
+       "k": "/wp-config.php~",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/.env.old",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "/wp-config.php",
+       "n": 2,
+       "visits": 0
+      }
+     ],
+     "requests": 1529,
+     "visits": 316,
+     "bytes": 27229672,
+     "crawlers": {
+      "Applebot": {
+       "ok": 4,
+       "fail": 0,
+       "bytes": 28194
+      },
+      "Baiduspider": {
+       "ok": 27,
+       "fail": 0,
+       "bytes": 368988
+      },
+      "GPTBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 2457
+      },
+      "Googlebot": {
+       "ok": 13,
+       "fail": 0,
+       "bytes": 293527
+      },
+      "OAI-SearchBot": {
+       "ok": 6,
+       "fail": 0,
+       "bytes": 2372383
+      },
+      "bingbot": {
+       "ok": 10,
+       "fail": 0,
+       "bytes": 1417577
+      },
+      "facebookexternalhit": {
+       "ok": 99,
+       "fail": 0,
+       "bytes": 4054753
+      },
+      "meta-webindexer": {
+       "ok": 3,
+       "fail": 0,
+       "bytes": 3441856
+      }
+     },
+     "paths": [
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor",
+       "crawler": "facebookexternalhit",
+       "count": 21
+      },
+      {
+       "path": "/proofpressorg-tl-temperature",
+       "crawler": "facebookexternalhit",
+       "count": 17
+      },
+      {
+       "path": "/proofpressorg-matched-radius",
+       "crawler": "facebookexternalhit",
+       "count": 16
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates",
+       "crawler": "facebookexternalhit",
+       "count": 15
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder",
+       "crawler": "facebookexternalhit",
+       "count": 12
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss",
+       "crawler": "facebookexternalhit",
+       "count": 11
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 6
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 4
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 4
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 3
+      },
+      {
+       "path": "/proofpressorg-psy-growth-mindset.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "OAI-SearchBot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-psy-emotion-regulation.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-saga-reduction.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-matched-radius",
+       "crawler": "Googlebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-vascular-manifold.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-calculus.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-coordinate-extension.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-matched-radius.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-archive.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-structural-precognition.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-thermo-reduction.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-propulsion-total-consistency.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.md",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-regulation-reaction",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-two-readings-substrates.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "facebookexternalhit",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-periodic-weight.md",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-quantum-gravity.html",
+       "crawler": "Baiduspider",
+       "count": 1
+      },
+      {
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-fatigue-damping-loss.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qt-reduction.html",
+       "crawler": "Baiduspider",
+       "count": 1
+      },
+      {
+       "path": "/index.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor",
+       "crawler": "Googlebot",
+       "count": 1
+      }
+     ]
     }
    }
   }
  },
- "updated": "2026-11-25T22:39:01Z"
+ "updated": "2026-11-26T01:04:23Z"
 }
