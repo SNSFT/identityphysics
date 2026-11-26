@@ -4,6 +4,8 @@ name: Traffic snapshot
 # to traffic.json on the `traffic` branch, so history outlasts GitHub's 14-day window.
 # Saves Cloudflare site analytics for proofpress.org (requests, visits,
 # AI and search crawlers by name, their top paths) to cloudflare.json on the same branch.
+# Saves the formal record to leanmass.json: theorem and lemma counts for every .lean file,
+# read from the full history of the default branch, so the theorem mass carries back to the first commit.
 # The data branch keeps snapshot commits out of main and out of CI ([skip ci]).
 
 on:
@@ -35,6 +37,7 @@ jobs:
         run: |
           cp .github/scripts/traffic_snapshot.py "$RUNNER_TEMP/traffic_snapshot.py"
           cp .github/scripts/cloudflare_snapshot.py "$RUNNER_TEMP/cloudflare_snapshot.py"
+          cp .github/scripts/lean_mass.py "$RUNNER_TEMP/lean_mass.py"
           if git ls-remote --exit-code --heads origin traffic >/dev/null; then
             git fetch origin traffic
             git checkout traffic
@@ -56,12 +59,21 @@ jobs:
           CF_BACKFILL: ${{ inputs.cf_backfill || '2' }}
         run: python3 "$RUNNER_TEMP/cloudflare_snapshot.py"
 
+      - name: Collect the formal record
+        env:
+          REF: origin/${{ github.event.repository.default_branch }}
+          REPO: ${{ github.repository }}
+          OUT: leanmass.json
+          LEAN_PATHS: SNSFL/
+        run: python3 "$RUNNER_TEMP/lean_mass.py"
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add traffic.json
           if [ -f cloudflare.json ]; then git add cloudflare.json; fi
+          if [ -f leanmass.json ]; then git add leanmass.json; fi
           if git diff --cached --quiet; then
             echo "No change."
           else
