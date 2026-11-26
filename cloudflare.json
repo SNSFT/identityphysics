@@ -3319,14 +3319,14 @@
        "visits": 1
       },
       {
-       "k": "Edge",
-       "n": 2,
-       "visits": 1
-      },
-      {
        "k": "Curl",
        "n": 2,
        "visits": 0
+      },
+      {
+       "k": "Edge",
+       "n": 2,
+       "visits": 1
       },
       {
        "k": "Safari",
@@ -3374,7 +3374,7 @@
      "devices": [
       {
        "k": "mobile",
-       "n": 1152,
+       "n": 1151,
        "visits": 24
       },
       {
@@ -3484,9 +3484,9 @@
        "visits": 0
       }
      ],
-     "requests": 1458,
+     "requests": 1459,
      "visits": 81,
-     "bytes": 12316814,
+     "bytes": 12318381,
      "crawlers": {
       "Applebot": {
        "ok": 10,
@@ -3784,9 +3784,9 @@
        "visits": 1
       },
       {
-       "k": "BR",
+       "k": "AR",
        "n": 3,
-       "visits": 1
+       "visits": 0
       },
       {
        "k": "CA",
@@ -3869,7 +3869,7 @@
      "os": [
       {
        "k": "Unknown",
-       "n": 1107,
+       "n": 1097,
        "visits": 170
       },
       {
@@ -4081,9 +4081,9 @@
        "visits": 0
       }
      ],
-     "requests": 1529,
+     "requests": 1539,
      "visits": 316,
-     "bytes": 27229672,
+     "bytes": 27295817,
      "crawlers": {
       "Applebot": {
        "ok": 4,
@@ -4332,5 +4332,5 @@
    }
   }
  },
- "updated": "2026-11-26T01:04:23Z"
+ "updated": "2026-11-26T18:59:15Z"
 }

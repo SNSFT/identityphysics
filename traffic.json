@@ -229,6 +229,10 @@
   "2026-11-24": {
    "count": 28,
    "uniques": 1
+  },
+  "2026-11-25": {
+   "count": 127,
+   "uniques": 1
   }
  },
  "clones": {
@@ -459,6 +463,10 @@
   "2026-11-24": {
    "count": 4,
    "uniques": 4
+  },
+  "2026-11-25": {
+   "count": 53,
+   "uniques": 18
   }
  },
  "referrers": {
@@ -1076,7 +1084,7 @@
   "2026-11-26": [
    {
     "referrer": "github.com",
-    "count": 55,
+    "count": 59,
     "uniques": 2
    },
    {
@@ -3577,26 +3585,26 @@
    {
     "path": "/SNSFT/identityphysics",
     "title": "Overview",
-    "count": 102,
+    "count": 111,
     "uniques": 2
-   },
-   {
-    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
-    "title": "/tree/main/SNSFL",
-    "count": 36,
-    "uniques": 3
    },
    {
     "path": "/SNSFT/identityphysics/upload",
     "title": "/upload",
-    "count": 28,
+    "count": 33,
     "uniques": 1
    },
    {
     "path": "/SNSFT/identityphysics/actions",
     "title": "/actions",
-    "count": 25,
+    "count": 32,
     "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
+    "title": "/tree/main/SNSFL",
+    "count": 30,
+    "uniques": 3
    },
    {
     "path": "/SNSFT/identityphysics/tree/main/proofpress",
@@ -3605,15 +3613,21 @@
     "uniques": 1
    },
    {
-    "path": "/SNSFT/identityphysics/tree/main",
-    "title": "/tree/main",
+    "path": "/SNSFT/identityphysics/upload/main/proofpress",
+    "title": "/upload/main/proofpress",
     "count": 16,
     "uniques": 1
    },
    {
-    "path": "/SNSFT/identityphysics/upload/main/proofpress",
-    "title": "/upload/main/proofpress",
-    "count": 15,
+    "path": "/SNSFT/identityphysics/tree/main",
+    "title": "/tree/main",
+    "count": 14,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/blob/main/README.md",
+    "title": "/blob/main/README.md",
+    "count": 12,
     "uniques": 1
    },
    {
@@ -3623,15 +3637,9 @@
     "uniques": 1
    },
    {
-    "path": "/SNSFT/identityphysics/blob/main/README.md",
-    "title": "/blob/main/README.md",
-    "count": 11,
-    "uniques": 1
-   },
-   {
     "path": "/SNSFT/identityphysics/projects",
     "title": "/projects",
-    "count": 11,
+    "count": 12,
     "uniques": 1
    }
   ]
@@ -3890,11 +3898,11 @@
    "forks": 0,
    "watchers": 0,
    "open_issues": 0,
-   "size_kb": 16285,
-   "commits_24h": 16
+   "size_kb": 16299,
+   "commits_24h": 9
   }
  },
- "updated": "2026-11-26T00:59:30Z",
+ "updated": "2026-11-26T18:58:57Z",
  "ci_runs": {
   "2026-10-13": 0,
   "2026-10-14": 0,
@@ -3940,7 +3948,7 @@
   "2026-11-23": 1,
   "2026-11-24": 1,
   "2026-11-25": 19,
-  "2026-11-26": 3
+  "2026-11-26": 4
  },
  "pushes": {
   "2026-10-13": {
