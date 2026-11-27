@@ -3784,9 +3784,9 @@
        "visits": 1
       },
       {
-       "k": "AR",
+       "k": "BR",
        "n": 3,
-       "visits": 0
+       "visits": 1
       },
       {
        "k": "CA",
@@ -4081,9 +4081,9 @@
        "visits": 0
       }
      ],
-     "requests": 1539,
+     "requests": 1529,
      "visits": 316,
-     "bytes": 27295817,
+     "bytes": 27229672,
      "crawlers": {
       "Applebot": {
        "ok": 4,
@@ -4178,13 +4178,18 @@
        "count": 3
       },
       {
-       "path": "/proofpressorg-psy-growth-mindset.html",
-       "crawler": "Baiduspider",
+       "path": "/robots.txt",
+       "crawler": "Applebot",
        "count": 2
       },
       {
        "path": "/proofpressorg-geometric-completion.html",
        "crawler": "OAI-SearchBot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-psy-growth-mindset.html",
+       "crawler": "Baiduspider",
        "count": 2
       },
       {
@@ -4198,8 +4203,8 @@
        "count": 2
       },
       {
-       "path": "/robots.txt",
-       "crawler": "Applebot",
+       "path": "/proofpressorg-calculus.html",
+       "crawler": "Baiduspider",
        "count": 2
       },
       {
@@ -4209,11 +4214,6 @@
       },
       {
        "path": "/proofpressorg-vascular-manifold.html",
-       "crawler": "Baiduspider",
-       "count": 2
-      },
-      {
-       "path": "/proofpressorg-calculus.html",
        "crawler": "Baiduspider",
        "count": 2
       },
@@ -4228,17 +4228,17 @@
        "count": 2
       },
       {
+       "path": "/proofpressorg-structural-precognition.html",
+       "crawler": "Baiduspider",
+       "count": 2
+      },
+      {
        "path": "/proofpressorg-archive.html",
        "crawler": "Baiduspider",
        "count": 2
       },
       {
        "path": "/",
-       "crawler": "Baiduspider",
-       "count": 2
-      },
-      {
-       "path": "/proofpressorg-structural-precognition.html",
        "crawler": "Baiduspider",
        "count": 2
       },
@@ -4288,13 +4288,13 @@
        "count": 1
       },
       {
-       "path": "/proofpressorg-quantum-gravity.html",
-       "crawler": "Baiduspider",
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
        "count": 1
       },
       {
-       "path": "/sitemap.xml",
-       "crawler": "GPTBot",
+       "path": "/proofpressorg-quantum-gravity.html",
+       "crawler": "Baiduspider",
        "count": 1
       },
       {
@@ -4328,9 +4328,616 @@
        "count": 1
       }
      ]
+    },
+    "2026-11-26": {
+     "pageviews": 178,
+     "uniques": 183,
+     "cached": 0,
+     "threats": 371,
+     "countries": [
+      {
+       "k": "BE",
+       "n": 659,
+       "visits": 2
+      },
+      {
+       "k": "NL",
+       "n": 399,
+       "visits": 4
+      },
+      {
+       "k": "US",
+       "n": 171,
+       "visits": 79
+      },
+      {
+       "k": "SE",
+       "n": 169,
+       "visits": 0
+      },
+      {
+       "k": "CN",
+       "n": 60,
+       "visits": 18
+      },
+      {
+       "k": "KR",
+       "n": 56,
+       "visits": 1
+      },
+      {
+       "k": "DE",
+       "n": 34,
+       "visits": 28
+      },
+      {
+       "k": "HK",
+       "n": 15,
+       "visits": 7
+      },
+      {
+       "k": "BR",
+       "n": 12,
+       "visits": 3
+      },
+      {
+       "k": "IT",
+       "n": 12,
+       "visits": 6
+      },
+      {
+       "k": "SG",
+       "n": 9,
+       "visits": 2
+      },
+      {
+       "k": "MX",
+       "n": 7,
+       "visits": 2
+      },
+      {
+       "k": "GB",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "TR",
+       "n": 4,
+       "visits": 1
+      },
+      {
+       "k": "IE",
+       "n": 4,
+       "visits": 2
+      },
+      {
+       "k": "FR",
+       "n": 2,
+       "visits": 1
+      },
+      {
+       "k": "ES",
+       "n": 2,
+       "visits": 1
+      },
+      {
+       "k": "JP",
+       "n": 1,
+       "visits": 0
+      },
+      {
+       "k": "IQ",
+       "n": 1,
+       "visits": 1
+      },
+      {
+       "k": "ID",
+       "n": 1,
+       "visits": 1
+      }
+     ],
+     "browsers": [
+      {
+       "k": "Unknown",
+       "n": 815,
+       "visits": 70
+      },
+      {
+       "k": "Chrome",
+       "n": 633,
+       "visits": 47
+      },
+      {
+       "k": "MobileSafari",
+       "n": 69,
+       "visits": 21
+      },
+      {
+       "k": "ChromeMobile",
+       "n": 63,
+       "visits": 1
+      },
+      {
+       "k": "GoogleBot",
+       "n": 20,
+       "visits": 9
+      },
+      {
+       "k": "AppleBot",
+       "n": 9,
+       "visits": 6
+      },
+      {
+       "k": "BingBot",
+       "n": 8,
+       "visits": 7
+      },
+      {
+       "k": "Edge",
+       "n": 8,
+       "visits": 1
+      },
+      {
+       "k": "Firefox",
+       "n": 1,
+       "visits": 0
+      }
+     ],
+     "os": [
+      {
+       "k": "Unknown",
+       "n": 836,
+       "visits": 79
+      },
+      {
+       "k": "Windows",
+       "n": 463,
+       "visits": 44
+      },
+      {
+       "k": "Linux",
+       "n": 170,
+       "visits": 1
+      },
+      {
+       "k": "Android",
+       "n": 70,
+       "visits": 8
+      },
+      {
+       "k": "iOS",
+       "n": 69,
+       "visits": 21
+      },
+      {
+       "k": "MacOSX",
+       "n": 18,
+       "visits": 9
+      }
+     ],
+     "devices": [
+      {
+       "k": "desktop",
+       "n": 1472,
+       "visits": 123
+      },
+      {
+       "k": "mobile",
+       "n": 154,
+       "visits": 39
+      }
+     ],
+     "status": [
+      {
+       "k": "404",
+       "n": 613,
+       "visits": 0
+      },
+      {
+       "k": "403",
+       "n": 404,
+       "visits": 0
+      },
+      {
+       "k": "301",
+       "n": 349,
+       "visits": 0
+      },
+      {
+       "k": "200",
+       "n": 235,
+       "visits": 162
+      },
+      {
+       "k": "204",
+       "n": 12,
+       "visits": 0
+      },
+      {
+       "k": "499",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "405",
+       "n": 4,
+       "visits": 0
+      },
+      {
+       "k": "304",
+       "n": 2,
+       "visits": 0
+      },
+      {
+       "k": "206",
+       "n": 2,
+       "visits": 0
+      }
+     ],
+     "cache": [
+      {
+       "k": "dynamic",
+       "n": 1066,
+       "visits": 162
+      },
+      {
+       "k": "none",
+       "n": 423,
+       "visits": 0
+      },
+      {
+       "k": "miss",
+       "n": 74,
+       "visits": 0
+      },
+      {
+       "k": "expired",
+       "n": 51,
+       "visits": 0
+      },
+      {
+       "k": "revalidated",
+       "n": 12,
+       "visits": 0
+      }
+     ],
+     "probes": [
+      {
+       "k": "/home/user/.git/config",
+       "n": 10,
+       "visits": 0
+      },
+      {
+       "k": "/.env",
+       "n": 9,
+       "visits": 0
+      },
+      {
+       "k": "/.env.php",
+       "n": 8,
+       "visits": 0
+      },
+      {
+       "k": "/wp-config.php.save",
+       "n": 8,
+       "visits": 0
+      },
+      {
+       "k": "/.env.dev",
+       "n": 7,
+       "visits": 0
+      },
+      {
+       "k": "/.aws/credentials",
+       "n": 7,
+       "visits": 0
+      },
+      {
+       "k": "/.env.orig",
+       "n": 7,
+       "visits": 0
+      },
+      {
+       "k": "/api/.env",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "/.env.save",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "/.env~",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "/.env.master",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "/.env.test",
+       "n": 6,
+       "visits": 0
+      },
+      {
+       "k": "/",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "/.github/workflows/deploy.yml",
+       "n": 5,
+       "visits": 0
+      },
+      {
+       "k": "/.env.production",
+       "n": 5,
+       "visits": 0
+      }
+     ],
+     "requests": 1626,
+     "visits": 162,
+     "bytes": 16085604,
+     "crawlers": {
+      "Applebot": {
+       "ok": 9,
+       "fail": 0,
+       "bytes": 114141
+      },
+      "Bytespider": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 1603
+      },
+      "ChatGPT-User": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 16507
+      },
+      "GPTBot": {
+       "ok": 1,
+       "fail": 0,
+       "bytes": 2459
+      },
+      "Googlebot": {
+       "ok": 22,
+       "fail": 0,
+       "bytes": 185675
+      },
+      "OAI-SearchBot": {
+       "ok": 4,
+       "fail": 0,
+       "bytes": 1187707
+      },
+      "bingbot": {
+       "ok": 8,
+       "fail": 0,
+       "bytes": 183344
+      },
+      "facebookexternalhit": {
+       "ok": 3,
+       "fail": 0,
+       "bytes": 4165
+      },
+      "meta-externalagent": {
+       "ok": 7,
+       "fail": 0,
+       "bytes": 244351
+      },
+      "meta-webindexer": {
+       "ok": 6,
+       "fail": 0,
+       "bytes": 1318764
+      }
+     },
+     "paths": [
+      {
+       "path": "/robots.txt",
+       "crawler": "Googlebot",
+       "count": 10
+      },
+      {
+       "path": "/",
+       "crawler": "Googlebot",
+       "count": 4
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "facebookexternalhit",
+       "count": 3
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "OAI-SearchBot",
+       "count": 3
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Applebot",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-terraformable-band.html",
+       "crawler": "meta-webindexer",
+       "count": 2
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-total-consistency.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/apple-touch-icon.png",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-hodgkin-huxley.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-terraformable-band",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-aims-scope.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "OAI-SearchBot",
+       "count": 1
+      },
+      {
+       "path": "/favicon.ico",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation.html",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-qm-mag-reduction",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-lagrangian-reduction.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/robots.txt",
+       "crawler": "Bytespider",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-burn-depth-thrust-floor",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/sitemap.xml",
+       "crawler": "GPTBot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-bill-of-cognitive-rights",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-base-energy-ladder.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-psy-ifs.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-goldilocks-annulus",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-matched-surface-rotation",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-propellant-law.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-gc-running-coupling.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-master",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-power-limited-drive.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/favicon-32.png",
+       "crawler": "Googlebot",
+       "count": 1
+      },
+      {
+       "path": "/index.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-tl-temperature",
+       "crawler": "meta-externalagent",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-goldilocks-annulus.html",
+       "crawler": "bingbot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-geometric-completion.html",
+       "crawler": "meta-webindexer",
+       "count": 1
+      },
+      {
+       "path": "/",
+       "crawler": "ChatGPT-User",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-logarithm.html",
+       "crawler": "Applebot",
+       "count": 1
+      },
+      {
+       "path": "/proofpressorg-bill-of-cognitive-rights.html",
+       "crawler": "Googlebot",
+       "count": 1
+      }
+     ]
     }
    }
   }
  },
- "updated": "2026-11-26T18:59:15Z"
+ "updated": "2026-11-27T18:56:41Z"
 }

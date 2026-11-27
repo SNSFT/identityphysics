@@ -233,6 +233,10 @@
   "2026-11-25": {
    "count": 127,
    "uniques": 1
+  },
+  "2026-11-26": {
+   "count": 28,
+   "uniques": 1
   }
  },
  "clones": {
@@ -467,6 +471,10 @@
   "2026-11-25": {
    "count": 53,
    "uniques": 18
+  },
+  "2026-11-26": {
+   "count": 55,
+   "uniques": 27
   }
  },
  "referrers": {
@@ -1085,6 +1093,18 @@
    {
     "referrer": "github.com",
     "count": 59,
+    "uniques": 2
+   },
+   {
+    "referrer": "uuia.app",
+    "count": 1,
+    "uniques": 1
+   }
+  ],
+  "2026-11-27": [
+   {
+    "referrer": "github.com",
+    "count": 61,
     "uniques": 2
    },
    {
@@ -3642,6 +3662,68 @@
     "count": 12,
     "uniques": 1
    }
+  ],
+  "2026-11-27": [
+   {
+    "path": "/SNSFT/identityphysics",
+    "title": "Overview",
+    "count": 107,
+    "uniques": 2
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload",
+    "title": "/upload",
+    "count": 31,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/SNSFL",
+    "title": "/tree/main/SNSFL",
+    "count": 26,
+    "uniques": 3
+   },
+   {
+    "path": "/SNSFT/identityphysics/actions",
+    "title": "/actions",
+    "count": 25,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/proofpress",
+    "title": "/tree/main/proofpress",
+    "count": 18,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/upload/main/proofpress",
+    "title": "/upload/main/proofpress",
+    "count": 15,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/blob/main/README.md",
+    "title": "/blob/main/README.md",
+    "count": 12,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/edit/main/README.md",
+    "title": "/edit/main/README.md",
+    "count": 12,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/tree/main/.github",
+    "title": "/tree/main/.github",
+    "count": 11,
+    "uniques": 1
+   },
+   {
+    "path": "/SNSFT/identityphysics/projects",
+    "title": "/projects",
+    "count": 10,
+    "uniques": 1
+   }
   ]
  },
  "repo_stats": {
@@ -3900,9 +3982,17 @@
    "open_issues": 0,
    "size_kb": 16299,
    "commits_24h": 9
+  },
+  "2026-11-27": {
+   "stars": 0,
+   "forks": 0,
+   "watchers": 0,
+   "open_issues": 0,
+   "size_kb": 16300,
+   "commits_24h": 0
   }
  },
- "updated": "2026-11-26T18:58:57Z",
+ "updated": "2026-11-27T18:56:21Z",
  "ci_runs": {
   "2026-10-13": 0,
   "2026-10-14": 0,
@@ -3948,7 +4038,8 @@
   "2026-11-23": 1,
   "2026-11-24": 1,
   "2026-11-25": 19,
-  "2026-11-26": 4
+  "2026-11-26": 4,
+  "2026-11-27": 1
  },
  "pushes": {
   "2026-10-13": {
@@ -4174,6 +4265,11 @@
   "2026-11-26": {
    "commits": 2,
    "files": 2,
+   "lean_files": 0
+  },
+  "2026-11-27": {
+   "commits": 0,
+   "files": 0,
    "lean_files": 0
   }
  },
